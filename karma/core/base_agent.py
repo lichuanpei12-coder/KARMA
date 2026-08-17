@@ -26,6 +26,15 @@ class BaseAgent(ABC):
         model_name: LLM model identifier
         system_prompt: System prompt for the agent
         metrics: Performance tracking metrics
+
+    所有 KARMA 代理的抽象基类。
+    该类提供了包括 LLM 客户端管理、
+    令牌追踪、错误处理和性能监控在内的通用功能。
+    属性：
+        client：OpenAI 客户端实例
+        model_name：LLM 模型标识符
+        system_prompt：代理的系统提示词
+        metrics：性能追踪指标
     """
 
     def __init__(self, client: OpenAI, model_name: str, system_prompt: str = ""):
@@ -36,6 +45,12 @@ class BaseAgent(ABC):
             client: OpenAI client instance
             model_name: LLM model identifier
             system_prompt: System prompt for the agent
+
+        初始化基础代理（Agent）。
+        参数：
+        client：OpenAI 客户端实例
+        model_name：LLM 模型标识符
+        system_prompt：代理的系统提示词
         """
         self.client = client
         self.model_name = model_name
@@ -78,6 +93,17 @@ class BaseAgent(ABC):
 
         Raises:
             Exception: If the LLM call fails
+
+        向大型语言模型（LLM）发起调用，并进行错误处理和指标跟踪。
+        参数：
+            prompt：用户提示词
+            temperature：采样温度
+            max_tokens：要生成的最大令牌数
+            system_prompt：覆盖本次调用的系统提示词
+        返回值：
+            元组 (response_content, prompt_tokens, completion_tokens, processing_time)
+        抛出：
+            异常：若 LLM 调用失败
         """
         start_time = time.time()
 
@@ -96,12 +122,12 @@ class BaseAgent(ABC):
             if max_tokens:
                 call_kwargs["max_tokens"] = max_tokens
 
-            response = self.client.chat.completions.create(**call_kwargs)
+            response = self.client.chat.completions.create(**call_kwargs) #调用大模型
 
-            content = response.choices[0].message.content.strip()
-            prompt_tokens = response.usage.prompt_tokens
-            completion_tokens = response.usage.completion_tokens
-            processing_time = time.time() - start_time
+            content = response.choices[0].message.content.strip()   #从 API 返回的大对象里，拿出模型真正回答的那段文字
+            prompt_tokens = response.usage.prompt_tokens            #输入token
+            completion_tokens = response.usage.completion_tokens    #输出token
+            processing_time = time.time() - start_time              #耗时
 
             # Update metrics
             self.metrics['total_calls'] += 1
@@ -153,10 +179,14 @@ class BaseAgent(ABC):
 
         Returns:
             Parsed JSON data as list of dictionaries
+
+        解析来自 LLM 的 JSON 响应，并处理错误。
+        参数：
+            response：包含 JSON 的 LLM 响应
         """
         import json
 
-        try:
+        try:    #把LLM返回的文字转换为py的字典
             # Try to find JSON array in response
             if "[" in response and "]" in response:
                 json_str = response[response.find("["):response.rfind("]")+1]

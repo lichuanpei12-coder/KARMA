@@ -154,4 +154,9 @@ Thumbs.db
 
 # Temporary files
 *.tmp
-*.tempoutput/
+*.temp
+
+# Local Claude/IDE artifacts and generated pipeline outputs
+.arts/
+karma_output/
+

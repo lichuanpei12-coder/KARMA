@@ -23,6 +23,14 @@ class ReaderAgent(BaseAgent):
     2. Assigns relevance scores to each segment based on domain knowledge
     3. Filters content based on relevance thresholds
     4. Handles structural document elements (headers, sections, etc.)
+    
+    用于文档分段和相关性评分的阅读代理（RA）。
+    该代理：
+    1. 将规范化的文本划分为逻辑分段（段落级块）
+    2. 根据领域知识为每个分段分配相关性评分
+    3. 根据相关性阈值过滤内容
+    4. 处理文档的结构化元素（标题、章节等）
+
     """
 
     def __init__(self, client, model_name: str):

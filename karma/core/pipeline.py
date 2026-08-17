@@ -85,7 +85,7 @@ class KARMAPipeline:
         Returns:
             Configured pipeline instance
         """
-        # Validate and setup configuration
+        # Validate and setup configuration验证并设置配置
         config.validate()
         config.setup_logging()
 
@@ -129,22 +129,30 @@ class KARMAPipeline:
 
         Returns:
             IntermediateOutput containing all pipeline results
+
+        处理文档并提取知识。
+        参数：
+            source：文本内容或 PDF/文本文件的路径
+            domain：用于相关性评分的事域上下文
+            relevance_threshold：片段的最低相关性评分
+        返回值：
+            包含所有管道结果的 IntermediateOutput
         """
-        start_time = time.time()
+        start_time = time.time()            #记录开始运行时间
         intermediate = IntermediateOutput()
 
         try:
             # Step 1: Load and ingest document
-            raw_text = self._load_document(source)
+            raw_text = self._load_document(source) #读pdf
             intermediate.raw_text = raw_text
 
             self._log("Starting KARMA pipeline...")
 
-            # Step 2: Ingestion - Extract metadata and normalize text
+            # Step 2: Ingestion - Extract metadata and normalize text  数据摄取——提取元数据并规范化文本
             self._log("[1/8] Running Ingestion Agent...")
             step_start = time.time()
 
-            metadata, normalized_content = self.ingestion_agent.process(raw_text)
+            metadata, normalized_content = self.ingestion_agent.process(raw_text) #调用大模型
             intermediate.metadata = metadata
 
             step_time = time.time() - step_start
@@ -268,14 +276,20 @@ class KARMAPipeline:
 
         Returns:
             Raw text content
+
+         从各种来源加载文档内容。
+        参数：
+            source：文件路径或文本内容
+        返回值：
+            原始文本内容
         """
         if isinstance(source, (str, Path)):
             source_path = Path(source)
 
-            # Check if it's a file path
+            # Check if it's a file path 检查这个路径里面的是否存在文件
             if source_path.exists():
                 if source_path.suffix.lower() == '.pdf':
-                    return self.pdf_reader.extract_text(source_path)
+                    return self.pdf_reader.extract_text(source_path) #读pdf内容并返回
                 else:
                     # Assume text file
                     with open(source_path, 'r', encoding='utf-8') as f:
