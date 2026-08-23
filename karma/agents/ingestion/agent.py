@@ -331,7 +331,7 @@ ERROR HANDLING:
             text = text.replace(unicode_char, replacement)
 
         # Clean up extra spaces introduced by replacements
-        text = re.sub(r'\s+', ' ', text)
+        text = re.sub(r'[\t]+', ' ', text)
         text = text.strip()
 
         return text

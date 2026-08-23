@@ -6,7 +6,7 @@ for efficient downstream processing.
 """
 
 import logging
-from typing import List, Dict, Tuple
+from typing import List, Dict, Tuple, Optional
 import re
 
 from karma.core.base_agent import BaseAgent
@@ -111,42 +111,124 @@ EXAMPLES:
             if seg.get('score', 0.0) >= relevance_threshold
         ]
 
-        return scored_segments, relevant_segments
+        #return scored_segments, relevant_segments
+        return (
+            self._ensure_dict_segments(scored_segments),
+            self._ensure_dict_segments(relevant_segments)
+        )
 
     def _split_into_segments(self, content: str) -> List[Dict]:
         """
-        Split content into logical segments based on structure.
-
-        Args:
-            content: Content to segment
-
-        Returns:
-            List of segment dictionaries
+       Split content into logical segments.
+        If the document contains sub‑headings, the text **between two consecutive headings**
+        will be merged into a single paragraph segment.  If no headings are detected,
+        we fall back to a simple sentence‑based split: a newline that follows a period
+        (or other end‑of‑sentence punctuation) creates a new segment.
         """
-        segments = []
+        segments: List[Dict] = []
 
-        # Split on double newlines (paragraph breaks)
-        raw_segments = content.split('\n\n')
+        # ------------------------------------------------------------
+        # 1️⃣ 先把行宽换行（单个 \n）合并为普通空格，保留真正的换行符
+        #    （这里仍然保留所有原始换行，后面的 split('\n') 会把每行都当段落）
+        # ------------------------------------------------------------
+        # content = re.sub(r'(?<!\n)\n(?!\n)', ' ', content)
 
-        for i, segment_text in enumerate(raw_segments):
-            segment_text = segment_text.strip()
-            if not segment_text:
-                continue
+        # ------------------------------------------------------------
+        # 2️⃣ 小标题检测规则（词数 ≤8、无标点、每词首字母大写）
+        # ------------------------------------------------------------
+        def _is_heading(line: str) -> bool:
+            stripped = line.strip()
+            if not stripped:
+                return False
+            # 词数阈值
+            if len(stripped.split()) > 8:
+                return False
+            # 没有常见句子标点
+            if re.search(r'[.!?;:,]', stripped):
+                return False
+            # 所有单词首字母大写（忽略全大写或全小写的情况）
+            words = stripped.split()
+            return all(word[0].isupper() for word in words if word)
 
-            # Determine section type based on content
-            section_type = self._identify_section_type(segment_text)
+        # ------------------------------------------------------------
+        # 3️⃣ 收集所有标题行的索引及文本
+        # ------------------------------------------------------------
+        lines = content.split('\n')
+        heading_indices: List[int] = []
+        heading_texts: List[str] = []
+        for idx, line in enumerate(lines):
+            if _is_heading(line):
+                heading_indices.append(idx)
+                heading_texts.append(line.strip())
 
-            segment = {
-                'text': segment_text,
-                'score': 0.0,  # Will be filled by scoring
-                'section': section_type,
-                'position': i,
-                'word_count': len(segment_text.split())
-            }
+        # ------------------------------------------------------------
+        # 4️⃣ 如果检测到标题，则按标题分块合并段落
+        # ------------------------------------------------------------
+        if heading_indices:
+            # 为每个标题创建一个 header 段落
+            for h_idx, h_text in zip(heading_indices, heading_texts):
+                segments.append({
+                    "text": h_text,
+                    "score": 0.0,
+                    "section": "header",
+                    "position": h_idx,
+                    "word_count": len(h_text.split()),
+                })
 
-            segments.append(segment)
+            # 合并标题之间的正文（不包括标题本身）
+            for i in range(len(heading_indices)):
+                start = heading_indices[i] + 1
+                end = heading_indices[i + 1] if i + 1 < len(heading_indices) else len(lines)
+                body_lines = [ln.strip() for ln in lines[start:end] if ln.strip()]
+                if body_lines:
+                    body_text = " ".join(body_lines)
+                    section_type = self._identify_section_type(body_text)
+                    segments.append({
+                        "text": body_text,
+                        "score": 0.0,
+                        "section": section_type,
+                        "position": start,
+                        "word_count": len(body_text.split()),
+                    })
+        else:
+            # ------------------------------------------------------------
+            # 5️⃣ 没有标题时，使用句号后换行的自然段划分
+            # ------------------------------------------------------------
+            # 把 "句号+换行" 当作段落分隔符（保留句号）
+            raw_paragraphs = re.split(r'(?<=[.!?])\s*\n+', content)
+            for i, para in enumerate(raw_paragraphs):
+                para = para.strip()
+                if not para:
+                    continue
+                section_type = self._identify_section_type(para)
+                segments.append({
+                    "text": para,
+                    "score": 0.0,
+                    "section": section_type,
+                    "position": i,
+                    "word_count": len(para.split()),
+                })
 
         return segments
+
+    def _ensure_dict_segments(self, segments: List) -> List[Dict]:
+        """
+        将可能出现的字符串段落包装成最小的字典结构，防止后续 .get 调用出错。
+        """
+        cleaned: List[Dict] = []
+        for idx, seg in enumerate(segments):
+            if isinstance(seg, dict):
+                cleaned.append(seg)
+            else:
+                txt = str(seg)
+                cleaned.append({
+                    "text": txt,
+                    "score": 0.0,
+                    "section": self._identify_section_type(txt),
+                    "position": idx,
+                    "word_count": len(txt.split()),
+                })
+        return cleaned
 
     def _identify_section_type(self, text: str) -> str:
         """
@@ -252,7 +334,17 @@ EXAMPLES:
 
         Return one score per line, with no labels:
         """
-
+        # 您是一名生物医学文本相关性评分员。
+        # 请对以下每个片段在提取
+        # 新生物医学知识（例如疾病、药物、基因、蛋白质之间的关系）方面的相关性进行评分（0.0 至 1.0）。
+        # 请注意：
+        # - “结果”和“讨论”部分通常相关性较高（0.7-0.9）
+        # - “摘要”和“引言”部分相关性中等（0.5-0.7）
+        # - 未包含研究结果的方法部分相关性较低（0.2-0.4）
+        # - 参考文献和致谢部分相关性极低（0.0-0.2）
+        # - 包含具体生物医学实体、关系或研究结果的内容评分更高
+        # 对于每个片段，仅返回一个介于 0.0 到 1.0 之间的浮点数值，不包含其他文本。
+        
         try:
             response, _, _, _ = self._make_llm_call(prompt, temperature=0.1)
 
