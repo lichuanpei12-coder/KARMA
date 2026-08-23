@@ -37,12 +37,6 @@ class KARMAPipeline:
     1. Ingestion -> 2. Reading -> 3. Summarization -> 4. Entity Extraction
     -> 5. Relationship Extraction -> 6. Schema Alignment
     -> 7. Conflict Resolution -> 8. Evaluation -> Integration
-
-    用于自动知识图谱增强的主要 KARMA 处理流程。
-    该类负责协调整个处理流程：
-    1. 数据摄取 -> 2. 阅读 -> 3. 摘要生成 -> 4. 实体提取
-    -> 5. 关系提取 -> 6. 模式对齐
-    -> 7. 冲突解决 -> 8. 评估 -> 集成
     """
 
     def __init__(
@@ -60,13 +54,6 @@ class KARMAPipeline:
             base_url: Optional API base URL for Azure or custom endpoints
             model_name: Model identifier
             integration_threshold: Minimum score to integrate knowledge
-
-        使用 API 凭据初始化 KARMA 管道。
-        参数：
-            api_key：OpenAI API 密钥
-            base_url：可选的 Azure 或自定义端点的 API 基础 URL
-            model_name：模型标识符
-            integration_threshold：整合知识所需的最低分数
         """
         # Initialize OpenAI client
         client_kwargs = {"api_key": api_key}
@@ -77,7 +64,7 @@ class KARMAPipeline:
         self.model_name = model_name
         self.integration_threshold = integration_threshold
 
-        # Initialize all agent instances 初始化所有agent实例
+        # Initialize all agent instances
         self._initialize_agents()
 
         # Initialize knowledge graph and utilities
@@ -97,12 +84,6 @@ class KARMAPipeline:
 
         Returns:
             Configured pipeline instance
-
-        根据配置对象创建管道。
-        参数：
-            config：KARMAConfig 实例
-        返回值：
-            已配置的管道实例
         """
         # Validate and setup configuration验证并设置配置
         config.validate()
@@ -173,24 +154,6 @@ class KARMAPipeline:
 
             metadata, normalized_content = self.ingestion_agent.process(raw_text) #调用大模型
             intermediate.metadata = metadata
-
-            # 斐然修改
-            import re as _re
-            _PLACEHOLDER = "__NEWLINE_AFTER_PUNCT__"
-
-            # Preserve newline after punctuation marks 在标点符号后保留换行符
-            normalized_content = _re.sub(
-                r'([.!?])\s*\n',
-                r'\1' + _PLACEHOLDER,
-                normalized_content
-            )
-
-            # Collapse single newlines (that are not part of double newlines) to spaces 将单个换行符（不属于双换行符的一部分）合并为空格
-            normalized_content = _re.sub(r'(?<!\n)\n(?!\n)', ' ', normalized_content)
-
-            # Restore placeholders 恢复占位符
-            normalized_content = normalized_content.replace(_PLACEHOLDER, '\n')
-
 
             step_time = time.time() - step_start
             intermediate.metrics.add_agent_time("ingestion", step_time)

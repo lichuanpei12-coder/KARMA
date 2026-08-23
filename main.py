@@ -15,12 +15,9 @@ from datetime import datetime
 
 
 # ===== 本地 API 配置 =====
-# MY_API_KEY = "sk-c7f522074ca44c84973cdf1aaeb0a3c6"
-# MY_BASE_URL = "https://api.deepseek.com"
-# MY_MODEL = "deepseek-v4-flash"
-MY_API_KEY = "sk-483dbafb9a5db6555f42f68476062a341c9cb67871f2a1728fdd227a17aef6b4"
-MY_BASE_URL = "https://kuai.dmxcode.com"
-MY_MODEL = "gpt-5.5"
+MY_API_KEY = "sk-c7f522074ca44c84973cdf1aaeb0a3c6"
+MY_BASE_URL = "https://api.deepseek.com"
+MY_MODEL = "deepseek-v4-flash"
 
 
 # Add the karma package to Python path
@@ -126,9 +123,7 @@ Examples:
         """
     )
 
-    parser.add_argument('input',nargs='?',
-                    default='Example_Paper.pdf',
-                    help='Input document path (PDF or text file)')
+    parser.add_argument('input', help='Input document path (PDF or text file)')
     # parser.add_argument是用来读终端输入的命令的，这里的input必须有输入，下面的没有输入时就是default里
     # 的值，help是用来给用户在终端里面看有什么功能的
 
