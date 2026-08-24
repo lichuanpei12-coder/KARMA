@@ -55,6 +55,9 @@ class BaseAgent(ABC):
         self.client = client
         self.model_name = model_name
         self.system_prompt = system_prompt
+        # Keep the historic default for direct agent use.  KARMAPipeline sets
+        # this explicitly, so API_MODE = 0 still uses Chat Completions.
+        self.api_mode = "responses"
         self.metrics = {
             'total_calls': 0,
             'total_prompt_tokens': 0,
@@ -108,25 +111,61 @@ class BaseAgent(ABC):
         start_time = time.time()
 
         try:
-            messages = [
-                {"role": "system", "content": system_prompt or self.system_prompt},
-                {"role": "user", "content": prompt}
-            ]
+            active_system_prompt = system_prompt or self.system_prompt
 
-            call_kwargs = {
-                "model": self.model_name,
-                "messages": messages,
-                "temperature": temperature
-            }
+            if self.api_mode == "chat_completions":
+                messages = [
+                    {"role": "system", "content": active_system_prompt},
+                    {"role": "user", "content": prompt}
+                ]
+                call_kwargs = {
+                    "model": self.model_name,
+                    "messages": messages,
+                    "temperature": temperature
+                }
+                if max_tokens:
+                    call_kwargs["max_tokens"] = max_tokens
 
-            if max_tokens:
-                call_kwargs["max_tokens"] = max_tokens
+                response = self.client.chat.completions.create(**call_kwargs)
+                content = (response.choices[0].message.content or "").strip()
+                usage = getattr(response, "usage", None)
+                prompt_tokens = getattr(usage, "prompt_tokens", 0) or 0
+                completion_tokens = getattr(usage, "completion_tokens", 0) or 0
 
-            response = self.client.chat.completions.create(**call_kwargs) #调用大模型
+            elif self.api_mode == "responses":
+                call_kwargs = {
+                    "model": self.model_name,
+                    "instructions": active_system_prompt,
+                    "input": prompt,
+                    "temperature": temperature,
+                    # Restore the proxy-mode setting used before the rollback.
+                    # KARMA makes many small calls; low reasoning avoids a long
+                    # hidden reasoning phase for every scoring/extraction call.
+                    "reasoning": {"effort": "low"},
+                    "store": False,
+                }
+                if max_tokens:
+                    call_kwargs["max_output_tokens"] = max_tokens
 
-            content = response.choices[0].message.content.strip()   #从 API 返回的大对象里，拿出模型真正回答的那段文字
-            prompt_tokens = response.usage.prompt_tokens            #输入token
-            completion_tokens = response.usage.completion_tokens    #输出token
+                response = self.client.responses.create(**call_kwargs)
+                if isinstance(response, str):
+                    content = response.strip()
+                    usage = None
+                else:
+                    content = (getattr(response, "output_text", "") or "").strip()
+                    usage = getattr(response, "usage", None)
+                prompt_tokens = getattr(usage, "input_tokens", 0) or 0
+                completion_tokens = getattr(usage, "output_tokens", 0) or 0
+
+            else:
+                raise ValueError(f"Unsupported API mode: {self.api_mode}")
+
+            if not content:
+                raise ValueError(
+                    f"{self.api_mode} API returned no text output; verify the endpoint "
+                    "and configured model support this API mode."
+                )
+
             processing_time = time.time() - start_time              #耗时
 
             # Update metrics

@@ -15,16 +15,34 @@ from datetime import datetime
 
 
 # ===== 本地 API 配置 =====
-# MY_API_KEY = "sk-c7f522074ca44c84973cdf1aaeb0a3c6"
-# MY_BASE_URL = "https://api.deepseek.com"
-# MY_MODEL = "deepseek-v4-flash"
-MY_API_KEY = "sk-483dbafb9a5db6555f42f68476062a341c9cb67871f2a1728fdd227a17aef6b4"
-MY_BASE_URL = "https://kuai.dmxcode.com"
-MY_MODEL = "gpt-5.5"
+# 平时切换只需修改这一行：0 = DeepSeek，1 = 中转站。
+API_MODE = 0
+
+# 模式 0：DeepSeek 兼容 Chat Completions 接口
+DEEPSEEK_API_KEY = os.getenv("KARMA_DEEPSEEK_API_KEY", "sk-c7f522074ca44c84973cdf1aaeb0a3c6")
+DEEPSEEK_BASE_URL = os.getenv("KARMA_DEEPSEEK_BASE_URL", "https://api.deepseek.com")
+DEEPSEEK_MODEL = os.getenv("KARMA_DEEPSEEK_MODEL", "deepseek-v4-flash")
+
+# 模式 1：中转站的 Responses 接口
+# 同时兼容之前中转站版本的 KARMA_API_KEY / KARMA_BASE_URL / KARMA_MODEL。
+PROXY_API_KEY = os.getenv(
+    "KARMA_PROXY_API_KEY",
+    os.getenv("KARMA_API_KEY", "sk-483dbafb9a5db6555f42f68476062a341c9cb67871f2a1728fdd227a17aef6b4"),
+)
+PROXY_BASE_URL = os.getenv(
+    "KARMA_PROXY_BASE_URL", os.getenv("KARMA_BASE_URL", "https://kuai.dmxcode.com")
+)
+PROXY_MODEL = os.getenv(
+    "KARMA_PROXY_MODEL", os.getenv("KARMA_MODEL", "gpt-5.5")
+)
 
 
 # Add the karma package to Python path
 sys.path.insert(0, '/Users/luyuxing/Projects/KARMA')
+
+# 让 Windows 终端能够显示本程序中的中文和 emoji。
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
 
 from karma import KARMAPipeline
 from karma.config import create_default_config
@@ -118,6 +136,9 @@ Examples:
   # Process with custom API key and model
   python main.py document.pdf --api-key YOUR_KEY --model gpt-4
 
+  # Temporarily select a mode without editing this file
+  python main.py document.pdf --api-mode 1
+
   # Process with custom thresholds
   python main.py document.pdf --relevance-threshold 0.3 --integration-threshold 0.7
 
@@ -132,17 +153,13 @@ Examples:
     # parser.add_argument是用来读终端输入的命令的，这里的input必须有输入，下面的没有输入时就是default里
     # 的值，help是用来给用户在终端里面看有什么功能的
 
-   # parser.add_argument('--api-key',
-   #                    default=os.getenv('sk-483dbafb9a5db6555f42f68476062a341c9cb67871f2a1728fdd227a17aef6b4'),
-   #                    help='OpenAI API key (default: from KARMA_API_KEY env var)')
-    parser.add_argument('--api-key',
-                   default=MY_API_KEY,
-                   help='API key')
-
-    parser.add_argument('--model',
-                   default=MY_MODEL,
-                   help='Model to use')
-  #  parser.add_argument('--model', default='gpt-4o-mini', help='Model to use (default: gpt-4o-mini)')
+    parser.add_argument(
+        '--api-mode', type=int, choices=(0, 1), default=API_MODE,
+        help='0: DeepSeek Chat Completions; 1: proxy Responses (default: API_MODE)'
+    )
+    parser.add_argument('--api-key', default=None, help='Override the API key for the selected mode')
+    parser.add_argument('--base-url', default=None, help='Override the base URL for the selected mode')
+    parser.add_argument('--model', default=None, help='Override the model for the selected mode')
     parser.add_argument('--relevance-threshold', type=float, default=0.2, help='Relevance threshold (default: 0.2)')
     parser.add_argument('--integration-threshold', type=float, default=0.5, help='Integration threshold (default: 0.5)')
     parser.add_argument('--output-dir', default='karma_output', help='Output directory (default: karma_output)')
@@ -151,14 +168,29 @@ Examples:
 
     args = parser.parse_args() #前面只是规定，这里是把用户输入的一串东西赋值给前面的各个参数？
 
+    if args.api_mode == 0:
+        api_format = "chat_completions"
+        default_api_key = DEEPSEEK_API_KEY
+        default_base_url = DEEPSEEK_BASE_URL
+        default_model = DEEPSEEK_MODEL
+    else:
+        api_format = "responses"
+        default_api_key = PROXY_API_KEY
+        default_base_url = PROXY_BASE_URL
+        default_model = PROXY_MODEL
+
+    api_key = args.api_key or default_api_key
+    base_url = args.base_url or default_base_url
+    model = args.model or default_model
+
     # Validate input file
     input_path = Path(args.input)
     if not input_path.exists():#检查输入文件是否存在
         print(f"❌ Error: Input file not found: {input_path}")
         return 1
 
-    if not args.api_key:    #检查api是否输入
-        print("❌ Error: API key is required. Set KARMA_API_KEY environment variable or use --api-key")
+    if not api_key:    #检查api是否输入
+        print("❌ Error: API key is required. Set the mode-specific environment variable or use --api-key")
         return 1
 
     # Setup output directory 创建输出文件夹
@@ -168,7 +200,8 @@ Examples:
     print("🚀 KARMA Knowledge Graph Enrichment Pipeline")
     print("=" * 60)
     print(f"📄 Input: {input_path}")
-    print(f"🤖 Model: {args.model}")
+    print(f"🔌 API mode: {args.api_mode} ({api_format})")
+    print(f"🤖 Model: {model}")
     print(f"📊 Relevance threshold: {args.relevance_threshold}")
     print(f"📊 Integration threshold: {args.integration_threshold}")
     print(f"📁 Output directory: {output_dir}")
@@ -177,15 +210,15 @@ Examples:
 
     try: #异常处理
         # Create configuration
-        config = create_default_config(api_key=args.api_key)#好像是定义一个类
-        config.model.name = args.model
-        config.model.base_url =  MY_BASE_URL
+        config = create_default_config(api_key=api_key)#好像是定义一个类
+        config.model.name = model
+        config.model.base_url = base_url
         config.pipeline.relevance_threshold = args.relevance_threshold
         config.pipeline.integration_threshold = args.integration_threshold
 
         # Initialize pipeline
         print("🔧 Initializing KARMA pipeline...")
-        pipeline = KARMAPipeline.from_config(config)
+        pipeline = KARMAPipeline.from_config(config, api_mode=api_format)
 
         # Process document
         print(f"📖 Processing document: {input_path.name}")

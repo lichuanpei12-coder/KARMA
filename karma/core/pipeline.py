@@ -50,7 +50,8 @@ class KARMAPipeline:
         api_key: str,
         base_url: Optional[str] = None,
         model_name: str = "gpt-4o",
-        integration_threshold: float = 0.6
+        integration_threshold: float = 0.6,
+        api_mode: str = "responses"
     ):
         """
         Initialize KARMA pipeline with API credentials.
@@ -60,6 +61,7 @@ class KARMAPipeline:
             base_url: Optional API base URL for Azure or custom endpoints
             model_name: Model identifier
             integration_threshold: Minimum score to integrate knowledge
+            api_mode: ``chat_completions`` or ``responses``
 
         使用 API 凭据初始化 KARMA 管道。
         参数：
@@ -73,9 +75,14 @@ class KARMAPipeline:
         if base_url:
             client_kwargs["base_url"] = base_url
 
+        # Do not let the SDK retry each failed request invisibly.  KARMA makes
+        # many calls, so each error should be visible in the pipeline log.
+        client_kwargs["timeout"] = 90.0
+        client_kwargs["max_retries"] = 0
         self.client = OpenAI(**client_kwargs)
         self.model_name = model_name
         self.integration_threshold = integration_threshold
+        self.api_mode = api_mode
 
         # Initialize all agent instances 初始化所有agent实例
         self._initialize_agents()
@@ -88,7 +95,7 @@ class KARMAPipeline:
         self.output_log: List[str] = []
 
     @classmethod
-    def from_config(cls, config) -> 'KARMAPipeline':
+    def from_config(cls, config, api_mode: str = "responses") -> 'KARMAPipeline':
         """
         Create pipeline from configuration object.
 
@@ -113,7 +120,8 @@ class KARMAPipeline:
             api_key=config.model.api_key,
             base_url=config.model.base_url,
             model_name=config.model.name,
-            integration_threshold=config.pipeline.integration_threshold
+            integration_threshold=config.pipeline.integration_threshold,
+            api_mode=api_mode
         )
 
         return pipeline
@@ -131,6 +139,18 @@ class KARMAPipeline:
             self.client, self.model_name,
             integrate_threshold=self.integration_threshold
         )
+
+        for agent in (
+            self.ingestion_agent,
+            self.reader_agent,
+            self.summarizer_agent,
+            self.entity_extraction_agent,
+            self.relationship_extraction_agent,
+            self.schema_alignment_agent,
+            self.conflict_resolution_agent,
+            self.evaluator_agent,
+        ):
+            agent.api_mode = self.api_mode
 
     def process_document(
         self,
