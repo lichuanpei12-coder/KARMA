@@ -6,7 +6,7 @@ for efficient downstream processing.
 """
 
 import logging
-from typing import List, Dict, Tuple
+from typing import List, Dict, Tuple, Optional
 import re
 
 from karma.core.base_agent import BaseAgent
@@ -23,14 +23,6 @@ class ReaderAgent(BaseAgent):
     2. Assigns relevance scores to each segment based on domain knowledge
     3. Filters content based on relevance thresholds
     4. Handles structural document elements (headers, sections, etc.)
-    
-    用于文档分段和相关性评分的阅读代理（RA）。
-    该代理：
-    1. 将规范化的文本划分为逻辑分段（段落级块）
-    2. 根据领域知识为每个分段分配相关性评分
-    3. 根据相关性阈值过滤内容
-    4. 处理文档的结构化元素（标题、章节等）
-
     """
 
     def __init__(self, client, model_name: str):
@@ -41,50 +33,50 @@ class ReaderAgent(BaseAgent):
             client: OpenAI client instance
             model_name: LLM model identifier
         """
-        system_prompt = """You are a specialized Reader Agent for biomedical literature analysis. Your task is to evaluate text segments and assign precise relevance scores for knowledge extraction.
+        system_prompt = """你是一个专门用于生物医学文献分析的阅读代理。你的任务是评估文本段落并为知识提取分配精确的相关性分数。
 
-OBJECTIVE: Score text segments (0.0-1.0) based on their potential to contain extractable biomedical knowledge relationships.
+目标：根据文本段落包含可提取生物医学知识关系的潜力，对其进行评分（0.0-1.0）。
 
-SCORING CRITERIA:
-HIGH RELEVANCE (0.8-1.0):
-- Results sections with quantitative findings
-- Discussion of mechanisms, pathways, or interactions
-- Novel discoveries or experimental outcomes
-- Specific drug-disease relationships
-- Quantitative data (IC50, p-values, concentrations)
+评分标准：
+高相关性（0.8-1.0）：
+- 包含定量发现的结果部分
+- 对机制、通路或相互作用的讨论
+- 新发现或实验结果
+- 特定的药物-疾病关系
+- 定量数据（IC50、p值、浓度）
 
-MODERATE RELEVANCE (0.4-0.7):
-- Background information with entity relationships
-- Clinical observations or case descriptions
-- General statements about biological processes
-- Abstract summaries of findings
-- Introduction sections with known facts
+中等相关性（0.4-0.7）：
+- 包含实体关系的背景信息
+- 临床观察或病例描述
+- 关于生物过程的一般性陈述
+- 研究发现的摘要总结
+- 包含已知事实的引言部分
 
-LOW RELEVANCE (0.1-0.3):
-- Methodological descriptions without outcomes
-- Acknowledgments, funding information
-- Pure statistical analysis without interpretation
-- Equipment descriptions or protocols
-- Author affiliations and contact information
+低相关性（0.1-0.3）：
+- 没有结果的方法描述
+- 致谢、资助信息
+- 没有解释的纯统计分析
+- 设备描述或操作规程
+- 作者所属机构和联系信息
 
-MINIMAL RELEVANCE (0.0-0.1):
-- References and citations
-- Copyright notices
-- Figure/table captions without data
-- Purely administrative content
+最低相关性（0.0-0.1）：
+- 参考文献和引用
+- 版权声明
+- 没有数据的图表标题
+- 纯行政内容
 
-SCORING REQUIREMENTS:
-- Return only a single float value between 0.0 and 1.0
-- Consider biomedical terminology density
-- Prioritize content describing relationships between entities
-- Account for presence of specific measurements or outcomes
-- Evaluate potential for entity-relationship extraction
+评分要求：
+- 仅返回一个 0.0 到 1.0 之间的浮点数
+- 考虑生物医学术语密度
+- 优先考虑描述实体之间关系的内容
+- 考虑特定测量或结果的存在
+- 评估实体-关系提取的潜力
 
-EXAMPLES:
-"IL-6 significantly reduced tumor growth (p<0.001) compared to control" → 0.95
-"Patients were enrolled according to institutional guidelines" → 0.15
-"Aspirin inhibits COX-2 through covalent binding" → 0.90
-"Statistical analysis was performed using SPSS software" → 0.20"""
+示例：
+"IL-6显著减少肿瘤生长（p<0.001）与对照组相比" → 0.95
+"患者根据机构指南入组" → 0.15
+"阿司匹林通过共价结合抑制COX-2" → 0.90
+"使用SPSS软件进行统计分析" → 0.20"""
 
         super().__init__(client, model_name, system_prompt)
 
@@ -111,42 +103,124 @@ EXAMPLES:
             if seg.get('score', 0.0) >= relevance_threshold
         ]
 
-        return scored_segments, relevant_segments
+        return (
+            self._ensure_dict_segments(scored_segments),
+            self._ensure_dict_segments(relevant_segments)
+        )
 
     def _split_into_segments(self, content: str) -> List[Dict]:
         """
-        Split content into logical segments based on structure.
-
-        Args:
-            content: Content to segment
-
-        Returns:
-            List of segment dictionaries
+        Split content into logical segments.
+        If the document contains sub‑headings, the text **between two consecutive headings**
+        will be merged into a single paragraph segment.  If no headings are detected,
+        we fall back to a simple sentence‑based split: a newline that follows a period
+        (or other end‑of‑sentence punctuation) creates a new segment.
         """
-        segments = []
+        segments: List[Dict] = []
 
-        # Split on double newlines (paragraph breaks)
-        raw_segments = content.split('\n\n')
+        # ------------------------------------------------------------
+        # 1️⃣ 先把行宽换行（单个 \n）合并为普通空格，保留真正的换行符
+        #    （这里仍然保留所有原始换行，后面的 split('\n') 会把每行都当段落）
+        # ------------------------------------------------------------
+        # content = re.sub(r'(?<!\n)\n(?!\n)', ' ', content)
 
-        for i, segment_text in enumerate(raw_segments):
-            segment_text = segment_text.strip()
-            if not segment_text:
-                continue
+        # ------------------------------------------------------------
+        # 2️⃣ 小标题检测规则（词数 ≤8、无标点、每词首字母大写）
+        # ------------------------------------------------------------
+        def _is_heading(line: str) -> bool:
+            stripped = line.strip()
+            if not stripped:
+                return False
+            # 词数阈值
+            if len(stripped.split()) > 8:
+                return False
+            # 没有常见句子标点
+            if re.search(r'[.!?;:,]', stripped):
+                return False
+            # 所有单词首字母大写（忽略全大写或全小写的情况）
+            words = stripped.split()
+            return all(word[0].isupper() for word in words if word)
 
-            # Determine section type based on content
-            section_type = self._identify_section_type(segment_text)
+        # ------------------------------------------------------------
+        # 3️⃣ 收集所有标题行的索引及文本
+        # ------------------------------------------------------------
+        lines = content.split('\n')
+        heading_indices: List[int] = []
+        heading_texts: List[str] = []
+        for idx, line in enumerate(lines):
+            if _is_heading(line):
+                heading_indices.append(idx)
+                heading_texts.append(line.strip())
 
-            segment = {
-                'text': segment_text,
-                'score': 0.0,  # Will be filled by scoring
-                'section': section_type,
-                'position': i,
-                'word_count': len(segment_text.split())
-            }
+        # ------------------------------------------------------------
+        # 4️⃣ 如果检测到标题，则按标题分块合并段落
+        # ------------------------------------------------------------
+        if heading_indices:
+            # 为每个标题创建一个 header 段落
+            for h_idx, h_text in zip(heading_indices, heading_texts):
+                segments.append({
+                    "text": h_text,
+                    "score": 0.0,
+                    "section": "header",
+                    "position": h_idx,
+                    "word_count": len(h_text.split()),
+                })
 
-            segments.append(segment)
+            # 合并标题之间的正文（不包括标题本身）
+            for i in range(len(heading_indices)):
+                start = heading_indices[i] + 1
+                end = heading_indices[i + 1] if i + 1 < len(heading_indices) else len(lines)
+                body_lines = [ln.strip() for ln in lines[start:end] if ln.strip()]
+                if body_lines:
+                    body_text = " ".join(body_lines)
+                    section_type = self._identify_section_type(body_text)
+                    segments.append({
+                        "text": body_text,
+                        "score": 0.0,
+                        "section": section_type,
+                        "position": start,
+                        "word_count": len(body_text.split()),
+                    })
+        else:
+            # ------------------------------------------------------------
+            # 5️⃣ 没有标题时，使用句号后换行的自然段划分
+            # ------------------------------------------------------------
+            # 把 "句号+换行" 当作段落分隔符（保留句号）
+            raw_paragraphs = re.split(r'(?<=[.!?])\s*\n+', content)
+            for i, para in enumerate(raw_paragraphs):
+                para = para.strip()
+                if not para:
+                    continue
+                section_type = self._identify_section_type(para)
+                segments.append({
+                    "text": para,
+                    "score": 0.0,
+                    "section": section_type,
+                    "position": i,
+                    "word_count": len(para.split()),
+                })
 
         return segments
+
+
+    def _ensure_dict_segments(self, segments: List) -> List[Dict]:
+        """
+        将可能出现的字符串段落包装成最小的字典结构，防止后续 .get 调用出错。
+        """
+        cleaned: List[Dict] = []
+        for idx, seg in enumerate(segments):
+            if isinstance(seg, dict):
+                cleaned.append(seg)
+            else:
+                txt = str(seg)
+                cleaned.append({
+                    "text": txt,
+                    "score": 0.0,
+                    "section": self._identify_section_type(txt),
+                    "position": idx,
+                    "word_count": len(txt.split()),
+                })
+        return cleaned
 
     def _identify_section_type(self, text: str) -> str:
         """
@@ -193,12 +267,33 @@ EXAMPLES:
         Score relevance for multiple segments efficiently.
 
         Args:
-            segments: List of segments to score
+            segments: List of segments to score (may contain raw strings)
 
         Returns:
-            List of segments with relevance scores
+            List of segments with relevance scores (all as dicts)
         """
-        # Process segments in batches to be more efficient
+        # ------------------------------------------------------------
+        # 1️⃣ Ensure every item is a dict; wrap raw strings if needed
+        # ------------------------------------------------------------
+        normalized: List[Dict] = []
+        for idx, seg in enumerate(segments):
+            if isinstance(seg, dict):
+                normalized.append(seg)
+            else:
+                txt = str(seg)
+                normalized.append({
+                    "text": txt,
+                    "section": self._identify_section_type(txt),
+                    "score": 0.0,
+                    "position": idx,
+                    "word_count": len(txt.split()),
+                })
+        # Now work with the guaranteed‑dict list
+        segments = normalized
+
+        # ------------------------------------------------------------
+        # 2️⃣ Process in batches to be more efficient
+        # ------------------------------------------------------------
         batch_size = 5
         scored_segments = []
 
@@ -231,30 +326,36 @@ EXAMPLES:
         # Create batch prompt
         segment_texts = []
         for i, seg in enumerate(segments):
+            # Ensure seg is a dict; if it's a raw string, wrap it minimally
+            if not isinstance(seg, dict):
+                seg = {
+                    "text": str(seg),
+                    "section": self._identify_section_type(str(seg)),
+                }
             section_info = f" [Section: {seg['section']}]" if seg.get('section') != 'content' else ""
             segment_texts.append(f"Segment {i+1}{section_info}:\n{seg['text'][:500]}...")
 
         prompt = f"""
-        You are a biomedical text relevance scorer.
-        Rate how relevant each of the following segments is (0.0 to 1.0) for extracting
-        new biomedical knowledge (e.g., relationships between diseases, drugs, genes, proteins).
+        你是一个生物医学文本相关性评分器。
+        对以下每个段落的相关性进行评分（0.0 到 1.0），评估其对于提取
+        新的生物医学知识（例如疾病、药物、基因、蛋白质之间的关系）的潜力。
 
-        Consider:
-        - Results and discussion sections usually have higher relevance (0.7-0.9)
-        - Abstract and introduction sections have moderate relevance (0.5-0.7)
-        - Methods sections without findings have lower relevance (0.2-0.4)
-        - References, acknowledgments have very low relevance (0.0-0.2)
-        - Content with specific biomedical entities, relationships, or findings scores higher
+        考虑因素：
+        - 结果和讨论部分通常具有更高的相关性（0.7-0.9）
+        - 摘要和引言部分具有中等相关性（0.5-0.7）
+        - 没有发现的方法部分具有较低的相关性（0.2-0.4）
+        - 参考文献、致谢具有很低的相关性（0.0-0.2）
+        - 包含特定生物医学实体、关系或发现的内容得分更高
 
-        For each segment, return only a single float value between 0.0 and 1.0, with no other text.
+        对每个段落，仅返回一个 0.0 到 1.0 之间的浮点数，不附加其他文本。
 
         {chr(10).join(segment_texts)}
 
-        Return one score per line, with no labels:
+        每行返回一个分数，不带标签：
         """
 
         try:
-            response, _, _, _ = self._make_llm_call(prompt, temperature=0.1)
+            response, _, _, _ = self._make_llm_call(prompt, temperature=0.0)
 
             lines = response.strip().split('\n')
             scores = []

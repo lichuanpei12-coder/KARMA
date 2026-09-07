@@ -6,10 +6,12 @@ to process documents and extract knowledge.
 """
 
 import logging
-import time
 import os
+import time
+import httpx
 from typing import List, Union, Optional, Dict
 from pathlib import Path
+import json
 
 from openai import OpenAI
 
@@ -20,8 +22,8 @@ from .data_structures import (
 
 from ..agents import (
     IngestionAgent, ReaderAgent, SummarizerAgent,
-    EntityExtractionAgent, RelationshipExtractionAgent,
-    SchemaAlignmentAgent, ConflictResolutionAgent, EvaluatorAgent
+    EntityExtractionAgent, RelationshipExtractionAgent,SchemaAlignmentAgent, 
+    ConflictResolutionAgent, TextGenerationAgent, EvaluatorAgent, TextComparisonAgent
 )
 
 from karma.utils.pdf_reader import PDFReader
@@ -44,7 +46,7 @@ class KARMAPipeline:
         api_key: str,
         base_url: Optional[str] = None,
         model_name: str = "gpt-4o",
-        integration_threshold: float = 0.6
+        integration_threshold: float = 0.0
     ):
         """
         Initialize KARMA pipeline with API credentials.
@@ -55,6 +57,7 @@ class KARMAPipeline:
             model_name: Model identifier
             integration_threshold: Minimum score to integrate knowledge
         """
+
         # Initialize OpenAI client
         client_kwargs = {"api_key": api_key}
         if base_url:
@@ -63,6 +66,8 @@ class KARMAPipeline:
         self.client = OpenAI(**client_kwargs)
         self.model_name = model_name
         self.integration_threshold = integration_threshold
+        self.api_key = api_key
+        self.base_url = base_url
 
         # Initialize all agent instances
         self._initialize_agents()
@@ -85,7 +90,7 @@ class KARMAPipeline:
         Returns:
             Configured pipeline instance
         """
-        # Validate and setup configuration验证并设置配置
+        # Validate and setup configuration
         config.validate()
         config.setup_logging()
 
@@ -104,10 +109,13 @@ class KARMAPipeline:
         self.ingestion_agent = IngestionAgent(self.client, self.model_name)
         self.reader_agent = ReaderAgent(self.client, self.model_name)
         self.summarizer_agent = SummarizerAgent(self.client, self.model_name)
+        # self.entity_counter_agent = EntityCounterAgent(self.client, self.model_name)
         self.entity_extraction_agent = EntityExtractionAgent(self.client, self.model_name)
         self.relationship_extraction_agent = RelationshipExtractionAgent(self.client, self.model_name)
         self.schema_alignment_agent = SchemaAlignmentAgent(self.client, self.model_name)
         self.conflict_resolution_agent = ConflictResolutionAgent(self.client, self.model_name)
+        self.text_generation_agent = TextGenerationAgent(self.client, self.model_name)
+        self.text_comparison_agent = TextComparisonAgent(self.client, self.model_name)
         self.evaluator_agent = EvaluatorAgent(
             self.client, self.model_name,
             integrate_threshold=self.integration_threshold
@@ -119,146 +127,235 @@ class KARMAPipeline:
         domain: str = "biomedical",
         relevance_threshold: float = 0.2
     ) -> IntermediateOutput:
-        """
-        Process a document and extract knowledge.
+        # """
+        # Process a document and extract knowledge.
 
-        Args:
-            source: Text content or path to PDF/text file
-            domain: Domain context for relevance scoring
-            relevance_threshold: Minimum relevance score for segments
+        # Args:
+        #     source: Text content or path to PDF/text file
+        #     domain: Domain context for relevance scoring
+        #     relevance_threshold: Minimum relevance score for segments
 
-        Returns:
-            IntermediateOutput containing all pipeline results
-
-        处理文档并提取知识。
-        参数：
-            source：文本内容或 PDF/文本文件的路径
-            domain：用于相关性评分的事域上下文
-            relevance_threshold：片段的最低相关性评分
-        返回值：
-            包含所有管道结果的 IntermediateOutput
-        """
-        start_time = time.time()            #记录开始运行时间
+        # Returns:
+        #     IntermediateOutput containing all pipeline results
+        # """
+        start_time = time.time()
         intermediate = IntermediateOutput()
 
         try:
+            diff = {}
+            triple = []
             # Step 1: Load and ingest document
-            raw_text = self._load_document(source) #读pdf
+            raw_text = self._load_document(source)
             intermediate.raw_text = raw_text
 
             self._log("Starting KARMA pipeline...")
+            for i in range(20):
+                print('--------------------------------------------------------------------------')
+                print("carrying out knowledge extraction for the article "+str(i))
+                # Step 2: Ingestion - Extract metadata and normalize text
+                self._log("[1/8] Running Ingestion Agent...")
+                step_start = time.time()
 
-            # Step 2: Ingestion - Extract metadata and normalize text  数据摄取——提取元数据并规范化文本
-            self._log("[1/8] Running Ingestion Agent...")
-            step_start = time.time()
+                metadata, normalized_content = self.ingestion_agent.process(raw_text[i])
+                intermediate.metadata = metadata
 
-            metadata, normalized_content = self.ingestion_agent.process(raw_text) #调用大模型
-            intermediate.metadata = metadata
+                import re as _re
+                _PLACEHOLDER = "__NEWLINE_AFTER_PUNCT__"
 
-            step_time = time.time() - step_start
-            intermediate.metrics.add_agent_time("ingestion", step_time)
-            self._log(f"[1/8] Ingestion completed in {step_time:.2f}s")
+                # Preserve newline after punctuation marks
+                normalized_content = _re.sub(
+                    r'([.!?])\s*\n',
+                    r'\1' + _PLACEHOLDER,
+                    normalized_content
+                )
 
-            # Step 3: Reader - Segment and score relevance
-            self._log("[2/8] Running Reader Agent...")
-            step_start = time.time()
+                # Collapse single newlines (that are not part of double newlines) to spaces
+                normalized_content = _re.sub(r'(?<!\n)\n(?!\n)', ' ', normalized_content)
 
-            all_segments, relevant_segments = self.reader_agent.process(
-                normalized_content, relevance_threshold
-            )
-            intermediate.segments = all_segments
-            intermediate.relevant_segments = relevant_segments
+                # Restore placeholders
+                normalized_content = normalized_content.replace(_PLACEHOLDER, '\n')
 
-            step_time = time.time() - step_start
-            intermediate.metrics.add_agent_time("reader", step_time)
-            self._log(f"[2/8] Reader completed in {step_time:.2f}s. "
-                     f"Segments: {len(all_segments)}, Relevant: {len(relevant_segments)}")
+                step_time = time.time() - step_start
+                intermediate.metrics.add_agent_time("ingestion", step_time)
+                self._log(f"[1/8] Ingestion completed in {step_time:.2f}s")
 
-            # Step 4: Summarizer - Create concise summaries
-            self._log("[3/8] Running Summarizer Agent...")
-            step_start = time.time()
+                # Step 3: Reader - Segment and score relevance
+                self._log("[2/8] Running Reader Agent...")
+                step_start = time.time()
 
-            summaries = self.summarizer_agent.process(relevant_segments)
-            intermediate.summaries = summaries
+                # ---- NEW: 确保返回的始终是字典列表 ----
+                all_segments, relevant_segments = self.reader_agent.process(
+                    normalized_content, relevance_threshold
+                )
 
-            step_time = time.time() - step_start
-            intermediate.metrics.add_agent_time("summarizer", step_time)
-            self._log(f"[3/8] Summarizer completed in {step_time:.2f}s. "
-                     f"Summaries: {len(summaries)}")
+                # 如果 ReaderAgent 不小心返回了字符串列表，统一包装为字典
+                def _ensure_dicts(seg_list: List) -> List[Dict]:
+                    cleaned: List[Dict] = []
+                    for idx, seg in enumerate(seg_list):
+                        if isinstance(seg, dict):
+                            cleaned.append(seg)
+                        else:  # seg 是普通字符串
+                            txt = str(seg)
+                            cleaned.append({
+                                "text": txt,
+                                "score": 0.0,
+                                "section": self.reader_agent._identify_section_type(txt),
+                                "position": idx,
+                                "word_count": len(txt.split()),
+                            })
+                    return cleaned
 
-            # Step 5: Entity Extraction - Identify entities
-            self._log("[4/8] Running Entity Extraction Agent...")
-            step_start = time.time()
+                all_segments = _ensure_dicts(all_segments)
+                relevant_segments = _ensure_dicts(relevant_segments)
+                # -----------------------------------------
 
-            entities = self.entity_extraction_agent.process(summaries)
-            intermediate.entities = entities
+                intermediate.segments = all_segments
+                intermediate.relevant_segments = relevant_segments
 
-            step_time = time.time() - step_start
-            intermediate.metrics.add_agent_time("entity_extraction", step_time)
-            self._log(f"[4/8] Entity extraction completed in {step_time:.2f}s. "
-                     f"Entities: {len(entities)}")
+                step_time = time.time() - step_start
+                intermediate.metrics.add_agent_time("reader", step_time)
+                self._log(
+                    f"[2/8] Reader completed in {step_time:.2f}s. "
+                    f"Segments: {len(all_segments)}, Relevant: {len(relevant_segments)}"
+                )
 
-            # Step 6: Relationship Extraction - Find relationships
-            self._log("[5/8] Running Relationship Extraction Agent...")
-            step_start = time.time()
+                # Step 4: Summarizer - Create concise summaries
+                step_start = time.time()
+                if os.environ.get("KARMA_USE_SUMMARIZER"):
+                    # 显式开启 summarizer（默认跳过，直接用原文抽取以与 gold 原文对齐）
+                    self._log("[3/8] Running Summarizer Agent...")
+                    summaries, texts = self.summarizer_agent.process(normalized_content)
+                else:
+                    self._log("[3/8] 跳过 Summarizer，直接用原文抽取")
+                    summaries = [normalized_content]
+                    texts = [normalized_content]
+                print(summaries)
+                intermediate.summaries = summaries
 
-            relationships = self.relationship_extraction_agent.process(summaries, entities)
-            intermediate.relationships = relationships
+                step_time = time.time() - step_start
+                intermediate.metrics.add_agent_time("summarizer", step_time)
+                self._log(f"[3/8] Summarizer completed in {step_time:.2f}s. Summaries: {len(summaries)}")
 
-            step_time = time.time() - step_start
-            intermediate.metrics.add_agent_time("relationship_extraction", step_time)
-            self._log(f"[5/8] Relationship extraction completed in {step_time:.2f}s. "
-                     f"Relationships: {len(relationships)}")
+                    
+                    # # Step 4.5: Entity Counter - count entities
+                    # self._log("[3.5/8] Running Entity Extraction Agent...")
+                    # step_start = time.time()
 
-            # Step 7: Schema Alignment - Align to standard schema
-            self._log("[6/8] Running Schema Alignment Agent...")
-            step_start = time.time()
+                    # counter = self.entity_counter_agent.process(summaries)
 
-            aligned_entities, aligned_relationships = self.schema_alignment_agent.process(
-                entities, relationships
-            )
-            intermediate.aligned_entities = aligned_entities
-            intermediate.aligned_triples = aligned_relationships
+                    # step_time = time.time() - step_start
+                    # intermediate.metrics.add_agent_time("entity_extraction", step_time)
+                    # self._log(f"[3.5/8] Entity extraction completed in {step_time:.2f}s. Entities: {len(entities)}")
+                for t in range(2):
+                    # Step 5: Entity Extraction - Identify entities
+                    self._log("[4/8] Running Entity Extraction Agent...")
+                    step_start = time.time()
 
-            step_time = time.time() - step_start
-            intermediate.metrics.add_agent_time("schema_alignment", step_time)
-            self._log(f"[6/8] Schema alignment completed in {step_time:.2f}s")
+                    entities = self.entity_extraction_agent.process(summaries, diff)
+                    intermediate.entities = entities
 
-            # Step 8: Conflict Resolution - Handle contradictions
-            self._log("[7/8] Running Conflict Resolution Agent...")
-            step_start = time.time()
+                    # dump 中间结果：实体列表
+                    _dump_path = self.evaluator_agent._dump_dir / f"_dump_doc{i}_r{t}_entities.json"
+                    with open(_dump_path, "w", encoding="utf-8") as _f:
+                        json.dump([{"name": e.name, "type": e.entity_type} for e in entities],
+                                  _f, ensure_ascii=False, indent=2)
 
-            resolved_relationships = self.conflict_resolution_agent.process(
-                aligned_relationships, self.knowledge_graph.triples
-            )
-            intermediate.final_triples = resolved_relationships
+                    step_time = time.time() - step_start
+                    intermediate.metrics.add_agent_time("entity_extraction", step_time)
+                    self._log(f"[4/8] Entity extraction completed in {step_time:.2f}s. Entities: {len(entities)}")
 
-            step_time = time.time() - step_start
-            intermediate.metrics.add_agent_time("conflict_resolution", step_time)
-            self._log(f"[7/8] Conflict resolution completed in {step_time:.2f}s. "
-                     f"Non-conflicting: {len(resolved_relationships)}")
+                    # Step 6: Relationship Extraction - Find relationships
+                    self._log("[5/8] Running Relationship Extraction Agent...")
+                    step_start = time.time()
 
-            # Step 9: Evaluation - Final quality assessment
-            self._log("[8/8] Running Evaluator Agent...")
-            step_start = time.time()
+                    relationships = self.relationship_extraction_agent.process(summaries, entities, diff)
+                    intermediate.relationships = relationships
 
-            integrated_triples = self.evaluator_agent.process(resolved_relationships)
-            intermediate.integrated_triples = integrated_triples
+                    # dump 中间结果：关系列表
+                    _dump_path = self.evaluator_agent._dump_dir / f"_dump_doc{i}_r{t}_relationships.json"
+                    with open(_dump_path, "w", encoding="utf-8") as _f:
+                        json.dump([{"head": r.head, "relation": r.relation, "tail": r.tail}
+                                  for r in relationships],
+                                  _f, ensure_ascii=False, indent=2)
 
-            step_time = time.time() - step_start
-            intermediate.metrics.add_agent_time("evaluator", step_time)
-            self._log(f"[8/8] Evaluation completed in {step_time:.2f}s. "
-                     f"Integrated: {len(integrated_triples)}")
+                    step_time = time.time() - step_start
+                    intermediate.metrics.add_agent_time("relationship_extraction", step_time)
+                    self._log(f"[5/8] Relationship extraction completed in {step_time:.2f}s. Relationships: {len(relationships)}")
 
-            # Step 10: Update Knowledge Graph
-            self._update_knowledge_graph(aligned_entities, integrated_triples)
+                    # Step 7: Schema Alignment - Align to standard schema
+                    self._log("[6/8] Running Schema Alignment Agent...")
+                    step_start = time.time()
 
-            # Finalize metrics
-            total_time = time.time() - start_time
-            intermediate.metrics.processing_time = total_time
+                    aligned_entities, aligned_relationships = self.schema_alignment_agent.process(
+                        entities, relationships
+                    )
+                    intermediate.aligned_entities = aligned_entities
+                    intermediate.aligned_triples = aligned_relationships
 
-            self._log(f"KARMA pipeline completed in {total_time:.2f}s. "
-                     f"Added {len(integrated_triples)} knowledge triples.")
+                    step_time = time.time() - step_start
+                    intermediate.metrics.add_agent_time("schema_alignment", step_time)
+                    self._log(f"[6/8] Schema alignment completed in {step_time:.2f}s")
+
+                    # Step 8: Conflict Resolution - Handle contradictions
+                    self._log("[7/8] Running Conflict Resolution Agent...")
+                    step_start = time.time()
+
+                    resolved_relationships = self.conflict_resolution_agent.process(
+                        relationships, self.knowledge_graph.triples
+                    )
+                    intermediate.final_triples = resolved_relationships
+
+                    step_time = time.time() - step_start
+                    intermediate.metrics.add_agent_time("conflict_resolution", step_time)
+                    self._log(f"[7/8] Conflict resolution completed in {step_time:.2f}s. Non-conflicting: {len(resolved_relationships)}")
+
+                    self._log("[7.5/8] Running Text Generation Agent...")
+                    step_start = time.time()
+
+                    text_generation = self.text_generation_agent.process(
+                        resolved_relationships
+                    )
+                    print(text_generation)
+
+                    step_time = time.time() - step_start
+                    # intermediate.metrics.add_agent_time("conflict_resolution", step_time)
+                    self._log(f"[7.5/8] Text generation completed in {step_time:.2f}s.")
+
+                    # Step 9: Evaluation - Final quality assessment
+                    self._log("[8/8] Running Evaluator Agent...")
+                    step_start = time.time()
+
+                    integrated_triples = self.evaluator_agent.process(resolved_relationships)
+                    intermediate.integrated_triples = integrated_triples
+                    triples = []
+                    for _ti in range(len(integrated_triples)):
+                        triple = integrated_triples[_ti].head + ',' + integrated_triples[_ti].relation + ',' + integrated_triples[_ti].tail
+                        triples.append(triple)
+
+                    step_time = time.time() - step_start
+                    intermediate.metrics.add_agent_time("evaluator", step_time)
+                    self._log(f"[8/8] Evaluation completed in {step_time:.2f}s. Integrated: {len(integrated_triples)}")
+
+                    self._log("[9/8] Running Comparison Agent...")
+                    step_start = time.time()
+
+                    diff = self.text_comparison_agent.process("".join(summaries), text_generation)
+                    print(diff) if t == 0 else None
+
+                    step_time = time.time() - step_start
+                    intermediate.metrics.add_agent_time("diff", step_time)
+                    self._log(f"[9/8] Comparison completed in {step_time:.2f}s. Integrated: {len(integrated_triples)}")
+                
+                
+                
+                # Step 10: Update Knowledge Graph
+                self._update_knowledge_graph(entities, integrated_triples)
+
+                # Finalize metrics
+                total_time = time.time() - start_time
+                intermediate.metrics.processing_time = total_time
+
+                self._log(f"KARMA pipeline completed in {total_time:.2f}s. Added {len(integrated_triples)} knowledge triples.")
 
             return intermediate
 
@@ -266,6 +363,7 @@ class KARMAPipeline:
             intermediate.metrics.error_count += 1
             logger.error(f"Pipeline failed: {str(e)}")
             raise
+
 
     def _load_document(self, source: Union[str, Path]) -> str:
         """
@@ -276,20 +374,20 @@ class KARMAPipeline:
 
         Returns:
             Raw text content
-
-         从各种来源加载文档内容。
-        参数：
-            source：文件路径或文本内容
-        返回值：
-            原始文本内容
         """
         if isinstance(source, (str, Path)):
             source_path = Path(source)
 
-            # Check if it's a file path 检查这个路径里面的是否存在文件
+            # Check if it's a file path
             if source_path.exists():
                 if source_path.suffix.lower() == '.pdf':
-                    return self.pdf_reader.extract_text(source_path) #读pdf内容并返回
+                    return self.pdf_reader.extract_text(source_path)
+                
+                elif source_path.suffix.lower() == '.json':
+                    with open(source_path, 'r', encoding='utf-8') as f:
+                        d = json.loads(f.read())
+                        res = [" ".join(v) for v in d.values() if isinstance(v, list)]
+                        return res
                 else:
                     # Assume text file
                     with open(source_path, 'r', encoding='utf-8') as f:

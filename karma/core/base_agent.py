@@ -4,14 +4,47 @@ Base agent class for the KARMA framework.
 This module provides the abstract base class that all KARMA agents inherit from,
 ensuring consistent interfaces and shared functionality.
 """
-
+import os
 from abc import ABC, abstractmethod
 from typing import Any, Dict, List, Tuple, Optional
 import time
 import logging
+from urllib.parse import urlparse
 from openai import OpenAI
+import httpx
 
 logger = logging.getLogger(__name__)
+
+# === API 连接配置（改回原状：删掉这段 + settings.py:22 改回 https://api.modelarts-maas.com/v2 + httpx.Client 改回硬编码 proxy/verify）===
+os.environ.setdefault("SSL_VERIFY", "false")              # SSL 校验关闭
+os.environ.setdefault("NO_PROXY", ".huawei.com,.localhost")  # 华为内网域名不走代理
+# 默认代理（非 NO_PROXY 域名时使用）
+_DEFAULT_PROXY = os.environ.get("KARMA_PROXY", "")
+
+
+def _proxy_for_url(url):
+    """根据 NO_PROXY 决定是否用代理：命中 NO_PROXY 的域名返回 None（直连）。"""
+    no_proxy = os.environ.get("NO_PROXY", "")
+    try:
+        host = urlparse(url).hostname or ""
+    except Exception:
+        host = ""
+    host = host.lower()
+    for pattern in no_proxy.split(","):
+        pattern = pattern.strip().lower()
+        if not pattern:
+            continue
+        # 命中：host == pattern 或 host 以 .pattern 结尾（如 models.ascend.huawei.com 命中 .huawei.com）
+        if host == pattern or host.endswith("." + pattern) or host.endswith(pattern):
+            return None
+    return _DEFAULT_PROXY
+
+
+def _ssl_verify():
+    """SSL_VERIFY=true 校验，其他（含 false）不校验。"""
+    return os.environ.get("SSL_VERIFY", "false").lower() == "true"
+# === API 连接配置结束 ===
+
 
 
 class BaseAgent(ABC):
@@ -26,15 +59,6 @@ class BaseAgent(ABC):
         model_name: LLM model identifier
         system_prompt: System prompt for the agent
         metrics: Performance tracking metrics
-
-    所有 KARMA 代理的抽象基类。
-    该类提供了包括 LLM 客户端管理、
-    令牌追踪、错误处理和性能监控在内的通用功能。
-    属性：
-        client：OpenAI 客户端实例
-        model_name：LLM 模型标识符
-        system_prompt：代理的系统提示词
-        metrics：性能追踪指标
     """
 
     def __init__(self, client: OpenAI, model_name: str, system_prompt: str = ""):
@@ -45,12 +69,6 @@ class BaseAgent(ABC):
             client: OpenAI client instance
             model_name: LLM model identifier
             system_prompt: System prompt for the agent
-
-        初始化基础代理（Agent）。
-        参数：
-        client：OpenAI 客户端实例
-        model_name：LLM 模型标识符
-        system_prompt：代理的系统提示词
         """
         self.client = client
         self.model_name = model_name
@@ -72,6 +90,10 @@ class BaseAgent(ABC):
         """
         pass
 
+    # 429/5xx 重试配置
+    LLM_MAX_RETRIES = 5
+    LLM_BACKOFF_BASE = 2.0  # 首次退避秒数，每次 ×2：2,4,8,16,32
+
     def _make_llm_call(
         self,
         prompt: str,
@@ -81,6 +103,8 @@ class BaseAgent(ABC):
     ) -> Tuple[str, int, int, float]:
         """
         Make a call to the LLM with error handling and metrics tracking.
+        对 429（限流）和 5xx（服务端错误）自动重试 + 指数退避；
+        尊重 Retry-After 响应头。其他 4xx（404/401/403）不重试直接抛出。
 
         Args:
             prompt: User prompt
@@ -92,58 +116,131 @@ class BaseAgent(ABC):
             Tuple of (response_content, prompt_tokens, completion_tokens, processing_time)
 
         Raises:
-            Exception: If the LLM call fails
-
-        向大型语言模型（LLM）发起调用，并进行错误处理和指标跟踪。
-        参数：
-            prompt：用户提示词
-            temperature：采样温度
-            max_tokens：要生成的最大令牌数
-            system_prompt：覆盖本次调用的系统提示词
-        返回值：
-            元组 (response_content, prompt_tokens, completion_tokens, processing_time)
-        抛出：
-            异常：若 LLM 调用失败
+            Exception: If the LLM call fails (after retries exhausted for retryable errors,
+                       or immediately for non-retryable 4xx)
         """
         start_time = time.time()
 
-        try:
-            messages = [
-                {"role": "system", "content": system_prompt or self.system_prompt},
-                {"role": "user", "content": prompt}
-            ]
+        messages = [
+            {"role": "system", "content": system_prompt or self.system_prompt},
+            {"role": "user", "content": prompt}
+        ]
 
-            call_kwargs = {
-                "model": self.model_name,
-                "messages": messages,
-                "temperature": temperature
-            }
+        call_kwargs = {
+            "model": self.model_name,
+            "messages": messages,
+            "temperature": temperature
+        }
 
-            if max_tokens:
-                call_kwargs["max_tokens"] = max_tokens
+        if max_tokens:
+            call_kwargs["max_tokens"] = max_tokens
 
-            response = self.client.chat.completions.create(**call_kwargs) #调用大模型
+        base_url = str(self.client.base_url).rstrip('/')
+        url = f"{base_url}/chat/completions"
 
-            content = response.choices[0].message.content.strip()   #从 API 返回的大对象里，拿出模型真正回答的那段文字
-            prompt_tokens = response.usage.prompt_tokens            #输入token
-            completion_tokens = response.usage.completion_tokens    #输出token
-            processing_time = time.time() - start_time              #耗时
+        api_key = self.client.api_key if hasattr(self.client, 'api_key') else None
 
-            # Update metrics
-            self.metrics['total_calls'] += 1
-            self.metrics['total_prompt_tokens'] += prompt_tokens
-            self.metrics['total_completion_tokens'] += completion_tokens
-            self.metrics['total_time'] += processing_time
+        headers = {
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json"
+        }
 
-            return content, prompt_tokens, completion_tokens, processing_time
+        last_exc = None
+        for attempt in range(self.LLM_MAX_RETRIES + 1):
+            try:
+                # 代理按 NO_PROXY 条件判断；SSL 校验按 SSL_VERIFY 环境变量
+                proxy = _proxy_for_url(url)
+                client_kwargs = dict(timeout=600.0, verify=_ssl_verify())
+                if proxy:
+                    client_kwargs["proxy"] = proxy
+                with httpx.Client(**client_kwargs) as http_client:
+                    response = http_client.post(url, json=call_kwargs, headers=headers)
 
-        except Exception as e:
-            processing_time = time.time() - start_time
-            self.metrics['error_count'] += 1
-            self.metrics['total_time'] += processing_time
+                    # 429 或 5xx → 可重试
+                    if response.status_code == 429 or response.status_code >= 500:
+                        if attempt < self.LLM_MAX_RETRIES:
+                            # 尊重 Retry-After 头，否则指数退避
+                            retry_after = response.headers.get("Retry-After")
+                            if retry_after:
+                                try:
+                                    wait = float(retry_after)
+                                except ValueError:
+                                    wait = self.LLM_BACKOFF_BASE * (2 ** attempt)
+                            else:
+                                wait = self.LLM_BACKOFF_BASE * (2 ** attempt)
+                            logger.warning(
+                                f"{self.__class__.__name__} LLM {response.status_code} "
+                                f"(attempt {attempt+1}/{self.LLM_MAX_RETRIES}), 等待 {wait:.1f}s 后重试"
+                            )
+                            time.sleep(wait)
+                            continue
+                        # 重试次数用尽，抛出
+                        response.raise_for_status()
 
-            logger.error(f"{self.__class__.__name__} LLM call failed: {str(e)}")
-            raise
+                    # 其他 4xx（404/401/403）不重试
+                    response.raise_for_status()
+                    result = response.json()
+
+                content = result["choices"][0]["message"]["content"].strip()
+                prompt_tokens = result.get("usage", {}).get("prompt_tokens", 0)
+                completion_tokens = result.get("usage", {}).get("completion_tokens", 0)
+                processing_time = time.time() - start_time
+
+                # Update metrics
+                self.metrics['total_calls'] += 1
+                self.metrics['total_prompt_tokens'] += prompt_tokens
+                self.metrics['total_completion_tokens'] += completion_tokens
+                self.metrics['total_time'] += processing_time
+
+                return content, prompt_tokens, completion_tokens, processing_time
+
+            except httpx.HTTPStatusError as e:
+                # 非 429/5xx 的 4xx（404/401/403）→ 不重试
+                status = e.response.status_code
+                if 400 <= status < 500 and status != 429:
+                    processing_time = time.time() - start_time
+                    self.metrics['error_count'] += 1
+                    self.metrics['total_time'] += processing_time
+                    logger.error(f"{self.__class__.__name__} LLM call failed (不可重试 {status}): {str(e)}")
+                    raise
+                last_exc = e
+                if attempt < self.LLM_MAX_RETRIES:
+                    wait = self.LLM_BACKOFF_BASE * (2 ** attempt)
+                    logger.warning(
+                        f"{self.__class__.__name__} LLM HTTPStatusError {status} "
+                        f"(attempt {attempt+1}/{self.LLM_MAX_RETRIES}), 等待 {wait:.1f}s 后重试"
+                    )
+                    time.sleep(wait)
+                    continue
+                # 重试用尽
+                processing_time = time.time() - start_time
+                self.metrics['error_count'] += 1
+                self.metrics['total_time'] += processing_time
+                logger.error(f"{self.__class__.__name__} LLM call failed after {self.LLM_MAX_RETRIES} retries: {str(e)}")
+                raise
+
+            except httpx.RequestError as e:
+                # 网络错误 → 可重试
+                last_exc = e
+                if attempt < self.LLM_MAX_RETRIES:
+                    wait = self.LLM_BACKOFF_BASE * (2 ** attempt)
+                    logger.warning(
+                        f"{self.__class__.__name__} LLM 网络错误 "
+                        f"(attempt {attempt+1}/{self.LLM_MAX_RETRIES}), 等待 {wait:.1f}s 后重试: {str(e)[:80]}"
+                    )
+                    time.sleep(wait)
+                    continue
+                processing_time = time.time() - start_time
+                self.metrics['error_count'] += 1
+                self.metrics['total_time'] += processing_time
+                logger.error(f"{self.__class__.__name__} LLM call failed after {self.LLM_MAX_RETRIES} retries: {str(e)}")
+                raise
+
+        # 理论上不会走到这里（循环内已 return/raise）
+        processing_time = time.time() - start_time
+        self.metrics['error_count'] += 1
+        self.metrics['total_time'] += processing_time
+        raise last_exc if last_exc else RuntimeError("LLM call failed: unknown reason")
 
     def _extract_float_from_text(self, text: str, default: float = 0.5) -> float:
         """
@@ -179,14 +276,10 @@ class BaseAgent(ABC):
 
         Returns:
             Parsed JSON data as list of dictionaries
-
-        解析来自 LLM 的 JSON 响应，并处理错误。
-        参数：
-            response：包含 JSON 的 LLM 响应
         """
         import json
 
-        try:    #把LLM返回的文字转换为py的字典
+        try:
             # Try to find JSON array in response
             if "[" in response and "]" in response:
                 json_str = response[response.find("["):response.rfind("]")+1]

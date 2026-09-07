@@ -32,49 +32,49 @@ class SummarizerAgent(BaseAgent):
             client: OpenAI client instance
             model_name: LLM model identifier
         """
-        system_prompt = """You are a specialized Summarizer Agent for biomedical literature processing. Your task is to create concise, information-dense summaries that preserve all knowledge-relevant content.
+        system_prompt = """你是一个专门用于生物医学文献处理的摘要代理。你的任务是创建简洁、信息密集的摘要，保留所有与知识相关的内容。
 
-OBJECTIVE: Transform text segments into concise summaries (≤100 words) while preserving all entities, relationships, and quantitative data essential for knowledge extraction.
+目标：将文本段落转化为简洁的摘要（<=100词），同时保留所有对知识提取至关重要的实体、关系和定量数据。
 
-PRESERVATION REQUIREMENTS:
-MANDATORY TO RETAIN:
-- All biomedical entities (genes, proteins, drugs, diseases, chemicals)
-- Exact terminology (IL-6, p53, BRCA1, aspirin, etc.)
-- Quantitative measurements (IC50 values, p-values, concentrations, percentages)
-- Relationship indicators (inhibits, activates, treats, causes, correlates with)
-- Statistical significance markers (p<0.05, 95% CI, fold-change)
-- Dosages, timeframes, and experimental conditions
+保留要求：
+必须保留：
+- 所有生物医学实体（基因、蛋白质、药物、疾病、化学物质）
+- 精确术语（IL-6、p53、BRCA1、阿司匹林等）
+- 定量测量（IC50值、p值、浓度、百分比）
+- 关系指示词（抑制、激活、治疗、导致、与...相关）
+- 统计显著性标记（p<0.05、95% CI、倍数变化）
+- 剂量、时间框架和实验条件
 
-LINGUISTIC REQUIREMENTS:
-- Use precise scientific language
-- Maintain causal relationships and logical flow
-- Preserve technical specificity without oversimplification
-- Include contextual qualifiers (significant, moderate, slight)
-- Keep comparative language (more than, less than, similar to)
+语言要求：
+- 使用精确的科学语言
+- 保持因果关系和逻辑流程
+- 保留技术特殊性，不过度简化
+- 包含上下文限定词（显著的、中等的、轻微的）
+- 保留比较性语言（多于、少于、类似于）
 
-SUMMARIZATION STRATEGY:
-1. Identify core knowledge claims
-2. Extract all named entities
-3. Preserve relationship statements
-4. Condense methodology while keeping key parameters
-5. Maintain quantitative precision
+摘要策略：
+1. 识别核心知识主张
+2. 提取所有命名实体
+3. 保留关系陈述
+4. 浓缩方法学但保留关键参数
+5. 保持定量精确性
 
-OUTPUT FORMAT:
-- Single paragraph, maximum 100 words
-- Complete sentences with proper scientific grammar
-- No bullet points or fragmented phrases
-- Preserve original terminology exactly as written
+输出格式：
+- 单一段落，最多100词
+- 完整的句子，使用正确的科学语法
+- 不使用项目符号或碎片化短语
+- 完全按照原文保留术语
 
-EXAMPLE:
-Input: "Treatment with aspirin (100mg daily) significantly reduced inflammatory markers in skeletal muscle. COX-2 activity decreased by 45% (p<0.001) compared to placebo group. PGE2 levels were also significantly reduced (2.1 ± 0.3 vs 4.2 ± 0.5 ng/ml, p<0.05)."
+示例：
+输入："阿司匹林治疗（每日100mg）显著减少骨骼肌中的炎症标志物。COX-2活性较安慰剂组降低45%（p<0.001）。PGE2水平也显著降低（2.1 +/- 0.3 vs 4.2 +/- 0.5 ng/ml, p<0.05）。"
 
-Output: "Aspirin treatment (100mg daily) significantly reduced inflammatory markers in skeletal muscle by decreasing COX-2 activity 45% (p<0.001) versus placebo. PGE2 levels were significantly reduced (2.1 ± 0.3 vs 4.2 ± 0.5 ng/ml, p<0.05)."
+输出："阿司匹林治疗（每日100mg）通过降低COX-2活性45%（p<0.001）显著减少骨骼肌炎症标志物。PGE2水平显著降低（2.1 +/- 0.3 vs 4.2 +/- 0.5 ng/ml, p<0.05）。"
 
-QUALITY CONTROL:
-- Never invent or modify entity names
-- Never approximate exact numerical values
-- Never omit statistical significance indicators
-- Never simplify technical relationships"""
+质量控制：
+- 绝不编造或修改实体名称
+- 绝不近似精确的数值
+- 绝不遗漏统计显著性指标
+- 绝不简化技术关系"""
 
         super().__init__(client, model_name, system_prompt)
 
@@ -89,24 +89,26 @@ QUALITY CONTROL:
         Returns:
             List of summaries
         """
-        summaries = []
+        summaries, texts = [], []
 
-        for segment in segments:
-            if isinstance(segment, dict):
-                text = segment.get('text', '')
-                relevance = segment.get('score', 1.0)
-            else:
-                text = segment
-                relevance = 1.0  # Assume relevant if no score provided
+        # for segment in segments:
+        #     if isinstance(segment, dict):
+        #         text = segment.get('text', '')
+        #         relevance = segment.get('score', 1.0)
+        #     else:
+        #         text = segment
+        #         relevance = 1.0  # Assume relevant if no score provided
 
-            if relevance < relevance_threshold:
-                summaries.append("[OMITTED - Low Relevance]")
-                continue
+        #     if relevance < relevance_threshold:
+        #         summaries.append("[OMITTED - Low Relevance]")
+        #         continue
 
-            summary = self._summarize_single_segment(text)
-            summaries.append(summary)
+        summary = self._summarize_single_segment(segments)
+        summaries.append(summary)
+        text = segments
+        texts.append(text)
 
-        return summaries
+        return summaries, texts
 
     def _summarize_single_segment(self, text: str) -> str:
         """
@@ -119,29 +121,62 @@ QUALITY CONTROL:
             Summarized text
         """
         # Skip very short segments
-        if len(text.split()) < 15:
+        if len(text) < 15:
             return text  # Return as-is if too short to meaningfully summarize
 
         prompt = f"""
-        Summarize the following biomedical text in 2-4 sentences, keeping it under 100 words.
+            你是一个文档压缩代理。你的任务是将文档压缩为简洁、信息密集的摘要，同时保留所有关键技术信息。
+            生成的摘要理想长度应在 400 到 600 词之间。
 
-        Critical Requirements:
-        - Retain ALL technical terms (genes, proteins, drugs, diseases, chemicals)
-        - Preserve ALL numeric data (concentrations, p-values, percentages, doses)
-        - Keep relationship indicators (inhibits, activates, treats, causes, etc.)
-        - Maintain scientific precision and accuracy
-        - Use clear, unambiguous language
+            ## 输入
+            包含技术描述、系统架构、组件和实施例的文档。
 
-        If the text contains very little scientific information, provide a brief summary or return "[LOW CONTENT]".
+            ## 压缩规则
+            质量标准：
+            - 准确性：三元组中的所有信息必须存在
+            - 流畅性：句子应自然阅读
+            - 连贯性：多个三元组应逻辑流畅
+            - 完整性：不应遗漏任何信息
 
-        Provide only the summary with no additional text, formatting, or explanations.
+            ### 忠实性规则：
+            1. 完全按照描述保留所有技术声明和系统组件
+            2. 保留所有特定的数值、测量值和参数
+            3. 保留所有组件名称、零件编号和引用标签
+            4. 保持组件之间的所有功能关系
+            5. 不要添加、推断或创建原文中未明确陈述的任何信息
+            6. 保留所有描述系统架构的附图引用
 
-        Text to summarize:
-        {text}
-        """
+            ### 流畅性规则：
+            7. 生成连贯的段落，而非项目符号列表
+            8. 使用清晰、专业的技术语言
+            9. 用逻辑过渡连接相关概念
+            10. 保持原始文档的技术语调和精确性
+
+            ### 专利压缩的特定规则：
+            11. 按以下优先级排序（重要性从高到低）：
+                - 系统架构和总体结构
+                - 组件描述及其互连
+                - 功能操作和工作流程
+                - 独特或新颖的特征
+                - 实施例和替代配置
+
+            12. 减少或移除：
+                - 重复描述
+                - 冗长的法律或程序性语言
+                - 过于详细的背景信息
+                - 对基本概念的冗余解释
+
+            ## 输出格式
+            仅返回压缩后的文本。不附加评论、解释或 JSON 格式。
+
+            ## 输入文本
+            {text}
+
+            ## 压缩输出
+            """
 
         try:
-            summary, _, _, _ = self._make_llm_call(prompt, temperature=0.2)
+            summary, _, _, _ = self._make_llm_call(prompt, temperature=0.0)
 
             # Basic validation and cleanup
             summary = summary.strip()
@@ -152,7 +187,7 @@ QUALITY CONTROL:
                 return self._extract_key_sentences(text)
 
             # Ensure summary is within length limit
-            if len(summary.split()) > 120:  # Allow some flexibility
+            if len(summary.split()) > 1000:  # Allow some flexibility
                 # Truncate while preserving sentence structure
                 sentences = summary.split('. ')
                 truncated_summary = ""
@@ -160,7 +195,7 @@ QUALITY CONTROL:
 
                 for sentence in sentences:
                     sentence_words = len(sentence.split())
-                    if word_count + sentence_words <= 100:
+                    if word_count + sentence_words <= 1000:
                         truncated_summary += sentence + ". "
                         word_count += sentence_words
                     else:

@@ -35,80 +35,69 @@ class EntityExtractionAgent(BaseAgent):
             client: OpenAI client instance
             model_name: LLM model identifier
         """
-        system_prompt = """You are a specialized Entity Extraction Agent for biomedical literature. Your task is to identify and classify all biomedical entities with high precision and appropriate ontological mapping.
+        system_prompt = """
+你是一个专门用于商业领域文档的实体抽取代理。
 
-OBJECTIVE: Extract all biomedical entities from text and classify them into standardized categories with ontological references where possible.
+目标：从文本中提取所有商业实体。
 
-ENTITY CATEGORIES:
-1. DRUG: Pharmaceuticals, therapeutic compounds, medications
-   - Examples: aspirin, ibuprofen, metformin, acetylsalicylic acid
-   - Include: brand names, generic names, chemical names
+提取规则：
 
-2. DISEASE: Medical conditions, disorders, syndromes, pathologies
-   - Examples: diabetes, cancer, hypertension, myocardial infarction
-   - Include: acute and chronic conditions, symptoms
+- 提取文本中出现的精确提及
+- 保留商业和技术术语的原始大写和格式
+- 包括缩写和首字母缩略词
+- 捕获数值、货币金额、日期、阈值和标识符
+- 包括版本号、文档引用、条款编号和章节标识符
+- 对于合同：提取当事人名称、日期、货币金额、定义术语、条款引用
+- 对于金融文档：提取金额、百分比、日期、实体名称、财务指标
+- 对于专利：提取系统组件、方法步骤、图表、技术参数
 
-3. GENE: Genetic elements, chromosomal regions, genetic variants
-   - Examples: BRCA1, TP53, APOE, rs123456
-   - Include: gene symbols, SNPs, genetic loci
+实体边界规则：
 
-4. PROTEIN: Enzymes, receptors, antibodies, protein complexes
-   - Examples: insulin, COX-2, p53, immunoglobulin
-   - Include: protein names, enzyme classes
+- 实体必须是承载意义的最小、原子性术语
+- 原子性判断规则：
+  - 并列实体必须拆分：原文"first and second cables"应拆分为"first cable"和"second cable"两个实体
+  - 带介词短语的保留整体：原文"pre-step of grinding"应提取为"pre-step of grinding"一个实体，不拆分
+  - 带修饰语的复合名词保留整体：原文"machine-readable medium"应提取为"machine-readable medium"一个实体，不拆分
+  - 判断标准：拆分后若某部分失去原文中的特定含义则不拆；若各部分仍保持独立完整含义则拆分
+- 实体名应严格从原文中提取，保持原文的原始格式。不要擅自将原文中用空格分隔的单词改为下划线连接。例如原文为"front running vehicle"时，不要写成"front_running_vehicle"。如果原文本身使用下划线，则保持原文格式。
+- 允许：
+  - 简单名词
+  - 带限定的名词
+  - 带数值的名词
+  - 带标识符的名词
+- 禁止：
+  - 实验条件
+  - 统计值
+  - 不增加特定含义的过于宽泛的修饰词
 
-5. CHEMICAL: Small molecules, metabolites, ions, biomarkers
-   - Examples: glucose, ATP, prostaglandin E2, calcium
-   - Include: metabolites, signaling molecules
+质量标准：
 
-6. PATHWAY: Biological pathways, signaling cascades, metabolic routes
-   - Examples: glycolysis, PI3K/Akt pathway, cell cycle
-   - Include: regulatory networks, metabolic pathways
+- 高精度：仅提取明确定义和可识别的术语
+- 完整性：识别文档中所有重要实体
+- 一致性：在整个提取过程中使用相同的实体名称格式
+- 上下文适当性：同一类型的术语在一种文档类型中可能是实体（例如合同中的"适用法律"），在另一种类型中可能不是
 
-7. ANATOMY: Organs, tissues, anatomical structures, body regions
-   - Examples: liver, skeletal muscle, hippocampus, blood-brain barrier
-   - Include: organs, tissues, cellular structures
+文档类型适配：
 
-EXTRACTION RULES:
-- Extract exact mentions as they appear in text
-- Preserve original capitalization and formatting
-- Include multi-word expressions as single entities
-- Capture abbreviated forms and acronyms
-- Identify synonyms and alternative names
-- Distinguish context-dependent meanings
+- 对于合同：优先提取当事人、日期、货币金额、条款、定义术语、义务、适用法律
+- 对于财务报告：优先提取货币值、百分比、日期、实体名称、财务指标
+- 对于专利：优先提取系统组件、方法、图表、技术参数、新颖特征
+- 对于商业文档：优先提取公司名称、角色、日期、金额、关键术语
 
-QUALITY STANDARDS:
-- High specificity: avoid generic terms unless contextually specific
-- Completeness: extract all relevant biomedical entities
-- Accuracy: correct classification based on biological context
-- Consistency: uniform handling of similar entity types
-
-OUTPUT FORMAT:
-Return only a valid JSON array with this exact structure:
+输出格式：
+仅返回有效的 JSON 数组，结构如下：
 [
   {
-    "mention": "exact text from source",
-    "type": "CATEGORY_NAME",
-    "normalized_id": "ontology:identifier or N/A",
-    "aliases": ["synonym1", "synonym2"]
+    "mention": "来源中的精确术语",
+    "type": "类别名称",
+    "context": "文本中的简要上下文"
   }
 ]
-
-ONTOLOGY MAPPING:
-- Use standard identifiers when known (MESH:D001241, NCBI:5743)
-- Set "N/A" when no standard identifier available
-- Prioritize well-established ontologies (MeSH, NCBI, UniProt)
-
-EXAMPLES:
-Text: "Aspirin inhibits COX-2 enzyme activity"
-Output:
-[
-  {"mention": "Aspirin", "type": "DRUG", "normalized_id": "MESH:D001241", "aliases": ["acetylsalicylic acid"]},
-  {"mention": "COX-2", "type": "PROTEIN", "normalized_id": "NCBI:5743", "aliases": ["cyclooxygenase-2", "PTGS2"]}
-]"""
+"""
 
         super().__init__(client, model_name, system_prompt)
 
-    def process(self, summaries: List[str]) -> List[KGEntity]:
+    def process(self, summaries: List[str], diff: dict) -> List[KGEntity]:
         """
         Extract entities from a list of text summaries.
 
@@ -122,7 +111,7 @@ Output:
 
         for summary in summaries:
             if summary and summary not in ["[OMITTED - Low Relevance]", "[LOW CONTENT]"]:
-                entities = self._extract_entities_from_text(summary)
+                entities = self._extract_entities_from_text(summary, diff)
                 all_entities.extend(entities)
 
         # Deduplicate entities
@@ -130,7 +119,7 @@ Output:
 
         return unique_entities
 
-    def _extract_entities_from_text(self, text: str) -> List[KGEntity]:
+    def _extract_entities_from_text(self, text: str, diff: dict) -> List[KGEntity]:
         """
         Extract entities from a single text.
 
@@ -141,23 +130,44 @@ Output:
             List of KGEntity objects
         """
         prompt = f"""
-        Extract biomedical entities from the text below.
-        Include diseases, drugs, genes, proteins, chemicals, pathways, cells, tissues, and other relevant biomedical entities.
+从以下专利文档中提取所有技术实体。
 
-        For each entity found:
-        1. Identify the exact mention in the text
-        2. Assign the most specific entity type
-        3. Provide a normalized ID if you know a standard reference (e.g., MESH:D001241 for Aspirin)
-        4. Include common aliases if applicable
+专利文档：
+{text}
 
-        Text to analyze:
-        {text}
+仅返回实体的 JSON 数组。
+"""
 
-        Return only a JSON array of entities, no other text:
-        """
+        unique_text_old = "".join(diff['unique_to_text_a']) if diff else ""
+        unique_text_new = "".join(diff['unique_to_text_b']) if diff else ""
+        prompt = prompt + f"""你正在从专利文档中提取实体。重点关注上一次三元组提取中遗漏的信息。
+
+1. 优先处理：来自文本A的信息（上一次提取中遗漏的）
+文本A包含上一次三元组提取中未被捕获的技术细节。这些是你的主要提取目标。
+文本A（上一次提取中遗漏的信息）：{unique_text_old}
+
+2. 忽略：来自文本B的信息（噪声 - 幻觉）
+文本B包含出现在三元组提取中但原文档中无支持的内容。这是噪声。
+文本B（应忽略的幻觉噪声）：{unique_text_new}
+仅关注原文档支持的内容。
+
+3. 维持：从原文档标准提取
+从原文档提取所有有效的技术实体，特别关注文本A中识别的遗漏信息。
+
+提取规则
+- 从原文档提取精确提及
+- 优先处理与文本A（遗漏信息）相关的实体
+- 关注原文档支持的信息
+- 包括具体的数字、标识符和引用
+- 捕获带引用编号的方法步骤
+- 包括附图引用
+- 保留技术术语
+- 仅提取原文档中出现的实体
+
+        """ if diff else prompt
 
         try:
-            response, _, _, _ = self._make_llm_call(prompt, temperature=0.1)
+            response, _, _, _ = self._make_llm_call(prompt, temperature=0.0)
 
             # Parse JSON response
             entities_data = self._parse_json_response(response)

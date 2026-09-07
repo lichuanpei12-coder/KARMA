@@ -160,3 +160,6 @@ Thumbs.db
 .arts/
 karma_output/
 
+# Local backup of the previous version
+/旧版/
+

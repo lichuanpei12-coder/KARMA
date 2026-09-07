@@ -7,6 +7,7 @@ API configurations, and pipeline parameters.
 
 import json
 import logging
+import os
 from dataclasses import dataclass, field, asdict
 from typing import Dict, Optional, Union
 from pathlib import Path
@@ -17,11 +18,11 @@ logger = logging.getLogger(__name__)
 @dataclass
 class ModelConfig:
     """Configuration for LLM model settings."""
-    name: str = "gpt-4o"
-    api_key: str = ""
-    base_url: Optional[str] = None
+    name: str = os.getenv('KARMA_MODEL', 'deepseek-v4-flash')
+    api_key: str = os.getenv('KARMA_API_KEY', '')
+    base_url: Optional[str] = os.getenv('KARMA_BASE_URL', 'https://api.modelarts-maas.com/v2')
     temperature: float = 0.1
-    max_tokens: Optional[int] = None
+    max_tokens: Optional[int] = 100
     timeout: int = 60
 
 

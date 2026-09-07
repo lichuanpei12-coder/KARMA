@@ -8,20 +8,17 @@ with sensible defaults and comprehensive output.
 
 import os
 import sys
+
+# os.environ["HTTP_PROXY"] = "http://proxy.huawei.com:8080"
+# os.environ["HTTPS_PROXY"] = "http://proxy.huawei.com:8080"
+
 import argparse
 import csv
 from pathlib import Path
 from datetime import datetime
 
-
-# ===== 本地 API 配置 =====
-MY_API_KEY = "sk-c7f522074ca44c84973cdf1aaeb0a3c6"
-MY_BASE_URL = "https://api.deepseek.com"
-MY_MODEL = "deepseek-v4-flash"
-
-
 # Add the karma package to Python path
-sys.path.insert(0, '/Users/luyuxing/Projects/KARMA')
+sys.path.insert(0, 'D:/files/rawcode/KARMA')
 
 from karma import KARMAPipeline
 from karma.config import create_default_config
@@ -122,41 +119,30 @@ Examples:
   python main.py document.pdf --output-dir results/experiment1
         """
     )
-
-    parser.add_argument('input', help='Input document path (PDF or text file)')
-    # parser.add_argument是用来读终端输入的命令的，这里的input必须有输入，下面的没有输入时就是default里
-    # 的值，help是用来给用户在终端里面看有什么功能的
-
-   # parser.add_argument('--api-key',
-   #                    default=os.getenv('sk-483dbafb9a5db6555f42f68476062a341c9cb67871f2a1728fdd227a17aef6b4'),
-   #                    help='OpenAI API key (default: from KARMA_API_KEY env var)')
+    parser.add_argument('--input', default='DocOIE_transportation_eval_sent.json', help='Input document path (PDF or text file)')
     parser.add_argument('--api-key',
-                   default=MY_API_KEY,
-                   help='API key')
-
-    parser.add_argument('--model',
-                   default=MY_MODEL,
-                   help='Model to use')
-  #  parser.add_argument('--model', default='gpt-4o-mini', help='Model to use (default: gpt-4o-mini)')
+                       default=os.getenv('KARMA_API_KEY', ''),
+                       help='OpenAI API key (default: from KARMA_API_KEY env var / .env)')
+    parser.add_argument('--model', default=os.getenv('KARMA_MODEL', 'deepseek-v4-flash'), help='Model to use')
     parser.add_argument('--relevance-threshold', type=float, default=0.2, help='Relevance threshold (default: 0.2)')
-    parser.add_argument('--integration-threshold', type=float, default=0.5, help='Integration threshold (default: 0.5)')
-    parser.add_argument('--output-dir', default='karma_output', help='Output directory (default: karma_output)')
+    parser.add_argument('--integration-threshold', type=float, default=0, help='Integration threshold (default: 0.5)')
+    parser.add_argument('--output-dir', default='result.json', help='Output directory (default: karma_output)')
     parser.add_argument('--domain', default='biomedical', help='Domain context (default: biomedical)')
     parser.add_argument('--verbose', '-v', action='store_true', help='Verbose output')
 
-    args = parser.parse_args() #前面只是规定，这里是把用户输入的一串东西赋值给前面的各个参数？
+    args = parser.parse_args()
 
     # Validate input file
     input_path = Path(args.input)
-    if not input_path.exists():#检查输入文件是否存在
+    if not input_path.exists():
         print(f"❌ Error: Input file not found: {input_path}")
         return 1
 
-    if not args.api_key:    #检查api是否输入
+    if not args.api_key:
         print("❌ Error: API key is required. Set KARMA_API_KEY environment variable or use --api-key")
         return 1
 
-    # Setup output directory 创建输出文件夹
+    # Setup output directory
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -170,11 +156,10 @@ Examples:
     print(f"🕒 Started at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print("=" * 60)
 
-    try: #异常处理
+    try:
         # Create configuration
-        config = create_default_config(api_key=args.api_key)#好像是定义一个类
+        config = create_default_config(api_key=args.api_key)
         config.model.name = args.model
-        config.model.base_url =  MY_BASE_URL
         config.pipeline.relevance_threshold = args.relevance_threshold
         config.pipeline.integration_threshold = args.integration_threshold
 

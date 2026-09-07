@@ -8,6 +8,7 @@ on documents and managing configurations.
 import argparse
 import json
 import logging
+import os
 import sys
 from pathlib import Path
 from typing import Optional
@@ -216,7 +217,7 @@ Examples:
     process_parser.add_argument('input', help='Input document path (PDF or text)')
     process_parser.add_argument('--api-key', help='OpenAI API key')
     process_parser.add_argument('--base-url', help='API base URL (for Azure or custom endpoints)')
-    process_parser.add_argument('--model', default='gpt-4o', help='Model name (default: gpt-4o)')
+    process_parser.add_argument('--model', default=os.getenv('KARMA_MODEL', 'deepseek-v4-flash'), help='Model name')
     process_parser.add_argument('--config', help='Configuration file path')
     process_parser.add_argument('--output', default='karma_output.json', help='Output file path')
     process_parser.add_argument('--output-dir', default='output', help='Output directory')
@@ -235,7 +236,7 @@ Examples:
     # Config create
     create_parser = config_subparsers.add_parser('create', help='Create new configuration')
     create_parser.add_argument('--api-key', required=True, help='OpenAI API key')
-    create_parser.add_argument('--model', default='gpt-4o', help='Model name')
+    create_parser.add_argument('--model', default=os.getenv('KARMA_MODEL', 'deepseek-v4-flash'), help='Model name')
     create_parser.add_argument('--base-url', help='API base URL')
     create_parser.add_argument('--output-dir', default='output', help='Output directory')
     create_parser.add_argument('--config-file', default='karma_config.json', help='Configuration file path')
