@@ -33,7 +33,6 @@ if _env_path.exists():
                 _k, _v = _k.strip(), _v.strip()
                 if _k and _k not in _os.environ:
                     _os.environ[_k] = _v
-                    
 __version__ = "1.0.0"
 __author__ = "Yuxing Lu"
 __email__ = "yxlu0613@gmail.com"
