@@ -46,11 +46,6 @@
   },
   {
     "head": "the predetermined maximal time difference",
-    "relation": "may also be configurable",
-    "tail": ""
-  },
-  {
-    "head": "the predetermined maximal time difference",
     "relation": "is configurable for example between",
     "tail": "3 seconds and 3 minutes"
   },
@@ -58,11 +53,6 @@
     "head": "the predetermined maximal time difference",
     "relation": "is configurable for example between",
     "tail": "any other range"
-  },
-  {
-    "head": "some embodiments of the invention",
-    "relation": "are herein described",
-    "tail": ""
   },
   {
     "head": "some embodiments of the invention",
@@ -93,11 +83,6 @@
     "head": "the difference",
     "relation": "is between",
     "tail": "the movement direction and the new movement direction"
-  },
-  {
-    "head": "the movement direction of mobile device",
-    "relation": "is not changed",
-    "tail": ""
   },
   {
     "head": "the movement velocity",

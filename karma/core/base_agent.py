@@ -73,6 +73,9 @@ class BaseAgent(ABC):
         self.client = client
         self.model_name = model_name
         self.system_prompt = system_prompt
+        # The pipeline sets this for all agents.  Keep the current implementation
+        # as the default for direct use of an individual agent.
+        self.api_mode = "chat_completions"
         self.metrics = {
             'total_calls': 0,
             'total_prompt_tokens': 0,
@@ -120,6 +123,11 @@ class BaseAgent(ABC):
                        or immediately for non-retryable 4xx)
         """
         start_time = time.time()
+
+        if self.api_mode == "responses":
+            return self._make_responses_call(prompt, temperature, max_tokens, system_prompt, start_time)
+        if self.api_mode != "chat_completions":
+            raise ValueError(f"Unsupported API mode: {self.api_mode}")
 
         messages = [
             {"role": "system", "content": system_prompt or self.system_prompt},
@@ -241,6 +249,47 @@ class BaseAgent(ABC):
         self.metrics['error_count'] += 1
         self.metrics['total_time'] += processing_time
         raise last_exc if last_exc else RuntimeError("LLM call failed: unknown reason")
+
+    def _make_responses_call(
+        self,
+        prompt: str,
+        temperature: float,
+        max_tokens: Optional[int],
+        system_prompt: Optional[str],
+        start_time: float,
+    ) -> Tuple[str, int, int, float]:
+        """Call an OpenAI-compatible Responses endpoint for API mode 1."""
+        try:
+            call_kwargs = {
+                "model": self.model_name,
+                "instructions": system_prompt or self.system_prompt,
+                "input": prompt,
+                "temperature": temperature,
+                "store": False,
+            }
+            if max_tokens:
+                call_kwargs["max_output_tokens"] = max_tokens
+
+            response = self.client.responses.create(**call_kwargs)
+            content = (getattr(response, "output_text", "") or "").strip()
+            if not content:
+                raise ValueError("Responses API returned no text output")
+
+            usage = getattr(response, "usage", None)
+            prompt_tokens = getattr(usage, "input_tokens", 0) or 0
+            completion_tokens = getattr(usage, "output_tokens", 0) or 0
+            processing_time = time.time() - start_time
+            self.metrics['total_calls'] += 1
+            self.metrics['total_prompt_tokens'] += prompt_tokens
+            self.metrics['total_completion_tokens'] += completion_tokens
+            self.metrics['total_time'] += processing_time
+            return content, prompt_tokens, completion_tokens, processing_time
+        except Exception as error:
+            processing_time = time.time() - start_time
+            self.metrics['error_count'] += 1
+            self.metrics['total_time'] += processing_time
+            logger.error(f"{self.__class__.__name__} Responses API call failed: {error}")
+            raise
 
     def _extract_float_from_text(self, text: str, default: float = 0.5) -> float:
         """

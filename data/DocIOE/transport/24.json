@@ -15,16 +15,6 @@
     "tail": "the outer wheel rim or tire front face"
   },
   {
-    "head": "jerking steering movements",
-    "relation": "are experienced",
-    "tail": ""
-  },
-  {
-    "head": "high quasi-static transverse forces",
-    "relation": "are experienced",
-    "tail": ""
-  },
-  {
     "head": "high quasi-static transverse forces",
     "relation": "may easily exceed",
     "tail": "the limit values for route loading"

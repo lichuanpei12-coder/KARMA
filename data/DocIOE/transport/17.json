@@ -85,11 +85,6 @@
     "tail": "a new instance of this class"
   },
   {
-    "head": "the route to a particular target",
-    "relation": "has been established",
-    "tail": ""
-  },
-  {
     "head": "the packets of the data file",
     "relation": "are passed along",
     "tail": "the defined route"
@@ -108,11 +103,6 @@
     "head": "this mechanism",
     "relation": "provides for",
     "tail": "data verification"
-  },
-  {
-    "head": "the size of each data type",
-    "relation": "is predetermined",
-    "tail": ""
   },
   {
     "head": "the amount of received data",

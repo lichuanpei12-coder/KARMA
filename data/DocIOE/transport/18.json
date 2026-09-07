@@ -40,11 +40,6 @@
     "tail": "mixed manned and unmanned vehicle environments"
   },
   {
-    "head": "a collision between a manned and an un-manned vehicle",
-    "relation": "is predicted",
-    "tail": ""
-  },
-  {
     "head": "a collision",
     "relation": "is between",
     "tail": "a manned and an un-manned vehicle"

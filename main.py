@@ -17,11 +17,37 @@ import csv
 from pathlib import Path
 from datetime import datetime
 
+# Edit this one value to switch API providers.
+# 0: current KARMA_* configuration using Chat Completions.
+# 1: KARMA_PROXY_API_* configuration using the Responses API.
+API_MODE = 0
+
 # Add the karma package to Python path
 sys.path.insert(0, 'D:/files/rawcode/KARMA')
 
 from karma import KARMAPipeline
 from karma.config import create_default_config
+
+
+def get_active_api_config():
+    """Return the credentials and API format selected by ``API_MODE``."""
+    if API_MODE == 0:
+        return {
+            "name": "current Chat Completions configuration",
+            "api_key": os.getenv("KARMA_API_KEY", ""),
+            "base_url": os.getenv("KARMA_BASE_URL", "https://api.modelarts-maas.com/v2"),
+            "model": os.getenv("KARMA_MODEL", "deepseek-v4-flash"),
+            "api_mode": "chat_completions",
+        }
+    if API_MODE == 1:
+        return {
+            "name": "proxy Responses configuration",
+            "api_key": os.getenv("KARMA_PROXY_API_KEY", ""),
+            "base_url": os.getenv("KARMA_PROXY_BASE_URL", ""),
+            "model": os.getenv("KARMA_PROXY_MODEL", ""),
+            "api_mode": "responses",
+        }
+    raise ValueError("API_MODE must be 0 (Chat Completions) or 1 (Responses)")
 
 
 def save_relationships_to_csv(result, csv_path, integration_threshold):
@@ -101,6 +127,12 @@ def save_relationships_to_csv(result, csv_path, integration_threshold):
 
 def main():
     """Main execution function."""
+    try:
+        active_api = get_active_api_config()
+    except ValueError as error:
+        print(f"Error: {error}")
+        return 1
+
     parser = argparse.ArgumentParser(
         description="KARMA: Multi-Agent Knowledge Graph Enrichment",
         formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -125,9 +157,9 @@ Examples:
         help='Input document path (PDF, text file, or JSON document collection)'
     )
     parser.add_argument('--api-key',
-                       default=os.getenv('KARMA_API_KEY', ''),
+                       default=active_api['api_key'],
                        help='OpenAI API key (default: from KARMA_API_KEY env var / .env)')
-    parser.add_argument('--model', default=os.getenv('KARMA_MODEL', 'deepseek-v4-flash'), help='Model to use')
+    parser.add_argument('--model', default=active_api['model'], help='Model to use')
     parser.add_argument('--relevance-threshold', type=float, default=0.2, help='Relevance threshold (default: 0.2)')
     parser.add_argument('--integration-threshold', type=float, default=0, help='Integration threshold (default: 0.5)')
     parser.add_argument('--output-dir', default='result.json', help='Output directory (default: karma_output)')
@@ -142,8 +174,8 @@ Examples:
         print(f"❌ Error: Input file not found: {input_path}")
         return 1
 
-    if not args.api_key:
-        print("❌ Error: API key is required. Set KARMA_API_KEY environment variable or use --api-key")
+    if not args.api_key or not active_api['base_url'] or not args.model:
+        print("Error: selected API mode is missing its API key, base URL, or model configuration")
         return 1
 
     # Setup output directory
@@ -153,6 +185,7 @@ Examples:
     print("🚀 KARMA Knowledge Graph Enrichment Pipeline")
     print("=" * 60)
     print(f"📄 Input: {input_path}")
+    print(f"🔌 API mode: {API_MODE} ({active_api['name']})")
     print(f"🤖 Model: {args.model}")
     print(f"📊 Relevance threshold: {args.relevance_threshold}")
     print(f"📊 Integration threshold: {args.integration_threshold}")
@@ -163,13 +196,14 @@ Examples:
     try:
         # Create configuration
         config = create_default_config(api_key=args.api_key)
+        config.model.base_url = active_api['base_url']
         config.model.name = args.model
         config.pipeline.relevance_threshold = args.relevance_threshold
         config.pipeline.integration_threshold = args.integration_threshold
 
         # Initialize pipeline
         print("🔧 Initializing KARMA pipeline...")
-        pipeline = KARMAPipeline.from_config(config)
+        pipeline = KARMAPipeline.from_config(config, api_mode=active_api['api_mode'])
 
         # Process document
         print(f"📖 Processing document: {input_path.name}")

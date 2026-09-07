@@ -46,7 +46,8 @@ class KARMAPipeline:
         api_key: str,
         base_url: Optional[str] = None,
         model_name: str = "gpt-4o",
-        integration_threshold: float = 0.0
+        integration_threshold: float = 0.0,
+        api_mode: str = "chat_completions"
     ):
         """
         Initialize KARMA pipeline with API credentials.
@@ -56,7 +57,11 @@ class KARMAPipeline:
             base_url: Optional API base URL for Azure or custom endpoints
             model_name: Model identifier
             integration_threshold: Minimum score to integrate knowledge
+            api_mode: ``chat_completions`` or ``responses``
         """
+
+        if api_mode not in {"chat_completions", "responses"}:
+            raise ValueError("api_mode must be 'chat_completions' or 'responses'")
 
         # Initialize OpenAI client
         client_kwargs = {"api_key": api_key}
@@ -68,6 +73,7 @@ class KARMAPipeline:
         self.integration_threshold = integration_threshold
         self.api_key = api_key
         self.base_url = base_url
+        self.api_mode = api_mode
 
         # Initialize all agent instances
         self._initialize_agents()
@@ -80,7 +86,7 @@ class KARMAPipeline:
         self.output_log: List[str] = []
 
     @classmethod
-    def from_config(cls, config) -> 'KARMAPipeline':
+    def from_config(cls, config, api_mode: str = "chat_completions") -> 'KARMAPipeline':
         """
         Create pipeline from configuration object.
 
@@ -99,7 +105,8 @@ class KARMAPipeline:
             api_key=config.model.api_key,
             base_url=config.model.base_url,
             model_name=config.model.name,
-            integration_threshold=config.pipeline.integration_threshold
+            integration_threshold=config.pipeline.integration_threshold,
+            api_mode=api_mode
         )
 
         return pipeline
@@ -120,6 +127,19 @@ class KARMAPipeline:
             self.client, self.model_name,
             integrate_threshold=self.integration_threshold
         )
+        for agent in (
+            self.ingestion_agent,
+            self.reader_agent,
+            self.summarizer_agent,
+            self.entity_extraction_agent,
+            self.relationship_extraction_agent,
+            self.schema_alignment_agent,
+            self.conflict_resolution_agent,
+            self.text_generation_agent,
+            self.text_comparison_agent,
+            self.evaluator_agent,
+        ):
+            agent.api_mode = self.api_mode
 
     def process_document(
         self,

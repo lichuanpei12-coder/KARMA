@@ -75,24 +75,9 @@
     "tail": "the deforming crush-locking lips"
   },
   {
-    "head": "the deforming crush-locking lips",
-    "relation": "is unable to rotate",
-    "tail": ""
-  },
-  {
     "head": "the gap between the two nut parts",
     "relation": "begin to close as",
     "tail": "they are compressed together"
-  },
-  {
-    "head": "the material of the crush-locking lips",
-    "relation": "may change",
-    "tail": ""
-  },
-  {
-    "head": "the design of the crush-locking lips",
-    "relation": "may change",
-    "tail": ""
   },
   {
     "head": "the material and design",
@@ -135,11 +120,6 @@
     "tail": "no threads"
   },
   {
-    "head": "the two parts",
-    "relation": "are tapped after joining together",
-    "tail": ""
-  },
-  {
     "head": "the collapsing volume of the jam nut portion",
     "relation": "moves against",
     "tail": "the threads of the nut body portion"
@@ -173,11 +153,6 @@
     "head": "it resembling a conventional nut",
     "relation": "is when in",
     "tail": "the locked position"
-  },
-  {
-    "head": "it",
-    "relation": "is light-weight",
-    "tail": ""
   },
   {
     "head": "it",

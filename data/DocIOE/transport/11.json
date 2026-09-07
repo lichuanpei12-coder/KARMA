@@ -45,19 +45,9 @@
     "tail": "a power outlet"
   },
   {
-    "head": "the solar panels",
-    "relation": "can be rotated",
-    "tail": ""
-  },
-  {
     "head": "they",
     "relation": "are vertically aligned with",
     "tail": "the back surfaces of the solar panels"
-  },
-  {
-    "head": "the solar panels",
-    "relation": "face outward",
-    "tail": ""
   },
   {
     "head": "the portable solar power system",
@@ -113,16 +103,6 @@
     "head": "the ability to maximize exposure to the sun",
     "relation": "is regardless of",
     "tail": "seasonal variations"
-  },
-  {
-    "head": "an exemplary locking mechanism",
-    "relation": "has been illustrated",
-    "tail": ""
-  },
-  {
-    "head": "any other suitable rotational locking mechanism",
-    "relation": "can be used",
-    "tail": ""
   },
   {
     "head": "AC electrical power",

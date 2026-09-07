@@ -55,19 +55,9 @@
     "tail": "motion"
   },
   {
-    "head": "their frequency content",
-    "relation": "is higher",
-    "tail": ""
-  },
-  {
     "head": "such movements",
     "relation": "are in comparison to",
     "tail": "tilting movements"
-  },
-  {
-    "head": "tilting movements",
-    "relation": "are quasi-static",
-    "tail": ""
   },
   {
     "head": "it",
@@ -118,11 +108,6 @@
     "head": "the device",
     "relation": "consists of",
     "tail": "a casing and a rod"
-  },
-  {
-    "head": "both of which",
-    "relation": "are coupled",
-    "tail": ""
   },
   {
     "head": "both of which",

@@ -65,11 +65,6 @@
     "tail": "the filter"
   },
   {
-    "head": "low-level information",
-    "relation": "is updated quickly",
-    "tail": ""
-  },
-  {
     "head": "mapping high-level information into low-level configuration information",
     "relation": "is a",
     "tail": "dynamic process"
@@ -88,21 +83,6 @@
     "head": "only a few mapping servers",
     "relation": "interact with",
     "tail": "the network's infrastructure"
-  },
-  {
-    "head": "a hierarchy of the mapping servers",
-    "relation": "can be created",
-    "tail": ""
-  },
-  {
-    "head": "scalable policy distribution",
-    "relation": "can be achieved",
-    "tail": ""
-  },
-  {
-    "head": "an efficient and distributed architecture",
-    "relation": "can be achieved",
-    "tail": ""
   },
   {
     "head": "an efficient and distributed architecture",
@@ -128,11 +108,6 @@
     "head": "other network infrastructure devices",
     "relation": "are responsible for routing",
     "tail": "communications data"
-  },
-  {
-    "head": "a highly dynamic mapping",
-    "relation": "can be achieved",
-    "tail": ""
   },
   {
     "head": "a highly dynamic mapping",

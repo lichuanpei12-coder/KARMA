@@ -70,21 +70,6 @@
     "tail": "PMOS transistors"
   },
   {
-    "head": "the standard deviation",
-    "relation": "increases",
-    "tail": ""
-  },
-  {
-    "head": "more printed inverters",
-    "relation": "are serially cascaded",
-    "tail": ""
-  },
-  {
-    "head": "the difference among the yields",
-    "relation": "will be significant",
-    "tail": ""
-  },
-  {
     "head": "the level shifter circuit",
     "relation": "includes",
     "tail": "a gain organic transistor"
@@ -93,16 +78,6 @@
     "head": "the level shifter circuit",
     "relation": "includes",
     "tail": "a level shifter organic transistor"
-  },
-  {
-    "head": "a gain organic transistor and a level shifter organic transistor",
-    "relation": "are connected in parallel",
-    "tail": ""
-  },
-  {
-    "head": "a threshold voltage of one of the organic transistor",
-    "relation": "drifts",
-    "tail": ""
   },
   {
     "head": "the organic transistor",

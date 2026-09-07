@@ -21,11 +21,6 @@
   },
   {
     "head": "changing hoistways mechanically",
-    "relation": "is very complex",
-    "tail": ""
-  },
-  {
-    "head": "changing hoistways mechanically",
     "relation": "proceeds only slowly in",
     "tail": "many cases"
   },
@@ -38,11 +33,6 @@
     "head": "conventional elevator installations",
     "relation": "are known for the purpose of",
     "tail": "increasing the handling capacity"
-  },
-  {
-    "head": "the distance between the individual floors",
-    "relation": "is not equal",
-    "tail": ""
   },
   {
     "head": "the distance between the individual floors being not equal",

@@ -45,11 +45,6 @@
     "tail": "the present invention"
   },
   {
-    "head": "a global positioning satellite system",
-    "relation": "is utilized",
-    "tail": ""
-  },
-  {
     "head": "the location request",
     "relation": "may be forwarded to",
     "tail": "a suitable GPS application in the wireless network"
@@ -118,11 +113,6 @@
     "head": "location information",
     "relation": "regards",
     "tail": "a particular subscriber"
-  },
-  {
-    "head": "location information regarding a particular subscriber",
-    "relation": "is being requested",
-    "tail": ""
   },
   {
     "head": "presence information",

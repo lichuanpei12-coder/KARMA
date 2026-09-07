@@ -15,11 +15,6 @@
     "tail": "a better understanding of the present disclosure"
   },
   {
-    "head": "a discussion of such elements and operations",
-    "relation": "may not be provided herein",
-    "tail": ""
-  },
-  {
     "head": "the ECUs",
     "relation": "may include",
     "tail": "PUF components"
@@ -123,11 +118,6 @@
     "head": "read and executed by a computing platform",
     "relation": "is to perform",
     "tail": "the operations"
-  },
-  {
-    "head": "specific exemplary embodiments",
-    "relation": "have been discussed",
-    "tail": ""
   },
   {
     "head": "this",

@@ -70,16 +70,6 @@
     "tail": "the drawings and foregoing description"
   },
   {
-    "head": "such illustration and description",
-    "relation": "are to be considered illustrative or exemplary",
-    "tail": ""
-  },
-  {
-    "head": "such illustration and description",
-    "relation": "are to be considered not restrictive",
-    "tail": ""
-  },
-  {
     "head": "at least one embodiment",
     "relation": "has the advantage of",
     "tail": "capturing of congestion levels"
@@ -90,11 +80,6 @@
     "tail": "congestion mitigation measures can be reliably performed"
   },
   {
-    "head": "congestion mitigation measures",
-    "relation": "can be reliably performed",
-    "tail": ""
-  },
-  {
     "head": "said congestion value",
     "relation": "may be adapted via",
     "tail": "a transformation function"
@@ -103,11 +88,6 @@
     "head": "said transformation function",
     "relation": "amends",
     "tail": "at least one of the following: a number of congestion levels, a steepness of a congestion level curve, a shape of a congestion level curve"
-  },
-  {
-    "head": "specific terms",
-    "relation": "are employed herein",
-    "tail": ""
   },
   {
     "head": "they",

@@ -71,11 +71,6 @@
   },
   {
     "head": "skins in the back",
-    "relation": "are taken out",
-    "tail": ""
-  },
-  {
-    "head": "skins in the back",
     "relation": "are placed in",
     "tail": "a pre-cooled dissection solution"
   },
@@ -106,11 +101,6 @@
   },
   {
     "head": "the regenerated nerve segments",
-    "relation": "are harvested",
-    "tail": ""
-  },
-  {
-    "head": "the regenerated nerve segments",
     "relation": "are cut into",
     "tail": "sections"
   },
@@ -133,11 +123,6 @@
     "head": "the silk fibroin filaments having a large specific surface area",
     "relation": "is to serve as",
     "tail": "a required space for the growth of nerve cells"
-  },
-  {
-    "head": "various processes and methods",
-    "relation": "are not described in details",
-    "tail": ""
   },
   {
     "head": "various processes and methods",

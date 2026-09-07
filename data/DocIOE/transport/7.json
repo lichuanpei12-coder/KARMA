@@ -55,11 +55,6 @@
     "tail": "a geographical information system"
   },
   {
-    "head": "the captured event information",
-    "relation": "is received",
-    "tail": ""
-  },
-  {
     "head": "the event alert system",
     "relation": "may store the information in",
     "tail": "a repository or database"

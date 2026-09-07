@@ -100,11 +100,6 @@
     "tail": "linear system theory"
   },
   {
-    "head": "all combinations of those elements and/or method steps",
-    "relation": "are equivalent",
-    "tail": ""
-  },
-  {
     "head": "those elements and/or method steps",
     "relation": "perform substantially",
     "tail": "the same function in substantially the same way"

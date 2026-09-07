@@ -128,10 +128,5 @@
     "head": "this tape",
     "relation": "can then be removed from",
     "tail": "the repaired section of highway"
-  },
-  {
-    "head": "the repair",
-    "relation": "is complete and discarded",
-    "tail": ""
   }
 ]

@@ -130,16 +130,6 @@
     "tail": "a synchronous manner"
   },
   {
-    "head": "the canister",
-    "relation": "is very small",
-    "tail": ""
-  },
-  {
-    "head": "the canister",
-    "relation": "is very lightweight",
-    "tail": ""
-  },
-  {
     "head": "it",
     "relation": "might not possess enough impulse to change",
     "tail": "its direction of motion"

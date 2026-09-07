@@ -75,11 +75,6 @@
     "tail": "this information can be used"
   },
   {
-    "head": "this information",
-    "relation": "can be used",
-    "tail": ""
-  },
-  {
     "head": "they",
     "relation": "are based on",
     "tail": "the principle of absorption enhancement inside a laser resonator"

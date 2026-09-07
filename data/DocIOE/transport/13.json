@@ -45,11 +45,6 @@
     "tail": "the form of an indication"
   },
   {
-    "head": "the form of an indication",
-    "relation": "is audible, visual, or both",
-    "tail": ""
-  },
-  {
     "head": "an indication",
     "relation": "is provided via",
     "tail": "an onboard display"
@@ -68,11 +63,6 @@
     "head": "a user interface within the cab of vehicle",
     "relation": "alerts the driver of",
     "tail": "the potential violation"
-  },
-  {
-    "head": "the potential violation",
-    "relation": "is identified",
-    "tail": ""
   },
   {
     "head": "the driver of the vehicle",
@@ -113,11 +103,6 @@
     "head": "information",
     "relation": "is received from",
     "tail": "the vehicles"
-  },
-  {
-    "head": "information from the vehicles",
-    "relation": "is either real-time or historical",
-    "tail": ""
   },
   {
     "head": "an operator",

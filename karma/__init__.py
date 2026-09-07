@@ -19,7 +19,21 @@ Example:
     >>> result = pipeline.process_document("path/to/document.pdf")
     >>> print(f"Extracted {len(result.integrated_triples)} knowledge triples")
 """
+import os as _os
+from pathlib import Path as _Path
 
+# 加载项目根目录的 .env 文件（无外部依赖，不覆盖已有的环境变量）
+_env_path = _Path(__file__).resolve().parent.parent / ".env"
+if _env_path.exists():
+    with open(_env_path, encoding="utf-8") as _f:
+        for _line in _f:
+            _line = _line.strip()
+            if _line and not _line.startswith("#") and "=" in _line:
+                _k, _, _v = _line.partition("=")
+                _k, _v = _k.strip(), _v.strip()
+                if _k and _k not in _os.environ:
+                    _os.environ[_k] = _v
+                    
 __version__ = "1.0.0"
 __author__ = "Yuxing Lu"
 __email__ = "yxlu0613@gmail.com"

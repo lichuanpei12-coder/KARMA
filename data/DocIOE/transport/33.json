@@ -60,11 +60,6 @@
     "tail": "a simple local electrical connection"
   },
   {
-    "head": "the administrative requirements for food service licensing",
-    "relation": "have become more strict",
-    "tail": ""
-  },
-  {
     "head": "the administrative requirements",
     "relation": "are for",
     "tail": "food service licensing"

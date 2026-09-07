@@ -6,11 +6,6 @@
   },
   {
     "head": "the demand for natural gas",
-    "relation": "can be expected to increase even further",
-    "tail": ""
-  },
-  {
-    "head": "the demand for natural gas",
     "relation": "can be expected to increase even further with",
     "tail": "the demand for electricity constantly increasing"
   },
@@ -58,16 +53,6 @@
     "head": "use",
     "relation": "is in",
     "tail": "offshore LNG regasification systems"
-  },
-  {
-    "head": "tanks",
-    "relation": "are whether prismatic or spherical",
-    "tail": ""
-  },
-  {
-    "head": "tanks",
-    "relation": "are whether membrane insulated or not",
-    "tail": ""
   },
   {
     "head": "the flow of gas",

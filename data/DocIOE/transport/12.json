@@ -90,16 +90,6 @@
     "tail": "another"
   },
   {
-    "head": "substitutions of elements from one embodiment to another",
-    "relation": "are fully intended",
-    "tail": ""
-  },
-  {
-    "head": "substitutions of elements from one embodiment to another",
-    "relation": "are fully contemplated",
-    "tail": ""
-  },
-  {
     "head": "the method",
     "relation": "includes obtaining",
     "tail": "a plurality of possible positions (x) of the localized traffic reports"
@@ -108,11 +98,6 @@
     "head": "possible positions (x) of the localized traffic reports",
     "relation": "have",
     "tail": "imprecise position indications"
-  },
-  {
-    "head": "the position of the traffic disturbance",
-    "relation": "is therefore very imprecisely determined",
-    "tail": ""
   },
   {
     "head": "the position of the traffic disturbance",

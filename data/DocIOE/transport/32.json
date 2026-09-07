@@ -75,19 +75,9 @@
     "tail": "development risk"
   },
   {
-    "head": "twenty buffer elements",
-    "relation": "are shown",
-    "tail": ""
-  },
-  {
     "head": "any suitable number",
     "relation": "can be employed in accordance with",
     "tail": "a particular application"
-  },
-  {
-    "head": "the first cell for a given packet",
-    "relation": "arrives",
-    "tail": ""
   },
   {
     "head": "a buffer element",
