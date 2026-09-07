@@ -1,0 +1,147 @@
+[
+  {
+    "head": "this",
+    "relation": "results in",
+    "tail": "extreme spikes in the network load"
+  },
+  {
+    "head": "extreme spikes in the network load",
+    "relation": "cause delays in",
+    "tail": "data transmission"
+  },
+  {
+    "head": "data",
+    "relation": "is required to be transferred to",
+    "tail": "a large number of clients simultaneously"
+  },
+  {
+    "head": "these",
+    "relation": "will generally include, for example",
+    "tail": "the file type and size"
+  },
+  {
+    "head": "these",
+    "relation": "will generally include, for example",
+    "tail": "time stamps for activation and deactivation of the content"
+  },
+  {
+    "head": "these",
+    "relation": "will generally include, for example",
+    "tail": "time stamps for activation and deactivation of encryption details"
+  },
+  {
+    "head": "these",
+    "relation": "will generally include, for example",
+    "tail": "time stamps for activation and deactivation of compression details"
+  },
+  {
+    "head": "the modified transport request",
+    "relation": "identifies the relevant first terminal as",
+    "tail": "the server address"
+  },
+  {
+    "head": "its subset of the target terminals",
+    "relation": "should retrieve the data from",
+    "tail": "the server address"
+  },
+  {
+    "head": "the \"best\" terminals",
+    "relation": "are selected to act as",
+    "tail": "relay servers for the remainder"
+  },
+  {
+    "head": "the \"best\" terminals",
+    "relation": "are from",
+    "tail": "the list of remaining targets"
+  },
+  {
+    "head": "there",
+    "relation": "is",
+    "tail": "an upstream communication path"
+  },
+  {
+    "head": "an upstream communication path",
+    "relation": "is from each terminal direct to",
+    "tail": "the main server"
+  },
+  {
+    "head": "the opening and operation of sockets",
+    "relation": "is handled dynamically using",
+    "tail": "a C++ class-application"
+  },
+  {
+    "head": "a C++ class-application",
+    "relation": "generates",
+    "tail": "a new socket"
+  },
+  {
+    "head": "generating a new socket",
+    "relation": "is when",
+    "tail": "it needs a new instance of this class"
+  },
+  {
+    "head": "it",
+    "relation": "needs",
+    "tail": "a new instance of this class"
+  },
+  {
+    "head": "the route to a particular target",
+    "relation": "has been established",
+    "tail": ""
+  },
+  {
+    "head": "the packets of the data file",
+    "relation": "are passed along",
+    "tail": "the defined route"
+  },
+  {
+    "head": "the packets of the data file passed along the defined route",
+    "relation": "is via",
+    "tail": "the selected relay servers"
+  },
+  {
+    "head": "the selected relay servers",
+    "relation": "are on the basis of",
+    "tail": "the target terminal address in the handle/header of each packet"
+  },
+  {
+    "head": "this mechanism",
+    "relation": "provides for",
+    "tail": "data verification"
+  },
+  {
+    "head": "the size of each data type",
+    "relation": "is predetermined",
+    "tail": ""
+  },
+  {
+    "head": "the amount of received data",
+    "relation": "must correspond to",
+    "tail": "the size of the data type"
+  },
+  {
+    "head": "data transfers to a single target terminal",
+    "relation": "use",
+    "tail": "the invention"
+  },
+  {
+    "head": "data transfers to a single target terminal using the invention",
+    "relation": "might not be significantly faster than",
+    "tail": "conventional download methods"
+  },
+  {
+    "head": "the network database",
+    "relation": "need not be on the same server/computer as",
+    "tail": "the distribution management system"
+  },
+  {
+    "head": "the distribution management system",
+    "relation": "generates",
+    "tail": "the transport requests"
+  },
+  {
+    "head": "the network database",
+    "relation": "must be accessible to",
+    "tail": "it"
+  }
+]

@@ -1,0 +1,162 @@
+[
+  {
+    "head": "coordination of meetings",
+    "relation": "has always required, at a minimum, that",
+    "tail": "each party communicate his or her available times to the other"
+  },
+  {
+    "head": "coordination of meetings",
+    "relation": "are between",
+    "tail": "two or more parties"
+  },
+  {
+    "head": "each party",
+    "relation": "communicate",
+    "tail": "his or her available times to the other"
+  },
+  {
+    "head": "some services",
+    "relation": "provide for",
+    "tail": "dynamic arrangement of meeting locations"
+  },
+  {
+    "head": "some services providing for dynamic arrangement of meeting locations",
+    "relation": "use",
+    "tail": "voice communications over a telephone or radio"
+  },
+  {
+    "head": "missed service calls",
+    "relation": "are common for",
+    "tail": "both parties"
+  },
+  {
+    "head": "missed service calls",
+    "relation": "are expensive for",
+    "tail": "both parties"
+  },
+  {
+    "head": "missed service calls",
+    "relation": "lead to",
+    "tail": "repeat attempts at delivery"
+  },
+  {
+    "head": "systems",
+    "relation": "require",
+    "tail": "considerable manual effort"
+  },
+  {
+    "head": "systems",
+    "relation": "implement",
+    "tail": "dynamic adjustments of meeting locations and/or schedules"
+  },
+  {
+    "head": "the system",
+    "relation": "may designate",
+    "tail": "the times of meetings"
+  },
+  {
+    "head": "the system",
+    "relation": "may designate",
+    "tail": "the locations of meetings"
+  },
+  {
+    "head": "it",
+    "relation": "coordinates through",
+    "tail": "one or more of a variety of communications means"
+  },
+  {
+    "head": "unexpected road network traffic congestion",
+    "relation": "results in",
+    "tail": "delays"
+  },
+  {
+    "head": "unexpected road network traffic congestion",
+    "relation": "may cause the system to rearrange",
+    "tail": "meetings"
+  },
+  {
+    "head": "meetings",
+    "relation": "are scheduled later in",
+    "tail": "the day"
+  },
+  {
+    "head": "the proposed meeting schedules",
+    "relation": "include",
+    "tail": "meeting data"
+  },
+  {
+    "head": "the proposed meeting schedules",
+    "relation": "include",
+    "tail": "time"
+  },
+  {
+    "head": "the proposed meeting schedules",
+    "relation": "include",
+    "tail": "location"
+  },
+  {
+    "head": "the proposed meeting schedules",
+    "relation": "include",
+    "tail": "parties attending"
+  },
+  {
+    "head": "the proposed meeting schedules",
+    "relation": "are based on",
+    "tail": "the meeting data"
+  },
+  {
+    "head": "the meeting data",
+    "relation": "is stored in",
+    "tail": "the database"
+  },
+  {
+    "head": "predicted service times",
+    "relation": "may be used to estimate",
+    "tail": "the time"
+  },
+  {
+    "head": "service time probability distributions",
+    "relation": "may be used to estimate",
+    "tail": "the time"
+  },
+  {
+    "head": "service",
+    "relation": "can be provided at",
+    "tail": "the time"
+  },
+  {
+    "head": "characteristics of the meeting from the database",
+    "relation": "may be recorded along with",
+    "tail": "associated meeting participant communications"
+  },
+  {
+    "head": "characteristics of the meeting from the database",
+    "relation": "may be recorded for",
+    "tail": "statistical analysis"
+  },
+  {
+    "head": "characteristics of the meeting from the database",
+    "relation": "may be recorded for",
+    "tail": "later retrieval"
+  },
+  {
+    "head": "the schedules",
+    "relation": "are relayed directly to",
+    "tail": "the participants"
+  },
+  {
+    "head": "the schedules",
+    "relation": "are relayed to",
+    "tail": "the dispatchers"
+  },
+  {
+    "head": "the dispatchers",
+    "relation": "communicate",
+    "tail": "the schedule information"
+  },
+  {
+    "head": "the dispatchers",
+    "relation": "communicate the schedule information to",
+    "tail": "the participants"
+  }
+]

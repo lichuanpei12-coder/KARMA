@@ -149,14 +149,17 @@ class KARMAPipeline:
             intermediate.raw_text = raw_text
 
             self._log("Starting KARMA pipeline...")
-            for i in range(20):
+            # JSON collections are loaded as a list of documents.  A PDF, text
+            # file, or raw text is processed as one document.
+            documents = raw_text if isinstance(raw_text, list) else [raw_text]
+            for i, document_text in enumerate(documents):
                 print('--------------------------------------------------------------------------')
                 print("carrying out knowledge extraction for the article "+str(i))
                 # Step 2: Ingestion - Extract metadata and normalize text
                 self._log("[1/8] Running Ingestion Agent...")
                 step_start = time.time()
 
-                metadata, normalized_content = self.ingestion_agent.process(raw_text[i])
+                metadata, normalized_content = self.ingestion_agent.process(document_text)
                 intermediate.metadata = metadata
 
                 import re as _re

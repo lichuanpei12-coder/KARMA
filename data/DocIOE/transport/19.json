@@ -1,0 +1,147 @@
+[
+  {
+    "head": "a need",
+    "relation": "therefore exists for",
+    "tail": "apparatus and methods for uplink power control"
+  },
+  {
+    "head": "a need",
+    "relation": "therefore exists during",
+    "tail": "link imbalance"
+  },
+  {
+    "head": "uplink power control during link imbalance",
+    "relation": "considers",
+    "tail": "the reverse link HS-DPCH"
+  },
+  {
+    "head": "an OR of DOWNs",
+    "relation": "determines",
+    "tail": "whether to increase or decrease the pilot signal strength"
+  },
+  {
+    "head": "this link imbalance condition",
+    "relation": "can occur when",
+    "tail": "Node-B2 is sending a DOWN request and Node-B1 is sending an UP request"
+  },
+  {
+    "head": "Node-B2",
+    "relation": "is sending",
+    "tail": "a DOWN request"
+  },
+  {
+    "head": "Node-B1",
+    "relation": "is sending",
+    "tail": "an UP request"
+  },
+  {
+    "head": "reducing the traffic-to-pilot ratio",
+    "relation": "reduces",
+    "tail": "the average return link interferences"
+  },
+  {
+    "head": "reducing the average return link interferences",
+    "relation": "is by reducing",
+    "tail": "the traffic channel strength"
+  },
+  {
+    "head": "the traffic channel strength",
+    "relation": "is in relation to",
+    "tail": "the pilot signal strength"
+  },
+  {
+    "head": "the Node-B serving the high speed data over the HS-DSCH",
+    "relation": "is different from",
+    "tail": "the Node-B to which the UE has the best uplink for the DPCCH"
+  },
+  {
+    "head": "the Node-B",
+    "relation": "serves the high speed data over",
+    "tail": "the HS-DSCH"
+  },
+  {
+    "head": "the UE",
+    "relation": "has the best uplink for",
+    "tail": "the DPCCH"
+  },
+  {
+    "head": "a NAK",
+    "relation": "is received by",
+    "tail": "the sending Node-B1"
+  },
+  {
+    "head": "the sending Node-B1",
+    "relation": "can re-transmit",
+    "tail": "the previously sent packet data"
+  },
+  {
+    "head": "the decreased strength of the ACK/NAK signal",
+    "relation": "can result in",
+    "tail": "ACKs being received as NAKs"
+  },
+  {
+    "head": "ACKs being received as NAKs",
+    "relation": "lead to",
+    "tail": "increased transmissions on HS-DSCH"
+  },
+  {
+    "head": "NAKs or NULLs being received as ACKs",
+    "relation": "lead to",
+    "tail": "missed packets on HS-DSCH"
+  },
+  {
+    "head": "Node-B",
+    "relation": "can be",
+    "tail": "a device"
+  },
+  {
+    "head": "a device",
+    "relation": "is such as",
+    "tail": "a cellular base station"
+  },
+  {
+    "head": "a cellular base station",
+    "relation": "has",
+    "tail": "beam-forming antennas"
+  },
+  {
+    "head": "Node-B",
+    "relation": "serves",
+    "tail": "various sectors of a cell"
+  },
+  {
+    "head": "the UE",
+    "relation": "sends channel quality indication (CQI) over",
+    "tail": "HS-DPCCH"
+  },
+  {
+    "head": "channel quality indication",
+    "relation": "is abbreviated as",
+    "tail": "CQI"
+  },
+  {
+    "head": "Node-B1",
+    "relation": "may receive",
+    "tail": "false indications"
+  },
+  {
+    "head": "the UE",
+    "relation": "can be",
+    "tail": "a device"
+  },
+  {
+    "head": "a device",
+    "relation": "is such as",
+    "tail": "a cellular phone"
+  },
+  {
+    "head": "a device",
+    "relation": "is such as",
+    "tail": "other fixed"
+  },
+  {
+    "head": "a device",
+    "relation": "is such as",
+    "tail": "mobile wireless devices"
+  }
+]

@@ -119,7 +119,11 @@ Examples:
   python main.py document.pdf --output-dir results/experiment1
         """
     )
-    parser.add_argument('--input', default='DocOIE_transportation_eval_sent.json', help='Input document path (PDF or text file)')
+    parser.add_argument(
+        '--input',
+        default='data/DocIOE/DocOIE_transportation_gold_input.json',
+        help='Input document path (PDF, text file, or JSON document collection)'
+    )
     parser.add_argument('--api-key',
                        default=os.getenv('KARMA_API_KEY', ''),
                        help='OpenAI API key (default: from KARMA_API_KEY env var / .env)')

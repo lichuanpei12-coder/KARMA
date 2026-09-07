@@ -1,0 +1,167 @@
+[
+  {
+    "head": "the assembly",
+    "relation": "comprises",
+    "tail": "a pantograph"
+  },
+  {
+    "head": "a pantograp",
+    "relation": "can move relative to",
+    "tail": "the carbody of the rail vehicle"
+  },
+  {
+    "head": "it",
+    "relation": "is assembled on",
+    "tail": "the carbody of the rail vehicle"
+  },
+  {
+    "head": "a tilting train",
+    "relation": "is",
+    "tail": "a train"
+  },
+  {
+    "head": "a tilting train",
+    "relation": "uses a built-in device to create",
+    "tail": "an additional superelevation"
+  },
+  {
+    "head": "a tilting train",
+    "relation": "uses a built-in device to create in addition to",
+    "tail": "the cant of the track in curve negotiation"
+  },
+  {
+    "head": "the pantograph",
+    "relation": "follows",
+    "tail": "the bogie movements at all times"
+  },
+  {
+    "head": "the pantograph",
+    "relation": "remains unaffected by",
+    "tail": "the tilting rotation"
+  },
+  {
+    "head": "the tilting rotation",
+    "relation": "is applied to",
+    "tail": "the carbody of the vehicle"
+  },
+  {
+    "head": "such movements",
+    "relation": "come about when",
+    "tail": "the vehicle is in motion and their frequency content is higher"
+  },
+  {
+    "head": "the vehicle",
+    "relation": "is in",
+    "tail": "motion"
+  },
+  {
+    "head": "their frequency content",
+    "relation": "is higher",
+    "tail": ""
+  },
+  {
+    "head": "such movements",
+    "relation": "are in comparison to",
+    "tail": "tilting movements"
+  },
+  {
+    "head": "tilting movements",
+    "relation": "are quasi-static",
+    "tail": ""
+  },
+  {
+    "head": "it",
+    "relation": "relates to its bogie by means of",
+    "tail": "a flexible transmission rope"
+  },
+  {
+    "head": "a flexible transmission rope",
+    "relation": "transmits tilting movements of the carbody to",
+    "tail": "the platform"
+  },
+  {
+    "head": "the core",
+    "relation": "is inside",
+    "tail": "the flexible transmission rope"
+  },
+  {
+    "head": "the core",
+    "relation": "can shift in",
+    "tail": "linear movements with respect to its sheath"
+  },
+  {
+    "head": "the core",
+    "relation": "can shift in linear movements with respect to",
+    "tail": "its sheath"
+  },
+  {
+    "head": "the core",
+    "relation": "can work only by",
+    "tail": "traction"
+  },
+  {
+    "head": "the core",
+    "relation": "can work by",
+    "tail": "traction and compression"
+  },
+  {
+    "head": "the flexible transmission rope or ropes",
+    "relation": "shall consist of",
+    "tail": "a sheath or sleeve, and a core"
+  },
+  {
+    "head": "a core",
+    "relation": "is free to move around with respect to",
+    "tail": "the sheath"
+  },
+  {
+    "head": "the device",
+    "relation": "consists of",
+    "tail": "a casing and a rod"
+  },
+  {
+    "head": "both of which",
+    "relation": "are coupled",
+    "tail": ""
+  },
+  {
+    "head": "both of which",
+    "relation": "can move telescopically between",
+    "tail": "each other"
+  },
+  {
+    "head": "this device",
+    "relation": "may be used to transmit",
+    "tail": "the tilting movement"
+  },
+  {
+    "head": "the tilting movement",
+    "relation": "is between",
+    "tail": "the bogie frame and the bogie bolster"
+  },
+  {
+    "head": "this device",
+    "relation": "may be used to transmit the tilting movement to",
+    "tail": "the core of the flexible transmission rope"
+  },
+  {
+    "head": "the sheath of the flexible transmission shaft",
+    "relation": "is anchored by",
+    "tail": "nuts"
+  },
+  {
+    "head": "the sheath of the flexible transmission shaft",
+    "relation": "is anchored by nuts to",
+    "tail": "casing"
+  },
+  {
+    "head": "the core",
+    "relation": "is attached to",
+    "tail": "the nut"
+  },
+  {
+    "head": "the core",
+    "relation": "is inside",
+    "tail": "the flexible transmission shaft"
+  }
+]

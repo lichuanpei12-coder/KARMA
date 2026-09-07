@@ -1,0 +1,127 @@
+[
+  {
+    "head": "the present invention",
+    "relation": "relates to",
+    "tail": "elevator installations"
+  },
+  {
+    "head": "elevator installations",
+    "relation": "are with",
+    "tail": "a plurality of individually movable elevator cars"
+  },
+  {
+    "head": "the present invention",
+    "relation": "relates to",
+    "tail": "a method of operating such elevator cars"
+  },
+  {
+    "head": "it",
+    "relation": "is a disadvantage of",
+    "tail": "the known elevators with several elevator hoistways"
+  },
+  {
+    "head": "changing hoistways mechanically",
+    "relation": "is very complex",
+    "tail": ""
+  },
+  {
+    "head": "changing hoistways mechanically",
+    "relation": "proceeds only slowly in",
+    "tail": "many cases"
+  },
+  {
+    "head": "conventional elevator installations",
+    "relation": "are equipped with",
+    "tail": "a so-called double-deck car"
+  },
+  {
+    "head": "conventional elevator installations",
+    "relation": "are known for the purpose of",
+    "tail": "increasing the handling capacity"
+  },
+  {
+    "head": "the distance between the individual floors",
+    "relation": "is not equal",
+    "tail": ""
+  },
+  {
+    "head": "the distance between the individual floors being not equal",
+    "relation": "requires complex measures on",
+    "tail": "the double-deck car"
+  },
+  {
+    "head": "it is a purpose of the present invention",
+    "relation": "to make available",
+    "tail": "an elevator installation"
+  },
+  {
+    "head": "it is a purpose of the present invention",
+    "relation": "to make available",
+    "tail": "a corresponding method"
+  },
+  {
+    "head": "an elevator installation and a corresponding method",
+    "relation": "reduce or completely avoid",
+    "tail": "the disadvantages of the state of the art"
+  },
+  {
+    "head": "an elevator installation",
+    "relation": "could be operated in",
+    "tail": "two-way mode"
+  },
+  {
+    "head": "an elevator installation",
+    "relation": "is with",
+    "tail": "several individually driven elevator cars"
+  },
+  {
+    "head": "several individually driven elevator cars",
+    "relation": "work in",
+    "tail": "double-deck mode"
+  },
+  {
+    "head": "the handling capacity",
+    "relation": "is substantially improved without",
+    "tail": "the flexibility of the elevator installation being impaired"
+  },
+  {
+    "head": "the handling capacity",
+    "relation": "is substantially improved through",
+    "tail": "the use of a temporary multi-deck arrangement"
+  },
+  {
+    "head": "the present invention",
+    "relation": "can be applied to",
+    "tail": "elevator installations"
+  },
+  {
+    "head": "the present invention",
+    "relation": "can be applied to elevator installations with",
+    "tail": "spatially separated or unseparated elevator hoistways"
+  },
+  {
+    "head": "loading/unloading the elevator cars of a temporary multi-deck arrangement",
+    "relation": "takes place via",
+    "tail": "intermediate floors, ramps, or suchlike"
+  },
+  {
+    "head": "the elevator cars",
+    "relation": "are of",
+    "tail": "a temporary multi-deck arrangement"
+  },
+  {
+    "head": "advantageous",
+    "relation": "is",
+    "tail": "an elevator installation"
+  },
+  {
+    "head": "an elevator installation",
+    "relation": "has",
+    "tail": "at least one transfer zone"
+  },
+  {
+    "head": "transfer zone",
+    "relation": "is for",
+    "tail": "horizontal movement of the elevator cars"
+  }
+]

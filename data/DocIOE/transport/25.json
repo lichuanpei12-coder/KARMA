@@ -1,0 +1,162 @@
+[
+  {
+    "head": "data",
+    "relation": "may be received from",
+    "tail": "an exclusive information communication system"
+  },
+  {
+    "head": "data received from an exclusive information communication system",
+    "relation": "is similar to",
+    "tail": "previously obtained traffic information"
+  },
+  {
+    "head": "various exemplary implementations of the principles",
+    "relation": "provide",
+    "tail": "a storage medium"
+  },
+  {
+    "head": "a storage medium",
+    "relation": "sorts",
+    "tail": "a set of program instructions"
+  },
+  {
+    "head": "a set of program instructions",
+    "relation": "are executable on",
+    "tail": "a data processing device"
+  },
+  {
+    "head": "a set of program instructions",
+    "relation": "are usable to transmit",
+    "tail": "traffic information"
+  },
+  {
+    "head": "the communication unit",
+    "relation": "may receive road traffic information from",
+    "tail": "the exclusive information communication system"
+  },
+  {
+    "head": "the communication unit",
+    "relation": "may output the data to",
+    "tail": "the controller"
+  },
+  {
+    "head": "the output unit",
+    "relation": "may display",
+    "tail": "information"
+  },
+  {
+    "head": "information",
+    "relation": "is required for",
+    "tail": "the vehicle"
+  },
+  {
+    "head": "the output unit displaying information",
+    "relation": "is based upon",
+    "tail": "control by the controller"
+  },
+  {
+    "head": "a route",
+    "relation": "is searched as",
+    "tail": "a tentative route"
+  },
+  {
+    "head": "a route",
+    "relation": "is from the starting point to",
+    "tail": "the destination"
+  },
+  {
+    "head": "a route searched as a tentative route",
+    "relation": "is based on",
+    "tail": "the accumulated data in the memory"
+  },
+  {
+    "head": "current link travel times",
+    "relation": "is for",
+    "tail": "all links within the target area"
+  },
+  {
+    "head": "current link travel times",
+    "relation": "may be obtained from",
+    "tail": "VICS and/or the probe car"
+  },
+  {
+    "head": "current link travel times",
+    "relation": "may be obtained via",
+    "tail": "the communication unit"
+  },
+  {
+    "head": "current link travel times",
+    "relation": "may be obtained as",
+    "tail": "current data"
+  },
+  {
+    "head": "the systems and methods",
+    "relation": "are applicable to",
+    "tail": "vehicles other than a private car"
+  },
+  {
+    "head": "vehicles",
+    "relation": "may be for example",
+    "tail": "a van"
+  },
+  {
+    "head": "vehicles",
+    "relation": "may be for example",
+    "tail": "a bus"
+  },
+  {
+    "head": "vehicles",
+    "relation": "may be for example",
+    "tail": "a train"
+  },
+  {
+    "head": "each link",
+    "relation": "may be separated and defined by, for example",
+    "tail": "an intersection"
+  },
+  {
+    "head": "an intersection",
+    "relation": "has",
+    "tail": "more than three roads, a curve, and/or a point a point"
+  },
+  {
+    "head": "the road type",
+    "relation": "changes at",
+    "tail": "a point"
+  },
+  {
+    "head": "a guidance route",
+    "relation": "is searched in consideration of",
+    "tail": "link travel times"
+  },
+  {
+    "head": "link travel times",
+    "relation": "is accumulated in",
+    "tail": "the database of the memory"
+  },
+  {
+    "head": "various exemplary implementations of the principles",
+    "relation": "provide",
+    "tail": "a traffic information transmitting apparatus"
+  },
+  {
+    "head": "a traffic information transmitting apparatus",
+    "relation": "includes",
+    "tail": "a memory"
+  },
+  {
+    "head": "a memory",
+    "relation": "stores",
+    "tail": "accumulated traffic information"
+  },
+  {
+    "head": "accumulated traffic information",
+    "relation": "includes",
+    "tail": "past traffic information"
+  },
+  {
+    "head": "accumulated traffic information",
+    "relation": "includes",
+    "tail": "a controller"
+  }
+]

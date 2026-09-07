@@ -1,0 +1,157 @@
+[
+  {
+    "head": "the present invention",
+    "relation": "relates to",
+    "tail": "process control systems"
+  },
+  {
+    "head": "process control systems",
+    "relation": "is of the type used to monitor and/or control",
+    "tail": "operation of industrial processes"
+  },
+  {
+    "head": "the sensed process variable",
+    "relation": "can be used to control",
+    "tail": "the process"
+  },
+  {
+    "head": "the sensed process variable",
+    "relation": "can provide information about",
+    "tail": "process operation"
+  },
+  {
+    "head": "the sensed process variable",
+    "relation": "can provide information about process operation to",
+    "tail": "an operator"
+  },
+  {
+    "head": "a process control loop monitor",
+    "relation": "includes",
+    "tail": "a loop interface circuit"
+  },
+  {
+    "head": "a loop interface circuit",
+    "relation": "is configured to couple to",
+    "tail": "a process control loop"
+  },
+  {
+    "head": "a loop interface circuit",
+    "relation": "is configured to receive data from",
+    "tail": "the process control loop"
+  },
+  {
+    "head": "such issues",
+    "relation": "can be particularly troublesome",
+    "tail": ""
+  },
+  {
+    "head": "the industrial process",
+    "relation": "is located in",
+    "tail": "a remote area"
+  },
+  {
+    "head": "the service personnel",
+    "relation": "are inexperienced in diagnosing",
+    "tail": "network related problems"
+  },
+  {
+    "head": "one typical technique",
+    "relation": "involves controlling",
+    "tail": "the amount of current flowing"
+  },
+  {
+    "head": "one typical technique",
+    "relation": "is for transmitting information in",
+    "tail": "an industrial process control system"
+  },
+  {
+    "head": "one typical technique",
+    "relation": "is for transmitting information in",
+    "tail": "an industrial monitoring system"
+  },
+  {
+    "head": "controlling the amount of current flowing",
+    "relation": "is through",
+    "tail": "a process control loop"
+  },
+  {
+    "head": "fieldbus",
+    "relation": "is",
+    "tail": "a communications protocol"
+  },
+  {
+    "head": "a communications protocol",
+    "relation": "is developed by",
+    "tail": "the Fieldbus Foundation"
+  },
+  {
+    "head": "fieldbus",
+    "relation": "is directed to defining",
+    "tail": "a communications layer or protocol"
+  },
+  {
+    "head": "a communications layer or protocol",
+    "relation": "is for transmitting information on",
+    "tail": "a process control loop"
+  },
+  {
+    "head": "the received data",
+    "relation": "can be inspected to determine if",
+    "tail": "it is of the type desired for logging"
+  },
+  {
+    "head": "the type desired for logging",
+    "relation": "is such as from",
+    "tail": "a particular process device"
+  },
+  {
+    "head": "the type desired for logging",
+    "relation": "is such as from",
+    "tail": "a particular data type"
+  },
+  {
+    "head": "input/output circuitry",
+    "relation": "includes",
+    "tail": "a power output"
+  },
+  {
+    "head": "a power output",
+    "relation": "provides power to",
+    "tail": "the circuitry within monitor"
+  },
+  {
+    "head": "monitor",
+    "relation": "is generated from",
+    "tail": "a current I carried on loop"
+  },
+  {
+    "head": "the desired amount of data",
+    "relation": "has been logged into",
+    "tail": "memory"
+  },
+  {
+    "head": "the data",
+    "relation": "is collected by",
+    "tail": "a service personnel"
+  },
+  {
+    "head": "the data collected by a service personnel",
+    "relation": "is for",
+    "tail": "evaluation"
+  },
+  {
+    "head": "the loop monitor",
+    "relation": "does not contain",
+    "tail": "any process interface element"
+  },
+  {
+    "head": "process interface element",
+    "relation": "is such as",
+    "tail": "a sensor"
+  },
+  {
+    "head": "process interface element",
+    "relation": "is such as",
+    "tail": "a control element"
+  }
+]

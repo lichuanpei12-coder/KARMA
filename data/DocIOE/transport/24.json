@@ -1,0 +1,137 @@
+[
+  {
+    "head": "this",
+    "relation": "is followed by",
+    "tail": "the inclination of the outer running surface section"
+  },
+  {
+    "head": "this",
+    "relation": "is followed by",
+    "tail": "the outer bevelling of the running profile"
+  },
+  {
+    "head": "this",
+    "relation": "is followed by",
+    "tail": "the outer wheel rim or tire front face"
+  },
+  {
+    "head": "jerking steering movements",
+    "relation": "are experienced",
+    "tail": ""
+  },
+  {
+    "head": "high quasi-static transverse forces",
+    "relation": "are experienced",
+    "tail": ""
+  },
+  {
+    "head": "high quasi-static transverse forces",
+    "relation": "may easily exceed",
+    "tail": "the limit values for route loading"
+  },
+  {
+    "head": "the wheel profile of the wheels",
+    "relation": "is characterized by",
+    "tail": "a low equivalent conicity"
+  },
+  {
+    "head": "the wheel profile of the wheels characterized by a low equivalent conicity",
+    "relation": "is because of",
+    "tail": "the relatively large radius of entry into the transitional area from the running surface to the wheel flange"
+  },
+  {
+    "head": "the relatively large radius of entry into the transitional area",
+    "relation": "is from the running surface to",
+    "tail": "the wheel flange"
+  },
+  {
+    "head": "the wheel profile of the wheels",
+    "relation": "is according to",
+    "tail": "the invention"
+  },
+  {
+    "head": "the design of the areas of the wheel profile",
+    "relation": "is",
+    "tail": "a particularly decisive factor"
+  },
+  {
+    "head": "the areas of the wheel profile",
+    "relation": "are described by",
+    "tail": "the groove of the running profile"
+  },
+  {
+    "head": "the areas of the wheel profile",
+    "relation": "are described by",
+    "tail": "the groove of the running surface"
+  },
+  {
+    "head": "this",
+    "relation": "in turn results in",
+    "tail": "a positive steering moment of the wheel set"
+  },
+  {
+    "head": "this",
+    "relation": "is to better",
+    "tail": "radial setting of the wheel set"
+  },
+  {
+    "head": "Radius R303 about center M7",
+    "relation": "lies within",
+    "tail": "a tolerance range of between 300 and 305 mm"
+  },
+  {
+    "head": "Radius R303 about center M7",
+    "relation": "commences from",
+    "tail": "1 to 2 mm from the center of the measuring circle"
+  },
+  {
+    "head": "the centers",
+    "relation": "then vary accordingly in",
+    "tail": "the center of the measuring circle"
+  },
+  {
+    "head": "it is not necessary",
+    "relation": "to undercut",
+    "tail": "as much volume as for conventional wheel profiles"
+  },
+  {
+    "head": "the disadvantage of this profile",
+    "relation": "is that",
+    "tail": "it develops a slight difference in radius between the right and left wheel"
+  },
+  {
+    "head": "it",
+    "relation": "develops a slight difference in",
+    "tail": "radius between the right and left wheel"
+  },
+  {
+    "head": "it",
+    "relation": "develops a slight difference due to",
+    "tail": "the minimal displacement in the wheel channel"
+  },
+  {
+    "head": "it",
+    "relation": "develops a slight difference particularly on",
+    "tail": "rails with a built-in gradient of 1:20"
+  },
+  {
+    "head": "the radius of 216 mm",
+    "relation": "commences in",
+    "tail": "the center of the measuring circle plane"
+  },
+  {
+    "head": "the radius of 216 mm",
+    "relation": "is at",
+    "tail": "entry into the slope of the wheel flange"
+  },
+  {
+    "head": "the running profile of the wheel",
+    "relation": "exhibits",
+    "tail": "an inner wheel rim or tire front face"
+  },
+  {
+    "head": "an inner wheel rim or tire front face",
+    "relation": "is connected to",
+    "tail": "the wheel flange"
+  }
+]

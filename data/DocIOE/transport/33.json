@@ -1,0 +1,177 @@
+[
+  {
+    "head": "many people",
+    "relation": "consume",
+    "tail": "fast food"
+  },
+  {
+    "head": "fast food",
+    "relation": "is such as",
+    "tail": "hamburgers"
+  },
+  {
+    "head": "fast food",
+    "relation": "is such as",
+    "tail": "pizza"
+  },
+  {
+    "head": "fast food",
+    "relation": "is such as",
+    "tail": "sandwiches"
+  },
+  {
+    "head": "fast food",
+    "relation": "is such as",
+    "tail": "hot dogs"
+  },
+  {
+    "head": "fast food",
+    "relation": "is such as",
+    "tail": "gourmet coffee"
+  },
+  {
+    "head": "the typical \"hot dog stand\"",
+    "relation": "is exposed to",
+    "tail": "environmental disruptions"
+  },
+  {
+    "head": "environmental disruptions",
+    "relation": "are such as",
+    "tail": "noise"
+  },
+  {
+    "head": "environmental disruptions",
+    "relation": "are such as",
+    "tail": "pollution"
+  },
+  {
+    "head": "the operational advantage of this stand",
+    "relation": "is that",
+    "tail": "it is easily moved from place to place, and merely requires a simple local electrical connection"
+  },
+  {
+    "head": "it",
+    "relation": "is easily moved from place to",
+    "tail": "place"
+  },
+  {
+    "head": "it",
+    "relation": "merely requires",
+    "tail": "a simple local electrical connection"
+  },
+  {
+    "head": "the administrative requirements for food service licensing",
+    "relation": "have become more strict",
+    "tail": ""
+  },
+  {
+    "head": "the administrative requirements",
+    "relation": "are for",
+    "tail": "food service licensing"
+  },
+  {
+    "head": "greater efforts",
+    "relation": "are needed to uphold",
+    "tail": "this requirement to obtain and maintain the needed licensing"
+  },
+  {
+    "head": "upholding this requirement",
+    "relation": "is to obtain",
+    "tail": "the needed licensing"
+  },
+  {
+    "head": "upholding this requirement",
+    "relation": "is to maintain",
+    "tail": "the needed licensing"
+  },
+  {
+    "head": "the term \"non self-propelled\"",
+    "relation": "is used to denote",
+    "tail": "a mobile unit"
+  },
+  {
+    "head": "a mobile unit",
+    "relation": "lacks",
+    "tail": "its own motored driving mechanism"
+  },
+  {
+    "head": "the food service unit",
+    "relation": "is limited in",
+    "tail": "size"
+  },
+  {
+    "head": "the food service unit",
+    "relation": "is limited in",
+    "tail": "weight"
+  },
+  {
+    "head": "the food service unit limited in size and weight",
+    "relation": "is according to",
+    "tail": "an embodiment of the invention"
+  },
+  {
+    "head": "the food service unit limited in size and weight",
+    "relation": "is in order to meet",
+    "tail": "the efficient transport stipulations"
+  },
+  {
+    "head": "the invention",
+    "relation": "is",
+    "tail": "a non-self-propelled mobile food service point unit"
+  },
+  {
+    "head": "a non-self-propelled mobile food service point unit",
+    "relation": "is efficiently transportable to",
+    "tail": "a desired location of service"
+  },
+  {
+    "head": "the unit",
+    "relation": "lacks",
+    "tail": "its own motorized driving mechanism"
+  },
+  {
+    "head": "an external mechanism",
+    "relation": "is required for",
+    "tail": "the relocation of the unit"
+  },
+  {
+    "head": "an external mechanism",
+    "relation": "is such as",
+    "tail": "a boom-truck"
+  },
+  {
+    "head": "an external mechanism",
+    "relation": "is such as",
+    "tail": "a tow platform"
+  },
+  {
+    "head": "a main entrance door",
+    "relation": "serves for",
+    "tail": "walking in the unit"
+  },
+  {
+    "head": "a main entrance door",
+    "relation": "serves for",
+    "tail": "walking out the unit"
+  },
+  {
+    "head": "a main entrance door",
+    "relation": "is located at",
+    "tail": "the lower half of the unit"
+  },
+  {
+    "head": "the invention",
+    "relation": "is of course not bound by",
+    "tail": "this construction"
+  },
+  {
+    "head": "the invention",
+    "relation": "may be used in addition to",
+    "tail": "the specified space"
+  },
+  {
+    "head": "the invention",
+    "relation": "may be used in lieu of",
+    "tail": "the specified space"
+  }
+]

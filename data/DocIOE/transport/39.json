@@ -1,0 +1,162 @@
+[
+  {
+    "head": "the reason",
+    "relation": "is motivated by",
+    "tail": "safety issues and legal implications"
+  },
+  {
+    "head": "safety issues and legal implications",
+    "relation": "are caused by these individuals operating",
+    "tail": "cars, machinery or other equipment"
+  },
+  {
+    "head": "the reason",
+    "relation": "is to identify",
+    "tail": "drug-impaired individuals participating in public traffic"
+  },
+  {
+    "head": "the detection of drug vapors or vapors",
+    "relation": "results from",
+    "tail": "metabolization of drugs in the human body"
+  },
+  {
+    "head": "the detection of drug vapors or vapors",
+    "relation": "is in",
+    "tail": "traffic"
+  },
+  {
+    "head": "the detection of drug vapors or vapors",
+    "relation": "is in",
+    "tail": "traffic-related situations"
+  },
+  {
+    "head": "the detection of drug vapors or vapors",
+    "relation": "is",
+    "tail": "a much less explored field"
+  },
+  {
+    "head": "the prior art for detectors useful for detecting drugs",
+    "relation": "is even less well-developed than",
+    "tail": "the prior art for alcohol detectors"
+  },
+  {
+    "head": "the prior art for detectors useful for detecting the metabolized by-products of drug ingestion",
+    "relation": "is even less well-developed than",
+    "tail": "the prior art for alcohol detectors"
+  },
+  {
+    "head": "reference",
+    "relation": "is now made in detail to",
+    "tail": "a specific embodiment of the present invention"
+  },
+  {
+    "head": "a specific embodiment of the present invention",
+    "relation": "illustrates",
+    "tail": "the best mode"
+  },
+  {
+    "head": "the best mode",
+    "relation": "is presently contemplated by",
+    "tail": "the inventors for practicing the invention"
+  },
+  {
+    "head": "a drug",
+    "relation": "has been detected inside",
+    "tail": "the vehicle"
+  },
+  {
+    "head": "there",
+    "relation": "are",
+    "tail": "a wide variety of options"
+  },
+  {
+    "head": "a wide variety of options",
+    "relation": "concern how",
+    "tail": "this information can be used"
+  },
+  {
+    "head": "this information",
+    "relation": "can be used",
+    "tail": ""
+  },
+  {
+    "head": "they",
+    "relation": "are based on",
+    "tail": "the principle of absorption enhancement inside a laser resonator"
+  },
+  {
+    "head": "absorption enhancement inside a laser resonator",
+    "relation": "takes advantage of",
+    "tail": "high absorption gain"
+  },
+  {
+    "head": "high absorption gain",
+    "relation": "is achieved within",
+    "tail": "small sample volumes"
+  },
+  {
+    "head": "choosing the appropriate spectral region for drug detection",
+    "relation": "is critical to achieve",
+    "tail": "high sensitivity"
+  },
+  {
+    "head": "choosing the appropriate spectral region for drug detection",
+    "relation": "is critical to avoid",
+    "tail": "interference with other airborne species present in a vehicle"
+  },
+  {
+    "head": "interference with other airborne species",
+    "relation": "presents in",
+    "tail": "a vehicle"
+  },
+  {
+    "head": "this approach",
+    "relation": "has been studied in detail experimentally and theoretically for",
+    "tail": "its applicability to ILS measurements"
+  },
+  {
+    "head": "this approach",
+    "relation": "complies with",
+    "tail": "requirements"
+  },
+  {
+    "head": "requirements",
+    "relation": "are outlined in",
+    "tail": "previous paragraphs"
+  },
+  {
+    "head": "there",
+    "relation": "has been disclosed",
+    "tail": "an on-board drug sensor"
+  },
+  {
+    "head": "an on-board drug sensor",
+    "relation": "is for detection of",
+    "tail": "drugs in vehicular cabins"
+  },
+  {
+    "head": "an on-board drug sensor",
+    "relation": "is for detection of",
+    "tail": "metabolized by-product vapors in vehicular cabins"
+  },
+  {
+    "head": "exhaled metabolites",
+    "relation": "are known for",
+    "tail": "other drugs"
+  },
+  {
+    "head": "other drugs",
+    "relation": "are such as",
+    "tail": "alcohol"
+  },
+  {
+    "head": "the exhaled metabolites",
+    "relation": "include",
+    "tail": "acetaldehyde"
+  },
+  {
+    "head": "the exhaled metabolites",
+    "relation": "include",
+    "tail": "acetic acid"
+  }
+]

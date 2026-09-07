@@ -1,0 +1,182 @@
+[
+  {
+    "head": "power plants",
+    "relation": "are subject to",
+    "tail": "stringent environmental monitoring"
+  },
+  {
+    "head": "an individual's automobile",
+    "relation": "now carries",
+    "tail": "extensive pollution control"
+  },
+  {
+    "head": "an individual's automobile",
+    "relation": "now carries",
+    "tail": "abatement systems"
+  },
+  {
+    "head": "such laws",
+    "relation": "simply prohibit",
+    "tail": "diesel idling"
+  },
+  {
+    "head": "such laws",
+    "relation": "simply prohibit diesel idling for",
+    "tail": "more than a specified period of time"
+  },
+  {
+    "head": "a specified period of time",
+    "relation": "is such as",
+    "tail": "five minutes"
+  },
+  {
+    "head": "a database",
+    "relation": "has",
+    "tail": "idling regulation information stored therein"
+  },
+  {
+    "head": "a database having idling regulation information stored therein",
+    "relation": "is based upon",
+    "tail": "geographic location"
+  },
+  {
+    "head": "this alert",
+    "relation": "may take",
+    "tail": "the form of an indication"
+  },
+  {
+    "head": "the form of an indication",
+    "relation": "is audible, visual, or both",
+    "tail": ""
+  },
+  {
+    "head": "an indication",
+    "relation": "is provided via",
+    "tail": "an onboard display"
+  },
+  {
+    "head": "an onboard display",
+    "relation": "is such as on",
+    "tail": "the dashboard of the vehicle"
+  },
+  {
+    "head": "an onboard display",
+    "relation": "is such as",
+    "tail": "a user interface"
+  },
+  {
+    "head": "a user interface within the cab of vehicle",
+    "relation": "alerts the driver of",
+    "tail": "the potential violation"
+  },
+  {
+    "head": "the potential violation",
+    "relation": "is identified",
+    "tail": ""
+  },
+  {
+    "head": "the driver of the vehicle",
+    "relation": "is messaged or otherwise communicated with to address",
+    "tail": "the threat"
+  },
+  {
+    "head": "other responsible party",
+    "relation": "is messaged or otherwise communicated with to address",
+    "tail": "the threat"
+  },
+  {
+    "head": "one operator",
+    "relation": "may be willing to risk",
+    "tail": "minor fines"
+  },
+  {
+    "head": "minor fines",
+    "relation": "are with respect to",
+    "tail": "a violation"
+  },
+  {
+    "head": "another operator",
+    "relation": "would simply want",
+    "tail": "his or her vehicle shut down"
+  },
+  {
+    "head": "an operator",
+    "relation": "is at",
+    "tail": "the control center"
+  },
+  {
+    "head": "an operator",
+    "relation": "can analyze",
+    "tail": "information received from the vehicles"
+  },
+  {
+    "head": "information",
+    "relation": "is received from",
+    "tail": "the vehicles"
+  },
+  {
+    "head": "information from the vehicles",
+    "relation": "is either real-time or historical",
+    "tail": ""
+  },
+  {
+    "head": "an operator",
+    "relation": "can provide",
+    "tail": "reports based on the analysis"
+  },
+  {
+    "head": "an operator",
+    "relation": "can provide reports based on",
+    "tail": "the analysis"
+  },
+  {
+    "head": "such actions",
+    "relation": "can involve",
+    "tail": "the driver ignoring the alarm"
+  },
+  {
+    "head": "such actions",
+    "relation": "can involve",
+    "tail": "the driver acknowledging the alarm"
+  },
+  {
+    "head": "such actions",
+    "relation": "can involve",
+    "tail": "the driver choosing to move the vehicle"
+  },
+  {
+    "head": "such actions",
+    "relation": "can involve",
+    "tail": "the driver choosing to shut the vehicle down"
+  },
+  {
+    "head": "information",
+    "relation": "can be communicated between",
+    "tail": "the vehicle and communication center"
+  },
+  {
+    "head": "information",
+    "relation": "regards",
+    "tail": "potential and/or actual idling regulation violations"
+  },
+  {
+    "head": "the present invention",
+    "relation": "has been described with reference to",
+    "tail": "preferred embodiments"
+  },
+  {
+    "head": "workers skilled in the art",
+    "relation": "will recognize that",
+    "tail": "changes may be made in form and detail without departing from the spirit and scope of the invention"
+  },
+  {
+    "head": "changes",
+    "relation": "may be made in form and detail without departing from",
+    "tail": "the spirit of the invention"
+  },
+  {
+    "head": "changes",
+    "relation": "may be made in form and detail without departing from",
+    "tail": "the scope of the invention"
+  }
+]

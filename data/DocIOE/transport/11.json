@@ -1,0 +1,157 @@
+[
+  {
+    "head": "solar power systems",
+    "relation": "consist of",
+    "tail": "multiple components"
+  },
+  {
+    "head": "multiple components",
+    "relation": "include",
+    "tail": "the photovoltaic modules"
+  },
+  {
+    "head": "multiple components",
+    "relation": "include",
+    "tail": "mechanical and electrical connections"
+  },
+  {
+    "head": "multiple components",
+    "relation": "include",
+    "tail": "mechanical and electrical mountings"
+  },
+  {
+    "head": "multiple components",
+    "relation": "include",
+    "tail": "means of regulating or modifying the electrical output"
+  },
+  {
+    "head": "the frame",
+    "relation": "can support",
+    "tail": "a plurality of rechargeable batteries"
+  },
+  {
+    "head": "the frame",
+    "relation": "can support",
+    "tail": "a battery management system"
+  },
+  {
+    "head": "the frame",
+    "relation": "can support",
+    "tail": "an inverter"
+  },
+  {
+    "head": "the frame",
+    "relation": "can support",
+    "tail": "a power outlet"
+  },
+  {
+    "head": "the solar panels",
+    "relation": "can be rotated",
+    "tail": ""
+  },
+  {
+    "head": "they",
+    "relation": "are vertically aligned with",
+    "tail": "the back surfaces of the solar panels"
+  },
+  {
+    "head": "the solar panels",
+    "relation": "face outward",
+    "tail": ""
+  },
+  {
+    "head": "the portable solar power system",
+    "relation": "can be positioned to optimize",
+    "tail": "the amount of sunlight exposure"
+  },
+  {
+    "head": "the amount of sunlight exposure",
+    "relation": "is provided to",
+    "tail": "the solar panels"
+  },
+  {
+    "head": "the solar panels",
+    "relation": "stop producing",
+    "tail": "power"
+  },
+  {
+    "head": "the stored power in the batteries",
+    "relation": "can be transmitted to",
+    "tail": "the inverter"
+  },
+  {
+    "head": "the stored power in the batteries",
+    "relation": "can be converted into",
+    "tail": "AC power"
+  },
+  {
+    "head": "AC power",
+    "relation": "is transmitted to",
+    "tail": "the outlet"
+  },
+  {
+    "head": "the solar panels",
+    "relation": "can be rotated to be close to perpendicular to",
+    "tail": "the arc of the sun across the sky"
+  },
+  {
+    "head": "the product design",
+    "relation": "may give the portable solar power system",
+    "tail": "the ability"
+  },
+  {
+    "head": "the ability",
+    "relation": "is to maximize",
+    "tail": "exposure to the sun"
+  },
+  {
+    "head": "the ability to maximize exposure to the sun",
+    "relation": "is regardless of",
+    "tail": "latitude"
+  },
+  {
+    "head": "the ability to maximize exposure to the sun",
+    "relation": "is regardless of",
+    "tail": "seasonal variations"
+  },
+  {
+    "head": "an exemplary locking mechanism",
+    "relation": "has been illustrated",
+    "tail": ""
+  },
+  {
+    "head": "any other suitable rotational locking mechanism",
+    "relation": "can be used",
+    "tail": ""
+  },
+  {
+    "head": "AC electrical power",
+    "relation": "may usually be required in",
+    "tail": "larger portable solar power system"
+  },
+  {
+    "head": "larger portable solar power system",
+    "relation": "is such as",
+    "tail": "buildings"
+  },
+  {
+    "head": "larger portable solar power system",
+    "relation": "is such as",
+    "tail": "remote water pumps"
+  },
+  {
+    "head": "the order filling apparatus and method",
+    "relation": "have been described include",
+    "tail": "various components"
+  },
+  {
+    "head": "these components and the described configuration",
+    "relation": "can be modified in",
+    "tail": "various other configurations"
+  },
+  {
+    "head": "these components and the described configuration",
+    "relation": "can be rearranged in",
+    "tail": "various other configurations"
+  }
+]

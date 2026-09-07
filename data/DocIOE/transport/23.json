@@ -1,0 +1,147 @@
+[
+  {
+    "head": "the stops",
+    "relation": "are made at",
+    "tail": "pre-determined times"
+  },
+  {
+    "head": "the stops",
+    "relation": "are made within",
+    "tail": "the standard fluctuations of traffic conditions"
+  },
+  {
+    "head": "the stops",
+    "relation": "are made within",
+    "tail": "the standard fluctuations of weather conditions"
+  },
+  {
+    "head": "it is thus necessary",
+    "relation": "to review the stops on",
+    "tail": "a periodic basis"
+  },
+  {
+    "head": "it is thus necessary",
+    "relation": "to review the routes on",
+    "tail": "a periodic basis"
+  },
+  {
+    "head": "reviewing the stops and routes on a periodic basis",
+    "relation": "is to determine if",
+    "tail": "changes are required to provide optimal service to passengers"
+  },
+  {
+    "head": "changes",
+    "relation": "are required to provide optimal service to",
+    "tail": "passengers"
+  },
+  {
+    "head": "the present invention",
+    "relation": "relates to",
+    "tail": "the field of fixed route assignments"
+  },
+  {
+    "head": "the field of fixed route assignments",
+    "relation": "is in",
+    "tail": "a transit network"
+  },
+  {
+    "head": "certain flexible stops",
+    "relation": "are being requested at",
+    "tail": "a high rate"
+  },
+  {
+    "head": "certain flexible stops",
+    "relation": "are being requested possibly at",
+    "tail": "a higher rate than existing stops"
+  },
+  {
+    "head": "this data",
+    "relation": "is input into",
+    "tail": "a decision-making algorithm"
+  },
+  {
+    "head": "a decision-making algorithm",
+    "relation": "uses user-defined parameters to determine if",
+    "tail": "stops should be added or deleted"
+  },
+  {
+    "head": "a decision-making algorithm",
+    "relation": "uses user-defined parameters to determine if",
+    "tail": "changes should be made to the route"
+  },
+  {
+    "head": "the modifications to the route",
+    "relation": "may be restricted to",
+    "tail": "certain time periods"
+  },
+  {
+    "head": "certain time periods",
+    "relation": "are based on",
+    "tail": "the pattern of requests"
+  },
+  {
+    "head": "the granting of permission",
+    "relation": "may be implemented in",
+    "tail": "any desired fashion"
+  },
+  {
+    "head": "the granting of permission",
+    "relation": "is for",
+    "tail": "passenger requests for deviations"
+  },
+  {
+    "head": "any desired fashion",
+    "relation": "is on",
+    "tail": "the transit network"
+  },
+  {
+    "head": "the foregoing description",
+    "relation": "has been presented for the purpose of",
+    "tail": "illustration"
+  },
+  {
+    "head": "the foregoing description",
+    "relation": "is not intended to be exhaustive",
+    "tail": ""
+  },
+  {
+    "head": "the foregoing description",
+    "relation": "is not intended to limit the invention to",
+    "tail": "the precise form disclosed"
+  },
+  {
+    "head": "the first step",
+    "relation": "is to permit the vehicle to stop at",
+    "tail": "locations along the route"
+  },
+  {
+    "head": "locations along the route",
+    "relation": "are not",
+    "tail": "currently designated stops"
+  },
+  {
+    "head": "permitting the vehicle to stop at locations along the route",
+    "relation": "is in response to",
+    "tail": "passenger requests to embark/disembark the vehicle"
+  },
+  {
+    "head": "reviewing developments along the route",
+    "relation": "can provide",
+    "tail": "some insight"
+  },
+  {
+    "head": "some insight",
+    "relation": "regards",
+    "tail": "general locations for new stops"
+  },
+  {
+    "head": "developments along the route",
+    "relation": "are such as",
+    "tail": "a new shopping"
+  },
+  {
+    "head": "developments along the route",
+    "relation": "are such as",
+    "tail": "a  residential complex"
+  }
+]

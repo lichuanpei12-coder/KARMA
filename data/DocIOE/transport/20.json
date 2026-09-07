@@ -1,0 +1,137 @@
+[
+  {
+    "head": "a method and apparatus",
+    "relation": "provides",
+    "tail": "presence information"
+  },
+  {
+    "head": "a method and apparatus",
+    "relation": "provides presence information in accordance with",
+    "tail": "the principles of the present invention"
+  },
+  {
+    "head": "presence information",
+    "relation": "regards",
+    "tail": "a wireless device"
+  },
+  {
+    "head": "it",
+    "relation": "allows users to choose exactly",
+    "tail": "which location and presence information to make available to specific vendors or other users"
+  },
+  {
+    "head": "the XLP",
+    "relation": "provides",
+    "tail": "a highly available distributed network architecture"
+  },
+  {
+    "head": "the XLP",
+    "relation": "provides",
+    "tail": "a highly scalable distributed network architecture"
+  },
+  {
+    "head": "information",
+    "relation": "is spawned or triggered by",
+    "tail": "a location request"
+  },
+  {
+    "head": "information",
+    "relation": "relates to",
+    "tail": "presence"
+  },
+  {
+    "head": "information spawned or triggered by a location request",
+    "relation": "is in accordance with",
+    "tail": "the present invention"
+  },
+  {
+    "head": "a global positioning satellite system",
+    "relation": "is utilized",
+    "tail": ""
+  },
+  {
+    "head": "the location request",
+    "relation": "may be forwarded to",
+    "tail": "a suitable GPS application in the wireless network"
+  },
+  {
+    "head": "the wireless network",
+    "relation": "receives",
+    "tail": "GPS location information"
+  },
+  {
+    "head": "GPS location information",
+    "relation": "regards",
+    "tail": "a relevant wireless device"
+  },
+  {
+    "head": "message reduction in general",
+    "relation": "is desirable to allow",
+    "tail": "increased capacity in a wireless network"
+  },
+  {
+    "head": "message reduction in general",
+    "relation": "is desirable to improve",
+    "tail": "reliability of the system"
+  },
+  {
+    "head": "message reduction in general",
+    "relation": "is desirable to improve reliability of the system by reducing",
+    "tail": "the number of messages"
+  },
+  {
+    "head": "the three module centers",
+    "relation": "are",
+    "tail": "a Location Center, a Presence Center, and a Privacy Center"
+  },
+  {
+    "head": "the three module centers in the exemplary XLP",
+    "relation": "are used in",
+    "tail": "the disclosed embodiments"
+  },
+  {
+    "head": "location information",
+    "relation": "is increasingly becoming available in",
+    "tail": "a wireless network"
+  },
+  {
+    "head": "location information",
+    "relation": "regards",
+    "tail": "subscribers"
+  },
+  {
+    "head": "this",
+    "relation": "avoids",
+    "tail": "the need for the presence client"
+  },
+  {
+    "head": "this",
+    "relation": "avoids the need for the presence client to separately request",
+    "tail": "presence information"
+  },
+  {
+    "head": "presence information",
+    "relation": "regards",
+    "tail": "particular wireless device"
+  },
+  {
+    "head": "location information",
+    "relation": "regards",
+    "tail": "a particular subscriber"
+  },
+  {
+    "head": "location information regarding a particular subscriber",
+    "relation": "is being requested",
+    "tail": ""
+  },
+  {
+    "head": "presence information",
+    "relation": "may also be requested within",
+    "tail": "the same message"
+  },
+  {
+    "head": "presence information",
+    "relation": "is such as",
+    "tail": "subscriber state"
+  }
+]

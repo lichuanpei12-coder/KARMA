@@ -1,0 +1,137 @@
+[
+  {
+    "head": "a vehicle",
+    "relation": "is in",
+    "tail": "such a platoon"
+  },
+  {
+    "head": "a driver of a vehicle",
+    "relation": "may allow",
+    "tail": "the throttle of the vehicle to be handled automatically"
+  },
+  {
+    "head": "a driver of a vehicle",
+    "relation": "may allow",
+    "tail": "the brakes of the vehicle to be handled automatically"
+  },
+  {
+    "head": "each vehicle",
+    "relation": "will depending on",
+    "tail": "its state"
+  },
+  {
+    "head": "the state of the neighboring vehicle",
+    "relation": "utilize a control strategy to follow",
+    "tail": "its movements"
+  },
+  {
+    "head": "the state of the neighboring vehicle",
+    "relation": "utilize a control strategy to maintain",
+    "tail": "the platoon"
+  },
+  {
+    "head": "the following vehicle",
+    "relation": "includes",
+    "tail": "a correcting unit"
+  },
+  {
+    "head": "a correcting unit",
+    "relation": "is for correcting",
+    "tail": "the received control variable data"
+  },
+  {
+    "head": "control variable data",
+    "relation": "is depending upon",
+    "tail": "the type of the front running vehicle"
+  },
+  {
+    "head": "control variable data",
+    "relation": "is depending upon",
+    "tail": "the type of the following vehicle"
+  },
+  {
+    "head": "embodiments herein",
+    "relation": "aim to provide an apparatus for",
+    "tail": "lateral control of a host vehicle"
+  },
+  {
+    "head": "an apparatus for lateral control of a host vehicle",
+    "relation": "is during",
+    "tail": "travel in a vehicle platoon"
+  },
+  {
+    "head": "further embodiments herein",
+    "relation": "aim to provide a method for",
+    "tail": "lateral control of a host vehicle"
+  },
+  {
+    "head": "a method for lateral control of a host vehicle",
+    "relation": "is during",
+    "tail": "travel in  a vehicle platoon"
+  },
+  {
+    "head": "the controller",
+    "relation": "may include",
+    "tail": "a microcontroller"
+  },
+  {
+    "head": "the controller",
+    "relation": "may include",
+    "tail": "a programmable digital signal processor (DSP)"
+  },
+  {
+    "head": "the controller",
+    "relation": "may include",
+    "tail": "other programmable device"
+  },
+  {
+    "head": "programmable digital signal processor",
+    "relation": "is abbreviated as",
+    "tail": "DSP"
+  },
+  {
+    "head": "any signal",
+    "relation": "can be described as",
+    "tail": "a combination of sinus signals"
+  },
+  {
+    "head": "any signal",
+    "relation": "can be described as a combination of sinus signals in",
+    "tail": "linear system theory"
+  },
+  {
+    "head": "all combinations of those elements and/or method steps",
+    "relation": "are equivalent",
+    "tail": ""
+  },
+  {
+    "head": "those elements and/or method steps",
+    "relation": "perform substantially",
+    "tail": "the same function in substantially the same way"
+  },
+  {
+    "head": "those elements and/or method steps",
+    "relation": "perform substantially the same function in substantially the same way to achieve",
+    "tail": "the same results"
+  },
+  {
+    "head": "the front running vehicle",
+    "relation": "not only controls its own movements on the basis of",
+    "tail": "the control variable data"
+  },
+  {
+    "head": "the front running vehicle",
+    "relation": "but also transmits them to",
+    "tail": "a following vehicle"
+  },
+  {
+    "head": "the distance",
+    "relation": "would typically be dependent of",
+    "tail": "velocity"
+  },
+  {
+    "head": "higher velocities",
+    "relation": "require",
+    "tail": "larger safety-distances"
+  }
+]

@@ -1,0 +1,152 @@
+[
+  {
+    "head": "speed of each elevator",
+    "relation": "is set in advance and not changed in",
+    "tail": "a normal elevator system"
+  },
+  {
+    "head": "acceleration of each elevator",
+    "relation": "is set in advance and not changed in",
+    "tail": "a normal elevator system"
+  },
+  {
+    "head": "jerk rate of each elevator",
+    "relation": "is set in advance and not changed in",
+    "tail": "a normal elevator system"
+  },
+  {
+    "head": "a passenger",
+    "relation": "presses",
+    "tail": "a call button in an elevator hall"
+  },
+  {
+    "head": "a hall lantern",
+    "relation": "is lit to inform",
+    "tail": "the passenger"
+  },
+  {
+    "head": "a hall lantern",
+    "relation": "is lit to inform the passenger of",
+    "tail": "a responding unit"
+  },
+  {
+    "head": "the car",
+    "relation": "travels",
+    "tail": "a long distance"
+  },
+  {
+    "head": "the traveling time",
+    "relation": "can be substantially reduced by increasing",
+    "tail": "the speed"
+  },
+  {
+    "head": "the group supervisory control apparatus",
+    "relation": "includes",
+    "tail": "communication means"
+  },
+  {
+    "head": "the group supervisory control apparatus",
+    "relation": "includes",
+    "tail": "load detecting means"
+  },
+  {
+    "head": "the group supervisory control apparatus",
+    "relation": "includes",
+    "tail": "variable-speed setting means"
+  },
+  {
+    "head": "the group supervisory control apparatus",
+    "relation": "includes",
+    "tail": "learning means"
+  },
+  {
+    "head": "the group supervisory control apparatus",
+    "relation": "includes",
+    "tail": "estimation processing means"
+  },
+  {
+    "head": "the group supervisory control apparatus",
+    "relation": "includes",
+    "tail": "assignment means"
+  },
+  {
+    "head": "the group supervisory control apparatus",
+    "relation": "includes",
+    "tail": "traveling control means"
+  },
+  {
+    "head": "the in-cage load",
+    "relation": "is not within",
+    "tail": "the allowable range for high-speed/high-acceleration operation"
+  },
+  {
+    "head": "the speed",
+    "relation": "is set to",
+    "tail": "normal values"
+  },
+  {
+    "head": "the acceleration",
+    "relation": "is set to",
+    "tail": "normal values"
+  },
+  {
+    "head": "the jerk rate",
+    "relation": "is set to",
+    "tail": "normal values"
+  },
+  {
+    "head": "the traveling distance",
+    "relation": "is therefore regarded as",
+    "tail": "a long distance"
+  },
+  {
+    "head": "it",
+    "relation": "is equal to or longer than",
+    "tail": "the acceleration/deceleration distance"
+  },
+  {
+    "head": "the acceleration/deceleration distance",
+    "relation": "is calculated from",
+    "tail": "the equation"
+  },
+  {
+    "head": "one of the speed, the acceleration, and the jerk rate",
+    "relation": "is selectively increased in accordance with",
+    "tail": "the in-cage load"
+  },
+  {
+    "head": "an estimated result",
+    "relation": "is obtained from",
+    "tail": "the estimation processing means"
+  },
+  {
+    "head": "the estimation processing means",
+    "relation": "is in",
+    "tail": "the group supervisory control apparatus"
+  },
+  {
+    "head": "an estimated result",
+    "relation": "may be utilized when performing",
+    "tail": "a variable-speed operation in each control device"
+  },
+  {
+    "head": "the learning means",
+    "relation": "statistically learns",
+    "tail": "the traffic within a building"
+  },
+  {
+    "head": "the learning means",
+    "relation": "stores",
+    "tail": "a learnt result"
+  },
+  {
+    "head": "included in the evaluated value calculations",
+    "relation": "are, for example",
+    "tail": "those for the evaluation of waiting time"
+  },
+  {
+    "head": "included in the evaluated value calculations",
+    "relation": "are, for example",
+    "tail": "fully occupied condition probability"
+  }
+]

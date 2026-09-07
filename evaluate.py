@@ -24,7 +24,7 @@ from pathlib import Path
 import numpy as np
 import httpx
 
-GOLD_DIR = Path("data/DocIOE")
+GOLD_DIR = Path("data/DocIOE/transport")
 RESULT_ROOT = Path("data/result")
 
 # ---------- 余弦相似度配置 ----------
@@ -386,8 +386,7 @@ def latest_result_dir():
 
 # gold 候选目录：名字 -> 路径
 GOLD_CANDIDATES = {
-    "healthcare": Path("data/DocIOE"),
-    "transportation": Path("data/DocOIE_transport"),
+    "transportation": Path("data/DocIOE/transport"),
 }
 
 
