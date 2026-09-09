@@ -1,0 +1,467 @@
+{
+  "benchie_61": [
+    {
+      "head": "Hofmann",
+      "relation": "was",
+      "tail": "born"
+    },
+    {
+      "head": "Hofmann",
+      "relation": "was born in",
+      "tail": "Salt Lake City"
+    },
+    {
+      "head": "Hofmann",
+      "relation": "was born in",
+      "tail": "Utah"
+    },
+    {
+      "head": "Salt Lake City",
+      "relation": "is located in",
+      "tail": "Utah"
+    }
+  ],
+  "benchie_62": [
+    {
+      "head": "Salahuddin",
+      "relation": "won",
+      "tail": "assembly seat"
+    },
+    {
+      "head": "Salahuddin",
+      "relation": "won assembly seat from",
+      "tail": "Patharghatti"
+    },
+    {
+      "head": "Salahuddin",
+      "relation": "won assembly seat as",
+      "tail": "Independent candidate"
+    },
+    {
+      "head": "Salahuddin",
+      "relation": "won assembly seat in",
+      "tail": "1962"
+    },
+    {
+      "head": "Salahuddin",
+      "relation": "later won assembly seat from",
+      "tail": "Charminar constituency"
+    },
+    {
+      "head": "Salahuddin",
+      "relation": "later won assembly seat in",
+      "tail": "1967"
+    }
+  ],
+  "benchie_63": [
+    {
+      "head": "locals",
+      "relation": "all speak",
+      "tail": "Minnan languages"
+    },
+    {
+      "head": "locals",
+      "relation": "all speak Minnan languages around",
+      "tail": "triangle area"
+    },
+    {
+      "head": "locals",
+      "relation": "all speak Minnan languages around",
+      "tail": "Quanzhou"
+    },
+    {
+      "head": "locals",
+      "relation": "all speak Minnan languages around",
+      "tail": "Xiamen"
+    },
+    {
+      "head": "locals",
+      "relation": "all speak Minnan languages around",
+      "tail": "Zhangzhou"
+    },
+    {
+      "head": "triangle area",
+      "relation": "includes",
+      "tail": "Quanzhou"
+    },
+    {
+      "head": "triangle area",
+      "relation": "includes",
+      "tail": "Xiamen"
+    },
+    {
+      "head": "triangle area",
+      "relation": "includes",
+      "tail": "Zhangzhou"
+    }
+  ],
+  "benchie_64": [
+    {
+      "head": "Andrew Boyle",
+      "relation": "is",
+      "tail": "Childers's biographer"
+    },
+    {
+      "head": "Childers",
+      "relation": "has",
+      "tail": "biographer"
+    },
+    {
+      "head": "Andrew Boyle",
+      "relation": "noted",
+      "tail": "For next ten years Childers's book remained most powerful contribution of any English writer to debate on Britain's alleged military unpreparedness"
+    },
+    {
+      "head": "Andrew Boyle",
+      "relation": "is",
+      "tail": "biographer"
+    }
+  ],
+  "benchie_65": [
+    {
+      "head": "the Brumbies",
+      "relation": "won",
+      "tail": "this time"
+    },
+    {
+      "head": "the Brumbies",
+      "relation": "won",
+      "tail": "47 to 38"
+    },
+    {
+      "head": "the Brumbies",
+      "relation": "won in front of",
+      "tail": "record crowd"
+    },
+    {
+      "head": "the Brumbies",
+      "relation": "won at",
+      "tail": "Canberra Stadium"
+    }
+  ],
+  "benchie_66": [
+    {
+      "head": "different judge",
+      "relation": "then ordered review of",
+      "tail": "case"
+    },
+    {
+      "head": "different judge",
+      "relation": "then ordered review of case by",
+      "tail": "higher court"
+    }
+  ],
+  "benchie_67": [
+    {
+      "head": "environmental factors",
+      "relation": "are also understood to contribute heavily to",
+      "tail": "strength of intimate relationships"
+    },
+    {
+      "head": "intimate relationships",
+      "relation": "have",
+      "tail": "strength"
+    }
+  ],
+  "benchie_68": [
+    {
+      "head": "thermal relief valves",
+      "relation": "are generally characterized by",
+      "tail": "relatively small size of valve"
+    },
+    {
+      "head": "thermal relief valves",
+      "relation": "are generally characterized by",
+      "tail": "relatively small size of valve necessary to provide protection"
+    },
+    {
+      "head": "thermal relief valves",
+      "relation": "are generally characterized by",
+      "tail": "relatively small size of valve necessary to provide protection from excess pressure"
+    },
+    {
+      "head": "thermal relief valves",
+      "relation": "are generally characterized by",
+      "tail": "relatively small size of valve necessary to provide protection from excess pressure caused by thermal expansion"
+    },
+    {
+      "head": "thermal relief valves",
+      "relation": "are generally characterized by relatively small size of valve for",
+      "tail": "liquid-packed vessels"
+    },
+    {
+      "head": "thermal expansion",
+      "relation": "causes",
+      "tail": "excess pressure"
+    },
+    {
+      "head": "valve",
+      "relation": "provides",
+      "tail": "protection"
+    },
+    {
+      "head": "valve",
+      "relation": "provides protection from",
+      "tail": "excess pressure"
+    },
+    {
+      "head": "valve",
+      "relation": "provide protection from excess pressure caused by",
+      "tail": "thermal expansion"
+    },
+    {
+      "head": "valve necessary to provide protection",
+      "relation": "has",
+      "tail": "small size"
+    }
+  ],
+  "benchie_69": [
+    {
+      "head": "Callaghan",
+      "relation": "made decision on",
+      "tail": "Japanese pilot's funeral"
+    },
+    {
+      "head": "Callaghan",
+      "relation": "made decision on Japanese pilot's funeral in",
+      "tail": "1945"
+    },
+    {
+      "head": "Callaghan's decision on Japanese pilot's funeral",
+      "relation": "would receive",
+      "tail": "praise"
+    },
+    {
+      "head": "Callaghan's decision on Japanese pilot's funeral",
+      "relation": "would receive praise",
+      "tail": "years later"
+    },
+    {
+      "head": "Callaghan's decision on Japanese pilot's funeral",
+      "relation": "would receive praise although",
+      "tail": "a memorial service aboard the Missouri attracted controversy"
+    },
+    {
+      "head": "memorial service aboard Missouri",
+      "relation": "was held in",
+      "tail": "April 2001"
+    },
+    {
+      "head": "memorial service aboard Missouri",
+      "relation": "attracted",
+      "tail": "controversy"
+    },
+    {
+      "head": "Missouri",
+      "relation": "held",
+      "tail": "memorial service"
+    }
+  ],
+  "benchie_70": [
+    {
+      "head": "she",
+      "relation": "became",
+      "tail": "very ill"
+    },
+    {
+      "head": "she",
+      "relation": "became very ill with",
+      "tail": "severe cold or pneumonia"
+    },
+    {
+      "head": "she",
+      "relation": "became very ill after",
+      "tail": "this"
+    }
+  ],
+  "benchie_71": [
+    {
+      "head": "RSNO",
+      "relation": "has",
+      "tail": "base"
+    },
+    {
+      "head": "RSNO's base",
+      "relation": "is at",
+      "tail": "Henry Wood Hall"
+    },
+    {
+      "head": "RSNO's base",
+      "relation": "is in",
+      "tail": "Glasgow"
+    },
+    {
+      "head": "RSNO's base",
+      "relation": "is also used as",
+      "tail": "RSNO's recording venue"
+    },
+    {
+      "head": "Henry Wood Hall",
+      "relation": "is in",
+      "tail": "Glasgow"
+    },
+    {
+      "head": "new base",
+      "relation": "is being",
+      "tail": "constructed"
+    },
+    {
+      "head": "new base",
+      "relation": "is being constructed within",
+      "tail": "Royal Concert Hall"
+    },
+    {
+      "head": "new base",
+      "relation": "is being constructed on",
+      "tail": "Buchanan Street"
+    },
+    {
+      "head": "Royal Concert Hall",
+      "relation": "is on",
+      "tail": "Buchanan Street"
+    },
+    {
+      "head": "RSNO",
+      "relation": "has",
+      "tail": "recording venue"
+    }
+  ],
+  "benchie_72": [
+    {
+      "head": "Omega Beam",
+      "relation": "is",
+      "tail": "His main power"
+    },
+    {
+      "head": "Omega Beam",
+      "relation": "is",
+      "tail": "form of energy"
+    },
+    {
+      "head": "he",
+      "relation": "fires Omega Beam from",
+      "tail": "his eyes"
+    },
+    {
+      "head": "Omega Beam",
+      "relation": "is fired as",
+      "tail": "concussive force"
+    },
+    {
+      "head": "Omega Beam",
+      "relation": "is fired as",
+      "tail": "disintegrating energy"
+    },
+    {
+      "head": "Omega Beam",
+      "relation": "is capable of transmuting",
+      "tail": "living objects"
+    },
+    {
+      "head": "Omega Beam",
+      "relation": "is capable of transmuting",
+      "tail": "living organisms"
+    },
+    {
+      "head": "Omega Beam",
+      "relation": "is capable of erasing",
+      "tail": "living objects from existence"
+    },
+    {
+      "head": "Omega Beam",
+      "relation": "is capable of erasing",
+      "tail": "living organisms from existence"
+    },
+    {
+      "head": "Omega Beam",
+      "relation": "is capable of resurrecting",
+      "tail": "living objects"
+    },
+    {
+      "head": "Omega Beam",
+      "relation": "is capable of resurrecting",
+      "tail": "living organisms"
+    },
+    {
+      "head": "Omega Beam's capacity",
+      "relation": "depends on",
+      "tail": "dark lord's will"
+    },
+    {
+      "head": "dark lord",
+      "relation": "has",
+      "tail": "will"
+    },
+    {
+      "head": "he",
+      "relation": "has",
+      "tail": "eyes"
+    }
+  ],
+  "benchie_73": [
+    {
+      "head": "2005 model",
+      "relation": "introduced",
+      "tail": "third row of seats"
+    },
+    {
+      "head": "2005 model",
+      "relation": "introduced third row of seats to",
+      "tail": "Pathfinder line"
+    },
+    {
+      "head": "2005 model",
+      "relation": "introduced third row of seats to Pathfinder line for",
+      "tail": "first time"
+    },
+    {
+      "head": "Pathfinder line",
+      "relation": "has",
+      "tail": "third row of seats"
+    }
+  ],
+  "benchie_74": [
+    {
+      "head": "district",
+      "relation": "also provides",
+      "tail": "recreation services"
+    },
+    {
+      "head": "district",
+      "relation": "also provides",
+      "tail": "leisure services"
+    },
+    {
+      "head": "district",
+      "relation": "also provides recreation services to",
+      "tail": "many non-residents of area"
+    },
+    {
+      "head": "district",
+      "relation": "also provides leisure services to",
+      "tail": "many non-residents of area"
+    },
+    {
+      "head": "district",
+      "relation": "also provides recreation services on",
+      "tail": "fee basis"
+    },
+    {
+      "head": "district",
+      "relation": "also provides leisure services on",
+      "tail": "fee basis"
+    }
+  ],
+  "benchie_75": [
+    {
+      "head": "acquiring Esperanto",
+      "relation": "is",
+      "tail": "very easy"
+    },
+    {
+      "head": "very ease of acquiring Esperanto",
+      "relation": "might even accelerate",
+      "tail": "process"
+    }
+  ]
+}

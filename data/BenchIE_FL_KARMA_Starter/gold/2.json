@@ -1,0 +1,642 @@
+{
+  "benchie_31": [
+    {
+      "head": "Lugo",
+      "relation": "was",
+      "tail": "released"
+    },
+    {
+      "head": "Lozano",
+      "relation": "was",
+      "tail": "released"
+    },
+    {
+      "head": "Lozano",
+      "relation": "was released in",
+      "tail": "1993"
+    },
+    {
+      "head": "Lugo",
+      "relation": "was released in",
+      "tail": "1993"
+    },
+    {
+      "head": "Lugo",
+      "relation": "continues to reside in",
+      "tail": "Venezuela"
+    },
+    {
+      "head": "Lozano",
+      "relation": "continues to reside in",
+      "tail": "Venezuela"
+    }
+  ],
+  "benchie_32": [
+    {
+      "head": "objects",
+      "relation": "are often",
+      "tail": "so far away"
+    },
+    {
+      "head": "objects",
+      "relation": "often do not contribute significantly to",
+      "tail": "final image"
+    },
+    {
+      "head": "objects",
+      "relation": "are often so far away that",
+      "tail": "they do not contribute significantly to final image"
+    }
+  ],
+  "benchie_33": [
+    {
+      "head": "The school",
+      "relation": "was",
+      "tail": "founded"
+    },
+    {
+      "head": "The school",
+      "relation": "was founded in",
+      "tail": "1851"
+    },
+    {
+      "head": "The school",
+      "relation": "was founded as",
+      "tail": "German-English Academy"
+    },
+    {
+      "head": "The school",
+      "relation": "was founded by",
+      "tail": "group of Milwaukee German Americans"
+    },
+    {
+      "head": "The school",
+      "relation": "was founded by",
+      "tail": "Peter Engelmann"
+    },
+    {
+      "head": "The school",
+      "relation": "was founded by",
+      "tail": "William Frankfurth"
+    },
+    {
+      "head": "group of Milwaukee German Americans",
+      "relation": "included",
+      "tail": "Peter Engelmann"
+    },
+    {
+      "head": "group of Milwaukee German Americans",
+      "relation": "included",
+      "tail": "William Frankfurth"
+    },
+    {
+      "head": "Peter Engelmann",
+      "relation": "is",
+      "tail": "educationist"
+    },
+    {
+      "head": "William Frankfurth",
+      "relation": "is",
+      "tail": "hardware wholesaler"
+    }
+  ],
+  "benchie_34": [
+    {
+      "head": "They",
+      "relation": "held",
+      "tail": "first Triangle workshop"
+    },
+    {
+      "head": "They",
+      "relation": "held first Triangle workshop in",
+      "tail": "1982"
+    },
+    {
+      "head": "They",
+      "relation": "held first Triangle workshop for",
+      "tail": "thirty sculptors and painters"
+    },
+    {
+      "head": "They",
+      "relation": "held first Triangle workshop for thirty sculptors and painters from",
+      "tail": "US UK and Canada"
+    },
+    {
+      "head": "They",
+      "relation": "held first Triangle workshop at",
+      "tail": "Pine Plains"
+    },
+    {
+      "head": "Pine Plains",
+      "relation": "is located in",
+      "tail": "New York"
+    },
+    {
+      "head": "They",
+      "relation": "held first Triangle workshop in",
+      "tail": "New York"
+    },
+    {
+      "head": "They",
+      "relation": "held first Triangle workshop for sculptors from",
+      "tail": "US"
+    },
+    {
+      "head": "They",
+      "relation": "held first Triangle workshop for sculptors from",
+      "tail": "UK"
+    },
+    {
+      "head": "They",
+      "relation": "held first Triangle workshop for sculptors from",
+      "tail": "Canada"
+    },
+    {
+      "head": "They",
+      "relation": "held first Triangle workshop for painters from",
+      "tail": "US"
+    },
+    {
+      "head": "They",
+      "relation": "held first Triangle workshop for painters from",
+      "tail": "UK"
+    },
+    {
+      "head": "They",
+      "relation": "held first Triangle workshop for painters from",
+      "tail": "Canada"
+    },
+    {
+      "head": "They",
+      "relation": "held first Triangle workshop for",
+      "tail": "sculptors"
+    },
+    {
+      "head": "They",
+      "relation": "held first Triangle workshop for",
+      "tail": "painters"
+    }
+  ],
+  "benchie_35": [
+    {
+      "head": "The town",
+      "relation": "was",
+      "tail": "hit"
+    },
+    {
+      "head": "The town",
+      "relation": "was hit by",
+      "tail": "two moderate earthquakes"
+    },
+    {
+      "head": "The town",
+      "relation": "was hit by two moderate earthquakes within",
+      "tail": "ten years"
+    },
+    {
+      "head": "surrounding villages",
+      "relation": "were",
+      "tail": "hit"
+    },
+    {
+      "head": "surrounding villages",
+      "relation": "were hit by",
+      "tail": "two moderate earthquakes"
+    },
+    {
+      "head": "surrounding villages",
+      "relation": "were hit by two moderate earthquakes within",
+      "tail": "ten years"
+    },
+    {
+      "head": "The town",
+      "relation": "is surrounded by",
+      "tail": "villages"
+    }
+  ],
+  "benchie_36": [
+    {
+      "head": "She",
+      "relation": "received",
+      "tail": "her Master Degree"
+    },
+    {
+      "head": "She",
+      "relation": "received her Master Degree in field of",
+      "tail": "Controls Guidance and Instrumentation"
+    },
+    {
+      "head": "She",
+      "relation": "received her Master Degree from",
+      "tail": "I.I.T Madras"
+    },
+    {
+      "head": "She",
+      "relation": "received",
+      "tail": "her Ph.d degree"
+    },
+    {
+      "head": "She",
+      "relation": "received her Ph.d degree from",
+      "tail": "department of Aerospace engineering"
+    }
+  ],
+  "benchie_37": [
+    {
+      "head": "she",
+      "relation": "used",
+      "tail": "theatrical flourishes"
+    },
+    {
+      "head": "she",
+      "relation": "used",
+      "tail": "unique gimmicks"
+    },
+    {
+      "head": "she",
+      "relation": "used theatrical flourishes in",
+      "tail": "her stage show"
+    },
+    {
+      "head": "she",
+      "relation": "used unique gimmicks in",
+      "tail": "her stage show"
+    },
+    {
+      "head": "theatrical flourishes",
+      "relation": "went beyond",
+      "tail": "established burlesque routines"
+    },
+    {
+      "head": "unique gimmicks",
+      "relation": "went beyond",
+      "tail": "established burlesque routines"
+    },
+    {
+      "head": "fan dance",
+      "relation": "is",
+      "tail": "established burlesque routine"
+    },
+    {
+      "head": "balloon dance",
+      "relation": "is",
+      "tail": "established burlesque routine"
+    },
+    {
+      "head": "she",
+      "relation": "has",
+      "tail": "stage show"
+    }
+  ],
+  "benchie_38": [
+    {
+      "head": "RIAA",
+      "relation": "lists",
+      "tail": "it"
+    },
+    {
+      "head": "RIAA",
+      "relation": "lists it as",
+      "tail": "one of Best Selling Albums of All Time"
+    }
+  ],
+  "benchie_39": [
+    {
+      "head": "Cathedral",
+      "relation": "was",
+      "tail": "thoroughly renovated"
+    },
+    {
+      "head": "Cathedral",
+      "relation": "was thoroughly renovated from",
+      "tail": "2006"
+    },
+    {
+      "head": "Cathedral",
+      "relation": "was thoroughly renovated to",
+      "tail": "2008"
+    },
+    {
+      "head": "belfry",
+      "relation": "was",
+      "tail": "thoroughly renovated"
+    },
+    {
+      "head": "belfry",
+      "relation": "was thoroughly renovated from",
+      "tail": "2006"
+    },
+    {
+      "head": "belfry",
+      "relation": "was thoroughly renovated to",
+      "tail": "2008"
+    }
+  ],
+  "benchie_40": [
+    {
+      "head": "Peter Bywaters",
+      "relation": "offers",
+      "tail": "second language tuition"
+    },
+    {
+      "head": "Peter Bywaters",
+      "relation": "offers second language tuition in",
+      "tail": "English"
+    },
+    {
+      "head": "Peter Bywaters",
+      "relation": "offers second language tuition when",
+      "tail": "band is not touring"
+    },
+    {
+      "head": "Peter Bywaters",
+      "relation": "offers second language tuition on",
+      "tail": "live-in basis"
+    },
+    {
+      "head": "Peter Bywaters",
+      "relation": "offers second language tuition at",
+      "tail": "Peter Bywaters's home"
+    },
+    {
+      "head": "Peter Bywaters's home",
+      "relation": "is in",
+      "tail": "Brighton"
+    }
+  ],
+  "benchie_41": [
+    {
+      "head": "These screening activities",
+      "relation": "include",
+      "tail": "review of group-based data"
+    },
+    {
+      "head": "These screening activities",
+      "relation": "include",
+      "tail": "hearing screening"
+    },
+    {
+      "head": "These screening activities",
+      "relation": "include",
+      "tail": "vision screening"
+    },
+    {
+      "head": "These screening activities",
+      "relation": "include",
+      "tail": "motor screening"
+    },
+    {
+      "head": "These screening activities",
+      "relation": "include",
+      "tail": "speech screening"
+    },
+    {
+      "head": "These screening activities",
+      "relation": "include",
+      "tail": "language screening"
+    },
+    {
+      "head": "These screening activities",
+      "relation": "include",
+      "tail": "review by Special Education administration"
+    }
+  ],
+  "benchie_42": [
+    {
+      "head": "He",
+      "relation": "probably saw",
+      "tail": "active service"
+    },
+    {
+      "head": "He",
+      "relation": "probably saw active service as",
+      "tail": "soldier"
+    },
+    {
+      "head": "He",
+      "relation": "probably saw active service for",
+      "tail": "Scottish forces"
+    },
+    {
+      "head": "He",
+      "relation": "probably saw active service in",
+      "tail": "Netherlands"
+    },
+    {
+      "head": "He",
+      "relation": "probably saw active service in",
+      "tail": "later 1570s"
+    },
+    {
+      "head": "He",
+      "relation": "probably saw active service although",
+      "tail": "there is no certain documentary evidence of him seeing active service"
+    },
+    {
+      "head": "Scottish forces",
+      "relation": "were in",
+      "tail": "The Netherlands"
+    },
+    {
+      "head": "Scottish forces",
+      "relation": "were in The Netherlands in",
+      "tail": "later 1570s"
+    }
+  ],
+  "benchie_43": [
+    {
+      "head": "Nazis",
+      "relation": "did however permit",
+      "tail": "single dress rehearsal"
+    },
+    {
+      "head": "Nazis",
+      "relation": "did however permit single dress rehearsal in",
+      "tail": "Salzburg"
+    },
+    {
+      "head": "Nazis",
+      "relation": "did however permit single dress rehearsal conducted by",
+      "tail": "Clemens Krauss"
+    },
+    {
+      "head": "Nazis",
+      "relation": "did however permit single dress rehearsal on",
+      "tail": "16 August"
+    },
+    {
+      "head": "Nazis",
+      "relation": "did however permit single dress rehearsal in order that",
+      "tail": "Strauss could hear work performed"
+    },
+    {
+      "head": "Nazis",
+      "relation": "did however permit single dress rehearsal in order that",
+      "tail": "invited audience could hear work performed"
+    },
+    {
+      "head": "audience",
+      "relation": "was invited to",
+      "tail": "single dress rehearsal"
+    },
+    {
+      "head": "Strauss",
+      "relation": "could hear",
+      "tail": "work performed"
+    },
+    {
+      "head": "Strauss",
+      "relation": "could hear work performed in",
+      "tail": "Salzburg"
+    },
+    {
+      "head": "Strauss",
+      "relation": "could hear work conducted by",
+      "tail": "Clemens Krauss"
+    },
+    {
+      "head": "Strauss",
+      "relation": "could hear work performed on",
+      "tail": "16 August"
+    },
+    {
+      "head": "invited audience",
+      "relation": "could hear",
+      "tail": "work performed"
+    },
+    {
+      "head": "invited audience",
+      "relation": "could hear work performed in",
+      "tail": "Salzburg"
+    },
+    {
+      "head": "invited audience",
+      "relation": "could hear work conducted by",
+      "tail": "Clemens Krauss"
+    },
+    {
+      "head": "invited audience",
+      "relation": "could hear work performed on",
+      "tail": "16 August"
+    },
+    {
+      "head": "Clemens Krauss",
+      "relation": "conducted",
+      "tail": "single dress rehearsal"
+    },
+    {
+      "head": "Clemens Krauss",
+      "relation": "conducted single dress rehearsal in",
+      "tail": "Salzburg"
+    },
+    {
+      "head": "Clemens Krauss",
+      "relation": "conducted single dress rehearsal on",
+      "tail": "16 August"
+    },
+    {
+      "head": "Clemens Krauss",
+      "relation": "conducted single dress rehearsal in order that",
+      "tail": "Strauss could hear work performed"
+    },
+    {
+      "head": "Clemens Krauss",
+      "relation": "conducted single dress rehearsal in order that",
+      "tail": "invited audience could hear work performed"
+    },
+    {
+      "head": "single dress rehearsal",
+      "relation": "was",
+      "tail": "preformed"
+    },
+    {
+      "head": "single dress rehearsal",
+      "relation": "was conducted by",
+      "tail": "Clemens Krauss"
+    },
+    {
+      "head": "single dress rehearsal",
+      "relation": "was performed on",
+      "tail": "16 August"
+    },
+    {
+      "head": "single dress rehearsal",
+      "relation": "was performed in",
+      "tail": "Salzburg"
+    },
+    {
+      "head": "single dress rehearsal",
+      "relation": "was performed in order that",
+      "tail": "Strauss could hear work performed"
+    },
+    {
+      "head": "single dress rehearsal",
+      "relation": "was performed in order that",
+      "tail": "invited audience could hear work performed"
+    }
+  ],
+  "benchie_44": [
+    {
+      "head": "This",
+      "relation": "is usually caused by",
+      "tail": "interacting elements"
+    },
+    {
+      "head": "This",
+      "relation": "is usually caused by",
+      "tail": "interacting inductive and capacitive elements"
+    },
+    {
+      "head": "This",
+      "relation": "is usually caused by interacting inductive and capacitive elements in",
+      "tail": "oscillator"
+    }
+  ],
+  "benchie_45": [
+    {
+      "head": "Sligo",
+      "relation": "is",
+      "tail": "town"
+    },
+    {
+      "head": "Sligo town",
+      "relation": "then became",
+      "tail": "incorporated municipal borough"
+    },
+    {
+      "head": "Sligo town",
+      "relation": "then became incorporated municipal borough with",
+      "tail": "Royal Charter"
+    },
+    {
+      "head": "Sligo town",
+      "relation": "then became incorporated municipal borough with Royal Charter issued by",
+      "tail": "James I"
+    },
+    {
+      "head": "Sligo town",
+      "relation": "became incorporated municipal borough in",
+      "tail": "1613/14"
+    },
+    {
+      "head": "James I",
+      "relation": "was",
+      "tail": "British King"
+    },
+    {
+      "head": "James I",
+      "relation": "was British King in",
+      "tail": "1613/14"
+    },
+    {
+      "head": "James I",
+      "relation": "issued",
+      "tail": "a Royal Charter"
+    },
+    {
+      "head": "James I",
+      "relation": "issued a Royal Charter in",
+      "tail": "1613/14"
+    }
+  ]
+}

@@ -1,0 +1,457 @@
+{
+  "benchie_212": [
+    {
+      "head": "Bureau of Alcohol Tobacco Firearms and Explosives",
+      "relation": "was formed in",
+      "tail": "1886"
+    },
+    {
+      "head": "Bureau of Alcohol Tobacco Firearms and Explosives",
+      "relation": "is",
+      "tail": "law enforcement organization"
+    },
+    {
+      "head": "Bureau of Alcohol Tobacco Firearms and Explosives",
+      "relation": "is",
+      "tail": "federal organization"
+    },
+    {
+      "head": "Bureau of Alcohol Tobacco Firearms and Explosives",
+      "relation": "is within",
+      "tail": "United States Department of Justice"
+    }
+  ],
+  "benchie_213": [
+    {
+      "head": "CRZ",
+      "relation": "was",
+      "tail": "organized"
+    },
+    {
+      "head": "CRZ",
+      "relation": "was organized by",
+      "tail": "Naxalite movement"
+    },
+    {
+      "head": "CRZ",
+      "relation": "was organized by",
+      "tail": "Nepal members of Naxalite movement"
+    },
+    {
+      "head": "CRZ",
+      "relation": "was organized by",
+      "tail": "Indian members of Naxalite movement"
+    },
+    {
+      "head": "CRZ",
+      "relation": "was organized in",
+      "tail": "meeting"
+    },
+    {
+      "head": "CRZ",
+      "relation": "was organized at",
+      "tail": "Siliguri"
+    },
+    {
+      "head": "CRZ",
+      "relation": "was organized in",
+      "tail": "West Bengal"
+    },
+    {
+      "head": "CRZ",
+      "relation": "was organized during",
+      "tail": "August 2001"
+    },
+    {
+      "head": "Naxalite movement",
+      "relation": "has members from",
+      "tail": "Nepal"
+    },
+    {
+      "head": "Naxalite movement",
+      "relation": "has members from",
+      "tail": "India"
+    },
+    {
+      "head": "West Bengal",
+      "relation": "is",
+      "tail": "Indian State"
+    },
+    {
+      "head": "Siliguri",
+      "relation": "is in",
+      "tail": "West Bengal"
+    }
+  ],
+  "benchie_214": [
+    {
+      "head": "Steinbrenner family",
+      "relation": "added",
+      "tail": "a monument"
+    },
+    {
+      "head": "Steinbrenner family",
+      "relation": "added monument to",
+      "tail": "Monument Park"
+    },
+    {
+      "head": "Steinbrenner family",
+      "relation": "added monument on",
+      "tail": "September 20 2010"
+    },
+    {
+      "head": "Steinbrenner family",
+      "relation": "added monument to honor",
+      "tail": "Steinbrenner"
+    }
+  ],
+  "benchie_215": [
+    {
+      "head": "Summer Programs Office",
+      "relation": "runs",
+      "tail": "these programs"
+    },
+    {
+      "head": "many Wardlaw-Hartridge Students",
+      "relation": "attend",
+      "tail": "camp"
+    },
+    {
+      "head": "many Wardlaw-Hartridge Students",
+      "relation": "attend",
+      "tail": "classes"
+    },
+    {
+      "head": "many Wardlaw-Hartridge Students",
+      "relation": "attend camp over",
+      "tail": "summer"
+    },
+    {
+      "head": "many Wardlaw-Hartridge Students",
+      "relation": "attend classes over",
+      "tail": "summer"
+    }
+  ],
+  "benchie_216": [
+    {
+      "head": "Triple-A Baseball National Championship Game",
+      "relation": "was",
+      "tail": "established"
+    },
+    {
+      "head": "Triple-A Baseball National Championship Game",
+      "relation": "was established in",
+      "tail": "2006"
+    }
+  ],
+  "benchie_217": [
+    {
+      "head": "Wilbur Cross Highway",
+      "relation": "formerly ended in",
+      "tail": "Sturbridge"
+    },
+    {
+      "head": "locals",
+      "relation": "sometimes call Haynes Street",
+      "tail": "Old Route 15"
+    },
+    {
+      "head": "locals",
+      "relation": "sometimes call portions of Mashapaug Road",
+      "tail": "Old Route 15"
+    }
+  ],
+  "benchie_218": [
+    {
+      "head": "Charleston Courier",
+      "relation": "was founded in",
+      "tail": "1803"
+    },
+    {
+      "head": "Charleston Daily News",
+      "relation": "was founded in",
+      "tail": "1865"
+    },
+    {
+      "head": "Charleston Courier and Charleston Daily News",
+      "relation": "merged to form",
+      "tail": "News and Courier"
+    },
+    {
+      "head": "Charleston Courier and Charleston Daily News",
+      "relation": "merged in",
+      "tail": "1873"
+    }
+  ],
+  "benchie_219": [
+    {
+      "head": "canal",
+      "relation": "was",
+      "tail": "dammed off"
+    },
+    {
+      "head": "canal",
+      "relation": "was dammed off from",
+      "tail": "river"
+    },
+    {
+      "head": "canal",
+      "relation": "was dammed off for",
+      "tail": "most of construction period"
+    }
+  ],
+  "benchie_220": [
+    {
+      "head": "city",
+      "relation": "was",
+      "tail": "founded"
+    },
+    {
+      "head": "city",
+      "relation": "was founded by",
+      "tail": "Western Town Lot Company"
+    },
+    {
+      "head": "city",
+      "relation": "was founded in",
+      "tail": "1880"
+    },
+    {
+      "head": "city",
+      "relation": "was originally named",
+      "tail": "Nordland"
+    },
+    {
+      "head": "city's platted streets",
+      "relation": "were given",
+      "tail": "Norwegian names"
+    },
+    {
+      "head": "city's streets",
+      "relation": "were",
+      "tail": "platted"
+    }
+  ],
+  "benchie_221": [
+    {
+      "head": "community",
+      "relation": "is",
+      "tail": "served"
+    },
+    {
+      "head": "community",
+      "relation": "is served by",
+      "tail": "United States Postal Service Hinsdale Post Office"
+    }
+  ],
+  "benchie_222": [
+    {
+      "head": "ensemble",
+      "relation": "also has",
+      "tail": "extensive recordings"
+    },
+    {
+      "head": "ensemble",
+      "relation": "also has extensive recordings with",
+      "tail": "Deutsche Grammophon"
+    },
+    {
+      "head": "ensemble",
+      "relation": "also has extensive recordings with",
+      "tail": "Dorian Recordings"
+    },
+    {
+      "head": "ensemble",
+      "relation": "also has extensive recordings with",
+      "tail": "Newport Classic"
+    },
+    {
+      "head": "ensemble",
+      "relation": "also has extensive recordings with",
+      "tail": "Navona Records"
+    },
+    {
+      "head": "ensemble",
+      "relation": "also has extensive recordings under",
+      "tail": "ensemble's own label"
+    },
+    {
+      "head": "ensemble",
+      "relation": "has",
+      "tail": "their own label"
+    }
+  ],
+  "benchie_223": [
+    {
+      "head": "1st Armored",
+      "relation": "failed to",
+      "tail": "arrive intact"
+    },
+    {
+      "head": "1st Armored",
+      "relation": "failed to",
+      "tail": "deploy as single entity"
+    },
+    {
+      "head": "failure of 1st Armored",
+      "relation": "would have",
+      "tail": "important consequences"
+    },
+    {
+      "head": "failure of 1st Armored",
+      "relation": "would have important consequences in",
+      "tail": "later action"
+    },
+    {
+      "head": "failure of 1st Armored",
+      "relation": "would have important consequences in later action against",
+      "tail": "German forces"
+    },
+    {
+      "head": "failure of 1st Armored",
+      "relation": "would have important consequences in later action in",
+      "tail": "Tunisia"
+    }
+  ],
+  "benchie_224": [
+    {
+      "head": "first five laps",
+      "relation": "would be",
+      "tail": "added"
+    },
+    {
+      "head": "first five laps",
+      "relation": "would be added to",
+      "tail": "second part of race"
+    },
+    {
+      "head": "overall result",
+      "relation": "would be",
+      "tail": "decided"
+    },
+    {
+      "head": "overall result",
+      "relation": "would be decided on",
+      "tail": "aggregate"
+    }
+  ],
+  "benchie_225": [
+    {
+      "head": "following tour",
+      "relation": "featured",
+      "tail": "extensive dates"
+    },
+    {
+      "head": "following tour",
+      "relation": "featured extensive dates in",
+      "tail": "East Asia"
+    },
+    {
+      "head": "group",
+      "relation": "played in",
+      "tail": "Tokyo"
+    },
+    {
+      "head": "group",
+      "relation": "played in",
+      "tail": "Osaka"
+    },
+    {
+      "head": "group",
+      "relation": "played in",
+      "tail": "Fukuoka"
+    },
+    {
+      "head": "group",
+      "relation": "played in",
+      "tail": "East Asia"
+    },
+    {
+      "head": "group",
+      "relation": "played in",
+      "tail": "Southeast Asia"
+    },
+    {
+      "head": "group",
+      "relation": "played in",
+      "tail": "Jakarta"
+    },
+    {
+      "head": "group",
+      "relation": "played in",
+      "tail": "Manila"
+    },
+    {
+      "head": "group",
+      "relation": "played in",
+      "tail": "Singapore"
+    },
+    {
+      "head": "group",
+      "relation": "played in",
+      "tail": "Guam"
+    },
+    {
+      "head": "following tour",
+      "relation": "featured extensive dates in",
+      "tail": "Southeast Asia"
+    },
+    {
+      "head": "Tokyo",
+      "relation": "is in",
+      "tail": "East Asia"
+    },
+    {
+      "head": "Osaka",
+      "relation": "is in",
+      "tail": "East Asia"
+    },
+    {
+      "head": "Fukuoka",
+      "relation": "is in",
+      "tail": "East Asia"
+    },
+    {
+      "head": "Jakarta",
+      "relation": "is in",
+      "tail": "Southeast Asia"
+    },
+    {
+      "head": "Manila",
+      "relation": "is in",
+      "tail": "Southeast Asia"
+    },
+    {
+      "head": "Singapore",
+      "relation": "is in",
+      "tail": "Southeast Asia"
+    },
+    {
+      "head": "Guam",
+      "relation": "is in",
+      "tail": "Southeast Asia"
+    }
+  ],
+  "benchie_226": [
+    {
+      "head": "insurer",
+      "relation": "sponsored",
+      "tail": "New Orleans Open"
+    },
+    {
+      "head": "insurer",
+      "relation": "sponsored New Orleans Open beginning in",
+      "tail": "1981"
+    },
+    {
+      "head": "New Orleans Open",
+      "relation": "is",
+      "tail": "golf tournament"
+    },
+    {
+      "head": "New Orleans Open",
+      "relation": "is",
+      "tail": "tournament"
+    }
+  ]
+}

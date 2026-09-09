@@ -1,0 +1,727 @@
+{
+  "benchie_1": [
+    {
+      "head": "He",
+      "relation": "served as",
+      "tail": "Prime Minister"
+    },
+    {
+      "head": "He",
+      "relation": "served as",
+      "tail": "first Prime Minister of Australia"
+    },
+    {
+      "head": "Australia",
+      "relation": "had",
+      "tail": "Prime Minister"
+    },
+    {
+      "head": "He",
+      "relation": "became",
+      "tail": "founding justice"
+    },
+    {
+      "head": "He",
+      "relation": "became founding justice of",
+      "tail": "High Court of Australia"
+    },
+    {
+      "head": "Australia",
+      "relation": "had",
+      "tail": "High Court"
+    },
+    {
+      "head": "High Court of Australia",
+      "relation": "had",
+      "tail": "founding justice"
+    }
+  ],
+  "benchie_2": [
+    {
+      "head": "Graner",
+      "relation": "handcuffed",
+      "tail": "him"
+    },
+    {
+      "head": "Graner",
+      "relation": "handcuffed him to",
+      "tail": "bars"
+    },
+    {
+      "head": "Graner",
+      "relation": "handcuffed him to bars of",
+      "tail": "cell window"
+    },
+    {
+      "head": "Graner",
+      "relation": "left him",
+      "tail": "there"
+    },
+    {
+      "head": "Graner",
+      "relation": "left him",
+      "tail": "feet dangling off floor"
+    },
+    {
+      "head": "Graner",
+      "relation": "left him there for",
+      "tail": "nearly five hours"
+    },
+    {
+      "head": "his feet",
+      "relation": "were dangling off",
+      "tail": "floor"
+    },
+    {
+      "head": "he",
+      "relation": "was left there for",
+      "tail": "nearly five hours"
+    }
+  ],
+  "benchie_3": [
+    {
+      "head": "It",
+      "relation": "deals with",
+      "tail": "cases of fraud"
+    },
+    {
+      "head": "It",
+      "relation": "deals with cases of fraud in relation to",
+      "tail": "direct taxes"
+    },
+    {
+      "head": "It",
+      "relation": "deals with cases of fraud in relation to",
+      "tail": "indirect taxes"
+    },
+    {
+      "head": "It",
+      "relation": "deals with cases of fraud in relation to",
+      "tail": "taxes"
+    },
+    {
+      "head": "It",
+      "relation": "deals with cases of fraud in relation to",
+      "tail": "tax credits"
+    },
+    {
+      "head": "It",
+      "relation": "deals with cases of fraud in relation to",
+      "tail": "drug smuggling"
+    },
+    {
+      "head": "It",
+      "relation": "deals with cases of fraud in relation to",
+      "tail": "money laundering"
+    },
+    {
+      "head": "It",
+      "relation": "deals with cases involving",
+      "tail": "United Nations"
+    },
+    {
+      "head": "It",
+      "relation": "deals with cases involving",
+      "tail": "United Nations trade sanctions"
+    },
+    {
+      "head": "It",
+      "relation": "deals with cases involving",
+      "tail": "conflict diamonds"
+    },
+    {
+      "head": "It",
+      "relation": "deals with cases involving",
+      "tail": "CITES"
+    },
+    {
+      "head": "cases",
+      "relation": "are involving",
+      "tail": "United Nations trade sanctions"
+    },
+    {
+      "head": "cases",
+      "relation": "are involving",
+      "tail": "conflict diamonds"
+    },
+    {
+      "head": "cases",
+      "relation": "are involving",
+      "tail": "CITES"
+    }
+  ],
+  "benchie_4": [
+    {
+      "head": "St. Michael",
+      "relation": "was considered to be",
+      "tail": "patron saint of colonial Maryland"
+    },
+    {
+      "head": "St. Michael",
+      "relation": "was considered to be patron saint of colonial Maryland because of",
+      "tail": "this association"
+    },
+    {
+      "head": "St. Michael",
+      "relation": "was honored as",
+      "tail": "patron saint of colonial Maryland"
+    },
+    {
+      "head": "St. Michael",
+      "relation": "was honored by",
+      "tail": "the river being named for St. Michael"
+    },
+    {
+      "head": "the river",
+      "relation": "is named for",
+      "tail": "St. Michael"
+    },
+    {
+      "head": "colonial Maryland",
+      "relation": "has",
+      "tail": "patron saint"
+    },
+    {
+      "head": "St. Michael",
+      "relation": "was considered to be",
+      "tail": "patron saint"
+    },
+    {
+      "head": "the river",
+      "relation": "is named for St. Michael because",
+      "tail": "St. Michael was considered to be patron saint of colonial Maryland"
+    }
+  ],
+  "benchie_5": [
+    {
+      "head": "show",
+      "relation": "was designed to",
+      "tail": "appear as if viewer was channel surfing"
+    },
+    {
+      "head": "show",
+      "relation": "was designed to appear as if viewer was channel surfing through",
+      "tail": "multi-channel wasteland"
+    },
+    {
+      "head": "show",
+      "relation": "was designed to",
+      "tail": "appear as if viewer was happening upon spoof adverts"
+    },
+    {
+      "head": "show",
+      "relation": "was designed to",
+      "tail": "appear as if viewer was happening upon short sketches"
+    },
+    {
+      "head": "show",
+      "relation": "was designed to",
+      "tail": "appear as if viewer was happening upon recurring show elements"
+    }
+  ],
+  "benchie_6": [
+    {
+      "head": "remaining trackage",
+      "relation": "was in",
+      "tail": "Charles City"
+    },
+    {
+      "head": "remaining trackage at Charles City",
+      "relation": "was",
+      "tail": "abandoned"
+    },
+    {
+      "head": "remaining trackage at Charles City",
+      "relation": "was abandoned",
+      "tail": "Several years later"
+    }
+  ],
+  "benchie_7": [
+    {
+      "head": "Jagan",
+      "relation": "is",
+      "tail": "Doctor"
+    },
+    {
+      "head": "Dr. Jagan himself",
+      "relation": "was personally involved in",
+      "tail": "organization of strike"
+    },
+    {
+      "head": "Dr. Jagan himself",
+      "relation": "helped to raise",
+      "tail": "funds"
+    },
+    {
+      "head": "Dr. Jagan himself",
+      "relation": "helped to raise funds across",
+      "tail": "country"
+    },
+    {
+      "head": "Dr. Jagan himself",
+      "relation": "helped to raise funds for",
+      "tail": "strike"
+    },
+    {
+      "head": "funds",
+      "relation": "were raised across",
+      "tail": "country"
+    },
+    {
+      "head": "funds",
+      "relation": "were raised for",
+      "tail": "strike"
+    },
+    {
+      "head": "strike",
+      "relation": "was",
+      "tail": "organized"
+    }
+  ],
+  "benchie_8": [
+    {
+      "head": "municipality",
+      "relation": "was renamed",
+      "tail": "Jones"
+    },
+    {
+      "head": "municipality",
+      "relation": "was renamed Jones in honor of",
+      "tail": "William Jones"
+    },
+    {
+      "head": "municipality",
+      "relation": "was renamed Jones in",
+      "tail": "1918"
+    },
+    {
+      "head": "William Jones",
+      "relation": "is",
+      "tail": "American"
+    },
+    {
+      "head": "William Jones",
+      "relation": "is",
+      "tail": "congressman"
+    },
+    {
+      "head": "William Jones",
+      "relation": "authored",
+      "tail": "Philippine Autonomy Act of 1916"
+    },
+    {
+      "head": "Philippine Autonomy Act",
+      "relation": "was authored in",
+      "tail": "1916"
+    },
+    {
+      "head": "Philippine Autonomy Act of 1916",
+      "relation": "provided for",
+      "tail": "greater autonomy"
+    },
+    {
+      "head": "Philippine Autonomy Act of 1916",
+      "relation": "provided for greater autonomy for",
+      "tail": "Philippines"
+    },
+    {
+      "head": "Philippine Autonomy Act of 1916",
+      "relation": "provided for greater autonomy for Philippines under",
+      "tail": "American colonial rule"
+    },
+    {
+      "head": "Philippines",
+      "relation": "was under",
+      "tail": "American colonial rule"
+    },
+    {
+      "head": "Philippines",
+      "relation": "was under American colonial rule in",
+      "tail": "1916"
+    }
+  ],
+  "benchie_9": [
+    {
+      "head": "laser",
+      "relation": "cuts",
+      "tail": "portion of prostate"
+    },
+    {
+      "head": "laser",
+      "relation": "cuts portion of prostate instead of",
+      "tail": "ablating tissue"
+    },
+    {
+      "head": "portion of prostate",
+      "relation": "is then",
+      "tail": "cut"
+    },
+    {
+      "head": "portion of prostate",
+      "relation": "is then cut into",
+      "tail": "smaller pieces"
+    },
+    {
+      "head": "portion of prostate",
+      "relation": "is then",
+      "tail": "flushed"
+    },
+    {
+      "head": "portion of prostate",
+      "relation": "is then flushed with",
+      "tail": "irrigation fluid"
+    }
+  ],
+  "benchie_10": [
+    {
+      "head": "Kormoran",
+      "relation": "was",
+      "tail": "Axis ship"
+    },
+    {
+      "head": "Kormoran",
+      "relation": "was",
+      "tail": "ship"
+    },
+    {
+      "head": "Kormoran",
+      "relation": "conducted",
+      "tail": "attacks"
+    },
+    {
+      "head": "Kormoran",
+      "relation": "conducted attacks in",
+      "tail": "Australian waters"
+    },
+    {
+      "head": "Kormoran",
+      "relation": "conducted attacks in Australian waters during",
+      "tail": "1941"
+    },
+    {
+      "head": "Kormoran",
+      "relation": "was",
+      "tail": "surface raider"
+    },
+    {
+      "head": "Kormoran",
+      "relation": "entered",
+      "tail": "Australian waters"
+    },
+    {
+      "head": "Kormoran",
+      "relation": "entered Australian waters in",
+      "tail": "1941"
+    },
+    {
+      "head": "Kormoran",
+      "relation": "was only Axis ship to",
+      "tail": "conduct attacks in Australian waters during 1941"
+    },
+    {
+      "head": "Kormoran",
+      "relation": "was last Axis surface raider to",
+      "tail": "enter Australian waters until 1943"
+    },
+    {
+      "head": "Australia",
+      "relation": "has",
+      "tail": "waters"
+    },
+    {
+      "head": "attacks",
+      "relation": "were",
+      "tail": "conducted"
+    },
+    {
+      "head": "attacks",
+      "relation": "conducted in",
+      "tail": "Australian waters"
+    },
+    {
+      "head": "attacks",
+      "relation": "were conducted during",
+      "tail": "1941"
+    }
+  ],
+  "benchie_11": [
+    {
+      "head": "He",
+      "relation": "was said to have made",
+      "tail": "bombs"
+    },
+    {
+      "head": "his friends",
+      "relation": "were said to have made",
+      "tail": "bombs"
+    },
+    {
+      "head": "He",
+      "relation": "was said to have made bombs for",
+      "tail": "fun"
+    },
+    {
+      "head": "his friends",
+      "relation": "were said to have made bombs for",
+      "tail": "fun"
+    },
+    {
+      "head": "He",
+      "relation": "was said to have made bombs on",
+      "tail": "outskirts of Murray"
+    },
+    {
+      "head": "his friends",
+      "relation": "were said to have made bombs on",
+      "tail": "outskirts of Murray"
+    },
+    {
+      "head": "He",
+      "relation": "was said to have made bombs in",
+      "tail": "Utah"
+    },
+    {
+      "head": "his friends",
+      "relation": "were said to have made bombs in",
+      "tail": "Utah"
+    },
+    {
+      "head": "He",
+      "relation": "has",
+      "tail": "friends"
+    },
+    {
+      "head": "Murray",
+      "relation": "has",
+      "tail": "outskirts"
+    },
+    {
+      "head": "Murray",
+      "relation": "is in",
+      "tail": "Utah"
+    }
+  ],
+  "benchie_12": [
+    {
+      "head": "large gravestone",
+      "relation": "was",
+      "tail": "erected"
+    },
+    {
+      "head": "large gravestone",
+      "relation": "was erected in",
+      "tail": "1866"
+    },
+    {
+      "head": "large gravestone",
+      "relation": "was erected",
+      "tail": "over 100 years after his death"
+    },
+    {
+      "head": "his death",
+      "relation": "was over 100 years after",
+      "tail": "1866"
+    },
+    {
+      "head": "he",
+      "relation": "is",
+      "tail": "dead"
+    }
+  ],
+  "benchie_13": [
+    {
+      "head": "he",
+      "relation": "was",
+      "tail": "re-elected"
+    },
+    {
+      "head": "he",
+      "relation": "was re-elected as U.S. Senator in",
+      "tail": "1879"
+    },
+    {
+      "head": "he",
+      "relation": "was re-elected as",
+      "tail": "U.S. Senator"
+    },
+    {
+      "head": "he",
+      "relation": "was",
+      "tail": "U.S. Senator"
+    },
+    {
+      "head": "he",
+      "relation": "was U.S. Senator in",
+      "tail": "1879"
+    },
+    {
+      "head": "he",
+      "relation": "was tipped as",
+      "tail": "Presidential candidate"
+    },
+    {
+      "head": "he",
+      "relation": "was tipped as Presidential candidate in",
+      "tail": "1879"
+    },
+    {
+      "head": "he",
+      "relation": "died",
+      "tail": "suddenly"
+    },
+    {
+      "head": "he",
+      "relation": "died in",
+      "tail": "1879"
+    },
+    {
+      "head": "he",
+      "relation": "died after",
+      "tail": "giving speech"
+    },
+    {
+      "head": "he",
+      "relation": "gave speech in",
+      "tail": "Chicago"
+    }
+  ],
+  "benchie_14": [
+    {
+      "head": "This",
+      "relation": "led Ryan Cameron to",
+      "tail": "lobby"
+    },
+    {
+      "head": "This",
+      "relation": "led Ryan Cameron to lobby for",
+      "tail": "frequency change"
+    },
+    {
+      "head": "This",
+      "relation": "led Ryan Cameron to lobby for frequency change for",
+      "tail": "WHTA"
+    },
+    {
+      "head": "This",
+      "relation": "led Ryan Cameron to lobby by",
+      "tail": "putting together petition"
+    },
+    {
+      "head": "This",
+      "relation": "led Ryan Cameron to lobby by putting together petition from",
+      "tail": "listeners"
+    },
+    {
+      "head": "This",
+      "relation": "led Ryan Cameron to lobby at risk of",
+      "tail": "losing his job"
+    },
+    {
+      "head": "This",
+      "relation": "led Ryan Cameron to lobby at the risk of losing his job under",
+      "tail": "Radio One's management"
+    },
+    {
+      "head": "Ryan Cameron",
+      "relation": "is",
+      "tail": "morning show host"
+    },
+    {
+      "head": "Ryan Cameron",
+      "relation": "lobbied for",
+      "tail": "frequency change"
+    },
+    {
+      "head": "Ryan Cameron",
+      "relation": "lobbied for frequency change for",
+      "tail": "WHTA"
+    },
+    {
+      "head": "Ryan Cameron",
+      "relation": "lobbied by",
+      "tail": "putting together petition"
+    },
+    {
+      "head": "Ryan Cameron",
+      "relation": "lobbied by putting together petition from",
+      "tail": "listeners"
+    },
+    {
+      "head": "Ryan Cameron",
+      "relation": "lobbied at risk of",
+      "tail": "losing his job"
+    },
+    {
+      "head": "Ryan Cameron",
+      "relation": "lobbied at risk of losing his job under",
+      "tail": "Radio One's management"
+    },
+    {
+      "head": "Ryan Cameron",
+      "relation": "has had",
+      "tail": "job"
+    },
+    {
+      "head": "Ryan Cameron",
+      "relation": "has had job under",
+      "tail": "Radio One's management"
+    },
+    {
+      "head": "WHTA",
+      "relation": "was under",
+      "tail": "Radio One's management"
+    },
+    {
+      "head": "WHTA",
+      "relation": "has had",
+      "tail": "listeners"
+    },
+    {
+      "head": "WHTA",
+      "relation": "has had",
+      "tail": "frequency"
+    },
+    {
+      "head": "Radio One",
+      "relation": "has",
+      "tail": "management"
+    },
+    {
+      "head": "Ryan Cameron",
+      "relation": "is",
+      "tail": "show host"
+    }
+  ],
+  "benchie_15": [
+    {
+      "head": "Each of the programs",
+      "relation": "uses",
+      "tail": "funding priorities"
+    },
+    {
+      "head": "Each of the programs",
+      "relation": "uses",
+      "tail": "geographic requirements"
+    },
+    {
+      "head": "Each of the programs",
+      "relation": "uses funding priorities to select",
+      "tail": "grants"
+    },
+    {
+      "head": "Each of the programs",
+      "relation": "uses geographic requirements to select",
+      "tail": "grants"
+    },
+    {
+      "head": "grants",
+      "relation": "are described on",
+      "tail": "foundation's web site"
+    },
+    {
+      "head": "foundation",
+      "relation": "has",
+      "tail": "web site"
+    }
+  ]
+}
