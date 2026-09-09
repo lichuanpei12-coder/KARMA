@@ -6,6 +6,7 @@ to process documents and extract knowledge.
 """
 
 import logging
+import copy
 import os
 import time
 import httpx
@@ -22,7 +23,8 @@ from .data_structures import (
 
 from ..agents import (
     IngestionAgent, ReaderAgent, SummarizerAgent,
-    EntityExtractionAgent, RelationshipExtractionAgent,SchemaAlignmentAgent, 
+    EntityExtractionAgent, RelationshipExtractionAgent,
+    # SchemaAlignmentAgent,
     ConflictResolutionAgent, TextGenerationAgent, EvaluatorAgent, TextComparisonAgent
 )
 
@@ -119,7 +121,9 @@ class KARMAPipeline:
         # self.entity_counter_agent = EntityCounterAgent(self.client, self.model_name)
         self.entity_extraction_agent = EntityExtractionAgent(self.client, self.model_name)
         self.relationship_extraction_agent = RelationshipExtractionAgent(self.client, self.model_name)
-        self.schema_alignment_agent = SchemaAlignmentAgent(self.client, self.model_name)
+        # Disabled for the current open-relation DocOIE evaluation. Keep the
+        # original initialization here so the schema stage can be restored later.
+        # self.schema_alignment_agent = SchemaAlignmentAgent(self.client, self.model_name)
         self.conflict_resolution_agent = ConflictResolutionAgent(self.client, self.model_name)
         self.text_generation_agent = TextGenerationAgent(self.client, self.model_name)
         self.text_comparison_agent = TextComparisonAgent(self.client, self.model_name)
@@ -133,7 +137,7 @@ class KARMAPipeline:
             self.summarizer_agent,
             self.entity_extraction_agent,
             self.relationship_extraction_agent,
-            self.schema_alignment_agent,
+            # self.schema_alignment_agent,
             self.conflict_resolution_agent,
             self.text_generation_agent,
             self.text_comparison_agent,
@@ -162,7 +166,6 @@ class KARMAPipeline:
         intermediate = IntermediateOutput()
 
         try:
-            diff = {}
             triple = []
             # Step 1: Load and ingest document
             raw_text = self._load_document(source)
@@ -173,6 +176,9 @@ class KARMAPipeline:
             # file, or raw text is processed as one document.
             documents = raw_text if isinstance(raw_text, list) else [raw_text]
             for i, document_text in enumerate(documents):
+                # Feedback belongs to one document only: round 1 starts clean,
+                # and round 2 consumes the comparison produced by round 1.
+                diff = {}
                 print('--------------------------------------------------------------------------')
                 print("carrying out knowledge extraction for the article "+str(i))
                 # Step 2: Ingestion - Extract metadata and normalize text
@@ -254,6 +260,7 @@ class KARMAPipeline:
                     texts = [normalized_content]
                 print(summaries)
                 intermediate.summaries = summaries
+                extraction_text = "\n".join(summaries)
 
                 step_time = time.time() - step_start
                 intermediate.metrics.add_agent_time("summarizer", step_time)
@@ -269,13 +276,31 @@ class KARMAPipeline:
                     # step_time = time.time() - step_start
                     # intermediate.metrics.add_agent_time("entity_extraction", step_time)
                     # self._log(f"[3.5/8] Entity extraction completed in {step_time:.2f}s. Entities: {len(entities)}")
+                # Round 1 creates the baseline. Round 2 revises that baseline
+                # with explicit add/remove/replace operations grounded in source.
+                initial_entities: List[KGEntity] = []
+                baseline_triples: List[KnowledgeTriple] = []
                 for t in range(2):
                     # Step 5: Entity Extraction - Identify entities
                     self._log("[4/8] Running Entity Extraction Agent...")
                     step_start = time.time()
 
-                    entities = self.entity_extraction_agent.process(summaries, diff)
-                    intermediate.entities = entities
+                    if t == 0:
+                        entities = self.entity_extraction_agent.process(summaries, diff)
+                        initial_entities = copy.deepcopy(entities)
+                        intermediate.initial_entities = copy.deepcopy(entities)
+                    else:
+                        entities = self.entity_extraction_agent.revise_entities(
+                            extraction_text, initial_entities, baseline_triples, diff
+                        )
+                        intermediate.revised_entities = copy.deepcopy(entities)
+
+                    entity_audit = (
+                        self.entity_extraction_agent.last_extraction if t == 0
+                        else self.entity_extraction_agent.last_revision
+                    )
+                    with open(self.evaluator_agent._dump_dir / f"_dump_doc{i}_r{t}_entity_audit.json", "w", encoding="utf-8") as _f:
+                        json.dump(entity_audit, _f, ensure_ascii=False, indent=2)
 
                     # dump 中间结果：实体列表
                     _dump_path = self.evaluator_agent._dump_dir / f"_dump_doc{i}_r{t}_entities.json"
@@ -291,7 +316,17 @@ class KARMAPipeline:
                     self._log("[5/8] Running Relationship Extraction Agent...")
                     step_start = time.time()
 
-                    relationships = self.relationship_extraction_agent.process(summaries, entities, diff)
+                    if t == 0:
+                        relationships = self.relationship_extraction_agent.process(
+                            summaries, entities, diff
+                        )
+                        intermediate.initial_relationships = copy.deepcopy(relationships)
+                        with open(self.evaluator_agent._dump_dir / f"_dump_doc{i}_r{t}_relationship_audit.json", "w", encoding="utf-8") as _f:
+                            json.dump(self.relationship_extraction_agent.last_extraction, _f, ensure_ascii=False, indent=2)
+                    else:
+                        relationships = self.relationship_extraction_agent.revise_relationships(
+                            extraction_text, baseline_triples, diff, entities=entities
+                        )
                     intermediate.relationships = relationships
 
                     # dump 中间结果：关系列表
@@ -301,23 +336,42 @@ class KARMAPipeline:
                                   for r in relationships],
                                   _f, ensure_ascii=False, indent=2)
 
+                    if t == 1:
+                        _revision_path = (
+                            self.evaluator_agent._dump_dir /
+                            f"_dump_doc{i}_r{t}_revision.json"
+                        )
+                        with open(_revision_path, "w", encoding="utf-8") as _f:
+                            json.dump(
+                                getattr(
+                                    self.relationship_extraction_agent,
+                                    "last_revision",
+                                    {"mode": "revision_audit_unavailable"},
+                                ),
+                                _f,
+                                ensure_ascii=False,
+                                indent=2,
+                            )
+
                     step_time = time.time() - step_start
                     intermediate.metrics.add_agent_time("relationship_extraction", step_time)
                     self._log(f"[5/8] Relationship extraction completed in {step_time:.2f}s. Relationships: {len(relationships)}")
 
                     # Step 7: Schema Alignment - Align to standard schema
-                    self._log("[6/8] Running Schema Alignment Agent...")
-                    step_start = time.time()
-
-                    aligned_entities, aligned_relationships = self.schema_alignment_agent.process(
-                        entities, relationships
-                    )
-                    intermediate.aligned_entities = aligned_entities
-                    intermediate.aligned_triples = aligned_relationships
-
-                    step_time = time.time() - step_start
-                    intermediate.metrics.add_agent_time("schema_alignment", step_time)
-                    self._log(f"[6/8] Schema alignment completed in {step_time:.2f}s")
+                    # Disabled for the current open-relation DocOIE evaluation.
+                    # The original call is preserved below. It intentionally passes
+                    # the original objects, so the rule-based agent normalizes them
+                    # in place before conflict resolution.
+                    # self._log("[6/8] Running Schema Alignment Agent...")
+                    # step_start = time.time()
+                    # aligned_entities, aligned_relationships = self.schema_alignment_agent.process(
+                    #     entities, relationships
+                    # )
+                    # intermediate.aligned_entities = aligned_entities
+                    # intermediate.aligned_triples = aligned_relationships
+                    # step_time = time.time() - step_start
+                    # intermediate.metrics.add_agent_time("schema_alignment", step_time)
+                    # self._log(f"[6/8] Schema alignment completed in {step_time:.2f}s")
 
                     # Step 8: Conflict Resolution - Handle contradictions
                     self._log("[7/8] Running Conflict Resolution Agent...")
@@ -331,18 +385,6 @@ class KARMAPipeline:
                     step_time = time.time() - step_start
                     intermediate.metrics.add_agent_time("conflict_resolution", step_time)
                     self._log(f"[7/8] Conflict resolution completed in {step_time:.2f}s. Non-conflicting: {len(resolved_relationships)}")
-
-                    self._log("[7.5/8] Running Text Generation Agent...")
-                    step_start = time.time()
-
-                    text_generation = self.text_generation_agent.process(
-                        resolved_relationships
-                    )
-                    print(text_generation)
-
-                    step_time = time.time() - step_start
-                    # intermediate.metrics.add_agent_time("conflict_resolution", step_time)
-                    self._log(f"[7.5/8] Text generation completed in {step_time:.2f}s.")
 
                     # Step 9: Evaluation - Final quality assessment
                     self._log("[8/8] Running Evaluator Agent...")
@@ -359,20 +401,45 @@ class KARMAPipeline:
                     intermediate.metrics.add_agent_time("evaluator", step_time)
                     self._log(f"[8/8] Evaluation completed in {step_time:.2f}s. Integrated: {len(integrated_triples)}")
 
-                    self._log("[9/8] Running Comparison Agent...")
-                    step_start = time.time()
+                    if t == 0:
+                        baseline_triples = copy.deepcopy(integrated_triples)
+                        intermediate.baseline_triples = copy.deepcopy(baseline_triples)
 
-                    diff = self.text_comparison_agent.process("".join(summaries), text_generation)
-                    print(diff) if t == 0 else None
+                        self._log("[7.5/8] Running Text Generation Agent...")
+                        step_start = time.time()
+                        text_generation = self.text_generation_agent.process(
+                            baseline_triples
+                        )
+                        print(text_generation)
+                        step_time = time.time() - step_start
+                        intermediate.metrics.add_agent_time("text_generation", step_time)
+                        self._log(
+                            f"[7.5/8] Text generation completed in {step_time:.2f}s."
+                        )
 
-                    step_time = time.time() - step_start
-                    intermediate.metrics.add_agent_time("diff", step_time)
-                    self._log(f"[9/8] Comparison completed in {step_time:.2f}s. Integrated: {len(integrated_triples)}")
+                        self._log("[9/8] Running Comparison Agent...")
+                        step_start = time.time()
+                        diff = self.text_comparison_agent.process(
+                            extraction_text, text_generation
+                        )
+                        with open(self.evaluator_agent._dump_dir / f"_dump_doc{i}_feedback.json", "w", encoding="utf-8") as _f:
+                            json.dump({"text_a": extraction_text, "text_b": text_generation, "diff": diff}, _f, ensure_ascii=False, indent=2)
+                        print(diff)
+                        step_time = time.time() - step_start
+                        intermediate.metrics.add_agent_time("diff", step_time)
+                        self._log(
+                            f"[9/8] Comparison completed in {step_time:.2f}s. "
+                            f"Integrated: {len(integrated_triples)}"
+                        )
                 
                 
                 
                 # Step 10: Update Knowledge Graph
-                self._update_knowledge_graph(entities, integrated_triples)
+                final_entities = self._entities_from_triples(integrated_triples, entities)
+                intermediate.entities = final_entities
+                self._update_knowledge_graph(final_entities, integrated_triples)
+                with open(self.evaluator_agent._dump_dir / f"_dump_doc{i}_final_entities.json", "w", encoding="utf-8") as _f:
+                    json.dump([e.to_dict() for e in final_entities], _f, ensure_ascii=False, indent=2)
 
                 # Finalize metrics
                 total_time = time.time() - start_time
@@ -386,6 +453,17 @@ class KARMAPipeline:
             intermediate.metrics.error_count += 1
             logger.error(f"Pipeline failed: {str(e)}")
             raise
+
+    @staticmethod
+    def _entities_from_triples(triples: List[KnowledgeTriple], candidates: List[KGEntity]) -> List[KGEntity]:
+        """Create graph nodes from final arguments; reuse metadata only for exact mentions."""
+        known = {e.name: e for e in candidates}
+        final = {}
+        for triple in triples:
+            for name in (triple.head, triple.tail):
+                if name not in final:
+                    final[name] = copy.deepcopy(known[name]) if name in known else KGEntity(entity_id=name, name=name)
+        return list(final.values())
 
 
     def _load_document(self, source: Union[str, Path]) -> str:
@@ -493,7 +571,7 @@ class KARMAPipeline:
             ('summarizer', self.summarizer_agent),
             ('entity_extraction', self.entity_extraction_agent),
             ('relationship_extraction', self.relationship_extraction_agent),
-            ('schema_alignment', self.schema_alignment_agent),
+            # ('schema_alignment', self.schema_alignment_agent),
             ('conflict_resolution', self.conflict_resolution_agent),
             ('evaluator', self.evaluator_agent)
         ]

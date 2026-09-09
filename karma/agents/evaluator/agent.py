@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import List, Tuple
 from karma.core.base_agent import BaseAgent
 from karma.core.data_structures import KnowledgeTriple
+from karma.agents.extraction_support import safe_score
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(
@@ -103,12 +104,22 @@ class EvaluatorAgent(BaseAgent):
         # 每次调用都写一个文件（空也写 []），保证文件序号 = 调用顺序，
         # 这样 evaluate.py 能按 2i/2i+1 对齐 gold（每篇第 2 轮 = 最终结果）。
         dump_path = self._dump_dir / f"{self._dump_counter:03d}_{datetime.now().strftime('%H%M%S')}.json"
-        with open(dump_path, "w", encoding="utf-8") as f:
+        # Non-numeric prefix keeps the candidate audit outside evaluate.py's
+        # two-files-per-document sequence.
+        audit_path = self._dump_dir / f"_evaluation_{self._dump_counter:03d}_candidates.json"
+        with open(audit_path, "w", encoding="utf-8") as f:
             json.dump([
                 {"head": t.head, "relation": t.relation, "tail": t.tail,
                  "confidence": t.confidence, "clarity": t.clarity,
                  "relevance": t.relevance, "score": s}
                 for t, s in zip(triples, scores)
+            ], f, ensure_ascii=False, indent=2)
+        with open(dump_path, "w", encoding="utf-8") as f:
+            json.dump([
+                {"head": t.head, "relation": t.relation, "tail": t.tail,
+                 "confidence": t.confidence, "clarity": t.clarity,
+                 "relevance": t.relevance, "score": self._aggregate_scores(t)}
+                for t in integrated
             ], f, ensure_ascii=False, indent=2)
         self._dump_counter += 1
         return integrated
@@ -119,12 +130,9 @@ class EvaluatorAgent(BaseAgent):
 
         for triple in candidate_triples:
             # Ensure all metrics are set
-            if triple.confidence <= 0:
-                triple.confidence = 0.5
-            if triple.clarity <= 0:
-                triple.clarity = 0.5
-            if triple.relevance <= 0:
-                triple.relevance = 0.5
+            triple.confidence = safe_score(triple.confidence)
+            triple.clarity = safe_score(triple.clarity)
+            triple.relevance = safe_score(triple.relevance)
 
             # Calculate integration score
             integration_score = self._aggregate_scores(triple)

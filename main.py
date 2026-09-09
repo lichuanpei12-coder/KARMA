@@ -68,8 +68,8 @@ def save_relationships_to_csv(result, csv_path, integration_threshold):
 
         # Add relationships from each stage
         stages = [
-            ('relationships', 'initial_extraction'),
-            ('aligned_triples', 'after_alignment'),
+            ('relationships', 'after_revision'),
+            # ('aligned_triples', 'after_alignment'),
             ('final_triples', 'after_conflict_resolution'),
             ('integrated_triples', 'integrated_final')
         ]
@@ -84,7 +84,7 @@ def save_relationships_to_csv(result, csv_path, integration_threshold):
         # Remove duplicates while preserving the latest stage
         unique_relationships = {}
         stage_priority = {
-            'initial_extraction': 1,
+            'after_revision': 1,
             'after_alignment': 2,
             'after_conflict_resolution': 3,
             'integrated_final': 4
@@ -106,6 +106,8 @@ def save_relationships_to_csv(result, csv_path, integration_threshold):
                 notes = "Passed conflict resolution but failed final evaluation"
             elif stage == 'after_alignment':
                 notes = "Passed schema alignment but failed conflict resolution or evaluation"
+            elif stage == 'after_revision':
+                notes = "Revision candidate not retained by downstream stages"
             else:
                 notes = "Failed early in pipeline"
 
@@ -161,7 +163,7 @@ Examples:
                        help='OpenAI API key (default: from KARMA_API_KEY env var / .env)')
     parser.add_argument('--model', default=active_api['model'], help='Model to use')
     parser.add_argument('--relevance-threshold', type=float, default=0.2, help='Relevance threshold (default: 0.2)')
-    parser.add_argument('--integration-threshold', type=float, default=0, help='Integration threshold (default: 0.5)')
+    parser.add_argument('--integration-threshold', type=float, default=0, help='Integration threshold (default: 0)')
     parser.add_argument('--output-dir', default='result.json', help='Output directory (default: karma_output)')
     parser.add_argument('--domain', default='biomedical', help='Domain context (default: biomedical)')
     parser.add_argument('--verbose', '-v', action='store_true', help='Verbose output')
@@ -220,11 +222,14 @@ Examples:
 
         # Display results summary
         print("📊 PROCESSING RESULTS:")
+        if isinstance(result.raw_text, list):
+            print("   Stage counts below describe the last document; the knowledge graph includes all documents.")
         print(f"   📝 Text segments: {len(result.segments)}")
         print(f"   ✨ Relevant segments: {len(result.relevant_segments)}")
         print(f"   📄 Summaries: {len(result.summaries)}")
-        print(f"   🏷️  Entities extracted: {len(result.entities)}")
-        print(f"   🔗 Initial relationships: {len(result.relationships) if result.relationships else 0}")
+        print(f"   🏷️  Candidate entities (round 1 / reviewed): {len(result.initial_entities)} / {len(result.revised_entities)}")
+        print(f"   🏷️  Final graph entities: {len(result.entities)}")
+        print(f"   🔗 Initial relationships: {len(result.initial_relationships)}")
         print(f"   ✅ Final integrated triples: {len(result.integrated_triples)}")
         print(f"   ⏱️  Total processing time: {result.metrics.processing_time:.2f} seconds")
 

@@ -343,16 +343,41 @@ def write_match_csv(rows, output_path):
 
 # ---------- 数据加载 ----------
 
-def load_gold(gold_dir):
-    """读 data/DocIOE/0.json..N.json，返回 [triples, ...]。"""
+def load_gold(gold_source):
+    """加载 Gold，返回 ``[triples, ...]``（每个样本一个三元组列表）。
+
+    支持两种格式：
+    1. DocIOE 旧格式目录：``0.json..N.json``，每个文件是一篇文档的三元组列表；
+    2. BenchIE 分片文件：一个 JSON 对象，键为 ``benchie_<id>``，值为该句 Gold 列表。
+    """
+    gold_source = Path(gold_source)
+
+    def load_file(path):
+        with open(path, encoding="utf-8") as fp:
+            data = json.load(fp)
+        if isinstance(data, list):
+            return [data]
+        if isinstance(data, dict):
+            docs = []
+            for sample_id, triples in data.items():
+                if not isinstance(triples, list):
+                    raise ValueError(
+                        f"Gold 样本 {sample_id!r} 应为三元组列表: {path}"
+                    )
+                docs.append(triples)
+            return docs
+        raise ValueError(f"不支持的 Gold JSON 根类型: {path}")
+
+    if gold_source.is_file():
+        return load_file(gold_source)
+
     docs = []
     files = sorted(
-        [f for f in os.listdir(gold_dir) if f.endswith(".json")],
-        key=lambda f: int(f.split(".")[0]),
+        [f for f in os.listdir(gold_source) if f.endswith(".json")],
+        key=lambda f: int(Path(f).stem),
     )
-    for f in files:
-        with open(gold_dir / f, encoding="utf-8") as fp:
-            docs.append(json.load(fp))
+    for filename in files:
+        docs.extend(load_file(gold_source / filename))
     return docs
 
 
@@ -434,15 +459,15 @@ def main():
     else:
         result_dir = latest_result_dir()
     if not result_dir or not result_dir.exists():
-        print("用法: python evaluate.py [data/result/<时间戳文件夹>] [gold目录]")
-        print("  不指定抽取目录则自动选最新；不指定 gold 目录则自动检测领域")
+        print("用法: python evaluate.py [data/result/<时间戳文件夹>] [gold目录或分片文件]")
+        print("  不指定抽取目录则自动选最新；不指定 gold 来源则自动检测领域")
         print("未指定抽取目录且 data/result 下无时间戳文件夹，请先跑 pipeline 生成抽取结果。")
         return 1
 
     # 先加载抽取结果（gold 自动检测需要用到）
     extracted, extracted_files = load_extracted(result_dir)
 
-    # gold 目录：第 2 个参数指定，否则自动检测领域
+    # gold 来源（目录或 BenchIE 分片文件）：第 2 个参数指定，否则自动检测领域
     if len(sys.argv) > 2 and sys.argv[2].strip():
         gold_dir = Path(sys.argv[2])
         print(f"[gold] 手动指定: {gold_dir}")
@@ -450,7 +475,7 @@ def main():
         print("[gold] 未指定，自动检测领域...")
         gold_dir = detect_gold_dir(extracted)
 
-    print(f"gold 目录: {gold_dir}")
+    print(f"gold 来源: {gold_dir}")
     print(f"抽取目录: {result_dir}")
 
     gold_docs = load_gold(gold_dir)
