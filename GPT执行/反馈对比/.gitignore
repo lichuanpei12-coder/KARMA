@@ -1,0 +1,7 @@
+# Local experiment outputs and verification artifacts; keep code only on GitHub.
+/runs/
+/tmp*/
+/original_code_hashes.json
+/offline_test_results.txt
+__pycache__/
+*.pyc

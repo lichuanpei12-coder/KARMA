@@ -19,7 +19,7 @@ logging.basicConfig(
 class EvaluatorAgent(BaseAgent):
     """Evaluator Agent (EA) for final quality assessment and integration decisions."""
 
-    def __init__(self, client, model_name: str, integrate_threshold: float = 0):
+    def __init__(self, client, model_name: str, integrate_threshold: float = 0, dump_dir=None):
         system_prompt = """你是一个三元组抽取质量的评估代理。你的任务是评估提取的知识三元组的质量，并基于综合质量指标做出最终集成决策。
 
 目标：使用多维度质量评估来评估知识三元组，并根据既定阈值确定集成资格。
@@ -77,7 +77,8 @@ class EvaluatorAgent(BaseAgent):
         self.integrate_threshold = integrate_threshold
 
         # 每次运行一个时间戳文件夹，存放抽取出的三元组 json
-        self._dump_dir = Path("data/result") / datetime.now().strftime("%Y%m%d_%H%M%S")
+        self._dump_dir = (Path(dump_dir) if dump_dir is not None else
+                          Path("data/result") / datetime.now().strftime("%Y%m%d_%H%M%S"))
         self._dump_dir.mkdir(parents=True, exist_ok=True)
         self._dump_counter = 0
 
