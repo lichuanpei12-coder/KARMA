@@ -190,6 +190,13 @@ class ComparisonTests(unittest.TestCase):
         self.assertEqual(result['status'], 'completed')
         self.assertEqual(result['call_count'], 16)
         self.assertEqual(result['results'][1]['branch_order'], ['incremental', 'reextract'])
+        # A partial rejection must not remove this document's final output from
+        # the primary comparison, but must exclude it from the clean subset.
+        result['results'][1]['paired_usable'] = False
+        result['results'][1]['branches']['incremental']['status'] = 'needs_review'
+        result['results'][1]['branches']['incremental']['relationship_status'] = 'partial_rejected'
+        save(out / 'manifest.json', result)
+        manifest_before_evaluation = sha(out / 'manifest.json')
         # Exercise the real frozen scoring/matrix functions; only embeddings are mocked.
         import importlib.util
         import numpy as np
@@ -212,6 +219,11 @@ class ComparisonTests(unittest.TestCase):
             evaluate_run(out)
         report = read(next((out / 'evaluation').rglob('comparison.json')))
         self.assertEqual(report['included_doc_ids'], [0, 8])
+        self.assertEqual(report['clean_pairs']['included_doc_ids'], [0])
+        self.assertEqual(report['clean_pairs']['excluded_doc_ids'], [8])
+        self.assertEqual(report['results']['incremental']['totals']['num_gold'], 65)
+        self.assertEqual(report['clean_pairs']['results']['incremental']['totals']['num_gold'], 35)
+        self.assertEqual(sha(out / 'manifest.json'), manifest_before_evaluation)
         self.assertEqual([d['doc'] for d in report['results']['incremental']['per_doc']], [0, 8])
         self.assertEqual(len(list((out / 'evaluation').rglob('*_matrix.npz'))), 6)
 

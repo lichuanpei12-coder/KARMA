@@ -311,9 +311,13 @@ def evaluate_run(output):
     spec = importlib.util.spec_from_file_location('frozen_evaluate', script)
     evaluator = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(evaluator)
-    usable = [r for r in manifest['results'] if r.get('paired_usable')]
+    # Partial rejection is an observed outcome of a strategy, not a reason to
+    # remove the whole document from the primary comparison. Keep strict pairs
+    # as a separate diagnostic subset without rewriting the extraction manifest.
+    usable = [r for r in manifest['results'] if r.get('baseline')
+              and all(r.get('branches', {}).get(method, {}).get('T2') for method in METHODS)]
     if not usable:
-        raise ValueError('No complete, successful paired documents; inspect stage_statuses.json')
+        raise ValueError('No documents with a saved baseline and both final outputs; inspect manifest.json')
     gold_index = {d['doc_id']: d for d in manifest['documents']}
     gold_docs, predictions = [], {name: [] for name in ('T1', *METHODS)}
     for result in usable:
@@ -330,9 +334,14 @@ def evaluate_run(output):
                 raise ValueError(f'{method} prediction file changed since extraction')
             predictions[method].append(read(output / result['branches'][method]['T2']))
     evaluator.precompute_embeddings(gold_docs, [p for docs in predictions.values() for p in docs])
-    report = {'scope': 'Same successful paired documents only; operational failures listed separately',
+    report = {'scope': 'All documents with saved T1 and both final outputs, including partial rejection/fallback',
               'included_doc_ids': [r['doc_id'] for r in usable],
               'excluded_doc_ids': [d['doc_id'] for d in manifest['documents'] if d['doc_id'] not in {r['doc_id'] for r in usable}],
+              'exclusion_reason': 'No saved baseline or missing a final branch output; never count missing files as empty predictions',
+              'operational_statuses': [{'doc_id': r['doc_id'],
+                  'baseline_usable': r.get('baseline_usable'), 'paired_usable': r.get('paired_usable'),
+                  'branches': r.get('branches', {}), 'error': r.get('error')}
+                  for r in manifest['results']],
               'thresholds': {'whole': evaluator.WHOLE_THRESHOLD, 'entity': evaluator.ENTITY_THRESHOLD},
               'embedding_model': evaluator.EMBED_MODEL,
               'macro_definition': 'Original evaluator: harmonic mean of mean document P and mean document R',
@@ -356,8 +365,25 @@ def evaluate_run(output):
                     {'gold_index': int(g), 'pred_index': int(p), 'whole': float(whole[g, p]),
                      'entity': float(entity[g, p])} for g, p in zip(*np.where(mask))]})
         report['results'][name] = score
+    strict_indices = [i for i, result in enumerate(usable) if result.get('paired_usable')]
+    report['clean_pairs'] = {
+        'scope': 'Diagnostic subset only: baseline and both branches marked paired_usable by the original run',
+        'included_doc_ids': [usable[i]['doc_id'] for i in strict_indices],
+        'excluded_doc_ids': [d['doc_id'] for d in manifest['documents']
+                             if d['doc_id'] not in {usable[i]['doc_id'] for i in strict_indices}],
+        'results': {}}
+    if strict_indices:
+        for name, docs in predictions.items():
+            score = evaluator.evaluate([gold_docs[i] for i in strict_indices], [docs[i] for i in strict_indices])
+            for row, i in zip(score['per_doc'], strict_indices):
+                row['doc'] = usable[i]['doc_id']
+            report['clean_pairs']['results'][name] = score
+    else:
+        report['clean_pairs']['note'] = 'No strictly clean pairs; no subset scores computed'
     save(eval_dir / 'comparison.json', report)
-    print(f'Evaluation saved: {eval_dir}')
+    print(f'Evaluated all final outputs: {report["included_doc_ids"]}; '
+          f'clean diagnostic subset: {report["clean_pairs"]["included_doc_ids"]}\n'
+          f'Evaluation saved: {eval_dir}')
 
 
 def main():
