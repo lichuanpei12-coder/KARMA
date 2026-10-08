@@ -8,8 +8,40 @@ from typing import List, Tuple, Dict, Optional
 from karma.core.base_agent import BaseAgent
 from karma.core.data_structures import KGEntity, KnowledgeTriple
 from karma.agents.extraction_support import (
-    ENTITY_RULES, difference_context, parse_json_container, clean_string,
+    parse_json_container, clean_string,
 )
+
+
+# Prompt 阅读顺序（实体相关 Prompt 全部在本文件）：
+# ENTITY_RULES / difference_context → __init__（两轮共用的系统 Prompt）
+# → _output_instructions（两轮输出与示例）
+# → _extract_entities_from_text（第一轮）/ revise_entities（第二轮）。
+ENTITY_RULES = """候选实体用于辅助发现事实中的参与对象。
+1. 根据源文本识别可能作为 head 或 tail 的完整表达，包括技术对象、普通名词短语、
+   代词以及充当宾语的较长短语或从句。
+2. 保留决定含义的限定词、修饰语、数值和编号，保持原文大小写与空格。
+   例如 "a variety of systems" 保留整体，"the measured traffic per time" 保留整体。
+3. 代词保留原文提及，结合上下文理解其指代。不同提及形式分别保留，供事实判断使用。
+4. 并列项在各自含义明确时分别识别；省略的共享词可按原文语法补齐。
+   例如 "first and second cables" 对应 "first cable" 和 "second cable"。
+5. 数值、条件、日期和图号在充当事实参与对象或限定其含义时保留。
+   候选集合可以包含暂未参与三元组的对象，事实是否成立由源文本决定。
+"""
+
+
+# 差异说明在两个抽取 Agent 中各保留一份，修改时同步另一份。
+def difference_context(diff):
+    """Format the feedback explanation used by this agent's prompts."""
+    diff = diff if isinstance(diff, dict) else {}
+    data = {key: diff.get(key, []) for key in ('unique_to_text_a', 'unique_to_text_b')}
+    return """文本A是本次抽取使用的源文本，文本B由当前三元组生成。
+unique_to_text_a 是比较模型认为源文本中有、重建文本中未体现的信息，帮助定位候选遗漏。
+unique_to_text_b 是比较模型认为重建文本中有、源文本中未找到对应依据的信息，帮助定位待复核事实。
+两组差异均可能存在比较或重建误差。对象出现在 B 侧差异中，可能只是其关系有误；
+对象是否有效、事实是否成立均以源文本核实结果为准。空差异仍需检查源文本的事实覆盖。
+<text_difference_json>
+""" + json.dumps(data, ensure_ascii=False, indent=2) + "\n</text_difference_json>"
+
 
 logger = logging.getLogger(__name__)
 

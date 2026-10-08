@@ -14,8 +14,50 @@ from karma.core.base_agent import BaseAgent
 from karma.core.data_structures import KGEntity, KnowledgeTriple
 
 from karma.agents.extraction_support import (
-    FACT_RULES, SCORE_RULES, difference_context, parse_json_container, clean_string, safe_score,
+    parse_json_container, clean_string, safe_score,
 )
+
+
+# Prompt 阅读顺序（关系相关 Prompt 全部在本文件）：
+# FACT_RULES / SCORE_RULES / difference_context → __init__（第一轮系统 Prompt）
+# → _extract_relationships_from_text（第一轮用户 Prompt）
+# → revise_relationships（第二轮用户 Prompt 和 revision_system_prompt）。
+# FACT_RULES 和 SCORE_RULES 在本文件只定义一次，供两轮共同引用。
+FACT_RULES = """1. 逐句检查源文本支持的事实，包括动作、状态、定义、组成、属性与比较关系。
+   同一对象可能参与多个独立事实，分别检查；抽取数量由源文本的事实数量决定。
+2. 将 head、relation、tail 作为完整事实判断。主动和被动表达均结合语法确认角色，
+   按源文本的表达保留方向、否定、情态、条件和数量范围。
+3. head 和 tail 保留必要的限定词和修饰语，可使用代词或充当宾语的较长表达。
+   relation 使用源文本措辞、大小写和空格；例如 "mounts to" 保持 "mounts to"。
+   并列项省略的共享词可按原文语法补齐，其余措辞保持原文表达。
+4. 每条三元组表达一个独立事实。复合动作在各自得到源文本支持时拆分；
+   目的、条件和可能性保留相应限定。例如 "queries the ECU to determine the location"
+   中的目的并不等于已经确定了位置，抽取时保留这一语义区别。
+5. 候选实体帮助检查对象和边界，最终头尾以源文本为准，可以补充名单之外的表达。
+   候选对象只被提及而没有对应事实时，可以保持未连接状态。
+6. 按完整事实检查重复；主动被动改写或轻微边界变化在语义等价时视为同一事实，
+   否定、情态、条件或数量不同的陈述分别核实。
+"""
+
+SCORE_RULES = """confidence 表示源文本对事实的支持强度，clarity 表示头尾和关系表达的
+清晰程度，relevance 表示事实与文档主题的相关程度。三个维度分别评估，取值为
+0.0 到 1.0；分别有依据时可以相同。分数表达判断，不替代事实核实。
+"""
+
+
+# 差异说明在两个抽取 Agent 中各保留一份，修改时同步另一份。
+def difference_context(diff):
+    """Format the feedback explanation used by this agent's prompts."""
+    diff = diff if isinstance(diff, dict) else {}
+    data = {key: diff.get(key, []) for key in ('unique_to_text_a', 'unique_to_text_b')}
+    return """文本A是本次抽取使用的源文本，文本B由当前三元组生成。
+unique_to_text_a 是比较模型认为源文本中有、重建文本中未体现的信息，帮助定位候选遗漏。
+unique_to_text_b 是比较模型认为重建文本中有、源文本中未找到对应依据的信息，帮助定位待复核事实。
+两组差异均可能存在比较或重建误差。对象出现在 B 侧差异中，可能只是其关系有误；
+对象是否有效、事实是否成立均以源文本核实结果为准。空差异仍需检查源文本的事实覆盖。
+<text_difference_json>
+""" + json.dumps(data, ensure_ascii=False, indent=2) + "\n</text_difference_json>"
+
 
 logger = logging.getLogger(__name__)
 

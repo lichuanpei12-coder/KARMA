@@ -1,130 +1,103 @@
 {
-  "benchie_287": [
+  "benchie_282": [
     {
-      "head": "Lone Star Steel lawsuit",
-      "relation": "also asks",
-      "tail": "court"
+      "head": "Lee Kuan Yew",
+      "relation": "one of Asia 's leading statesmen for",
+      "tail": "30 years"
     },
     {
-      "head": "Lone Star Steel lawsuit",
-      "relation": "also asks court to",
-      "tail": "rule"
+      "head": "Lee Kuan Yew",
+      "relation": "recently announced",
+      "tail": "his intention"
     },
     {
-      "head": "Lone Star Steel lawsuit",
-      "relation": "also asks court to rule that",
-      "tail": "Lone Star Technologies is jointly responsible"
+      "head": "Lee Kuan Yew",
+      "relation": "recently announced his intention to",
+      "tail": "retire"
     },
     {
-      "head": "Lone Star Steel lawsuit",
-      "relation": "also asks court to rule that Lone Star Technologies is jointly responsible for",
-      "tail": "$4.5 million Lone Star Steel pension payment"
+      "head": "Lee Kuan Yew",
+      "relation": "recently announced his intention to retire",
+      "tail": "next year"
+    }
+  ],
+  "benchie_283": [
+    {
+      "head": "Repeat customers",
+      "relation": "also can",
+      "tail": "purchase luxury items"
     },
     {
-      "head": "$4.5 million Lone Star Steel pension payment",
-      "relation": "was",
-      "tail": "due"
+      "head": "Repeat customers",
+      "relation": "also can purchase luxury items at",
+      "tail": "reduced prices"
+    }
+  ],
+  "benchie_284": [
+    {
+      "head": "Richard Newsom",
+      "relation": "said",
+      "tail": "he also saw evidence"
     },
     {
-      "head": "$4.5 million Lone Star Steel pension payment",
-      "relation": "was not",
-      "tail": "paid"
+      "head": "Richard Newsom",
+      "relation": "said he also saw evidence that",
+      "tail": "crimes had been committed"
+    }
+  ],
+  "benchie_285": [
+    {
+      "head": "Sen. Mitchell",
+      "relation": "is",
+      "tail": "confident"
     },
     {
-      "head": "$4.5 million Lone Star Steel pension payment",
-      "relation": "was due in",
-      "tail": "September"
+      "head": "Sen. Mitchell",
+      "relation": "is confident he has",
+      "tail": "sufficient votes"
     },
     {
-      "head": "$4.5 million Lone Star Steel pension payment",
-      "relation": "was not paid in",
-      "tail": "September"
+      "head": "Sen. Mitchell",
+      "relation": "is confident he has sufficient votes to",
+      "tail": "block such a measure"
     },
     {
-      "head": "Lone Star Steel lawsuit",
-      "relation": "also asks court to rule that",
-      "tail": "parent company cannot recover amount from its subsidiary if parent company makes payment"
+      "head": "Sen. Mitchell",
+      "relation": "is confident he has sufficient votes to block such a measure with",
+      "tail": "procedural actions"
+    }
+  ],
+  "benchie_286": [
+    {
+      "head": "The Chemical spokeswoman",
+      "relation": "said",
+      "tail": "the bank has examined its methodologies"
     }
   ],
   "benchie_288": [
     {
-      "head": "National Transportation Safety Board",
+      "head": "The National Transportation Safety Board",
       "relation": "ruled that",
       "tail": "pilots failed"
-    },
-    {
-      "head": "National Transportation Safety Board",
-      "relation": "ruled that pilots failed to",
-      "tail": "set plane's wing flaps properly"
-    },
-    {
-      "head": "National Transportation Safety Board",
-      "relation": "ruled that pilots failed to",
-      "tail": "set plane's slats properly"
-    },
-    {
-      "head": "National Transportation Safety Board",
-      "relation": "ruled that pilots failed to set plane's wing flaps properly for",
-      "tail": "takeoff"
-    },
-    {
-      "head": "National Transportation Safety Board",
-      "relation": "ruled that pilots failed to set plane's slats properly for",
-      "tail": "takeoff"
-    },
-    {
-      "head": "National Transportation Safety Board",
-      "relation": "ruled that pilots failed to make",
-      "tail": "mandatory preflight checks"
-    },
-    {
-      "head": "National Transportation Safety Board",
-      "relation": "ruled that pilots failed to make mandatory preflight checks that would have detected",
-      "tail": "error"
-    },
-    {
-      "head": "National Transportation Safety Board",
-      "relation": "ruled that mandatory preflight checks that would have",
-      "tail": "detected error"
     }
   ],
   "benchie_289": [
     {
-      "head": "discount rate on three-month Treasury bills",
+      "head": "The discount rate on three - month Treasury bills",
       "relation": "rose",
       "tail": "slightly"
     },
     {
-      "head": "discount rate on three-month Treasury bills",
+      "head": "The discount rate on three - month Treasury bills",
       "relation": "rose slightly from",
-      "tail": "average rate at Monday's auction"
-    },
-    {
-      "head": "discount rate on three-month Treasury bills",
-      "relation": "rose slightly to",
-      "tail": "7.79%"
-    },
-    {
-      "head": "discount rate on three-month Treasury bills",
-      "relation": "rose slightly for",
-      "tail": "bond-equivalent yield of 8.04%"
+      "tail": "the average rate at Monday 's auction"
     }
   ],
   "benchie_290": [
     {
-      "head": "effect",
+      "head": "The effect",
       "relation": "is that",
-      "tail": "lawsuits that might have been barred because they were filed too late could proceed because of the one-year extension"
-    },
-    {
-      "head": "lawsuits",
-      "relation": "could",
-      "tail": "proceed"
-    },
-    {
-      "head": "lawsuits",
-      "relation": "could proceed because of",
-      "tail": "one-year extension"
+      "tail": "lawsuits that might have been barred because they were filed too late could proceed because of the one - year extension"
     },
     {
       "head": "lawsuits",
@@ -139,217 +112,62 @@
   ],
   "benchie_291": [
     {
-      "head": "executives",
-      "relation": "had profited",
-      "tail": "handsomely"
+      "head": "The executives",
+      "relation": "had",
+      "tail": "profited handsomely"
     },
     {
-      "head": "executives",
-      "relation": "had built",
-      "tail": "American National Can Co."
-    },
-    {
-      "head": "executives",
-      "relation": "had profited handsomely by building",
-      "tail": "American National Can Co."
-    },
-    {
-      "head": "Triangle",
-      "relation": "has",
-      "tail": "asset"
-    },
-    {
-      "head": "American National Can Co.",
-      "relation": "is",
-      "tail": "Triangle's chief asset"
-    }
-  ],
-  "benchie_292": [
-    {
-      "head": "he",
-      "relation": "said",
-      "tail": "market's tempo was helped by dollar's resiliency"
+      "head": "The executives",
+      "relation": "had profited handsomely by",
+      "tail": "building American National Can Co"
     }
   ],
   "benchie_293": [
     {
-      "head": "office",
+      "head": "The office",
       "relation": "may also be able to",
       "tail": "advise"
-    },
-    {
-      "head": "office",
-      "relation": "may also be able to advise",
-      "tail": "clients"
-    },
-    {
-      "head": "office",
-      "relation": "may also be able to advise",
-      "tail": "foreign clients"
-    },
-    {
-      "head": "office",
-      "relation": "may also be able to advise",
-      "tail": "multinational clients"
-    },
-    {
-      "head": "office",
-      "relation": "may also be able to advise on",
-      "tail": "international law"
-    },
-    {
-      "head": "office",
-      "relation": "may also be able to advise on",
-      "tail": "general matters"
     }
   ],
   "benchie_294": [
     {
-      "head": "three existing plants",
+      "head": "The three existing plants",
       "relation": "will be",
       "tail": "sold"
     },
     {
-      "head": "land of three existing plants",
+      "head": "their land",
       "relation": "will be",
       "tail": "sold"
-    },
-    {
-      "head": "three existing plants",
-      "relation": "have",
-      "tail": "land"
     }
   ],
   "benchie_295": [
     {
       "head": "New York City",
       "relation": "announced",
-      "tail": "10-point policy"
+      "tail": "a 10 - point policy"
     },
     {
       "head": "New York City",
-      "relation": "announced 10-point policy patterned on",
-      "tail": "federal bill of rights"
-    },
-    {
-      "head": "New York City",
-      "relation": "announced 10-point policy",
-      "tail": "this week"
-    },
-    {
-      "head": "New York City",
-      "relation": "announced 10-point policy for",
-      "tail": "taxpayers"
+      "relation": "announced a 10 - point policy patterned on",
+      "tail": "the federal bill of rights"
     }
   ],
   "benchie_296": [
     {
-      "head": "USG Corp.",
+      "head": "USG Corp",
       "relation": "agreed to",
       "tail": "sell"
     },
     {
-      "head": "USG Corp.",
+      "head": "USG Corp",
       "relation": "agreed to sell",
       "tail": "its headquarters building"
     },
     {
-      "head": "USG Corp.",
-      "relation": "agreed to sell its headquarters building to",
-      "tail": "Manufacturers Life Insurance Co."
-    },
-    {
-      "head": "USG Corp.",
-      "relation": "will lease",
-      "tail": "19-story facility"
-    },
-    {
-      "head": "USG Corp.",
-      "relation": "will lease 19-story facility until",
-      "tail": "it moves to new quarters"
-    },
-    {
-      "head": "USG Corp.",
-      "relation": "will lease 19-story facility until",
-      "tail": "1992"
-    },
-    {
-      "head": "USG Corp. headquarters building",
-      "relation": "is",
-      "tail": "19-story facility"
-    },
-    {
-      "head": "Manufacturers Life Insurance Co.",
-      "relation": "is in",
-      "tail": "Toronto"
-    },
-    {
-      "head": "USG Corp.",
-      "relation": "will move to",
-      "tail": "new quarters"
-    },
-    {
-      "head": "USG Corp.",
-      "relation": "will move to new quarters in",
-      "tail": "1992"
-    }
-  ],
-  "benchie_297": [
-    {
-      "head": "Sen. Edward Kennedy",
-      "relation": "says",
-      "tail": "Business across country is spending more time addressing this issue"
-    }
-  ],
-  "benchie_298": [
-    {
-      "head": "he",
-      "relation": "says",
-      "tail": "I won't be throwing 90 mph"
-    },
-    {
-      "head": "he",
-      "relation": "says",
-      "tail": "I will throw 80-plus mph"
-    }
-  ],
-  "benchie_299": [
-    {
-      "head": "he",
-      "relation": "said RTC may have to slow S&L sales if",
-      "tail": "working capital financing is not provided"
-    },
-    {
-      "head": "he",
-      "relation": "said RTC may have to dump acquired assets through fire sales if",
-      "tail": "working capital financing is not provided"
-    },
-    {
-      "head": "he",
-      "relation": "said",
-      "tail": "RTC may have to slow S&L sales"
-    },
-    {
-      "head": "he",
-      "relation": "said",
-      "tail": "RTC may have to dump acquired assets through fire sales"
-    }
-  ],
-  "benchie_300": [
-    {
-      "head": "official close to case",
-      "relation": "says",
-      "tail": "nobody told us"
-    },
-    {
-      "head": "official close to case",
-      "relation": "says",
-      "tail": "nobody called us"
-    },
-    {
-      "head": "official close to case",
-      "relation": "asked",
-      "tail": "not to be named"
+      "head": "USG Corp",
+      "relation": "will lease the 19 - story facility until",
+      "tail": "it moves to a new quarters"
     }
   ]
 }

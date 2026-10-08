@@ -1,347 +1,166 @@
 {
+  "benchie_223": [
+    {
+      "head": "The failure of 1st Armored",
+      "relation": "would have",
+      "tail": "important consequences"
+    },
+    {
+      "head": "The failure of 1st Armored",
+      "relation": "would have important consequences in",
+      "tail": "later action"
+    },
+    {
+      "head": "The failure of 1st Armored",
+      "relation": "would have important consequences in later action against",
+      "tail": "German forces"
+    }
+  ],
+  "benchie_224": [
+    {
+      "head": "The first five laps",
+      "relation": "would be",
+      "tail": "added"
+    },
+    {
+      "head": "The first five laps",
+      "relation": "would be added to",
+      "tail": "the second part of the race"
+    },
+    {
+      "head": "the overall result",
+      "relation": "would be",
+      "tail": "decided"
+    },
+    {
+      "head": "the overall result",
+      "relation": "would be decided",
+      "tail": "on aggregate"
+    }
+  ],
+  "benchie_225": [
+    {
+      "head": "The following tour",
+      "relation": "featured",
+      "tail": "extensive dates"
+    },
+    {
+      "head": "The following tour",
+      "relation": "featured extensive dates in",
+      "tail": "East Asia"
+    }
+  ],
   "benchie_227": [
     {
-      "head": "lodge",
+      "head": "The lodge",
       "relation": "is open from",
       "tail": "mid-May"
     },
     {
-      "head": "lodge",
-      "relation": "is open to",
-      "tail": "mid-October"
-    },
-    {
       "head": "two weeks",
-      "relation": "are reserved for",
-      "tail": "Dartmouth First-Year Trips"
-    },
-    {
-      "head": "two weeks",
-      "relation": "are reserved starting in",
-      "tail": "end of August"
-    },
-    {
-      "head": "lodge",
-      "relation": "is reserved for",
-      "tail": "two weeks"
-    },
-    {
-      "head": "lodge",
-      "relation": "is reserved for",
-      "tail": "Dartmouth First-Year Trips"
+      "relation": "reserved for",
+      "tail": "the Dartmouth First-Year Trips"
     }
   ],
   "benchie_228": [
     {
-      "head": "provost",
-      "relation": "is",
-      "tail": "permanent member"
-    },
-    {
-      "head": "Carl H. Pforzheimer University Professor",
-      "relation": "is",
-      "tail": "permanent members"
-    },
-    {
-      "head": "deans",
+      "head": "The permanent members",
       "relation": "are",
-      "tail": "permanent members"
-    },
-    {
-      "head": "designees",
-      "relation": "are",
-      "tail": "permanent members"
-    },
-    {
-      "head": "deans from Faculty of Arts and Sciences",
-      "relation": "are",
-      "tail": "permanent members"
-    },
-    {
-      "head": "designees from Faculty of Arts and Sciences",
-      "relation": "are",
-      "tail": "permanent members"
-    },
-    {
-      "head": "deans from Harvard Business School",
-      "relation": "are",
-      "tail": "permanent members"
-    },
-    {
-      "head": "designees from Harvard Business School",
-      "relation": "are",
-      "tail": "permanent members"
-    },
-    {
-      "head": "deans from Harvard Law School",
-      "relation": "are",
-      "tail": "permanent members"
-    },
-    {
-      "head": "designees from Harvard Law School",
-      "relation": "are",
-      "tail": "permanent members"
-    },
-    {
-      "head": "deans from Harvard Medical School",
-      "relation": "are",
-      "tail": "permanent members"
-    },
-    {
-      "head": "designees from Harvard Medical School",
-      "relation": "are",
-      "tail": "permanent members"
-    },
-    {
-      "head": "Faculty of Arts and Sciences",
-      "relation": "has",
-      "tail": "deans"
-    },
-    {
-      "head": "Faculty of Arts and Sciences",
-      "relation": "has",
-      "tail": "designees"
-    },
-    {
-      "head": "Harvard Business School",
-      "relation": "has",
-      "tail": "deans"
-    },
-    {
-      "head": "Harvard Business School",
-      "relation": "has",
-      "tail": "designees"
-    },
-    {
-      "head": "Harvard Law School",
-      "relation": "has",
-      "tail": "deans"
-    },
-    {
-      "head": "Harvard Law School",
-      "relation": "has",
-      "tail": "designees"
-    },
-    {
-      "head": "Harvard Medical School",
-      "relation": "has",
-      "tail": "deans"
-    },
-    {
-      "head": "Harvard Medical School",
-      "relation": "has",
-      "tail": "designees"
+      "tail": "the provost"
     }
   ],
   "benchie_229": [
     {
-      "head": "pillars",
+      "head": "their decorations",
       "relation": "are according to",
-      "tail": "Doric style"
+      "tail": "the Meenakshi Temple"
     },
     {
-      "head": "pillars",
-      "relation": "are according to",
-      "tail": "Greek style"
-    },
-    {
-      "head": "decorations of pillars",
-      "relation": "are according to",
-      "tail": "Meenakshi Temple"
-    },
-    {
-      "head": "Meenakshi Temple",
-      "relation": "is at",
+      "head": "the Meenakshi Temple",
+      "relation": "at",
       "tail": "Madurai"
     },
     {
-      "head": "Meenakshi Temple",
-      "relation": "is in",
+      "head": "the Meenakshi Temple",
+      "relation": "in",
       "tail": "Tamil Nadu"
     },
     {
       "head": "Madurai",
-      "relation": "is in",
+      "relation": "in",
       "tail": "Tamil Nadu"
     }
   ],
   "benchie_230": [
     {
-      "head": "race",
-      "relation": "is in",
-      "tail": "mixed eights"
+      "head": "The race",
+      "relation": "is",
+      "tail": "in mixed eights"
     },
     {
-      "head": "race",
-      "relation": "is usually held in",
-      "tail": "late February"
-    },
-    {
-      "head": "race",
-      "relation": "is usually held in",
-      "tail": "early March"
+      "head": "The race",
+      "relation": "usually held in",
+      "tail": "late February / early March"
     }
   ],
   "benchie_231": [
     {
-      "head": "rapids",
-      "relation": "are at",
-      "tail": "head of South Fork"
-    },
-    {
-      "head": "rapids at head of South Fork",
+      "head": "The rapids at the head of the South Fork",
       "relation": "were",
       "tail": "removed"
     },
     {
-      "head": "rapids at head of South Fork",
+      "head": "The rapids at the head of the South Fork",
       "relation": "were removed in",
       "tail": "1908"
     }
   ],
   "benchie_232": [
     {
-      "head": "redesigned 2006 Ram SRT-10",
+      "head": "The redesigned 2006 Ram SRT-10",
       "relation": "came in",
       "tail": "Mineral Gray Metallic"
-    },
-    {
-      "head": "redesigned 2006 Ram SRT-10",
-      "relation": "came in",
-      "tail": "Inferno Red"
-    },
-    {
-      "head": "redesigned 2006 Ram SRT-10",
-      "relation": "came in",
-      "tail": "Brilliant Black Crystal Clear Coat"
-    },
-    {
-      "head": "2006 Ram SRT-10",
-      "relation": "was",
-      "tail": "redesigned"
     }
   ],
   "benchie_233": [
     {
-      "head": "residue",
+      "head": "The residue",
       "relation": "can be",
       "tail": "reprocessed"
     },
     {
-      "head": "residue",
+      "head": "The residue",
       "relation": "can be reprocessed for",
       "tail": "more dripping"
-    },
-    {
-      "head": "residue",
-      "relation": "can be",
-      "tail": "strained"
-    },
-    {
-      "head": "residue",
-      "relation": "can be strained through",
-      "tail": "cheesecloth lined sieve"
-    },
-    {
-      "head": "residue",
-      "relation": "can be strained as",
-      "tail": "ingredient"
-    },
-    {
-      "head": "residue",
-      "relation": "can be strained as ingredient for",
-      "tail": "fine beef stock"
     }
   ],
   "benchie_234": [
     {
-      "head": "rest of group",
+      "head": "The rest of the group",
       "relation": "reach",
-      "tail": "small shop"
+      "tail": "a small shop"
     },
     {
       "head": "Brady",
       "relation": "attempts to phone",
-      "tail": "Sheriff"
+      "tail": "the Sheriff"
     },
     {
-      "head": "Brady",
-      "relation": "attempts to phone Sheriff in",
-      "tail": "small shop"
-    },
-    {
-      "head": "crocodile",
+      "head": "the crocodile",
       "relation": "breaks through",
-      "tail": "wall"
+      "tail": "a wall"
     },
     {
-      "head": "crocodile",
+      "head": "the crocodile",
       "relation": "devours",
       "tail": "Annabelle"
     }
   ],
-  "benchie_235": [
-    {
-      "head": "riders",
-      "relation": "began",
-      "tail": "walking"
-    },
-    {
-      "head": "riders",
-      "relation": "began shouting",
-      "tail": "protests"
-    },
-    {
-      "head": "riders",
-      "relation": "began shouting",
-      "tail": "abuse"
-    },
-    {
-      "head": "riders",
-      "relation": "began shouting abuse at",
-      "tail": "Pierre Dumas"
-    },
-    {
-      "head": "Pierre Dumas",
-      "relation": "is",
-      "tail": "race doctor"
-    },
-    {
-      "head": "some riders",
-      "relation": "demanded Pierre Dumas should also take",
-      "tail": "test"
-    },
-    {
-      "head": "some riders",
-      "relation": "demanded Pierre Dumas should also take test to see if",
-      "tail": "he had been drinking wine"
-    },
-    {
-      "head": "some riders",
-      "relation": "demanded Pierre Dumas should also take test to see if",
-      "tail": "he had been taking aspirin"
-    },
-    {
-      "head": "some riders",
-      "relation": "demanded Pierre Dumas should also take test to see if he'd been drinking wine to",
-      "tail": "make his own job easier"
-    },
-    {
-      "head": "some riders",
-      "relation": "demanded Pierre Dumas should also take test to see if he'd been taking aspirin to",
-      "tail": "make his own job easier"
-    }
-  ],
   "benchie_236": [
     {
-      "head": "station",
+      "head": "The station",
       "relation": "has",
-      "tail": "concourse and ticket office area"
-    },
-    {
-      "head": "station",
-      "relation": "has",
-      "tail": "office area"
+      "tail": "a concourse and ticket office area"
     },
     {
       "head": "concourse and ticket office area",
@@ -350,173 +169,25 @@
     },
     {
       "head": "concourse and ticket office area",
-      "relation": "was",
-      "tail": "reopened"
-    },
-    {
-      "head": "concourse and ticket office area",
-      "relation": "was reopened in",
+      "relation": "reopened in",
       "tail": "mid-2012"
     }
   ],
   "benchie_237": [
     {
-      "head": "third known version",
+      "head": "The third known version",
       "relation": "is",
       "tail": "part number 2189014-00-212"
     },
     {
-      "head": "at least one model of part number 2189014-00-212",
-      "relation": "is being",
+      "head": "at least one model",
+      "relation": "being",
       "tail": "produced"
     },
     {
-      "head": "at least one model of part number 2189014-00-212",
-      "relation": "was being produced in",
+      "head": "at least one model",
+      "relation": "being produced in",
       "tail": "February 1993"
-    }
-  ],
-  "benchie_238": [
-    {
-      "head": "fillets",
-      "relation": "are then put in",
-      "tail": "mix"
-    },
-    {
-      "head": "fillets",
-      "relation": "are then put in mix of",
-      "tail": "olive oil vinegar sugar garlic chill peppers and lots of parsley or celery"
-    },
-    {
-      "head": "fillets",
-      "relation": "are then put in mix of",
-      "tail": "olive oil"
-    },
-    {
-      "head": "fillets",
-      "relation": "are then put in mix of",
-      "tail": "vinegar"
-    },
-    {
-      "head": "fillets",
-      "relation": "are then put in mix of",
-      "tail": "sugar"
-    },
-    {
-      "head": "fillets",
-      "relation": "are then put in mix of",
-      "tail": "garlic"
-    },
-    {
-      "head": "fillets",
-      "relation": "are then put in mix of",
-      "tail": "chill peppers"
-    },
-    {
-      "head": "fillets",
-      "relation": "are then put in mix of",
-      "tail": "lots of parsley"
-    },
-    {
-      "head": "fillets",
-      "relation": "are then put in mix of",
-      "tail": "lots of celery"
-    }
-  ],
-  "benchie_239": [
-    {
-      "head": "35.00% of 47,604 households",
-      "relation": "had",
-      "tail": "children under age of 18 living with them"
-    },
-    {
-      "head": "56.30% of 47,604 households",
-      "relation": "were",
-      "tail": "married couples living together"
-    },
-    {
-      "head": "7.50% of 47,604 households",
-      "relation": "had",
-      "tail": "female householder with no husband present"
-    },
-    {
-      "head": "32.50% of 47,604 households",
-      "relation": "were",
-      "tail": "non-families"
-    },
-    {
-      "head": "There",
-      "relation": "were",
-      "tail": "47,604 households"
-    }
-  ],
-  "benchie_240": [
-    {
-      "head": "These objects",
-      "relation": "are",
-      "tail": "thrown away"
-    },
-    {
-      "head": "These objects",
-      "relation": "are thrown away if",
-      "tail": "their screen projection is too small"
-    },
-    {
-      "head": "These objects",
-      "relation": "have",
-      "tail": "screen projection"
-    },
-    {
-      "head": "their screen projection",
-      "relation": "is",
-      "tail": "too small"
-    }
-  ],
-  "benchie_241": [
-    {
-      "head": "These",
-      "relation": "were often related to",
-      "tail": "European conflict"
-    },
-    {
-      "head": "Stuart Pretenders",
-      "relation": "were",
-      "tail": "aided"
-    },
-    {
-      "head": "Stuart Pretenders",
-      "relation": "were",
-      "tail": "encouraged"
-    },
-    {
-      "head": "Stuart Pretenders",
-      "relation": "were aided by",
-      "tail": "Britain's continental enemies"
-    },
-    {
-      "head": "Stuart Pretenders",
-      "relation": "were encouraged by",
-      "tail": "Britain's continental enemies"
-    },
-    {
-      "head": "Stuart Pretenders",
-      "relation": "were aided by Britain's continental enemies for",
-      "tail": "their own ends"
-    },
-    {
-      "head": "Stuart Pretenders",
-      "relation": "were encouraged by Britain's continental enemies for",
-      "tail": "their own ends"
-    },
-    {
-      "head": "Britain",
-      "relation": "has",
-      "tail": "continental enemies"
-    },
-    {
-      "head": "Britain's continental enemies",
-      "relation": "have",
-      "tail": "their own ends"
     }
   ]
 }

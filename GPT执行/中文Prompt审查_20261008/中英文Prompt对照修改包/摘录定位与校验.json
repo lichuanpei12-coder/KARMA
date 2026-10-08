@@ -1,0 +1,429 @@
+[
+  {
+    "file": "E:\\huawei after\\KARMA\\karma\\agents\\text_generation\\agent.py",
+    "first_line": 47,
+    "last_line": 59,
+    "file_sha256": "1f33613f22dff265c8e4d585d42a428921ae7b53978e8a001dfb3923188edecf",
+    "excerpt_sha256": "a01914e27f9b67467fb2b038a088286385d3b0cd851d7fe7004219682a0446fc"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\karma\\agents\\text_generation\\agent.py",
+    "first_line": 75,
+    "last_line": 108,
+    "file_sha256": "1f33613f22dff265c8e4d585d42a428921ae7b53978e8a001dfb3923188edecf",
+    "excerpt_sha256": "d0a34ce4cce5206fe39c74c9a5150011ed4cabfb98b1a8edb68c84a295c1a5d1"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\karma\\agents\\text_generation\\agent.py",
+    "first_line": 214,
+    "last_line": 231,
+    "file_sha256": "1f33613f22dff265c8e4d585d42a428921ae7b53978e8a001dfb3923188edecf",
+    "excerpt_sha256": "03de93548bfb0a32057255d3da46c0fc90b793073879c021a93b1966903b23b7"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\karma\\agents\\text_comparison\\agent.py",
+    "first_line": 183,
+    "last_line": 208,
+    "file_sha256": "da418c523cf108c65240b856cdb2f9c3059e42f3a599ec46374c21105e4da747",
+    "excerpt_sha256": "607154bdda537d9d7690c9105d351c9cfc970d71c971f41d7ffbdb8a05e7f648"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\karma\\agents\\text_comparison\\agent.py",
+    "first_line": 49,
+    "last_line": 55,
+    "file_sha256": "da418c523cf108c65240b856cdb2f9c3059e42f3a599ec46374c21105e4da747",
+    "excerpt_sha256": "5dcbbc4adce23f1add3da870dbab51f3ed938a2835c6b2075af8aecdc7a41ed4"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\karma\\agents\\extraction_support.py",
+    "first_line": 20,
+    "last_line": 34,
+    "file_sha256": "806ee7db3db16a216fc763f1f9b9db44a9f7952345ec5a4389c0ee389d7c0a05",
+    "excerpt_sha256": "bc394c83b61fad7f5d8efd448d946c672b9125da445e93a49d0d9032371ff77b"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\karma\\agents\\relationship_extraction\\agent.py",
+    "first_line": 50,
+    "last_line": 51,
+    "file_sha256": "66a2bdd687426dcac2d70f79be6a664140268c8908d2e9219b8d15a676013815",
+    "excerpt_sha256": "2895fdf1185a5009aefd5986eb509e6960829d09318f5742f5000a4ed11f2e18"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\旧版\\KARMA\\karma\\agents\\relationship_extraction\\agent.py",
+    "first_line": 100,
+    "last_line": 105,
+    "file_sha256": "508528a35d3b4e104d5b735c6788b8025c1b8af7ac72098f87885e685eb0d027",
+    "excerpt_sha256": "9a60f6100a8d065f38fcc9ddab82602be7c4ceada888f49e80656648fd358a05"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\旧版\\KARMA\\karma\\agents\\relationship_extraction\\agent.py",
+    "first_line": 107,
+    "last_line": 117,
+    "file_sha256": "508528a35d3b4e104d5b735c6788b8025c1b8af7ac72098f87885e685eb0d027",
+    "excerpt_sha256": "6aad667fb0a6175906fa8c3a718f712ca0a3581b397ef218815fc2989d76290b"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\karma\\agents\\relationship_extraction\\agent.py",
+    "first_line": 50,
+    "last_line": 51,
+    "file_sha256": "66a2bdd687426dcac2d70f79be6a664140268c8908d2e9219b8d15a676013815",
+    "excerpt_sha256": "2895fdf1185a5009aefd5986eb509e6960829d09318f5742f5000a4ed11f2e18"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\karma\\agents\\relationship_extraction\\agent.py",
+    "first_line": 151,
+    "last_line": 152,
+    "file_sha256": "66a2bdd687426dcac2d70f79be6a664140268c8908d2e9219b8d15a676013815",
+    "excerpt_sha256": "e88a0cdcc611eaa86f07d8af4534581f9635787d8d64c4a0a8f3c12ef4bf9de4"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\karma\\agents\\entity_extraction\\agent.py",
+    "first_line": 26,
+    "last_line": 27,
+    "file_sha256": "8511e7b67901c25d474f9c27deec4ef714fbf466a8565514f533cab484bfd455",
+    "excerpt_sha256": "5e12782ce957dcb1e961438d09c5d8cac7cdda8cd844d964f8baae6c8c6b6eb9"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\旧版\\KARMA\\karma\\agents\\relationship_extraction\\agent.py",
+    "first_line": 78,
+    "last_line": 79,
+    "file_sha256": "508528a35d3b4e104d5b735c6788b8025c1b8af7ac72098f87885e685eb0d027",
+    "excerpt_sha256": "b52691e90db3e3b2fdff81386ec42fefe59717d17e6a55f779225de02fd9d381"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\旧版\\KARMA\\karma\\agents\\relationship_extraction\\agent.py",
+    "first_line": 105,
+    "last_line": 105,
+    "file_sha256": "508528a35d3b4e104d5b735c6788b8025c1b8af7ac72098f87885e685eb0d027",
+    "excerpt_sha256": "7ff2b0fa79fe0e9f3e9193e7e1c23bc5e6a834cd07f1fad6adbf3ad66a05dd19"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\旧版\\KARMA\\karma\\agents\\relationship_extraction\\agent.py",
+    "first_line": 111,
+    "last_line": 115,
+    "file_sha256": "508528a35d3b4e104d5b735c6788b8025c1b8af7ac72098f87885e685eb0d027",
+    "excerpt_sha256": "03929ad62788d61054342bcd84b4ff52a55af4cd0e4d98fa54ddc86761379fee"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\旧版\\KARMA\\karma\\agents\\entity_extraction\\agent.py",
+    "first_line": 85,
+    "last_line": 94,
+    "file_sha256": "8d2900731cda7a9b93c34f87aed19db4c06cbe5a4c50f58fdb4974d020328d48",
+    "excerpt_sha256": "c6f78c3ca2357790037fe07835334d91fadb2a76dcd10a27becadd96a93e8902"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\karma\\agents\\extraction_support.py",
+    "first_line": 36,
+    "last_line": 38,
+    "file_sha256": "806ee7db3db16a216fc763f1f9b9db44a9f7952345ec5a4389c0ee389d7c0a05",
+    "excerpt_sha256": "1963cc8616b3abe65a8ac87f47782349ac0edf3877078bb5ad52ed7174485e20"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\karma\\agents\\relationship_extraction\\agent.py",
+    "first_line": 61,
+    "last_line": 62,
+    "file_sha256": "66a2bdd687426dcac2d70f79be6a664140268c8908d2e9219b8d15a676013815",
+    "excerpt_sha256": "18f7cea54d1c94b5e6101cc622c96b8dab0a8b820263783f2984236eabe30f0a"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\旧版\\KARMA\\karma\\agents\\relationship_extraction\\agent.py",
+    "first_line": 81,
+    "last_line": 98,
+    "file_sha256": "508528a35d3b4e104d5b735c6788b8025c1b8af7ac72098f87885e685eb0d027",
+    "excerpt_sha256": "ebc287d514b8c052d533c90418f239120355121ace3a833f16cb124adb65b666"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\karma\\agents\\extraction_support.py",
+    "first_line": 13,
+    "last_line": 13,
+    "file_sha256": "806ee7db3db16a216fc763f1f9b9db44a9f7952345ec5a4389c0ee389d7c0a05",
+    "excerpt_sha256": "d5421f7458c6f58645eac57e404d35e3606a5d218aa16e9d3848cee75a7cd3ec"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\旧版\\KARMA\\karma\\agents\\entity_extraction\\agent.py",
+    "first_line": 75,
+    "last_line": 77,
+    "file_sha256": "8d2900731cda7a9b93c34f87aed19db4c06cbe5a4c50f58fdb4974d020328d48",
+    "excerpt_sha256": "c8c25036f22c8a664e35e25563b48bc75ae547eb3b227ad451b7e18e54e3f7a0"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\旧版\\KARMA\\karma\\agents\\entity_extraction\\agent.py",
+    "first_line": 151,
+    "last_line": 151,
+    "file_sha256": "8d2900731cda7a9b93c34f87aed19db4c06cbe5a4c50f58fdb4974d020328d48",
+    "excerpt_sha256": "24bf536f55a47cac38da46d2a4fd971ac999e8751315fe78437d5a317083e863"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\karma\\agents\\entity_extraction\\agent.py",
+    "first_line": 25,
+    "last_line": 25,
+    "file_sha256": "8511e7b67901c25d474f9c27deec4ef714fbf466a8565514f533cab484bfd455",
+    "excerpt_sha256": "bf1af962eaae0199a9b1cd0f536db2a4bda2ac529456f282c0d1401a034ca26a"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\旧版\\KARMA\\karma\\agents\\entity_extraction\\agent.py",
+    "first_line": 83,
+    "last_line": 83,
+    "file_sha256": "8d2900731cda7a9b93c34f87aed19db4c06cbe5a4c50f58fdb4974d020328d48",
+    "excerpt_sha256": "ef4b5ca53887be8b54e3e29be172d0242257e49c8e878ed83087285d4fb33a52"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\旧版\\KARMA\\karma\\agents\\entity_extraction\\agent.py",
+    "first_line": 149,
+    "last_line": 149,
+    "file_sha256": "8d2900731cda7a9b93c34f87aed19db4c06cbe5a4c50f58fdb4974d020328d48",
+    "excerpt_sha256": "226f1dac7f14464d82369d7ab32aefe2e3a2900aa3c8e1af155e651f77d872b9"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\karma\\agents\\entity_extraction\\agent.py",
+    "first_line": 37,
+    "last_line": 38,
+    "file_sha256": "8511e7b67901c25d474f9c27deec4ef714fbf466a8565514f533cab484bfd455",
+    "excerpt_sha256": "b67b6fd39f78a97dd6ddfe125dbe50068fb8452ed8efdd7fa637c614cf65844e"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\karma\\agents\\extraction_support.py",
+    "first_line": 11,
+    "last_line": 15,
+    "file_sha256": "806ee7db3db16a216fc763f1f9b9db44a9f7952345ec5a4389c0ee389d7c0a05",
+    "excerpt_sha256": "252a96954f4267b698d3076888d8bc328137a3c0e0e6e9605fb1e1a419a48ffb"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\旧版\\KARMA\\karma\\agents\\entity_extraction\\agent.py",
+    "first_line": 72,
+    "last_line": 74,
+    "file_sha256": "8d2900731cda7a9b93c34f87aed19db4c06cbe5a4c50f58fdb4974d020328d48",
+    "excerpt_sha256": "8dae714e1c3ce20e0487cb8e078991bbce314c7b05ed0a28bd2c4994a40e4c9f"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\旧版\\KARMA\\karma\\agents\\entity_extraction\\agent.py",
+    "first_line": 89,
+    "last_line": 89,
+    "file_sha256": "8d2900731cda7a9b93c34f87aed19db4c06cbe5a4c50f58fdb4974d020328d48",
+    "excerpt_sha256": "f11e5d7ea13495ffe5e500d1664c410abaa09e7139a12ea34d7348ed56a8aff5"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\karma\\agents\\extraction_support.py",
+    "first_line": 11,
+    "last_line": 12,
+    "file_sha256": "806ee7db3db16a216fc763f1f9b9db44a9f7952345ec5a4389c0ee389d7c0a05",
+    "excerpt_sha256": "138ab972c3c28858c1cfbb56002481a2b1c51effd557c9e8aeb47cb2e4803ec3"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\karma\\agents\\entity_extraction\\agent.py",
+    "first_line": 25,
+    "last_line": 27,
+    "file_sha256": "8511e7b67901c25d474f9c27deec4ef714fbf466a8565514f533cab484bfd455",
+    "excerpt_sha256": "54541b9cb36e878a2d9db2bae7a0f2c0180b95906bcf4296aadc905bf8316836"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\karma\\agents\\text_generation\\agent.py",
+    "first_line": 53,
+    "last_line": 53,
+    "file_sha256": "1f33613f22dff265c8e4d585d42a428921ae7b53978e8a001dfb3923188edecf",
+    "excerpt_sha256": "d1ebe1cd038f98175d8722623bdd742fa00a127fe6ddd581ae4d286683ce7a6d"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\karma\\agents\\text_generation\\agent.py",
+    "first_line": 212,
+    "last_line": 212,
+    "file_sha256": "1f33613f22dff265c8e4d585d42a428921ae7b53978e8a001dfb3923188edecf",
+    "excerpt_sha256": "e27501b52e7f1e13ef2c3fc6d1dace53d400df32cae5f5b0b4b9d1ab64a74e64"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\karma\\agents\\text_comparison\\agent.py",
+    "first_line": 218,
+    "last_line": 218,
+    "file_sha256": "da418c523cf108c65240b856cdb2f9c3059e42f3a599ec46374c21105e4da747",
+    "excerpt_sha256": "1888761a15df0ea2b3a1d83cfbffe86b253f506b8db2b89ad0967153a6933191"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\旧版\\KARMA\\karma\\agents\\entity_extraction\\agent.py",
+    "first_line": 72,
+    "last_line": 73,
+    "file_sha256": "8d2900731cda7a9b93c34f87aed19db4c06cbe5a4c50f58fdb4974d020328d48",
+    "excerpt_sha256": "1d6f4a5e09e3c16d0f5905572e47b6abe6b922f31d7cd30f6831a3d43531ad1b"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\karma\\agents\\entity_extraction\\agent.py",
+    "first_line": 40,
+    "last_line": 48,
+    "file_sha256": "8511e7b67901c25d474f9c27deec4ef714fbf466a8565514f533cab484bfd455",
+    "excerpt_sha256": "33538aad27b29ea7b89bf85de87e34f3b7934a7341e8917ff1574838f1e58651"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\karma\\agents\\entity_extraction\\agent.py",
+    "first_line": 89,
+    "last_line": 91,
+    "file_sha256": "8511e7b67901c25d474f9c27deec4ef714fbf466a8565514f533cab484bfd455",
+    "excerpt_sha256": "47fd80eaebe342827a8d84422d9f4e7b3508c2aaa9935b8d3ecddb016d119c46"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\karma\\agents\\entity_extraction\\agent.py",
+    "first_line": 112,
+    "last_line": 116,
+    "file_sha256": "8511e7b67901c25d474f9c27deec4ef714fbf466a8565514f533cab484bfd455",
+    "excerpt_sha256": "99701bdcb5e116003909aee1f9c444b462cc119bbca2b8c09a261ce0e60c6e92"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\旧版\\KARMA\\karma\\agents\\entity_extraction\\agent.py",
+    "first_line": 101,
+    "last_line": 107,
+    "file_sha256": "8d2900731cda7a9b93c34f87aed19db4c06cbe5a4c50f58fdb4974d020328d48",
+    "excerpt_sha256": "be9d8e3f410310c8ecfcf52803751aeb5ea0a1b5abde9a8c9f9091bbead459d4"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\karma\\agents\\extraction_support.py",
+    "first_line": 13,
+    "last_line": 13,
+    "file_sha256": "806ee7db3db16a216fc763f1f9b9db44a9f7952345ec5a4389c0ee389d7c0a05",
+    "excerpt_sha256": "d5421f7458c6f58645eac57e404d35e3606a5d218aa16e9d3848cee75a7cd3ec"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\karma\\agents\\extraction_support.py",
+    "first_line": 22,
+    "last_line": 24,
+    "file_sha256": "806ee7db3db16a216fc763f1f9b9db44a9f7952345ec5a4389c0ee389d7c0a05",
+    "excerpt_sha256": "269a3b9670919c62e8fbb24c9a2839d56e5267d0d5fffa1bac1c597c82385987"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\karma\\agents\\relationship_extraction\\agent.py",
+    "first_line": 155,
+    "last_line": 155,
+    "file_sha256": "66a2bdd687426dcac2d70f79be6a664140268c8908d2e9219b8d15a676013815",
+    "excerpt_sha256": "23e67d1f1591f95a47f9544047b50c4f400fe0a9bbe3c9931d1381fc6a6f3520"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\旧版\\KARMA\\karma\\agents\\relationship_extraction\\agent.py",
+    "first_line": 76,
+    "last_line": 79,
+    "file_sha256": "508528a35d3b4e104d5b735c6788b8025c1b8af7ac72098f87885e685eb0d027",
+    "excerpt_sha256": "caeae9bb81cfaef58ceb09ce89d6d6a24fa76f4339b846f9f9a1046b84e14bf5"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\karma\\agents\\reader\\agent.py",
+    "first_line": 36,
+    "last_line": 38,
+    "file_sha256": "4f484a75f9a6ef1303a3f9184008ac507da4a94724271e184b881016dca81513",
+    "excerpt_sha256": "e000b95af6ef3a02034785709e0b91707e7531976b6aa9544f0c4c329cbfb51e"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\karma\\agents\\reader\\agent.py",
+    "first_line": 55,
+    "last_line": 60,
+    "file_sha256": "4f484a75f9a6ef1303a3f9184008ac507da4a94724271e184b881016dca81513",
+    "excerpt_sha256": "f02d5532004246ec58f2c194bbbfccec8d4dfab90256dfd805608329cbc39ee4"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\karma\\agents\\reader\\agent.py",
+    "first_line": 68,
+    "last_line": 73,
+    "file_sha256": "4f484a75f9a6ef1303a3f9184008ac507da4a94724271e184b881016dca81513",
+    "excerpt_sha256": "7179f19f2f22088ed943b19e53e195203111ef73648e2d5fbbe4604ee01435ce"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\旧版\\KARMA\\karma\\agents\\reader\\agent.py",
+    "first_line": 44,
+    "last_line": 46,
+    "file_sha256": "eabb6de167ddccefb493031e2a9ee436f5d601017bb204465544f5c873d3e8aa",
+    "excerpt_sha256": "57dee45e48fe8b7264eef9592fef3e4813afd8e3354d33c4a1cfa8aee2804dac"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\旧版\\KARMA\\karma\\agents\\reader\\agent.py",
+    "first_line": 63,
+    "last_line": 68,
+    "file_sha256": "eabb6de167ddccefb493031e2a9ee436f5d601017bb204465544f5c873d3e8aa",
+    "excerpt_sha256": "3b3a80e79aa5d8c1fa052c3cbbdd5a368500c0d63ed7b984f288123e2b69916a"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\旧版\\KARMA\\karma\\agents\\reader\\agent.py",
+    "first_line": 76,
+    "last_line": 81,
+    "file_sha256": "eabb6de167ddccefb493031e2a9ee436f5d601017bb204465544f5c873d3e8aa",
+    "excerpt_sha256": "c8ab808568f30d7df2820a15bbc93c001c1a70d0ca82cd14598c15a27879f938"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\karma\\agents\\summarizer\\agent.py",
+    "first_line": 35,
+    "last_line": 37,
+    "file_sha256": "ef38d04dab8380c0d65a2fb1e000c955d50440b04a6edc114a2816940b6c2bac",
+    "excerpt_sha256": "046c673e7f43faa1848ebb505fd1c222ea69ce4319d38b4b215808d56ecae6cb"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\karma\\agents\\summarizer\\agent.py",
+    "first_line": 61,
+    "last_line": 65,
+    "file_sha256": "ef38d04dab8380c0d65a2fb1e000c955d50440b04a6edc114a2816940b6c2bac",
+    "excerpt_sha256": "f13ec1ea883f108177b876e0b36c6f11e52abddd974ad95a7800aca171b5c1a9"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\karma\\agents\\summarizer\\agent.py",
+    "first_line": 128,
+    "last_line": 139,
+    "file_sha256": "ef38d04dab8380c0d65a2fb1e000c955d50440b04a6edc114a2816940b6c2bac",
+    "excerpt_sha256": "be95ee0cb6ad22dd6649c9316ae5c6e87c470bf1a758ed4b5124ddc0958f3e77"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\旧版\\KARMA\\karma\\agents\\summarizer\\agent.py",
+    "first_line": 35,
+    "last_line": 37,
+    "file_sha256": "7fa264f35ca36943972c93ffd9fa9374958435f4de50e8776c4c26bf51cae3da",
+    "excerpt_sha256": "993f6035d42940a81785939d76c58e11cb3e527f3abfb05766e2b3004658d4e6"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\旧版\\KARMA\\karma\\agents\\summarizer\\agent.py",
+    "first_line": 61,
+    "last_line": 65,
+    "file_sha256": "7fa264f35ca36943972c93ffd9fa9374958435f4de50e8776c4c26bf51cae3da",
+    "excerpt_sha256": "b622adca87546f584ae93fa09b10e1693c8b9160d848a2b03ac280c7831f2849"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\旧版\\KARMA\\karma\\agents\\summarizer\\agent.py",
+    "first_line": 126,
+    "last_line": 140,
+    "file_sha256": "7fa264f35ca36943972c93ffd9fa9374958435f4de50e8776c4c26bf51cae3da",
+    "excerpt_sha256": "78f26d1500006062b03c9807c6136d218bd61f5e8f28df5edabb29911de53ce0"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\karma\\agents\\summarizer\\agent.py",
+    "first_line": 69,
+    "last_line": 71,
+    "file_sha256": "ef38d04dab8380c0d65a2fb1e000c955d50440b04a6edc114a2816940b6c2bac",
+    "excerpt_sha256": "5498ec2a635da8988d1787a40c57143630707353762de0e263a26c6ae6d6ce60"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\旧版\\KARMA\\karma\\agents\\summarizer\\agent.py",
+    "first_line": 69,
+    "last_line": 71,
+    "file_sha256": "7fa264f35ca36943972c93ffd9fa9374958435f4de50e8776c4c26bf51cae3da",
+    "excerpt_sha256": "62bc445b3c8eb84f84f0bc66dda0ee6279b2d3cfcb2c7a9158c9265f60fd3fc6"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\karma\\agents\\ingestion\\agent.py",
+    "first_line": 56,
+    "last_line": 59,
+    "file_sha256": "6d9824495b2fe29bbf3f2b889794d0df766a0c85028698fcf92b7da2a6c699e0",
+    "excerpt_sha256": "152df75714d0053f8b5a66486f714e5cf83b5a6df2d3d8f7f12040b8b2ea5b3f"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\karma\\agents\\ingestion\\agent.py",
+    "first_line": 62,
+    "last_line": 66,
+    "file_sha256": "6d9824495b2fe29bbf3f2b889794d0df766a0c85028698fcf92b7da2a6c699e0",
+    "excerpt_sha256": "8d843613ab450344b699c4172c4a1094bedd4e255d43428da7b600dcf88bf887"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\旧版\\KARMA\\karma\\agents\\ingestion\\agent.py",
+    "first_line": 70,
+    "last_line": 73,
+    "file_sha256": "6b66cecb710af77d647fc8f0bf1a98578aa9959d4df5509dbc1d51af3715897c",
+    "excerpt_sha256": "031a5272ac805626f396e3d10aa06ee9a4fdeb0d1b90f76f407e5e9ea2a95e88"
+  },
+  {
+    "file": "E:\\huawei after\\KARMA\\旧版\\KARMA\\karma\\agents\\ingestion\\agent.py",
+    "first_line": 76,
+    "last_line": 80,
+    "file_sha256": "6b66cecb710af77d647fc8f0bf1a98578aa9959d4df5509dbc1d51af3715897c",
+    "excerpt_sha256": "e634ac57333936bf5059ab91a72b08f3fb9ce248850f03b5591fc6df49a6d7d0"
+  }
+]

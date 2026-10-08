@@ -1,69 +1,24 @@
 {
-  "benchie_16": [
+  "benchie_15": [
     {
-      "head": "Institut Constant de Rebecque",
-      "relation": "is",
-      "tail": "Swiss"
+      "head": "Each of the programs",
+      "relation": "uses",
+      "tail": "a combination of funding priorities and geographic requirements"
     },
     {
-      "head": "Institut Constant de Rebecque",
-      "relation": "is",
-      "tail": "free-market think tank"
+      "head": "Each of the programs",
+      "relation": "uses a combination of funding priorities and geographic requirements to",
+      "tail": "select grants"
     },
     {
-      "head": "Institut Constant de Rebecque",
-      "relation": "is",
-      "tail": "think tank"
-    },
-    {
-      "head": "Institut Constant de Rebecque",
-      "relation": "is",
-      "tail": "classical liberal think tank"
-    },
-    {
-      "head": "Institut Constant de Rebecque",
-      "relation": "is",
-      "tail": "libertarian think tank"
-    },
-    {
-      "head": "Institut Constant de Rebecque",
-      "relation": "was founded in",
-      "tail": "January 2005"
-    },
-    {
-      "head": "Institut Constant de Rebecque",
-      "relation": "was founded in",
-      "tail": "Lausanne"
-    },
-    {
-      "head": "Institut Constant de Rebecque",
-      "relation": "is named after",
-      "tail": "Benjamin Constant"
-    },
-    {
-      "head": "Benjamin Constant",
-      "relation": "is",
-      "tail": "writer"
-    },
-    {
-      "head": "Benjamin Constant",
-      "relation": "is",
-      "tail": "political philosopher"
-    },
-    {
-      "head": "Benjamin Constant",
-      "relation": "is",
-      "tail": "political"
-    },
-    {
-      "head": "Benjamin Constant",
-      "relation": "lived before",
-      "tail": "January 2005"
+      "head": "grants",
+      "relation": "described on",
+      "tail": "the foundation 's web site"
     }
   ],
   "benchie_17": [
     {
-      "head": "main reason for this adoption over mainline gimp",
+      "head": "The main reason for this adoption over mainline gimp",
       "relation": "was",
       "tail": "its support for high bit depths"
     },
@@ -71,38 +26,18 @@
       "head": "high bit depths",
       "relation": "can be required for",
       "tail": "film work"
-    },
-    {
-      "head": "this adoption",
-      "relation": "supports",
-      "tail": "high bit depths"
-    },
-    {
-      "head": "this",
-      "relation": "was adopted over",
-      "tail": "mainline gimp"
     }
   ],
   "benchie_18": [
     {
       "head": "They",
       "relation": "have",
-      "tail": "large range of possible power supplies"
+      "tail": "a large range of possible power supplies"
     },
     {
       "head": "They",
       "relation": "can be",
       "tail": "380V"
-    },
-    {
-      "head": "They",
-      "relation": "can be",
-      "tail": "1000V"
-    },
-    {
-      "head": "They",
-      "relation": "can be",
-      "tail": "even higher than 1000V"
     }
   ],
   "benchie_19": [
@@ -115,388 +50,126 @@
       "head": "She",
       "relation": "began her film career in",
       "tail": "1947"
-    },
-    {
-      "head": "She",
-      "relation": "began her film career in",
-      "tail": "A New Oath"
-    },
-    {
-      "head": "A New Oath",
-      "relation": "is",
-      "tail": "film"
     }
   ],
   "benchie_20": [
     {
       "head": "Alpha Serpentis",
       "relation": "is",
-      "tail": "brightest star in Serpens"
-    },
-    {
-      "head": "Alpha Serpentis",
-      "relation": "is",
-      "tail": "Unukalhai"
-    },
-    {
-      "head": "Alpha Serpentis",
-      "relation": "is",
-      "tail": "red giant"
-    },
-    {
-      "head": "Alpha Serpentis",
-      "relation": "is of",
-      "tail": "spectral type K2III"
-    },
-    {
-      "head": "Alpha Serpentis",
-      "relation": "is located",
-      "tail": "approximately away"
+      "tail": "a red giant"
     },
     {
       "head": "Alpha Serpentis",
       "relation": "marks",
-      "tail": "snake's heart"
-    },
-    {
-      "head": "snake",
-      "relation": "has",
-      "tail": "heart"
-    },
-    {
-      "head": "K2III",
-      "relation": "is",
-      "tail": "spectral type"
+      "tail": "the snake 's heart"
     }
   ],
   "benchie_21": [
     {
       "head": "This manual",
-      "relation": "is for",
-      "tail": "warriors"
-    },
-    {
-      "head": "This manual",
       "relation": "describes",
-      "tail": "necessity for understanding opponent's weaknesses"
-    },
-    {
-      "head": "This manual",
-      "relation": "describes",
-      "tail": "necessity for using spies"
-    },
-    {
-      "head": "This manual",
-      "relation": "describes",
-      "tail": "necessity for striking in moments of weakness"
+      "tail": "the necessity for understanding an opponent 's weaknesses"
     }
   ],
   "benchie_22": [
     {
-      "head": "senior team",
+      "head": "the senior team",
       "relation": "was adopted by",
       "tail": "Bill Dimovski"
-    },
-    {
-      "head": "club policy",
-      "relation": "was to",
-      "tail": "promote talent"
-    },
-    {
-      "head": "club policy",
-      "relation": "was to promote talent into",
-      "tail": "senior team"
     }
   ],
   "benchie_23": [
     {
       "head": "Vaccinations against other viral diseases",
-      "relation": "are including",
-      "tail": "successful rabies vaccination"
-    },
-    {
-      "head": "successful rabies vaccination",
-      "relation": "was done by",
-      "tail": "Louis Pasteur"
-    },
-    {
-      "head": "successful rabies vaccination",
-      "relation": "was done in",
-      "tail": "1886"
-    },
-    {
-      "head": "rabies vaccination",
-      "relation": "was",
-      "tail": "successful"
-    },
-    {
-      "head": "rabies",
-      "relation": "is",
-      "tail": "viral diseases"
+      "relation": "including",
+      "tail": "the successful rabies vaccination"
     }
   ],
   "benchie_24": [
     {
-      "head": "Photographic Model",
+      "head": "the Photographic Model",
       "relation": "follows",
-      "tail": "more of step-by-step process"
+      "tail": "more of a step-by-step process"
     },
     {
-      "head": "Photographic Model",
-      "relation": "follows a step-by-step process in",
-      "tail": "development of flashbulb accounts"
-    },
-    {
-      "head": "Comprehensive Model",
+      "head": "the Comprehensive Model",
       "relation": "demonstrates",
-      "tail": "interconnected relationship"
+      "tail": "an interconnected relationship"
     },
     {
-      "head": "Comprehensive Model",
-      "relation": "demonstrates interconnected relationship between",
-      "tail": "variables"
-    },
-    {
-      "head": "two models",
-      "relation": "have",
-      "tail": "One major difference"
-    },
-    {
-      "head": "One major difference between two models",
-      "relation": "is that",
-      "tail": "Photographic Model follows a step-by-step process in development of flashbulb accounts whereas Comprehensive Model demonstrates an interconnected relationship between variables"
+      "head": "the Comprehensive Model",
+      "relation": "demonstrates an interconnected relationship between",
+      "tail": "the variables"
     }
   ],
   "benchie_25": [
     {
       "head": "300 soldiers",
-      "relation": "are of",
-      "tail": "1st SS Battalion"
+      "relation": "of",
+      "tail": "the 1st SS Battalion"
     },
     {
-      "head": "300 soldiers of 1st SS Battalion",
-      "relation": "were able to reinforce",
-      "tail": "hotel"
-    },
-    {
-      "head": "300 soldiers of 1st SS Battalion",
-      "relation": "were able to defeat",
-      "tail": "several attacks"
-    },
-    {
-      "head": "300 soldiers of 1st SS Battalion",
-      "relation": "were able to defeat several attacks on",
-      "tail": "building"
-    },
-    {
-      "head": "300 soldiers of 1st SS Battalion",
-      "relation": "were able to reinforce hotel",
-      "tail": "That night"
-    },
-    {
-      "head": "300 soldiers of 1st SS Battalion",
-      "relation": "were able to defeat several attacks",
-      "tail": "That night"
+      "head": "300 soldiers of the 1st SS Battalion",
+      "relation": "were able to",
+      "tail": "reinforce the hotel"
     }
   ],
   "benchie_26": [
     {
-      "head": "John Crozier Jr.",
+      "head": "John Crozier , Jr",
       "relation": "was",
-      "tail": "His son"
+      "tail": "an early aviation pioneer"
     },
     {
-      "head": "John Crozier Jr.",
-      "relation": "was",
-      "tail": "early aviation pioneer"
-    },
-    {
-      "head": "John Crozier Jr.",
+      "head": "John Crozier , Jr",
       "relation": "began building",
-      "tail": "human-powered flying machine"
+      "tail": "a human-powered flying machine"
     },
     {
-      "head": "John Crozier Jr.",
-      "relation": "began building human-powered flying machine in",
-      "tail": "1890s"
+      "head": "John Crozier , Jr",
+      "relation": "began building a human-powered flying machine in",
+      "tail": "the 1890s"
     },
     {
-      "head": "John Crozier Jr.",
+      "head": "John Crozier , Jr",
       "relation": "was",
       "tail": "killed"
     },
     {
-      "head": "John Crozier Jr.",
+      "head": "John Crozier , Jr",
       "relation": "was killed in",
-      "tail": "feud"
-    },
-    {
-      "head": "John Crozier Jr.",
-      "relation": "was killed in",
-      "tail": "Grainger County"
-    },
-    {
-      "head": "John Crozier Jr.",
-      "relation": "was killed before",
-      "tail": "he could complete his flying machine"
+      "tail": "a feud"
     }
   ],
   "benchie_27": [
     {
       "head": "Arminius",
-      "relation": "is",
-      "tail": "leader"
-    },
-    {
-      "head": "Arminius",
-      "relation": "is leader of",
-      "tail": "Cherusci"
-    },
-    {
-      "head": "Arminius",
-      "relation": "is leader of",
-      "tail": "allies of Cherusci"
-    },
-    {
-      "head": "Arminius",
       "relation": "now had",
-      "tail": "free hand"
+      "tail": "a free hand"
     }
   ],
   "benchie_28": [
     {
-      "head": "culture of Bhutan",
+      "head": "The culture of Bhutan",
       "relation": "is fully reflected in",
-      "tail": "capital city"
+      "tail": "the capital city"
     },
     {
-      "head": "culture of Bhutan",
-      "relation": "is fully reflected in capital city in respect of",
+      "head": "The culture of Bhutan",
+      "relation": "is fully reflected in the capital city in respect of",
       "tail": "literature"
-    },
-    {
-      "head": "culture of Bhutan",
-      "relation": "is fully reflected in capital city in respect of",
-      "tail": "religion"
-    },
-    {
-      "head": "culture of Bhutan",
-      "relation": "is fully reflected in capital city in respect of",
-      "tail": "customs"
-    },
-    {
-      "head": "culture of Bhutan",
-      "relation": "is fully reflected in capital city in respect of",
-      "tail": "national dress code"
-    },
-    {
-      "head": "culture of Bhutan",
-      "relation": "is fully reflected in capital city in respect of",
-      "tail": "monastic practices of monasteries"
-    },
-    {
-      "head": "culture of Bhutan",
-      "relation": "is fully reflected in capital city in respect of",
-      "tail": "music"
-    },
-    {
-      "head": "culture of Bhutan",
-      "relation": "is fully reflected in capital city in respect of",
-      "tail": "dance"
-    },
-    {
-      "head": "culture of Bhutan",
-      "relation": "is fully reflected in capital city in",
-      "tail": "media"
-    },
-    {
-      "head": "Bhutan",
-      "relation": "has",
-      "tail": "culture"
-    },
-    {
-      "head": "monasteries",
-      "relation": "have",
-      "tail": "monastic practices"
     }
   ],
   "benchie_29": [
     {
-      "head": "My Classical Way",
+      "head": "`` My Classical Way ''",
       "relation": "was",
       "tail": "released"
     },
     {
-      "head": "My Classical Way",
+      "head": "`` My Classical Way ''",
       "relation": "was released on",
       "tail": "21 September 2010"
-    },
-    {
-      "head": "My Classical Way",
-      "relation": "was released on",
-      "tail": "Frazzy Frog Music"
-    },
-    {
-      "head": "Frazzy Frog Music",
-      "relation": "is owned by",
-      "tail": "Marc"
-    },
-    {
-      "head": "Frazzy Frog Music",
-      "relation": "is",
-      "tail": "label"
-    },
-    {
-      "head": "Marc",
-      "relation": "owns",
-      "tail": "label"
-    }
-  ],
-  "benchie_30": [
-    {
-      "head": "attempted murder",
-      "relation": "is",
-      "tail": "offence"
-    },
-    {
-      "head": "attempted murder",
-      "relation": "is offence in",
-      "tail": "England"
-    },
-    {
-      "head": "attempted murder",
-      "relation": "is offence in",
-      "tail": "Wales"
-    },
-    {
-      "head": "attempted murder",
-      "relation": "as is offence as",
-      "tail": "attempt"
-    },
-    {
-      "head": "attempted murder",
-      "relation": "is offence under",
-      "tail": "section 1 of Criminal Attempts Act 1981"
-    },
-    {
-      "head": "attempted murder",
-      "relation": "is",
-      "tail": "indictable offence"
-    },
-    {
-      "head": "attempted murder",
-      "relation": "carries",
-      "tail": "maximum penalty of life imprisonment"
-    },
-    {
-      "head": "indictable offence",
-      "relation": "carries",
-      "tail": "maximum penalty of life imprisonment"
-    },
-    {
-      "head": "maximum penalty",
-      "relation": "is of",
-      "tail": "life imprisonment"
     }
   ]
 }

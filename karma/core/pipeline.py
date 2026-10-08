@@ -392,6 +392,39 @@ class KARMAPipeline:
 
                     integrated_triples = self.evaluator_agent.process(resolved_relationships)
                     intermediate.integrated_triples = integrated_triples
+                    if t == 1:
+                        revision_result = {
+                            # 第一轮最终结果：第二轮修改的基础
+                            "baseline": [
+                                x.to_dict() for x in baseline_triples
+                            ],
+                            # 模型提出的操作，以及程序接受、拒绝的情况
+                            "revision_audit": getattr(
+                                self.relationship_extraction_agent,
+                                "last_revision", {}
+                            ),
+                            # 应用修改并去重后的结果
+                            "after_revision": [
+                                x.to_dict() for x in relationships
+                            ],
+                            # 冲突处理后的结果
+                            "after_conflict_resolution": [
+                                x.to_dict() for x in resolved_relationships
+                            ],
+                            # 评分过滤后的最终结果
+                            "final": [
+                                x.to_dict() for x in integrated_triples
+                            ],
+                        }
+                        result_path = (
+                            self.evaluator_agent._dump_dir
+                            / f"_dump_doc{i}_revision_result.json"
+                        )
+                        with open(result_path, "w", encoding="utf-8") as f:
+                            json.dump(
+                                revision_result, f,
+                                ensure_ascii=False, indent=2
+                            )
                     triples = []
                     for _ti in range(len(integrated_triples)):
                         triple = integrated_triples[_ti].head + ',' + integrated_triples[_ti].relation + ',' + integrated_triples[_ti].tail

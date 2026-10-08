@@ -1,4 +1,52 @@
 {
+  "benchie_238": [
+    {
+      "head": "the fillets",
+      "relation": "are put in",
+      "tail": "a mix"
+    },
+    {
+      "head": "the fillets",
+      "relation": "are put in a mix of",
+      "tail": "olive oil , vinegar , sugar , garlic , chill peppers , and lots of parsley or celery"
+    }
+  ],
+  "benchie_239": [
+    {
+      "head": "There",
+      "relation": "were",
+      "tail": "47,604 households"
+    }
+  ],
+  "benchie_240": [
+    {
+      "head": "These objects",
+      "relation": "are thrown away if",
+      "tail": "their screen projection is too small"
+    }
+  ],
+  "benchie_241": [
+    {
+      "head": "These",
+      "relation": "were often related to",
+      "tail": "European conflict"
+    },
+    {
+      "head": "the Stuart Pretenders",
+      "relation": "were",
+      "tail": "aided"
+    },
+    {
+      "head": "the Stuart Pretenders",
+      "relation": "encouraged by",
+      "tail": "Britain 's continental enemies"
+    },
+    {
+      "head": "the Stuart Pretenders",
+      "relation": "encouraged by Britain 's continental enemies for",
+      "tail": "their own ends"
+    }
+  ],
   "benchie_242": [
     {
       "head": "They",
@@ -7,43 +55,13 @@
     },
     {
       "head": "They",
-      "relation": "beat",
-      "tail": "Grand View"
-    },
-    {
-      "head": "They",
-      "relation": "beat",
-      "tail": "Webber International"
-    },
-    {
-      "head": "They",
-      "relation": "beat",
-      "tail": "Azusa Pacific"
-    },
-    {
-      "head": "They",
-      "relation": "have won",
-      "tail": "NAIA National Championships"
+      "relation": "win",
+      "tail": "the NAIA National Championships"
     },
     {
       "head": "They",
       "relation": "beat Milligan",
       "tail": "1-0"
-    },
-    {
-      "head": "They",
-      "relation": "beat Grand View",
-      "tail": "3-0"
-    },
-    {
-      "head": "They",
-      "relation": "beat Webber International",
-      "tail": "1-0"
-    },
-    {
-      "head": "They",
-      "relation": "beat Azusa Pacific",
-      "tail": "0-0"
     }
   ],
   "benchie_243": [
@@ -55,12 +73,7 @@
     {
       "head": "This engine",
       "relation": "was equipped with",
-      "tail": "electronically controlled carburetor"
-    },
-    {
-      "head": "This engine",
-      "relation": "was equipped with",
-      "tail": "carburetor"
+      "tail": "an electronically controlled carburetor"
     }
   ],
   "benchie_244": [
@@ -72,416 +85,94 @@
     {
       "head": "This",
       "relation": "had considerable implications for",
-      "tail": "Welsh language"
+      "tail": "the Welsh language"
     },
     {
       "head": "This",
-      "relation": "had considerable implications for Welsh language as",
-      "tail": "Welsh was main language of nonconformist churches in Wales"
+      "relation": "had considerable implications for the Welsh language as",
+      "tail": "it was the main language of the nonconformist churches in Wales"
     },
     {
-      "head": "Welsh language",
-      "relation": "was main language of",
-      "tail": "nonconformist churches"
+      "head": "the Welsh language",
+      "relation": "was the main language of",
+      "tail": "the nonconformist churches"
     },
     {
-      "head": "Welsh language",
-      "relation": "was main language of nonconformist churches in",
+      "head": "the Welsh language",
+      "relation": "was the main language of the nonconformist churches in",
       "tail": "Wales"
     }
   ],
   "benchie_245": [
     {
-      "head": "Total Fresh Food Story",
-      "relation": "is constructed at",
-      "tail": "end of North Mall"
+      "head": "Total ` Fresh Food Story",
+      "relation": "constructed at",
+      "tail": "the end of the North Mall"
     }
   ],
   "benchie_246": [
     {
       "head": "Watson",
-      "relation": "was",
-      "tail": "founder"
+      "relation": "editor of",
+      "tail": "`` newcritics.com"
     },
     {
-      "head": "Watson",
-      "relation": "was",
-      "tail": "editor"
-    },
-    {
-      "head": "Watson",
-      "relation": "was founder of",
-      "tail": "newcritics.com"
-    },
-    {
-      "head": "Watson",
-      "relation": "was editor of",
-      "tail": "newcritics.com"
-    },
-    {
-      "head": "newcritics.com",
-      "relation": "was",
-      "tail": "journal"
-    },
-    {
-      "head": "newcritics.com",
-      "relation": "was",
-      "tail": "online journal"
-    },
-    {
-      "head": "newcritics.com",
-      "relation": "was journal of",
+      "head": "`` newcritics.com",
+      "relation": "journal of",
       "tail": "media"
     },
     {
-      "head": "newcritics.com",
-      "relation": "was journal of",
-      "tail": "arts criticism"
-    },
-    {
-      "head": "newcritics.com",
+      "head": "`` newcritics.com",
       "relation": "launched in",
-      "tail": "January 2007"
+      "tail": "January , 2007"
     },
     {
-      "head": "newcritics.com",
+      "head": "`` newcritics.com",
       "relation": "shuttered in",
-      "tail": "June 2009"
-    }
-  ],
-  "benchie_247": [
-    {
-      "head": "civilian government",
-      "relation": "was",
-      "tail": "introduced"
-    },
-    {
-      "head": "civilian government",
-      "relation": "was introduced in",
-      "tail": "Romblon"
-    },
-    {
-      "head": "civilian government",
-      "relation": "was introduced by",
-      "tail": "Americans"
-    },
-    {
-      "head": "civilian government",
-      "relation": "was introduced in",
-      "tail": "16 March 1901"
-    },
-    {
-      "head": "Banton",
-      "relation": "was one of",
-      "tail": "11 new municipalities reinstated"
-    },
-    {
-      "head": "Banton",
-      "relation": "was one of",
-      "tail": "11 new municipalities created"
-    },
-    {
-      "head": "Banton",
-      "relation": "was",
-      "tail": "reinstated"
-    },
-    {
-      "head": "Banton",
-      "relation": "was",
-      "tail": "created"
-    },
-    {
-      "head": "Banton",
-      "relation": "was reinstated When",
-      "tail": "civilian government was introduced"
-    },
-    {
-      "head": "Banton",
-      "relation": "was reinstated in",
-      "tail": "16 March 1901"
-    },
-    {
-      "head": "Banton",
-      "relation": "was created When",
-      "tail": "civilian government was introduced"
-    },
-    {
-      "head": "Banton",
-      "relation": "was created in",
-      "tail": "16 March 1901"
-    },
-    {
-      "head": "11 new municipalities",
-      "relation": "were reinstated when",
-      "tail": "civilian government was introduced"
-    },
-    {
-      "head": "11 new municipalities",
-      "relation": "were created when",
-      "tail": "civilian government was introduced"
-    },
-    {
-      "head": "11 new municipalities",
-      "relation": "were reinstated in",
-      "tail": "16 March 1901"
-    },
-    {
-      "head": "11 new municipalities",
-      "relation": "were created in",
-      "tail": "16 March 1901"
+      "tail": "June , 2009"
     }
   ],
   "benchie_248": [
     {
-      "head": "Cosmos",
+      "head": "the Cosmos",
       "relation": "expressed",
       "tail": "concern"
     },
     {
-      "head": "Cosmos",
+      "head": "the Cosmos",
       "relation": "expressed concern for",
       "tail": "what Battra might do"
-    },
-    {
-      "head": "Cosmos",
-      "relation": "expressed concern for what Battra might do with",
-      "tail": "no assigned task"
-    },
-    {
-      "head": "Battra",
-      "relation": "has",
-      "tail": "no assigned task"
     }
   ],
   "benchie_249": [
     {
-      "head": "For list of all medalists",
+      "head": "`` For a list of all medalists",
       "relation": "please see",
-      "tail": "List of Great American Beer Festival medalists"
+      "tail": "the List of Great American Beer Festival medalists ''"
     }
   ],
   "benchie_250": [
     {
-      "head": "similar technique",
+      "head": "A similar technique",
       "relation": "is",
       "tail": "almost impossible to apply"
     },
     {
-      "head": "similar technique",
+      "head": "A similar technique",
       "relation": "is almost impossible to apply to",
       "tail": "other crops"
-    },
-    {
-      "head": "similar technique",
-      "relation": "is almost impossible to apply to",
-      "tail": "cotton"
-    },
-    {
-      "head": "similar technique",
-      "relation": "is almost impossible to apply to",
-      "tail": "soybeans"
-    },
-    {
-      "head": "similar technique",
-      "relation": "is almost impossible to apply to",
-      "tail": "rice"
     }
   ],
   "benchie_251": [
     {
-      "head": "the Gauguin",
-      "relation": "may be",
-      "tail": "lost"
-    },
-    {
-      "head": "the Gauguin",
-      "relation": "may be lost although",
-      "tail": "Heathrow authorities have been watching group of allegedly crooked baggage handlers"
-    },
-    {
       "head": "Heathrow authorities",
       "relation": "have been watching",
-      "tail": "group of allegedly crooked baggage handlers"
+      "tail": "a group of allegedly crooked baggage handlers"
     },
     {
       "head": "Heathrow authorities",
-      "relation": "have been watching group of allegedly crooked baggage handlers for",
+      "relation": "have been watching a group of allegedly crooked baggage handlers for",
       "tail": "some time"
-    }
-  ],
-  "benchie_252": [
-    {
-      "head": "sources",
-      "relation": "said it is possible that",
-      "tail": "Mr. Azoff could produce films later"
-    },
-    {
-      "head": "sources",
-      "relation": "said",
-      "tail": "Mr. Azoff will not produce films at first"
-    }
-  ],
-  "benchie_253": [
-    {
-      "head": "he",
-      "relation": "said",
-      "tail": "he will examine Marcos documents"
-    },
-    {
-      "head": "he",
-      "relation": "said he will examine Marcos documents as",
-      "tail": "result"
-    },
-    {
-      "head": "he",
-      "relation": "said he will examine the Marcos documents to determine",
-      "tail": "whether turning over filings is self-incrimination"
-    },
-    {
-      "head": "Marcos documents",
-      "relation": "are sought after by",
-      "tail": "prosecutors"
-    }
-  ],
-  "benchie_254": [
-    {
-      "head": "London trading session",
-      "relation": "drew to",
-      "tail": "close"
-    },
-    {
-      "head": "market",
-      "relation": "was still",
-      "tail": "listening"
-    },
-    {
-      "head": "market",
-      "relation": "was still listening as",
-      "tail": "London trading session drew to a close"
-    },
-    {
-      "head": "market",
-      "relation": "was still listening to",
-      "tail": "parliamentary debate"
-    },
-    {
-      "head": "market",
-      "relation": "was still listening to parliamentary debate on",
-      "tail": "economy"
-    },
-    {
-      "head": "John Major",
-      "relation": "was expected to clarify",
-      "tail": "his approach"
-    },
-    {
-      "head": "John Major",
-      "relation": "was expected to clarify his approach to",
-      "tail": "British economy"
-    },
-    {
-      "head": "John Major",
-      "relation": "was expected to clarify his approach to",
-      "tail": "currency issues"
-    },
-    {
-      "head": "John Major",
-      "relation": "is",
-      "tail": "new Chancellor of Exchequer"
-    },
-    {
-      "head": "John Major",
-      "relation": "has",
-      "tail": "approach"
-    },
-    {
-      "head": "John Major",
-      "relation": "has approach to",
-      "tail": "British economy"
-    },
-    {
-      "head": "John Major",
-      "relation": "has approach to",
-      "tail": "currency issues"
-    },
-    {
-      "head": "currency",
-      "relation": "has",
-      "tail": "issues"
-    }
-  ],
-  "benchie_255": [
-    {
-      "head": "patients",
-      "relation": "require",
-      "tail": "less attention"
-    },
-    {
-      "head": "patients",
-      "relation": "require less attention from",
-      "tail": "nurses"
-    },
-    {
-      "head": "patients",
-      "relation": "require less attention from",
-      "tail": "other staff"
-    },
-    {
-      "head": "room charges",
-      "relation": "are",
-      "tail": "lower"
-    },
-    {
-      "head": "room charges",
-      "relation": "are about",
-      "tail": "$100 less per day"
-    },
-    {
-      "head": "room charges",
-      "relation": "are about $100 less per day than",
-      "tail": "regular room at Vermont hospital"
-    },
-    {
-      "head": "room charges",
-      "relation": "are lower than",
-      "tail": "regular room"
-    },
-    {
-      "head": "room charges",
-      "relation": "are lower than regular room at",
-      "tail": "Vermont hospital"
-    },
-    {
-      "head": "room charges are lower",
-      "relation": "because",
-      "tail": "patients require less attention"
-    },
-    {
-      "head": "nurses",
-      "relation": "are part of",
-      "tail": "staff"
-    }
-  ],
-  "benchie_256": [
-    {
-      "head": "Both",
-      "relation": "reflect",
-      "tail": "dismissal"
-    },
-    {
-      "head": "Both",
-      "relation": "reflect dismissal of",
-      "tail": "executives"
-    },
-    {
-      "head": "Both",
-      "relation": "reflect dismissal of",
-      "tail": "lower-level tenure executives"
-    },
-    {
-      "head": "Both",
-      "relation": "reflect dismissal of",
-      "tail": "shorter-tenure executives"
     }
   ]
 }

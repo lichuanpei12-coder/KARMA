@@ -1,0 +1,20 @@
+test_conflicting_operations_preserve_original (__main__.FeedbackTests) ... ok
+test_entity_fallback_and_valid_empty (__main__.FeedbackTests) ... ok
+test_entity_mentions_preserve_boundaries_and_case (__main__.FeedbackTests) ... ok
+test_entity_revision_replaces_instead_of_union (__main__.FeedbackTests) ... ok
+test_evaluator_zero_scores_and_empty_dump (__main__.FeedbackTests) ... ok
+test_final_entities_and_serialization (__main__.FeedbackTests) ... ok
+test_first_round_parse_failure_is_distinct_from_empty (__main__.FeedbackTests) ... ok
+test_full_pipeline_two_documents_both_api_modes (__main__.FeedbackTests) ... ok
+test_incremental_ops_and_evidence_without_matching (__main__.FeedbackTests) ... ok
+test_json_wrappers_and_wrong_root (__main__.FeedbackTests) ... ok
+test_legacy_entry_points (__main__.FeedbackTests) ... ok
+test_per_item_parsing_and_scores (__main__.FeedbackTests) ... ok
+test_relationship_without_entity_gate (__main__.FeedbackTests) ... ok
+test_revision_failure_keeps_baseline_and_empty_can_add (__main__.FeedbackTests) ... ok
+test_strict_indices_and_invalid_fields (__main__.FeedbackTests) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.192s
+
+OK

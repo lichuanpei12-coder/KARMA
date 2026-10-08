@@ -3,180 +3,200 @@
     "batch": 0,
     "input_file": "input/0.json",
     "gold_file": "gold/0.json",
-    "sample_count": 15,
-    "triple_count": 139.0,
+    "sample_count": 14,
+    "triple_count": 41,
+    "empty_gold_count": 0,
     "first_id": "benchie_1",
-    "last_id": "benchie_15"
+    "last_id": "benchie_14"
   },
   {
     "batch": 1,
     "input_file": "input/1.json",
     "gold_file": "gold/1.json",
-    "sample_count": 15,
-    "triple_count": 94.0,
-    "first_id": "benchie_16",
-    "last_id": "benchie_30"
+    "sample_count": 14,
+    "triple_count": 29,
+    "empty_gold_count": 0,
+    "first_id": "benchie_15",
+    "last_id": "benchie_29"
   },
   {
     "batch": 2,
     "input_file": "input/2.json",
     "gold_file": "gold/2.json",
-    "sample_count": 15,
-    "triple_count": 122.0,
-    "first_id": "benchie_31",
-    "last_id": "benchie_45"
+    "sample_count": 14,
+    "triple_count": 41,
+    "empty_gold_count": 0,
+    "first_id": "benchie_30",
+    "last_id": "benchie_44"
   },
   {
     "batch": 3,
     "input_file": "input/3.json",
     "gold_file": "gold/3.json",
-    "sample_count": 15,
-    "triple_count": 87.0,
-    "first_id": "benchie_46",
-    "last_id": "benchie_60"
+    "sample_count": 14,
+    "triple_count": 27,
+    "empty_gold_count": 0,
+    "first_id": "benchie_45",
+    "last_id": "benchie_58"
   },
   {
     "batch": 4,
     "input_file": "input/4.json",
     "gold_file": "gold/4.json",
-    "sample_count": 15,
-    "triple_count": 87.0,
-    "first_id": "benchie_61",
-    "last_id": "benchie_75"
+    "sample_count": 14,
+    "triple_count": 32,
+    "empty_gold_count": 0,
+    "first_id": "benchie_59",
+    "last_id": "benchie_73"
   },
   {
     "batch": 5,
     "input_file": "input/5.json",
     "gold_file": "gold/5.json",
-    "sample_count": 15,
-    "triple_count": 123.0,
-    "first_id": "benchie_76",
-    "last_id": "benchie_90"
+    "sample_count": 14,
+    "triple_count": 28,
+    "empty_gold_count": 0,
+    "first_id": "benchie_75",
+    "last_id": "benchie_89"
   },
   {
     "batch": 6,
     "input_file": "input/6.json",
     "gold_file": "gold/6.json",
-    "sample_count": 15,
-    "triple_count": 90.0,
-    "first_id": "benchie_91",
-    "last_id": "benchie_105"
+    "sample_count": 14,
+    "triple_count": 41,
+    "empty_gold_count": 0,
+    "first_id": "benchie_90",
+    "last_id": "benchie_104"
   },
   {
     "batch": 7,
     "input_file": "input/7.json",
     "gold_file": "gold/7.json",
-    "sample_count": 15,
-    "triple_count": 85.0,
-    "first_id": "benchie_106",
+    "sample_count": 13,
+    "triple_count": 40,
+    "empty_gold_count": 0,
+    "first_id": "benchie_105",
     "last_id": "benchie_121"
   },
   {
     "batch": 8,
     "input_file": "input/8.json",
     "gold_file": "gold/8.json",
-    "sample_count": 15,
-    "triple_count": 64.0,
+    "sample_count": 13,
+    "triple_count": 30,
+    "empty_gold_count": 0,
     "first_id": "benchie_122",
-    "last_id": "benchie_136"
+    "last_id": "benchie_135"
   },
   {
     "batch": 9,
     "input_file": "input/9.json",
     "gold_file": "gold/9.json",
-    "sample_count": 15,
-    "triple_count": 76.0,
-    "first_id": "benchie_137",
-    "last_id": "benchie_151"
+    "sample_count": 13,
+    "triple_count": 30,
+    "empty_gold_count": 0,
+    "first_id": "benchie_136",
+    "last_id": "benchie_152"
   },
   {
     "batch": 10,
     "input_file": "input/10.json",
     "gold_file": "gold/10.json",
-    "sample_count": 15,
-    "triple_count": 77.0,
-    "first_id": "benchie_152",
+    "sample_count": 13,
+    "triple_count": 33,
+    "empty_gold_count": 0,
+    "first_id": "benchie_153",
     "last_id": "benchie_166"
   },
   {
     "batch": 11,
     "input_file": "input/11.json",
     "gold_file": "gold/11.json",
-    "sample_count": 15,
-    "triple_count": 100.0,
+    "sample_count": 13,
+    "triple_count": 29,
+    "empty_gold_count": 0,
     "first_id": "benchie_167",
-    "last_id": "benchie_181"
+    "last_id": "benchie_182"
   },
   {
     "batch": 12,
     "input_file": "input/12.json",
     "gold_file": "gold/12.json",
-    "sample_count": 15,
-    "triple_count": 111.0,
-    "first_id": "benchie_182",
+    "sample_count": 13,
+    "triple_count": 20,
+    "empty_gold_count": 0,
+    "first_id": "benchie_183",
     "last_id": "benchie_196"
   },
   {
     "batch": 13,
     "input_file": "input/13.json",
     "gold_file": "gold/13.json",
-    "sample_count": 15,
-    "triple_count": 59.0,
+    "sample_count": 13,
+    "triple_count": 30,
+    "empty_gold_count": 0,
     "first_id": "benchie_197",
-    "last_id": "benchie_211"
+    "last_id": "benchie_209"
   },
   {
     "batch": 14,
     "input_file": "input/14.json",
     "gold_file": "gold/14.json",
-    "sample_count": 15,
-    "triple_count": 85.0,
-    "first_id": "benchie_212",
-    "last_id": "benchie_226"
+    "sample_count": 13,
+    "triple_count": 26,
+    "empty_gold_count": 0,
+    "first_id": "benchie_210",
+    "last_id": "benchie_222"
   },
   {
     "batch": 15,
     "input_file": "input/15.json",
     "gold_file": "gold/15.json",
-    "sample_count": 15,
-    "triple_count": 98.0,
-    "first_id": "benchie_227",
-    "last_id": "benchie_241"
+    "sample_count": 13,
+    "triple_count": 33,
+    "empty_gold_count": 0,
+    "first_id": "benchie_223",
+    "last_id": "benchie_237"
   },
   {
     "batch": 16,
     "input_file": "input/16.json",
     "gold_file": "gold/16.json",
-    "sample_count": 15,
-    "triple_count": 91.0,
-    "first_id": "benchie_242",
-    "last_id": "benchie_256"
+    "sample_count": 13,
+    "triple_count": 30,
+    "empty_gold_count": 0,
+    "first_id": "benchie_238",
+    "last_id": "benchie_251"
   },
   {
     "batch": 17,
     "input_file": "input/17.json",
     "gold_file": "gold/17.json",
-    "sample_count": 15,
-    "triple_count": 85.0,
-    "first_id": "benchie_257",
-    "last_id": "benchie_271"
+    "sample_count": 13,
+    "triple_count": 25,
+    "empty_gold_count": 0,
+    "first_id": "benchie_254",
+    "last_id": "benchie_267"
   },
   {
     "batch": 18,
     "input_file": "input/18.json",
     "gold_file": "gold/18.json",
-    "sample_count": 15,
-    "triple_count": 68.0,
-    "first_id": "benchie_272",
-    "last_id": "benchie_286"
+    "sample_count": 13,
+    "triple_count": 29,
+    "empty_gold_count": 0,
+    "first_id": "benchie_268",
+    "last_id": "benchie_281"
   },
   {
     "batch": 19,
     "input_file": "input/19.json",
     "gold_file": "gold/19.json",
-    "sample_count": 14,
-    "triple_count": 65.0,
-    "first_id": "benchie_287",
-    "last_id": "benchie_300"
+    "sample_count": 13,
+    "triple_count": 29,
+    "empty_gold_count": 0,
+    "first_id": "benchie_282",
+    "last_id": "benchie_296"
   }
 ]

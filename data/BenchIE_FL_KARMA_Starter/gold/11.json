@@ -7,146 +7,42 @@
     },
     {
       "head": "it",
-      "relation": "was barely hearable due to",
-      "tail": "transmitter location being based in Tyrone"
-    },
-    {
-      "head": "it",
-      "relation": "was barely hearable due to",
-      "tail": "smaller signal wattage"
-    },
-    {
-      "head": "it",
       "relation": "was barely hearable in",
-      "tail": "northern portions of Atlanta"
-    },
-    {
-      "head": "it",
-      "relation": "was barely hearable beyond",
-      "tail": "downtown area of Atlanta"
-    },
-    {
-      "head": "it",
-      "relation": "was barely hearable in",
-      "tail": "northern reaches of Fulton"
-    },
-    {
-      "head": "it",
-      "relation": "was barely hearable in",
-      "tail": "DeKalb Counties"
+      "tail": "the northern portions of Atlanta"
     },
     {
       "head": "it",
       "relation": "was",
-      "tail": "rimshot to southwest of city"
+      "tail": "a rimshot to the southwest of the city"
     },
     {
-      "head": "transmitter location",
-      "relation": "was based in",
+      "head": "the transmitter location",
+      "relation": "being based in",
       "tail": "Tyrone"
-    }
-  ],
-  "benchie_168": [
-    {
-      "head": "some services",
-      "relation": "run direct to",
-      "tail": "Paddington"
-    },
-    {
-      "head": "some services",
-      "relation": "run direct to",
-      "tail": "Reading"
-    },
-    {
-      "head": "some services",
-      "relation": "run direct from",
-      "tail": "Paddington"
-    },
-    {
-      "head": "some services",
-      "relation": "run direct from",
-      "tail": "Reading"
-    },
-    {
-      "head": "some services",
-      "relation": "run direct during",
-      "tail": "morning rush hours"
-    },
-    {
-      "head": "some services",
-      "relation": "run direct during",
-      "tail": "evening rush hours"
     }
   ],
   "benchie_169": [
     {
-      "head": "University",
+      "head": "the University",
       "relation": "banned",
       "tail": "smoking"
     },
     {
-      "head": "University",
+      "head": "the University",
       "relation": "banned smoking on",
-      "tail": "any of University's property"
-    },
-    {
-      "head": "University",
-      "relation": "banned smoking inside",
-      "tail": "buildings"
-    },
-    {
-      "head": "University",
-      "relation": "banned smoking outside",
-      "tail": "buildings"
-    },
-    {
-      "head": "University",
-      "relation": "banned smoking in",
-      "tail": "areas that were once designated as smoking areas"
+      "tail": "any of its property"
     },
     {
       "head": "areas",
       "relation": "were once designated as",
       "tail": "smoking areas"
-    },
-    {
-      "head": "University",
-      "relation": "has",
-      "tail": "property"
-    },
-    {
-      "head": "University",
-      "relation": "banned smoking from",
-      "tail": "start of first semester of 2010"
-    }
-  ],
-  "benchie_170": [
-    {
-      "head": "Fr",
-      "relation": "had been directed to found",
-      "tail": "monastery"
-    },
-    {
-      "head": "Fr",
-      "relation": "had been directed to found monastery of",
-      "tail": "his order"
-    },
-    {
-      "head": "Fr",
-      "relation": "had been directed to found monastery in",
-      "tail": "United States"
-    },
-    {
-      "head": "Fr",
-      "relation": "had been directed to found monastery in",
-      "tail": "1873"
     }
   ],
   "benchie_171": [
     {
       "head": "He",
       "relation": "finds himself in",
-      "tail": "desert"
+      "tail": "a desert"
     },
     {
       "head": "a group of Neo Arcadians",
@@ -154,9 +50,9 @@
       "tail": "him"
     },
     {
-      "head": "a group of Neo Arcadians surrounding him",
-      "relation": "ended",
-      "tail": "game"
+      "head": "a group of Neo Arcadians surround him",
+      "relation": "ending",
+      "tail": "the game"
     }
   ],
   "benchie_172": [
@@ -167,75 +63,20 @@
     },
     {
       "head": "He",
-      "relation": "played in",
-      "tail": "1985 adaptation of The Pickwick Papers"
-    },
-    {
-      "head": "He",
       "relation": "played Perker in",
-      "tail": "1985 adaptation of The Pickwick Papers"
-    },
-    {
-      "head": "He",
-      "relation": "played Perker in",
-      "tail": "1985"
-    },
-    {
-      "head": "Perker",
-      "relation": "is in",
-      "tail": "1985 adaptation of The Pickwick Papers"
-    },
-    {
-      "head": "The Pickwick Papers",
-      "relation": "was adapted in",
-      "tail": "1985"
-    },
-    {
-      "head": "The Pickwick Papers",
-      "relation": "was",
-      "tail": "adapted"
+      "tail": "the 1985 adaptation of `` The Pickwick Papers ''"
     }
   ],
   "benchie_173": [
     {
       "head": "He",
-      "relation": "represented riding of",
+      "relation": "represented the riding of",
       "tail": "Nickel Belt"
     },
     {
       "head": "He",
-      "relation": "represented riding of Nickel Belt in",
-      "tail": "Sudbury area"
-    },
-    {
-      "head": "He",
-      "relation": "represented riding in",
-      "tail": "Ontario"
-    },
-    {
-      "head": "Sudbury area",
-      "relation": "is in",
-      "tail": "Ontario"
-    },
-    {
-      "head": "riding of Nickel Belt",
-      "relation": "is in",
-      "tail": "Sudbury area"
-    },
-    {
-      "head": "riding of Nickel Belt",
-      "relation": "is in",
-      "tail": "Ontario"
-    },
-    {
-      "head": "He",
       "relation": "represented",
-      "tail": "riding"
-    },
-    {
-      "head": "Nickel Belt",
-      "relation": "has",
-      "tail": "riding"
+      "tail": "the riding"
     }
   ],
   "benchie_174": [
@@ -247,59 +88,24 @@
     {
       "head": "He",
       "relation": "was buried in",
-      "tail": "Abbey of the Psalms mausoleum"
-    },
-    {
-      "head": "He",
-      "relation": "was buried at",
-      "tail": "Hollywood Forever Cemetery"
-    },
-    {
-      "head": "Abbey of the Psalms mausoleum",
-      "relation": "is in",
-      "tail": "Hollywood Forever Cemetery"
+      "tail": "the Abbey of the Psalms mausoleum"
     }
   ],
   "benchie_175": [
     {
       "head": "Aiseau",
-      "relation": "was historically",
-      "tail": "village"
-    },
-    {
-      "head": "Aiseau",
-      "relation": "was historically dedicated to",
-      "tail": "agriculture"
-    },
-    {
-      "head": "Aiseau",
-      "relation": "was historically dedicated to",
-      "tail": "logging"
-    },
-    {
-      "head": "Aiseau",
-      "relation": "was historically dedicated to",
-      "tail": "industry"
+      "relation": "was",
+      "tail": "a village"
     }
   ],
   "benchie_176": [
     {
       "head": "Hofmann",
       "relation": "was",
-      "tail": "student"
+      "tail": "a below-average"
     },
     {
-      "head": "Hofmann",
-      "relation": "was",
-      "tail": "high school student"
-    },
-    {
-      "head": "Hofmann",
-      "relation": "was",
-      "tail": "below-average student"
-    },
-    {
-      "head": "Hofmann",
+      "head": "he",
       "relation": "had",
       "tail": "many hobbies"
     },
@@ -309,49 +115,9 @@
       "tail": "magic"
     },
     {
-      "head": "Hofmann",
-      "relation": "had many hobbies including",
-      "tail": "electronics"
-    },
-    {
-      "head": "Hofmann",
-      "relation": "had many hobbies including",
-      "tail": "chemistry"
-    },
-    {
-      "head": "Hofmann",
-      "relation": "had many hobbies including",
-      "tail": "stamp collecting"
-    },
-    {
-      "head": "Hofmann",
-      "relation": "had many hobbies including",
-      "tail": "coin collecting"
-    },
-    {
-      "head": "magic",
-      "relation": "is",
-      "tail": "hobby"
-    },
-    {
-      "head": "electronics",
-      "relation": "is",
-      "tail": "hobby"
-    },
-    {
-      "head": "chemistry",
-      "relation": "is",
-      "tail": "hobby"
-    },
-    {
-      "head": "stamp collecting",
-      "relation": "is",
-      "tail": "hobby"
-    },
-    {
-      "head": "coin collecting",
-      "relation": "is",
-      "tail": "hobby"
+      "head": "hobbies",
+      "relation": "including",
+      "tail": "magic"
     }
   ],
   "benchie_177": [
@@ -359,120 +125,13 @@
       "head": "BAE Systems",
       "relation": "recently stated",
       "tail": "it no longer produces land mines"
-    },
-    {
-      "head": "BAE Systems",
-      "relation": "recently stated",
-      "tail": "it no longer produces cluster bombs"
-    },
-    {
-      "head": "BAE Systems",
-      "relation": "recently stated it no longer produces land mines after",
-      "tail": "pressure campaigns"
-    },
-    {
-      "head": "BAE Systems",
-      "relation": "recently stated it no longer produces cluster bombs after",
-      "tail": "pressure campaigns"
-    },
-    {
-      "head": "BAE Systems",
-      "relation": "recently stated it no longer produces land mines after pressure campaigns from",
-      "tail": "various human rights groups"
-    },
-    {
-      "head": "BAE Systems",
-      "relation": "recently stated it no longer produces cluster bombs after pressure campaigns from",
-      "tail": "various human rights groups"
-    },
-    {
-      "head": "various human rights groups",
-      "relation": "had",
-      "tail": "pressure campaigns"
-    },
-    {
-      "head": "BAE Systems",
-      "relation": "has produced",
-      "tail": "land mines"
-    },
-    {
-      "head": "BAE Systems",
-      "relation": "has produced",
-      "tail": "cluster bombs"
     }
   ],
   "benchie_178": [
     {
-      "head": "seed strains",
-      "relation": "have",
-      "tail": "antigenicities"
-    },
-    {
-      "head": "wild viruses",
-      "relation": "have",
-      "tail": "antigenicities"
-    },
-    {
-      "head": "vaccines",
-      "relation": "fail to protect",
-      "tail": "vaccinees"
-    },
-    {
-      "head": "vaccines",
-      "relation": "fail to protect when",
-      "tail": "antigenicities of seed strains and wild viruses do not match"
-    }
-  ],
-  "benchie_179": [
-    {
-      "head": "average magnetization vector",
-      "relation": "still points in",
-      "tail": "nonparallel direction"
-    },
-    {
-      "head": "average magnetization vector",
-      "relation": "still points in nonparallel direction if",
-      "tail": "second excitation pulse is sent before relaxation is complete"
-    },
-    {
-      "head": "average magnetization vector",
-      "relation": "still points in nonparallel direction if",
-      "tail": "second excitation pulse is sent prematurely"
-    },
-    {
-      "head": "average magnetization vector",
-      "relation": "gives",
-      "tail": "suboptimal absorption of pulse"
-    },
-    {
-      "head": "average magnetization vector",
-      "relation": "gives",
-      "tail": "suboptimal emission of pulse"
-    },
-    {
-      "head": "average magnetization vector",
-      "relation": "gives suboptimal absorption of pulse if",
-      "tail": "second excitation pulse is sent before relaxation is complete"
-    },
-    {
-      "head": "average magnetization vector",
-      "relation": "gives suboptimal absorption of pulse if",
-      "tail": "second excitation pulse is sent prematurely"
-    },
-    {
-      "head": "average magnetization vector",
-      "relation": "gives suboptimal emission of pulse if",
-      "tail": "second excitation pulse is sent before relaxation is complete"
-    },
-    {
-      "head": "average magnetization vector",
-      "relation": "gives suboptimal emission of pulse if",
-      "tail": "second excitation pulse is sent prematurely"
-    },
-    {
-      "head": "second excitation pulse",
-      "relation": "is sent prematurely before",
-      "tail": "relaxation is complete"
+      "head": "when the antigenicities of the seed strains and wild viruses do not match",
+      "relation": "vaccines fail to",
+      "tail": "protect"
     }
   ],
   "benchie_180": [
@@ -480,31 +139,6 @@
       "head": "he",
       "relation": "won from",
       "tail": "Yakutpura"
-    },
-    {
-      "head": "he",
-      "relation": "won from Yakutpura in",
-      "tail": "1972"
-    },
-    {
-      "head": "he",
-      "relation": "won in",
-      "tail": "1972"
-    },
-    {
-      "head": "he",
-      "relation": "won from",
-      "tail": "Charminar"
-    },
-    {
-      "head": "he",
-      "relation": "won from Charminar in",
-      "tail": "1978"
-    },
-    {
-      "head": "he",
-      "relation": "won in",
-      "tail": "1978"
     }
   ],
   "benchie_181": [
@@ -512,21 +146,28 @@
       "head": "researchers",
       "relation": "found",
       "tail": "metallic conductivity"
+    }
+  ],
+  "benchie_182": [
+    {
+      "head": "Sun",
+      "relation": "announced",
+      "tail": "`` Project Indiana ''"
     },
     {
-      "head": "researchers",
-      "relation": "found metallic conductivity in",
-      "tail": "TTF-TCNQ"
+      "head": "`` Project Indiana ''",
+      "relation": "including providing",
+      "tail": "an open source binary distribution of the OpenSolaris project"
     },
     {
-      "head": "researchers",
-      "relation": "found metallic conductivity in",
-      "tail": "1972"
+      "head": "`` Project Indiana ''",
+      "relation": "replacing",
+      "tail": "SXDE"
     },
     {
-      "head": "TTF-TCNQ",
-      "relation": "is",
-      "tail": "charge-transfer complex"
+      "head": "an open source binary distribution of the OpenSolaris project",
+      "relation": "replacing",
+      "tail": "SXDE"
     }
   ]
 }

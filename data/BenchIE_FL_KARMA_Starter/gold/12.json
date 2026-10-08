@@ -1,486 +1,112 @@
 {
-  "benchie_182": [
-    {
-      "head": "Sun",
-      "relation": "announced",
-      "tail": "Project Indiana"
-    },
-    {
-      "head": "Sun",
-      "relation": "announced Project Indiana in",
-      "tail": "2007"
-    },
-    {
-      "head": "Sun",
-      "relation": "announced",
-      "tail": "several goals"
-    },
-    {
-      "head": "Sun",
-      "relation": "announced several goals in",
-      "tail": "2007"
-    },
-    {
-      "head": "Project Indiana",
-      "relation": "has",
-      "tail": "several goals"
-    },
-    {
-      "head": "Sun",
-      "relation": "announced goals including",
-      "tail": "providing open source binary distribution of OpenSolaris project"
-    },
-    {
-      "head": "Sun",
-      "relation": "announced providing open source binary distribution of OpenSolaris project in",
-      "tail": "2007"
-    },
-    {
-      "head": "Project Indiana",
-      "relation": "includes providing",
-      "tail": "open source binary distribution of OpenSolaris project"
-    },
-    {
-      "head": "Sun",
-      "relation": "announced goals of replacing",
-      "tail": "SXDE"
-    },
-    {
-      "head": "Sun",
-      "relation": "announced goals of replacing SXDE in",
-      "tail": "2007"
-    },
-    {
-      "head": "Project Indiana",
-      "relation": "has goals including replacing",
-      "tail": "SXDE"
-    },
-    {
-      "head": "open source binary distribution of OpenSolaris project",
-      "relation": "is replacing",
-      "tail": "SXDE"
-    }
-  ],
   "benchie_183": [
     {
       "head": "scam websites",
       "relation": "co-opted",
-      "tail": "photograph"
+      "tail": "a photograph"
     },
     {
       "head": "scam websites",
-      "relation": "co-opted photograph of",
-      "tail": "Theuriau"
+      "relation": "co-opted a photograph of",
+      "tail": "her"
     },
     {
       "head": "scam websites",
-      "relation": "co-opted photograph of Theuriau in",
-      "tail": "2010"
+      "relation": "co-opted a photograph of her to",
+      "tail": "promote health treatments"
     },
     {
-      "head": "scam websites",
-      "relation": "co-opted photograph of Theuriau to promote",
-      "tail": "health treatments"
-    },
-    {
-      "head": "scam websites",
-      "relation": "co-opted photograph of Theuriau to promote",
-      "tail": "1 weird old tip belly fat diets"
-    },
-    {
-      "head": "scam websites",
-      "relation": "co-opted photograph of Theuriau to promote",
-      "tail": "penny auctions"
-    },
-    {
-      "head": "usage of photograph of Theuriau by scam websites",
+      "head": "Theuriau",
       "relation": "was",
-      "tail": "unauthorized"
-    },
-    {
-      "head": "Theuriau",
-      "relation": "was initially",
-      "tail": "unaware"
-    },
-    {
-      "head": "Theuriau",
-      "relation": "was initially unaware of",
-      "tail": "usage of her photograph"
-    },
-    {
-      "head": "1 weird old tip belly fat diets",
-      "relation": "are",
-      "tail": "ubiquitous"
-    },
-    {
-      "head": "1 weird old tip belly fat diets",
-      "relation": "are",
-      "tail": "health treatments"
-    }
-  ],
-  "benchie_184": [
-    {
-      "head": "two organizations",
-      "relation": "regulate",
-      "tail": "university athletics"
-    },
-    {
-      "head": "two organizations",
-      "relation": "regulate",
-      "tail": "collegiate athletics"
-    },
-    {
-      "head": "two organizations",
-      "relation": "regulate university athletics in",
-      "tail": "Canada"
-    },
-    {
-      "head": "two organizations",
-      "relation": "regulate collegiate athletics in",
-      "tail": "Canada"
+      "tail": "initially unaware"
     }
   ],
   "benchie_185": [
     {
-      "head": "Byrom Street cutting",
-      "relation": "was",
-      "tail": "hitching point"
-    },
-    {
-      "head": "Byrom Street cutting",
-      "relation": "was",
-      "tail": "unhitching point"
-    },
-    {
-      "head": "Byrom Street cutting",
-      "relation": "was hitching point for",
-      "tail": "trains"
-    },
-    {
-      "head": "Byrom Street cutting",
-      "relation": "was unhitching point for",
-      "tail": "trains"
-    },
-    {
       "head": "trains",
-      "relation": "were being",
+      "relation": "being",
       "tail": "cable hauled"
     },
     {
       "head": "trains",
-      "relation": "were being cable hauled to",
+      "relation": "being cable hauled to",
       "tail": "Edge Hill"
-    },
-    {
-      "head": "trains",
-      "relation": "were being cable hauled via",
-      "tail": "Victoria Tunnel"
-    },
-    {
-      "head": "it",
-      "relation": "was confirmed that",
-      "tail": "Byrom Street cutting was hitching point"
-    },
-    {
-      "head": "it",
-      "relation": "was confirmed that",
-      "tail": "Byrom Street cutting was unhitching point"
-    },
-    {
-      "head": "it",
-      "relation": "was confirmed that Byrom Street cutting was hitching point in",
-      "tail": "October 2009"
-    },
-    {
-      "head": "it",
-      "relation": "was confirmed that Byrom Street cutting was unhitching point in",
-      "tail": "October 2009"
     }
   ],
   "benchie_186": [
     {
       "head": "Holkins",
       "relation": "stated that",
-      "tail": "he reserved right to bring Carl back"
+      "tail": "he reserved the right to bring Carl back"
     },
     {
       "head": "Holkins",
-      "relation": "stated that he reserved right to bring Carl back in",
-      "tail": "news post"
-    },
-    {
-      "head": "Holkins",
-      "relation": "stated that he reserved right to bring Carl back",
+      "relation": "stated that he reserved the right to bring Carl back",
       "tail": "any time Krahulik goes to France"
     }
   ],
   "benchie_187": [
     {
-      "head": "Language A",
+      "head": "a Language A",
       "relation": "occupies",
-      "tail": "given territory"
+      "tail": "a given territory"
     },
     {
       "head": "another Language B",
-      "relation": "arrives in",
-      "tail": "same territory as language A"
-    },
-    {
-      "head": "Language A occupies given territory and another Language B arrives in same territory",
-      "relation": "in",
-      "tail": "typical case of substrate interference"
-    },
-    {
-      "head": "Language A",
-      "relation": "occupies given territory in",
-      "tail": "typical case of substrate interference"
-    },
-    {
-      "head": "another Language B",
-      "relation": "arrives in same territory as Language A in",
-      "tail": "typical case of substrate interference"
+      "relation": "arrives",
+      "tail": "in the same territory"
     }
   ],
   "benchie_188": [
     {
       "head": "Condon",
       "relation": "told FBI Special Agent Turrou that",
-      "tail": "Hauptmann was not John"
-    },
-    {
-      "head": "Condon",
-      "relation": "claimed",
-      "tail": "he passed ransom money to John"
-    },
-    {
-      "head": "Condon",
-      "relation": "claimed he passed ransom money to John in",
-      "tail": "St. Raymond's Cemetery"
-    },
-    {
-      "head": "St. Raymond",
-      "relation": "has",
-      "tail": "Cemetery"
-    },
-    {
-      "head": "Turrou",
-      "relation": "is",
-      "tail": "FBI Special Agent"
-    },
-    {
-      "head": "Condon",
-      "relation": "told FBI Special Agent Turrou after",
-      "tail": "seeing Hauptmann"
-    },
-    {
-      "head": "Condon",
-      "relation": "told FBI Special Agent Turrou after seeing Hauptmann in",
-      "tail": "lineup"
-    },
-    {
-      "head": "Condon",
-      "relation": "told FBI Special Agent Turrou at",
-      "tail": "New York Police Department Greenwich Street Station"
+      "tail": "Hauptmann was not `` John"
     }
   ],
   "benchie_189": [
     {
       "head": "UTA",
       "relation": "ordered",
-      "tail": "light rail vehicles"
-    },
-    {
-      "head": "UTA",
-      "relation": "ordered",
       "tail": "77 Siemens S70 light rail vehicles"
-    },
-    {
-      "head": "UTA",
-      "relation": "ordered",
-      "tail": "Siemens S70 light rail vehicles"
-    },
-    {
-      "head": "UTA",
-      "relation": "ordered light rail vehicles from",
-      "tail": "Siemens AG"
-    },
-    {
-      "head": "UTA",
-      "relation": "ordered light rail vehicles in order to",
-      "tail": "support planned TRAX expansion"
-    },
-    {
-      "head": "TRAX's expansion",
-      "relation": "is",
-      "tail": "planned"
     }
   ],
   "benchie_190": [
     {
-      "head": "Kabul",
-      "relation": "has",
-      "tail": "economy"
-    },
-    {
-      "head": "most of Kabul's economy",
+      "head": "most of Kabul 's economy",
       "relation": "depended on",
       "tail": "tourism"
-    },
-    {
-      "head": "most of Kabul's economy",
-      "relation": "depended on tourism in",
-      "tail": "1960s"
-    },
-    {
-      "head": "most of Kabul's economy",
-      "relation": "depended on tourism in",
-      "tail": "1970s"
     }
   ],
   "benchie_191": [
     {
       "head": "he",
       "relation": "advocated",
-      "tail": "strong prosecution of Union War effort"
-    },
-    {
-      "head": "he",
-      "relation": "advocated",
-      "tail": "end of slavery"
-    },
-    {
-      "head": "he",
-      "relation": "advocated",
-      "tail": "civil rights for freed African Americans"
-    },
-    {
-      "head": "African Americans",
-      "relation": "were",
-      "tail": "freed"
-    },
-    {
-      "head": "he",
-      "relation": "advocated strong prosecution of Union War effort in",
-      "tail": "Civil War"
-    },
-    {
-      "head": "he",
-      "relation": "advocated end of slavery in",
-      "tail": "Civil War"
-    },
-    {
-      "head": "he",
-      "relation": "advocated civil rights for freed African Americans in",
-      "tail": "Civil War"
+      "tail": "strong prosecution of the Union War effort"
     }
   ],
   "benchie_192": [
     {
       "head": "his chances of surviving",
-      "relation": "were Initially thought to be",
+      "relation": "were thought to be",
       "tail": "no better than 50-50"
     }
   ],
   "benchie_193": [
     {
-      "head": "these numbers",
-      "relation": "are inclusive of",
-      "tail": "any of childminders own children"
-    },
-    {
-      "head": "childminders",
-      "relation": "have their own",
-      "tail": "children"
-    },
-    {
       "head": "It",
       "relation": "should be noted that",
-      "tail": "these numbers are inclusive of any of childminders own children"
+      "tail": "these numbers are inclusive of any of the childminders own children"
     }
   ],
   "benchie_194": [
     {
       "head": "Keats",
-      "relation": "has had",
-      "tail": "medical training"
-    },
-    {
-      "head": "Keats",
-      "relation": "has had",
-      "tail": "long medical training"
-    },
-    {
-      "head": "Keats",
-      "relation": "has had",
-      "tail": "expensive medical training"
-    },
-    {
-      "head": "Keats",
-      "relation": "has had medical training with",
-      "tail": "Hammond"
-    },
-    {
-      "head": "Keats",
-      "relation": "has had medical training at",
-      "tail": "Guy's Hospital"
-    },
-    {
-      "head": "Keats's medical training",
-      "relation": "led his family to assume",
-      "tail": "Keats would pursue lifelong career in medicine"
-    },
-    {
-      "head": "Keats's medical training",
-      "relation": "led his family to assume",
-      "tail": "Keats would assure financial security"
-    },
-    {
-      "head": "Keats's medical training",
-      "relation": "led his family to assume",
-      "tail": "Keats had genuine desire to become doctor"
-    },
-    {
-      "head": "Keats",
-      "relation": "has",
-      "tail": "family"
-    },
-    {
-      "head": "Keats's family",
-      "relation": "assumed",
-      "tail": "Keats would pursue lifelong career in medicine"
-    },
-    {
-      "head": "Keats's family",
-      "relation": "assumed",
-      "tail": "Keats would be assuring financial security"
-    },
-    {
-      "head": "Keats's family",
-      "relation": "assumed",
-      "tail": "Keats had genuine desire to become doctor"
-    },
-    {
-      "head": "Keats",
       "relation": "had",
-      "tail": "genuine desire to become doctor"
-    },
-    {
-      "head": "Keats",
-      "relation": "had genuine desire to become doctor at",
-      "tail": "this point"
+      "tail": "a genuine desire to become a doctor"
     }
   ],
   "benchie_195": [
-    {
-      "head": "Kim",
-      "relation": "graduated from",
-      "tail": "High School"
-    },
-    {
-      "head": "Kim",
-      "relation": "graduated from",
-      "tail": "College"
-    },
     {
       "head": "Kim",
       "relation": "graduated from",
@@ -488,100 +114,15 @@
     },
     {
       "head": "Kim",
-      "relation": "graduated in",
-      "tail": "Louisville"
-    },
-    {
-      "head": "Kim",
-      "relation": "graduated in",
-      "tail": "Kentucky"
-    },
-    {
-      "head": "Kim",
-      "relation": "graduated in",
-      "tail": "1989"
-    },
-    {
-      "head": "Kim",
-      "relation": "graduated from",
-      "tail": "Oberlin College"
-    },
-    {
-      "head": "Kim",
-      "relation": "graduated from Oberlin College in",
-      "tail": "1993"
-    },
-    {
-      "head": "Kim",
-      "relation": "graduated in",
-      "tail": "1993"
-    },
-    {
-      "head": "Kim",
-      "relation": "graduated from Ballard High School in",
-      "tail": "1989"
-    },
-    {
-      "head": "Kim",
       "relation": "double-majored in",
       "tail": "Government and English"
-    },
-    {
-      "head": "Kim",
-      "relation": "double-majored in Government and English at",
-      "tail": "Oberlin College"
-    },
-    {
-      "head": "Kim",
-      "relation": "double-majored in Government and English in",
-      "tail": "1993"
-    },
-    {
-      "head": "Kim",
-      "relation": "played",
-      "tail": "lacrosse"
-    },
-    {
-      "head": "Kim",
-      "relation": "played lacrosse for",
-      "tail": "Oberlin College's varsity lacrosse team"
-    },
-    {
-      "head": "Oberlin College",
-      "relation": "is in",
-      "tail": "Ohio"
-    },
-    {
-      "head": "Louisville",
-      "relation": "is in",
-      "tail": "Kentucky"
     }
   ],
   "benchie_196": [
     {
       "head": "Lemmy",
       "relation": "believes that",
-      "tail": "if Will Reid Dick had not been there they could have worked through problems"
-    },
-    {
-      "head": "they",
-      "relation": "ended up",
-      "tail": "exchanging a few words"
-    },
-    {
-      "head": "Clarke",
-      "relation": "left",
-      "tail": "studio"
-    },
-    {
-      "head": "they",
-      "relation": "had",
-      "tail": "problems"
-    },
-    {
-      "head": "Will Reid Dick",
-      "relation": "was",
-      "tail": "there"
+      "tail": "if Will Reid Dick had not been there , they could have worked through the problems"
     }
   ]
 }

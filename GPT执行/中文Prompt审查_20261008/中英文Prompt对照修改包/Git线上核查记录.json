@@ -1,0 +1,183 @@
+{
+  "checked_date": "2026-10-08",
+  "repo": "lichuanpei12-coder/KARMA",
+  "local_directory": "E:\\huawei after\\KARMA",
+  "local_branch": "main",
+  "local_head": "127f1a1399376fb5e9214cb656b045ca9a698a0b",
+  "remote_default_branch": "main",
+  "remote_main": "127f1a1399376fb5e9214cb656b045ca9a698a0b",
+  "newer_branch": "codex/feedback-comparison-entity",
+  "newer_head": "9d6883e2e56a008ecf70bb5ca695fead32a1abea",
+  "newer_created_at": "2026-09-11T03:06:48Z",
+  "newer_message": "评估：保留部分拒绝文档并单列无异常子集",
+  "commits": [
+    {
+      "sha": "b30ccc18f32aa8ca9f23f4e3c85dbf529427283c",
+      "message": "实验：共享第一轮的实体与关系反馈对比",
+      "committer_date": "2026-09-10T13:13:39Z",
+      "url": "https://github.com/lichuanpei12-coder/KARMA/commit/b30ccc18f32aa8ca9f23f4e3c85dbf529427283c"
+    },
+    {
+      "sha": "9d6883e2e56a008ecf70bb5ca695fead32a1abea",
+      "message": "评估：保留部分拒绝文档并单列无异常子集",
+      "committer_date": "2026-09-11T03:06:48Z",
+      "url": "https://github.com/lichuanpei12-coder/KARMA/commit/9d6883e2e56a008ecf70bb5ca695fead32a1abea"
+    }
+  ],
+  "changed_files": [
+    {
+      "filename": "GPT执行/反馈对比/.gitignore",
+      "status": "added",
+      "changes": 7
+    },
+    {
+      "filename": "GPT执行/反馈对比/README.md",
+      "status": "added",
+      "changes": 96
+    },
+    {
+      "filename": "GPT执行/反馈对比/compare_feedback.py",
+      "status": "added",
+      "changes": 421
+    },
+    {
+      "filename": "GPT执行/反馈对比/recorded_calls.py",
+      "status": "added",
+      "changes": 131
+    },
+    {
+      "filename": "GPT执行/反馈对比/test_comparison.py",
+      "status": "added",
+      "changes": 232
+    },
+    {
+      "filename": "karma/agents/evaluator/agent.py",
+      "status": "modified",
+      "changes": 5
+    }
+  ],
+  "evaluator_patch": "@@ -19,7 +19,7 @@\n class EvaluatorAgent(BaseAgent):\n     \"\"\"Evaluator Agent (EA) for final quality assessment and integration decisions.\"\"\"\n \n-    def __init__(self, client, model_name: str, integrate_threshold: float = 0):\n+    def __init__(self, client, model_name: str, integrate_threshold: float = 0, dump_dir=None):\n         system_prompt = \"\"\"你是一个三元组抽取质量的评估代理。你的任务是评估提取的知识三元组的质量，并基于综合质量指标做出最终集成决策。\n \n 目标：使用多维度质量评估来评估知识三元组，并根据既定阈值确定集成资格。\n@@ -77,7 +77,8 @@ def __init__(self, client, model_name: str, integrate_threshold: float = 0):\n         self.integrate_threshold = integrate_threshold\n \n         # 每次运行一个时间戳文件夹，存放抽取出的三元组 json\n-        self._dump_dir = Path(\"data/result\") / datetime.now().strftime(\"%Y%m%d_%H%M%S\")\n+        self._dump_dir = (Path(dump_dir) if dump_dir is not None else\n+                          Path(\"data/result\") / datetime.now().strftime(\"%Y%m%d_%H%M%S\"))\n         self._dump_dir.mkdir(parents=True, exist_ok=True)\n         self._dump_counter = 0\n ",
+  "core_prompt_changes": false,
+  "newer_local_directory": "E:\\huawei after\\临时\\KARMA",
+  "verified_identical_files": [
+    {
+      "path": "karma/agents/extraction_support.py",
+      "sha256": "806ee7db3db16a216fc763f1f9b9db44a9f7952345ec5a4389c0ee389d7c0a05"
+    },
+    {
+      "path": "karma/agents/entity_extraction/agent.py",
+      "sha256": "8511e7b67901c25d474f9c27deec4ef714fbf466a8565514f533cab484bfd455"
+    },
+    {
+      "path": "karma/agents/relationship_extraction/agent.py",
+      "sha256": "66a2bdd687426dcac2d70f79be6a664140268c8908d2e9219b8d15a676013815"
+    },
+    {
+      "path": "karma/agents/text_generation/agent.py",
+      "sha256": "1f33613f22dff265c8e4d585d42a428921ae7b53978e8a001dfb3923188edecf"
+    },
+    {
+      "path": "karma/agents/text_comparison/agent.py",
+      "sha256": "da418c523cf108c65240b856cdb2f9c3059e42f3a599ec46374c21105e4da747"
+    },
+    {
+      "path": "karma/agents/reader/agent.py",
+      "sha256": "4f484a75f9a6ef1303a3f9184008ac507da4a94724271e184b881016dca81513"
+    },
+    {
+      "path": "karma/agents/summarizer/agent.py",
+      "sha256": "ef38d04dab8380c0d65a2fb1e000c955d50440b04a6edc114a2816940b6c2bac"
+    },
+    {
+      "path": "karma/core/pipeline.py",
+      "sha256": "ebc2841936d38ce54c38669b62d8ce991d546be9c0bff3e4fc5b214d019810ea"
+    }
+  ],
+  "prompt_reorganization_check": {
+    "checked_date": "2026-10-08",
+    "root_directory": "E:\\huawei after\\KARMA",
+    "root_git_head": "127f1a1399376fb5e9214cb656b045ca9a698a0b",
+    "root_has_uncommitted_source_reorganization": true,
+    "temporary_directory": "E:\\huawei after\\临时\\KARMA",
+    "temporary_copy_modified_by_this_run": false,
+    "historical_verified_identical_files_preserved": true,
+    "description": "Prompt常量和difference_context移回实体/关系agent；工具保留于extraction_support。当前源码位置不同，实际Prompt措辞未改。",
+    "actual_request_validation_record": "E:\\huawei after\\KARMA\\GPT执行\\中文Prompt审查_20261008\\Prompt合并整理\\合并验证结果.json",
+    "actual_request_validation": {
+      "requests_compared": 8,
+      "system_user_parameters_equal": true,
+      "network_calls": 0,
+      "duplicate_difference_context_equal": true
+    },
+    "current_file_comparison": [
+      {
+        "path": "karma/agents/extraction_support.py",
+        "root_sha256": "8383feb9e5447ac210106c1ae0e41ffa44081a98c4d3d3931818682e20eedc61",
+        "temporary_sha256": "806ee7db3db16a216fc763f1f9b9db44a9f7952345ec5a4389c0ee389d7c0a05",
+        "equal": false
+      },
+      {
+        "path": "karma/agents/entity_extraction/agent.py",
+        "root_sha256": "efd1b769ef5743100a053fe681183974901edf4fb24b0299bbe8457404a84237",
+        "temporary_sha256": "8511e7b67901c25d474f9c27deec4ef714fbf466a8565514f533cab484bfd455",
+        "equal": false
+      },
+      {
+        "path": "karma/agents/relationship_extraction/agent.py",
+        "root_sha256": "722b81a0427dca84ca546d49bcd02aec4cb5121247453af077ba896c3945c351",
+        "temporary_sha256": "66a2bdd687426dcac2d70f79be6a664140268c8908d2e9219b8d15a676013815",
+        "equal": false
+      },
+      {
+        "path": "karma/agents/text_generation/agent.py",
+        "root_sha256": "1f33613f22dff265c8e4d585d42a428921ae7b53978e8a001dfb3923188edecf",
+        "temporary_sha256": "1f33613f22dff265c8e4d585d42a428921ae7b53978e8a001dfb3923188edecf",
+        "equal": true
+      },
+      {
+        "path": "karma/agents/text_comparison/agent.py",
+        "root_sha256": "da418c523cf108c65240b856cdb2f9c3059e42f3a599ec46374c21105e4da747",
+        "temporary_sha256": "da418c523cf108c65240b856cdb2f9c3059e42f3a599ec46374c21105e4da747",
+        "equal": true
+      },
+      {
+        "path": "karma/agents/reader/agent.py",
+        "root_sha256": "4f484a75f9a6ef1303a3f9184008ac507da4a94724271e184b881016dca81513",
+        "temporary_sha256": "4f484a75f9a6ef1303a3f9184008ac507da4a94724271e184b881016dca81513",
+        "equal": true
+      },
+      {
+        "path": "karma/agents/summarizer/agent.py",
+        "root_sha256": "ef38d04dab8380c0d65a2fb1e000c955d50440b04a6edc114a2816940b6c2bac",
+        "temporary_sha256": "ef38d04dab8380c0d65a2fb1e000c955d50440b04a6edc114a2816940b6c2bac",
+        "equal": true
+      },
+      {
+        "path": "karma/core/pipeline.py",
+        "root_sha256": "ebc2841936d38ce54c38669b62d8ce991d546be9c0bff3e4fc5b214d019810ea",
+        "temporary_sha256": "ebc2841936d38ce54c38669b62d8ce991d546be9c0bff3e4fc5b214d019810ea",
+        "equal": true
+      }
+    ],
+    "current_rule_locations": [
+      {
+        "name": "ENTITY_RULES",
+        "path": "karma/agents/entity_extraction/agent.py",
+        "first_line": 19,
+        "last_line": 29
+      },
+      {
+        "name": "FACT_RULES",
+        "path": "karma/agents/relationship_extraction/agent.py",
+        "first_line": 26,
+        "last_line": 40
+      },
+      {
+        "name": "SCORE_RULES",
+        "path": "karma/agents/relationship_extraction/agent.py",
+        "first_line": 42,
+        "last_line": 45
+      }
+    ]
+  }
+}
