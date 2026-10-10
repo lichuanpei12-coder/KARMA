@@ -1,0 +1,117 @@
+[
+  {
+    "head": "batch mode images or selected real time images",
+    "relation": "are stored in",
+    "tail": "a host database"
+  },
+  {
+    "head": "the system",
+    "relation": "includes",
+    "tail": "a processor"
+  },
+  {
+    "head": "a processor",
+    "relation": "is configured to receive",
+    "tail": "the image data"
+  },
+  {
+    "head": "a check",
+    "relation": "is made against",
+    "tail": "a threshold"
+  },
+  {
+    "head": "a threshold",
+    "relation": "may be",
+    "tail": "a boundary condition or optimization criteria"
+  },
+  {
+    "head": "a threshold",
+    "relation": "may be",
+    "tail": "a optimization criteria"
+  },
+  {
+    "head": "the RF system",
+    "relation": "includes",
+    "tail": "one or more RF receiver channels"
+  },
+  {
+    "head": "common examples of quantitative MRI applications",
+    "relation": "include",
+    "tail": "diffusion imaging"
+  },
+  {
+    "head": "common examples of quantitative MRI applications",
+    "relation": "include",
+    "tail": "perfusion imaging"
+  },
+  {
+    "head": "common examples of quantitative MRI applications",
+    "relation": "include",
+    "tail": "relaxometry"
+  },
+  {
+    "head": "common examples of quantitative MRI applications",
+    "relation": "include",
+    "tail": "elastography"
+  },
+  {
+    "head": "the model of the medical imaging system",
+    "relation": "may be for example",
+    "tail": "a large-scale system operator"
+  },
+  {
+    "head": "a large-scale system operator",
+    "relation": "describes the acquisition of data using",
+    "tail": "the medical imaging system"
+  },
+  {
+    "head": "the operator workstation",
+    "relation": "may be coupled to",
+    "tail": "four servers: a pulse sequence server; a data acquisition server; a data processing server; and a data store server"
+  },
+  {
+    "head": "the networked workstation",
+    "relation": "may be located within the same facility as",
+    "tail": "the operator workstation"
+  },
+  {
+    "head": "the networked workstation",
+    "relation": "may be located in",
+    "tail": "a different facility from the operator workstation"
+  },
+  {
+    "head": "a different facility",
+    "relation": "is such as",
+    "tail": "a different healthcare institution or clinic"
+  },
+  {
+    "head": "an initial estimate",
+    "relation": "may be derived from",
+    "tail": "the acquired data"
+  },
+  {
+    "head": "auxiliary regularization or constraints",
+    "relation": "may be used for",
+    "tail": "this estimation to be well-posed"
+  },
+  {
+    "head": "the quantitative estimates",
+    "relation": "may be overlaid on",
+    "tail": "anatomical images"
+  },
+  {
+    "head": "the quantitative estimates",
+    "relation": "may be overlaid on anatomical images using",
+    "tail": "a color coding"
+  },
+  {
+    "head": "the quantitative estimates",
+    "relation": "may be overlaid on anatomical images using",
+    "tail": "other display"
+  },
+  {
+    "head": "the quantitative estimates",
+    "relation": "may be overlaid on anatomical images using",
+    "tail": "report mechanism"
+  }
+]

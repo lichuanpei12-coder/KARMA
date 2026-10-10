@@ -1,0 +1,127 @@
+[
+  {
+    "head": "fixation mechanism",
+    "relation": "may be used to resist",
+    "tail": "shear force"
+  },
+  {
+    "head": "shear force",
+    "relation": "is created by",
+    "tail": "peristalsis"
+  },
+  {
+    "head": "functions",
+    "relation": "are as",
+    "tail": "an anti-migration mechanism"
+  },
+  {
+    "head": "the mucosa",
+    "relation": "passes through",
+    "tail": "openings"
+  },
+  {
+    "head": "the bulges of the mucosa",
+    "relation": "tend to",
+    "tail": "bridge spacer"
+  },
+  {
+    "head": "the bulges of the mucosa",
+    "relation": "tend to",
+    "tail": "come together in apposition"
+  },
+  {
+    "head": "the device",
+    "relation": "may include",
+    "tail": "a retainer"
+  },
+  {
+    "head": "a retainer",
+    "relation": "retains the section of the mucosa within",
+    "tail": "the at least one opening"
+  },
+  {
+    "head": "a retainer",
+    "relation": "maintains",
+    "tail": "perfusion of the section of the mucosa"
+  },
+  {
+    "head": "the penetrating component",
+    "relation": "may include",
+    "tail": "an elongated member"
+  },
+  {
+    "head": "an elongated member",
+    "relation": "penetrates",
+    "tail": "the sections of the mucosa at the plurality of openings"
+  },
+  {
+    "head": "the penetrating component",
+    "relation": "may be made up of",
+    "tail": "a plurality of pointed members"
+  },
+  {
+    "head": "a plurality of pointed members",
+    "relation": "extend into",
+    "tail": "the at least one opening from at least one of said moveable portions"
+  },
+  {
+    "head": "the retainer",
+    "relation": "may include",
+    "tail": "a fibrotic tissue response"
+  },
+  {
+    "head": "a fibrotic tissue response",
+    "relation": "induces material at least partially surrounding",
+    "tail": "the at least one opening"
+  },
+  {
+    "head": "the at least one opening",
+    "relation": "may be",
+    "tail": "a plurality of openings"
+  },
+  {
+    "head": "the penetrating component",
+    "relation": "may include",
+    "tail": "a plurality of penetrating components"
+  },
+  {
+    "head": "one",
+    "relation": "is for retaining",
+    "tail": "the section of the mucosa within each of the openings"
+  },
+  {
+    "head": "the pressure component",
+    "relation": "applies sufficient pressure to retain",
+    "tail": "the section of the mucosa"
+  },
+  {
+    "head": "the pressure component",
+    "relation": "applies not enough pressure to cause",
+    "tail": "ischemia"
+  },
+  {
+    "head": "ischemia",
+    "relation": "can lead to",
+    "tail": "necrosis"
+  },
+  {
+    "head": "the mucosa",
+    "relation": "is retained by",
+    "tail": "the needles of the retainer"
+  },
+  {
+    "head": "the needles of the retainer",
+    "relation": "is moved together by",
+    "tail": "the moveable portions of the wall as well as the force component previously described"
+  },
+  {
+    "head": "the engaging ends of clip",
+    "relation": "may be configured with",
+    "tail": "a penetrating component"
+  },
+  {
+    "head": "the engaging ends of clip configured with a penetrating component",
+    "relation": "is to penetrate",
+    "tail": "the sections of the mucosa"
+  }
+]

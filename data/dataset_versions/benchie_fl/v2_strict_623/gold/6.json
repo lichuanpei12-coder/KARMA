@@ -1,0 +1,235 @@
+{
+  "benchie_90": [
+    {
+      "head": "The two companies",
+      "relation": "are",
+      "tail": "teaming up"
+    },
+    {
+      "head": "The two companies",
+      "relation": "are teaming up",
+      "tail": "again"
+    },
+    {
+      "head": "The two companies",
+      "relation": "are teaming up again for",
+      "tail": "the Future Vertical Lift prototype"
+    },
+    {
+      "head": "the Future Vertical Lift prototype",
+      "relation": "called",
+      "tail": "SB-1 Defiant"
+    },
+    {
+      "head": "employees from both companies",
+      "relation": "will",
+      "tail": "work together"
+    }
+  ],
+  "benchie_91": [
+    {
+      "head": "He",
+      "relation": "had been at",
+      "tail": "the Battle of the Granicus River"
+    },
+    {
+      "head": "He",
+      "relation": "had believed that",
+      "tail": "Memnon 's scorched Earth strategy would work here"
+    }
+  ],
+  "benchie_92": [
+    {
+      "head": "The film",
+      "relation": "uses",
+      "tail": "some computer-generated graphics"
+    },
+    {
+      "head": "Inge",
+      "relation": "walks",
+      "tail": "through the fields"
+    },
+    {
+      "head": "the geese",
+      "relation": "flying",
+      "tail": "over Olaf 's house"
+    }
+  ],
+  "benchie_93": [
+    {
+      "head": "Legislation",
+      "relation": "sponsored by",
+      "tail": "Sweeney"
+    },
+    {
+      "head": "Legislation sponsored by Sweeney",
+      "relation": "signed into",
+      "tail": "law"
+    },
+    {
+      "head": "Legislation sponsored by Sweeney and signed into law",
+      "relation": "provides",
+      "tail": "state pensions"
+    },
+    {
+      "head": "police",
+      "relation": "die",
+      "tail": "in the line of duty"
+    },
+    {
+      "head": "firefighters",
+      "relation": "die",
+      "tail": "in the line of duty"
+    },
+    {
+      "head": "emergency services workers",
+      "relation": "die",
+      "tail": "in the line of duty"
+    },
+    {
+      "head": "Legislation sponsored by Sweeney and signed into law",
+      "relation": "removes",
+      "tail": "the remarriage prohibition"
+    },
+    {
+      "head": "Legislation sponsored by Sweeney and signed into law",
+      "relation": "removes the remarriage prohibition to",
+      "tail": "receive death benefits"
+    },
+    {
+      "head": "the remarriage prohibition",
+      "relation": "to",
+      "tail": "receive death benefits"
+    }
+  ],
+  "benchie_94": [
+    {
+      "head": "The latter",
+      "relation": "was lifted only as",
+      "tail": "the b-side of `` Keep on Loving Me ''"
+    }
+  ],
+  "benchie_95": [
+    {
+      "head": "The first single",
+      "relation": "features",
+      "tail": "performances"
+    },
+    {
+      "head": "`` Dreamer",
+      "relation": "features performances by",
+      "tail": "keyboardist"
+    }
+  ],
+  "benchie_96": [
+    {
+      "head": "QVC Network Inc",
+      "relation": "said",
+      "tail": "it completed its acquisition"
+    },
+    {
+      "head": "QVC Network Inc",
+      "relation": "said it completed its acquisition of",
+      "tail": "CVN Cos"
+    },
+    {
+      "head": "QVC Network Inc",
+      "relation": "said",
+      "tail": "it completed its acquisition of CVN Cos. for about $ 423 million"
+    }
+  ],
+  "benchie_97": [
+    {
+      "head": "Mr. Ackerman",
+      "relation": "contended that",
+      "tail": "it was a direct response"
+    },
+    {
+      "head": "Mr. Ackerman",
+      "relation": "contended that",
+      "tail": "it was a direct response to his efforts to gain control"
+    },
+    {
+      "head": "Mr. Ackerman",
+      "relation": "contended that it was a direct response to his efforts to gain control of",
+      "tail": "Datapoint"
+    }
+  ],
+  "benchie_98": [
+    {
+      "head": "Both companies",
+      "relation": "are allies of",
+      "tail": "Navigation Mixte"
+    },
+    {
+      "head": "Both companies",
+      "relation": "are allies of Navigation Mixte in",
+      "tail": "its fight against a hostile takeover bid"
+    },
+    {
+      "head": "Navigation Mixte",
+      "relation": "its fight against",
+      "tail": "a hostile takeover bid"
+    },
+    {
+      "head": "Both companies",
+      "relation": "fight against",
+      "tail": "a hostile takeover bid"
+    },
+    {
+      "head": "Both companies",
+      "relation": "fight against a hostile takeover bid launched",
+      "tail": "last week"
+    },
+    {
+      "head": "Both companies",
+      "relation": "are",
+      "tail": "allies"
+    }
+  ],
+  "benchie_99": [
+    {
+      "head": "he",
+      "relation": "became",
+      "tail": "a Lord Justice of Appeal"
+    }
+  ],
+  "benchie_100": [
+    {
+      "head": "Salomon Brothers",
+      "relation": "says",
+      "tail": "`` We believe the real estate properties would trade at a discount"
+    },
+    {
+      "head": "Salomon Brothers",
+      "relation": "says",
+      "tail": "`` We believe the real estate properties would trade at a discount ... after the realty unit is spun off"
+    }
+  ],
+  "benchie_101": [
+    {
+      "head": "Paul Johanson",
+      "relation": "said",
+      "tail": "the company 's chemical spray overcomes these problems"
+    }
+  ],
+  "benchie_103": [
+    {
+      "head": "Premark International Inc",
+      "relation": "peddles",
+      "tail": "the M8.7sp Electronic Cycling Simulator"
+    }
+  ],
+  "benchie_104": [
+    {
+      "head": "Mrs. Marcos 's trial",
+      "relation": "is expected to",
+      "tail": "begin"
+    },
+    {
+      "head": "Mrs. Marcos 's trial",
+      "relation": "is expected to begin in",
+      "tail": "March"
+    }
+  ]
+}

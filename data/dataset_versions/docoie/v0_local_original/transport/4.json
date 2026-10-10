@@ -1,0 +1,112 @@
+[
+  {
+    "head": "the disclosure",
+    "relation": "is directed to",
+    "tail": "a communication path managing method"
+  },
+  {
+    "head": "the disclosure",
+    "relation": "is directed to",
+    "tail": "a communication path managing system"
+  },
+  {
+    "head": "at least one of the communication paths for the vehicle",
+    "relation": "is selected according to",
+    "tail": "the evaluation items"
+  },
+  {
+    "head": "the evaluation items",
+    "relation": "are based on",
+    "tail": "the item importance information"
+  },
+  {
+    "head": "the selecting unit",
+    "relation": "is for selecting",
+    "tail": "at least one of the communication paths for the vehicle"
+  },
+  {
+    "head": "selecting at least one of the communication paths for the vehicle",
+    "relation": "is according to",
+    "tail": "the evaluation items"
+  },
+  {
+    "head": "the evaluation items",
+    "relation": "are based on",
+    "tail": "the item importance information"
+  },
+  {
+    "head": "the performance of some of the communication path PH",
+    "relation": "may be limited to",
+    "tail": "a particular geographical range"
+  },
+  {
+    "head": "the shaded area",
+    "relation": "is located at",
+    "tail": "the lower side of the dotted line L2"
+  },
+  {
+    "head": "the shaded area located at the lower side of the dotted line L2",
+    "relation": "belongs",
+    "tail": "the good category of the available bandwidth"
+  },
+  {
+    "head": "the routing path latency",
+    "relation": "is taken into consideration to find out",
+    "tail": "the best communication path PH"
+  },
+  {
+    "head": "the connection keeping ability",
+    "relation": "is taken into consideration to find out",
+    "tail": "the best communication path PH"
+  },
+  {
+    "head": "all of the evaluation items EV",
+    "relation": "is worse than",
+    "tail": "the standard thresholds E0"
+  },
+  {
+    "head": "all of the evaluation items EV",
+    "relation": "is of",
+    "tail": "each of the communication paths PH in the third group G3"
+  },
+  {
+    "head": "the value of the routing path latency",
+    "relation": "is equal to or lower than",
+    "tail": "500 kbps"
+  },
+  {
+    "head": "the value of the routing path latency",
+    "relation": "is equal to or lower than 500 kbps in",
+    "tail": "the good category of the available bandwidth"
+  },
+  {
+    "head": "the specification and examples",
+    "relation": "are considered as",
+    "tail": "exemplary"
+  },
+  {
+    "head": "the specification and examples",
+    "relation": "are considered as exemplary only with",
+    "tail": "a true scope of the disclosure"
+  },
+  {
+    "head": "the disclosure",
+    "relation": "is being indicated by",
+    "tail": "the following claims"
+  },
+  {
+    "head": "the disclosure",
+    "relation": "is being indicated by",
+    "tail": "their equivalents"
+  },
+  {
+    "head": "the value of the routing path latency",
+    "relation": "is equal to or lower than",
+    "tail": "50 ms"
+  },
+  {
+    "head": "the value of the routing path latency",
+    "relation": "is equal to or lower than 50 ms in",
+    "tail": "the good category of the routing path latency"
+  }
+]

@@ -1,0 +1,352 @@
+{
+  "benchie_122": [
+    {
+      "head": "Series 109",
+      "relation": "is",
+      "tail": "offering"
+    },
+    {
+      "head": "Series 109",
+      "relation": "is",
+      "tail": "backed"
+    },
+    {
+      "head": "Series 109",
+      "relation": "is backed by",
+      "tail": "Freddie Mac 10% securities"
+    }
+  ],
+  "benchie_123": [
+    {
+      "head": "10.48% yield",
+      "relation": "represents",
+      "tail": "spread"
+    },
+    {
+      "head": "10.48% yield",
+      "relation": "represents spread to",
+      "tail": "20-year Treasury"
+    },
+    {
+      "head": "10.48% yield",
+      "relation": "represents spread of",
+      "tail": "2.45 percentage points"
+    }
+  ],
+  "benchie_124": [
+    {
+      "head": "Orkem",
+      "relation": "is",
+      "tail": "France's third-largest chemical group"
+    },
+    {
+      "head": "France",
+      "relation": "has",
+      "tail": "chemical group"
+    },
+    {
+      "head": "France",
+      "relation": "has",
+      "tail": "third-largest chemical group"
+    },
+    {
+      "head": "Orkem",
+      "relation": "said",
+      "tail": "it would fund acquisition"
+    },
+    {
+      "head": "Orkem",
+      "relation": "said",
+      "tail": "it would fund acquisition through internal resources"
+    }
+  ],
+  "benchie_125": [
+    {
+      "head": "I",
+      "relation": "cannot do",
+      "tail": "anything score-wise"
+    },
+    {
+      "head": "I",
+      "relation": "like",
+      "tail": "meeting girls"
+    }
+  ],
+  "benchie_126": [
+    {
+      "head": "New York bonds",
+      "relation": "have been",
+      "tail": "hammered"
+    },
+    {
+      "head": "New York bonds",
+      "relation": "have been hammered in",
+      "tail": "recent weeks"
+    },
+    {
+      "head": "New York bonds",
+      "relation": "have been hammered on",
+      "tail": "pending supply"
+    },
+    {
+      "head": "New York bonds",
+      "relation": "have been hammered on",
+      "tail": "reports that city's economy is growing weaker"
+    },
+    {
+      "head": "New York bonds",
+      "relation": "rose",
+      "tail": "1/2 point"
+    },
+    {
+      "head": "New York bonds",
+      "relation": "rose 1/2 point",
+      "tail": "yesterday"
+    },
+    {
+      "head": "reports",
+      "relation": "are that",
+      "tail": "city's economy is growing weaker"
+    },
+    {
+      "head": "city",
+      "relation": "has",
+      "tail": "economy"
+    },
+    {
+      "head": "supply",
+      "relation": "is",
+      "tail": "pending"
+    }
+  ],
+  "benchie_127": [
+    {
+      "head": "Four other countries in Europe",
+      "relation": "have approved",
+      "tail": "Proleukin"
+    },
+    {
+      "head": "Four other countries in Europe",
+      "relation": "have approved Proleukin in",
+      "tail": "recent months"
+    }
+  ],
+  "benchie_128": [
+    {
+      "head": "General Dynamics Corp.",
+      "relation": "was given",
+      "tail": "$843 million contract"
+    },
+    {
+      "head": "General Dynamics Corp.",
+      "relation": "was given",
+      "tail": "Air Force contract"
+    },
+    {
+      "head": "General Dynamics Corp.",
+      "relation": "was given",
+      "tail": "contract"
+    },
+    {
+      "head": "General Dynamics Corp.",
+      "relation": "was given $843 million Air Force contract for",
+      "tail": "F-16 aircraft"
+    },
+    {
+      "head": "General Dynamics Corp.",
+      "relation": "was given $843 million Air Force contract for",
+      "tail": "equipment related to F-16 aircraft"
+    }
+  ],
+  "benchie_129": [
+    {
+      "head": "divested Courtaulds textile operations",
+      "relation": "had",
+      "tail": "operating profit"
+    },
+    {
+      "head": "divested Courtaulds textile operations",
+      "relation": "had operating profit of",
+      "tail": "# 50 million"
+    },
+    {
+      "head": "divested Courtaulds textile operations",
+      "relation": "had operating profit of # 50 million on",
+      "tail": "revenue of # 980 million"
+    },
+    {
+      "head": "divested Courtaulds textile operations",
+      "relation": "had operating profit of # 50 million in",
+      "tail": "year ended March 31"
+    },
+    {
+      "head": "divested Courtaulds textile operations",
+      "relation": "had revenue of # 980 million in",
+      "tail": "year ended March 31"
+    },
+    {
+      "head": "divested Courtaulds textile operations",
+      "relation": "had revenue of",
+      "tail": "# 980 million"
+    },
+    {
+      "head": "Courtaulds",
+      "relation": "has",
+      "tail": "textile operations"
+    },
+    {
+      "head": "Courtaulds textile operations",
+      "relation": "is",
+      "tail": "divested"
+    }
+  ],
+  "benchie_130": [
+    {
+      "head": "Monroe Conn. couple",
+      "relation": "are",
+      "tail": "perfect demons"
+    },
+    {
+      "head": "Monroe Conn. couple",
+      "relation": "are perfect demons when it comes to",
+      "tail": "busting ghosts"
+    },
+    {
+      "head": "Monroe Conn.",
+      "relation": "are",
+      "tail": "couple"
+    }
+  ],
+  "benchie_131": [
+    {
+      "head": "Coca-Cola",
+      "relation": "has",
+      "tail": "spokesman"
+    },
+    {
+      "head": "Coca-Cola spokesman",
+      "relation": "said",
+      "tail": "it is too early to say how joint venture would be structured"
+    },
+    {
+      "head": "Coca-Cola spokesman",
+      "relation": "said",
+      "tail": "it is too early to say how much the company would invest in transaction"
+    }
+  ],
+  "benchie_132": [
+    {
+      "head": "We",
+      "relation": "just want",
+      "tail": "plan"
+    },
+    {
+      "head": "We",
+      "relation": "just want plan that",
+      "tail": "satisfies creditors"
+    },
+    {
+      "head": "We",
+      "relation": "just want plan that",
+      "tail": "leaves a healthy Revco at the end"
+    }
+  ],
+  "benchie_133": [
+    {
+      "head": "Some",
+      "relation": "have been",
+      "tail": "training"
+    },
+    {
+      "head": "Some",
+      "relation": "have been training for",
+      "tail": "months"
+    },
+    {
+      "head": "others",
+      "relation": "only recently left",
+      "tail": "active status"
+    },
+    {
+      "head": "others",
+      "relation": "left",
+      "tail": "active status"
+    }
+  ],
+  "benchie_134": [
+    {
+      "head": "Merrill",
+      "relation": "also said",
+      "tail": "it is lobbying for significant regulatory controls"
+    },
+    {
+      "head": "Merrill",
+      "relation": "also said it is lobbying for significant regulatory controls on",
+      "tail": "program trading"
+    },
+    {
+      "head": "Merrill",
+      "relation": "also said it is lobbying for significant regulatory controls on",
+      "tail": "tough margin requirements"
+    },
+    {
+      "head": "Merrill",
+      "relation": "also said it is lobbying for significant regulatory controls on",
+      "tail": "down-payment requirements"
+    },
+    {
+      "head": "Merrill",
+      "relation": "also said it is lobbying for significant regulatory controls on",
+      "tail": "limits on price moves for program-driven financial futures"
+    }
+  ],
+  "benchie_135": [
+    {
+      "head": "He",
+      "relation": "did not go",
+      "tail": "as far as he could have"
+    },
+    {
+      "head": "He",
+      "relation": "did not go as far as he could have in",
+      "tail": "tax reductions"
+    },
+    {
+      "head": "He",
+      "relation": "combined tax reductions with",
+      "tail": "increases in indirect taxes"
+    },
+    {
+      "head": "He",
+      "relation": "increased",
+      "tail": "indirect taxes"
+    }
+  ],
+  "benchie_136": [
+    {
+      "head": "problem",
+      "relation": "is that",
+      "tail": "Japanese businesses make decisions with view well beyond coming months"
+    },
+    {
+      "head": "Japanese businesses",
+      "relation": "make",
+      "tail": "decisions"
+    },
+    {
+      "head": "Japanese businesses",
+      "relation": "make decisions with view well beyond",
+      "tail": "coming months"
+    },
+    {
+      "head": "coming months",
+      "relation": "weigh",
+      "tail": "so heavily"
+    },
+    {
+      "head": "coming months",
+      "relation": "weigh so heavily on",
+      "tail": "Mr. Salinas"
+    }
+  ]
+}

@@ -1,0 +1,4682 @@
+{
+  "157. Remote presence system mounted to operating room hardware.txt": [
+    {
+      "head": "the control station",
+      "relation": "is typically located in",
+      "tail": "a place"
+    },
+    {
+      "head": "a place",
+      "relation": "is remote from",
+      "tail": "the robot face"
+    },
+    {
+      "head": "the CHANGE button",
+      "relation": "can be selected to change",
+      "tail": "the default robot face in a new session"
+    },
+    {
+      "head": "capturing and playing back video",
+      "relation": "can be taken through",
+      "tail": "graphical icons"
+    },
+    {
+      "head": "the robot face",
+      "relation": "may have",
+      "tail": "a voice recognition system that allows the user to grant access with a voice command"
+    },
+    {
+      "head": "the robot face",
+      "relation": "can be retrofitted onto",
+      "tail": "booms"
+    },
+    {
+      "head": "booms",
+      "relation": "presently exist in",
+      "tail": "medical facilities"
+    },
+    {
+      "head": "there",
+      "relation": "has been developed",
+      "tail": "a robotic system"
+    },
+    {
+      "head": "a robotic system",
+      "relation": "is sold by",
+      "tail": "Intuitive Surgical, Inc."
+    },
+    {
+      "head": "a robotic system",
+      "relation": "is sold under the trademark",
+      "tail": "Da Vinci"
+    },
+    {
+      "head": "a robotic system",
+      "relation": "allows a surgeon to remotely perform",
+      "tail": "a surgical procedure"
+    },
+    {
+      "head": "a robotic system",
+      "relation": "allows a surgeon to remotely perform a surgical procedure through",
+      "tail": "use of robot arms"
+    },
+    {
+      "head": "robot arms",
+      "relation": "are located at",
+      "tail": "the surgical site"
+    },
+    {
+      "head": "it would be desirable",
+      "relation": "to allow",
+      "tail": "remote medical consultation with a system that was relatively inexpensive and easy to install into existing operating rooms"
+    },
+    {
+      "head": "alert icon",
+      "relation": "can be selected by",
+      "tail": "the user at the remote station"
+    },
+    {
+      "head": "Alert icon",
+      "relation": "can be selected by the user at the remote station to generate",
+      "tail": "an alert indicator"
+    },
+    {
+      "head": "an alert indicator",
+      "relation": "is such as",
+      "tail": "a sound from the speaker of the robot face"
+    },
+    {
+      "head": "the annotated  image",
+      "relation": "may be stored by",
+      "tail": "the system"
+    },
+    {
+      "head": "the user",
+      "relation": "can rapidly move through",
+      "tail": "the still images in a slide show fashion"
+    },
+    {
+      "head": "the user",
+      "relation": "can rapidly move through",
+      "tail": "a captured video clip"
+    },
+    {
+      "head": "the user",
+      "relation": "can move through a captured video clip by moving",
+      "tail": "the slide bar"
+    }
+  ],
+  "298. ASR-enhanced speech compression archiving.txt": [
+    {
+      "head": "there",
+      "relation": "are",
+      "tail": "several open source ASR packages"
+    },
+    {
+      "head": "open source ASR package",
+      "relation": "is such as",
+      "tail": "Sphinx"
+    },
+    {
+      "head": "open source ASR package",
+      "relation": "is such as",
+      "tail": "HTK"
+    },
+    {
+      "head": "open source ASR package",
+      "relation": "is such as",
+      "tail": "Kaldi"
+    },
+    {
+      "head": "technology",
+      "relation": "currently exists",
+      "tail": ""
+    },
+    {
+      "head": "current existing technology",
+      "relation": "enables",
+      "tail": "voice-based determination of a caller's demographic profile information"
+    },
+    {
+      "head": "speech compression",
+      "relation": "is",
+      "tail": "a mature technology"
+    },
+    {
+      "head": "speech compression",
+      "relation": "is",
+      "tail": "a widely utilized technology"
+    },
+    {
+      "head": "some systems",
+      "relation": "use",
+      "tail": "\"anti-speaker\" techniques"
+    },
+    {
+      "head": "\"anti-speaker\" techniques",
+      "relation": "are such as",
+      "tail": "cohort models"
+    },
+    {
+      "head": "\"anti-speaker\" techniques",
+      "relation": "are such as",
+      "tail": "world models"
+    },
+    {
+      "head": "Other approaches to estimating ASR confidence",
+      "relation": "are known and available in",
+      "tail": "the prior art"
+    },
+    {
+      "head": "there",
+      "relation": "is",
+      "tail": "a difference"
+    },
+    {
+      "head": "a difference",
+      "relation": "is between",
+      "tail": "speaker recognition and speech recognition"
+    },
+    {
+      "head": "speaker recognition",
+      "relation": "recognizes",
+      "tail": "who is speaking"
+    },
+    {
+      "head": "speech recognition",
+      "relation": "recognizes",
+      "tail": "what is being said"
+    },
+    {
+      "head": "its main function",
+      "relation": "is to eliminate",
+      "tail": "dead space"
+    },
+    {
+      "head": "its main function",
+      "relation": "is to improve",
+      "tail": "utilization efficiency of more compute-intensive resources"
+    },
+    {
+      "head": "compute-intensive resources",
+      "relation": "is such as",
+      "tail": "the ASR engine"
+    },
+    {
+      "head": "its main function",
+      "relation": "is to improve",
+      "tail": "utilization efficiency of storage resources"
+    },
+    {
+      "head": "it",
+      "relation": "is depicted as",
+      "tail": "a distinct step"
+    },
+    {
+      "head": "it",
+      "relation": "may be performed as part of",
+      "tail": "the VAD or ASR processes"
+    },
+    {
+      "head": "data",
+      "relation": "is sent from the Storage Tier to",
+      "tail": "the Processing Tier"
+    },
+    {
+      "head": "data",
+      "relation": "is sent for",
+      "tail": "processing"
+    },
+    {
+      "head": "the processed data",
+      "relation": "is sent back to the Storage Tier",
+      "tail": "for storage/archiving"
+    },
+    {
+      "head": "one example",
+      "relation": "is",
+      "tail": "the caller's speaking dialect"
+    }
+  ],
+  "403. Antimicrobial compositions for topical use.txt": [
+    {
+      "head": "liquid antimicrobial compositions",
+      "relation": "are generally used by",
+      "tail": "consumers"
+    },
+    {
+      "head": "liquid antimicrobial compositions",
+      "relation": "are generally used for",
+      "tail": "immediate protection against microorganisms"
+    },
+    {
+      "head": "any section headings",
+      "relation": "are added for",
+      "tail": "convenience"
+    },
+    {
+      "head": "any section headings",
+      "relation": "are not intended to limit",
+      "tail": "the disclosure in any way"
+    },
+    {
+      "head": "the antimicrobial composition",
+      "relation": "is according to",
+      "tail": "the invention"
+    },
+    {
+      "head": "the antimicrobial composition",
+      "relation": "is preferably",
+      "tail": "a leave-on composition"
+    },
+    {
+      "head": "niacinamide",
+      "relation": "is used in",
+      "tail": "the treatment of many inflammatory skin conditions"
+    },
+    {
+      "head": "inflammatory skin conditions",
+      "relation": "are like",
+      "tail": "Acne vulgaris"
+    },
+    {
+      "head": "inflammatory skin conditions",
+      "relation": "are like",
+      "tail": "Psoriasis"
+    },
+    {
+      "head": "inflammatory skin conditions",
+      "relation": "are like",
+      "tail": "Atopic dermatitis"
+    },
+    {
+      "head": "most preferred",
+      "relation": "are",
+      "tail": "propylene glycol, polyethylene glycol and combinations thereof"
+    },
+    {
+      "head": "skin hygiene",
+      "relation": "is of high priority to present",
+      "tail": "day consumers"
+    },
+    {
+      "head": "the term \"antimicrobial composition\"",
+      "relation": "is used herein",
+      "tail": ""
+    },
+    {
+      "head": "the term \"antimicrobial composition\" used herein",
+      "relation": "refers to",
+      "tail": "a composition"
+    },
+    {
+      "head": "a composition",
+      "relation": "is capable of",
+      "tail": "killing bacteria or inhibiting their growth"
+    },
+    {
+      "head": "the composition",
+      "relation": "is",
+      "tail": "preferably transparent"
+    },
+    {
+      "head": "a mixture",
+      "relation": "contains",
+      "tail": "60% total alcohols"
+    },
+    {
+      "head": "a mixture containing 60% total alcohols",
+      "relation": "is effective against",
+      "tail": "wide spectrum of bacteria"
+    },
+    {
+      "head": "this spreading",
+      "relation": "was done",
+      "tail": ""
+    },
+    {
+      "head": "this spreading done",
+      "relation": "used",
+      "tail": "gloves"
+    }
+  ],
+  "604. Apparatus for the flexible positioning of a radiation source and a radiation detector.txt": [
+    {
+      "head": "medical imaging methods",
+      "relation": "are",
+      "tail": "based on x-rays"
+    },
+    {
+      "head": "medical imaging methods based on x-rays",
+      "relation": "have",
+      "tail": "a wide diagnostic application range"
+    },
+    {
+      "head": "the apparatus for medical examinations",
+      "relation": "includes",
+      "tail": "a second arm"
+    },
+    {
+      "head": "a second arm",
+      "relation": "may be rotated about",
+      "tail": "the axis"
+    },
+    {
+      "head": "a second arm",
+      "relation": "may be rotated at least in",
+      "tail": "sections"
+    },
+    {
+      "head": "the arm",
+      "relation": "may make",
+      "tail": "comparatively small rotational movements"
+    },
+    {
+      "head": "the arm making comparatively small rotational movements",
+      "relation": "is in order to realize",
+      "tail": "complex trajectories"
+    },
+    {
+      "head": "angiography",
+      "relation": "is",
+      "tail": "an important field"
+    },
+    {
+      "head": "these aims",
+      "relation": "prevail in",
+      "tail": "the important field"
+    },
+    {
+      "head": "the second arm",
+      "relation": "is attached to",
+      "tail": "the first arm"
+    },
+    {
+      "head": "a rotation of the first arm",
+      "relation": "rotates",
+      "tail": "the second arm"
+    },
+    {
+      "head": "several recordings",
+      "relation": "are performed from",
+      "tail": "different positions"
+    },
+    {
+      "head": "the reconstruction quality",
+      "relation": "is not far from",
+      "tail": "that of a 3D reconstruction"
+    },
+    {
+      "head": "a 3D reconstruction",
+      "relation": "is with",
+      "tail": "the aid of a modern CT device"
+    },
+    {
+      "head": "the rigid C-arm",
+      "relation": "is divided into",
+      "tail": "two arms for the description of trajectories"
+    },
+    {
+      "head": "the rigid C-arm divided into two arms",
+      "relation": "is for",
+      "tail": "the description of trajectories"
+    },
+    {
+      "head": "trajectories",
+      "relation": "is with respect to",
+      "tail": "the region examined using the emitter and detector"
+    },
+    {
+      "head": "the region",
+      "relation": "is examined using",
+      "tail": "the emitter and detector"
+    },
+    {
+      "head": "these components",
+      "relation": "are for example",
+      "tail": "a drive controller and/or regulator"
+    },
+    {
+      "head": "these components",
+      "relation": "are for example",
+      "tail": "a voltage transformer"
+    },
+    {
+      "head": "these components",
+      "relation": "are for example",
+      "tail": "a water coupling"
+    },
+    {
+      "head": "these components",
+      "relation": "are for example",
+      "tail": "a data coupling"
+    },
+    {
+      "head": "these components",
+      "relation": "are for example",
+      "tail": "a power supply coupling"
+    },
+    {
+      "head": "the drive technology or structural design point of view",
+      "relation": "forms",
+      "tail": "the basis for maintaining the repetition accuracy"
+    },
+    {
+      "head": "these maximum accelerations",
+      "relation": "are severely restricted",
+      "tail": ""
+    }
+  ],
+  "814. Cranial electrotherapy stimulator.txt": [
+    {
+      "head": "the information gathered",
+      "relation": "can include",
+      "tail": "treatment parameters"
+    },
+    {
+      "head": "the information gathered",
+      "relation": "can include",
+      "tail": "patient feedback"
+    },
+    {
+      "head": "it",
+      "relation": "can be stored in",
+      "tail": "a cloud server"
+    },
+    {
+      "head": "the app",
+      "relation": "is used to control",
+      "tail": "the CES system"
+    },
+    {
+      "head": "the app",
+      "relation": "is used to gather",
+      "tail": "information about treatment including patient feedback"
+    },
+    {
+      "head": "microprocessor",
+      "relation": "communicates with",
+      "tail": "transceiver and a waveform generator"
+    },
+    {
+      "head": "a waveform generator",
+      "relation": "is a portion of",
+      "tail": "the circuitry on circuit board"
+    },
+    {
+      "head": "main unit",
+      "relation": "includes",
+      "tail": "a plastic enclosure"
+    },
+    {
+      "head": "a plastic enclosure",
+      "relation": "meets",
+      "tail": "applicable medical device safety standards"
+    },
+    {
+      "head": "the housing",
+      "relation": "features",
+      "tail": "a multi-color LED indicator"
+    },
+    {
+      "head": "the housing",
+      "relation": "features",
+      "tail": "a charging port"
+    },
+    {
+      "head": "the housing",
+      "relation": "features",
+      "tail": "an electrode connection"
+    },
+    {
+      "head": "the smart device with the software app",
+      "relation": "can control",
+      "tail": "the CES device"
+    },
+    {
+      "head": "the smart device",
+      "relation": "can gather",
+      "tail": "information about the treatment in certain embodiments"
+    },
+    {
+      "head": "there",
+      "relation": "are",
+      "tail": "the same or similar elements"
+    },
+    {
+      "head": "those elements",
+      "relation": "are designated with",
+      "tail": "the same or similar reference numerals"
+    },
+    {
+      "head": "the patient",
+      "relation": "may be prompted to annotate",
+      "tail": "his or her treatment with comments"
+    },
+    {
+      "head": "comments",
+      "relation": "are at",
+      "tail": "the conclusion of each treatment for further analysis"
+    },
+    {
+      "head": "further analysis",
+      "relation": "is by",
+      "tail": "the patient's treatment provider"
+    },
+    {
+      "head": "the app",
+      "relation": "stores",
+      "tail": "patient de-identified treatment information"
+    },
+    {
+      "head": "patient de-identified treatment information",
+      "relation": "is in",
+      "tail": "a secure cloud server"
+    },
+    {
+      "head": "this system",
+      "relation": "has the potential for",
+      "tail": "much better patient comfort and compliance"
+    },
+    {
+      "head": "it",
+      "relation": "can be easily incorporated into",
+      "tail": "patient's lifestyle"
+    }
+  ],
+  "990. Adaptive point-of-sale (POS) device.txt": [
+    {
+      "head": "motors",
+      "relation": "produce",
+      "tail": "vibrational frequencies"
+    },
+    {
+      "head": "gear trains",
+      "relation": "produce",
+      "tail": "vibrational frequencies"
+    },
+    {
+      "head": "vibrational frequencies",
+      "relation": "are related to",
+      "tail": "the rotation speed of their various components"
+    },
+    {
+      "head": "the network",
+      "relation": "can be",
+      "tail": "wired"
+    },
+    {
+      "head": "the network",
+      "relation": "can be",
+      "tail": "wireless"
+    },
+    {
+      "head": "the network",
+      "relation": "can be",
+      "tail": "a combination of wired and wireless"
+    },
+    {
+      "head": "the POS device",
+      "relation": "is",
+      "tail": "an integrated scanner and scale"
+    },
+    {
+      "head": "this techniques",
+      "relation": "works well in",
+      "tail": "a scale"
+    },
+    {
+      "head": "a scale",
+      "relation": "has",
+      "tail": "multiple load cells"
+    },
+    {
+      "head": "a frequency",
+      "relation": "is produced on",
+      "tail": "a load cell"
+    },
+    {
+      "head": "a frequency produced on a load cell",
+      "relation": "is identified",
+      "tail": ""
+    },
+    {
+      "head": "the frequency",
+      "relation": "is recognized as",
+      "tail": "noise"
+    },
+    {
+      "head": "the majority of periodic mechanical vibrations",
+      "relation": "come primarily from",
+      "tail": "mechanical conduction of motor vibrations"
+    },
+    {
+      "head": "motor vibrations",
+      "relation": "are from",
+      "tail": "various sources"
+    },
+    {
+      "head": "the self-scale adjuster",
+      "relation": "may have access to",
+      "tail": "a network during its processing"
+    },
+    {
+      "head": "the self-scale adjuster",
+      "relation": "does not have to have access to",
+      "tail": "a network during its processing"
+    },
+    {
+      "head": "many other embodiments",
+      "relation": "will be apparent to",
+      "tail": "those of skill in the art"
+    },
+    {
+      "head": "the integrated scanner/scale",
+      "relation": "use",
+      "tail": "the spectra analyzer"
+    },
+    {
+      "head": "the integrated scanner/scale using the spectra analyzer",
+      "relation": "intelligently determines",
+      "tail": "the times"
+    },
+    {
+      "head": "a spectral analysis",
+      "relation": "may be performed at",
+      "tail": "the times"
+    },
+    {
+      "head": "the software modules",
+      "relation": "are illustrated as executing on",
+      "tail": "one piece of hardware"
+    },
+    {
+      "head": "the software",
+      "relation": "may be distributed over",
+      "tail": "multiple processors"
+    },
+    {
+      "head": "the software",
+      "relation": "may be distributed in",
+      "tail": "any other convenient manner"
+    }
+  ],
+  "1087. Pharmaceutical composition comprising fluorine-18 labelled gases.txt": [
+    {
+      "head": "the \"pharmaceutical composition\"",
+      "relation": "can be",
+      "tail": "a veterinary composition"
+    },
+    {
+      "head": "the \"pharmaceutical composition\" being a veterinary composition",
+      "relation": "is when given to",
+      "tail": "a subject other than a human"
+    },
+    {
+      "head": "the stainless steel container",
+      "relation": "can be cooled with",
+      "tail": "liquid nitrogen"
+    },
+    {
+      "head": "the valve",
+      "relation": "can be opened",
+      "tail": ""
+    },
+    {
+      "head": "the composition of the invention",
+      "relation": "is more effective than",
+      "tail": "the compositions  described so far"
+    },
+    {
+      "head": "the composition of the invention",
+      "relation": "is safer than",
+      "tail": "the compositions  described so far"
+    },
+    {
+      "head": "this tracer",
+      "relation": "is for instance used to diagnose",
+      "tail": "cancer metastasis"
+    },
+    {
+      "head": "this process",
+      "relation": "is in contrast to",
+      "tail": "diagnostics by X-ray"
+    },
+    {
+      "head": "external radiation",
+      "relation": "is passed through",
+      "tail": "the body"
+    },
+    {
+      "head": "external radiation passed through the body",
+      "relation": "is to form",
+      "tail": "an image"
+    },
+    {
+      "head": "the fact",
+      "relation": "is that",
+      "tail": "PET is not widely used in ventilation studies"
+    },
+    {
+      "head": "PET",
+      "relation": "is not widely used in",
+      "tail": "ventilation studies"
+    },
+    {
+      "head": "the fact",
+      "relation": "is mainly because of",
+      "tail": "a series of limitations"
+    },
+    {
+      "head": "a series of limitations",
+      "relation": "are associated to",
+      "tail": "the positron emitting labels"
+    },
+    {
+      "head": "a third aspect of the invention",
+      "relation": "is",
+      "tail": "a pharmaceutical composition"
+    },
+    {
+      "head": "the first aspect of the invention",
+      "relation": "is for use as",
+      "tail": "an image contrast agent"
+    },
+    {
+      "head": "increasing the integrated current C.sub.1",
+      "relation": "resulted in",
+      "tail": "a significant increase"
+    },
+    {
+      "head": "a significant increase",
+      "relation": "is in",
+      "tail": "the final amount of radioactivity"
+    },
+    {
+      "head": "it",
+      "relation": "forms part of",
+      "tail": "the invention a pharmaceutical composition"
+    },
+    {
+      "head": "the second aspect of the invention",
+      "relation": "is obtainable by",
+      "tail": "the process of the first aspect of the invention"
+    },
+    {
+      "head": "the amount of activity",
+      "relation": "was measured in",
+      "tail": "a dose calibrator"
+    },
+    {
+      "head": "the gas",
+      "relation": "was analyzed using",
+      "tail": "the same analytical system as described above"
+    }
+  ],
+  "1326. Ultra-variable advanced manufacturing techniques.txt": [
+    {
+      "head": "material",
+      "relation": "is provided to",
+      "tail": "the auger delivery and the deposition element"
+    },
+    {
+      "head": "material provided to the auger delivery and deposition element",
+      "relation": "is via",
+      "tail": "the hopper"
+    },
+    {
+      "head": "the heat",
+      "relation": "serves to reduce or eliminate",
+      "tail": "the surface tension of the material"
+    },
+    {
+      "head": "one skilled in the art",
+      "relation": "will appreciate",
+      "tail": "that the present teachings can be practiced with embodiments other than those disclosed"
+    },
+    {
+      "head": "the present teachings",
+      "relation": "can be practiced with",
+      "tail": "embodiments other than those disclosed"
+    },
+    {
+      "head": "movement of the actuation element",
+      "relation": "serves to agitate",
+      "tail": "the material"
+    },
+    {
+      "head": "movement of the actuation element",
+      "relation": "serves to push",
+      "tail": "it out of the deposition nozzle in a spray"
+    },
+    {
+      "head": "the auger delivery and deposition element",
+      "relation": "may be used to move",
+      "tail": "a single material"
+    },
+    {
+      "head": "such injuries",
+      "relation": "lead to",
+      "tail": "lost wages for the individual, employer and government"
+    },
+    {
+      "head": "such injuries",
+      "relation": "lead to",
+      "tail": "reduction in productivity for the individual, employer and government"
+    },
+    {
+      "head": "such injuries",
+      "relation": "lead to",
+      "tail": "increased cost for the individual, employer and government"
+    },
+    {
+      "head": "this agitation element",
+      "relation": "will break up",
+      "tail": "the material"
+    },
+    {
+      "head": "this agitation element",
+      "relation": "will push material through",
+      "tail": "the nozzle tip in small amounts"
+    },
+    {
+      "head": "the material",
+      "relation": "is as",
+      "tail": "droplets for deposition"
+    },
+    {
+      "head": "mixing",
+      "relation": "is assisted by",
+      "tail": "the pressures upon each material"
+    },
+    {
+      "head": "agitation from the atomization element in the deposition nozzle",
+      "relation": "can assist in",
+      "tail": "mixing"
+    },
+    {
+      "head": "agitation from the atomization element in the deposition nozzle assisting in mixing",
+      "relation": "is according to",
+      "tail": "various embodiments"
+    },
+    {
+      "head": "the Abstract",
+      "relation": "is submitted with",
+      "tail": "the understanding"
+    },
+    {
+      "head": "it",
+      "relation": "will not be used to interpret or limit",
+      "tail": "the scope or meaning of the claims"
+    },
+    {
+      "head": "we",
+      "relation": "are seeing increasing numbers of first time exercisers",
+      "tail": "end up with injuries"
+    },
+    {
+      "head": "first time exercisers",
+      "relation": "are more often than not end up with",
+      "tail": "injuries"
+    }
+  ],
+  "1654. Method for regulating expressions of TPH1 gene, DDC gene, and or AANAT gene by using banana peel extract.txt": [
+    {
+      "head": "the composition",
+      "relation": "is",
+      "tail": "a pharmaceutical composition or a food composition"
+    },
+    {
+      "head": "the composition",
+      "relation": "is used for",
+      "tail": "increasing the expression of melatonin and/or promoting the secretion of melatonin"
+    },
+    {
+      "head": "the term \"subject\" recited in this specification",
+      "relation": "refers to",
+      "tail": "a mammalian"
+    },
+    {
+      "head": "a mammalian",
+      "relation": "includes",
+      "tail": "human animals and non-human animals"
+    },
+    {
+      "head": "banana",
+      "relation": "is",
+      "tail": "a perennial herb"
+    },
+    {
+      "head": "a perennial herb",
+      "relation": "is originated from",
+      "tail": "the tropical and subtropical Asia"
+    },
+    {
+      "head": "cells of the above groups",
+      "relation": "were harvested and subjected to",
+      "tail": "a RNA extraction"
+    },
+    {
+      "head": "cells of the above groups harvested and subjected to a RNA extraction",
+      "relation": "is with",
+      "tail": "an RNA Extract Kit"
+    },
+    {
+      "head": "people",
+      "relation": "can stay",
+      "tail": "awake during the daytime"
+    },
+    {
+      "head": "the secretion of melatonin",
+      "relation": "is suppressed by the exposure to",
+      "tail": "light"
+    },
+    {
+      "head": "the decreased expression of TPH1 gene",
+      "relation": "will affect",
+      "tail": "the above physiological functions"
+    },
+    {
+      "head": "the above physiological functions",
+      "relation": "are related to",
+      "tail": "serotonin"
+    },
+    {
+      "head": "DDC gene",
+      "relation": "is involved in",
+      "tail": "the synthesis of melatonin"
+    },
+    {
+      "head": "the deficiency of DDC gene",
+      "relation": "will lead to",
+      "tail": "neurometabolic disorder"
+    },
+    {
+      "head": "the applied type",
+      "relation": "is in line with",
+      "tail": "the above descriptions"
+    },
+    {
+      "head": "the applied route",
+      "relation": "is in line with",
+      "tail": "the above descriptions"
+    },
+    {
+      "head": "the applied form",
+      "relation": "is in line with",
+      "tail": "the above descriptions"
+    },
+    {
+      "head": "the uses in related application of the composition",
+      "relation": "are in line with",
+      "tail": "the above descriptions"
+    },
+    {
+      "head": "the RNA",
+      "relation": "was transcribed into cDNA with",
+      "tail": "a Reverse Transcriptase"
+    }
+  ],
+  "2454. Drug delivery device with protective needle cap control and device activation mechanism.txt": [
+    {
+      "head": "autoinjector devices",
+      "relation": "aim to make self-injection easier for",
+      "tail": "patients"
+    },
+    {
+      "head": "the control element",
+      "relation": "may be coupled to",
+      "tail": "the needle cap"
+    },
+    {
+      "head": "the control element",
+      "relation": "may be coupled to",
+      "tail": "the cartridge"
+    },
+    {
+      "head": "nucleic acids",
+      "relation": "may be incorporated into",
+      "tail": "molecular delivery systems"
+    },
+    {
+      "head": "molecular delivery systems",
+      "relation": "are such as",
+      "tail": "vectors"
+    },
+    {
+      "head": "molecular delivery systems",
+      "relation": "are such as",
+      "tail": "plasmids"
+    },
+    {
+      "head": "molecular delivery systems",
+      "relation": "are such as",
+      "tail": "liposomes"
+    },
+    {
+      "head": "improper handling of drug delivery devices",
+      "relation": "may result in",
+      "tail": "needle stick injuries"
+    },
+    {
+      "head": "drug delivery devices",
+      "relation": "typically fall into",
+      "tail": "two categories"
+    },
+    {
+      "head": "two categories",
+      "relation": "are",
+      "tail": "manual devices and autoinjectors"
+    },
+    {
+      "head": "the activating element",
+      "relation": "is guidable within",
+      "tail": "the slot"
+    },
+    {
+      "head": "the activating element",
+      "relation": "abuts",
+      "tail": "the first stop in the initial position"
+    },
+    {
+      "head": "the antibody",
+      "relation": "has reduced or no ability to bind",
+      "tail": "an Fc receptor"
+    },
+    {
+      "head": "the pharmaceutical formulations of the present disclosure",
+      "relation": "encompass any formulation made by admixing a compound described herein and",
+      "tail": "a pharmaceutically acceptable carrier"
+    },
+    {
+      "head": "pharmaceutically acceptable solvates",
+      "relation": "are for example",
+      "tail": "hydrates"
+    },
+    {
+      "head": "pharmaceutically acceptable solvates",
+      "relation": "are for example",
+      "tail": "alkanolates"
+    },
+    {
+      "head": "alkanolates",
+      "relation": "are such as",
+      "tail": "methanolates"
+    },
+    {
+      "head": "alkanolates",
+      "relation": "are such as",
+      "tail": "ethanolates"
+    },
+    {
+      "head": "the term \"antibody\"",
+      "relation": "refers to",
+      "tail": "an immunoglobulin molecule or an antigen-binding portion thereof"
+    },
+    {
+      "head": "the term \"antibody\"",
+      "relation": "is as used herein",
+      "tail": ""
+    }
+  ],
+  "2618. Gate driver.txt": [
+    {
+      "head": "the isolated gate driver power supply circuit",
+      "relation": "includes",
+      "tail": "an air core transformer"
+    },
+    {
+      "head": "an air core transformer",
+      "relation": "includes",
+      "tail": "multiple windings magnetically coupled together"
+    },
+    {
+      "head": "the gate driver",
+      "relation": "provides",
+      "tail": "high power efficiency"
+    },
+    {
+      "head": "the gate driver",
+      "relation": "provides",
+      "tail": "load insensitivity at lower cost"
+    },
+    {
+      "head": "the gate driver",
+      "relation": "provides load insensitivity at",
+      "tail": "lower cost"
+    },
+    {
+      "head": "the patentable scope of the invention",
+      "relation": "is defined by",
+      "tail": "the claims"
+    },
+    {
+      "head": "the patentable scope of the invention",
+      "relation": "may include",
+      "tail": "other examples"
+    },
+    {
+      "head": "examples",
+      "relation": "occur to",
+      "tail": "those skilled in the art"
+    },
+    {
+      "head": "the gate driver",
+      "relation": "includes",
+      "tail": "an isolated gate driver power supply circuit"
+    },
+    {
+      "head": "an isolated gate driver power supply circuit",
+      "relation": "includes",
+      "tail": "a coreless transformer"
+    },
+    {
+      "head": "a coreless transformer",
+      "relation": "is for example",
+      "tail": "air core transformer"
+    },
+    {
+      "head": "the transformer",
+      "relation": "may include",
+      "tail": "a different number of windings or coils"
+    },
+    {
+      "head": "the isolated gate driver power supply circuit",
+      "relation": "includes",
+      "tail": "a resonance converter"
+    },
+    {
+      "head": "a resonance converter",
+      "relation": "is coupled to",
+      "tail": "the air core transformer"
+    },
+    {
+      "head": "the gate drivers",
+      "relation": "are",
+      "tail": "electronic circuits"
+    },
+    {
+      "head": "electronic circuits",
+      "relation": "couple the control electronics to power",
+      "tail": "semiconductor devices"
+    },
+    {
+      "head": "coupling the control electronics to power semiconductor devices",
+      "relation": "is to enable control functions such as turning on/off",
+      "tail": "the power devices"
+    },
+    {
+      "head": "the gate drivers",
+      "relation": "are configured to be utilized reliably and safely in presence of",
+      "tail": "a high magnetic field within the scan room"
+    },
+    {
+      "head": "the transformer",
+      "relation": "includes",
+      "tail": "a primary winding or coil"
+    },
+    {
+      "head": "the transformer",
+      "relation": "includes",
+      "tail": "secondary winding or coil"
+    },
+    {
+      "head": "the transformer",
+      "relation": "includes",
+      "tail": "tertiary winding or coil"
+    },
+    {
+      "head": "the resonance converter",
+      "relation": "tunes",
+      "tail": "the transformer"
+    },
+    {
+      "head": "the resonance converter tuning the transformer",
+      "relation": "is to enable the isolated gate driver power supply circuit to generate",
+      "tail": "an output independent of load"
+    }
+  ],
+  "2770. Composition with sustained antimicrobial activity.txt": [
+    {
+      "head": "the compositions",
+      "relation": "may comprise",
+      "tail": "one or more antimicrobial agent"
+    },
+    {
+      "head": "the antimicrobial agent",
+      "relation": "is not",
+      "tail": "a cationic antimicrobial agent"
+    },
+    {
+      "head": "the surfactant",
+      "relation": "may be",
+      "tail": "a cationic surfactan"
+    },
+    {
+      "head": "the surfactant",
+      "relation": "may be",
+      "tail": "an ampholytic surfactant"
+    },
+    {
+      "head": "the surfactant",
+      "relation": "may be",
+      "tail": "a nonionic surfactants"
+    },
+    {
+      "head": "various patent and non-patent references",
+      "relation": "are cited herein",
+      "tail": ""
+    },
+    {
+      "head": "the contents of references",
+      "relation": "are incorporated by",
+      "tail": "reference in their entireties herein"
+    },
+    {
+      "head": "a composition as disclosed herein",
+      "relation": "may further comprise",
+      "tail": "a surfactant"
+    },
+    {
+      "head": "the compositions disclosed herein",
+      "relation": "may be used as",
+      "tail": "soaps"
+    },
+    {
+      "head": "the compositions disclosed herein",
+      "relation": "may be used as",
+      "tail": "hand sanitizers"
+    },
+    {
+      "head": "the compositions disclosed herein",
+      "relation": "may be used as",
+      "tail": "creams"
+    },
+    {
+      "head": "the compositions disclosed herein",
+      "relation": "may be used as",
+      "tail": "lotions"
+    },
+    {
+      "head": "the compositions disclosed herein",
+      "relation": "may be used as",
+      "tail": "splashes"
+    },
+    {
+      "head": "the compositions disclosed herein",
+      "relation": "may optionally be comprised in",
+      "tail": "wipes"
+    },
+    {
+      "head": "\"Persistent antimicrobial activity\"",
+      "relation": "is",
+      "tail": "antimicrobial activity"
+    },
+    {
+      "head": "the antimicrobial activity",
+      "relation": "is retained after the initial exposure to",
+      "tail": "the composition"
+    },
+    {
+      "head": "the effect of different sesquiterpenoids",
+      "relation": "was examined using",
+      "tail": "the methods described above"
+    },
+    {
+      "head": "the effect of different sesquiterpenoids",
+      "relation": "is on",
+      "tail": "substantive antibacterial activity"
+    },
+    {
+      "head": "the composition",
+      "relation": "comprises",
+      "tail": "a synergistic combination of benzyl alcohol and one or more cationic antimicrobial agent"
+    },
+    {
+      "head": "the cationic antimicrobial agent",
+      "relation": "is such as",
+      "tail": "a biguanide ammonium compound and/or a quaternary ammonium compound"
+    },
+    {
+      "head": "this problem",
+      "relation": "could be addressed by",
+      "tail": "the development of soaps"
+    },
+    {
+      "head": "this problem",
+      "relation": "could be addressed by",
+      "tail": "the development of other skin-care products"
+    },
+    {
+      "head": "other skin-care products",
+      "relation": "have",
+      "tail": "sufficient residual antibacterial activity on the skin"
+    },
+    {
+      "head": "other skin-care products having sufficient residual antibacterial activity",
+      "relation": "is to inactivate",
+      "tail": "newly introduced bacteria"
+    },
+    {
+      "head": "non-limiting examples",
+      "relation": "are described by way of",
+      "tail": "illustration"
+    },
+    {
+      "head": "further embodiments",
+      "relation": "would be envisaged by",
+      "tail": "the person of skill in the art"
+    }
+  ],
+  "3178. Process for the preparation of tocols and squalene.txt": [
+    {
+      "head": "the tocotrienols",
+      "relation": "exhibit",
+      "tail": "more powerful antioxidant than the tocopherols"
+    },
+    {
+      "head": "the tocotrienols",
+      "relation": "exhibit",
+      "tail": "more anti cancer power than the tocopherols"
+    },
+    {
+      "head": "the mixture",
+      "relation": "was dried to remove",
+      "tail": "any traces of moisture in it"
+    },
+    {
+      "head": "the mixture",
+      "relation": "was analyzed to check",
+      "tail": "the recovery of tocols and squalene"
+    },
+    {
+      "head": "palm tocols",
+      "relation": "is useful to lower",
+      "tail": "the cholesterol level in the body"
+    },
+    {
+      "head": "tocols",
+      "relation": "are",
+      "tail": "an important group of organic molecules"
+    },
+    {
+      "head": "organic molecules",
+      "relation": "are widely used in",
+      "tail": "pharmaceutical and nutraceutical products"
+    },
+    {
+      "head": "first molecular distillation step",
+      "relation": "is used to remove",
+      "tail": "fatty acid methyl esters"
+    },
+    {
+      "head": "the major issues",
+      "relation": "are",
+      "tail": "the yield and quality of the final compositions"
+    },
+    {
+      "head": "the major issues",
+      "relation": "are with the recovery of",
+      "tail": "tocols and other byproducts from materials like PFAD"
+    },
+    {
+      "head": "the invention",
+      "relation": "involves",
+      "tail": "a process for producing a product"
+    },
+    {
+      "head": "a product",
+      "relation": "is enriched in",
+      "tail": "tocols"
+    },
+    {
+      "head": "a product",
+      "relation": "is enriched in",
+      "tail": "other components of palm oil such as squalene"
+    },
+    {
+      "head": "the final residue stream obtained in step 4",
+      "relation": "is loaded to",
+      "tail": "the silica column"
+    },
+    {
+      "head": "the final residue stream",
+      "relation": "is obtained in step 4",
+      "tail": ""
+    },
+    {
+      "head": "the silica column",
+      "relation": "has",
+      "tail": "a mesh size of 60-120 mesh for about 55 minutes"
+    },
+    {
+      "head": "the mixture",
+      "relation": "was dried to remove",
+      "tail": "any traces of moisture in it"
+    },
+    {
+      "head": "the mixture",
+      "relation": "was analyzed for",
+      "tail": "the recovery of tocols and squalene"
+    },
+    {
+      "head": "the tocopherols of plant origin",
+      "relation": "are widely used as",
+      "tail": "vitamin supplements in various food and cosmetics products"
+    },
+    {
+      "head": "the tocopherols",
+      "relation": "are",
+      "tail": "vitamin E derivatives"
+    }
+  ],
+  "3328. Efficient determination of MR scan parameters.txt": [
+    {
+      "head": "various modifications",
+      "relation": "will remain apparent to",
+      "tail": "those in the art"
+    },
+    {
+      "head": "sequence controller",
+      "relation": "controls the generation of RF pulses by",
+      "tail": "RF system and RF power amplifier"
+    },
+    {
+      "head": "system",
+      "relation": "may comprise",
+      "tail": "general-purpose computing system"
+    },
+    {
+      "head": "system",
+      "relation": "may comprise",
+      "tail": "dedicated computing system"
+    },
+    {
+      "head": "the commands",
+      "relation": "may specify",
+      "tail": "MR scan parameter values"
+    },
+    {
+      "head": "MR scan parameter values",
+      "relation": "are used by",
+      "tail": "system"
+    },
+    {
+      "head": "the FOV and desired resolution",
+      "relation": "will be used to determine",
+      "tail": "the matrix size"
+    },
+    {
+      "head": "these factors",
+      "relation": "may contribute to",
+      "tail": "inefficient and/or incorrect selection of MR scan parameters"
+    },
+    {
+      "head": "inefficient and/or incorrect selection of MR scan parameters",
+      "relation": "may lead to",
+      "tail": "sub-optimal imaging"
+    },
+    {
+      "head": "an inversion pulse",
+      "relation": "is used in non-contrast-enhanced angiography to suppress",
+      "tail": "venous blood"
+    },
+    {
+      "head": "a saturation pulse used in non-contrast-enhanced angiography",
+      "relation": "is to suppress",
+      "tail": "venous blood"
+    },
+    {
+      "head": "sequence controller",
+      "relation": "may be instructed to initiate",
+      "tail": "an MR pulse sequence"
+    },
+    {
+      "head": "an MR pulse sequence",
+      "relation": "is based on",
+      "tail": "a set of parameter values"
+    },
+    {
+      "head": "parameter values",
+      "relation": "was received and determined as described herein",
+      "tail": ""
+    },
+    {
+      "head": "user input of some MR scan parameter values",
+      "relation": "is required",
+      "tail": ""
+    },
+    {
+      "head": "user input of other MR scan parameter values",
+      "relation": "is optional",
+      "tail": ""
+    },
+    {
+      "head": "all systems and processes",
+      "relation": "are discussed herein",
+      "tail": ""
+    },
+    {
+      "head": "all systems and processes discussed herein",
+      "relation": "may be embodied in",
+      "tail": "program code"
+    },
+    {
+      "head": "program code",
+      "relation": "is stored on",
+      "tail": "one or more non-transitory computer-readable media"
+    }
+  ],
+  "3474. Neighbour wireless sensor network discovery mechanism.txt": [
+    {
+      "head": "these modes",
+      "relation": "are",
+      "tail": "advertising, scanning and initiating"
+    },
+    {
+      "head": "the CCH",
+      "relation": "may be",
+      "tail": "a distinct logical or physical radio channel"
+    },
+    {
+      "head": "the first physical channel",
+      "relation": "is",
+      "tail": "a control channel"
+    },
+    {
+      "head": "the control channel",
+      "relation": "is abbreviated as",
+      "tail": "CCH"
+    },
+    {
+      "head": "the second physical channel",
+      "relation": "is",
+      "tail": "a data channel (DCH)"
+    },
+    {
+      "head": "the data channel",
+      "relation": "is abbreviated as",
+      "tail": "DCH"
+    },
+    {
+      "head": "the present invention",
+      "relation": "is not restricted to",
+      "tail": "embodiments disclosed above"
+    },
+    {
+      "head": "the invention",
+      "relation": "may vary within",
+      "tail": "the scope of the claims"
+    },
+    {
+      "head": "the active period",
+      "relation": "commences at",
+      "tail": "the start of Beacon Period"
+    },
+    {
+      "head": "the active period",
+      "relation": "is followed by",
+      "tail": "the inactive period"
+    },
+    {
+      "head": "the prior art solutions",
+      "relation": "mainly focus on",
+      "tail": "the situation"
+    },
+    {
+      "head": "just a single operational network",
+      "relation": "exists in",
+      "tail": "the situation"
+    },
+    {
+      "head": "neighbouring networks",
+      "relation": "are desired to be found out",
+      "tail": ""
+    },
+    {
+      "head": "certain alarms",
+      "relation": "can be set and triggered",
+      "tail": ""
+    },
+    {
+      "head": "a certain measurement result",
+      "relation": "gives",
+      "tail": "a reason to be worried"
+    },
+    {
+      "head": "there",
+      "relation": "is",
+      "tail": "a life-threatening change in the patient's measured condition"
+    },
+    {
+      "head": "it is possible in another embodiment",
+      "relation": "to define",
+      "tail": "the IBI"
+    },
+    {
+      "head": "it",
+      "relation": "comprises",
+      "tail": "an inactive period"
+    },
+    {
+      "head": "an active period",
+      "relation": "will follow",
+      "tail": "the inactive period"
+    },
+    {
+      "head": "there",
+      "relation": "is",
+      "tail": "a transmission or reception in the inactive period of the IBI"
+    },
+    {
+      "head": "the transmitting or receiving entity",
+      "relation": "must always be",
+      "tail": "the Hub"
+    },
+    {
+      "head": "the control channel",
+      "relation": "is used in initializing",
+      "tail": "the network"
+    }
+  ],
+  "3540. Optical system using camera and light source of handheld device.txt": [
+    {
+      "head": "the optical system",
+      "relation": "may be fixed to",
+      "tail": "the casing of the handheld device"
+    },
+    {
+      "head": "the optical system",
+      "relation": "may be built as",
+      "tail": "a single unit"
+    },
+    {
+      "head": "the optical system",
+      "relation": "can be annexed with",
+      "tail": "a handheld device"
+    },
+    {
+      "head": "colorimetric strips",
+      "relation": "relates to",
+      "tail": "water quality"
+    },
+    {
+      "head": "colorimetric strips relating to water quality",
+      "relation": "may be imaged for testing",
+      "tail": "water quality"
+    },
+    {
+      "head": "other optical devices for directing light",
+      "relation": "may be used",
+      "tail": ""
+    },
+    {
+      "head": "the optical system",
+      "relation": "is positioned in front of",
+      "tail": "the camera"
+    },
+    {
+      "head": "the optical system",
+      "relation": "is positioned in front of",
+      "tail": "the light source of the handheld device"
+    },
+    {
+      "head": "Efforts",
+      "relation": "have been put in to explore as to",
+      "tail": "how the high penetration of communication devices can improve such healthcare outcomes as well as generate cost savings"
+    },
+    {
+      "head": "the high penetration of communication devices",
+      "relation": "can",
+      "tail": "improve such healthcare outcomes"
+    },
+    {
+      "head": "the high penetration of communication devices",
+      "relation": "can",
+      "tail": "generate cost savings"
+    },
+    {
+      "head": "the second portion",
+      "relation": "comprises",
+      "tail": "an extraction element"
+    },
+    {
+      "head": "an extraction element",
+      "relation": "is adapted to uniformly extract",
+      "tail": "the light"
+    },
+    {
+      "head": "use of a turning optic for providing the added turn angle",
+      "relation": "provides the advantage of deploying",
+      "tail": "a flat transparent optic"
+    },
+    {
+      "head": "use of a turning optic",
+      "relation": "is for providing",
+      "tail": "the added turn angle"
+    },
+    {
+      "head": "guided fitment",
+      "relation": "may be achieved by providing",
+      "tail": "the user a visual or audio feedback"
+    },
+    {
+      "head": "the handheld device",
+      "relation": "may be",
+      "tail": "a mobile phone"
+    },
+    {
+      "head": "the handheld device",
+      "relation": "may be",
+      "tail": "a tablet computer"
+    },
+    {
+      "head": "the handheld device",
+      "relation": "may be",
+      "tail": "any other handheld device"
+    },
+    {
+      "head": "handheld device",
+      "relation": "comprises",
+      "tail": "a camera"
+    },
+    {
+      "head": "handheld device",
+      "relation": "comprises",
+      "tail": "a light source"
+    },
+    {
+      "head": "handheld device",
+      "relation": "comprises",
+      "tail": "processing capabilities"
+    }
+  ],
+  "3988. System and method for model-based reconstruction of quantitative images.txt": [
+    {
+      "head": "batch mode images or selected real time images",
+      "relation": "are stored in",
+      "tail": "a host database"
+    },
+    {
+      "head": "the system",
+      "relation": "includes",
+      "tail": "a processor"
+    },
+    {
+      "head": "a processor",
+      "relation": "is configured to receive",
+      "tail": "the image data"
+    },
+    {
+      "head": "a check",
+      "relation": "is made against",
+      "tail": "a threshold"
+    },
+    {
+      "head": "a threshold",
+      "relation": "may be",
+      "tail": "a boundary condition or optimization criteria"
+    },
+    {
+      "head": "a threshold",
+      "relation": "may be",
+      "tail": "a optimization criteria"
+    },
+    {
+      "head": "the RF system",
+      "relation": "includes",
+      "tail": "one or more RF receiver channels"
+    },
+    {
+      "head": "common examples of quantitative MRI applications",
+      "relation": "include",
+      "tail": "diffusion imaging"
+    },
+    {
+      "head": "common examples of quantitative MRI applications",
+      "relation": "include",
+      "tail": "perfusion imaging"
+    },
+    {
+      "head": "common examples of quantitative MRI applications",
+      "relation": "include",
+      "tail": "relaxometry"
+    },
+    {
+      "head": "common examples of quantitative MRI applications",
+      "relation": "include",
+      "tail": "elastography"
+    },
+    {
+      "head": "the model of the medical imaging system",
+      "relation": "may be for example",
+      "tail": "a large-scale system operator"
+    },
+    {
+      "head": "a large-scale system operator",
+      "relation": "describes the acquisition of data using",
+      "tail": "the medical imaging system"
+    },
+    {
+      "head": "the operator workstation",
+      "relation": "may be coupled to",
+      "tail": "four servers: a pulse sequence server; a data acquisition server; a data processing server; and a data store server"
+    },
+    {
+      "head": "the networked workstation",
+      "relation": "may be located within the same facility as",
+      "tail": "the operator workstation"
+    },
+    {
+      "head": "the networked workstation",
+      "relation": "may be located in",
+      "tail": "a different facility from the operator workstation"
+    },
+    {
+      "head": "a different facility",
+      "relation": "is such as",
+      "tail": "a different healthcare institution or clinic"
+    },
+    {
+      "head": "an initial estimate",
+      "relation": "may be derived from",
+      "tail": "the acquired data"
+    },
+    {
+      "head": "auxiliary regularization or constraints",
+      "relation": "may be used for",
+      "tail": "this estimation to be well-posed"
+    },
+    {
+      "head": "the quantitative estimates",
+      "relation": "may be overlaid on",
+      "tail": "anatomical images"
+    },
+    {
+      "head": "the quantitative estimates",
+      "relation": "may be overlaid on anatomical images using",
+      "tail": "a color coding"
+    },
+    {
+      "head": "the quantitative estimates",
+      "relation": "may be overlaid on anatomical images using",
+      "tail": "other display"
+    },
+    {
+      "head": "the quantitative estimates",
+      "relation": "may be overlaid on anatomical images using",
+      "tail": "report mechanism"
+    }
+  ],
+  "4397. Electric toothbrush with rigidly connected grip portion and brush portion.txt": [
+    {
+      "head": "a top rubber cover",
+      "relation": "is provided as",
+      "tail": "part of the intermediate portion"
+    },
+    {
+      "head": "stem",
+      "relation": "is formed by",
+      "tail": "synthetic resin"
+    },
+    {
+      "head": "synthetic resin",
+      "relation": "is such as for example",
+      "tail": "POM"
+    },
+    {
+      "head": "a battery to be inserted in the battery holder",
+      "relation": "is",
+      "tail": "a rechargeable battery or a dry cell battery"
+    },
+    {
+      "head": "the connection between the lower cylinder portion 42b and the illumination ring body",
+      "relation": "is",
+      "tail": "explained"
+    },
+    {
+      "head": "the connection",
+      "relation": "is between",
+      "tail": "the lower cylinder portion 2b and the illumination ring body"
+    },
+    {
+      "head": "the vibration shaft",
+      "relation": "freely rotates inside",
+      "tail": "the elongated cavity"
+    },
+    {
+      "head": "the vibration shaft",
+      "relation": "freely rotates inside the elongated cavity even under",
+      "tail": "high frequency vibration"
+    },
+    {
+      "head": "the body cover",
+      "relation": "has",
+      "tail": "an interior cavity"
+    },
+    {
+      "head": "an interior cavity",
+      "relation": "may be for example",
+      "tail": "cylindrical"
+    },
+    {
+      "head": "an interior cavity",
+      "relation": "is for accommodating",
+      "tail": "the chassis, battery holder and circuit board"
+    },
+    {
+      "head": "the electric toothbrush",
+      "relation": "is held at about",
+      "tail": "the plane level"
+    },
+    {
+      "head": "the bristle",
+      "relation": "touches",
+      "tail": "the front face or back face of the tooth perpendicularly"
+    },
+    {
+      "head": "DC motor",
+      "relation": "has",
+      "tail": "two wires"
+    },
+    {
+      "head": "two wires",
+      "relation": "extend from",
+      "tail": "a bottom face"
+    },
+    {
+      "head": "two wires",
+      "relation": "are for",
+      "tail": "electric connection with the circuit board through connector"
+    },
+    {
+      "head": "the resilient shaft portion",
+      "relation": "has a flexibility to receive",
+      "tail": "the high frequency vibration of the eccentric portion"
+    },
+    {
+      "head": "the stem joint arrangement",
+      "relation": "further includes",
+      "tail": "a stem packing"
+    },
+    {
+      "head": "a stem packing",
+      "relation": "is made of",
+      "tail": "rubber and a rubber cover"
+    },
+    {
+      "head": "a rubber cover",
+      "relation": "covers",
+      "tail": "the lower cylinder portion"
+    }
+  ],
+  "4419. Hydro-jet endoscopic capsule and methods for gastric cancer screening in low resource settings.txt": [
+    {
+      "head": "this flow redirection",
+      "relation": "results in",
+      "tail": "some forward thrust on the capsule"
+    },
+    {
+      "head": "the pinch valve",
+      "relation": "includes",
+      "tail": "a controllable piston/actuator"
+    },
+    {
+      "head": "a controllable piston/actuator",
+      "relation": "is moved linearly up and down",
+      "tail": ""
+    },
+    {
+      "head": "the capsule housing",
+      "relation": "is configured to be inserted into",
+      "tail": "an anatomical structure of a patient"
+    },
+    {
+      "head": "the video processing unit",
+      "relation": "presents the camera view on",
+      "tail": "a dedicated monitor"
+    },
+    {
+      "head": "the capsule system",
+      "relation": "receives pressurized fluid from",
+      "tail": "an external system"
+    },
+    {
+      "head": "the capsule system receiving pressurized fluid from an external system",
+      "relation": "is to control",
+      "tail": "lateral movement of the capsule"
+    },
+    {
+      "head": "this novel approach",
+      "relation": "bypasses",
+      "tail": "the typical expenses of traditional endoscopes"
+    },
+    {
+      "head": "traditional endoscopes",
+      "relation": "are",
+      "tail": "expensive to purchase"
+    },
+    {
+      "head": "traditional endoscopes",
+      "relation": "require additional machinery to clean for",
+      "tail": "reuse"
+    },
+    {
+      "head": "nearly 70% of cases",
+      "relation": "occur in",
+      "tail": "low/middle income countries (LMICs)"
+    },
+    {
+      "head": "endoscopy resources",
+      "relation": "are traditionally limited",
+      "tail": ""
+    },
+    {
+      "head": "The capsule housing",
+      "relation": "is inserted into",
+      "tail": "the patient's esophagu through the mouth"
+    },
+    {
+      "head": "The capsule housing",
+      "relation": "is linearly advanced to",
+      "tail": "the stomach of the patient"
+    },
+    {
+      "head": "water",
+      "relation": "is controllably expelled from",
+      "tail": "the exhaust port on the left of the capsule main body"
+    },
+    {
+      "head": "water controllably expelled from the exhaust port on the left of the capsule main body",
+      "relation": "is to move the capsule to",
+      "tail": "the right"
+    },
+    {
+      "head": "the compressed gas",
+      "relation": "can be carried in",
+      "tail": "portable canisters"
+    },
+    {
+      "head": "the compressed gas",
+      "relation": "is used in conjunction with",
+      "tail": "the dispensing pressure vessel"
+    },
+    {
+      "head": "the compressed gas used in conjunction with the dispensing pressure vessel",
+      "relation": "is to control",
+      "tail": "maneuvering of the capsule"
+    }
+  ],
+  "4895. Anomaly detection by self-learning of sensor signals.txt": [
+    {
+      "head": "The embodiments herein",
+      "relation": "can comprise",
+      "tail": "hardware and software elements."
+    },
+    {
+      "head": "conventional methods",
+      "relation": "have used supervised learning to classify",
+      "tail": "normal and anomalous phenomena"
+    },
+    {
+      "head": "classification of normal and anomalous portions",
+      "relation": "is based on",
+      "tail": "ground truth"
+    },
+    {
+      "head": "the method embodiments described herein",
+      "relation": "could be implemented in",
+      "tail": "hardware"
+    },
+    {
+      "head": "the method embodiments described herein",
+      "relation": "could be implemented in",
+      "tail": "software"
+    },
+    {
+      "head": "alternative boundaries",
+      "relation": "can be defined",
+      "tail": ""
+    },
+    {
+      "head": "the specified functions and relationships thereof",
+      "relation": "are appropriately performed",
+      "tail": ""
+    },
+    {
+      "head": "anomalous phenomena",
+      "relation": "indicate",
+      "tail": "outliers that may encompass noise"
+    },
+    {
+      "head": "outliers",
+      "relation": "may encompass",
+      "tail": "noise"
+    },
+    {
+      "head": "outliers that may encompass noise",
+      "relation": "is mainly due to motion",
+      "tail": "artifacts and/or abnormalities"
+    },
+    {
+      "head": "the illustrated steps",
+      "relation": "are set out to explain",
+      "tail": "the exemplary embodiments shown"
+    },
+    {
+      "head": "ongoing technological development",
+      "relation": "will change",
+      "tail": "the manner"
+    },
+    {
+      "head": "particular functions",
+      "relation": "are performed in",
+      "tail": "the manner"
+    },
+    {
+      "head": "the embodiments of the present disclosure",
+      "relation": "may be implemented on",
+      "tail": "different hardware devices"
+    },
+    {
+      "head": "the embodiments of the present disclosure implemented on different hardware devices",
+      "relation": "is for example using",
+      "tail": "a plurality of CPUs"
+    },
+    {
+      "head": "the pre-defined first threshold and the pre-defined second threshold",
+      "relation": "may have",
+      "tail": "same values"
+    },
+    {
+      "head": "this",
+      "relation": "is followed by identifying",
+      "tail": "one or more defining features from the derived primary features"
+    },
+    {
+      "head": "the derived primary features",
+      "relation": "are based on",
+      "tail": "statistical learning of normal signature of the sensor signals"
+    }
+  ],
+  "4975. Sensor based truth maintenance.txt": [
+    {
+      "head": "system",
+      "relation": "combines advanced artificial intelligence approaches with",
+      "tail": "RFID data mediation"
+    },
+    {
+      "head": "system",
+      "relation": "combines advanced artificial intelligence approaches with",
+      "tail": "RFID data delivery"
+    },
+    {
+      "head": "system",
+      "relation": "combines in",
+      "tail": "a cloud based usage model"
+    },
+    {
+      "head": "cloud hosted mediation system",
+      "relation": "utilizes a cloud infrastructure instantiating",
+      "tail": "an application as you go delivery model"
+    },
+    {
+      "head": "an application",
+      "relation": "is based on",
+      "tail": "a consumption based pay"
+    },
+    {
+      "head": "the use of the D-S approach",
+      "relation": "requires inference engine to deduce",
+      "tail": "belief functions"
+    },
+    {
+      "head": "embodiments of the present invention",
+      "relation": "have been described for purposes of",
+      "tail": "illustration"
+    },
+    {
+      "head": "many modifications and changes",
+      "relation": "will become apparent to",
+      "tail": "those skilled in the art"
+    },
+    {
+      "head": "vehicless comprising a problem",
+      "relation": "may be quickly identified",
+      "tail": ""
+    },
+    {
+      "head": "vehicless comprising a problem",
+      "relation": "may be quickly pulled off",
+      "tail": "the streets"
+    },
+    {
+      "head": "the person",
+      "relation": "walks back to",
+      "tail": "the house (i.e., action)"
+    },
+    {
+      "head": "the person",
+      "relation": "picks up and opens",
+      "tail": "an umbrella"
+    },
+    {
+      "head": "the person",
+      "relation": "then continues to walk to",
+      "tail": "work"
+    },
+    {
+      "head": "inference engine",
+      "relation": "crawls through",
+      "tail": "the classified data (facts)"
+    },
+    {
+      "head": "the classified data (facts)",
+      "relation": "is stored in",
+      "tail": "classification database"
+    },
+    {
+      "head": "inference engine",
+      "relation": "derives",
+      "tail": "assumption type answers"
+    },
+    {
+      "head": "the service provider",
+      "relation": "can receive payment from",
+      "tail": "the customer(s) under a subscription and/or fee agreement"
+    },
+    {
+      "head": "the service provider",
+      "relation": "can receive payment from",
+      "tail": "the sale of advertising content to one or more third parties"
+    },
+    {
+      "head": "the two sets of beliefs",
+      "relation": "are stored in",
+      "tail": "a TMS (for example, TMS)"
+    },
+    {
+      "head": "the two sets of beliefs",
+      "relation": "are established by",
+      "tail": "the previous step 3"
+    },
+    {
+      "head": "the two sets of beliefs",
+      "relation": "are processed using",
+      "tail": "D-S theory"
+    },
+    {
+      "head": "the person",
+      "relation": "notices",
+      "tail": "bolt of lightning in the distance (i.e., evidence)"
+    },
+    {
+      "head": "the person",
+      "relation": "determines that",
+      "tail": "there is currently a very high likelihood of rain"
+    },
+    {
+      "head": "there",
+      "relation": "is currently",
+      "tail": "a very high likelihood of rain"
+    }
+  ],
+  "5328. Composition having antifungal activity.txt": [
+    {
+      "head": "the intrusion of filamentous fungi in houses",
+      "relation": "is as a result of",
+      "tail": "condensation and the like"
+    },
+    {
+      "head": "the intrusion of filamentous fungi in houses",
+      "relation": "is reflective of",
+      "tail": "modern housing conditions"
+    },
+    {
+      "head": "the intrusion of filamentous fungi in houses",
+      "relation": "causes",
+      "tail": "symptoms such as allergies and the like in humans"
+    },
+    {
+      "head": "the intrusion of filamentous fungi in houses",
+      "relation": "has a deleterious effect on",
+      "tail": "the health of humans and animals"
+    },
+    {
+      "head": "the Candida mycelia adhering to the surface of the wells",
+      "relation": "were dyed",
+      "tail": ""
+    },
+    {
+      "head": "the Candida mycelia",
+      "relation": "adheres to",
+      "tail": "the surface of the wells"
+    },
+    {
+      "head": "this culturing",
+      "relation": "had ended",
+      "tail": ""
+    },
+    {
+      "head": "the solutions in each well",
+      "relation": "were removed by",
+      "tail": "suction"
+    },
+    {
+      "head": "the wells",
+      "relation": "were washed using",
+      "tail": "physiological saline"
+    },
+    {
+      "head": "LYZOX",
+      "relation": "was used",
+      "tail": ""
+    },
+    {
+      "head": "an improvement effect in the anticandidal activity against Candida mycelial growth",
+      "relation": "was visible",
+      "tail": ""
+    },
+    {
+      "head": "an improvement effect",
+      "relation": "is in",
+      "tail": "the anticandidal activity against Candida mycelial growth"
+    },
+    {
+      "head": "the anticandidal activity effect",
+      "relation": "gradually increased as",
+      "tail": "the concentration increased"
+    },
+    {
+      "head": "a composition having an antifungal activity",
+      "relation": "further comprises",
+      "tail": "terpene alcohol or a fatty acid"
+    },
+    {
+      "head": "a composition",
+      "relation": "has",
+      "tail": "an antifungal activity further"
+    },
+    {
+      "head": "the present invention",
+      "relation": "uses",
+      "tail": "a complex of lysozyme"
+    },
+    {
+      "head": "a complex of lysozyme",
+      "relation": "is",
+      "tail": "an extremely safe, natural food additive"
+    },
+    {
+      "head": "a complex of lysozyme",
+      "relation": "is",
+      "tail": "a polysaccharide"
+    },
+    {
+      "head": "a complex of lysozyme",
+      "relation": "can be safely used by",
+      "tail": "a patient without risks such as those described above needing to be considered"
+    },
+    {
+      "head": "risks such as those described above",
+      "relation": "needs to be considered",
+      "tail": ""
+    },
+    {
+      "head": "viable Candida bacteria CFU (colony forming units)",
+      "relation": "was recovered from",
+      "tail": "the relevant individuals"
+    },
+    {
+      "head": "the number of viable Candida bacteria CFU (colony forming units) recovered from the relevant individuals",
+      "relation": "was calculated from",
+      "tail": "the number of colonies"
+    },
+    {
+      "head": "a combination of capric acid and ginger essential oil",
+      "relation": "had the greatest effect towards improving",
+      "tail": "tongue symptoms in oral candidiasis models in mice"
+    },
+    {
+      "head": "the interior of the oral cavity of each mouse",
+      "relation": "was then wiped with",
+      "tail": "a cotton bud"
+    },
+    {
+      "head": "the Candida bacterial cells recovered by that cotton bud",
+      "relation": "were suspended in",
+      "tail": "a saline solution"
+    },
+    {
+      "head": "the Candida bacterial cells",
+      "relation": "were recovered by",
+      "tail": "that cotton bud"
+    },
+    {
+      "head": "a clinical isolate held by the Teikyo University Medical Mycology Research Center",
+      "relation": "was used as",
+      "tail": "the Trichophyton"
+    },
+    {
+      "head": "a clinical isolate",
+      "relation": "was held by",
+      "tail": "the Teikyo University Medical Mycology Research Center"
+    },
+    {
+      "head": "Trichophyton mentagrophytes TIMM",
+      "relation": "is",
+      "tail": "a clinical isolate"
+    }
+  ],
+  "5542. Rotatable cantilever gantry in radiotherapy system.txt": [
+    {
+      "head": "a rotational gantry",
+      "relation": "is with",
+      "tail": "a radiation"
+    },
+    {
+      "head": "a rotational gantry with a radiation nozzle",
+      "relation": "is located at",
+      "tail": "the end of the beam transport system"
+    },
+    {
+      "head": "the main bearing",
+      "relation": "is coupled to",
+      "tail": "the external supporting structure"
+    },
+    {
+      "head": "the main bearing",
+      "relation": "serves to support",
+      "tail": "the weight of the cantilever gantry"
+    },
+    {
+      "head": "a gantry according to the present disclosures",
+      "relation": "can be delivered to",
+      "tail": "a healthcare facility"
+    },
+    {
+      "head": "a gantry",
+      "relation": "is according to",
+      "tail": "the present disclosures"
+    },
+    {
+      "head": "a healthcare facility",
+      "relation": "is as",
+      "tail": "a fully-assembly, pre-tested unit"
+    },
+    {
+      "head": "each section of the monocoque housing",
+      "relation": "may be",
+      "tail": "a fully welded steel monocoque or box structure"
+    },
+    {
+      "head": "the main bearing",
+      "relation": "is covered by",
+      "tail": "a main bearing housing"
+    },
+    {
+      "head": "a main bearing housing",
+      "relation": "may or may not be an integral part of",
+      "tail": "the monocoque housing of the cantilever gantry"
+    },
+    {
+      "head": "a large counterweight",
+      "relation": "can be disposed in",
+      "tail": "the fixed end portion"
+    },
+    {
+      "head": "a large counterweight disposed in the fixed end portion",
+      "relation": "is to keep",
+      "tail": "the system center of mass close to the bearing"
+    },
+    {
+      "head": "the main bearing",
+      "relation": "may be",
+      "tail": "a slew bearing"
+    },
+    {
+      "head": "a slew",
+      "relation": "bears sufficiently large to encompass",
+      "tail": "the sweeping volume of the first bending magnet"
+    },
+    {
+      "head": "the cantilever section",
+      "relation": "may be made increasingly stiffer toward",
+      "tail": "the main bearing location"
+    },
+    {
+      "head": "the cantilever section made increasingly stiffer toward the main bearing location",
+      "relation": "is to counter",
+      "tail": "the significant forces imposed in this region"
+    },
+    {
+      "head": "the significant forces",
+      "relation": "are imposed in",
+      "tail": "this region"
+    },
+    {
+      "head": "a rotating mechanical component other than a bearing",
+      "relation": "can be used to enable",
+      "tail": "rotational motion of the cantilever gantry"
+    },
+    {
+      "head": "a counterweight",
+      "relation": "is attached to",
+      "tail": "the drum section near the external wall"
+    },
+    {
+      "head": "the drum section",
+      "relation": "is near",
+      "tail": "the external wall"
+    }
+  ],
+  "5921. Systems and methods for diffusion-weighted multi-spectral magnetic resonance imaging.txt": [
+    {
+      "head": "the combination",
+      "relation": "is done for",
+      "tail": "spectral bin images"
+    },
+    {
+      "head": "spectral bin images",
+      "relation": "are reconstructed for",
+      "tail": "the same slice location"
+    },
+    {
+      "head": "image reconstruction",
+      "relation": "is performed as",
+      "tail": "outlined above"
+    },
+    {
+      "head": "image reconstruction performed as outlined above",
+      "relation": "is to create",
+      "tail": "diffusion-weighted images"
+    },
+    {
+      "head": "the operator workstation",
+      "relation": "provides",
+      "tail": "an operator interface"
+    },
+    {
+      "head": "an operator interface",
+      "relation": "facilitates entering scan parameters into",
+      "tail": "the MRI system"
+    },
+    {
+      "head": "RF waveforms",
+      "relation": "are applied by the RF system to",
+      "tail": "the RF coil"
+    },
+    {
+      "head": "RF waveforms",
+      "relation": "are applied by a separate local coil to perform",
+      "tail": "the prescribed magnetic resonance pulse sequence"
+    },
+    {
+      "head": "multiple networked workstations",
+      "relation": "may have access to",
+      "tail": "the data processing server"
+    },
+    {
+      "head": "multiple networked workstations",
+      "relation": "may have access to",
+      "tail": "the data store server"
+    },
+    {
+      "head": "the systems and methods",
+      "relation": "can provide",
+      "tail": "quantitative diffusion-weighted assessment of spinal cord health"
+    },
+    {
+      "head": "the systems and methods providing quantitative diffusion-weighted assessment of spinal cord health",
+      "relation": "is in",
+      "tail": "the immediate vicinity of spinal fusion devices or disc replacements"
+    },
+    {
+      "head": "the amplitude of the slice-select gradient",
+      "relation": "is flipped relative to",
+      "tail": "the refocusing gradients"
+    },
+    {
+      "head": "the amplitude of the slice-select gradient flipped relative to the refocusing gradients",
+      "relation": "is to excite",
+      "tail": "spatially and spectrally selective bins"
+    },
+    {
+      "head": "real-time images",
+      "relation": "may be stored in",
+      "tail": "a data base memory cache"
+    },
+    {
+      "head": "they",
+      "relation": "may be output to",
+      "tail": "operator display or a display"
+    },
+    {
+      "head": "the networked workstation",
+      "relation": "may gain remote access to",
+      "tail": "the data processing server or data store server"
+    },
+    {
+      "head": "the networked workstation gaining remote access to the data processing server or data store server",
+      "relation": "is via",
+      "tail": "the communication system"
+    },
+    {
+      "head": "alternating echoes",
+      "relation": "can be split into",
+      "tail": "orthogonal blades"
+    },
+    {
+      "head": "alternating echoes split into orthogonal blades",
+      "relation": "is to enable",
+      "tail": "additional phase correction of odd and even echoes within the echo train"
+    }
+  ],
+  "6369. Automatic detection of medical image acquisition protocol.txt": [
+    {
+      "head": "the method and device",
+      "relation": "makes use of",
+      "tail": "image analysis and statistical algorithms"
+    },
+    {
+      "head": "the method and device making use of image analysis and statistical algorithms",
+      "relation": "is for automatically detecting",
+      "tail": "the image acquisition protocol of a medical image"
+    },
+    {
+      "head": "the salient regions in the volume of the medical image",
+      "relation": "may be determined by applying",
+      "tail": "a blurring filter"
+    },
+    {
+      "head": "the salient regions",
+      "relation": "are in the volume of",
+      "tail": "the medical image"
+    },
+    {
+      "head": "the salient regions in the volume of the medical image",
+      "relation": "may be determined by assigning a saliency value for",
+      "tail": "the pixels above a mean intensity value"
+    },
+    {
+      "head": "the outlier detection",
+      "relation": "is performed using",
+      "tail": "statistical transformation algorithms"
+    },
+    {
+      "head": "another object of the disclosure",
+      "relation": "is to provide a device to automatically detect",
+      "tail": "the image acquisition protocol of a set of medical images"
+    },
+    {
+      "head": "the above mentioned other features of the disclosure",
+      "relation": "will be addressed with reference to",
+      "tail": "the accompanying drawings of the present disclosure"
+    },
+    {
+      "head": "the memory",
+      "relation": "includes",
+      "tail": "an anatomy detection module, a feature extraction module, a statistical classifier module, an outlier protocol detection module and label assignment module"
+    },
+    {
+      "head": "the memory",
+      "relation": "includes",
+      "tail": "an anatomy detection module"
+    },
+    {
+      "head": "the memory",
+      "relation": "includes",
+      "tail": "a feature extraction module"
+    },
+    {
+      "head": "the memory",
+      "relation": "includes",
+      "tail": "a statistical classifier module"
+    },
+    {
+      "head": "the memory",
+      "relation": "includes",
+      "tail": "an outlier protocol detection module"
+    },
+    {
+      "head": "the memory",
+      "relation": "includes",
+      "tail": "label assignment module"
+    },
+    {
+      "head": "the device",
+      "relation": "further includes",
+      "tail": "a communication module"
+    },
+    {
+      "head": "the device further including a communication module",
+      "relation": "is for communicating with",
+      "tail": "other devices via a network connection"
+    },
+    {
+      "head": "the HSWLBP",
+      "relation": "is computed by developing",
+      "tail": "a 256 dimensional histogram of the combined LBP of all the slices of an anatomy"
+    },
+    {
+      "head": "the statistical classifier module",
+      "relation": "may be configured to",
+      "tail": "Support Vector Machine (SVM) algorithm with linear kernel"
+    },
+    {
+      "head": "the statistical classifier module configured to Support Vector Machine (SVM) algorithm with linear kernel",
+      "relation": "is to provide",
+      "tail": "a good classification of the imaging protocols"
+    },
+    {
+      "head": "a plurality of medical images of similar image acquisition protocols",
+      "relation": "is displayed adjacent to",
+      "tail": "sone another"
+    },
+    {
+      "head": "a plurality of medical images",
+      "relation": "are of",
+      "tail": "similar image acquisition protocols"
+    }
+  ],
+  "6393. Methods for adjusting a magnetic field of a magnetic resonance tomography device, magnetic power supplies, and magnetic resonance tomography devices.txt": [
+    {
+      "head": "the reference parameter",
+      "relation": "is",
+      "tail": "a frequency"
+    },
+    {
+      "head": "a frequency",
+      "relation": "is particularly emitted by",
+      "tail": "a phantom being placed into the MRT-device"
+    },
+    {
+      "head": "a phantom",
+      "relation": "is being placed into",
+      "tail": "the MRT-device"
+    },
+    {
+      "head": "this object",
+      "relation": "is achieved by",
+      "tail": "a method for adjusting a magnetic field of a magnetic resonance"
+    },
+    {
+      "head": "this object",
+      "relation": "is achieved by",
+      "tail": "a magnetic power supply"
+    },
+    {
+      "head": "this object",
+      "relation": "is achieved by",
+      "tail": "a magnetic resonance tomography (MRT) device"
+    },
+    {
+      "head": "excited hydrogen atoms",
+      "relation": "emit",
+      "tail": "a radio frequency signal"
+    },
+    {
+      "head": "a radio frequency signal",
+      "relation": "is measured by",
+      "tail": "a receiving coil"
+    },
+    {
+      "head": "measuring the current",
+      "relation": "may be established by for example integrating",
+      "tail": "a shunt into the magnetic power supply"
+    },
+    {
+      "head": "the current",
+      "relation": "realizes",
+      "tail": "the magnetic field"
+    },
+    {
+      "head": "the magnetic fiel",
+      "relation": "is not measured directly",
+      "tail": ""
+    },
+    {
+      "head": "complex measuring systems for observing the magnetic field",
+      "relation": "may be avoided",
+      "tail": ""
+    },
+    {
+      "head": "complex measuring systems",
+      "relation": "are for observing",
+      "tail": "the magnetic field"
+    },
+    {
+      "head": "removing the Helium system",
+      "relation": "presents",
+      "tail": "many technical challenges and practical challenges"
+    },
+    {
+      "head": "practical challenges",
+      "relation": "have such a magnet operate in",
+      "tail": "a real hospital or clinic environment"
+    },
+    {
+      "head": "it is possible",
+      "relation": "to adjust the magnetic field accurately for establishing",
+      "tail": "a desired center frequency"
+    },
+    {
+      "head": "a desired center frequency",
+      "relation": "matches to",
+      "tail": "the center frequency of the receiving coil"
+    },
+    {
+      "head": "the reference parameter",
+      "relation": "is only observed during",
+      "tail": "the ramp-up-mode or a defined time span of the ramp-up mode"
+    },
+    {
+      "head": "the current",
+      "relation": "is calibrated during",
+      "tail": "a previous ramp-down mode"
+    },
+    {
+      "head": "the current",
+      "relation": "is calibrated in particular during",
+      "tail": "the ramp-down mode preceding the ramp-up mode"
+    },
+    {
+      "head": "the position of the phantom",
+      "relation": "is repeatable by automatically placing",
+      "tail": "the phantom"
+    },
+    {
+      "head": "there",
+      "relation": "is no interference by",
+      "tail": "an operator necessary"
+    }
+  ],
+  "6757. Mucosal capture fixation of medical device.txt": [
+    {
+      "head": "fixation mechanism",
+      "relation": "may be used to resist",
+      "tail": "shear force"
+    },
+    {
+      "head": "shear force",
+      "relation": "is created by",
+      "tail": "peristalsis"
+    },
+    {
+      "head": "functions",
+      "relation": "are as",
+      "tail": "an anti-migration mechanism"
+    },
+    {
+      "head": "the mucosa",
+      "relation": "passes through",
+      "tail": "openings"
+    },
+    {
+      "head": "the bulges of the mucosa",
+      "relation": "tend to",
+      "tail": "bridge spacer"
+    },
+    {
+      "head": "the bulges of the mucosa",
+      "relation": "tend to",
+      "tail": "come together in apposition"
+    },
+    {
+      "head": "the device",
+      "relation": "may include",
+      "tail": "a retainer"
+    },
+    {
+      "head": "a retainer",
+      "relation": "retains the section of the mucosa within",
+      "tail": "the at least one opening"
+    },
+    {
+      "head": "a retainer",
+      "relation": "maintains",
+      "tail": "perfusion of the section of the mucosa"
+    },
+    {
+      "head": "the penetrating component",
+      "relation": "may include",
+      "tail": "an elongated member"
+    },
+    {
+      "head": "an elongated member",
+      "relation": "penetrates",
+      "tail": "the sections of the mucosa at the plurality of openings"
+    },
+    {
+      "head": "the penetrating component",
+      "relation": "may be made up of",
+      "tail": "a plurality of pointed members"
+    },
+    {
+      "head": "a plurality of pointed members",
+      "relation": "extend into",
+      "tail": "the at least one opening from at least one of said moveable portions"
+    },
+    {
+      "head": "the retainer",
+      "relation": "may include",
+      "tail": "a fibrotic tissue response"
+    },
+    {
+      "head": "a fibrotic tissue response",
+      "relation": "induces material at least partially surrounding",
+      "tail": "the at least one opening"
+    },
+    {
+      "head": "the at least one opening",
+      "relation": "may be",
+      "tail": "a plurality of openings"
+    },
+    {
+      "head": "the penetrating component",
+      "relation": "may include",
+      "tail": "a plurality of penetrating components"
+    },
+    {
+      "head": "one",
+      "relation": "is for retaining",
+      "tail": "the section of the mucosa within each of the openings"
+    },
+    {
+      "head": "the pressure component",
+      "relation": "applies sufficient pressure to retain",
+      "tail": "the section of the mucosa"
+    },
+    {
+      "head": "the pressure component",
+      "relation": "applies not enough pressure to cause",
+      "tail": "ischemia"
+    },
+    {
+      "head": "ischemia",
+      "relation": "can lead to",
+      "tail": "necrosis"
+    },
+    {
+      "head": "the mucosa",
+      "relation": "is retained by",
+      "tail": "the needles of the retainer"
+    },
+    {
+      "head": "the needles of the retainer",
+      "relation": "is moved together by",
+      "tail": "the moveable portions of the wall as well as the force component previously described"
+    },
+    {
+      "head": "the engaging ends of clip",
+      "relation": "may be configured with",
+      "tail": "a penetrating component"
+    },
+    {
+      "head": "the engaging ends of clip configured with a penetrating component",
+      "relation": "is to penetrate",
+      "tail": "the sections of the mucosa"
+    }
+  ],
+  "7199. Rotating object holder for multi-function sanitization, disinfection, and sterilization in a cabinet.txt": [
+    {
+      "head": "the motor controller",
+      "relation": "includes",
+      "tail": "two output terminals"
+    },
+    {
+      "head": "two output terminals",
+      "relation": "output",
+      "tail": "a clockwise voltage and a counter clockwise voltage"
+    },
+    {
+      "head": "the clockwise voltage",
+      "relation": "is outputted for",
+      "tail": "a first period of time"
+    },
+    {
+      "head": "the counter clockwise voltage",
+      "relation": "is outputted for",
+      "tail": "a second period of time"
+    },
+    {
+      "head": "they",
+      "relation": "are",
+      "tail": "high-use medical products and/or medical devices"
+    },
+    {
+      "head": "they",
+      "relation": "are constructed of",
+      "tail": "materials"
+    },
+    {
+      "head": "materials",
+      "relation": "are not safe for",
+      "tail": "high temperature disinfection methods"
+    },
+    {
+      "head": "hospitals",
+      "relation": "lack",
+      "tail": "a comprehensive solution for the disinfection"
+    },
+    {
+      "head": "hospitals",
+      "relation": "lack",
+      "tail": "a comprehensive solution for the high-level disinfection"
+    },
+    {
+      "head": "hospitals",
+      "relation": "lack",
+      "tail": "a comprehensive solution for the sterilization"
+    },
+    {
+      "head": "hospitals",
+      "relation": "lack",
+      "tail": "a comprehensive solution for the storage"
+    },
+    {
+      "head": "hospitals",
+      "relation": "lack",
+      "tail": "a comprehensive solution for the grouping of like devices"
+    },
+    {
+      "head": "hospitals",
+      "relation": "have adopted",
+      "tail": "a variety of less than optimal, methods"
+    },
+    {
+      "head": "the said interface test blocks",
+      "relation": "can be positioned and/or located within",
+      "tail": "the said treatment chamber(s)"
+    },
+    {
+      "head": "a bottom of the second plurality of V-shaped members",
+      "relation": "are preferably, and without limitation, welded to",
+      "tail": "a second mounting rod"
+    },
+    {
+      "head": "a clockwise DPDT relay and a counter clockwise DPDT relay",
+      "relation": "are used to provide power to",
+      "tail": "a motor of the motor with gear reduction"
+    },
+    {
+      "head": "patient monitoring leads, probes, sensors, and other medical device(s)",
+      "relation": "routinely fail through",
+      "tail": "repeated use, hand cleaning, abuse, mishandling, and stress"
+    },
+    {
+      "head": "this function",
+      "relation": "usually defaults to",
+      "tail": "the clinical end user"
+    },
+    {
+      "head": "this function usually defaulting to the clinical end user",
+      "relation": "is at",
+      "tail": "most inopportune or inconvenient time"
+    },
+    {
+      "head": "the one or more interface test block(s)",
+      "relation": "can be permanently mounted in",
+      "tail": "the sealed treatment chamber(s)"
+    }
+  ],
+  "7313. Responsive visual communication system and method.txt": [
+    {
+      "head": "a device",
+      "relation": "preferably performs",
+      "tail": "a number of different functions"
+    },
+    {
+      "head": "the wearable device",
+      "relation": "be relatively",
+      "tail": "simple and/or intuitive in operation"
+    },
+    {
+      "head": "visual indicators",
+      "relation": "are such as",
+      "tail": "LEDs or other lighting elements"
+    },
+    {
+      "head": "visual indicators",
+      "relation": "may provide feedback directly to",
+      "tail": "users"
+    },
+    {
+      "head": "visual indicators",
+      "relation": "may provide feedback directly to users based on",
+      "tail": "mode of operation or context"
+    },
+    {
+      "head": "another use of the app",
+      "relation": "is to interpret",
+      "tail": "visual flashes"
+    },
+    {
+      "head": "visual flashes",
+      "relation": "is used to convey",
+      "tail": "information about debugging protocols"
+    },
+    {
+      "head": "methods, devices, and systems",
+      "relation": "provide",
+      "tail": "responsive visual feedback"
+    },
+    {
+      "head": "methods, devices, and systems",
+      "relation": "have been shown and described",
+      "tail": ""
+    },
+    {
+      "head": "the same lighting",
+      "relation": "may be used to provide",
+      "tail": "visual feedback"
+    },
+    {
+      "head": "visual feedback",
+      "relation": "regards",
+      "tail": "other functionality or modes of operation of the device"
+    },
+    {
+      "head": "the system",
+      "relation": "further includes",
+      "tail": "a software application"
+    },
+    {
+      "head": "a software application",
+      "relation": "executes on",
+      "tail": "a computing device"
+    },
+    {
+      "head": "the software application",
+      "relation": "is programmed to acquire",
+      "tail": "imagery of the visual feedback"
+    },
+    {
+      "head": "the software application",
+      "relation": "is programmed to recover",
+      "tail": "the data"
+    },
+    {
+      "head": "Other modes of operation",
+      "relation": "may include",
+      "tail": "those associated with providing visual data, providing visual feedback, activating optional features, or other types of operations that may be desirable or appropriate for a particular device"
+    },
+    {
+      "head": "those",
+      "relation": "are associated with",
+      "tail": "providing visual data, providing visual feedback, activating optional features, or other types of operations that may be desirable or appropriate for a particular device"
+    },
+    {
+      "head": "other types of operations",
+      "relation": "may be desirable or appropriate for",
+      "tail": "a particular device"
+    },
+    {
+      "head": "a first set of LEDs 40A",
+      "relation": "are associated with",
+      "tail": "a first device"
+    },
+    {
+      "head": "a second set of LEDs 40B",
+      "relation": "are associated with",
+      "tail": "a second device"
+    },
+    {
+      "head": "the digital data",
+      "relation": "may be encoded in",
+      "tail": "any number of different ways"
+    },
+    {
+      "head": "any number of types of information",
+      "relation": "may be represented",
+      "tail": ""
+    },
+    {
+      "head": "wearable devices",
+      "relation": "may be able to perform",
+      "tail": "multiple functions"
+    },
+    {
+      "head": "some of which",
+      "relation": "may be complex in",
+      "tail": "nature"
+    }
+  ],
+  "7440. Plunger covers and plungers for use in syringes.txt": [
+    {
+      "head": "a molecular bond",
+      "relation": "is as known in",
+      "tail": "the overmolding arts"
+    },
+    {
+      "head": "a molecular bond",
+      "relation": "can be formed between",
+      "tail": "the material of sealing portion and central portion"
+    },
+    {
+      "head": "sealing portion",
+      "relation": "is inserted into",
+      "tail": "another process/mold"
+    },
+    {
+      "head": "sealing portion",
+      "relation": "is overmolded over with",
+      "tail": "another polymer"
+    },
+    {
+      "head": "central portion",
+      "relation": "can include",
+      "tail": "extending tabs"
+    },
+    {
+      "head": "extending tabs",
+      "relation": "can assist in forming",
+      "tail": "a secure interconnection between central portion and sealing portion"
+    },
+    {
+      "head": "a secure interconnection",
+      "relation": "is between",
+      "tail": "central portion and sealing portion"
+    },
+    {
+      "head": "a number of syringe plungers",
+      "relation": "have been developed",
+      "tail": ""
+    },
+    {
+      "head": "a number of methods of fabrication or manufacture of syringe plungers",
+      "relation": "have been developed",
+      "tail": ""
+    },
+    {
+      "head": "it is desirable",
+      "relation": "to develop",
+      "tail": "improved syringe plungers"
+    },
+    {
+      "head": "it is desirable",
+      "relation": "to develop",
+      "tail": "methods of fabrication of syringe plungers"
+    },
+    {
+      "head": "the central portion",
+      "relation": "is positioned forward of",
+      "tail": "at least a portion of the sealing portion"
+    },
+    {
+      "head": "the central portion",
+      "relation": "is adapted to contact",
+      "tail": "fluid within the syringe"
+    },
+    {
+      "head": "the rubber covers",
+      "relation": "can for example be molded into",
+      "tail": "a sheet"
+    },
+    {
+      "head": "the rubber covers",
+      "relation": "can manually hand cut (through a cutting die) from",
+      "tail": "the sheet"
+    },
+    {
+      "head": "the central portion",
+      "relation": "is positioned rearward of",
+      "tail": "a generally central section of the sealing portion"
+    },
+    {
+      "head": "the central portion",
+      "relation": "does not contact",
+      "tail": "fluid within the syringe"
+    },
+    {
+      "head": "the design and manufacturing methods associated with plunger",
+      "relation": "reduce",
+      "tail": "manufacturing costs"
+    },
+    {
+      "head": "the design and manufacturing methods",
+      "relation": "are associated with",
+      "tail": "plunger"
+    },
+    {
+      "head": "the design and manufacturing methods associated with plunger",
+      "relation": "maintain",
+      "tail": "functionality"
+    },
+    {
+      "head": "plunger cover",
+      "relation": "is readily adjusted in shape and dimension to mate with",
+      "tail": "a desired support"
+    },
+    {
+      "head": "the distal portion of the hard plastic core",
+      "relation": "is overmolded with",
+      "tail": "a soft rubber plunger cover"
+    },
+    {
+      "head": "a soft rubber plunger cover",
+      "relation": "is in",
+      "tail": "a second mold"
+    }
+  ],
+  "7643. Specific, reversible, and wide-dynamic range sensor for real time detection of carbon dioxide.txt": [
+    {
+      "head": "at least one photodiode",
+      "relation": "is coupled to receive",
+      "tail": "signals from the CO.sub.2 sensor"
+    },
+    {
+      "head": "photodiode",
+      "relation": "responds to",
+      "tail": "color change of the sensor element"
+    },
+    {
+      "head": "photodiode",
+      "relation": "transduces the color change into",
+      "tail": "a light intensity change"
+    },
+    {
+      "head": "the total time for each test",
+      "relation": "was around",
+      "tail": "16 min"
+    },
+    {
+      "head": "the sensor",
+      "relation": "was stored in",
+      "tail": "a small package in the atmosphere until next test"
+    },
+    {
+      "head": "the sensor",
+      "relation": "is used for",
+      "tail": "breath CO.sub.2 analysis"
+    },
+    {
+      "head": "the probes",
+      "relation": "can dissolve quickly upon",
+      "tail": "contact with breath condensation"
+    },
+    {
+      "head": "the probes dissolving upon contact with breath condensation",
+      "relation": "is to facilitate",
+      "tail": "fast reaction kinetics"
+    },
+    {
+      "head": "this summary",
+      "relation": "is not intended to identify",
+      "tail": "key features of the claimed subject matter"
+    },
+    {
+      "head": "this summary",
+      "relation": "is not intended to be used as",
+      "tail": "an aid in determining the scope of the claimed subject matter"
+    },
+    {
+      "head": "the detector",
+      "relation": "includes",
+      "tail": "a transmitter and a mobile device"
+    },
+    {
+      "head": "a transmitter and a mobile device",
+      "relation": "are coupled to receive",
+      "tail": "data"
+    },
+    {
+      "head": "data",
+      "relation": "is transmitted by",
+      "tail": "the transmitter"
+    },
+    {
+      "head": "the porous hydrophobic surface",
+      "relation": "is coated with",
+      "tail": "sensing chemicals"
+    },
+    {
+      "head": "the porous hydrophobic surface",
+      "relation": "comprises",
+      "tail": "a plurality of microstructures"
+    },
+    {
+      "head": "the shapes of various elements and angles",
+      "relation": "are not drawn to scale",
+      "tail": ""
+    },
+    {
+      "head": "some of these elements",
+      "relation": "are arbitrarily enlarged and positioned to improve",
+      "tail": "drawing legibility"
+    },
+    {
+      "head": "the particular shapes of the elements as drawn",
+      "relation": "are not intended to convey",
+      "tail": "any information regarding the actual shape of the particular elements"
+    },
+    {
+      "head": "information",
+      "relation": "is regarding",
+      "tail": "the actual shape of the particular elements"
+    },
+    {
+      "head": "the particular shapes of the elements as drawn",
+      "relation": "have been solely selected for ease of",
+      "tail": "recognition in the drawings"
+    },
+    {
+      "head": "this",
+      "relation": "is in contrast to",
+      "tail": "existing CO.sub.2 sensors"
+    },
+    {
+      "head": "water condensation",
+      "relation": "is",
+      "tail": "a major source of interference"
+    },
+    {
+      "head": "difference in respiration patterns between subjects with different lung capabilities",
+      "relation": "could be clearly observed from",
+      "tail": "the breath-by-breath CO.sub.2 waveforms"
+    },
+    {
+      "head": "difference in respiration patterns",
+      "relation": "is between",
+      "tail": "subjects with different lung capabilities"
+    }
+  ],
+  "7844. Method and device for determining a change over time in a biomarker in a region to be examined.txt": [
+    {
+      "head": "the treatment of psychiatric diseases",
+      "relation": "constitutes",
+      "tail": "a considerable challenge"
+    },
+    {
+      "head": "the treatment of psychiatric diseases",
+      "relation": "are such as",
+      "tail": "depression"
+    },
+    {
+      "head": "the treatment of psychiatric diseases",
+      "relation": "are such as",
+      "tail": "states of anxiety"
+    },
+    {
+      "head": "the treatment of psychiatric diseases",
+      "relation": "are such as",
+      "tail": "manias"
+    },
+    {
+      "head": "the treatment of psychiatric diseases",
+      "relation": "are such as",
+      "tail": "schizophrenia"
+    },
+    {
+      "head": "treatments",
+      "relation": "are such as",
+      "tail": "the administering of SSRIs"
+    },
+    {
+      "head": "treatments",
+      "relation": "have",
+      "tail": "the effect for example of increasing the size of the amygdala"
+    },
+    {
+      "head": "the effect",
+      "relation": "is for example of increasing",
+      "tail": "the size of the amygdala"
+    },
+    {
+      "head": "treatments",
+      "relation": "can be associated with",
+      "tail": "emotional recovery"
+    },
+    {
+      "head": "image data",
+      "relation": "is reconstructed from",
+      "tail": "the magnetic resonance signals and further patient data"
+    },
+    {
+      "head": "image data reconstructed from the magnetic resonance signals and further patient data",
+      "relation": "are transmitted via",
+      "tail": "the data network"
+    },
+    {
+      "head": "image data reconstructed from the magnetic resonance signals and further patient data",
+      "relation": "are stored in",
+      "tail": "a database"
+    },
+    {
+      "head": "a database",
+      "relation": "is in",
+      "tail": "the data memory together with the biomarker values"
+    },
+    {
+      "head": "the quantified biomarker information or one or more biomarker value(s)",
+      "relation": "are stored together with",
+      "tail": "patient data in the data memory"
+    },
+    {
+      "head": "additional data",
+      "relation": "may also be stored in",
+      "tail": "the database for this purpose"
+    },
+    {
+      "head": "additional data",
+      "relation": "is for example",
+      "tail": "clinical scores for evaluation of the severity of the disease or for the medication"
+    },
+    {
+      "head": "magnetic resonance spectroscopy",
+      "relation": "is used to determine",
+      "tail": "conclusions about abnormal changes in individual areas of the brain"
+    },
+    {
+      "head": "conclusions",
+      "relation": "are bout",
+      "tail": "abnormal changes in individual areas of the brain"
+    },
+    {
+      "head": "various magnetic resonance imaging methods",
+      "relation": "have been evaluated in",
+      "tail": "research"
+    },
+    {
+      "head": "various magnetic resonance imaging methods",
+      "relation": "may be of significance to",
+      "tail": "diagnostics"
+    },
+    {
+      "head": "various magnetic resonance imaging methods",
+      "relation": "may be of significance to",
+      "tail": "differential diagnostics"
+    },
+    {
+      "head": "various magnetic resonance imaging methods",
+      "relation": "may be of significance to",
+      "tail": "treatment monitoring"
+    },
+    {
+      "head": "a first examination of the patient",
+      "relation": "begins in",
+      "tail": "the magnetic resonance device after the capture of fundamental patient data"
+    },
+    {
+      "head": "a first examination of the patient",
+      "relation": "have described in",
+      "tail": "the introduction"
+    },
+    {
+      "head": "measuring parameters",
+      "relation": "were used by",
+      "tail": "a first examination center in the initial examination"
+    },
+    {
+      "head": "measuring parameters",
+      "relation": "were used by",
+      "tail": "a second, different examination center in the follow-up examination"
+    },
+    {
+      "head": "the dilemma",
+      "relation": "arises therefrom for the patient and doctor of weighing up",
+      "tail": "the sometimes severe side effects"
+    },
+    {
+      "head": "the sometimes severe side effects",
+      "relation": "worsen symptoms against",
+      "tail": "the long-term effect of the medication"
+    }
+  ],
+  "8177. Anti-clog suction tip apparatus and methods.txt": [
+    {
+      "head": "the body",
+      "relation": "is reusable",
+      "tail": ""
+    },
+    {
+      "head": "additional components of the anti-clog suction tip apparatus",
+      "relation": "are reusable",
+      "tail": ""
+    },
+    {
+      "head": "the anti-clog suction tip apparatus",
+      "relation": "are not",
+      "tail": "part of the kit"
+    },
+    {
+      "head": "the anti-clog suction tip apparatus",
+      "relation": "is adapted to attach to",
+      "tail": "a hose"
+    },
+    {
+      "head": "the anti-clog suction tip apparatus",
+      "relation": "is adapted to attach to a hose at",
+      "tail": "the hose attachment portion"
+    },
+    {
+      "head": "the hose",
+      "relation": "has",
+      "tail": "a suction source attached thereto"
+    },
+    {
+      "head": "additional preferred embodiments of anti-clog suction tip apparatus",
+      "relation": "are shown in",
+      "tail": "the remaining figures"
+    },
+    {
+      "head": "additional preferred embodiments of anti-clog suction tip apparatus",
+      "relation": "is in accordance with",
+      "tail": "one or more aspects of the invention"
+    },
+    {
+      "head": "the steps in such processes or methods",
+      "relation": "generally may be carried out in",
+      "tail": "various different sequences and orders"
+    },
+    {
+      "head": "the steps in such processes or methods",
+      "relation": "may be still falling within",
+      "tail": "the scope of the present invention"
+    },
+    {
+      "head": "any embodiment discussed and identified as being \"preferred\"",
+      "relation": "is considered to be part of",
+      "tail": "a best mode contemplated for carrying out the present invention"
+    },
+    {
+      "head": "a best mode",
+      "relation": "is contemplated for carrying out",
+      "tail": "the present invention"
+    },
+    {
+      "head": "the ejection wire",
+      "relation": "is inserted into",
+      "tail": "the ejection wire channel"
+    },
+    {
+      "head": "the ejection wire inserted into the ejection wire channel",
+      "relation": "is through",
+      "tail": "a wire insertion opening"
+    },
+    {
+      "head": "the sterile packaging in which the anti-clog suction tip apparatus is provided",
+      "relation": "is opened by",
+      "tail": "sterile technique in the surgical environment"
+    },
+    {
+      "head": "the anti-clog suction tip apparatus",
+      "relation": "is provided in",
+      "tail": "the sterile packaging"
+    },
+    {
+      "head": "the anti-clog suction tip apparatus",
+      "relation": "is removed from",
+      "tail": "the packaging"
+    },
+    {
+      "head": "the anti-clog suction tip apparatus",
+      "relation": "is placed on",
+      "tail": "a sterile table"
+    },
+    {
+      "head": "the anti-clog suction tip apparatus placed on a sterile table",
+      "relation": "is to await use by",
+      "tail": "a surgeon or surgical assistant"
+    },
+    {
+      "head": "the ejection wire",
+      "relation": "includes",
+      "tail": "a small ball tip at the end thereof"
+    },
+    {
+      "head": "the ejection wire including a small ball tip at the end thereof",
+      "relation": "is to prevent",
+      "tail": "unintended injury"
+    },
+    {
+      "head": "the ejection wire including a small ball tip at the end thereof",
+      "relation": "is to provide",
+      "tail": "an enlarged end"
+    },
+    {
+      "head": "an enlarged end",
+      "relation": "is for",
+      "tail": "clearing of the suction channel when the ball tip is deployed"
+    },
+    {
+      "head": "it",
+      "relation": "will be readily understood by",
+      "tail": "those persons skilled in the art"
+    },
+    {
+      "head": "the present invention",
+      "relation": "is susceptible of",
+      "tail": "broad utility and application"
+    },
+    {
+      "head": "the biasing spring",
+      "relation": "biases the ejection button away from",
+      "tail": "the outer member"
+    }
+  ],
+  "8321. Staged battery latching mechanism.txt": [
+    {
+      "head": "the grip",
+      "relation": "is",
+      "tail": "a pistol grip"
+    },
+    {
+      "head": "the grip",
+      "relation": "can have",
+      "tail": "various other configurations"
+    },
+    {
+      "head": "the grip",
+      "relation": "can simply be omitted",
+      "tail": ""
+    },
+    {
+      "head": "various features",
+      "relation": "are grouped together in",
+      "tail": "various embodiments"
+    },
+    {
+      "head": "various features grouped together",
+      "relation": "is for the purpose of",
+      "tail": "streamlining the disclosure"
+    },
+    {
+      "head": "the battery",
+      "relation": "is moved from the inserted position to",
+      "tail": "the intermediate position"
+    },
+    {
+      "head": "the battery",
+      "relation": "is moved by applying pressure to",
+      "tail": "the primary actuators from outside the mobile device"
+    },
+    {
+      "head": "the primary actuators",
+      "relation": "are applied pressure from",
+      "tail": "outside the mobile device"
+    },
+    {
+      "head": "elements in the figures",
+      "relation": "are illustrated for",
+      "tail": "simplicity and clarity"
+    },
+    {
+      "head": "elements in the figures",
+      "relation": "have not necessarily been drawn to scale",
+      "tail": ""
+    },
+    {
+      "head": "the front end of the battery",
+      "relation": "is placed into",
+      "tail": "the compartment"
+    },
+    {
+      "head": "the compartment",
+      "relation": "is at",
+      "tail": "the open rear end of the compartment"
+    },
+    {
+      "head": "the contacts",
+      "relation": "are",
+      "tail": "pogo pins"
+    },
+    {
+      "head": "the contacts",
+      "relation": "electrically connect the battery to",
+      "tail": "the internal components of the mobile device"
+    },
+    {
+      "head": "the battery",
+      "relation": "is fully inserted into",
+      "tail": "the compartment"
+    },
+    {
+      "head": "the latches",
+      "relation": "are disengaged from",
+      "tail": "the first latch"
+    },
+    {
+      "head": "the battery",
+      "relation": "moves rearward",
+      "tail": ""
+    },
+    {
+      "head": "the latches",
+      "relation": "return to",
+      "tail": "the extended position"
+    },
+    {
+      "head": "they",
+      "relation": "are no longer forced inwards by",
+      "tail": "the primary actuators"
+    },
+    {
+      "head": "the dimensions of some of the elements in the figures",
+      "relation": "may be exaggerated relative to",
+      "tail": "other elements"
+    },
+    {
+      "head": "the dimensions of some of the elements in the figures exaggerated relative to other elements",
+      "relation": "are to help to improve",
+      "tail": "understanding of embodiments of the present invention"
+    },
+    {
+      "head": "the term \"coupled\" as used herein",
+      "relation": "is defined as connected",
+      "tail": ""
+    },
+    {
+      "head": "the term \"coupled\"",
+      "relation": "is not necessarily directly connected",
+      "tail": ""
+    },
+    {
+      "head": "the term \"coupled\"",
+      "relation": "is not necessarily mechanically connected",
+      "tail": ""
+    },
+    {
+      "head": "the front end of the compartment",
+      "relation": "is defined by",
+      "tail": "a wall bearing a set of contacts"
+    },
+    {
+      "head": "a wall",
+      "relation": "bears",
+      "tail": "a set of contacts"
+    }
+  ],
+  "8589. Graphical processing unit (GPU) implementation of magnetic resonance fingerprinting (MRF).txt": [
+    {
+      "head": "these quantitative parameter maps",
+      "relation": "are obtained",
+      "tail": ""
+    },
+    {
+      "head": "it may be possible",
+      "relation": "to identify the tissue properties to improve",
+      "tail": "diagnostic assessment"
+    },
+    {
+      "head": "it may be possible",
+      "relation": "to provide information to improve",
+      "tail": "diagnostic assessment"
+    },
+    {
+      "head": "well-known structures and devices",
+      "relation": "are shown in",
+      "tail": "block diagram form"
+    },
+    {
+      "head": "well-known structures and devices shown in block diagram form",
+      "relation": "are in order to avoid",
+      "tail": "unnecessarily obscuring various exemplary embodiments"
+    },
+    {
+      "head": "an increase",
+      "relation": "is in",
+      "tail": "the size of MRF dictionary"
+    },
+    {
+      "head": "an increase in the size of MRF dictionary",
+      "relation": "is the ultimate requirement to gain",
+      "tail": "improvement in the MRF results"
+    },
+    {
+      "head": "the improvement",
+      "relation": "is further in depth analysis of",
+      "tail": "tissues"
+    },
+    {
+      "head": "the GPU",
+      "relation": "is based",
+      "tail": "MRF implementation"
+    },
+    {
+      "head": "the GPU based MRF",
+      "relation": "provides cost effective solution to reduce",
+      "tail": "the execution time of conventional MRF algorithm"
+    },
+    {
+      "head": "such memories",
+      "relation": "may be implemented in",
+      "tail": "any suitable form"
+    },
+    {
+      "head": "suitable form",
+      "relation": "includes but is not limited to",
+      "tail": "non-volatile media"
+    },
+    {
+      "head": "suitable form",
+      "relation": "includes but is not limited to",
+      "tail": "volatile media"
+    },
+    {
+      "head": "suitable form",
+      "relation": "includes but is not limited to",
+      "tail": "transmission media"
+    },
+    {
+      "head": "Magnetic Resonance Fingerprinting (MRF)",
+      "relation": "is",
+      "tail": "an innovative method"
+    },
+    {
+      "head": "Magnetic Resonance Fingerprinting (MRF)",
+      "relation": "can quantitatively examine",
+      "tail": "many magnetic resonance tissue parameters"
+    },
+    {
+      "head": "the terminology used herein",
+      "relation": "is for the purpose of",
+      "tail": "describing particular embodiments"
+    },
+    {
+      "head": "the terminology used herein",
+      "relation": "is not intended to be",
+      "tail": "limiting"
+    },
+    {
+      "head": "GPU",
+      "relation": "is used to further reduce",
+      "tail": "the computation time"
+    },
+    {
+      "head": "GPU used to further reduce the computation time",
+      "relation": "is by introducing CUDA kernels for",
+      "tail": "all the operations that process independent data"
+    },
+    {
+      "head": "the operations",
+      "relation": "process",
+      "tail": "independent data"
+    },
+    {
+      "head": "the main advantage of the exemplary method",
+      "relation": "is",
+      "tail": "a significant improvement in the computation time"
+    },
+    {
+      "head": "the main advantage of the exemplary method",
+      "relation": "is without reducing",
+      "tail": "the size of data or number of operations required in the native MRF algorithm"
+    },
+    {
+      "head": "the size of data or number of operations",
+      "relation": "are required in",
+      "tail": "the native MRF algorithm"
+    },
+    {
+      "head": "an exemplary embodiment",
+      "relation": "may be implemented differently",
+      "tail": ""
+    },
+    {
+      "head": "a specific process order",
+      "relation": "may be performed differently from",
+      "tail": "the described order"
+    }
+  ],
+  "8920. Use of an all-D-pentapeptide chemokine antagonist to reduce opioid dose in a person with pain.txt": [
+    {
+      "head": "a series of von Frey filaments",
+      "relation": "was applied perpendicular to",
+      "tail": "the mid-plantar region of the hind paw"
+    },
+    {
+      "head": "a series of von Frey filaments",
+      "relation": "are with",
+      "tail": "logarithmically incrementing stiffness (Stoelting)"
+    },
+    {
+      "head": "chemokines",
+      "relation": "are released during",
+      "tail": "inflammation"
+    },
+    {
+      "head": "they",
+      "relation": "block the signaling of opioid receptors by",
+      "tail": "a process of heterologous desensitization"
+    },
+    {
+      "head": "rats",
+      "relation": "exhibited",
+      "tail": "persistent mechanical and cold allodynia"
+    },
+    {
+      "head": "cold allodynia",
+      "relation": "is up to",
+      "tail": "five months post-induction"
+    },
+    {
+      "head": "rats",
+      "relation": "are following",
+      "tail": "the induction of diabetes"
+    },
+    {
+      "head": "functional antagonism of multiple chemokine receptors and innate immune receptors",
+      "relation": "may be treatments and medicines for",
+      "tail": "pain and inflammation"
+    },
+    {
+      "head": "functional antagonism",
+      "relation": "is of",
+      "tail": "multiple chemokine receptors and innate immune receptors"
+    },
+    {
+      "head": "Microglia",
+      "relation": "was in",
+      "tail": "the spinal cord dorsal horns"
+    },
+    {
+      "head": "Microglia in the spinal cord dorsal horns",
+      "relation": "became activated with",
+      "tail": "hypertrophic morphology and an increase in microglial cell number"
+    },
+    {
+      "head": "body weight and blood glucose levels",
+      "relation": "were measured",
+      "tail": "before streptozotocin injection"
+    },
+    {
+      "head": "body weight and blood glucose levels",
+      "relation": "were measured",
+      "tail": "3 days after streptozotocin injection"
+    },
+    {
+      "head": "body weight and blood glucose levels",
+      "relation": "were measured",
+      "tail": "once a week for three weeks after diabetes induction"
+    },
+    {
+      "head": "painful diabetic neuropathy (PDN)",
+      "relation": "is",
+      "tail": "a common complication of diabetes"
+    },
+    {
+      "head": "painful diabetic neuropathy (PDN)",
+      "relation": "adversely affects",
+      "tail": "patients' daily life"
+    },
+    {
+      "head": "painful diabetic neuropathy (PDN)",
+      "relation": "represents",
+      "tail": "a major public health problem"
+    },
+    {
+      "head": "painful diabetic neuropathy",
+      "relation": "is abbreviated as",
+      "tail": "PDN"
+    },
+    {
+      "head": "animals",
+      "relation": "were brought back to",
+      "tail": "their individual chambers"
+    },
+    {
+      "head": "animals brought back to their individual chambers",
+      "relation": "is for",
+      "tail": "mechanical allodynia testing"
+    },
+    {
+      "head": "the most potent and effective drugs",
+      "relation": "are",
+      "tail": "the opioid analgesics"
+    },
+    {
+      "head": "they",
+      "relation": "are accompanied by",
+      "tail": "a number of serious adverse effects"
+    },
+    {
+      "head": "they",
+      "relation": "are not very effective in",
+      "tail": "approximately half of the cases of chronic pain"
+    },
+    {
+      "head": "rats",
+      "relation": "were habituated to",
+      "tail": "the testing environment daily"
+    },
+    {
+      "head": "rats habituated to the testing environment daily",
+      "relation": "were for at least",
+      "tail": "two days before the experiments started"
+    }
+  ],
+  "9286. Method and magnetic resonance apparatus for generating a fat fraction-corrected T1 parameter map.txt": [
+    {
+      "head": "the compartment",
+      "relation": "is associated with",
+      "tail": "fat"
+    },
+    {
+      "head": "the compartment associated with fat",
+      "relation": "is known to show",
+      "tail": "only small variations or dependencies on the surrounding tissue"
+    },
+    {
+      "head": "these",
+      "relation": "excited",
+      "tail": "nuclei relax and return to the equilibrium state"
+    },
+    {
+      "head": "the transverse components of the excited spins",
+      "relation": "induce",
+      "tail": "a voltage in the receive coils"
+    },
+    {
+      "head": "a voltage",
+      "relation": "is in",
+      "tail": "the receive coils"
+    },
+    {
+      "head": "a voltage",
+      "relation": "is measured",
+      "tail": ""
+    },
+    {
+      "head": "the relative signal of fat",
+      "relation": "can be modeled and considered in",
+      "tail": "the determination of the relaxation times for the water compartment"
+    },
+    {
+      "head": "these gradient pulses",
+      "relation": "are radiated (activated) at",
+      "tail": "precisely provided time positions"
+    },
+    {
+      "head": "these gradient pulses",
+      "relation": "are radiated (activated) with",
+      "tail": "a precisely predetermined time curve during a measurement"
+    },
+    {
+      "head": "a further embodiment",
+      "relation": "can be characterized as",
+      "tail": "joint fitting"
+    },
+    {
+      "head": "the fat fraction",
+      "relation": "is determined by fitting to",
+      "tail": "a dedicated signal model"
+    },
+    {
+      "head": "a dedicated signal model",
+      "relation": "is typically",
+      "tail": "multi-echo acquisitions"
+    },
+    {
+      "head": "the relaxation",
+      "relation": "is not",
+      "tail": "free (undisturbed)"
+    },
+    {
+      "head": "the effect of the continuous FLASH acquisitions",
+      "relation": "can be considered as",
+      "tail": "the signal model"
+    },
+    {
+      "head": "it is possible",
+      "relation": "to use",
+      "tail": "multi-echo FLASH in T1 mapping"
+    },
+    {
+      "head": "it is possible",
+      "relation": "to use multi-echo FLASH specifically in the context of",
+      "tail": "the Look-Locker technique and the FLASH steady state technique."
+    },
+    {
+      "head": "the signal contribution of fat",
+      "relation": "can be modeled in",
+      "tail": "this scenario"
+    },
+    {
+      "head": "only the T1 value of water",
+      "relation": "is determined by",
+      "tail": "fitting a model to the acquired data"
+    },
+    {
+      "head": "the MR signals",
+      "relation": "are received with",
+      "tail": "a local coil"
+    },
+    {
+      "head": "a local coil",
+      "relation": "can be composed of",
+      "tail": "one or more individual reception coils"
+    },
+    {
+      "head": "the local coil",
+      "relation": "can be used to radiate",
+      "tail": "the RF signals"
+    }
+  ],
+  "10025. Method and composition for biomolecule stabilization.txt": [
+    {
+      "head": "items",
+      "relation": "can be shipped to",
+      "tail": "remote regions"
+    },
+    {
+      "head": "items",
+      "relation": "can be shipped to",
+      "tail": "regions with insufficient infrastructure"
+    },
+    {
+      "head": "regions with insufficient infrastructure",
+      "relation": "is without",
+      "tail": "the concerns or costs"
+    },
+    {
+      "head": "the concerns or costs",
+      "relation": "are associated with",
+      "tail": "temperature-controlled shipments"
+    },
+    {
+      "head": "the kit",
+      "relation": "may further comprise",
+      "tail": "a receptacle"
+    },
+    {
+      "head": "a receptacle",
+      "relation": "is suitable for performing a nucleic acid amplification reaction for",
+      "tail": "one or more sequences of interest"
+    },
+    {
+      "head": "the quality and integrity of the resultant PCR products",
+      "relation": "were investigated by performing",
+      "tail": "DNA sequencing"
+    },
+    {
+      "head": "DNA sequencing",
+      "relation": "is",
+      "tail": "a representative downstream application"
+    },
+    {
+      "head": "the physically stable, solid lyophilised reagent",
+      "relation": "provides long term stability at",
+      "tail": "ambient temperature"
+    },
+    {
+      "head": "the physically stable, solid lyophilised reagent",
+      "relation": "can be dispensed in",
+      "tail": "flexible formats"
+    },
+    {
+      "head": "the physically stable, solid lyophilised reagent",
+      "relation": "is amenable to",
+      "tail": "downstream manipulation"
+    },
+    {
+      "head": "the beads and the constituent reagents",
+      "relation": "are",
+      "tail": "room temperature stable"
+    },
+    {
+      "head": "the beads and the constituent reagents being room temperature stable",
+      "relation": "offers significant advantages over",
+      "tail": "traditional PCR amplification workflows"
+    },
+    {
+      "head": "the biomolecule in the composition",
+      "relation": "is",
+      "tail": "a protein"
+    },
+    {
+      "head": "a protein",
+      "relation": "is such as",
+      "tail": "an enzyme"
+    },
+    {
+      "head": "an enzyme",
+      "relation": "is for example",
+      "tail": "a nucleic acid polymerase"
+    },
+    {
+      "head": "the beads",
+      "relation": "are removed from",
+      "tail": "the liquid nitrogen using a sieve"
+    },
+    {
+      "head": "a sieve",
+      "relation": "ensures that",
+      "tail": "beads exhibit a spherical shape with consistent diameter size and weight"
+    },
+    {
+      "head": "beads",
+      "relation": "exhibit",
+      "tail": "a spherical shape with consistent diameter size and weight"
+    },
+    {
+      "head": "beads",
+      "relation": "exhibit a spherical shape with",
+      "tail": "consistent diameter size and weight"
+    },
+    {
+      "head": "the end point of the determination",
+      "relation": "is indicated voltametrically by",
+      "tail": "applying an alternating current to an electrode immersed in the electrolyte"
+    },
+    {
+      "head": "applying an alternating current",
+      "relation": "is to",
+      "tail": "an electrode immersed in the electrolyte"
+    },
+    {
+      "head": "an electrode",
+      "relation": "is immersed in",
+      "tail": "the electrolyte"
+    },
+    {
+      "head": "the biological sample",
+      "relation": "comprises",
+      "tail": "nucleic acid"
+    },
+    {
+      "head": "the stabilized biomolecule",
+      "relation": "is",
+      "tail": "a nucleic acid polymerase"
+    },
+    {
+      "head": "the assay",
+      "relation": "is",
+      "tail": "an amplification reaction"
+    },
+    {
+      "head": "an amplification reaction",
+      "relation": "is such as",
+      "tail": "PCR"
+    },
+    {
+      "head": "Ready-To-Go having Tg values well above room temperature",
+      "relation": "ensure that",
+      "tail": "the products can be shipped and stored without the need for refrigeration"
+    },
+    {
+      "head": "Ready-To-Go",
+      "relation": "have Tg values well above",
+      "tail": "room temperature"
+    },
+    {
+      "head": "products",
+      "relation": "can be shipped and stored without",
+      "tail": "the need for refrigeration"
+    }
+  ],
+  "10182. Array of acoustical returner devices to reflect sound back in the incident direction.txt": [
+    {
+      "head": "such corner reflectors",
+      "relation": "are known for use in reflecting",
+      "tail": "light or electromagnetic radiation directly back to their source"
+    },
+    {
+      "head": "such corner reflectors known for use",
+      "relation": "is in reflecting",
+      "tail": "light or electromagnetic radiation directly back to their source"
+    },
+    {
+      "head": "light or electromagnetic radiation",
+      "relation": "is directly back to",
+      "tail": "their source"
+    },
+    {
+      "head": "a person within the space or cubicle speaking on the phone or with others",
+      "relation": "will have his or her words returned back to",
+      "tail": "them"
+    },
+    {
+      "head": "a person",
+      "relation": "is within",
+      "tail": "the space or cubicle"
+    },
+    {
+      "head": "a person",
+      "relation": "is speaking on",
+      "tail": "the phone"
+    },
+    {
+      "head": "a person",
+      "relation": "is speaking with",
+      "tail": "others"
+    },
+    {
+      "head": "his or her words",
+      "relation": "will amplified with",
+      "tail": "extraneous sounds filtered out"
+    },
+    {
+      "head": "these surfaces",
+      "relation": "were based on",
+      "tail": "mathematical number theory sequences and numerical optimization"
+    },
+    {
+      "head": "these surfaces",
+      "relation": "uniformly scattered",
+      "tail": "the incident sound"
+    },
+    {
+      "head": "the incident sound",
+      "relation": "is over",
+      "tail": "a wide range of desirable frequencies for any angle of incidence"
+    },
+    {
+      "head": "this",
+      "relation": "is",
+      "tail": "the least desirable embodiment"
+    },
+    {
+      "head": "it",
+      "relation": "reflects",
+      "tail": "all the sound waves"
+    },
+    {
+      "head": "the sound waves",
+      "relation": "includes",
+      "tail": "low frequencies below the bottom frequency of speech"
+    },
+    {
+      "head": "low frequencies below the bottom frequency of speech",
+      "relation": "can cause confusion to",
+      "tail": "the speaker"
+    },
+    {
+      "head": "his or her speech",
+      "relation": "is reflected directly back to",
+      "tail": "them"
+    },
+    {
+      "head": "these two patents",
+      "relation": "disclose",
+      "tail": "differing types of micro-slits used as a sound absorber"
+    },
+    {
+      "head": "differing types of micro-slits",
+      "relation": "are used as",
+      "tail": "a sound absorber"
+    },
+    {
+      "head": "either",
+      "relation": "could be employed in accordance with",
+      "tail": "the teachings of the present invention"
+    },
+    {
+      "head": "it",
+      "relation": "is based on",
+      "tail": "the tri-rectangular tetrahedron geometric shape"
+    },
+    {
+      "head": "it has the unique ability",
+      "relation": "to return incident sound back in the direction of",
+      "tail": "incidence"
+    },
+    {
+      "head": "the array",
+      "relation": "assists in preventing their speech from",
+      "tail": "emanating to the next adjacent cubicle"
+    },
+    {
+      "head": "the array",
+      "relation": "assists in preventing their speech from",
+      "tail": "disturbing its occupant"
+    },
+    {
+      "head": "musicians",
+      "relation": "will be better able to hear",
+      "tail": "themselves"
+    },
+    {
+      "head": "diffusers",
+      "relation": "can be employed",
+      "tail": ""
+    },
+    {
+      "head": "such musicians",
+      "relation": "can hear contributions from",
+      "tail": "the entire ensemble"
+    },
+    {
+      "head": "a percentage of the incident sound",
+      "relation": "is absorbed by",
+      "tail": "the absorber"
+    },
+    {
+      "head": "sound emanating from the absorber",
+      "relation": "is reduced particularly in",
+      "tail": "amplitude"
+    },
+    {
+      "head": "sound",
+      "relation": "emanates from",
+      "tail": "the absorber"
+    },
+    {
+      "head": "the ceiling area",
+      "relation": "is very important to provide",
+      "tail": "useful early reflections"
+    }
+  ],
+  "10521. Combination of clofazimine and imatinib for effective therapy of drug-resistant myeloid leukemia.txt": [
+    {
+      "head": "the dosage",
+      "relation": "will vary according to",
+      "tail": "the type of disorder"
+    },
+    {
+      "head": "the dosage",
+      "relation": "will be subject to",
+      "tail": "the judgment of the medical practitioner involved"
+    },
+    {
+      "head": "all percentages and amounts expressed herein",
+      "relation": "should be understood to refer to",
+      "tail": "percentages by weight"
+    },
+    {
+      "head": "all percentages and amounts",
+      "relation": "are expressed herein",
+      "tail": ""
+    },
+    {
+      "head": "elsewhere in the specification",
+      "relation": "should be understood to refer to",
+      "tail": "percentages by weight"
+    },
+    {
+      "head": "cytotoxic effects of CFZ",
+      "relation": "are specific for",
+      "tail": "leukemia cells only"
+    },
+    {
+      "head": "cytotoxic effects of CFZ in combination with IMT",
+      "relation": "are specific for",
+      "tail": "leukemia cells only"
+    },
+    {
+      "head": "further areas of applicability of the present invention",
+      "relation": "will become apparent from",
+      "tail": "the detailed description provided hereinafter"
+    },
+    {
+      "head": "the detailed description",
+      "relation": "is provided hereinafter",
+      "tail": ""
+    },
+    {
+      "head": "applicants",
+      "relation": "incorporate",
+      "tail": "the contents of the sequence"
+    },
+    {
+      "head": "the contents",
+      "relation": "are  listed by",
+      "tail": "reference in its entirety"
+    },
+    {
+      "head": "ranges",
+      "relation": "are used as",
+      "tail": "shorthand for describing each and every value that is within the range"
+    },
+    {
+      "head": "ranges used as shorthand",
+      "relation": "is for describing",
+      "tail": "each and every value that is within the range"
+    },
+    {
+      "head": "CFZ",
+      "relation": "is shown here to synergize with",
+      "tail": "imatinib and dasatinib"
+    },
+    {
+      "head": "combination of CFZ with imatinib",
+      "relation": "almost obliterates",
+      "tail": "quiescent leukemia stem cells"
+    },
+    {
+      "head": "total RNA",
+      "relation": "was extracted using",
+      "tail": "TRI Reagent (Life Technologies, Carlsbad, Calif.)"
+    },
+    {
+      "head": "total RNA extracted using TRI Reagent (Life Technologies, Carlsbad, Calif.)",
+      "relation": "is according to",
+      "tail": "manufacturer's instructions"
+    },
+    {
+      "head": "TRI Reagent",
+      "relation": "is manufactured by",
+      "tail": "Life Technologies, Carlsbad, Calif."
+    },
+    {
+      "head": "K562 cells",
+      "relation": "were treated with",
+      "tail": "CFZ for 120 h"
+    },
+    {
+      "head": "May-Grunwald-Giemsa staining followed by light microscopy",
+      "relation": "was used to assess",
+      "tail": "cellular morphology"
+    },
+    {
+      "head": "May-Grunwald-Giemsa staining",
+      "relation": "is followed by",
+      "tail": "light microscopy"
+    },
+    {
+      "head": "these slides",
+      "relation": "were stained with",
+      "tail": "Giemsa and May-Grunwald solution (Sigma)"
+    },
+    {
+      "head": "these slides stained with Giemsa and May-Grunwald solution (Sigma)",
+      "relation": "is as per",
+      "tail": "manufacturer's instruction"
+    },
+    {
+      "head": "Giemsa and May-Grunwald solution",
+      "relation": "are manufactured by",
+      "tail": "Sigma"
+    }
+  ]
+}

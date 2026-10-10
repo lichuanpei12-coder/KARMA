@@ -1,0 +1,187 @@
+{
+  "version": "d0",
+  "created": "2026-09-15",
+  "status": "HISTORICAL_SNAPSHOT",
+  "files": [
+    {
+      "path": "DocOIE_healthcare_eval_gold.json",
+      "sha256": "29afd07ef116b3aeaed9616f357bcbb7c3336bca19a595b2b9b66a2014416455"
+    },
+    {
+      "path": "DocOIE_healthcare_eval_sent.json",
+      "sha256": "345906a27f5e08e4a79143bd776c568ebf5f47d7261196d5f4b5b878b1e51527"
+    },
+    {
+      "path": "DocOIE_transportation_eval_gold.json",
+      "sha256": "0eba41acc09b2a52fba9b96a16e10aa101dac68c5bd891faeb8ae7fb1628e383"
+    },
+    {
+      "path": "DocOIE_transportation_eval_sent.json",
+      "sha256": "26de98d4f888b1a4e523cf115af6ebe27a5b4c7f094e854138bc6ec1760613e5"
+    },
+    {
+      "path": "DocOIE_transportation_gold_input.json",
+      "sha256": "62f79de945f3efc4f01e4c549eb20276d6cdae72b5f028c3b9b8279ba9a54500"
+    },
+    {
+      "path": "transport\\0.json",
+      "sha256": "99ea38d61b7538c5b059faba70b7f8b425c4a825f6ce63877c8098a2f349f1f1"
+    },
+    {
+      "path": "transport\\1.json",
+      "sha256": "a74819c0bdb55f88f4ac510621d999666c3010fa630feb0146c9748ca5047b66"
+    },
+    {
+      "path": "transport\\10.json",
+      "sha256": "85326e0bf3998ad454b7ef42bff8a8bd759da154bea1e1af3283e03dec093ee1"
+    },
+    {
+      "path": "transport\\11.json",
+      "sha256": "b44159d9721118ae85887bf41acca183addfa4cc08348e52179a9fac18570847"
+    },
+    {
+      "path": "transport\\12.json",
+      "sha256": "6a43d2721d712e5313b6e514643ea5f5cf7652d19de51d444fafc8e86931f1bd"
+    },
+    {
+      "path": "transport\\13.json",
+      "sha256": "70c6d103457a4d032e7bc4b59750b1df5a17ccf8c0eb9cbda7a200e110bafa5d"
+    },
+    {
+      "path": "transport\\14.json",
+      "sha256": "6c224498139d177b906625c50d8950ba31b4120f398dea45a19395addfd2a1a9"
+    },
+    {
+      "path": "transport\\15.json",
+      "sha256": "8de393cd9f5bb6c86cd3c1d5f7a3ce7fcc9f729fb5d6ec12b6732095b2b86787"
+    },
+    {
+      "path": "transport\\16.json",
+      "sha256": "102dde1d8a81c44e6cb5a2a91b0a5222d28bc7ff1ccc350de2fcb0eb8c389e9e"
+    },
+    {
+      "path": "transport\\17.json",
+      "sha256": "6a2ab5029bcf8173e50a0b890a2548adbd8cc32d059204748bca788b6f7b615f"
+    },
+    {
+      "path": "transport\\18.json",
+      "sha256": "367918da537da13802a80a6f56a77636d6bf4f2fef1a5d88f500f26bd11e2bcf"
+    },
+    {
+      "path": "transport\\19.json",
+      "sha256": "89fbc872e2b432f58df8fd856f91bd161ee17d7e6892bca65fb4cb0509dcb273"
+    },
+    {
+      "path": "transport\\2.json",
+      "sha256": "1814420c66dc556a344fae5a1a1f8c0f03995ae4791a12a6ece9656aa38749e6"
+    },
+    {
+      "path": "transport\\20.json",
+      "sha256": "3555a9949a411c87e4fa320df0aae1abacc95e88db493e36adf49b0aa73b6e6b"
+    },
+    {
+      "path": "transport\\21.json",
+      "sha256": "c6b6e067ee0db8e5b8acaf546f7cad953de2afee36167d50a39b785869434bb2"
+    },
+    {
+      "path": "transport\\22.json",
+      "sha256": "8aba9ba2ed3abf6a08960ad61d4d4531b0bf9e9f413b3b5564529702b1ce8450"
+    },
+    {
+      "path": "transport\\23.json",
+      "sha256": "e5549033707a36952f64e63dbc9163863a4a280e0fe4f9aecaa37651611d3526"
+    },
+    {
+      "path": "transport\\24.json",
+      "sha256": "83edd36f7e94af5d03637682c21813c28bd5fcc6fb6f14584484ebd5afb5e559"
+    },
+    {
+      "path": "transport\\25.json",
+      "sha256": "831a23b3a70873962ec8d51e8ee2f6e951dc58bade0ea2d18af4b9ddac33624f"
+    },
+    {
+      "path": "transport\\26.json",
+      "sha256": "2541a081960506668fb984b0086d270c7601691da5cd6350899d412aba2fc4b0"
+    },
+    {
+      "path": "transport\\27.json",
+      "sha256": "052557d138e2fbbb7f04758936fbfe5ede86aaffb2c841c7090ed4a2ef38b0f2"
+    },
+    {
+      "path": "transport\\28.json",
+      "sha256": "0d8430b167f3acf9e4bdc41cb712a1a41e1bc9fe3214adff3a0e80140648baff"
+    },
+    {
+      "path": "transport\\29.json",
+      "sha256": "d634d9847b73e2c94b06821bf2cc7584d780304465d2f3d430a830e36be589a3"
+    },
+    {
+      "path": "transport\\3.json",
+      "sha256": "aed6da88f839f3b4585983ad66a207b07b71a0d43ba9c2db4ab917b464fb6eb9"
+    },
+    {
+      "path": "transport\\30.json",
+      "sha256": "c3381b02707d4ce8bf840eb538dba854d9eb5dc387b78313ca3e9788256c41df"
+    },
+    {
+      "path": "transport\\31.json",
+      "sha256": "876172447b7fd77ba6c8bec7ff3dce030d5c8e6d8bf9197659ca7eb7f9d78fa3"
+    },
+    {
+      "path": "transport\\32.json",
+      "sha256": "2ab7542620c97068dec8902c09bf744049783100763792cc348396147e183c4a"
+    },
+    {
+      "path": "transport\\33.json",
+      "sha256": "b671d7b8c1baf15f971f9d796188fad7b4da873796a4b9b1a27badee95b73701"
+    },
+    {
+      "path": "transport\\34.json",
+      "sha256": "636e4a8b09d3deeec2047aa54b1bf6c327eb222abb82981067e475d7f8171a94"
+    },
+    {
+      "path": "transport\\35.json",
+      "sha256": "3e17327aea9c711944a5e0104094e1f010374f95ab6792a470e877baec2a96c2"
+    },
+    {
+      "path": "transport\\36.json",
+      "sha256": "3e94efb37bc01c76a456b6c34af9e048e54e8bfbcd7844b3f8c7066dc3a7a2b3"
+    },
+    {
+      "path": "transport\\37.json",
+      "sha256": "2aad9b0426556c635cc6f5fefb718374c848502c5eb9b04a25c55a89e2849094"
+    },
+    {
+      "path": "transport\\38.json",
+      "sha256": "3227c1a03d4955073ab2408278345bcc937340549eead00466adf22622a09981"
+    },
+    {
+      "path": "transport\\39.json",
+      "sha256": "5b4607bce81c6de9cdcfea676519d6f7fa297750fc0d646ca2afef90208e1c23"
+    },
+    {
+      "path": "transport\\4.json",
+      "sha256": "78500d68d11f07b94b81e00e98bfffd0fd3ddad723ba3bcd8dd23ffe347d713f"
+    },
+    {
+      "path": "transport\\5.json",
+      "sha256": "38bb440e9801ea2b0de030118e38000c1a531ec82598d1d197817eb506fc193b"
+    },
+    {
+      "path": "transport\\6.json",
+      "sha256": "071eabec644436037d58a7b5ef13cd3b30c01a26b10fda7ba101e0fc879612db"
+    },
+    {
+      "path": "transport\\7.json",
+      "sha256": "62309fa57a88f9294b33882eda86e9088d348a20ab686d110c2e4477b46c25a2"
+    },
+    {
+      "path": "transport\\8.json",
+      "sha256": "a17fe6fcacefe4b69246b69185ab2cd4e240e5a2a65478a0eb126883003e38b2"
+    },
+    {
+      "path": "transport\\9.json",
+      "sha256": "fa105578784583ccf4781c376fa7cbb729512935cee83785ad509a85256f998f"
+    }
+  ]
+}

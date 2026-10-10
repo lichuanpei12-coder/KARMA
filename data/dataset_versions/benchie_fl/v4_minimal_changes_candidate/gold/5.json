@@ -1,0 +1,647 @@
+{
+  "benchie_76": [
+    {
+      "head": "He",
+      "relation": "further stated that",
+      "tail": "Hauptmann looked different"
+    },
+    {
+      "head": "He",
+      "relation": "further stated that",
+      "tail": "John was actually dead"
+    },
+    {
+      "head": "He",
+      "relation": "further stated that",
+      "tail": "John was actually dead because John had been murdered"
+    },
+    {
+      "head": "He",
+      "relation": "further stated that",
+      "tail": "John was actually dead because John had been murdered by his confederates"
+    },
+    {
+      "head": "He",
+      "relation": "further stated that",
+      "tail": "John had been murdered"
+    },
+    {
+      "head": "He",
+      "relation": "further stated that",
+      "tail": "John had been murdered by his confederates"
+    }
+  ],
+  "benchie_77": [
+    {
+      "head": "RSNO",
+      "relation": "also performs throughout",
+      "tail": "Scotland"
+    },
+    {
+      "head": "RSNO",
+      "relation": "also performs at",
+      "tail": "Glasgow Royal Concert Hall"
+    },
+    {
+      "head": "RSNO",
+      "relation": "also performs at",
+      "tail": "Usher Hall"
+    },
+    {
+      "head": "RSNO",
+      "relation": "also performs at",
+      "tail": "Caird Hall"
+    },
+    {
+      "head": "RSNO",
+      "relation": "also performs at",
+      "tail": "Aberdeen Music Hall"
+    },
+    {
+      "head": "RSNO",
+      "relation": "also performs at",
+      "tail": "Perth Concert Hall"
+    },
+    {
+      "head": "RSNO",
+      "relation": "also performs at",
+      "tail": "Eden Court Inverness"
+    },
+    {
+      "head": "Glasgow Royal Concert Hall",
+      "relation": "is",
+      "tail": "venue"
+    },
+    {
+      "head": "Usher Hall",
+      "relation": "is",
+      "tail": "venue"
+    },
+    {
+      "head": "Aberdeen Music Hall",
+      "relation": "is",
+      "tail": "venue"
+    },
+    {
+      "head": "Perth Concert Hall",
+      "relation": "is",
+      "tail": "venue"
+    },
+    {
+      "head": "Eden Court Inverness",
+      "relation": "is",
+      "tail": "venue"
+    },
+    {
+      "head": "Caird Hall",
+      "relation": "is",
+      "tail": "venue"
+    }
+  ],
+  "benchie_78": [
+    {
+      "head": "Alvarez",
+      "relation": "was reunited with",
+      "tail": "Alvarez's family"
+    },
+    {
+      "head": "Alvarez",
+      "relation": "was reunited with his family",
+      "tail": "five years later"
+    },
+    {
+      "head": "Alvarez",
+      "relation": "was reunited with his family in",
+      "tail": "New York"
+    },
+    {
+      "head": "Alvarez's father",
+      "relation": "was able to",
+      "tail": "start business"
+    },
+    {
+      "head": "Alvarez's father",
+      "relation": "was able to start business in",
+      "tail": "Hoboken"
+    },
+    {
+      "head": "Alvarez's father",
+      "relation": "was able to start business in",
+      "tail": "New Jersey"
+    },
+    {
+      "head": "Hoboken",
+      "relation": "is in",
+      "tail": "New Jersey"
+    }
+  ],
+  "benchie_79": [
+    {
+      "head": "Anti-Monitor",
+      "relation": "began to",
+      "tail": "siphon"
+    },
+    {
+      "head": "Anti-Monitor",
+      "relation": "began to siphon",
+      "tail": "positive matter"
+    },
+    {
+      "head": "Anti-Monitor",
+      "relation": "began to siphon positive matter of",
+      "tail": "New York City"
+    },
+    {
+      "head": "Anti-Monitor",
+      "relation": "began to siphon to",
+      "tail": "create his Antimatter waves"
+    },
+    {
+      "head": "he",
+      "relation": "had",
+      "tail": "Antimatter waves"
+    },
+    {
+      "head": "New York City",
+      "relation": "has",
+      "tail": "positive matter"
+    }
+  ],
+  "benchie_80": [
+    {
+      "head": "These tracks",
+      "relation": "have subsequently been included on",
+      "tail": "CD"
+    },
+    {
+      "head": "These tracks",
+      "relation": "have subsequently been included on CD reissues of",
+      "tail": "The Plan"
+    },
+    {
+      "head": "The Plan",
+      "relation": "is",
+      "tail": "album"
+    }
+  ],
+  "benchie_81": [
+    {
+      "head": "He",
+      "relation": "develops",
+      "tail": "significance"
+    },
+    {
+      "head": "He",
+      "relation": "develops significance as",
+      "tail": "recurrent character"
+    },
+    {
+      "head": "He",
+      "relation": "develops significance as recurrent character in",
+      "tail": "series"
+    },
+    {
+      "head": "He",
+      "relation": "develops significance as",
+      "tail": "friend"
+    },
+    {
+      "head": "He",
+      "relation": "develops significance as friend to",
+      "tail": "Dream"
+    },
+    {
+      "head": "He",
+      "relation": "appears in",
+      "tail": "issues of series"
+    },
+    {
+      "head": "He",
+      "relation": "appears in",
+      "tail": "total of seven issues of series"
+    },
+    {
+      "head": "He",
+      "relation": "appears in issues of series spanning",
+      "tail": "six hundred years"
+    },
+    {
+      "head": "seven issues",
+      "relation": "are spanning",
+      "tail": "six hundred years"
+    }
+  ],
+  "benchie_82": [
+    {
+      "head": "Davis",
+      "relation": "released",
+      "tail": "singles"
+    },
+    {
+      "head": "Davis",
+      "relation": "released",
+      "tail": "about 25 singles"
+    },
+    {
+      "head": "Davis",
+      "relation": "released about 25 singles during",
+      "tail": "seven years"
+    },
+    {
+      "head": "Davis",
+      "relation": "released about 25 singles during his seven years with",
+      "tail": "Dakar"
+    },
+    {
+      "head": "most of the about 25 singles released by Davis",
+      "relation": "were",
+      "tail": "big sellers"
+    },
+    {
+      "head": "most of the about 25 singles released by Davis",
+      "relation": "were",
+      "tail": "R&B singles"
+    },
+    {
+      "head": "most of the about 25 singles released by Davis",
+      "relation": "were produced by",
+      "tail": "Willie Henderson"
+    },
+    {
+      "head": "Davis",
+      "relation": "was with",
+      "tail": "Dakar"
+    },
+    {
+      "head": "Davis",
+      "relation": "was with Dakar for",
+      "tail": "seven years"
+    },
+    {
+      "head": "Davis",
+      "relation": "released",
+      "tail": "big sellers"
+    },
+    {
+      "head": "Davis",
+      "relation": "released",
+      "tail": "R&B singles"
+    },
+    {
+      "head": "Davis",
+      "relation": "released singles produced by",
+      "tail": "Willie Henderson"
+    },
+    {
+      "head": "Davis",
+      "relation": "released singles with",
+      "tail": "Dakar"
+    },
+    {
+      "head": "big R&B sellers",
+      "relation": "were produced by",
+      "tail": "Willie Henderson"
+    }
+  ],
+  "benchie_83": [
+    {
+      "head": "RedLetterMedia",
+      "relation": "are",
+      "tail": "popular internet reviewers"
+    },
+    {
+      "head": "RedLetterMedia",
+      "relation": "delivered",
+      "tail": "critique"
+    },
+    {
+      "head": "RedLetterMedia",
+      "relation": "delivered",
+      "tail": "scathing critique"
+    },
+    {
+      "head": "RedLetterMedia",
+      "relation": "delivered",
+      "tail": "video critique"
+    },
+    {
+      "head": "RedLetterMedia",
+      "relation": "delivered scathing video critique of",
+      "tail": "the film"
+    },
+    {
+      "head": "RedLetterMedia",
+      "relation": "delivered scathing video critique of the film in",
+      "tail": "2010"
+    },
+    {
+      "head": "RedLetterMedia's scathing video critique of the film",
+      "relation": "drew negative comparisons to",
+      "tail": "The Three Stooges"
+    },
+    {
+      "head": "RedLetterMedia's scathing video critique of the film",
+      "relation": "drew negative comparisons to",
+      "tail": "Looney Tunes"
+    },
+    {
+      "head": "RedLetterMedia's scathing video critique of the film",
+      "relation": "drew negative comparisons to",
+      "tail": "Home Alone"
+    },
+    {
+      "head": "RedLetterMedia's scathing video critique of the film",
+      "relation": "drew",
+      "tail": "negative comparisons"
+    }
+  ],
+  "benchie_84": [
+    {
+      "head": "repeated attempts to regain throne",
+      "relation": "were made within",
+      "tail": "England"
+    },
+    {
+      "head": "repeated attempts to regain throne",
+      "relation": "were made within",
+      "tail": "especially Scotland"
+    },
+    {
+      "head": "there were repeated attempts to regain throne by deposed House of Stewart",
+      "relation": "within",
+      "tail": "England"
+    },
+    {
+      "head": "there were repeated attempts to regain throne by deposed House of Stewart",
+      "relation": "within",
+      "tail": "especially Scotland"
+    },
+    {
+      "head": "repeated attempts to regain throne",
+      "relation": "lead to severe uprisings within",
+      "tail": "England"
+    },
+    {
+      "head": "repeated attempts to regain throne",
+      "relation": "lead to severe uprisings within",
+      "tail": "especially Scotland"
+    },
+    {
+      "head": "repeated attempts to regain throne",
+      "relation": "lead to",
+      "tail": "severe uprisings"
+    },
+    {
+      "head": "repeated attempts to regain throne",
+      "relation": "were made by",
+      "tail": "deposed House of Stewart"
+    }
+  ],
+  "benchie_85": [
+    {
+      "head": "These skills",
+      "relation": "were",
+      "tail": "readily proven"
+    },
+    {
+      "head": "These skills",
+      "relation": "were readily proven when",
+      "tail": "squadrons were mobilized"
+    },
+    {
+      "head": "These skills",
+      "relation": "were readily proven when",
+      "tail": "personnel were mobilized"
+    },
+    {
+      "head": "These skills",
+      "relation": "were readily proven when",
+      "tail": "squadrons were recalled back to active duty"
+    },
+    {
+      "head": "These skills",
+      "relation": "were readily proven when",
+      "tail": "personnel were recalled back to active duty"
+    },
+    {
+      "head": "These skills",
+      "relation": "were readily proven during",
+      "tail": "Korean War"
+    },
+    {
+      "head": "These skills",
+      "relation": "were readily proven during",
+      "tail": "Berlin Crisis"
+    },
+    {
+      "head": "squadrons",
+      "relation": "were mobilized during",
+      "tail": "Korean War"
+    },
+    {
+      "head": "squadrons",
+      "relation": "were mobilized during",
+      "tail": "Berlin Crisis"
+    },
+    {
+      "head": "personnel",
+      "relation": "were mobilized during",
+      "tail": "Korean War"
+    },
+    {
+      "head": "personnel",
+      "relation": "were mobilized during",
+      "tail": "Berlin Crisis"
+    },
+    {
+      "head": "squadrons",
+      "relation": "were recalled back to active duty during",
+      "tail": "Korean War"
+    },
+    {
+      "head": "squadrons",
+      "relation": "were recalled back to active duty during",
+      "tail": "Berlin Crisis"
+    },
+    {
+      "head": "personnel",
+      "relation": "were recalled back to active duty during",
+      "tail": "Korean War"
+    },
+    {
+      "head": "personnel",
+      "relation": "were recalled back to active duty during",
+      "tail": "Berlin Crisis"
+    },
+    {
+      "head": "squadrons",
+      "relation": "were",
+      "tail": "mobilized"
+    },
+    {
+      "head": "personnel",
+      "relation": "were",
+      "tail": "mobilized"
+    },
+    {
+      "head": "squadrons",
+      "relation": "were",
+      "tail": "recalled back to active duty"
+    },
+    {
+      "head": "personnel",
+      "relation": "were recalled back to",
+      "tail": "active duty"
+    }
+  ],
+  "benchie_86": [
+    {
+      "head": "clathrate-like baskets surrounding two such hydrophobic particles",
+      "relation": "merge when",
+      "tail": "two such hydrophobic particles come very close"
+    },
+    {
+      "head": "clathrate-like baskets",
+      "relation": "surround",
+      "tail": "two such hydrophobic particles"
+    }
+  ],
+  "benchie_87": [
+    {
+      "head": "Erasistratus",
+      "relation": "is",
+      "tail": "doctor"
+    },
+    {
+      "head": "Erasistratus",
+      "relation": "suspects that",
+      "tail": "love is behind Antiochus's suffering"
+    },
+    {
+      "head": "Antiochus",
+      "relation": "is",
+      "tail": "suffering"
+    }
+  ],
+  "benchie_88": [
+    {
+      "head": "Lletty Shenkin explosion",
+      "relation": "was in",
+      "tail": "1849"
+    },
+    {
+      "head": "Lletty Shenkin explosion",
+      "relation": "led to",
+      "tail": "demands"
+    },
+    {
+      "head": "Lletty Shenkin explosion",
+      "relation": "led to demands from",
+      "tail": "Aberdare local middle classes"
+    },
+    {
+      "head": "Lletty Shenkin explosion",
+      "relation": "led to demands in",
+      "tail": "Aberdare"
+    },
+    {
+      "head": "Lletty Shenkin explosion",
+      "relation": "led to demands for",
+      "tail": "improved safety"
+    },
+    {
+      "head": "Lletty Shenkin explosion",
+      "relation": "led to demands for",
+      "tail": "improved safety in mines"
+    },
+    {
+      "head": "local middle classes",
+      "relation": "is in",
+      "tail": "Aberdare"
+    }
+  ],
+  "benchie_89": [
+    {
+      "head": "Lady Mary Wortley Montagu",
+      "relation": "observed",
+      "tail": "the practice"
+    },
+    {
+      "head": "Lady Mary Wortley Montagu",
+      "relation": "observed the practice in",
+      "tail": "Istanbul"
+    },
+    {
+      "head": "Lady Mary Wortley Montagu",
+      "relation": "observed the practice in",
+      "tail": "1717"
+    },
+    {
+      "head": "Lady Mary Wortley Montagu",
+      "relation": "attempted to popularize",
+      "tail": "the practice"
+    },
+    {
+      "head": "Lady Mary Wortley Montagu",
+      "relation": "attempted to popularize the practice in",
+      "tail": "Britain"
+    },
+    {
+      "head": "Lady Mary Wortley Montagu",
+      "relation": "encountered",
+      "tail": "considerable resistance"
+    },
+    {
+      "head": "Lady Mary Wortley Montagu",
+      "relation": "encountered considerable resistance when",
+      "tail": "attempting to popularize the practice"
+    },
+    {
+      "head": "Mary Wortley Montagu",
+      "relation": "is",
+      "tail": "Lady"
+    }
+  ],
+  "benchie_90": [
+    {
+      "head": "two companies",
+      "relation": "are",
+      "tail": "teaming up"
+    },
+    {
+      "head": "two companies",
+      "relation": "are teaming up",
+      "tail": "again"
+    },
+    {
+      "head": "two companies",
+      "relation": "are teaming up again for",
+      "tail": "Future Vertical Lift prototype"
+    },
+    {
+      "head": "SB-1 Defiant",
+      "relation": "is",
+      "tail": "Future Vertical Lift prototype"
+    },
+    {
+      "head": "employees from both companies",
+      "relation": "will work",
+      "tail": "together"
+    },
+    {
+      "head": "employees from both companies",
+      "relation": "will work together on",
+      "tail": "Future Vertical Lift prototype"
+    },
+    {
+      "head": "SB-1 Defiant",
+      "relation": "is",
+      "tail": "prototype"
+    },
+    {
+      "head": "two companies",
+      "relation": "have",
+      "tail": "employees"
+    }
+  ]
+}

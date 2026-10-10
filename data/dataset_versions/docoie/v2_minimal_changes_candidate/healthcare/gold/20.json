@@ -1,0 +1,122 @@
+[
+  {
+    "head": "system",
+    "relation": "combines advanced artificial intelligence approaches with",
+    "tail": "RFID data mediation"
+  },
+  {
+    "head": "system",
+    "relation": "combines advanced artificial intelligence approaches with",
+    "tail": "RFID data delivery"
+  },
+  {
+    "head": "system",
+    "relation": "combines in",
+    "tail": "a cloud based usage model"
+  },
+  {
+    "head": "cloud hosted mediation system",
+    "relation": "utilizes a cloud infrastructure instantiating",
+    "tail": "an application as you go delivery model"
+  },
+  {
+    "head": "an application",
+    "relation": "is based on",
+    "tail": "a consumption based pay"
+  },
+  {
+    "head": "the use of the D-S approach",
+    "relation": "requires inference engine to deduce",
+    "tail": "belief functions"
+  },
+  {
+    "head": "embodiments of the present invention",
+    "relation": "have been described for purposes of",
+    "tail": "illustration"
+  },
+  {
+    "head": "many modifications and changes",
+    "relation": "will become apparent to",
+    "tail": "those skilled in the art"
+  },
+  {
+    "head": "vehicless comprising a problem",
+    "relation": "may be quickly identified",
+    "tail": ""
+  },
+  {
+    "head": "vehicless comprising a problem",
+    "relation": "may be quickly pulled off",
+    "tail": "the streets"
+  },
+  {
+    "head": "the person",
+    "relation": "walks back to",
+    "tail": "the house (i.e., action)"
+  },
+  {
+    "head": "the person",
+    "relation": "picks up and opens",
+    "tail": "an umbrella"
+  },
+  {
+    "head": "the person",
+    "relation": "then continues to walk to",
+    "tail": "work"
+  },
+  {
+    "head": "inference engine",
+    "relation": "crawls through",
+    "tail": "the classified data (facts)"
+  },
+  {
+    "head": "the classified data (facts)",
+    "relation": "is stored in",
+    "tail": "classification database"
+  },
+  {
+    "head": "inference engine",
+    "relation": "derives",
+    "tail": "assumption type answers"
+  },
+  {
+    "head": "the service provider",
+    "relation": "can receive payment from",
+    "tail": "the customer(s) under a subscription and/or fee agreement"
+  },
+  {
+    "head": "the service provider",
+    "relation": "can receive payment from",
+    "tail": "the sale of advertising content to one or more third parties"
+  },
+  {
+    "head": "the two sets of beliefs",
+    "relation": "are stored in",
+    "tail": "a TMS (for example, TMS)"
+  },
+  {
+    "head": "the two sets of beliefs",
+    "relation": "are established by",
+    "tail": "the previous step 3"
+  },
+  {
+    "head": "the two sets of beliefs",
+    "relation": "are processed using",
+    "tail": "D-S theory"
+  },
+  {
+    "head": "the person",
+    "relation": "notices",
+    "tail": "bolt of lightning in the distance (i.e., evidence)"
+  },
+  {
+    "head": "the person",
+    "relation": "determines that",
+    "tail": "there is currently a very high likelihood of rain"
+  },
+  {
+    "head": "there",
+    "relation": "is currently",
+    "tail": "a very high likelihood of rain"
+  }
+]

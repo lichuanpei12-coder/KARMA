@@ -1,0 +1,375 @@
+{
+  "version": "d2",
+  "created": "2026-09-15",
+  "status": "FULL_SIZE_CANDIDATE_PARTIALLY_REVIEWED_NOT_FINAL_GOLD",
+  "files": [
+    {
+      "path": "changes.json",
+      "sha256": "3c2995ed670bf83c9a02cbcc62a2f51213882fc159f7104604dff89b3a4366d7"
+    },
+    {
+      "path": "healthcare\\context_only.json",
+      "sha256": "345906a27f5e08e4a79143bd776c568ebf5f47d7261196d5f4b5b878b1e51527"
+    },
+    {
+      "path": "healthcare\\eval_gold.json",
+      "sha256": "c9df49ccbed619558040b9e5f63f10baabe45db8cb3d70bd68fa4c3fc9b386e9"
+    },
+    {
+      "path": "healthcare\\gold\\0.json",
+      "sha256": "6671ace3e5d7a5cbd3781755a61f281fd2dce0f0d72c63cbd58cfa746b6346a1"
+    },
+    {
+      "path": "healthcare\\gold\\1.json",
+      "sha256": "ad534f9e0120d0b42cb7e53e28c56f797d253ed40c616cecdfc8e6b298217fd5"
+    },
+    {
+      "path": "healthcare\\gold\\10.json",
+      "sha256": "b389e77ee41b2582a3cf0e793ccad2235c03188daf5d9b5eaca8704a6e294659"
+    },
+    {
+      "path": "healthcare\\gold\\11.json",
+      "sha256": "6c75bc79c9a6806086b75ac52183424df180063d7739a7e761bdca16f46df60c"
+    },
+    {
+      "path": "healthcare\\gold\\12.json",
+      "sha256": "9ac9f5abbb3f99e5d4262ffce35f86c653a89bfbbc1956293305e4a18de9aff1"
+    },
+    {
+      "path": "healthcare\\gold\\13.json",
+      "sha256": "51f914bf4b12f4243c75909592d869c346cb6ca3b233ccbcc9042221e8864fd4"
+    },
+    {
+      "path": "healthcare\\gold\\14.json",
+      "sha256": "eaef7d1effee8e3cf2186ebb70d15f5bdbc18a2da3cba0377b2a0c7c502d116a"
+    },
+    {
+      "path": "healthcare\\gold\\15.json",
+      "sha256": "f69faea535df417afaf6e3dfe5bae5dcf826fdfa05fab87e449be0fdb25d3078"
+    },
+    {
+      "path": "healthcare\\gold\\16.json",
+      "sha256": "8e1d87222500f1061a77ad86c8f75f39191c87f8a40874a0ce69a1611857d5db"
+    },
+    {
+      "path": "healthcare\\gold\\17.json",
+      "sha256": "3f6fa36f148d6091f4f20597db49f0f10193b6819333044157d0803a981ad446"
+    },
+    {
+      "path": "healthcare\\gold\\18.json",
+      "sha256": "67688960aa82e7888b26a63530d3dcd2247ca3430c65b57bdc5df1a85158b1a1"
+    },
+    {
+      "path": "healthcare\\gold\\19.json",
+      "sha256": "880ff99655f946b683940a9cee25e620809314d84ac42cf97c3fdb17f6b88d23"
+    },
+    {
+      "path": "healthcare\\gold\\2.json",
+      "sha256": "adb3aaac7473216d5f5aaa2afff3180ad36763e00dd049e6e473fb2069298e76"
+    },
+    {
+      "path": "healthcare\\gold\\20.json",
+      "sha256": "47e3e489afa1b57f0a025140bef7708a4f1b8a3643f43a30068a35346c9a2e4c"
+    },
+    {
+      "path": "healthcare\\gold\\21.json",
+      "sha256": "397c8100e82742f0692cd1d9b56af680780c9527874138368b9ea44dfdc8224e"
+    },
+    {
+      "path": "healthcare\\gold\\22.json",
+      "sha256": "8a78eee44a078fe5a02187e8d7c677da52d27f9725f3d0f439f841dc65fd614f"
+    },
+    {
+      "path": "healthcare\\gold\\23.json",
+      "sha256": "f26777be8d18aef4e64b17a7707994dfe3354f2a4283f0c884943a18e390ab4e"
+    },
+    {
+      "path": "healthcare\\gold\\24.json",
+      "sha256": "a1772cd9d4646c289d7351d911d2c3ec5620dfef3fe53867822fc2c81bdb220c"
+    },
+    {
+      "path": "healthcare\\gold\\25.json",
+      "sha256": "138a893cfd2a338914b4cd680efd61806731f5b6aba4d70b95a505923aa32555"
+    },
+    {
+      "path": "healthcare\\gold\\26.json",
+      "sha256": "3c5bc3793885b23ed303d6d480724a0662696895651cee29f333ae3c9cfdd593"
+    },
+    {
+      "path": "healthcare\\gold\\27.json",
+      "sha256": "86bc3a2d3f00b89cbf309f9aa4dbb602aebca21f60d4770fe0f18ce7c412d855"
+    },
+    {
+      "path": "healthcare\\gold\\28.json",
+      "sha256": "9dbda69c96633d101eb5563e34d6c3173f4a47798376d507d275fec4eef3b4a6"
+    },
+    {
+      "path": "healthcare\\gold\\29.json",
+      "sha256": "e230cc3ebe17f1cee89c44bd2f8b9690529184569f77619dd2070af84a8bde02"
+    },
+    {
+      "path": "healthcare\\gold\\3.json",
+      "sha256": "99b6f5fe2252d196c9219ce8b38ec7eed7a67943b6a3daca880abaebab99e428"
+    },
+    {
+      "path": "healthcare\\gold\\30.json",
+      "sha256": "997e4925787f54ee60b72cace28a0d60cc10fbfaf3985ccd78be013c088c65b2"
+    },
+    {
+      "path": "healthcare\\gold\\31.json",
+      "sha256": "fd1529eb9838adfbf1f4fdc50f644ab8809cb8b0d258522d3d5824c45f848a52"
+    },
+    {
+      "path": "healthcare\\gold\\32.json",
+      "sha256": "50eda16a80d42a821f245e97e35182ed332165f31f0aca9808ee9211fa03cf79"
+    },
+    {
+      "path": "healthcare\\gold\\33.json",
+      "sha256": "d3e0751cd52616b9431fe4aa21471d682d82938270f47338f72cbd916c7a2e42"
+    },
+    {
+      "path": "healthcare\\gold\\34.json",
+      "sha256": "d1e50abbe23a486cefa8bc5b1090f77d3a36b961d19018a1d1eac37900df8638"
+    },
+    {
+      "path": "healthcare\\gold\\35.json",
+      "sha256": "37a4dd0cdeec9ecb1273e2bf31c6a665f2c265556c0e059951d093874e76396c"
+    },
+    {
+      "path": "healthcare\\gold\\36.json",
+      "sha256": "151556db4b1cb24d6e9795cfab325b44e5a44f849fe5ea3fc22421a14e9452ef"
+    },
+    {
+      "path": "healthcare\\gold\\37.json",
+      "sha256": "71bdaa45a9dc9006c7f625f82d754bf2770119f00728c3abce2d1981127bd7ba"
+    },
+    {
+      "path": "healthcare\\gold\\38.json",
+      "sha256": "4230eca141666138cc935925a45c85db47d63f168e1e1b44709b1835985b5b30"
+    },
+    {
+      "path": "healthcare\\gold\\39.json",
+      "sha256": "f870d13f14bef4116903fa31c3b334b98b61c2caff1b17535f18e7cd0fd83942"
+    },
+    {
+      "path": "healthcare\\gold\\4.json",
+      "sha256": "f947988dbd392762315135f898fcef5d55b0e5a7fd4d7488c786788a2496e78c"
+    },
+    {
+      "path": "healthcare\\gold\\5.json",
+      "sha256": "a827ea641e7e92bca3dd5acdb656b5228427ad57e9ce81652af57ff5f8f9d48f"
+    },
+    {
+      "path": "healthcare\\gold\\6.json",
+      "sha256": "ab70e93f6475d0d512ef907ac4376a29275f809bd7e91efd55f577437d82ea52"
+    },
+    {
+      "path": "healthcare\\gold\\7.json",
+      "sha256": "65a0bcabcdca9c7301840a5b703df2640c8e15f52937d03914abd37676b28c6a"
+    },
+    {
+      "path": "healthcare\\gold\\8.json",
+      "sha256": "64a21e64bea7dd8c64b1a1c9a0aa45e8d36c0eb064f5853e51d40aa2c5cd877d"
+    },
+    {
+      "path": "healthcare\\gold\\9.json",
+      "sha256": "4c8e29177939ba9c2be500dc2cd169dffa697e1b122df17d2b9563207c2b032a"
+    },
+    {
+      "path": "healthcare\\gold.json",
+      "sha256": "1815d90eba29880052f13f2854ae7bab4810c1d3d4faca16606bb12f131ecf5e"
+    },
+    {
+      "path": "healthcare\\input.json",
+      "sha256": "dec623997a8c355f0135f0119aebbc6110b6e0209aa832001725f61b4f7ea291"
+    },
+    {
+      "path": "healthcare\\review_status.json",
+      "sha256": "1cc08fb076e7041b314c9a7e3869ea99519d1c995d2357302716b6dfed802cc6"
+    },
+    {
+      "path": "pending.json",
+      "sha256": "6f6f60d04ee606236c96cb110d28fbe909583cf99172e7081c4a05c293008553"
+    },
+    {
+      "path": "transportation\\context_only.json",
+      "sha256": "26de98d4f888b1a4e523cf115af6ebe27a5b4c7f094e854138bc6ec1760613e5"
+    },
+    {
+      "path": "transportation\\eval_gold.json",
+      "sha256": "79d6ab2354cb65ea9b40020ee7990edaf962b753266aebf83a51231dc855ce63"
+    },
+    {
+      "path": "transportation\\gold\\0.json",
+      "sha256": "3872d798c8285bf60cfb9e18df9a9a5f39bfea71f27647c9b4b5f122ca39aebe"
+    },
+    {
+      "path": "transportation\\gold\\1.json",
+      "sha256": "8fa3f851b7ec33a63e339cd9ff7097661427b16a11dd9e513de2cda87294e1ad"
+    },
+    {
+      "path": "transportation\\gold\\10.json",
+      "sha256": "6b44e93f03f3e25ba7e11a3aa572b44f597384d77094e7663d6da7c2c5746962"
+    },
+    {
+      "path": "transportation\\gold\\11.json",
+      "sha256": "5caf345504aa6dedc8f092b7adf3f4fdbf7a1e43511d045b59e03daf5ade6016"
+    },
+    {
+      "path": "transportation\\gold\\12.json",
+      "sha256": "726e79422d9ae08d5caf54962f02e517ce3d3e6bad44d9327110530833297d2b"
+    },
+    {
+      "path": "transportation\\gold\\13.json",
+      "sha256": "066c2cfa6ebebf182a46100200fae530e77ad530eb6056344ac301acf09f8135"
+    },
+    {
+      "path": "transportation\\gold\\14.json",
+      "sha256": "90a00fc10090a2a921a152829d797d9252f68befdc10d87bb823158785212096"
+    },
+    {
+      "path": "transportation\\gold\\15.json",
+      "sha256": "b2dd218ad466b162be8ceea04fc7caa7962ce45ae3b7ddd489b523f9e6b3d639"
+    },
+    {
+      "path": "transportation\\gold\\16.json",
+      "sha256": "b85e490cabd777846dcb9d4a4610aaf2807423acfb95d5d03ce41e1afa599fae"
+    },
+    {
+      "path": "transportation\\gold\\17.json",
+      "sha256": "658445118c2eda52d5b375d1de3086ba680ee8239c1d20f533e22db43cb64038"
+    },
+    {
+      "path": "transportation\\gold\\18.json",
+      "sha256": "93e1d2935418c747d0f1126075e38e9faf0bf4b1888850ad2492071ea7318288"
+    },
+    {
+      "path": "transportation\\gold\\19.json",
+      "sha256": "5acc24932a6659a33df606d6985be6c12b1e85d705a2418d121c5c8dc9dbf948"
+    },
+    {
+      "path": "transportation\\gold\\2.json",
+      "sha256": "4b8ca4303d7dbe855e15f20b5032bba9facb57c615bbd2d2359425652aca2534"
+    },
+    {
+      "path": "transportation\\gold\\20.json",
+      "sha256": "78f26c1b6ad8ae1702308a39c144412a55ebfe6c1937d44126c8dd9b7ba2ce23"
+    },
+    {
+      "path": "transportation\\gold\\21.json",
+      "sha256": "bda2b734a51f3c94ca3ebcd4676ad2299c10bb80db322546a934588b054b5d92"
+    },
+    {
+      "path": "transportation\\gold\\22.json",
+      "sha256": "e1303adc54e38f845967a7cf22ef7df5301aa8c773aefbe555d0c4dd699a2a0e"
+    },
+    {
+      "path": "transportation\\gold\\23.json",
+      "sha256": "69e87d859dc0c8daae36da68c75fca259f5869e55c745406de84668198b45396"
+    },
+    {
+      "path": "transportation\\gold\\24.json",
+      "sha256": "c2356e9aa8417cd19eec547ce0c56f148b4cd0e40b36a91fcef46d96219796e9"
+    },
+    {
+      "path": "transportation\\gold\\25.json",
+      "sha256": "928704d2124e92ebcb04904cee614c9f09047a14465617e4e66c3338feb85cdc"
+    },
+    {
+      "path": "transportation\\gold\\26.json",
+      "sha256": "f1da623dfc60973e5727e767fc127a38df29d4d1d5ea0cffd061c74856dd56a3"
+    },
+    {
+      "path": "transportation\\gold\\27.json",
+      "sha256": "a97decd9ffe3921850718c5cf0cd10cc45d1f2c936426cb8108c609b76abcfff"
+    },
+    {
+      "path": "transportation\\gold\\28.json",
+      "sha256": "f5755bfbb7333d4cfc2e12ff225f9226c6223b07cee76f83b9fa3527bc6d604a"
+    },
+    {
+      "path": "transportation\\gold\\29.json",
+      "sha256": "2ed5556f805d2fa0e18341610263448be41a464926b6d55ef2ff308bd03c4991"
+    },
+    {
+      "path": "transportation\\gold\\3.json",
+      "sha256": "a4330c33ca7ff13e29dbcac64868ad649ad76eb91306f8bfe9420db24f26705d"
+    },
+    {
+      "path": "transportation\\gold\\30.json",
+      "sha256": "5b49f64587777778c02860b74a09bc240d31f04baba996c35cb8284d260f0c03"
+    },
+    {
+      "path": "transportation\\gold\\31.json",
+      "sha256": "43bad240e26b17bd0ad990e919c4c8ecc94dcac7df732d0d84775f7b5e71ed4a"
+    },
+    {
+      "path": "transportation\\gold\\32.json",
+      "sha256": "89967d82ae0fa1c7472af69727eb1ce16a29e6e84053d6d502885ddf5aadafdb"
+    },
+    {
+      "path": "transportation\\gold\\33.json",
+      "sha256": "a71e5606fb54bc73175d1e049085e5c3a5602c146f8fb98bc2452d7f186991ff"
+    },
+    {
+      "path": "transportation\\gold\\34.json",
+      "sha256": "b17760c589a80ee553a5201ea1a2da1c5614c4b9dff5864b288d347be5eb8969"
+    },
+    {
+      "path": "transportation\\gold\\35.json",
+      "sha256": "10ab15975b525df41df57450d1378373d096d0b50f11bc78a60d0fe4d98efb92"
+    },
+    {
+      "path": "transportation\\gold\\36.json",
+      "sha256": "5832a32fb65931686663d339b474112cb2ab9aea85e0ed2ef8cff7d66c733dea"
+    },
+    {
+      "path": "transportation\\gold\\37.json",
+      "sha256": "466a4e10428e6ac5f4cac08bbeb853c0310d5852efae7461c0da5120af97419a"
+    },
+    {
+      "path": "transportation\\gold\\38.json",
+      "sha256": "8992bf92e6e433c78313973fb9ce4375e68d63a721a322d63077062287105552"
+    },
+    {
+      "path": "transportation\\gold\\39.json",
+      "sha256": "bbce9f7881006e9fc1d415e033cdf0d08808c7b12b02e1ed227998d44ad86874"
+    },
+    {
+      "path": "transportation\\gold\\4.json",
+      "sha256": "9e206ab44b838cc2387ffcb0a7b30057d34eaac2a807568d5c1c508b5bc94bfc"
+    },
+    {
+      "path": "transportation\\gold\\5.json",
+      "sha256": "f7e65d275a296c4c705218461ff53b85bf1bfc5207227e8d6959efc8274611c8"
+    },
+    {
+      "path": "transportation\\gold\\6.json",
+      "sha256": "18a839b6b45672d02b8cac1c0ba317bd4c45b5b10a27c132aed83c7d7104d146"
+    },
+    {
+      "path": "transportation\\gold\\7.json",
+      "sha256": "a1171e84b090e5882a557d2e42d259b4fadcacf9660211234cfe4bd52ae9404e"
+    },
+    {
+      "path": "transportation\\gold\\8.json",
+      "sha256": "6e1ef6d4f33c87621d5db8ebd0c85d58b397ed3b3edc0157c56ac0dfd7cba720"
+    },
+    {
+      "path": "transportation\\gold\\9.json",
+      "sha256": "c100600f6e4fb523f634cdd53b303e6e17846e43acda436fd07edfb0fad4bfe2"
+    },
+    {
+      "path": "transportation\\gold.json",
+      "sha256": "bd97f869883a6f30092c89778cf5224e24e9830c9e44eaf97448d8240423a754"
+    },
+    {
+      "path": "transportation\\input.json",
+      "sha256": "aebd9b0067db9832d7b75f11aa1f76d0aeff1a9bac391104df5c4a929c0400b2"
+    },
+    {
+      "path": "transportation\\review_status.json",
+      "sha256": "fae53e8a159b9e078c93cd57e4e41becb4586a840ec7c94b8e50c9a605a15eb0"
+    }
+  ]
+}

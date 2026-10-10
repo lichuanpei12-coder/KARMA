@@ -1,0 +1,107 @@
+[
+  {
+    "head": "the present invention",
+    "relation": "provides",
+    "tail": "a method"
+  },
+  {
+    "head": "a method",
+    "relation": "is for merging",
+    "tail": "imprecisely localized traffic reports"
+  },
+  {
+    "head": "a method",
+    "relation": "is for merging imprecisely localized traffic reports with",
+    "tail": "precisely localized traffic data"
+  },
+  {
+    "head": "optimum, precise positions",
+    "relation": "are found for",
+    "tail": "traffic reports"
+  },
+  {
+    "head": "traffic reports",
+    "relation": "have",
+    "tail": "imprecise position indications"
+  },
+  {
+    "head": "optimum, precise positions",
+    "relation": "are found by solving",
+    "tail": "an extremum problem"
+  },
+  {
+    "head": "optimum, precise positions",
+    "relation": "are found based on",
+    "tail": "these functions and certain parameters"
+  },
+  {
+    "head": "weighting factors gx",
+    "relation": "are definable by",
+    "tail": "a-priori knowledge of the quality of a source"
+  },
+  {
+    "head": "the invention",
+    "relation": "is defined solely with regard to",
+    "tail": "the claims appended hereto"
+  },
+  {
+    "head": "the invention",
+    "relation": "is defined solely with regard to",
+    "tail": "equivalents of the recitations therein"
+  },
+  {
+    "head": "the real-time generation of traffic information",
+    "relation": "is for",
+    "tail": "information or navigation services"
+  },
+  {
+    "head": "the real-time generation of traffic information",
+    "relation": "is usually based on",
+    "tail": "multiple data sources"
+  },
+  {
+    "head": "the real-time generation",
+    "relation": "is for the purpose of achieving",
+    "tail": "the best possible quality"
+  },
+  {
+    "head": "embodiments of the invention",
+    "relation": "provide",
+    "tail": "optimum achievement of the data merging object"
+  },
+  {
+    "head": "the data merging object",
+    "relation": "is in the case of",
+    "tail": "incomplete information"
+  },
+  {
+    "head": "the imprecisely localized report",
+    "relation": "competes with",
+    "tail": "lack of knowledge from the traffic situation estimate"
+  },
+  {
+    "head": "the relevant portion of the report",
+    "relation": "is taken as",
+    "tail": "the end product"
+  },
+  {
+    "head": "substitutions of elements",
+    "relation": "are from one embodiment to",
+    "tail": "another"
+  },
+  {
+    "head": "the method",
+    "relation": "includes obtaining",
+    "tail": "a plurality of possible positions (x) of the localized traffic reports"
+  },
+  {
+    "head": "possible positions (x) of the localized traffic reports",
+    "relation": "have",
+    "tail": "imprecise position indications"
+  },
+  {
+    "head": "the position of the traffic disturbance",
+    "relation": "is between",
+    "tail": "the two junctions lie kilometers of highway and 3 additional junctions"
+  }
+]

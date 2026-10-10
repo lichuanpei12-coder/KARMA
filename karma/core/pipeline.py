@@ -13,6 +13,10 @@ import httpx
 from typing import List, Union, Optional, Dict
 from pathlib import Path
 import json
+import hashlib
+import inspect
+
+from .run_artifacts import load_baseline, save_baseline, select_documents, write_json
 
 from openai import OpenAI
 
@@ -149,7 +153,9 @@ class KARMAPipeline:
         self,
         source: Union[str, Path],
         domain: str = "biomedical",
-        relevance_threshold: float = 0.2
+        relevance_threshold: float = 0.2,
+        *, stage: str = "full", baseline_path: Optional[Union[str, Path]] = None,
+        doc_ids: Optional[List[str]] = None, limit: Optional[int] = None,
     ) -> IntermediateOutput:
         # """
         # Process a document and extract knowledge.
@@ -167,120 +173,203 @@ class KARMAPipeline:
 
         try:
             triple = []
-            # Step 1: Load and ingest document
-            raw_text = self._load_document(source)
+            if stage not in {"full", "baseline", "revise"}:
+                raise ValueError("stage must be full, baseline, or revise")
+            if (self.evaluator_agent._dump_dir / "_run_manifest.json").exists():
+                self.evaluator_agent._dump_dir = self.evaluator_agent._dump_dir / f"run_{time.time_ns()}"
+                self.evaluator_agent._dump_dir.mkdir(parents=True)
+                self.evaluator_agent._dump_counter = 0
+            package_path = Path(baseline_path) if baseline_path else self.evaluator_agent._dump_dir / "baseline.json"
+            loaded_package = None
+            if stage == "revise":
+                if baseline_path is None:
+                    raise ValueError("Revision requires a baseline package")
+                loaded_package = load_baseline(package_path)
+                if self.integration_threshold != loaded_package["config"]["integration_threshold"]:
+                    raise ValueError("Revision must use the baseline integration threshold")
+                documents = loaded_package["documents"]
+                raw_text = [d["raw_text"] for d in documents]
+            else:
+                if package_path.exists():
+                    raise FileExistsError(f"Baseline already exists: {package_path}")
+                raw_text = self._load_document(source)
+                texts = raw_text if isinstance(raw_text, list) else [raw_text]
+                ids = [str(i) for i in range(len(texts))]
+                source_path = Path(source)
+                if source_path.is_file() and source_path.suffix.lower() == ".json":
+                    source_data = json.loads(source_path.read_text(encoding="utf-8"))
+                    ids = [str(k) for k, v in source_data.items() if isinstance(v, list)]
+                documents = [{"doc_id": key, "source_index": i, "raw_text": text}
+                             for i, (key, text) in enumerate(zip(ids, texts))]
+            documents = select_documents(documents, doc_ids, limit)
             intermediate.raw_text = raw_text
-
+            baseline_documents = []
+            run_config = self._run_configuration(domain, relevance_threshold)
+            manifest = {"format": "karma_run", "version": 1, "stage": stage,
+                        "complete": False, "config": run_config, "documents": [],
+                        "baseline_config": loaded_package["config"] if loaded_package else run_config,
+                        "baseline_sha256": loaded_package["sha256"] if loaded_package else None}
+            manifest_path = self.evaluator_agent._dump_dir / "_run_manifest.json"
+            # Do not mix two invocations in the same output directory.
+            if manifest_path.exists():
+                raise FileExistsError(f"Run output already exists: {manifest_path.parent}")
+            write_json(manifest_path, manifest)
             self._log("Starting KARMA pipeline...")
-            # JSON collections are loaded as a list of documents.  A PDF, text
-            # file, or raw text is processed as one document.
-            documents = raw_text if isinstance(raw_text, list) else [raw_text]
-            for i, document_text in enumerate(documents):
-                # Feedback belongs to one document only: round 1 starts clean,
-                # and round 2 consumes the comparison produced by round 1.
+            for document in documents:
+                i, document_text = document["source_index"], document["raw_text"]
                 diff = {}
+                conflict_context = (
+                    [KnowledgeTriple.from_dict(x) for x in document["conflict_context"]]
+                    if stage == "revise" else copy.deepcopy(self.knowledge_graph.triples)
+                )
+                run_document = {"doc_id": document["doc_id"], "source_index": i, "rounds": {}}
+                manifest["documents"].append(run_document)
                 print('--------------------------------------------------------------------------')
                 print("carrying out knowledge extraction for the article "+str(i))
-                # Step 2: Ingestion - Extract metadata and normalize text
-                self._log("[1/8] Running Ingestion Agent...")
-                step_start = time.time()
-
-                metadata, normalized_content = self.ingestion_agent.process(document_text)
-                intermediate.metadata = metadata
-
-                import re as _re
-                _PLACEHOLDER = "__NEWLINE_AFTER_PUNCT__"
-
-                # Preserve newline after punctuation marks
-                normalized_content = _re.sub(
-                    r'([.!?])\s*\n',
-                    r'\1' + _PLACEHOLDER,
-                    normalized_content
-                )
-
-                # Collapse single newlines (that are not part of double newlines) to spaces
-                normalized_content = _re.sub(r'(?<!\n)\n(?!\n)', ' ', normalized_content)
-
-                # Restore placeholders
-                normalized_content = normalized_content.replace(_PLACEHOLDER, '\n')
-
-                step_time = time.time() - step_start
-                intermediate.metrics.add_agent_time("ingestion", step_time)
-                self._log(f"[1/8] Ingestion completed in {step_time:.2f}s")
-
-                # Step 3: Reader - Segment and score relevance
-                self._log("[2/8] Running Reader Agent...")
-                step_start = time.time()
-
-                # ---- NEW: 确保返回的始终是字典列表 ----
-                all_segments, relevant_segments = self.reader_agent.process(
-                    normalized_content, relevance_threshold
-                )
-
-                # 如果 ReaderAgent 不小心返回了字符串列表，统一包装为字典
-                def _ensure_dicts(seg_list: List) -> List[Dict]:
-                    cleaned: List[Dict] = []
-                    for idx, seg in enumerate(seg_list):
-                        if isinstance(seg, dict):
-                            cleaned.append(seg)
-                        else:  # seg 是普通字符串
-                            txt = str(seg)
-                            cleaned.append({
-                                "text": txt,
-                                "score": 0.0,
-                                "section": self.reader_agent._identify_section_type(txt),
-                                "position": idx,
-                                "word_count": len(txt.split()),
-                            })
-                    return cleaned
-
-                all_segments = _ensure_dicts(all_segments)
-                relevant_segments = _ensure_dicts(relevant_segments)
-                # -----------------------------------------
-
-                intermediate.segments = all_segments
-                intermediate.relevant_segments = relevant_segments
-
-                step_time = time.time() - step_start
-                intermediate.metrics.add_agent_time("reader", step_time)
-                self._log(
-                    f"[2/8] Reader completed in {step_time:.2f}s. "
-                    f"Segments: {len(all_segments)}, Relevant: {len(relevant_segments)}"
-                )
-
-                # Step 4: Summarizer - Create concise summaries
-                step_start = time.time()
-                if os.environ.get("KARMA_USE_SUMMARIZER"):
-                    # 显式开启 summarizer（默认跳过，直接用原文抽取以与 gold 原文对齐）
-                    self._log("[3/8] Running Summarizer Agent...")
-                    summaries, texts = self.summarizer_agent.process(normalized_content)
+                if stage == "revise":
+                    preparation = document["preparation"]
+                    intermediate.metadata = DocumentMetadata(**preparation["metadata"]) if preparation["metadata"] else None
+                    intermediate.segments = copy.deepcopy(preparation["segments"])
+                    intermediate.relevant_segments = copy.deepcopy(preparation["relevant_segments"])
+                    intermediate.summaries = list(preparation["summaries"])
+                    summaries = intermediate.summaries
+                    extraction_text = document["extraction_text"]
+                    intermediate.initial_relationships = [KnowledgeTriple.from_dict(x) for x in document["initial_relationships"]]
                 else:
-                    self._log("[3/8] 跳过 Summarizer，直接用原文抽取")
-                    summaries = [normalized_content]
-                    texts = [normalized_content]
-                print(summaries)
-                intermediate.summaries = summaries
-                extraction_text = "\n".join(summaries)
+                    # Step 2: Ingestion - Extract metadata and normalize text
+                    self._log("[1/8] Running Ingestion Agent...")
+                    step_start = time.time()
 
-                step_time = time.time() - step_start
-                intermediate.metrics.add_agent_time("summarizer", step_time)
-                self._log(f"[3/8] Summarizer completed in {step_time:.2f}s. Summaries: {len(summaries)}")
+                    metadata, normalized_content = self.ingestion_agent.process(document_text)
+                    intermediate.metadata = metadata
+
+                    import re as _re
+                    _PLACEHOLDER = "__NEWLINE_AFTER_PUNCT__"
+
+                    # Preserve newline after punctuation marks
+                    normalized_content = _re.sub(
+                        r'([.!?])\s*\n',
+                        r'\1' + _PLACEHOLDER,
+                        normalized_content
+                    )
+
+                    # Collapse single newlines (that are not part of double newlines) to spaces
+                    normalized_content = _re.sub(r'(?<!\n)\n(?!\n)', ' ', normalized_content)
+
+                    # Restore placeholders
+                    normalized_content = normalized_content.replace(_PLACEHOLDER, '\n')
+
+                    step_time = time.time() - step_start
+                    intermediate.metrics.add_agent_time("ingestion", step_time)
+                    self._log(f"[1/8] Ingestion completed in {step_time:.2f}s")
+
+                    # Step 3: Reader - Segment and score relevance
+                    self._log("[2/8] Running Reader Agent...")
+                    step_start = time.time()
+
+                    # ---- NEW: 确保返回的始终是字典列表 ----
+                    all_segments, relevant_segments = self.reader_agent.process(
+                        normalized_content, relevance_threshold
+                    )
+
+                    # 如果 ReaderAgent 不小心返回了字符串列表，统一包装为字典
+                    def _ensure_dicts(seg_list: List) -> List[Dict]:
+                        cleaned: List[Dict] = []
+                        for idx, seg in enumerate(seg_list):
+                            if isinstance(seg, dict):
+                                cleaned.append(seg)
+                            else:  # seg 是普通字符串
+                                txt = str(seg)
+                                cleaned.append({
+                                    "text": txt,
+                                    "score": 0.0,
+                                    "section": self.reader_agent._identify_section_type(txt),
+                                    "position": idx,
+                                    "word_count": len(txt.split()),
+                                })
+                        return cleaned
+
+                    all_segments = _ensure_dicts(all_segments)
+                    relevant_segments = _ensure_dicts(relevant_segments)
+                    # -----------------------------------------
+
+                    intermediate.segments = all_segments
+                    intermediate.relevant_segments = relevant_segments
+
+                    step_time = time.time() - step_start
+                    intermediate.metrics.add_agent_time("reader", step_time)
+                    self._log(
+                        f"[2/8] Reader completed in {step_time:.2f}s. "
+                        f"Segments: {len(all_segments)}, Relevant: {len(relevant_segments)}"
+                    )
+
+                    # Step 4: Summarizer - Create concise summaries
+                    step_start = time.time()
+                    if os.environ.get("KARMA_USE_SUMMARIZER"):
+                        # 显式开启 summarizer（默认跳过，直接用原文抽取以与 gold 原文对齐）
+                        self._log("[3/8] Running Summarizer Agent...")
+                        summaries, texts = self.summarizer_agent.process(normalized_content)
+                    else:
+                        self._log("[3/8] 跳过 Summarizer，直接用原文抽取")
+                        summaries = [normalized_content]
+                        texts = [normalized_content]
+                    print(summaries)
+                    intermediate.summaries = summaries
+                    extraction_text = "\n".join(summaries)
+
+                    step_time = time.time() - step_start
+                    intermediate.metrics.add_agent_time("summarizer", step_time)
+                    self._log(f"[3/8] Summarizer completed in {step_time:.2f}s. Summaries: {len(summaries)}")
 
                     
-                    # # Step 4.5: Entity Counter - count entities
-                    # self._log("[3.5/8] Running Entity Extraction Agent...")
-                    # step_start = time.time()
+                        # # Step 4.5: Entity Counter - count entities
+                        # self._log("[3.5/8] Running Entity Extraction Agent...")
+                        # step_start = time.time()
 
-                    # counter = self.entity_counter_agent.process(summaries)
+                        # counter = self.entity_counter_agent.process(summaries)
 
-                    # step_time = time.time() - step_start
-                    # intermediate.metrics.add_agent_time("entity_extraction", step_time)
-                    # self._log(f"[3.5/8] Entity extraction completed in {step_time:.2f}s. Entities: {len(entities)}")
+                        # step_time = time.time() - step_start
+                        # intermediate.metrics.add_agent_time("entity_extraction", step_time)
+                        # self._log(f"[3.5/8] Entity extraction completed in {step_time:.2f}s. Entities: {len(entities)}")
                 # Round 1 creates the baseline. Round 2 revises that baseline
                 # with explicit add/remove/replace operations grounded in source.
-                initial_entities: List[KGEntity] = []
-                baseline_triples: List[KnowledgeTriple] = []
-                for t in range(2):
+                initial_entities = ([KGEntity.from_dict(x) for x in document["initial_entities"]]
+                                    if stage == "revise" else [])
+                baseline_triples = ([KnowledgeTriple.from_dict(x) for x in document["baseline_triples"]]
+                                    if stage == "revise" else [])
+                if stage == "revise":
+                    intermediate.initial_entities = copy.deepcopy(initial_entities)
+                    intermediate.baseline_triples = copy.deepcopy(baseline_triples)
+                    run_document["rounds"]["1"] = [x.to_dict() for x in baseline_triples]
+                rounds = (0,) if stage == "baseline" else (1,) if stage == "revise" else (0, 1)
+                for t in rounds:
+                    if t == 1:
+                        self._log("[7.5/8] Running Text Generation Agent...")
+                        step_start = time.time()
+                        text_generation = self.text_generation_agent.process(
+                            baseline_triples
+                        )
+                        print(text_generation)
+                        step_time = time.time() - step_start
+                        intermediate.metrics.add_agent_time("text_generation", step_time)
+                        self._log(
+                            f"[7.5/8] Text generation completed in {step_time:.2f}s."
+                        )
+
+                        self._log("[9/8] Running Comparison Agent...")
+                        step_start = time.time()
+                        diff = self.text_comparison_agent.process(
+                            extraction_text, text_generation
+                        )
+                        with open(self.evaluator_agent._dump_dir / f"_dump_doc{i}_feedback.json", "w", encoding="utf-8") as _f:
+                            json.dump({"text_a": extraction_text, "text_b": text_generation, "diff": diff}, _f, ensure_ascii=False, indent=2)
+                        print(diff)
+                        step_time = time.time() - step_start
+                        intermediate.metrics.add_agent_time("diff", step_time)
+                        self._log(
+                            f"[9/8] Comparison completed in {step_time:.2f}s. "
+                            f"Integrated: {len(baseline_triples)}"
+                        )
                     # Step 5: Entity Extraction - Identify entities
                     self._log("[4/8] Running Entity Extraction Agent...")
                     step_start = time.time()
@@ -378,7 +467,7 @@ class KARMAPipeline:
                     step_start = time.time()
 
                     resolved_relationships = self.conflict_resolution_agent.process(
-                        relationships, self.knowledge_graph.triples
+                        relationships, conflict_context
                     )
                     intermediate.final_triples = resolved_relationships
 
@@ -392,6 +481,7 @@ class KARMAPipeline:
 
                     integrated_triples = self.evaluator_agent.process(resolved_relationships)
                     intermediate.integrated_triples = integrated_triples
+                    run_document["rounds"][str(t + 1)] = [x.to_dict() for x in integrated_triples]
                     if t == 1:
                         revision_result = {
                             # 第一轮最终结果：第二轮修改的基础
@@ -437,36 +527,21 @@ class KARMAPipeline:
                     if t == 0:
                         baseline_triples = copy.deepcopy(integrated_triples)
                         intermediate.baseline_triples = copy.deepcopy(baseline_triples)
+                        baseline_documents.append({
+                            "doc_id": document["doc_id"], "source_index": i,
+                            "raw_text": document_text, "extraction_text": extraction_text,
+                            "initial_entities": [x.to_dict() for x in initial_entities],
+                            "initial_relationships": [x.to_dict() for x in intermediate.initial_relationships],
+                            "baseline_triples": [x.to_dict() for x in baseline_triples],
+                            "conflict_context": [x.to_dict() for x in conflict_context],
+                            "preparation": {
+                                "metadata": intermediate.metadata.to_dict() if intermediate.metadata else None,
+                                "segments": copy.deepcopy(intermediate.segments),
+                                "relevant_segments": copy.deepcopy(intermediate.relevant_segments),
+                                "summaries": list(summaries),
+                            },
+                        })
 
-                        self._log("[7.5/8] Running Text Generation Agent...")
-                        step_start = time.time()
-                        text_generation = self.text_generation_agent.process(
-                            baseline_triples
-                        )
-                        print(text_generation)
-                        step_time = time.time() - step_start
-                        intermediate.metrics.add_agent_time("text_generation", step_time)
-                        self._log(
-                            f"[7.5/8] Text generation completed in {step_time:.2f}s."
-                        )
-
-                        self._log("[9/8] Running Comparison Agent...")
-                        step_start = time.time()
-                        diff = self.text_comparison_agent.process(
-                            extraction_text, text_generation
-                        )
-                        with open(self.evaluator_agent._dump_dir / f"_dump_doc{i}_feedback.json", "w", encoding="utf-8") as _f:
-                            json.dump({"text_a": extraction_text, "text_b": text_generation, "diff": diff}, _f, ensure_ascii=False, indent=2)
-                        print(diff)
-                        step_time = time.time() - step_start
-                        intermediate.metrics.add_agent_time("diff", step_time)
-                        self._log(
-                            f"[9/8] Comparison completed in {step_time:.2f}s. "
-                            f"Integrated: {len(integrated_triples)}"
-                        )
-                
-                
-                
                 # Step 10: Update Knowledge Graph
                 final_entities = self._entities_from_triples(integrated_triples, entities)
                 intermediate.entities = final_entities
@@ -480,12 +555,36 @@ class KARMAPipeline:
 
                 self._log(f"KARMA pipeline completed in {total_time:.2f}s. Added {len(integrated_triples)} knowledge triples.")
 
+                write_json(manifest_path, manifest)
+
+            if stage != "revise":
+                package = save_baseline(package_path, run_config, baseline_documents)
+                manifest["baseline_sha256"] = package["sha256"]
+            manifest["complete"] = True
+            write_json(manifest_path, manifest)
+            self.last_run_manifest = manifest
+            self.last_baseline_path = package_path
             return intermediate
 
         except Exception as e:
             intermediate.metrics.error_count += 1
             logger.error(f"Pipeline failed: {str(e)}")
             raise
+
+    def _run_configuration(self, domain, relevance_threshold):
+        # Record reproducibility information only; never serialize API credentials.
+        agents = (self.entity_extraction_agent, self.relationship_extraction_agent,
+                  self.text_generation_agent, self.text_comparison_agent,
+                  self.conflict_resolution_agent, self.evaluator_agent)
+        hashes = {}
+        for agent in agents:
+            module_path = Path(inspect.getfile(type(agent)))
+            hashes[type(agent).__name__] = hashlib.sha256(module_path.read_bytes()).hexdigest()
+        return {"model": self.model_name, "api_mode": self.api_mode,
+                "integration_threshold": self.integration_threshold,
+                "relevance_threshold": relevance_threshold, "domain": domain,
+                "use_summarizer": bool(os.environ.get("KARMA_USE_SUMMARIZER")),
+                "agent_code_sha256": hashes}
 
     @staticmethod
     def _entities_from_triples(triples: List[KnowledgeTriple], candidates: List[KGEntity]) -> List[KGEntity]:

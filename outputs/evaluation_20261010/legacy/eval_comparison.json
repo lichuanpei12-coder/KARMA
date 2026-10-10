@@ -1,0 +1,217 @@
+{
+  "protocol": "lexical-one-to-one-v1",
+  "input": {
+    "result_dir": "E:\\huawei after\\KARMA\\data\\result\\184412",
+    "gold_source": "E:\\huawei after\\KARMA\\data\\DocIOE\\transport\\0.json",
+    "layout": "legacy_two_rounds",
+    "stage": "legacy",
+    "unused_gold_ids": [],
+    "warnings": [
+      "Legacy alignment assumes files 2i/2i+1 correspond to Gold in its recorded order; IDs cannot be verified."
+    ],
+    "aligned_triples_sha256": "4c1b990c7d9e3044724ebc1623948e96e545709811bde9e3a8f4f7d985ffac80"
+  },
+  "rules": {
+    "strict": "Whitespace cleanup only; case, punctuation and word order retained; binary equality in all fields.",
+    "lenient": "lower().split(); per-field Counter intersection; all three fields need positive overlap; no score threshold.",
+    "assignment": "Strict: maximum equality-pair count. Lenient: maximum SUM of pair F1, deterministic index-order ties.",
+    "aggregation": "micro P=sum(pair P)/all predictions; R=sum(pair R)/all gold; F1=harmonic(P,R). Unmatched contributes zero.",
+    "macro": "Mean per-document P and R, then harmonic mean (legacy convention); NOT mean document/pair F1.",
+    "empty": "Zero denominators produce zero; empty-field triples never match but remain in denominators.",
+    "duplicates": "Preserve all entries; report equality groups; one-to-one matching penalizes excess predictions.",
+    "language": "Whitespace tokenization, designed for English. No stemming, stopword removal, synonyms or language-specific rules.",
+    "interpretation": "Lenient scores measure lexical overlap, not whole-triple factual correctness; not the official CaRB protocol."
+  },
+  "document_ids": [
+    "0"
+  ],
+  "metrics": {
+    "strict": {
+      "R1": {
+        "micro": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "precision_sum": 0.0,
+          "recall_sum": 0.0,
+          "num_pred": 17,
+          "num_gold": 35,
+          "selected_pairs": 0,
+          "unmatched_pred": 17,
+          "unmatched_gold": 35,
+          "tp": 0,
+          "fp": 17,
+          "fn": 35
+        },
+        "macro": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "per_doc": [
+          {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "precision_sum": 0.0,
+            "recall_sum": 0.0,
+            "num_pred": 17,
+            "num_gold": 35,
+            "selected_pairs": 0,
+            "unmatched_pred": 17,
+            "unmatched_gold": 35,
+            "tp": 0,
+            "fp": 17,
+            "fn": 35,
+            "doc": "0",
+            "gold_key": "0",
+            "gold_duplicate_groups": [],
+            "pred_duplicate_groups": []
+          }
+        ]
+      },
+      "R2": {
+        "micro": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "precision_sum": 0.0,
+          "recall_sum": 0.0,
+          "num_pred": 23,
+          "num_gold": 35,
+          "selected_pairs": 0,
+          "unmatched_pred": 23,
+          "unmatched_gold": 35,
+          "tp": 0,
+          "fp": 23,
+          "fn": 35
+        },
+        "macro": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "per_doc": [
+          {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "precision_sum": 0.0,
+            "recall_sum": 0.0,
+            "num_pred": 23,
+            "num_gold": 35,
+            "selected_pairs": 0,
+            "unmatched_pred": 23,
+            "unmatched_gold": 35,
+            "tp": 0,
+            "fp": 23,
+            "fn": 35,
+            "doc": "0",
+            "gold_key": "0",
+            "gold_duplicate_groups": [],
+            "pred_duplicate_groups": []
+          }
+        ]
+      },
+      "delta_micro": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "delta_macro": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    },
+    "lenient": {
+      "R1": {
+        "micro": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "precision_sum": 0.0,
+          "recall_sum": 0.0,
+          "num_pred": 17,
+          "num_gold": 35,
+          "selected_pairs": 0,
+          "unmatched_pred": 17,
+          "unmatched_gold": 35
+        },
+        "macro": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "per_doc": [
+          {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "precision_sum": 0.0,
+            "recall_sum": 0.0,
+            "num_pred": 17,
+            "num_gold": 35,
+            "selected_pairs": 0,
+            "unmatched_pred": 17,
+            "unmatched_gold": 35,
+            "doc": "0",
+            "gold_key": "0",
+            "gold_duplicate_groups": [],
+            "pred_duplicate_groups": []
+          }
+        ]
+      },
+      "R2": {
+        "micro": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "precision_sum": 0.0,
+          "recall_sum": 0.0,
+          "num_pred": 23,
+          "num_gold": 35,
+          "selected_pairs": 0,
+          "unmatched_pred": 23,
+          "unmatched_gold": 35
+        },
+        "macro": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "per_doc": [
+          {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "precision_sum": 0.0,
+            "recall_sum": 0.0,
+            "num_pred": 23,
+            "num_gold": 35,
+            "selected_pairs": 0,
+            "unmatched_pred": 23,
+            "unmatched_gold": 35,
+            "doc": "0",
+            "gold_key": "0",
+            "gold_duplicate_groups": [],
+            "pred_duplicate_groups": []
+          }
+        ]
+      },
+      "delta_micro": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "delta_macro": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    }
+  },
+  "csv_verified": true,
+  "csv_file": "match_comparison.csv",
+  "csv_sha256": "f00a65dd36070d898908c1d2a5411ab5ab071a896dc8f76a5dca19a1caea9a86"
+}

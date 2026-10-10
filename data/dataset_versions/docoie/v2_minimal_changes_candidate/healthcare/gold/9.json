@@ -1,0 +1,102 @@
+[
+  {
+    "head": "autoinjector devices",
+    "relation": "aim to make self-injection easier for",
+    "tail": "patients"
+  },
+  {
+    "head": "the control element",
+    "relation": "may be coupled to",
+    "tail": "the needle cap"
+  },
+  {
+    "head": "the control element",
+    "relation": "may be coupled to",
+    "tail": "the cartridge"
+  },
+  {
+    "head": "nucleic acids",
+    "relation": "may be incorporated into",
+    "tail": "molecular delivery systems"
+  },
+  {
+    "head": "molecular delivery systems",
+    "relation": "are such as",
+    "tail": "vectors"
+  },
+  {
+    "head": "molecular delivery systems",
+    "relation": "are such as",
+    "tail": "plasmids"
+  },
+  {
+    "head": "molecular delivery systems",
+    "relation": "are such as",
+    "tail": "liposomes"
+  },
+  {
+    "head": "improper handling of drug delivery devices",
+    "relation": "may result in",
+    "tail": "needle stick injuries"
+  },
+  {
+    "head": "drug delivery devices",
+    "relation": "typically fall into",
+    "tail": "two categories"
+  },
+  {
+    "head": "two categories",
+    "relation": "are",
+    "tail": "manual devices and autoinjectors"
+  },
+  {
+    "head": "the activating element",
+    "relation": "is guidable within",
+    "tail": "the slot"
+  },
+  {
+    "head": "the activating element",
+    "relation": "abuts",
+    "tail": "the first stop in the initial position"
+  },
+  {
+    "head": "the antibody",
+    "relation": "has reduced or no ability to bind",
+    "tail": "an Fc receptor"
+  },
+  {
+    "head": "the pharmaceutical formulations of the present disclosure",
+    "relation": "encompass any formulation made by admixing a compound described herein and",
+    "tail": "a pharmaceutically acceptable carrier"
+  },
+  {
+    "head": "pharmaceutically acceptable solvates",
+    "relation": "are for example",
+    "tail": "hydrates"
+  },
+  {
+    "head": "pharmaceutically acceptable solvates",
+    "relation": "are for example",
+    "tail": "alkanolates"
+  },
+  {
+    "head": "alkanolates",
+    "relation": "are such as",
+    "tail": "methanolates"
+  },
+  {
+    "head": "alkanolates",
+    "relation": "are such as",
+    "tail": "ethanolates"
+  },
+  {
+    "head": "the term \"antibody\"",
+    "relation": "refers to",
+    "tail": "an immunoglobulin molecule or an antigen-binding portion thereof"
+  },
+  {
+    "head": "the term \"antibody\"",
+    "relation": "is as used herein",
+    "tail": ""
+  }
+]

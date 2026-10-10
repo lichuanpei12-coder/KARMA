@@ -1,0 +1,15 @@
+{
+  "version": "b1",
+  "created": "2026-09-15",
+  "status": "HISTORICAL_SNAPSHOT",
+  "files": [
+    {
+      "path": "gold.json",
+      "sha256": "41a9b577bc8873fbe464b58384904a30c71a25f404347bb8b4b20b92ee0b049a"
+    },
+    {
+      "path": "input.json",
+      "sha256": "13366959b65c0ceabd650df587f9f55bef3308de41ad4ae6f050b6e38ae69b61"
+    }
+  ]
+}

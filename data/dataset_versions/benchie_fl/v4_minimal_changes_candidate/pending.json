@@ -1,0 +1,263 @@
+[
+  {
+    "dataset": "benchie_fl",
+    "sentence_id": "benchie_34",
+    "source_ids": [
+      8
+    ],
+    "question": "能否分别断言该职业在这个国家有人参加？整组来自三国不必然支持六个职业×国家组合。",
+    "original_annotations": [
+      {
+        "head": "They",
+        "relation": "held first Triangle workshop for sculptors from",
+        "tail": "US"
+      }
+    ]
+  },
+  {
+    "dataset": "benchie_fl",
+    "sentence_id": "benchie_34",
+    "source_ids": [
+      9
+    ],
+    "question": "能否分别断言该职业在这个国家有人参加？整组来自三国不必然支持六个职业×国家组合。",
+    "original_annotations": [
+      {
+        "head": "They",
+        "relation": "held first Triangle workshop for sculptors from",
+        "tail": "UK"
+      }
+    ]
+  },
+  {
+    "dataset": "benchie_fl",
+    "sentence_id": "benchie_34",
+    "source_ids": [
+      10
+    ],
+    "question": "能否分别断言该职业在这个国家有人参加？整组来自三国不必然支持六个职业×国家组合。",
+    "original_annotations": [
+      {
+        "head": "They",
+        "relation": "held first Triangle workshop for sculptors from",
+        "tail": "Canada"
+      }
+    ]
+  },
+  {
+    "dataset": "benchie_fl",
+    "sentence_id": "benchie_34",
+    "source_ids": [
+      11
+    ],
+    "question": "能否分别断言该职业在这个国家有人参加？整组来自三国不必然支持六个职业×国家组合。",
+    "original_annotations": [
+      {
+        "head": "They",
+        "relation": "held first Triangle workshop for painters from",
+        "tail": "US"
+      }
+    ]
+  },
+  {
+    "dataset": "benchie_fl",
+    "sentence_id": "benchie_34",
+    "source_ids": [
+      12
+    ],
+    "question": "能否分别断言该职业在这个国家有人参加？整组来自三国不必然支持六个职业×国家组合。",
+    "original_annotations": [
+      {
+        "head": "They",
+        "relation": "held first Triangle workshop for painters from",
+        "tail": "UK"
+      }
+    ]
+  },
+  {
+    "dataset": "benchie_fl",
+    "sentence_id": "benchie_34",
+    "source_ids": [
+      13
+    ],
+    "question": "能否分别断言该职业在这个国家有人参加？整组来自三国不必然支持六个职业×国家组合。",
+    "original_annotations": [
+      {
+        "head": "They",
+        "relation": "held first Triangle workshop for painters from",
+        "tail": "Canada"
+      }
+    ]
+  },
+  {
+    "dataset": "benchie_fl",
+    "sentence_id": "benchie_240",
+    "source_ids": [
+      3
+    ],
+    "question": "这里是否将 their screen projection 单列为对象具有投影的结构事实？试处理先保留原标注待确认。",
+    "original_annotations": [
+      {
+        "head": "These objects",
+        "relation": "have",
+        "tail": "screen projection"
+      }
+    ]
+  },
+  {
+    "dataset": "benchie_fl",
+    "sentence_id": "benchie_85",
+    "source_ids": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "question": "19条是否独立计分，以及时间是否对各主体/动作逐项展开；用户已质疑。暂保留旧19条，不擅自压缩为3条。",
+    "original_annotations": [
+      {
+        "head": "These skills",
+        "relation": "were",
+        "tail": "readily proven"
+      },
+      {
+        "head": "These skills",
+        "relation": "were readily proven when",
+        "tail": "squadrons were mobilized"
+      },
+      {
+        "head": "These skills",
+        "relation": "were readily proven when",
+        "tail": "personnel were mobilized"
+      },
+      {
+        "head": "These skills",
+        "relation": "were readily proven when",
+        "tail": "squadrons were recalled back to active duty"
+      },
+      {
+        "head": "These skills",
+        "relation": "were readily proven when",
+        "tail": "personnel were recalled back to active duty"
+      },
+      {
+        "head": "These skills",
+        "relation": "were readily proven during",
+        "tail": "Korean War"
+      },
+      {
+        "head": "These skills",
+        "relation": "were readily proven during",
+        "tail": "Berlin Crisis"
+      },
+      {
+        "head": "squadrons",
+        "relation": "were mobilized during",
+        "tail": "Korean War"
+      },
+      {
+        "head": "squadrons",
+        "relation": "were mobilized during",
+        "tail": "Berlin Crisis"
+      },
+      {
+        "head": "personnel",
+        "relation": "were mobilized during",
+        "tail": "Korean War"
+      },
+      {
+        "head": "personnel",
+        "relation": "were mobilized during",
+        "tail": "Berlin Crisis"
+      },
+      {
+        "head": "squadrons",
+        "relation": "were recalled back to active duty during",
+        "tail": "Korean War"
+      },
+      {
+        "head": "squadrons",
+        "relation": "were recalled back to active duty during",
+        "tail": "Berlin Crisis"
+      },
+      {
+        "head": "personnel",
+        "relation": "were recalled back to active duty during",
+        "tail": "Korean War"
+      },
+      {
+        "head": "personnel",
+        "relation": "were recalled back to active duty during",
+        "tail": "Berlin Crisis"
+      },
+      {
+        "head": "squadrons",
+        "relation": "were",
+        "tail": "mobilized"
+      },
+      {
+        "head": "personnel",
+        "relation": "were",
+        "tail": "mobilized"
+      },
+      {
+        "head": "squadrons",
+        "relation": "were",
+        "tail": "recalled back to active duty"
+      },
+      {
+        "head": "personnel",
+        "relation": "were recalled back to",
+        "tail": "active duty"
+      }
+    ]
+  },
+  {
+    "dataset": "benchie_fl",
+    "sentence_id": "benchie_1",
+    "source_ids": [
+      1,
+      2,
+      4,
+      5
+    ],
+    "question": "带限定与不带限定的任职表达是否分别计分，和第85句同属粒度问题；暂保持原条目。",
+    "original_annotations": [
+      {
+        "head": "He",
+        "relation": "served as",
+        "tail": "Prime Minister"
+      },
+      {
+        "head": "He",
+        "relation": "served as",
+        "tail": "first Prime Minister of Australia"
+      },
+      {
+        "head": "He",
+        "relation": "became",
+        "tail": "founding justice"
+      },
+      {
+        "head": "He",
+        "relation": "became founding justice of",
+        "tail": "High Court of Australia"
+      }
+    ]
+  }
+]

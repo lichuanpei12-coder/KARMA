@@ -1,0 +1,127 @@
+[
+  {
+    "head": "medical imaging methods",
+    "relation": "are",
+    "tail": "based on x-rays"
+  },
+  {
+    "head": "medical imaging methods based on x-rays",
+    "relation": "have",
+    "tail": "a wide diagnostic application range"
+  },
+  {
+    "head": "the apparatus for medical examinations",
+    "relation": "includes",
+    "tail": "a second arm"
+  },
+  {
+    "head": "a second arm",
+    "relation": "may be rotated about",
+    "tail": "the axis"
+  },
+  {
+    "head": "a second arm",
+    "relation": "may be rotated at least in",
+    "tail": "sections"
+  },
+  {
+    "head": "the arm",
+    "relation": "may make",
+    "tail": "comparatively small rotational movements"
+  },
+  {
+    "head": "the arm making comparatively small rotational movements",
+    "relation": "is in order to realize",
+    "tail": "complex trajectories"
+  },
+  {
+    "head": "angiography",
+    "relation": "is",
+    "tail": "an important field"
+  },
+  {
+    "head": "these aims",
+    "relation": "prevail in",
+    "tail": "the important field"
+  },
+  {
+    "head": "the second arm",
+    "relation": "is attached to",
+    "tail": "the first arm"
+  },
+  {
+    "head": "a rotation of the first arm",
+    "relation": "rotates",
+    "tail": "the second arm"
+  },
+  {
+    "head": "several recordings",
+    "relation": "are performed from",
+    "tail": "different positions"
+  },
+  {
+    "head": "the reconstruction quality",
+    "relation": "is not far from",
+    "tail": "that of a 3D reconstruction"
+  },
+  {
+    "head": "a 3D reconstruction",
+    "relation": "is with",
+    "tail": "the aid of a modern CT device"
+  },
+  {
+    "head": "the rigid C-arm",
+    "relation": "is divided into",
+    "tail": "two arms for the description of trajectories"
+  },
+  {
+    "head": "the rigid C-arm divided into two arms",
+    "relation": "is for",
+    "tail": "the description of trajectories"
+  },
+  {
+    "head": "trajectories",
+    "relation": "is with respect to",
+    "tail": "the region examined using the emitter and detector"
+  },
+  {
+    "head": "the region",
+    "relation": "is examined using",
+    "tail": "the emitter and detector"
+  },
+  {
+    "head": "these components",
+    "relation": "are for example",
+    "tail": "a drive controller and/or regulator"
+  },
+  {
+    "head": "these components",
+    "relation": "are for example",
+    "tail": "a voltage transformer"
+  },
+  {
+    "head": "these components",
+    "relation": "are for example",
+    "tail": "a water coupling"
+  },
+  {
+    "head": "these components",
+    "relation": "are for example",
+    "tail": "a data coupling"
+  },
+  {
+    "head": "these components",
+    "relation": "are for example",
+    "tail": "a power supply coupling"
+  },
+  {
+    "head": "the drive technology or structural design point of view",
+    "relation": "forms",
+    "tail": "the basis for maintaining the repetition accuracy"
+  },
+  {
+    "head": "these maximum accelerations",
+    "relation": "are severely restricted",
+    "tail": ""
+  }
+]

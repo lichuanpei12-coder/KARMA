@@ -1,0 +1,178 @@
+{
+  "benchie_122": [
+    {
+      "head": "Series 109",
+      "relation": "is",
+      "tail": "backed"
+    },
+    {
+      "head": "Series 109",
+      "relation": "is backed by",
+      "tail": "Freddie Mac 10 % securities"
+    }
+  ],
+  "benchie_123": [
+    {
+      "head": "The 10.48 % yield",
+      "relation": "represents",
+      "tail": "a spread"
+    },
+    {
+      "head": "The 10.48 % yield",
+      "relation": "represents a spread to",
+      "tail": "the 20 - year Treasury"
+    }
+  ],
+  "benchie_124": [
+    {
+      "head": "Orkem",
+      "relation": "said",
+      "tail": "it would fund the acquisition"
+    },
+    {
+      "head": "Orkem",
+      "relation": "said",
+      "tail": "it would fund the acquisition through internal resources"
+    }
+  ],
+  "benchie_125": [
+    {
+      "head": "`` I",
+      "relation": "ca n't",
+      "tail": "do anything score - wise"
+    },
+    {
+      "head": "I",
+      "relation": "like",
+      "tail": "meeting the girls"
+    }
+  ],
+  "benchie_126": [
+    {
+      "head": "New York bonds",
+      "relation": "have been",
+      "tail": "hammered"
+    },
+    {
+      "head": "New York bonds",
+      "relation": "have been hammered",
+      "tail": "in recent weeks"
+    },
+    {
+      "head": "New York bonds",
+      "relation": "rose",
+      "tail": "1\\/2 point"
+    },
+    {
+      "head": "New York bonds",
+      "relation": "rose 1\\/2 point",
+      "tail": "yesterday"
+    }
+  ],
+  "benchie_127": [
+    {
+      "head": "Four other countries in Europe",
+      "relation": "have approved",
+      "tail": "Proleukin"
+    },
+    {
+      "head": "Four other countries in Europe",
+      "relation": "have approved Proleukin in",
+      "tail": "recent months"
+    }
+  ],
+  "benchie_128": [
+    {
+      "head": "General Dynamics Corp",
+      "relation": "was given an $ 843 million Air Force contract for",
+      "tail": "F - 16 aircraft"
+    }
+  ],
+  "benchie_129": [
+    {
+      "head": "The divested Courtaulds textile operations",
+      "relation": "had",
+      "tail": "operating profit"
+    },
+    {
+      "head": "The divested Courtaulds textile operations",
+      "relation": "had operating profit of",
+      "tail": "50 million"
+    },
+    {
+      "head": "The divested Courtaulds textile operations",
+      "relation": "had operating profit of # 50 million on",
+      "tail": "980 million in revenue"
+    },
+    {
+      "head": "The divested Courtaulds textile operations",
+      "relation": "980 million in revenue in",
+      "tail": "the year ended March 31"
+    }
+  ],
+  "benchie_131": [
+    {
+      "head": "A Coca - Cola spokesman",
+      "relation": "said",
+      "tail": "it is too early to say how the joint venture would be structured"
+    }
+  ],
+  "benchie_132": [
+    {
+      "head": "We",
+      "relation": "just want",
+      "tail": "a plan"
+    },
+    {
+      "head": "We",
+      "relation": "just want a plan that",
+      "tail": "satisfies creditors"
+    }
+  ],
+  "benchie_133": [
+    {
+      "head": "Some",
+      "relation": "have been",
+      "tail": "training"
+    },
+    {
+      "head": "Some",
+      "relation": "have been training for",
+      "tail": "months"
+    },
+    {
+      "head": "others",
+      "relation": "only recently left",
+      "tail": "active status"
+    }
+  ],
+  "benchie_134": [
+    {
+      "head": "Merrill",
+      "relation": "also said",
+      "tail": "it is lobbying for significant regulatory controls"
+    },
+    {
+      "head": "Merrill",
+      "relation": "also said it is lobbying for significant regulatory controls on",
+      "tail": "program trading"
+    }
+  ],
+  "benchie_135": [
+    {
+      "head": "He",
+      "relation": "did not",
+      "tail": "go as far as he could have"
+    },
+    {
+      "head": "He",
+      "relation": "did not go as far as he could have in",
+      "tail": "tax reductions"
+    },
+    {
+      "head": "he",
+      "relation": "combined them with",
+      "tail": "increases in indirect taxes"
+    }
+  ]
+}

@@ -1,0 +1,157 @@
+[
+  {
+    "head": "automatically guided vehicles",
+    "relation": "typically follow",
+    "tail": "known paths in an operating environment"
+  },
+  {
+    "head": "automatically guided vehicles",
+    "relation": "is abbreviated as",
+    "tail": "AGVs"
+  },
+  {
+    "head": "known paths",
+    "relation": "are such as defined by",
+    "tail": "a guidance wire"
+  },
+  {
+    "head": "a guidance wire",
+    "relation": "is embedded in",
+    "tail": "the floor"
+  },
+  {
+    "head": "automatically guided vehicles",
+    "relation": "are controlled by",
+    "tail": "an AGV server"
+  },
+  {
+    "head": "they",
+    "relation": "do not collide with",
+    "tail": "each other"
+  },
+  {
+    "head": "this system",
+    "relation": "is",
+    "tail": "a means of enhancing operations"
+  },
+  {
+    "head": "this system",
+    "relation": "is a means of enhancing operations in",
+    "tail": "mixed manned and unmanned vehicle environments"
+  },
+  {
+    "head": "a collision",
+    "relation": "is between",
+    "tail": "a manned and an un-manned vehicle"
+  },
+  {
+    "head": "the system",
+    "relation": "will send a command message to",
+    "tail": "the AGV server stop"
+  },
+  {
+    "head": "the system",
+    "relation": "will reduce",
+    "tail": "the speed of the unmanned vehicle"
+  },
+  {
+    "head": "network communications",
+    "relation": "are interrupted for",
+    "tail": "a predetermined period of time"
+  },
+  {
+    "head": "alarm messages",
+    "relation": "are transmitted to",
+    "tail": "all manned vehicles"
+  },
+  {
+    "head": "all manned vehicles",
+    "relation": "alert",
+    "tail": "the operators"
+  },
+  {
+    "head": "the apparatus",
+    "relation": "calculates",
+    "tail": "the current predicted trajectory of each manned vehicle"
+  },
+  {
+    "head": "the apparatus",
+    "relation": "calculates",
+    "tail": "safety zone of each manned vehicle"
+  },
+  {
+    "head": "the apparatus calculating the current predicted trajectory and safety zone of each manned vehicle",
+    "relation": "is to determine",
+    "tail": "any areas of intersection with other manned or unmanned vehicles"
+  },
+  {
+    "head": "such modifications",
+    "relation": "are to be construed as lying within",
+    "tail": "the contemplation of the present invention"
+  },
+  {
+    "head": "such modifications",
+    "relation": "are as defined by",
+    "tail": "the appended claims"
+  },
+  {
+    "head": "a message",
+    "relation": "is transmitted to",
+    "tail": "the Manned Vehicle Server"
+  },
+  {
+    "head": "a warning",
+    "relation": "is sent to",
+    "tail": "one or more manned vehicles"
+  },
+  {
+    "head": "a warning sent to one or more manned vehicles",
+    "relation": "is to alert",
+    "tail": "the one or more operators"
+  },
+  {
+    "head": "a warning sent to one or more manned vehicles",
+    "relation": "is to alert the one or more operators of",
+    "tail": "a predicted potential collision"
+  },
+  {
+    "head": "the one or more operators",
+    "relation": "can take appropriate action to avoid",
+    "tail": "the predicted collision"
+  },
+  {
+    "head": "a definable collision type",
+    "relation": "can override",
+    "tail": "whether or not a collision is actually reported if predicted"
+  },
+  {
+    "head": "automatically guided vehicles",
+    "relation": "move along",
+    "tail": "predetermined paths"
+  },
+  {
+    "head": "automatically guided vehicles",
+    "relation": "are abbreviated as",
+    "tail": "AGVs"
+  },
+  {
+    "head": "automatically guided vehicles",
+    "relation": "are controlled and tracked by",
+    "tail": "an AGV Server"
+  },
+  {
+    "head": "manned vehicles",
+    "relation": "are referred to as",
+    "tail": "\"PRO equipped vehicles\" or simply PROVs"
+  },
+  {
+    "head": "manned vehicles",
+    "relation": "are equipped with",
+    "tail": "the position and rotational orientation (PRO) system"
+  },
+  {
+    "head": "the position and rotational orientation",
+    "relation": "is abbreviated as",
+    "tail": "PRO"
+  }
+]

@@ -1,0 +1,372 @@
+{
+  "benchie_272": [
+    {
+      "head": "PC software",
+      "relation": "is",
+      "tail": "sold"
+    },
+    {
+      "head": "more than half PC software sold in U.S.",
+      "relation": "is according to Lotus for",
+      "tail": "spreadsheets"
+    },
+    {
+      "head": "more than half PC software sold in U.S.",
+      "relation": "is according to Lotus for",
+      "tail": "database analysis"
+    }
+  ],
+  "benchie_273": [
+    {
+      "head": "It",
+      "relation": "was",
+      "tail": "most active"
+    },
+    {
+      "head": "It",
+      "relation": "was most active of",
+      "tail": "100-share index"
+    },
+    {
+      "head": "It",
+      "relation": "was at",
+      "tail": "8.3 million shares"
+    },
+    {
+      "head": "It",
+      "relation": "was at 6.5 million shares traded by",
+      "tail": "midday"
+    }
+  ],
+  "benchie_274": [
+    {
+      "head": "Japanese office workers",
+      "relation": "use",
+      "tail": "PCs"
+    },
+    {
+      "head": "European office workers",
+      "relation": "use",
+      "tail": "PCs"
+    },
+    {
+      "head": "American office workers",
+      "relation": "use",
+      "tail": "PCs"
+    },
+    {
+      "head": "Japanese office workers",
+      "relation": "use PCs at",
+      "tail": "half rate of their European counterparts"
+    },
+    {
+      "head": "Japanese office workers",
+      "relation": "use PCs at",
+      "tail": "one-third rate of their American counterparts"
+    }
+  ],
+  "benchie_275": [
+    {
+      "head": "Labor costs",
+      "relation": "are",
+      "tail": "climbing"
+    },
+    {
+      "head": "Labor costs",
+      "relation": "are climbing at",
+      "tail": "far more rapid pace"
+    },
+    {
+      "head": "Labor costs",
+      "relation": "are climbing at far more rapid pace in",
+      "tail": "health care industry"
+    },
+    {
+      "head": "Labor costs",
+      "relation": "are climbing at far more rapid pace in health care industry than in",
+      "tail": "other industries"
+    }
+  ],
+  "benchie_276": [
+    {
+      "head": "Mitsubishi",
+      "relation": "has",
+      "tail": "control"
+    },
+    {
+      "head": "Mitsubishi",
+      "relation": "has control of some major projects at",
+      "tail": "home"
+    },
+    {
+      "head": "Mitsubishi",
+      "relation": "has control of",
+      "tail": "some major projects"
+    }
+  ],
+  "benchie_277": [
+    {
+      "head": "Medical cooperatives",
+      "relation": "are",
+      "tail": "banned"
+    },
+    {
+      "head": "Medical cooperatives",
+      "relation": "are banned from providing",
+      "tail": "general-practitioner services"
+    },
+    {
+      "head": "main source of income of Medical cooperatives",
+      "relation": "is",
+      "tail": "general-practitioner services"
+    },
+    {
+      "head": "Medical cooperatives",
+      "relation": "are banned from carrying out",
+      "tail": "surgery"
+    },
+    {
+      "head": "Medical cooperatives",
+      "relation": "are banned from treating",
+      "tail": "cancer patients"
+    },
+    {
+      "head": "Medical cooperatives",
+      "relation": "are banned from treating",
+      "tail": "drug addicts"
+    },
+    {
+      "head": "Medical cooperatives",
+      "relation": "are banned from treating",
+      "tail": "pregnant women"
+    },
+    {
+      "head": "Medical cooperatives",
+      "relation": "are",
+      "tail": "among most successful in U.S.S.R."
+    }
+  ],
+  "benchie_278": [
+    {
+      "head": "Mr. Mulford",
+      "relation": "said",
+      "tail": "reports of tension between Treasury and Fed have been exaggerated"
+    },
+    {
+      "head": "Mr. Mulford",
+      "relation": "said that",
+      "tail": "reports of tension involved nuances"
+    }
+  ],
+  "benchie_279": [
+    {
+      "head": "Mr. Ridley's decision",
+      "relation": "fires",
+      "tail": "starting pistol"
+    },
+    {
+      "head": "Mr. Ridley's decision",
+      "relation": "fires starting pistol for",
+      "tail": "perhaps costly contest"
+    },
+    {
+      "head": "Mr. Ridley's decision",
+      "relation": "fires starting pistol for perhaps costly contest between",
+      "tail": "world's auto giants"
+    },
+    {
+      "head": "Mr. Ridley's decision",
+      "relation": "fires starting pistol for perhaps costly contest for",
+      "tail": "Britain's leading luxury-car maker"
+    },
+    {
+      "head": "Mr. Ridley",
+      "relation": "has made",
+      "tail": "decision"
+    },
+    {
+      "head": "Britain",
+      "relation": "has",
+      "tail": "leading luxury-car maker"
+    }
+  ],
+  "benchie_280": [
+    {
+      "head": "Mr. Stoll",
+      "relation": "suspected",
+      "tail": "intruder was one of those precocious students"
+    },
+    {
+      "head": "those precocious students",
+      "relation": "have",
+      "tail": "fun"
+    },
+    {
+      "head": "those precocious students",
+      "relation": "have fun",
+      "tail": "breaking into computers"
+    },
+    {
+      "head": "Mr. Stoll",
+      "relation": "suspected",
+      "tail": "intruder"
+    }
+  ],
+  "benchie_281": [
+    {
+      "head": "Mr. Broberg",
+      "relation": "is",
+      "tail": "lawyer"
+    },
+    {
+      "head": "Mr. Broberg",
+      "relation": "now claims",
+      "tail": "he would play"
+    },
+    {
+      "head": "Mr. Broberg",
+      "relation": "now claims he would play",
+      "tail": "for free"
+    }
+  ],
+  "benchie_282": [
+    {
+      "head": "Lee Kuan Yew",
+      "relation": "is",
+      "tail": "Prime Minister"
+    },
+    {
+      "head": "Lee Kuan Yew",
+      "relation": "is",
+      "tail": "Singapore's leader"
+    },
+    {
+      "head": "Lee Kuan Yew",
+      "relation": "is",
+      "tail": "statesmen"
+    },
+    {
+      "head": "Lee Kuan Yew",
+      "relation": "is",
+      "tail": "one of Asia's leading statesmen"
+    },
+    {
+      "head": "Lee Kuan Yew",
+      "relation": "has been one of Asia's leading statesmen for",
+      "tail": "30 years"
+    },
+    {
+      "head": "Lee Kuan Yew",
+      "relation": "recently announced",
+      "tail": "his intention"
+    },
+    {
+      "head": "Lee Kuan Yew",
+      "relation": "recently announced his intention to",
+      "tail": "retire"
+    },
+    {
+      "head": "Lee Kuan Yew",
+      "relation": "recently announced his intention to retire",
+      "tail": "next year"
+    },
+    {
+      "head": "Lee Kuan Yew",
+      "relation": "recently announced his intention to retire though not necessarily to",
+      "tail": "end his influence"
+    },
+    {
+      "head": "Asia",
+      "relation": "has",
+      "tail": "statesmen"
+    },
+    {
+      "head": "Lee Kuan Yew",
+      "relation": "has had",
+      "tail": "influence"
+    },
+    {
+      "head": "Singapore",
+      "relation": "has",
+      "tail": "leader"
+    }
+  ],
+  "benchie_283": [
+    {
+      "head": "Repeat customers",
+      "relation": "can also purchase",
+      "tail": "luxury items"
+    },
+    {
+      "head": "Repeat customers",
+      "relation": "can also purchase luxury items at",
+      "tail": "reduced prices"
+    }
+  ],
+  "benchie_284": [
+    {
+      "head": "Richard Newsom",
+      "relation": "is",
+      "tail": "California state official"
+    },
+    {
+      "head": "Richard Newsom",
+      "relation": "examined",
+      "tail": "American Continental Corp."
+    },
+    {
+      "head": "Richard Newsom",
+      "relation": "examined American Continental Corp.",
+      "tail": "last year"
+    },
+    {
+      "head": "American Continental Corp.",
+      "relation": "is parent of",
+      "tail": "Lincoln"
+    },
+    {
+      "head": "Richard Newsom",
+      "relation": "said",
+      "tail": "he also saw evidence"
+    },
+    {
+      "head": "Richard Newsom",
+      "relation": "said he also saw evidence that",
+      "tail": "crimes had been committed"
+    }
+  ],
+  "benchie_285": [
+    {
+      "head": "Sen. Mitchell",
+      "relation": "is",
+      "tail": "confident"
+    },
+    {
+      "head": "Sen. Mitchell",
+      "relation": "is confident he has",
+      "tail": "sufficient votes"
+    },
+    {
+      "head": "Sen. Mitchell",
+      "relation": "is confident he has sufficient votes to block",
+      "tail": "such measure"
+    },
+    {
+      "head": "Sen. Mitchell",
+      "relation": "is confident he has sufficient votes to block such measure with",
+      "tail": "procedural actions"
+    }
+  ],
+  "benchie_286": [
+    {
+      "head": "Chemical spokeswoman",
+      "relation": "said",
+      "tail": "bank has examined its methodologies"
+    },
+    {
+      "head": "Chemical spokeswoman",
+      "relation": "said",
+      "tail": "bank has examined its internal controls"
+    }
+  ]
+}

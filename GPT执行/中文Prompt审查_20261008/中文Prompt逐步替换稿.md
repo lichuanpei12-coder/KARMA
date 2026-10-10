@@ -1,6 +1,6 @@
 # 中文 Prompt 逐步替换稿
 
-结论：修改四个文件、九段文本。前三项主要问题是重建删减、比较误判、三元组丢限定；其余是缩写、类型、证据、评分、格式等补充。源码尚未应用以下修改。
+结论：修改四个文件、十处文本，分九步完成（第5步包含两处）。前三项主要问题是重建删减、比较误判、三元组丢限定；其余是缩写、类型、证据、评分、格式等补充。源码尚未应用以下修改。
 
 采用中文指令已经确定。原文字段保留源文语言；英文缩写、JSON 键无需翻译。你故意跳过的 Agent 不改，extraction_support.py 不改。
 
@@ -64,7 +64,27 @@
 
 **5．实体抽取：统一证据要求，加入中文审校示例。**
 
-[entity_extraction/agent.py](</E:/huawei after/KARMA/karma/agents/entity_extraction/agent.py:67>) 第67—81行，从 `return """` 到该字符串结束的 `"""`，全部替换为以下代码。保留上面的函数定义和装饰器。
+本步分两处修改，先改靠后的第二轮专用 Prompt，再改靠前的共用输出说明，以保持原行号可用。第一轮只接收共用输出说明与基础示例；第二轮在此基础上追加审校示例。
+
+**5a．仅第二轮：在审校 Prompt 末尾追加审校示例。**
+
+[entity_extraction/agent.py](</E:/huawei after/KARMA/karma/agents/entity_extraction/agent.py:149>) 在 `revise_entities()` 内，将第149行的 `""" + self._output_instructions()` 整行替换为以下代码，保留后面的 `response = None` 等代码：
+
+```python
+""" + self._output_instructions() + """
+# 第二轮审校示例
+对于上面示例的源文本“控制器可以查询ECU。ECU存储读数。”，
+若当前候选是控制器、ECU、GPS，当前三元组错误地写成“控制器包含ECU”，
+仍应保留源文出现的ECU，移除无依据的GPS，补充遗漏的读数。
+完整审校输出仍为上面的数组，包含控制器、ECU、读数的完整条目，不只输出新增项。
+"""
+```
+
+这段示例随第二轮 `revise_entities()` 的 Prompt 发送，用来指导利用反馈进行实体审校；即使差异数组为空也会加入。它放在共用输出说明之后，因此“上面的数组”指向下方5b定义的基础示例数组。
+
+**5b．两轮共用：输出说明与基础抽取示例。**
+
+[同一文件](</E:/huawei after/KARMA/karma/agents/entity_extraction/agent.py:67>) 第67—81行，从 `return """` 到该字符串结束的 `"""`，全部替换为以下代码。保留上面的函数定义和装饰器。
 
 ```python
         return """
@@ -82,9 +102,6 @@ context 逐字复制源文中支持该候选的连续上下文；必要时包含
   {"mention": "ECU", "type": "Component", "context": "控制器可以查询ECU。ECU存储读数。"},
   {"mention": "读数", "type": "Data", "context": "ECU存储读数。"}
 ]
-第二轮审校示例：对于同一源文本，若当前候选是控制器、ECU、GPS，
-当前三元组错误地写成“控制器包含ECU”，仍应保留源文出现的ECU，移除无依据的GPS，
-补充遗漏的读数。完整审校输出仍为上面的数组，不只输出新增项。
 """
 ```
 

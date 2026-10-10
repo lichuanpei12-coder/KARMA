@@ -1,0 +1,167 @@
+[
+  {
+    "head": "pre-wetting the salt",
+    "relation": "helps it work more effectively as",
+    "tail": "a deicing agent"
+  },
+  {
+    "head": "wet salt",
+    "relation": "clings to",
+    "tail": "the road"
+  },
+  {
+    "head": "wet salt",
+    "relation": "does not bounce off by",
+    "tail": "traffic"
+  },
+  {
+    "head": "wet salt",
+    "relation": "is not swept off by",
+    "tail": "traffic"
+  },
+  {
+    "head": "the most inexpensive",
+    "relation": "is",
+    "tail": "the use of sodium chloride and water"
+  },
+  {
+    "head": "the most inexpensive",
+    "relation": "is",
+    "tail": "salt brine"
+  },
+  {
+    "head": "salt brine",
+    "relation": "is",
+    "tail": "a salt and water solution"
+  },
+  {
+    "head": "the addition of a liquid chemical to salt",
+    "relation": "enhances its ability to provide",
+    "tail": "safe levels of service"
+  },
+  {
+    "head": "the addition of a liquid chemical to salt",
+    "relation": "enhances its ability by increasing",
+    "tail": "the speed"
+  },
+  {
+    "head": "salt",
+    "relation": "creates brine to melt",
+    "tail": "snow or ice"
+  },
+  {
+    "head": "salt",
+    "relation": "creates brine to melt snow or ice at",
+    "tail": "the speed"
+  },
+  {
+    "head": "others",
+    "relation": "apply a given amount to",
+    "tail": "each loader bucket"
+  },
+  {
+    "head": "applying a given amount to each loader bucket",
+    "relation": "is prior to",
+    "tail": "loading in the spreader"
+  },
+  {
+    "head": "another method of wetting the salt",
+    "relation": "is to spray the salt with",
+    "tail": "sodium chloride or salt brine"
+  },
+  {
+    "head": "spraying the salt with sodium chloride or salt brine",
+    "relation": "is as",
+    "tail": "it is leaving the spreader"
+  },
+  {
+    "head": "the material",
+    "relation": "is pre-wetted in",
+    "tail": "a controlled environment"
+  },
+  {
+    "head": "a controlled environment",
+    "relation": "eliminates over",
+    "tail": "spray"
+  },
+  {
+    "head": "a controlled environment",
+    "relation": "drifts into",
+    "tail": "the atmosphere"
+  },
+  {
+    "head": "the atmosphere",
+    "relation": "allows",
+    "tail": "an even distribution of liquid to the material"
+  },
+  {
+    "head": "these nozzles",
+    "relation": "spray",
+    "tail": "the material"
+  },
+  {
+    "head": "it",
+    "relation": "is rotated and moved through",
+    "tail": "the passage"
+  },
+  {
+    "head": "it",
+    "relation": "is rotated and moved through the passage by",
+    "tail": "the auger"
+  },
+  {
+    "head": "it rotated and moved through the passage",
+    "relation": "is to present uniformly pre-wetted material to",
+    "tail": "the spinner"
+  },
+  {
+    "head": "the salt brine mixture",
+    "relation": "is",
+    "tail": "the typical mixture"
+  },
+  {
+    "head": "the typical mixture",
+    "relation": "is used in",
+    "tail": "the application of  salt brine"
+  },
+  {
+    "head": "the application of salt brine",
+    "relation": "is as known by",
+    "tail": "those of ordinary skill in the art"
+  },
+  {
+    "head": "the auger drive",
+    "relation": "will be appreciated by",
+    "tail": "those of ordinary skill in the art"
+  },
+  {
+    "head": "the auger drive",
+    "relation": "rotates",
+    "tail": "the auger"
+  },
+  {
+    "head": "the auger drive rotating the auger",
+    "relation": "is to rotate and drive",
+    "tail": "material"
+  },
+  {
+    "head": "rotating and driving material",
+    "relation": "is from the hopper, through the passage to",
+    "tail": "the chute"
+  },
+  {
+    "head": "one feature of the controller",
+    "relation": "is the ability to monitor",
+    "tail": "the auger feed rate"
+  },
+  {
+    "head": "one feature of the controller",
+    "relation": "is the ability to automatically adjust",
+    "tail": "the amount of liquid"
+  },
+  {
+    "head": "the amount of liquid",
+    "relation": "is supplied to",
+    "tail": "the auger"
+  }
+]

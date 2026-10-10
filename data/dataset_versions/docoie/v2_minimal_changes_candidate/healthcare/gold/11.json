@@ -1,0 +1,132 @@
+[
+  {
+    "head": "the compositions",
+    "relation": "may comprise",
+    "tail": "one or more antimicrobial agent"
+  },
+  {
+    "head": "the antimicrobial agent",
+    "relation": "is not",
+    "tail": "a cationic antimicrobial agent"
+  },
+  {
+    "head": "the surfactant",
+    "relation": "may be",
+    "tail": "a cationic surfactan"
+  },
+  {
+    "head": "the surfactant",
+    "relation": "may be",
+    "tail": "an ampholytic surfactant"
+  },
+  {
+    "head": "the surfactant",
+    "relation": "may be",
+    "tail": "a nonionic surfactants"
+  },
+  {
+    "head": "various patent and non-patent references",
+    "relation": "are cited herein",
+    "tail": ""
+  },
+  {
+    "head": "the contents of references",
+    "relation": "are incorporated by",
+    "tail": "reference in their entireties herein"
+  },
+  {
+    "head": "a composition as disclosed herein",
+    "relation": "may further comprise",
+    "tail": "a surfactant"
+  },
+  {
+    "head": "the compositions disclosed herein",
+    "relation": "may be used as",
+    "tail": "soaps"
+  },
+  {
+    "head": "the compositions disclosed herein",
+    "relation": "may be used as",
+    "tail": "hand sanitizers"
+  },
+  {
+    "head": "the compositions disclosed herein",
+    "relation": "may be used as",
+    "tail": "creams"
+  },
+  {
+    "head": "the compositions disclosed herein",
+    "relation": "may be used as",
+    "tail": "lotions"
+  },
+  {
+    "head": "the compositions disclosed herein",
+    "relation": "may be used as",
+    "tail": "splashes"
+  },
+  {
+    "head": "the compositions disclosed herein",
+    "relation": "may optionally be comprised in",
+    "tail": "wipes"
+  },
+  {
+    "head": "\"Persistent antimicrobial activity\"",
+    "relation": "is",
+    "tail": "antimicrobial activity"
+  },
+  {
+    "head": "the antimicrobial activity",
+    "relation": "is retained after the initial exposure to",
+    "tail": "the composition"
+  },
+  {
+    "head": "the effect of different sesquiterpenoids",
+    "relation": "was examined using",
+    "tail": "the methods described above"
+  },
+  {
+    "head": "the effect of different sesquiterpenoids",
+    "relation": "is on",
+    "tail": "substantive antibacterial activity"
+  },
+  {
+    "head": "the composition",
+    "relation": "comprises",
+    "tail": "a synergistic combination of benzyl alcohol and one or more cationic antimicrobial agent"
+  },
+  {
+    "head": "the cationic antimicrobial agent",
+    "relation": "is such as",
+    "tail": "a biguanide ammonium compound and/or a quaternary ammonium compound"
+  },
+  {
+    "head": "this problem",
+    "relation": "could be addressed by",
+    "tail": "the development of soaps"
+  },
+  {
+    "head": "this problem",
+    "relation": "could be addressed by",
+    "tail": "the development of other skin-care products"
+  },
+  {
+    "head": "other skin-care products",
+    "relation": "have",
+    "tail": "sufficient residual antibacterial activity on the skin"
+  },
+  {
+    "head": "other skin-care products having sufficient residual antibacterial activity",
+    "relation": "is to inactivate",
+    "tail": "newly introduced bacteria"
+  },
+  {
+    "head": "non-limiting examples",
+    "relation": "are described by way of",
+    "tail": "illustration"
+  },
+  {
+    "head": "further embodiments",
+    "relation": "would be envisaged by",
+    "tail": "the person of skill in the art"
+  }
+]

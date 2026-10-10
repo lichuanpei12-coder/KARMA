@@ -1,0 +1,28 @@
+{
+  "docoie_healthcare_doc0_target0": [
+    {
+      "head": "the control station",
+      "relation": "is typically located in",
+      "tail": "a place"
+    },
+    {
+      "head": "a place",
+      "relation": "is remote from",
+      "tail": "the robot face"
+    }
+  ],
+  "docoie_healthcare_doc0_target3": [
+    {
+      "head": "the robot face",
+      "relation": "may have",
+      "tail": "a voice recognition system that allows the user to grant access with a voice command"
+    }
+  ],
+  "docoie_healthcare_doc0_target8": [
+    {
+      "head": "the annotated  image",
+      "relation": "may be stored by",
+      "tail": "the system"
+    }
+  ]
+}

@@ -19,13 +19,18 @@ from karma.agents.extraction_support import (
 ENTITY_RULES = """候选实体用于辅助发现事实中的参与对象。
 1. 根据源文本识别可能作为 head 或 tail 的完整表达，包括技术对象、普通名词短语、
    代词以及充当宾语的较长短语或从句。
-2. 保留决定含义的限定词、修饰语、数值和编号，保持原文大小写与空格。
-   例如 "a variety of systems" 保留整体，"the measured traffic per time" 保留整体。
-3. 代词保留原文提及，结合上下文理解其指代。不同提及形式分别保留，供事实判断使用。
-4. 并列项在各自含义明确时分别识别；省略的共享词可按原文语法补齐。
-   例如 "first and second cables" 对应 "first cable" 和 "second cable"。
-5. 数值、条件、日期和图号在充当事实参与对象或限定其含义时保留。
-   候选集合可以包含暂未参与三元组的对象，事实是否成立由源文本决定。
+2. 保留决定含义的限定词、修饰语、数值和编号，保持原文语言、大小写与空格。
+   例如 "a variety of systems" 和 "the measured traffic per time" 保留整体。
+3. 原文出现的全称、简称、缩写和其他称谓分别保留；只根据原文明示的对应关系理解，
+   不从外部知识补造名称、缩写展开式或别名，不擅自统一为一个名称。
+4. 代词保留原文提及。指代不明确时不替换成猜测的对象，也不据此推断身份。
+5. 并列项在各自含义明确时分别识别。仅可补齐原文语法明确省略的共享成分，
+   如 "first and second cables" 对应 "first cable" 和 "second cable"；
+   这是原文连续提及的例外，context 仍引用未改写的原句，其余情况不补词或改写。
+6. 数值、条件、日期和图号在充当事实参与对象或限定其含义时保留。
+   候选可以暂未参与三元组，是否有效由源文本决定。
+7. type 根据当前语境判断，同一文档中同类对象使用一致的类别名称，
+   已有候选类型仅供参考，不沿用明显错误的分类；无法确定时使用 Unknown。
 """
 
 
@@ -66,17 +71,18 @@ mention 是候选表达，context 是源文本中支持该候选的上下文片�
     def _output_instructions():
         return """
 # 输出
-返回完整候选实体集合，重复的相同提及保留一次。无候选时返回 []。
+仅返回完整候选实体集合的合法 JSON 数组，相同提及保留一次；无候选时返回 []。
 每项格式为 {"mention": "原文提及", "type": "类别或 Unknown", "context": "原文上下文"}。
+mention 保留源文语言、大小写和格式，不因指令为中文而翻译英文名称或展开缩写。
+context 逐字复制源文中支持该候选的连续上下文；必要时包含相邻前文，不使用解释或改写代替。
 
 # 示例
-源文本：The controller may query the ECU. It stores the readings.
+源文本：控制器可以查询ECU。ECU存储读数。
 输出：
 [
-  {"mention": "The controller", "type": "Component", "context": "The controller may query the ECU."},
-  {"mention": "the ECU", "type": "Component", "context": "The controller may query the ECU."},
-  {"mention": "It", "type": "Unknown", "context": "It stores the readings."},
-  {"mention": "the readings", "type": "Data", "context": "It stores the readings."}
+  {"mention": "控制器", "type": "Component", "context": "控制器可以查询ECU。"},
+  {"mention": "ECU", "type": "Component", "context": "控制器可以查询ECU。ECU存储读数。"},
+  {"mention": "读数", "type": "Data", "context": "ECU存储读数。"}
 ]
 """
 
@@ -146,6 +152,15 @@ mention 是候选表达，context 是源文本中支持该候选的上下文片�
 2. 结合三元组头尾和差异线索，检查源文本中遗漏的对象。
 3. 候选是否有效取决于源文本；没有参与当前三元组的有效候选仍然保留。
 4. 核对完整集合包含所有保留、修正和新增的候选，最后按输出格式生成数组。
+
+# 第二轮审校示例
+示例源文本：控制器可以查询ECU。ECU存储读数。
+若当前候选是控制器、ECU、GPS，
+当前三元组错误地写成“控制器包含ECU”，仍应保留源文出现的ECU，
+移除无依据的GPS，补充遗漏的读数。
+最终应返回包含控制器、ECU、读数的完整候选实体数组，
+每项包含 mention、type、context，不只输出新增的读数。
+具体格式遵循下面的输出要求。
 """ + self._output_instructions()
         response = None
         try:

@@ -1,0 +1,1804 @@
+{
+  "method": "whole_triple_embedding_cosine",
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "threshold": 0.9,
+  "serialization": "head relation tail.",
+  "warning": "threshold is experimental and has not been calibrated",
+  "input_layout": "single_round",
+  "single_round": {
+    "micro": {
+      "precision": 0.8734,
+      "recall": 0.6765,
+      "f1": 0.7624
+    },
+    "macro": {
+      "precision": 0.8571,
+      "recall": 0.8216,
+      "f1": 0.839
+    },
+    "totals": {
+      "tp": 69,
+      "fp": 10,
+      "fn": 33,
+      "num_pred": 79,
+      "num_gold": 102,
+      "num_docs": 5
+    },
+    "per_doc": [
+      {
+        "doc": 0,
+        "precision": 0.2857,
+        "recall": 0.1081,
+        "f1": 0.1569,
+        "tp": 4,
+        "fp": 10,
+        "fn": 33,
+        "gold_n": 37,
+        "pred_n": 14,
+        "matches": [
+          {
+            "gold_index": 4,
+            "pred_index": 0,
+            "score": 0.975654,
+            "gold": {
+              "head": "the ECUs",
+              "relation": "may include",
+              "tail": "PUF components"
+            },
+            "pred": {
+              "head": "ECUs",
+              "relation": "includes",
+              "tail": "PUF components",
+              "confidence": 0.95,
+              "clarity": 0.95,
+              "relevance": 0.95,
+              "score": 0.95
+            },
+            "gold_text": "the ECUs may include PUF components.",
+            "pred_text": "ECUs includes PUF components."
+          },
+          {
+            "gold_index": 13,
+            "pred_index": 11,
+            "score": 0.964265,
+            "gold": {
+              "head": "the term computer readable medium",
+              "relation": "is meant to refer to",
+              "tail": "any machine-readable medium"
+            },
+            "pred": {
+              "head": "computer readable medium",
+              "relation": "refers_to",
+              "tail": "machine-readable medium",
+              "confidence": 0.95,
+              "clarity": 0.88,
+              "relevance": 0.55,
+              "score": 0.8325
+            },
+            "gold_text": "the term computer readable medium is meant to refer to any machine-readable medium.",
+            "pred_text": "computer readable medium refers_to machine-readable medium."
+          },
+          {
+            "gold_index": 14,
+            "pred_index": 12,
+            "score": 0.963775,
+            "gold": {
+              "head": "machine-readable medium",
+              "relation": "is",
+              "tail": "automated data medium"
+            },
+            "pred": {
+              "head": "machine-readable medium",
+              "relation": "designates",
+              "tail": "automated data medium",
+              "confidence": 0.85,
+              "clarity": 0.82,
+              "relevance": 0.5,
+              "score": 0.755
+            },
+            "gold_text": "machine-readable medium is automated data medium.",
+            "pred_text": "machine-readable medium designates automated data medium."
+          },
+          {
+            "gold_index": 23,
+            "pred_index": 10,
+            "score": 0.909901,
+            "gold": {
+              "head": "a machine-readable medium",
+              "relation": "may be read and executed by",
+              "tail": "a computing platform"
+            },
+            "pred": {
+              "head": "computing platform",
+              "relation": "executes",
+              "tail": "machine-readable medium",
+              "confidence": 0.88,
+              "clarity": 0.78,
+              "relevance": 0.65,
+              "score": 0.7975
+            },
+            "gold_text": "a machine-readable medium may be read and executed by a computing platform.",
+            "pred_text": "computing platform executes machine-readable medium."
+          }
+        ]
+      },
+      {
+        "doc": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 20,
+        "fp": 0,
+        "fn": 0,
+        "gold_n": 20,
+        "pred_n": 20,
+        "matches": [
+          {
+            "gold_index": 12,
+            "pred_index": 12,
+            "score": 1.0,
+            "gold": {
+              "head": "embodiments",
+              "relation": "implemented_in",
+              "tail": "firmware",
+              "confidence": 0.85,
+              "clarity": 0.9,
+              "relevance": 0.65,
+              "score": 0.8125
+            },
+            "pred": {
+              "head": "embodiments",
+              "relation": "implemented_in",
+              "tail": "firmware",
+              "confidence": 0.85,
+              "clarity": 0.9,
+              "relevance": 0.65,
+              "score": 0.8125
+            },
+            "gold_text": "embodiments implemented_in firmware.",
+            "pred_text": "embodiments implemented_in firmware."
+          },
+          {
+            "gold_index": 19,
+            "pred_index": 19,
+            "score": 1.0,
+            "gold": {
+              "head": "machine-readable medium",
+              "relation": "equivalent_to",
+              "tail": "automated data medium",
+              "confidence": 0.9,
+              "clarity": 0.88,
+              "relevance": 0.4,
+              "score": 0.77
+            },
+            "pred": {
+              "head": "machine-readable medium",
+              "relation": "equivalent_to",
+              "tail": "automated data medium",
+              "confidence": 0.9,
+              "clarity": 0.88,
+              "relevance": 0.4,
+              "score": 0.77
+            },
+            "gold_text": "machine-readable medium equivalent_to automated data medium.",
+            "pred_text": "machine-readable medium equivalent_to automated data medium."
+          },
+          {
+            "gold_index": 10,
+            "pred_index": 10,
+            "score": 1.0,
+            "gold": {
+              "head": "specific element",
+              "relation": "includes",
+              "tail": "technical equivalents",
+              "confidence": 0.9,
+              "clarity": 0.8,
+              "relevance": 0.5,
+              "score": 0.775
+            },
+            "pred": {
+              "head": "specific element",
+              "relation": "includes",
+              "tail": "technical equivalents",
+              "confidence": 0.9,
+              "clarity": 0.8,
+              "relevance": 0.5,
+              "score": 0.775
+            },
+            "gold_text": "specific element includes technical equivalents.",
+            "pred_text": "specific element includes technical equivalents."
+          },
+          {
+            "gold_index": 7,
+            "pred_index": 7,
+            "score": 1.0,
+            "gold": {
+              "head": "method",
+              "relation": "integrates_in",
+              "tail": "car sharing",
+              "confidence": 0.85,
+              "clarity": 0.9,
+              "relevance": 0.75,
+              "score": 0.8375
+            },
+            "pred": {
+              "head": "method",
+              "relation": "integrates_in",
+              "tail": "car sharing",
+              "confidence": 0.85,
+              "clarity": 0.9,
+              "relevance": 0.75,
+              "score": 0.8375
+            },
+            "gold_text": "method integrates_in car sharing.",
+            "pred_text": "method integrates_in car sharing."
+          },
+          {
+            "gold_index": 18,
+            "pred_index": 18,
+            "score": 1.0,
+            "gold": {
+              "head": "computer readable medium",
+              "relation": "refers_to",
+              "tail": "machine-readable medium",
+              "confidence": 0.92,
+              "clarity": 0.85,
+              "relevance": 0.45,
+              "score": 0.785
+            },
+            "pred": {
+              "head": "computer readable medium",
+              "relation": "refers_to",
+              "tail": "machine-readable medium",
+              "confidence": 0.92,
+              "clarity": 0.85,
+              "relevance": 0.45,
+              "score": 0.785
+            },
+            "gold_text": "computer readable medium refers_to machine-readable medium.",
+            "pred_text": "computer readable medium refers_to machine-readable medium."
+          },
+          {
+            "gold_index": 17,
+            "pred_index": 17,
+            "score": 1.0,
+            "gold": {
+              "head": "machine-readable medium",
+              "relation": "stores_data_readable_by",
+              "tail": "mechanical device",
+              "confidence": 0.9,
+              "clarity": 0.82,
+              "relevance": 0.45,
+              "score": 0.7675000000000001
+            },
+            "pred": {
+              "head": "machine-readable medium",
+              "relation": "stores_data_readable_by",
+              "tail": "mechanical device",
+              "confidence": 0.9,
+              "clarity": 0.82,
+              "relevance": 0.45,
+              "score": 0.7675000000000001
+            },
+            "gold_text": "machine-readable medium stores_data_readable_by mechanical device.",
+            "pred_text": "machine-readable medium stores_data_readable_by mechanical device."
+          },
+          {
+            "gold_index": 15,
+            "pred_index": 15,
+            "score": 1.0,
+            "gold": {
+              "head": "computing platform",
+              "relation": "reads",
+              "tail": "machine-readable medium",
+              "confidence": 0.85,
+              "clarity": 0.9,
+              "relevance": 0.6,
+              "score": 0.8
+            },
+            "pred": {
+              "head": "computing platform",
+              "relation": "reads",
+              "tail": "machine-readable medium",
+              "confidence": 0.85,
+              "clarity": 0.9,
+              "relevance": 0.6,
+              "score": 0.8
+            },
+            "gold_text": "computing platform reads machine-readable medium.",
+            "pred_text": "computing platform reads machine-readable medium."
+          },
+          {
+            "gold_index": 14,
+            "pred_index": 14,
+            "score": 1.0,
+            "gold": {
+              "head": "embodiments",
+              "relation": "stored_on",
+              "tail": "machine-readable medium",
+              "confidence": 0.85,
+              "clarity": 0.88,
+              "relevance": 0.6,
+              "score": 0.795
+            },
+            "pred": {
+              "head": "embodiments",
+              "relation": "stored_on",
+              "tail": "machine-readable medium",
+              "confidence": 0.85,
+              "clarity": 0.88,
+              "relevance": 0.6,
+              "score": 0.795
+            },
+            "gold_text": "embodiments stored_on machine-readable medium.",
+            "pred_text": "embodiments stored_on machine-readable medium."
+          },
+          {
+            "gold_index": 13,
+            "pred_index": 13,
+            "score": 1.0,
+            "gold": {
+              "head": "embodiments",
+              "relation": "implemented_in",
+              "tail": "software",
+              "confidence": 0.85,
+              "clarity": 0.9,
+              "relevance": 0.65,
+              "score": 0.8125
+            },
+            "pred": {
+              "head": "embodiments",
+              "relation": "implemented_in",
+              "tail": "software",
+              "confidence": 0.85,
+              "clarity": 0.9,
+              "relevance": 0.65,
+              "score": 0.8125
+            },
+            "gold_text": "embodiments implemented_in software.",
+            "pred_text": "embodiments implemented_in software."
+          },
+          {
+            "gold_index": 8,
+            "pred_index": 8,
+            "score": 1.0,
+            "gold": {
+              "head": "method",
+              "relation": "integrates_in",
+              "tail": "rental car services",
+              "confidence": 0.85,
+              "clarity": 0.9,
+              "relevance": 0.75,
+              "score": 0.8375
+            },
+            "pred": {
+              "head": "method",
+              "relation": "integrates_in",
+              "tail": "rental car services",
+              "confidence": 0.85,
+              "clarity": 0.9,
+              "relevance": 0.75,
+              "score": 0.8375
+            },
+            "gold_text": "method integrates_in rental car services.",
+            "pred_text": "method integrates_in rental car services."
+          },
+          {
+            "gold_index": 6,
+            "pred_index": 6,
+            "score": 1.0,
+            "gold": {
+              "head": "method",
+              "relation": "integrates_in",
+              "tail": "connected cars",
+              "confidence": 0.85,
+              "clarity": 0.9,
+              "relevance": 0.8,
+              "score": 0.8500000000000001
+            },
+            "pred": {
+              "head": "method",
+              "relation": "integrates_in",
+              "tail": "connected cars",
+              "confidence": 0.85,
+              "clarity": 0.9,
+              "relevance": 0.8,
+              "score": 0.8500000000000001
+            },
+            "gold_text": "method integrates_in connected cars.",
+            "pred_text": "method integrates_in connected cars."
+          },
+          {
+            "gold_index": 5,
+            "pred_index": 5,
+            "score": 1.0,
+            "gold": {
+              "head": "validation of vehicle identity",
+              "relation": "ensures",
+              "tail": "integrity of component-generated information",
+              "confidence": 0.9,
+              "clarity": 0.78,
+              "relevance": 0.9,
+              "score": 0.87
+            },
+            "pred": {
+              "head": "validation of vehicle identity",
+              "relation": "ensures",
+              "tail": "integrity of component-generated information",
+              "confidence": 0.9,
+              "clarity": 0.78,
+              "relevance": 0.9,
+              "score": 0.87
+            },
+            "gold_text": "validation of vehicle identity ensures integrity of component-generated information.",
+            "pred_text": "validation of vehicle identity ensures integrity of component-generated information."
+          },
+          {
+            "gold_index": 4,
+            "pred_index": 4,
+            "score": 1.0,
+            "gold": {
+              "head": "validation of vehicle identity",
+              "relation": "ensures",
+              "tail": "integrity of vehicle components",
+              "confidence": 0.92,
+              "clarity": 0.82,
+              "relevance": 0.95,
+              "score": 0.9025000000000001
+            },
+            "pred": {
+              "head": "validation of vehicle identity",
+              "relation": "ensures",
+              "tail": "integrity of vehicle components",
+              "confidence": 0.92,
+              "clarity": 0.82,
+              "relevance": 0.95,
+              "score": 0.9025000000000001
+            },
+            "gold_text": "validation of vehicle identity ensures integrity of vehicle components.",
+            "pred_text": "validation of vehicle identity ensures integrity of vehicle components."
+          },
+          {
+            "gold_index": 3,
+            "pred_index": 3,
+            "score": 1.0,
+            "gold": {
+              "head": "identifying compromised PUF component",
+              "relation": "determines",
+              "tail": "compromise location in sub-system",
+              "confidence": 0.82,
+              "clarity": 0.75,
+              "relevance": 0.9,
+              "score": 0.8224999999999999
+            },
+            "pred": {
+              "head": "identifying compromised PUF component",
+              "relation": "determines",
+              "tail": "compromise location in sub-system",
+              "confidence": 0.82,
+              "clarity": 0.75,
+              "relevance": 0.9,
+              "score": 0.8224999999999999
+            },
+            "gold_text": "identifying compromised PUF component determines compromise location in sub-system.",
+            "pred_text": "identifying compromised PUF component determines compromise location in sub-system."
+          },
+          {
+            "gold_index": 1,
+            "pred_index": 1,
+            "score": 1.0,
+            "gold": {
+              "head": "controller",
+              "relation": "queries",
+              "tail": "ECU",
+              "confidence": 0.85,
+              "clarity": 0.95,
+              "relevance": 0.95,
+              "score": 0.8999999999999999
+            },
+            "pred": {
+              "head": "controller",
+              "relation": "queries",
+              "tail": "ECU",
+              "confidence": 0.85,
+              "clarity": 0.95,
+              "relevance": 0.95,
+              "score": 0.8999999999999999
+            },
+            "gold_text": "controller queries ECU.",
+            "pred_text": "controller queries ECU."
+          },
+          {
+            "gold_index": 0,
+            "pred_index": 0,
+            "score": 1.0,
+            "gold": {
+              "head": "ECUs",
+              "relation": "includes",
+              "tail": "PUF components",
+              "confidence": 0.85,
+              "clarity": 0.95,
+              "relevance": 0.95,
+              "score": 0.8999999999999999
+            },
+            "pred": {
+              "head": "ECUs",
+              "relation": "includes",
+              "tail": "PUF components",
+              "confidence": 0.85,
+              "clarity": 0.95,
+              "relevance": 0.95,
+              "score": 0.8999999999999999
+            },
+            "gold_text": "ECUs includes PUF components.",
+            "pred_text": "ECUs includes PUF components."
+          },
+          {
+            "gold_index": 9,
+            "pred_index": 9,
+            "score": 1.0,
+            "gold": {
+              "head": "method",
+              "relation": "integrates_in",
+              "tail": "maintenance and factory services",
+              "confidence": 0.85,
+              "clarity": 0.85,
+              "relevance": 0.75,
+              "score": 0.825
+            },
+            "pred": {
+              "head": "method",
+              "relation": "integrates_in",
+              "tail": "maintenance and factory services",
+              "confidence": 0.85,
+              "clarity": 0.85,
+              "relevance": 0.75,
+              "score": 0.825
+            },
+            "gold_text": "method integrates_in maintenance and factory services.",
+            "pred_text": "method integrates_in maintenance and factory services."
+          },
+          {
+            "gold_index": 2,
+            "pred_index": 2,
+            "score": 1.0,
+            "gold": {
+              "head": "controller",
+              "relation": "identifies",
+              "tail": "compromised PUF component",
+              "confidence": 0.8,
+              "clarity": 0.85,
+              "relevance": 0.95,
+              "score": 0.8500000000000001
+            },
+            "pred": {
+              "head": "controller",
+              "relation": "identifies",
+              "tail": "compromised PUF component",
+              "confidence": 0.8,
+              "clarity": 0.85,
+              "relevance": 0.95,
+              "score": 0.8500000000000001
+            },
+            "gold_text": "controller identifies compromised PUF component.",
+            "pred_text": "controller identifies compromised PUF component."
+          },
+          {
+            "gold_index": 16,
+            "pred_index": 16,
+            "score": 1.0,
+            "gold": {
+              "head": "computing platform",
+              "relation": "executes",
+              "tail": "instructions",
+              "confidence": 0.85,
+              "clarity": 0.88,
+              "relevance": 0.6,
+              "score": 0.795
+            },
+            "pred": {
+              "head": "computing platform",
+              "relation": "executes",
+              "tail": "instructions",
+              "confidence": 0.85,
+              "clarity": 0.88,
+              "relevance": 0.6,
+              "score": 0.795
+            },
+            "gold_text": "computing platform executes instructions.",
+            "pred_text": "computing platform executes instructions."
+          },
+          {
+            "gold_index": 11,
+            "pred_index": 11,
+            "score": 1.0,
+            "gold": {
+              "head": "embodiments",
+              "relation": "implemented_in",
+              "tail": "hardware",
+              "confidence": 0.85,
+              "clarity": 0.9,
+              "relevance": 0.65,
+              "score": 0.8125
+            },
+            "pred": {
+              "head": "embodiments",
+              "relation": "implemented_in",
+              "tail": "hardware",
+              "confidence": 0.85,
+              "clarity": 0.9,
+              "relevance": 0.65,
+              "score": 0.8125
+            },
+            "gold_text": "embodiments implemented_in hardware.",
+            "pred_text": "embodiments implemented_in hardware."
+          }
+        ]
+      },
+      {
+        "doc": 2,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 16,
+        "fp": 0,
+        "fn": 0,
+        "gold_n": 16,
+        "pred_n": 16,
+        "matches": [
+          {
+            "gold_index": 10,
+            "pred_index": 10,
+            "score": 1.0,
+            "gold": {
+              "head": "feedback profiles",
+              "relation": "depend on",
+              "tail": "operator",
+              "confidence": 0.9,
+              "clarity": 0.82,
+              "relevance": 0.8,
+              "score": 0.855
+            },
+            "pred": {
+              "head": "feedback profiles",
+              "relation": "depend on",
+              "tail": "operator",
+              "confidence": 0.9,
+              "clarity": 0.82,
+              "relevance": 0.8,
+              "score": 0.855
+            },
+            "gold_text": "feedback profiles depend on operator.",
+            "pred_text": "feedback profiles depend on operator."
+          },
+          {
+            "gold_index": 4,
+            "pred_index": 4,
+            "score": 1.0,
+            "gold": {
+              "head": "transformation function",
+              "relation": "adapts",
+              "tail": "congestion value",
+              "confidence": 0.95,
+              "clarity": 0.92,
+              "relevance": 0.95,
+              "score": 0.9424999999999999
+            },
+            "pred": {
+              "head": "transformation function",
+              "relation": "adapts",
+              "tail": "congestion value",
+              "confidence": 0.95,
+              "clarity": 0.92,
+              "relevance": 0.95,
+              "score": 0.9424999999999999
+            },
+            "gold_text": "transformation function adapts congestion value.",
+            "pred_text": "transformation function adapts congestion value."
+          },
+          {
+            "gold_index": 14,
+            "pred_index": 14,
+            "score": 1.0,
+            "gold": {
+              "head": "measured traffic per time",
+              "relation": "measured over",
+              "tail": "time span",
+              "confidence": 0.92,
+              "clarity": 0.78,
+              "relevance": 0.85,
+              "score": 0.8675
+            },
+            "pred": {
+              "head": "measured traffic per time",
+              "relation": "measured over",
+              "tail": "time span",
+              "confidence": 0.92,
+              "clarity": 0.78,
+              "relevance": 0.85,
+              "score": 0.8675
+            },
+            "gold_text": "measured traffic per time measured over time span.",
+            "pred_text": "measured traffic per time measured over time span."
+          },
+          {
+            "gold_index": 13,
+            "pred_index": 13,
+            "score": 1.0,
+            "gold": {
+              "head": "cell capacity",
+              "relation": "fluctuates with",
+              "tail": "scheduling assignments",
+              "confidence": 0.9,
+              "clarity": 0.83,
+              "relevance": 0.7,
+              "score": 0.8325
+            },
+            "pred": {
+              "head": "cell capacity",
+              "relation": "fluctuates with",
+              "tail": "scheduling assignments",
+              "confidence": 0.9,
+              "clarity": 0.83,
+              "relevance": 0.7,
+              "score": 0.8325
+            },
+            "gold_text": "cell capacity fluctuates with scheduling assignments.",
+            "pred_text": "cell capacity fluctuates with scheduling assignments."
+          },
+          {
+            "gold_index": 0,
+            "pred_index": 0,
+            "score": 1.0,
+            "gold": {
+              "head": "congestion level information",
+              "relation": "enables",
+              "tail": "congestion mitigation measures",
+              "confidence": 0.95,
+              "clarity": 0.9,
+              "relevance": 0.95,
+              "score": 0.9375
+            },
+            "pred": {
+              "head": "congestion level information",
+              "relation": "enables",
+              "tail": "congestion mitigation measures",
+              "confidence": 0.95,
+              "clarity": 0.9,
+              "relevance": 0.95,
+              "score": 0.9375
+            },
+            "gold_text": "congestion level information enables congestion mitigation measures.",
+            "pred_text": "congestion level information enables congestion mitigation measures."
+          },
+          {
+            "gold_index": 15,
+            "pred_index": 15,
+            "score": 1.0,
+            "gold": {
+              "head": "instantaneous traffic patterns",
+              "relation": "causes inaccuracy in",
+              "tail": "congestion level information",
+              "confidence": 0.78,
+              "clarity": 0.68,
+              "relevance": 0.85,
+              "score": 0.7725000000000001
+            },
+            "pred": {
+              "head": "instantaneous traffic patterns",
+              "relation": "causes inaccuracy in",
+              "tail": "congestion level information",
+              "confidence": 0.78,
+              "clarity": 0.68,
+              "relevance": 0.85,
+              "score": 0.7725000000000001
+            },
+            "gold_text": "instantaneous traffic patterns causes inaccuracy in congestion level information.",
+            "pred_text": "instantaneous traffic patterns causes inaccuracy in congestion level information."
+          },
+          {
+            "gold_index": 12,
+            "pred_index": 12,
+            "score": 1.0,
+            "gold": {
+              "head": "cell capacity",
+              "relation": "fluctuates with",
+              "tail": "time-variant radio conditions",
+              "confidence": 0.9,
+              "clarity": 0.83,
+              "relevance": 0.7,
+              "score": 0.8325
+            },
+            "pred": {
+              "head": "cell capacity",
+              "relation": "fluctuates with",
+              "tail": "time-variant radio conditions",
+              "confidence": 0.9,
+              "clarity": 0.83,
+              "relevance": 0.7,
+              "score": 0.8325
+            },
+            "gold_text": "cell capacity fluctuates with time-variant radio conditions.",
+            "pred_text": "cell capacity fluctuates with time-variant radio conditions."
+          },
+          {
+            "gold_index": 11,
+            "pred_index": 11,
+            "score": 1.0,
+            "gold": {
+              "head": "eNBs",
+              "relation": "use",
+              "tail": "proportional-fair scheduling",
+              "confidence": 0.88,
+              "clarity": 0.85,
+              "relevance": 0.72,
+              "score": 0.8325
+            },
+            "pred": {
+              "head": "eNBs",
+              "relation": "use",
+              "tail": "proportional-fair scheduling",
+              "confidence": 0.88,
+              "clarity": 0.85,
+              "relevance": 0.72,
+              "score": 0.8325
+            },
+            "gold_text": "eNBs use proportional-fair scheduling.",
+            "pred_text": "eNBs use proportional-fair scheduling."
+          },
+          {
+            "gold_index": 9,
+            "pred_index": 9,
+            "score": 1.0,
+            "gold": {
+              "head": "operator",
+              "relation": "uses",
+              "tail": "profiles",
+              "confidence": 0.88,
+              "clarity": 0.72,
+              "relevance": 0.78,
+              "score": 0.815
+            },
+            "pred": {
+              "head": "operator",
+              "relation": "uses",
+              "tail": "profiles",
+              "confidence": 0.88,
+              "clarity": 0.72,
+              "relevance": 0.78,
+              "score": 0.815
+            },
+            "gold_text": "operator uses profiles.",
+            "pred_text": "operator uses profiles."
+          },
+          {
+            "gold_index": 8,
+            "pred_index": 8,
+            "score": 1.0,
+            "gold": {
+              "head": "operator",
+              "relation": "uses",
+              "tail": "transformation function",
+              "confidence": 0.9,
+              "clarity": 0.85,
+              "relevance": 0.82,
+              "score": 0.8674999999999999
+            },
+            "pred": {
+              "head": "operator",
+              "relation": "uses",
+              "tail": "transformation function",
+              "confidence": 0.9,
+              "clarity": 0.85,
+              "relevance": 0.82,
+              "score": 0.8674999999999999
+            },
+            "gold_text": "operator uses transformation function.",
+            "pred_text": "operator uses transformation function."
+          },
+          {
+            "gold_index": 7,
+            "pred_index": 7,
+            "score": 1.0,
+            "gold": {
+              "head": "transformation function",
+              "relation": "amends",
+              "tail": "shape of a congestion level curve",
+              "confidence": 0.95,
+              "clarity": 0.8,
+              "relevance": 0.88,
+              "score": 0.895
+            },
+            "pred": {
+              "head": "transformation function",
+              "relation": "amends",
+              "tail": "shape of a congestion level curve",
+              "confidence": 0.95,
+              "clarity": 0.8,
+              "relevance": 0.88,
+              "score": 0.895
+            },
+            "gold_text": "transformation function amends shape of a congestion level curve.",
+            "pred_text": "transformation function amends shape of a congestion level curve."
+          },
+          {
+            "gold_index": 6,
+            "pred_index": 6,
+            "score": 1.0,
+            "gold": {
+              "head": "transformation function",
+              "relation": "amends",
+              "tail": "steepness of a congestion level curve",
+              "confidence": 0.95,
+              "clarity": 0.8,
+              "relevance": 0.88,
+              "score": 0.895
+            },
+            "pred": {
+              "head": "transformation function",
+              "relation": "amends",
+              "tail": "steepness of a congestion level curve",
+              "confidence": 0.95,
+              "clarity": 0.8,
+              "relevance": 0.88,
+              "score": 0.895
+            },
+            "gold_text": "transformation function amends steepness of a congestion level curve.",
+            "pred_text": "transformation function amends steepness of a congestion level curve."
+          },
+          {
+            "gold_index": 5,
+            "pred_index": 5,
+            "score": 1.0,
+            "gold": {
+              "head": "transformation function",
+              "relation": "amends",
+              "tail": "number of congestion levels",
+              "confidence": 0.95,
+              "clarity": 0.88,
+              "relevance": 0.9,
+              "score": 0.9199999999999999
+            },
+            "pred": {
+              "head": "transformation function",
+              "relation": "amends",
+              "tail": "number of congestion levels",
+              "confidence": 0.95,
+              "clarity": 0.88,
+              "relevance": 0.9,
+              "score": 0.9199999999999999
+            },
+            "gold_text": "transformation function amends number of congestion levels.",
+            "pred_text": "transformation function amends number of congestion levels."
+          },
+          {
+            "gold_index": 3,
+            "pred_index": 3,
+            "score": 1.0,
+            "gold": {
+              "head": "congestion value",
+              "relation": "detects",
+              "tail": "congestion levels",
+              "confidence": 0.88,
+              "clarity": 0.82,
+              "relevance": 0.92,
+              "score": 0.875
+            },
+            "pred": {
+              "head": "congestion value",
+              "relation": "detects",
+              "tail": "congestion levels",
+              "confidence": 0.88,
+              "clarity": 0.82,
+              "relevance": 0.92,
+              "score": 0.875
+            },
+            "gold_text": "congestion value detects congestion levels.",
+            "pred_text": "congestion value detects congestion levels."
+          },
+          {
+            "gold_index": 2,
+            "pred_index": 2,
+            "score": 1.0,
+            "gold": {
+              "head": "minimum bandwidth demand",
+              "relation": "exceeds",
+              "tail": "measured traffic per time",
+              "confidence": 0.95,
+              "clarity": 0.85,
+              "relevance": 0.9,
+              "score": 0.9125
+            },
+            "pred": {
+              "head": "minimum bandwidth demand",
+              "relation": "exceeds",
+              "tail": "measured traffic per time",
+              "confidence": 0.95,
+              "clarity": 0.85,
+              "relevance": 0.9,
+              "score": 0.9125
+            },
+            "gold_text": "minimum bandwidth demand exceeds measured traffic per time.",
+            "pred_text": "minimum bandwidth demand exceeds measured traffic per time."
+          },
+          {
+            "gold_index": 1,
+            "pred_index": 1,
+            "score": 1.0,
+            "gold": {
+              "head": "congestion levels",
+              "relation": "enables",
+              "tail": "congestion mitigation measures",
+              "confidence": 0.92,
+              "clarity": 0.88,
+              "relevance": 0.93,
+              "score": 0.9125000000000001
+            },
+            "pred": {
+              "head": "congestion levels",
+              "relation": "enables",
+              "tail": "congestion mitigation measures",
+              "confidence": 0.92,
+              "clarity": 0.88,
+              "relevance": 0.93,
+              "score": 0.9125000000000001
+            },
+            "gold_text": "congestion levels enables congestion mitigation measures.",
+            "pred_text": "congestion levels enables congestion mitigation measures."
+          }
+        ]
+      },
+      {
+        "doc": 3,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 19,
+        "fp": 0,
+        "fn": 0,
+        "gold_n": 19,
+        "pred_n": 19,
+        "matches": [
+          {
+            "gold_index": 16,
+            "pred_index": 16,
+            "score": 1.0,
+            "gold": {
+              "head": "part",
+              "relation": "refers_to",
+              "tail": "network",
+              "confidence": 0.9,
+              "clarity": 0.7,
+              "relevance": 0.6,
+              "score": 0.775
+            },
+            "pred": {
+              "head": "part",
+              "relation": "refers_to",
+              "tail": "network",
+              "confidence": 0.9,
+              "clarity": 0.7,
+              "relevance": 0.6,
+              "score": 0.775
+            },
+            "gold_text": "part refers_to network.",
+            "pred_text": "part refers_to network."
+          },
+          {
+            "gold_index": 7,
+            "pred_index": 7,
+            "score": 1.0,
+            "gold": {
+              "head": "transformation function",
+              "relation": "adapts",
+              "tail": "congestion value",
+              "confidence": 0.95,
+              "clarity": 0.92,
+              "relevance": 0.88,
+              "score": 0.9249999999999999
+            },
+            "pred": {
+              "head": "transformation function",
+              "relation": "adapts",
+              "tail": "congestion value",
+              "confidence": 0.95,
+              "clarity": 0.92,
+              "relevance": 0.88,
+              "score": 0.9249999999999999
+            },
+            "gold_text": "transformation function adapts congestion value.",
+            "pred_text": "transformation function adapts congestion value."
+          },
+          {
+            "gold_index": 0,
+            "pred_index": 0,
+            "score": 1.0,
+            "gold": {
+              "head": "instantaneous traffic patterns",
+              "relation": "causes",
+              "tail": "inaccuracy",
+              "confidence": 0.88,
+              "clarity": 0.82,
+              "relevance": 0.8,
+              "score": 0.845
+            },
+            "pred": {
+              "head": "instantaneous traffic patterns",
+              "relation": "causes",
+              "tail": "inaccuracy",
+              "confidence": 0.88,
+              "clarity": 0.82,
+              "relevance": 0.8,
+              "score": 0.845
+            },
+            "gold_text": "instantaneous traffic patterns causes inaccuracy.",
+            "pred_text": "instantaneous traffic patterns causes inaccuracy."
+          },
+          {
+            "gold_index": 18,
+            "pred_index": 18,
+            "score": 1.0,
+            "gold": {
+              "head": "congestion level",
+              "relation": "based_on",
+              "tail": "per link",
+              "confidence": 0.9,
+              "clarity": 0.72,
+              "relevance": 0.82,
+              "score": 0.835
+            },
+            "pred": {
+              "head": "congestion level",
+              "relation": "based_on",
+              "tail": "per link",
+              "confidence": 0.9,
+              "clarity": 0.72,
+              "relevance": 0.82,
+              "score": 0.835
+            },
+            "gold_text": "congestion level based_on per link.",
+            "pred_text": "congestion level based_on per link."
+          },
+          {
+            "gold_index": 14,
+            "pred_index": 14,
+            "score": 1.0,
+            "gold": {
+              "head": "time-variant radio conditions",
+              "relation": "determines",
+              "tail": "cell capacity",
+              "confidence": 0.9,
+              "clarity": 0.85,
+              "relevance": 0.75,
+              "score": 0.85
+            },
+            "pred": {
+              "head": "time-variant radio conditions",
+              "relation": "determines",
+              "tail": "cell capacity",
+              "confidence": 0.9,
+              "clarity": 0.85,
+              "relevance": 0.75,
+              "score": 0.85
+            },
+            "gold_text": "time-variant radio conditions determines cell capacity.",
+            "pred_text": "time-variant radio conditions determines cell capacity."
+          },
+          {
+            "gold_index": 2,
+            "pred_index": 2,
+            "score": 1.0,
+            "gold": {
+              "head": "congestion level information",
+              "relation": "enables",
+              "tail": "congestion mitigation measures",
+              "confidence": 0.95,
+              "clarity": 0.92,
+              "relevance": 0.9,
+              "score": 0.9299999999999999
+            },
+            "pred": {
+              "head": "congestion level information",
+              "relation": "enables",
+              "tail": "congestion mitigation measures",
+              "confidence": 0.95,
+              "clarity": 0.92,
+              "relevance": 0.9,
+              "score": 0.9299999999999999
+            },
+            "gold_text": "congestion level information enables congestion mitigation measures.",
+            "pred_text": "congestion level information enables congestion mitigation measures."
+          },
+          {
+            "gold_index": 15,
+            "pred_index": 15,
+            "score": 1.0,
+            "gold": {
+              "head": "scheduling assignments",
+              "relation": "determines",
+              "tail": "cell capacity",
+              "confidence": 0.9,
+              "clarity": 0.88,
+              "relevance": 0.75,
+              "score": 0.8575
+            },
+            "pred": {
+              "head": "scheduling assignments",
+              "relation": "determines",
+              "tail": "cell capacity",
+              "confidence": 0.9,
+              "clarity": 0.88,
+              "relevance": 0.75,
+              "score": 0.8575
+            },
+            "gold_text": "scheduling assignments determines cell capacity.",
+            "pred_text": "scheduling assignments determines cell capacity."
+          },
+          {
+            "gold_index": 13,
+            "pred_index": 13,
+            "score": 1.0,
+            "gold": {
+              "head": "eNBs",
+              "relation": "uses",
+              "tail": "proportional-fair scheduling",
+              "confidence": 0.92,
+              "clarity": 0.88,
+              "relevance": 0.72,
+              "score": 0.8600000000000001
+            },
+            "pred": {
+              "head": "eNBs",
+              "relation": "uses",
+              "tail": "proportional-fair scheduling",
+              "confidence": 0.92,
+              "clarity": 0.88,
+              "relevance": 0.72,
+              "score": 0.8600000000000001
+            },
+            "gold_text": "eNBs uses proportional-fair scheduling.",
+            "pred_text": "eNBs uses proportional-fair scheduling."
+          },
+          {
+            "gold_index": 12,
+            "pred_index": 12,
+            "score": 1.0,
+            "gold": {
+              "head": "feedback profiles",
+              "relation": "depends_on",
+              "tail": "need of an operator",
+              "confidence": 0.9,
+              "clarity": 0.8,
+              "relevance": 0.78,
+              "score": 0.845
+            },
+            "pred": {
+              "head": "feedback profiles",
+              "relation": "depends_on",
+              "tail": "need of an operator",
+              "confidence": 0.9,
+              "clarity": 0.8,
+              "relevance": 0.78,
+              "score": 0.845
+            },
+            "gold_text": "feedback profiles depends_on need of an operator.",
+            "pred_text": "feedback profiles depends_on need of an operator."
+          },
+          {
+            "gold_index": 11,
+            "pred_index": 11,
+            "score": 1.0,
+            "gold": {
+              "head": "transformation function",
+              "relation": "enhances",
+              "tail": "congestion value",
+              "confidence": 0.9,
+              "clarity": 0.85,
+              "relevance": 0.88,
+              "score": 0.8825
+            },
+            "pred": {
+              "head": "transformation function",
+              "relation": "enhances",
+              "tail": "congestion value",
+              "confidence": 0.9,
+              "clarity": 0.85,
+              "relevance": 0.88,
+              "score": 0.8825
+            },
+            "gold_text": "transformation function enhances congestion value.",
+            "pred_text": "transformation function enhances congestion value."
+          },
+          {
+            "gold_index": 10,
+            "pred_index": 10,
+            "score": 1.0,
+            "gold": {
+              "head": "transformation function",
+              "relation": "amends",
+              "tail": "shape of a congestion level curve",
+              "confidence": 0.95,
+              "clarity": 0.85,
+              "relevance": 0.8,
+              "score": 0.8875
+            },
+            "pred": {
+              "head": "transformation function",
+              "relation": "amends",
+              "tail": "shape of a congestion level curve",
+              "confidence": 0.95,
+              "clarity": 0.85,
+              "relevance": 0.8,
+              "score": 0.8875
+            },
+            "gold_text": "transformation function amends shape of a congestion level curve.",
+            "pred_text": "transformation function amends shape of a congestion level curve."
+          },
+          {
+            "gold_index": 9,
+            "pred_index": 9,
+            "score": 1.0,
+            "gold": {
+              "head": "transformation function",
+              "relation": "amends",
+              "tail": "steepness of a congestion level curve",
+              "confidence": 0.95,
+              "clarity": 0.85,
+              "relevance": 0.82,
+              "score": 0.8925
+            },
+            "pred": {
+              "head": "transformation function",
+              "relation": "amends",
+              "tail": "steepness of a congestion level curve",
+              "confidence": 0.95,
+              "clarity": 0.85,
+              "relevance": 0.82,
+              "score": 0.8925
+            },
+            "gold_text": "transformation function amends steepness of a congestion level curve.",
+            "pred_text": "transformation function amends steepness of a congestion level curve."
+          },
+          {
+            "gold_index": 8,
+            "pred_index": 8,
+            "score": 1.0,
+            "gold": {
+              "head": "transformation function",
+              "relation": "amends",
+              "tail": "number of congestion levels",
+              "confidence": 0.95,
+              "clarity": 0.9,
+              "relevance": 0.85,
+              "score": 0.9125
+            },
+            "pred": {
+              "head": "transformation function",
+              "relation": "amends",
+              "tail": "number of congestion levels",
+              "confidence": 0.95,
+              "clarity": 0.9,
+              "relevance": 0.85,
+              "score": 0.9125
+            },
+            "gold_text": "transformation function amends number of congestion levels.",
+            "pred_text": "transformation function amends number of congestion levels."
+          },
+          {
+            "gold_index": 5,
+            "pred_index": 5,
+            "score": 1.0,
+            "gold": {
+              "head": "minimum bandwidth demand",
+              "relation": "exceeds",
+              "tail": "measured traffic per time",
+              "confidence": 0.95,
+              "clarity": 0.82,
+              "relevance": 0.92,
+              "score": 0.9099999999999999
+            },
+            "pred": {
+              "head": "minimum bandwidth demand",
+              "relation": "exceeds",
+              "tail": "measured traffic per time",
+              "confidence": 0.95,
+              "clarity": 0.82,
+              "relevance": 0.92,
+              "score": 0.9099999999999999
+            },
+            "gold_text": "minimum bandwidth demand exceeds measured traffic per time.",
+            "pred_text": "minimum bandwidth demand exceeds measured traffic per time."
+          },
+          {
+            "gold_index": 4,
+            "pred_index": 4,
+            "score": 1.0,
+            "gold": {
+              "head": "congestion levels",
+              "relation": "enables",
+              "tail": "congestion mitigation measures",
+              "confidence": 0.92,
+              "clarity": 0.88,
+              "relevance": 0.95,
+              "score": 0.9175
+            },
+            "pred": {
+              "head": "congestion levels",
+              "relation": "enables",
+              "tail": "congestion mitigation measures",
+              "confidence": 0.92,
+              "clarity": 0.88,
+              "relevance": 0.95,
+              "score": 0.9175
+            },
+            "gold_text": "congestion levels enables congestion mitigation measures.",
+            "pred_text": "congestion levels enables congestion mitigation measures."
+          },
+          {
+            "gold_index": 3,
+            "pred_index": 3,
+            "score": 1.0,
+            "gold": {
+              "head": "severeness of the congestion",
+              "relation": "determines",
+              "tail": "congestion mitigation measures",
+              "confidence": 0.9,
+              "clarity": 0.85,
+              "relevance": 0.88,
+              "score": 0.8825
+            },
+            "pred": {
+              "head": "severeness of the congestion",
+              "relation": "determines",
+              "tail": "congestion mitigation measures",
+              "confidence": 0.9,
+              "clarity": 0.85,
+              "relevance": 0.88,
+              "score": 0.8825
+            },
+            "gold_text": "severeness of the congestion determines congestion mitigation measures.",
+            "pred_text": "severeness of the congestion determines congestion mitigation measures."
+          },
+          {
+            "gold_index": 1,
+            "pred_index": 1,
+            "score": 1.0,
+            "gold": {
+              "head": "medium- to long-term congestion situations",
+              "relation": "causes",
+              "tail": "inaccuracy",
+              "confidence": 0.88,
+              "clarity": 0.78,
+              "relevance": 0.82,
+              "score": 0.84
+            },
+            "pred": {
+              "head": "medium- to long-term congestion situations",
+              "relation": "causes",
+              "tail": "inaccuracy",
+              "confidence": 0.88,
+              "clarity": 0.78,
+              "relevance": 0.82,
+              "score": 0.84
+            },
+            "gold_text": "medium- to long-term congestion situations causes inaccuracy.",
+            "pred_text": "medium- to long-term congestion situations causes inaccuracy."
+          },
+          {
+            "gold_index": 17,
+            "pred_index": 17,
+            "score": 1.0,
+            "gold": {
+              "head": "congestion level",
+              "relation": "based_on",
+              "tail": "per cell",
+              "confidence": 0.9,
+              "clarity": 0.72,
+              "relevance": 0.82,
+              "score": 0.835
+            },
+            "pred": {
+              "head": "congestion level",
+              "relation": "based_on",
+              "tail": "per cell",
+              "confidence": 0.9,
+              "clarity": 0.72,
+              "relevance": 0.82,
+              "score": 0.835
+            },
+            "gold_text": "congestion level based_on per cell.",
+            "pred_text": "congestion level based_on per cell."
+          },
+          {
+            "gold_index": 6,
+            "pred_index": 6,
+            "score": 1.0,
+            "gold": {
+              "head": "congestion value",
+              "relation": "detects",
+              "tail": "congestion",
+              "confidence": 0.9,
+              "clarity": 0.88,
+              "relevance": 0.92,
+              "score": 0.9
+            },
+            "pred": {
+              "head": "congestion value",
+              "relation": "detects",
+              "tail": "congestion",
+              "confidence": 0.9,
+              "clarity": 0.88,
+              "relevance": 0.92,
+              "score": 0.9
+            },
+            "gold_text": "congestion value detects congestion.",
+            "pred_text": "congestion value detects congestion."
+          }
+        ]
+      },
+      {
+        "doc": 4,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 10,
+        "fp": 0,
+        "fn": 0,
+        "gold_n": 10,
+        "pred_n": 10,
+        "matches": [
+          {
+            "gold_index": 9,
+            "pred_index": 9,
+            "score": 1.0,
+            "gold": {
+              "head": "strong materials",
+              "relation": "withstand conditions of",
+              "tail": "open cargo area",
+              "confidence": 0.88,
+              "clarity": 0.75,
+              "relevance": 0.7,
+              "score": 0.8025
+            },
+            "pred": {
+              "head": "strong materials",
+              "relation": "withstand conditions of",
+              "tail": "open cargo area",
+              "confidence": 0.88,
+              "clarity": 0.75,
+              "relevance": 0.7,
+              "score": 0.8025
+            },
+            "gold_text": "strong materials withstand conditions of open cargo area.",
+            "pred_text": "strong materials withstand conditions of open cargo area."
+          },
+          {
+            "gold_index": 3,
+            "pred_index": 3,
+            "score": 1.0,
+            "gold": {
+              "head": "bows",
+              "relation": "prevents",
+              "tail": "water accumulation",
+              "confidence": 0.95,
+              "clarity": 0.9,
+              "relevance": 0.85,
+              "score": 0.9125
+            },
+            "pred": {
+              "head": "bows",
+              "relation": "prevents",
+              "tail": "water accumulation",
+              "confidence": 0.95,
+              "clarity": 0.9,
+              "relevance": 0.85,
+              "score": 0.9125
+            },
+            "gold_text": "bows prevents water accumulation.",
+            "pred_text": "bows prevents water accumulation."
+          },
+          {
+            "gold_index": 0,
+            "pred_index": 0,
+            "score": 1.0,
+            "gold": {
+              "head": "tarpaulin bracket system",
+              "relation": "mounts to",
+              "tail": "vehicle",
+              "confidence": 0.95,
+              "clarity": 0.92,
+              "relevance": 0.95,
+              "score": 0.9424999999999999
+            },
+            "pred": {
+              "head": "tarpaulin bracket system",
+              "relation": "mounts to",
+              "tail": "vehicle",
+              "confidence": 0.95,
+              "clarity": 0.92,
+              "relevance": 0.95,
+              "score": 0.9424999999999999
+            },
+            "gold_text": "tarpaulin bracket system mounts to vehicle.",
+            "pred_text": "tarpaulin bracket system mounts to vehicle."
+          },
+          {
+            "gold_index": 8,
+            "pred_index": 8,
+            "score": 1.0,
+            "gold": {
+              "head": "second set of left and right pulleys",
+              "relation": "attached at rear of",
+              "tail": "cargo hold",
+              "confidence": 0.95,
+              "clarity": 0.78,
+              "relevance": 0.85,
+              "score": 0.8825
+            },
+            "pred": {
+              "head": "second set of left and right pulleys",
+              "relation": "attached at rear of",
+              "tail": "cargo hold",
+              "confidence": 0.95,
+              "clarity": 0.78,
+              "relevance": 0.85,
+              "score": 0.8825
+            },
+            "gold_text": "second set of left and right pulleys attached at rear of cargo hold.",
+            "pred_text": "second set of left and right pulleys attached at rear of cargo hold."
+          },
+          {
+            "gold_index": 7,
+            "pred_index": 7,
+            "score": 1.0,
+            "gold": {
+              "head": "first set of left and right pulleys",
+              "relation": "attached at front of",
+              "tail": "cargo hold",
+              "confidence": 0.95,
+              "clarity": 0.78,
+              "relevance": 0.85,
+              "score": 0.8825
+            },
+            "pred": {
+              "head": "first set of left and right pulleys",
+              "relation": "attached at front of",
+              "tail": "cargo hold",
+              "confidence": 0.95,
+              "clarity": 0.78,
+              "relevance": 0.85,
+              "score": 0.8825
+            },
+            "gold_text": "first set of left and right pulleys attached at front of cargo hold.",
+            "pred_text": "first set of left and right pulleys attached at front of cargo hold."
+          },
+          {
+            "gold_index": 6,
+            "pred_index": 6,
+            "score": 1.0,
+            "gold": {
+              "head": "plurality of connectors",
+              "relation": "detachably connects to",
+              "tail": "bows",
+              "confidence": 0.95,
+              "clarity": 0.9,
+              "relevance": 0.9,
+              "score": 0.9249999999999999
+            },
+            "pred": {
+              "head": "plurality of connectors",
+              "relation": "detachably connects to",
+              "tail": "bows",
+              "confidence": 0.95,
+              "clarity": 0.9,
+              "relevance": 0.9,
+              "score": 0.9249999999999999
+            },
+            "gold_text": "plurality of connectors detachably connects to bows.",
+            "pred_text": "plurality of connectors detachably connects to bows."
+          },
+          {
+            "gold_index": 5,
+            "pred_index": 5,
+            "score": 1.0,
+            "gold": {
+              "head": "plurality of connectors",
+              "relation": "detachably connects to",
+              "tail": "first and second cables",
+              "confidence": 0.95,
+              "clarity": 0.85,
+              "relevance": 0.9,
+              "score": 0.9125
+            },
+            "pred": {
+              "head": "plurality of connectors",
+              "relation": "detachably connects to",
+              "tail": "first and second cables",
+              "confidence": 0.95,
+              "clarity": 0.85,
+              "relevance": 0.9,
+              "score": 0.9125
+            },
+            "gold_text": "plurality of connectors detachably connects to first and second cables.",
+            "pred_text": "plurality of connectors detachably connects to first and second cables."
+          },
+          {
+            "gold_index": 2,
+            "pred_index": 2,
+            "score": 1.0,
+            "gold": {
+              "head": "bows",
+              "relation": "separates",
+              "tail": "tarpaulin",
+              "confidence": 0.88,
+              "clarity": 0.82,
+              "relevance": 0.85,
+              "score": 0.8575
+            },
+            "pred": {
+              "head": "bows",
+              "relation": "separates",
+              "tail": "tarpaulin",
+              "confidence": 0.88,
+              "clarity": 0.82,
+              "relevance": 0.85,
+              "score": 0.8575
+            },
+            "gold_text": "bows separates tarpaulin.",
+            "pred_text": "bows separates tarpaulin."
+          },
+          {
+            "gold_index": 1,
+            "pred_index": 1,
+            "score": 1.0,
+            "gold": {
+              "head": "tarpaulin bracket system",
+              "relation": "provides structure for",
+              "tail": "tarp",
+              "confidence": 0.95,
+              "clarity": 0.88,
+              "relevance": 0.95,
+              "score": 0.9324999999999999
+            },
+            "pred": {
+              "head": "tarpaulin bracket system",
+              "relation": "provides structure for",
+              "tail": "tarp",
+              "confidence": 0.95,
+              "clarity": 0.88,
+              "relevance": 0.95,
+              "score": 0.9324999999999999
+            },
+            "gold_text": "tarpaulin bracket system provides structure for tarp.",
+            "pred_text": "tarpaulin bracket system provides structure for tarp."
+          },
+          {
+            "gold_index": 4,
+            "pred_index": 4,
+            "score": 1.0,
+            "gold": {
+              "head": "motorized system",
+              "relation": "insufficiently covers",
+              "tail": "open-top cargo hold",
+              "confidence": 0.9,
+              "clarity": 0.78,
+              "relevance": 0.75,
+              "score": 0.8325
+            },
+            "pred": {
+              "head": "motorized system",
+              "relation": "insufficiently covers",
+              "tail": "open-top cargo hold",
+              "confidence": 0.9,
+              "clarity": 0.78,
+              "relevance": 0.75,
+              "score": 0.8325
+            },
+            "gold_text": "motorized system insufficiently covers open-top cargo hold.",
+            "pred_text": "motorized system insufficiently covers open-top cargo hold."
+          }
+        ]
+      }
+    ]
+  }
+}

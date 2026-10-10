@@ -1,0 +1,19 @@
+{
+  "version": "b0",
+  "created": "2026-09-15",
+  "status": "HISTORICAL_SNAPSHOT",
+  "files": [
+    {
+      "path": "benchie-annotated_300.txt",
+      "sha256": "301fc6dd813174b843a32c82cdd7e091a45aac106b993e9d24ac0b98e739c168"
+    },
+    {
+      "path": "gold.json",
+      "sha256": "8f4ccb74f05e10e254399b9f34f4410d6967d8b4996cd623b0a38edf30976b0e"
+    },
+    {
+      "path": "input.json",
+      "sha256": "cb922a768c110b003cfc6d0d90b005c3e88bc6afdbd9cbd69a4177755a237f4a"
+    }
+  ]
+}

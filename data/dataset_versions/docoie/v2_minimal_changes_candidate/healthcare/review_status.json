@@ -1,0 +1,3612 @@
+[
+  {
+    "sentence_id": "docoie_healthcare_doc0_target0",
+    "document_id": "157. Remote presence system mounted to operating room hardware.txt",
+    "target_sentence": "The control station is typically located in a place that is remote from the robot face.",
+    "context_positions": [
+      34
+    ],
+    "review_status": "reviewed"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc0_target1",
+    "document_id": "157. Remote presence system mounted to operating room hardware.txt",
+    "target_sentence": "The CHANGE button can be selected to change the default robot face in a new session.",
+    "context_positions": [
+      98
+    ],
+    "review_status": "reviewed"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc0_target2",
+    "document_id": "157. Remote presence system mounted to operating room hardware.txt",
+    "target_sentence": "Capturing and playing back video can be taken through graphical icons.",
+    "context_positions": [
+      108
+    ],
+    "review_status": "reviewed"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc0_target3",
+    "document_id": "157. Remote presence system mounted to operating room hardware.txt",
+    "target_sentence": "The robot face may also have a voice recognition system that allows the user to grant access with a voice command.",
+    "context_positions": [
+      94
+    ],
+    "review_status": "reviewed"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc0_target4",
+    "document_id": "157. Remote presence system mounted to operating room hardware.txt",
+    "target_sentence": "The robot face can be retrofitted onto booms that presently exist in medical facilities.",
+    "context_positions": [
+      52
+    ],
+    "review_status": "reviewed"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc0_target5",
+    "document_id": "157. Remote presence system mounted to operating room hardware.txt",
+    "target_sentence": "There has been developed a robotic system sold by Intuitive Surgical, Inc. under the trademark Da Vinci which allows a surgeon to remotely perform a surgical procedure through use of robot arms located at the surgical site.",
+    "context_positions": [
+      3
+    ],
+    "review_status": "reviewed"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc0_target6",
+    "document_id": "157. Remote presence system mounted to operating room hardware.txt",
+    "target_sentence": "It would be desirable to allow remote medical consultation with a system that was relatively inexpensive and easy to install into existing operating rooms.",
+    "context_positions": [
+      6
+    ],
+    "review_status": "reviewed"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc0_target7",
+    "document_id": "157. Remote presence system mounted to operating room hardware.txt",
+    "target_sentence": "Alert icon can be selected by the user at the remote station to generate an alert indicator such as a sound from the speaker of the robot face.",
+    "context_positions": [
+      80
+    ],
+    "review_status": "reviewed"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc0_target8",
+    "document_id": "157. Remote presence system mounted to operating room hardware.txt",
+    "target_sentence": "The annotated image may be stored by the system.",
+    "context_positions": [
+      121
+    ],
+    "review_status": "reviewed"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc0_target9",
+    "document_id": "157. Remote presence system mounted to operating room hardware.txt",
+    "target_sentence": "The user can rapidly move through the still images in a slide show fashion or move through a captured video clip by moving the slide bar.",
+    "context_positions": [
+      113
+    ],
+    "review_status": "reviewed_with_pending"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc1_target0",
+    "document_id": "298. ASR-enhanced speech compression archiving.txt",
+    "target_sentence": "There are also several open source ASR packages, such as Sphinx, HTK, and Kaldi.",
+    "context_positions": [
+      4
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc1_target1",
+    "document_id": "298. ASR-enhanced speech compression archiving.txt",
+    "target_sentence": "Technology also currently exists that enables voice-based determination of a caller's demographic profile information.",
+    "context_positions": [
+      27
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc1_target2",
+    "document_id": "298. ASR-enhanced speech compression archiving.txt",
+    "target_sentence": "Speech compression is also a mature and widely utilized technology.",
+    "context_positions": [
+      10
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc1_target3",
+    "document_id": "298. ASR-enhanced speech compression archiving.txt",
+    "target_sentence": "Some systems also use \"anti-speaker\" techniques, such as cohort models, and world models.",
+    "context_positions": [
+      25
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc1_target4",
+    "document_id": "298. ASR-enhanced speech compression archiving.txt",
+    "target_sentence": "Other approaches to estimating ASR confidence are known and available in the prior art.",
+    "context_positions": [
+      9
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc1_target5",
+    "document_id": "298. ASR-enhanced speech compression archiving.txt",
+    "target_sentence": "There is a difference between speaker recognition (recognizing who is speaking) and speech recognition (recognizing what is being said).",
+    "context_positions": [
+      16
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc1_target6",
+    "document_id": "298. ASR-enhanced speech compression archiving.txt",
+    "target_sentence": "Its main function is to eliminate dead space, to improve utilization efficiency of more compute-intensive resources, such as the ASR engine, or of storage resources.",
+    "context_positions": [
+      114
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc1_target7",
+    "document_id": "298. ASR-enhanced speech compression archiving.txt",
+    "target_sentence": "Though depicted as a distinct step, it may be performed as part of the VAD or ASR processes.",
+    "context_positions": [
+      117
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc1_target8",
+    "document_id": "298. ASR-enhanced speech compression archiving.txt",
+    "target_sentence": "Data is then sent from the Storage Tier to the Processing Tier for processing, with the processed data sent back to the Storage Tier for storage/archiving.",
+    "context_positions": [
+      102
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc1_target9",
+    "document_id": "298. ASR-enhanced speech compression archiving.txt",
+    "target_sentence": "One example is the caller's speaking dialect.",
+    "context_positions": [
+      28
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc2_target0",
+    "document_id": "403. Antimicrobial compositions for topical use.txt",
+    "target_sentence": "Liquid antimicrobial compositions are generally used by consumers for immediate protection against microorganisms.",
+    "context_positions": [
+      8
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc2_target1",
+    "document_id": "403. Antimicrobial compositions for topical use.txt",
+    "target_sentence": "Any section headings are added for convenience only, and are not intended to limit the disclosure in any way.",
+    "context_positions": [
+      37
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc2_target2",
+    "document_id": "403. Antimicrobial compositions for topical use.txt",
+    "target_sentence": "The antimicrobial composition according to the invention is preferably a leave-on composition.",
+    "context_positions": [
+      50
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc2_target3",
+    "document_id": "403. Antimicrobial compositions for topical use.txt",
+    "target_sentence": "In addition, niacinamide is used in the treatment of many inflammatory skin conditions like Acne vulgaris, Psoriasis and Atopic dermatitis.",
+    "context_positions": [
+      17
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc2_target4",
+    "document_id": "403. Antimicrobial compositions for topical use.txt",
+    "target_sentence": "Most preferred are propylene glycol, polyethylene glycol and combinations thereof.",
+    "context_positions": [
+      64
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc2_target5",
+    "document_id": "403. Antimicrobial compositions for topical use.txt",
+    "target_sentence": "Skin hygiene is of high priority to present day consumers.",
+    "context_positions": [
+      7
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc2_target6",
+    "document_id": "403. Antimicrobial compositions for topical use.txt",
+    "target_sentence": "The term \"antimicrobial composition\" as used herein refers to a composition that is capable of killing bacteria or of inhibiting their growth.",
+    "context_positions": [
+      42
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc2_target7",
+    "document_id": "403. Antimicrobial compositions for topical use.txt",
+    "target_sentence": "The composition is preferably transparent.",
+    "context_positions": [
+      51
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc2_target8",
+    "document_id": "403. Antimicrobial compositions for topical use.txt",
+    "target_sentence": "A mixture containing 60% total alcohols is effective against wide spectrum of bacteria.",
+    "context_positions": [
+      13
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc2_target9",
+    "document_id": "403. Antimicrobial compositions for topical use.txt",
+    "target_sentence": "This spreading was done using gloves.",
+    "context_positions": [
+      90
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc3_target0",
+    "document_id": "604. Apparatus for the flexible positioning of a radiation source and a radiation detector.txt",
+    "target_sentence": "Medical imaging methods based on x-rays have a wide diagnostic application range.",
+    "context_positions": [
+      1
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc3_target1",
+    "document_id": "604. Apparatus for the flexible positioning of a radiation source and a radiation detector.txt",
+    "target_sentence": "The apparatus for medical examinations also includes a second arm that may be rotated about the axis, at least in sections.",
+    "context_positions": [
+      33
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc3_target2",
+    "document_id": "604. Apparatus for the flexible positioning of a radiation source and a radiation detector.txt",
+    "target_sentence": "The arm may make comparatively small rotational movements in order to realize complex trajectories.",
+    "context_positions": [
+      100
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc3_target3",
+    "document_id": "604. Apparatus for the flexible positioning of a radiation source and a radiation detector.txt",
+    "target_sentence": "Angiography is an important field in which these aims prevail.",
+    "context_positions": [
+      4
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc3_target4",
+    "document_id": "604. Apparatus for the flexible positioning of a radiation source and a radiation detector.txt",
+    "target_sentence": "The second arm is attached to the first arm such that a rotation of the first arm also rotates the second arm.",
+    "context_positions": [
+      40
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc3_target5",
+    "document_id": "604. Apparatus for the flexible positioning of a radiation source and a radiation detector.txt",
+    "target_sentence": "In current and future applications, several recordings are performed from different positions.",
+    "context_positions": [
+      2
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc3_target6",
+    "document_id": "604. Apparatus for the flexible positioning of a radiation source and a radiation detector.txt",
+    "target_sentence": "The reconstruction quality is, however, not far from that of a 3D reconstruction with the aid of a modern CT device.",
+    "context_positions": [
+      9
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc3_target7",
+    "document_id": "604. Apparatus for the flexible positioning of a radiation source and a radiation detector.txt",
+    "target_sentence": "The rigid C-arm is divided into two arms for the description of trajectories with respect to the region examined using the emitter and detector.",
+    "context_positions": [
+      38
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc3_target8",
+    "document_id": "604. Apparatus for the flexible positioning of a radiation source and a radiation detector.txt",
+    "target_sentence": "These components are, for example, a drive controller and/or regulator, a voltage transformer, a water coupling, a data coupling, and/or a power supply coupling.",
+    "context_positions": [
+      93
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc3_target9",
+    "document_id": "604. Apparatus for the flexible positioning of a radiation source and a radiation detector.txt",
+    "target_sentence": "From the drive technology or structural design point of view, which forms the basis for maintaining the repetition accuracy, these maximum accelerations are severely restricted.",
+    "context_positions": [
+      15
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc4_target0",
+    "document_id": "814. Cranial electrotherapy stimulator.txt",
+    "target_sentence": "The information gathered can include treatment parameters and patient feedback, and it can be securely stored in a cloud server.",
+    "context_positions": [
+      21
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc4_target1",
+    "document_id": "814. Cranial electrotherapy stimulator.txt",
+    "target_sentence": "The app is used to control the CES system and also to gather information about treatment including patient feedback.",
+    "context_positions": [
+      28
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc4_target2",
+    "document_id": "814. Cranial electrotherapy stimulator.txt",
+    "target_sentence": "Microprocessor communicates with transceiver and a waveform generator portion of the circuitry on circuit board.",
+    "context_positions": [
+      107
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc4_target3",
+    "document_id": "814. Cranial electrotherapy stimulator.txt",
+    "target_sentence": "Main unit includes a plastic enclosure meeting applicable medical device safety standards.",
+    "context_positions": [
+      112
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc4_target4",
+    "document_id": "814. Cranial electrotherapy stimulator.txt",
+    "target_sentence": "The housing features a multi-color LED indicator, charging port and electrode connection.",
+    "context_positions": [
+      113
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc4_target5",
+    "document_id": "814. Cranial electrotherapy stimulator.txt",
+    "target_sentence": "In addition to controlling the CES device, the smart device with the software app can gather information about the treatment in certain embodiments.",
+    "context_positions": [
+      20
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc4_target6",
+    "document_id": "814. Cranial electrotherapy stimulator.txt",
+    "target_sentence": "In several figures, where there are the same or similar elements, those elements are designated with the same or similar reference numerals.",
+    "context_positions": [
+      47
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc4_target7",
+    "document_id": "814. Cranial electrotherapy stimulator.txt",
+    "target_sentence": "The patient may be prompted to annotate his or her treatment with comments at the conclusion of each treatment for further analysis by the patient's treatment provider.",
+    "context_positions": [
+      96
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc4_target8",
+    "document_id": "814. Cranial electrotherapy stimulator.txt",
+    "target_sentence": "The app stores patient de-identified treatment information in a secure cloud server.",
+    "context_positions": [
+      29
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc4_target9",
+    "document_id": "814. Cranial electrotherapy stimulator.txt",
+    "target_sentence": "Hence, this system has the potential for much better patient comfort and compliance as it can be easily incorporated into patient's lifestyle.",
+    "context_positions": [
+      10
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc5_target0",
+    "document_id": "990. Adaptive point-of-sale (POS) device.txt",
+    "target_sentence": "Both motors and gear trains produce vibrational frequencies related to the rotation speed of their various components.",
+    "context_positions": [
+      13
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc5_target1",
+    "document_id": "990. Adaptive point-of-sale (POS) device.txt",
+    "target_sentence": "The network can be wired, wireless, or a combination of wired and wireless.",
+    "context_positions": [
+      79
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc5_target2",
+    "document_id": "990. Adaptive point-of-sale (POS) device.txt",
+    "target_sentence": "In an embodiment, the POS device is an integrated scanner and scale.",
+    "context_positions": [
+      148
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc5_target3",
+    "document_id": "990. Adaptive point-of-sale (POS) device.txt",
+    "target_sentence": "This techniques works equally well in a scale having multiple load cells.",
+    "context_positions": [
+      55
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc5_target4",
+    "document_id": "990. Adaptive point-of-sale (POS) device.txt",
+    "target_sentence": "Specifically, a frequency produced on a load cell is identified and the frequency is recognized as noise.",
+    "context_positions": [
+      19
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc5_target5",
+    "document_id": "990. Adaptive point-of-sale (POS) device.txt",
+    "target_sentence": "In contrast, the majority of periodic mechanical vibrations come primarily from mechanical conduction of motor vibrations from various sources within the environment.",
+    "context_positions": [
+      11
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc5_target6",
+    "document_id": "990. Adaptive point-of-sale (POS) device.txt",
+    "target_sentence": "The self-scale adjuster may, but does not have to have, access to a network during its processing.",
+    "context_positions": [
+      78
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc5_target7",
+    "document_id": "990. Adaptive point-of-sale (POS) device.txt",
+    "target_sentence": "Many other embodiments will be apparent to those of skill in the art upon reviewing the above description.",
+    "context_positions": [
+      155
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc5_target8",
+    "document_id": "990. Adaptive point-of-sale (POS) device.txt",
+    "target_sentence": "In an embodiment, the integrated scanner/scale using the spectra analyzer intelligently determines the times at which a spectral analysis may be performed.",
+    "context_positions": [
+      59
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc5_target9",
+    "document_id": "990. Adaptive point-of-sale (POS) device.txt",
+    "target_sentence": "Furthermore, although the software modules are illustrated as executing on one piece of hardware, the software may be distributed over multiple processors or in any other convenient manner.",
+    "context_positions": [
+      153
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc6_target0",
+    "document_id": "1087. Pharmaceutical composition comprising fluorine-18 labelled gases.txt",
+    "target_sentence": "Thus, the \"pharmaceutical composition\" can also be a veterinary composition when given to a subject other than a human.",
+    "context_positions": [
+      48
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc6_target1",
+    "document_id": "1087. Pharmaceutical composition comprising fluorine-18 labelled gases.txt",
+    "target_sentence": "The stainless steel container can be cooled with liquid nitrogen and the valve can be opened.",
+    "context_positions": [
+      62
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc6_target2",
+    "document_id": "1087. Pharmaceutical composition comprising fluorine-18 labelled gases.txt",
+    "target_sentence": "Therefore, the composition of the invention is both more effective and safer than the compositions described so far.",
+    "context_positions": [
+      32
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc6_target3",
+    "document_id": "1087. Pharmaceutical composition comprising fluorine-18 labelled gases.txt",
+    "target_sentence": "This tracer is for instance used to diagnose cancer metastasis.",
+    "context_positions": [
+      11
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc6_target4",
+    "document_id": "1087. Pharmaceutical composition comprising fluorine-18 labelled gases.txt",
+    "target_sentence": "This process is in contrast to diagnostics by X-ray, where external radiation is passed through the body to form an image.",
+    "context_positions": [
+      5
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc6_target5",
+    "document_id": "1087. Pharmaceutical composition comprising fluorine-18 labelled gases.txt",
+    "target_sentence": "The fact that PET is not widely used in ventilation studies is mainly because of a series of limitations associated to the positron emitting labels.",
+    "context_positions": [
+      15
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc6_target6",
+    "document_id": "1087. Pharmaceutical composition comprising fluorine-18 labelled gases.txt",
+    "target_sentence": "A third aspect of the invention is a pharmaceutical composition according to the first aspect of the invention for use as an image contrast agent.",
+    "context_positions": [
+      33
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc6_target7",
+    "document_id": "1087. Pharmaceutical composition comprising fluorine-18 labelled gases.txt",
+    "target_sentence": "Increasing the integrated current C.sub.1 resulted in a significant increase in the final amount of radioactivity, as shown in entry.",
+    "context_positions": [
+      133
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc6_target8",
+    "document_id": "1087. Pharmaceutical composition comprising fluorine-18 labelled gases.txt",
+    "target_sentence": "It also forms part of the invention a pharmaceutical composition according to the second aspect of the invention obtainable by the process of the first aspect of the invention.",
+    "context_positions": [
+      77
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc6_target9",
+    "document_id": "1087. Pharmaceutical composition comprising fluorine-18 labelled gases.txt",
+    "target_sentence": "After 120 minutes, the amount of activity was measured in a dose calibrator and the gas was analyzed using the same analytical system as described above.",
+    "context_positions": [
+      130,
+      137,
+      144
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc7_target0",
+    "document_id": "1326. Ultra-variable advanced manufacturing techniques.txt",
+    "target_sentence": "Material is provided to the auger delivery and deposition element via the hopper.",
+    "context_positions": [
+      50
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc7_target1",
+    "document_id": "1326. Ultra-variable advanced manufacturing techniques.txt",
+    "target_sentence": "The heat also serves to reduce or eliminate the surface tension of the material.",
+    "context_positions": [
+      109
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc7_target2",
+    "document_id": "1326. Ultra-variable advanced manufacturing techniques.txt",
+    "target_sentence": "One skilled in the art will appreciate that the present teachings can be practiced with embodiments other than those disclosed.",
+    "context_positions": [
+      153
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc7_target3",
+    "document_id": "1326. Ultra-variable advanced manufacturing techniques.txt",
+    "target_sentence": "Movement of the actuation element serves to agitate the material and push it out of the deposition nozzle in a spray.",
+    "context_positions": [
+      40
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc7_target4",
+    "document_id": "1326. Ultra-variable advanced manufacturing techniques.txt",
+    "target_sentence": "The auger delivery and deposition element may be used to move a single material.",
+    "context_positions": [
+      59
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc7_target5",
+    "document_id": "1326. Ultra-variable advanced manufacturing techniques.txt",
+    "target_sentence": "Such injuries in turn lead to lost wages, reduction in productivity and increased cost for the individual, employer and government.",
+    "context_positions": [
+      9
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc7_target6",
+    "document_id": "1326. Ultra-variable advanced manufacturing techniques.txt",
+    "target_sentence": "This agitation element will break up the material and also push it through the nozzle tip in small amounts as droplets for deposition.",
+    "context_positions": [
+      83
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc7_target7",
+    "document_id": "1326. Ultra-variable advanced manufacturing techniques.txt",
+    "target_sentence": "Mixing is assisted by the pressures upon each material, but agitation from the atomization element in the deposition nozzle can also assist in mixing according to various embodiments.",
+    "context_positions": [
+      135
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc7_target8",
+    "document_id": "1326. Ultra-variable advanced manufacturing techniques.txt",
+    "target_sentence": "The Abstract is submitted with the understanding that it will not be used to interpret or limit the scope or meaning of the claims.",
+    "context_positions": [
+      159
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc7_target9",
+    "document_id": "1326. Ultra-variable advanced manufacturing techniques.txt",
+    "target_sentence": "We are seeing increasing numbers of first time exercisers, who more often than not, end up with injuries.",
+    "context_positions": [
+      6
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc8_target0",
+    "document_id": "1654. Method for regulating expressions of TPH1 gene, DDC gene, and or AANAT gene by using banana peel extract.txt",
+    "target_sentence": "The composition is a pharmaceutical composition or a food composition.",
+    "context_positions": [
+      19
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc8_target1",
+    "document_id": "1654. Method for regulating expressions of TPH1 gene, DDC gene, and or AANAT gene by using banana peel extract.txt",
+    "target_sentence": "Preferably, the composition is used for increasing the expression of melatonin and/or promoting the secretion of melatonin.",
+    "context_positions": [
+      20,
+      23
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc8_target2",
+    "document_id": "1654. Method for regulating expressions of TPH1 gene, DDC gene, and or AANAT gene by using banana peel extract.txt",
+    "target_sentence": "The term \"subject\" recited in this specification refers to a mammalian, including human and non-human animals.",
+    "context_positions": [
+      43
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc8_target3",
+    "document_id": "1654. Method for regulating expressions of TPH1 gene, DDC gene, and or AANAT gene by using banana peel extract.txt",
+    "target_sentence": "Banana is a perennial herb originated from the tropical and subtropical Asia.",
+    "context_positions": [
+      44
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc8_target4",
+    "document_id": "1654. Method for regulating expressions of TPH1 gene, DDC gene, and or AANAT gene by using banana peel extract.txt",
+    "target_sentence": "Thereafter, cells of the above groups were harvested and subjected to a RNA extraction with an RNA Extract Kit.",
+    "context_positions": [
+      121
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc8_target5",
+    "document_id": "1654. Method for regulating expressions of TPH1 gene, DDC gene, and or AANAT gene by using banana peel extract.txt",
+    "target_sentence": "People can stay awake during the daytime because the secretion of melatonin is suppressed by the exposure to light.",
+    "context_positions": [
+      3
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc8_target6",
+    "document_id": "1654. Method for regulating expressions of TPH1 gene, DDC gene, and or AANAT gene by using banana peel extract.txt",
+    "target_sentence": "Accordingly, the decreased expression of TPH1 gene will affect the above physiological functions related to serotonin.",
+    "context_positions": [
+      49
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc8_target7",
+    "document_id": "1654. Method for regulating expressions of TPH1 gene, DDC gene, and or AANAT gene by using banana peel extract.txt",
+    "target_sentence": "It is known that DDC gene is involved in the synthesis of melatonin, and the deficiency of DDC gene will also lead to neurometabolic disorder.",
+    "context_positions": [
+      52
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc8_target8",
+    "document_id": "1654. Method for regulating expressions of TPH1 gene, DDC gene, and or AANAT gene by using banana peel extract.txt",
+    "target_sentence": "The applied type, applied route, applied form, applied frequency and uses in related application of the composition are all in line with the above descriptions.",
+    "context_positions": [
+      102
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc8_target9",
+    "document_id": "1654. Method for regulating expressions of TPH1 gene, DDC gene, and or AANAT gene by using banana peel extract.txt",
+    "target_sentence": "The RNA was then transcribed into cDNA with a Reverse Transcriptase.",
+    "context_positions": [
+      122
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc9_target0",
+    "document_id": "2454. Drug delivery device with protective needle cap control and device activation mechanism.txt",
+    "target_sentence": "Autoinjector devices aim to make self-injection easier for patients.",
+    "context_positions": [
+      6
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc9_target1",
+    "document_id": "2454. Drug delivery device with protective needle cap control and device activation mechanism.txt",
+    "target_sentence": "The control element may be directly coupled to the needle cap assembly and to the cartridge.",
+    "context_positions": [
+      17
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc9_target2",
+    "document_id": "2454. Drug delivery device with protective needle cap control and device activation mechanism.txt",
+    "target_sentence": "Nucleic acids may be incorporated into molecular delivery systems such as vectors, plasmids, or liposomes.",
+    "context_positions": [
+      110
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc9_target3",
+    "document_id": "2454. Drug delivery device with protective needle cap control and device activation mechanism.txt",
+    "target_sentence": "Improper handling of drug delivery devices may result in needle stick injuries.",
+    "context_positions": [
+      9
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc9_target4",
+    "document_id": "2454. Drug delivery device with protective needle cap control and device activation mechanism.txt",
+    "target_sentence": "Drug delivery devices typically fall into two categories--manual devices and autoinjectors.",
+    "context_positions": [
+      3
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc9_target5",
+    "document_id": "2454. Drug delivery device with protective needle cap control and device activation mechanism.txt",
+    "target_sentence": "In an exemplary embodiment, the activating element is guidable within the slot, wherein the activating element abuts the first stop in the initial position.",
+    "context_positions": [
+      24
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc9_target6",
+    "document_id": "2454. Drug delivery device with protective needle cap control and device activation mechanism.txt",
+    "target_sentence": "In some embodiments, the antibody has reduced or no ability to bind an Fc receptor.",
+    "context_positions": [
+      138
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc9_target7",
+    "document_id": "2454. Drug delivery device with protective needle cap control and device activation mechanism.txt",
+    "target_sentence": "Accordingly, the pharmaceutical formulations of the present disclosure encompass any formulation made by admixing a compound described herein and a pharmaceutically acceptable carrier.",
+    "context_positions": [
+      150
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc9_target8",
+    "document_id": "2454. Drug delivery device with protective needle cap control and device activation mechanism.txt",
+    "target_sentence": "Pharmaceutically acceptable solvates are for example hydrates or alkanolates such as methanolates or ethanolates.",
+    "context_positions": [
+      155
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc9_target9",
+    "document_id": "2454. Drug delivery device with protective needle cap control and device activation mechanism.txt",
+    "target_sentence": "The term \"antibody\", as used herein, refers to an immunoglobulin molecule or an antigen-binding portion thereof.",
+    "context_positions": [
+      134
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc10_target0",
+    "document_id": "2618. Gate driver.txt",
+    "target_sentence": "The isolated gate driver power supply circuit includes an air core transformer including multiple windings magnetically coupled together.",
+    "context_positions": [
+      13
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc10_target1",
+    "document_id": "2618. Gate driver.txt",
+    "target_sentence": "Overall, the gate driver provides high power efficiency and load insensitivity at lower cost.",
+    "context_positions": [
+      54,
+      161
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc10_target2",
+    "document_id": "2618. Gate driver.txt",
+    "target_sentence": "The patentable scope of the invention is defined by the claims, and may include other examples that occur to those skilled in the art.",
+    "context_positions": [
+      163
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc10_target3",
+    "document_id": "2618. Gate driver.txt",
+    "target_sentence": "The gate driver includes an isolated gate driver power supply circuit that includes a coreless transformer (for example, air core transformer).",
+    "context_positions": [
+      49,
+      157
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc10_target4",
+    "document_id": "2618. Gate driver.txt",
+    "target_sentence": "In certain embodiments, the transformer may include a different number of windings or coils.",
+    "context_positions": [
+      74
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc10_target5",
+    "document_id": "2618. Gate driver.txt",
+    "target_sentence": "The isolated gate driver power supply circuit also includes a resonance converter coupled to the air core transformer.",
+    "context_positions": [
+      14
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc10_target6",
+    "document_id": "2618. Gate driver.txt",
+    "target_sentence": "The gate drivers are electronic circuits coupling the control electronics (for example, controller) to power semiconductor devices to enable control functions such as turning on/off the power devices.",
+    "context_positions": [
+      57
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc10_target7",
+    "document_id": "2618. Gate driver.txt",
+    "target_sentence": "The gate drivers are configured to be utilized reliably and safely in presence of a high magnetic field within the scan room.",
+    "context_positions": [
+      65
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc10_target8",
+    "document_id": "2618. Gate driver.txt",
+    "target_sentence": "In particular, the transformer includes a primary winding or coil, secondary winding or coil, and tertiary winding or coil.",
+    "context_positions": [
+      109
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc10_target9",
+    "document_id": "2618. Gate driver.txt",
+    "target_sentence": "In addition, the resonance converter tunes the transformer to enable the isolated gate driver power supply circuit to generate an output independent of load.",
+    "context_positions": [
+      159
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc11_target0",
+    "document_id": "2770. Composition with sustained antimicrobial activity.txt",
+    "target_sentence": "The compositions may further comprise one or more antimicrobial agent that is not a cationic antimicrobial agent.",
+    "context_positions": [
+      23
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc11_target1",
+    "document_id": "2770. Composition with sustained antimicrobial activity.txt",
+    "target_sentence": "The surfactant may be a cationic surfactant, an ampholytic surfactant, or a nonionic surfactant.",
+    "context_positions": [
+      39
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc11_target2",
+    "document_id": "2770. Composition with sustained antimicrobial activity.txt",
+    "target_sentence": "Various patent and non-patent references are cited herein, the contents of which are hereby incorporated by reference in their entireties herein.",
+    "context_positions": [
+      129
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc11_target3",
+    "document_id": "2770. Composition with sustained antimicrobial activity.txt",
+    "target_sentence": "A composition as disclosed herein may optionally further comprise a surfactant.",
+    "context_positions": [
+      38
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc11_target4",
+    "document_id": "2770. Composition with sustained antimicrobial activity.txt",
+    "target_sentence": "The compositions disclosed herein may be used as soaps, hand sanitizers, creams, lotions, and splashes and may optionally be comprised in wipes.",
+    "context_positions": [
+      9
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc11_target5",
+    "document_id": "2770. Composition with sustained antimicrobial activity.txt",
+    "target_sentence": "\"Persistent antimicrobial activity\" is antimicrobial activity that is retained after the initial exposure to the composition, although not necessarily at the same level.",
+    "context_positions": [
+      13
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc11_target6",
+    "document_id": "2770. Composition with sustained antimicrobial activity.txt",
+    "target_sentence": "The effect of different sesquiterpenoids on substantive antibacterial activity was also examined using the methods described above.",
+    "context_positions": [
+      114
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc11_target7",
+    "document_id": "2770. Composition with sustained antimicrobial activity.txt",
+    "target_sentence": "In certain non-limiting embodiments, the composition comprises a synergistic combination of benzyl alcohol and one or more cationic antimicrobial agent such as a biguanide and/or a quaternary ammonium compound.",
+    "context_positions": [
+      6
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc11_target8",
+    "document_id": "2770. Composition with sustained antimicrobial activity.txt",
+    "target_sentence": "This problem could be addressed by the development of soaps and other skin-care products that have sufficient residual antibacterial activity on the skin to inactivate newly introduced bacteria.",
+    "context_positions": [
+      3
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc11_target9",
+    "document_id": "2770. Composition with sustained antimicrobial activity.txt",
+    "target_sentence": "Non-limiting examples are described below by way of illustration but further embodiments would be envisaged by the person of skill in the art.",
+    "context_positions": [
+      49
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc12_target0",
+    "document_id": "3178. Process for the preparation of tocols and squalene.txt",
+    "target_sentence": "The tocotrienols exhibit more powerful antioxidant and anti cancer power than the tocopherols.",
+    "context_positions": [
+      14
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc12_target1",
+    "document_id": "3178. Process for the preparation of tocols and squalene.txt",
+    "target_sentence": "Then the mixture was dried to remove any traces of moisture in it and analyzed to check the recovery of tocols and squalene.",
+    "context_positions": [
+      91,
+      93
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc12_target2",
+    "document_id": "3178. Process for the preparation of tocols and squalene.txt",
+    "target_sentence": "Palm tocols is also useful to lower the cholesterol level in the body.",
+    "context_positions": [
+      16
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc12_target3",
+    "document_id": "3178. Process for the preparation of tocols and squalene.txt",
+    "target_sentence": "Tocols are an important group of organic molecules widely used in pharmaceutical and nutraceutical products.",
+    "context_positions": [
+      9
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc12_target4",
+    "document_id": "3178. Process for the preparation of tocols and squalene.txt",
+    "target_sentence": "First molecular distillation step is used to remove fatty acid methyl esters.",
+    "context_positions": [
+      56
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc12_target5",
+    "document_id": "3178. Process for the preparation of tocols and squalene.txt",
+    "target_sentence": "The major issues with the recovery of tocols and other byproducts from materials like PFAD are the yield and quality of the final compositions.",
+    "context_positions": [
+      23
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc12_target6",
+    "document_id": "3178. Process for the preparation of tocols and squalene.txt",
+    "target_sentence": "The invention involves a process for producing a product that is enriched in tocols and other components of palm oil such as squalene.",
+    "context_positions": [
+      26
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc12_target7",
+    "document_id": "3178. Process for the preparation of tocols and squalene.txt",
+    "target_sentence": "The final residue stream obtained in step 4 is loaded to the silica column having a mesh size of 60-120 mesh for about 55 minutes.",
+    "context_positions": [
+      45
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc12_target8",
+    "document_id": "3178. Process for the preparation of tocols and squalene.txt",
+    "target_sentence": "Then the mixture was dried to remove any traces of moisture in it and analyzed for the recovery of tocols and squalene.",
+    "context_positions": [
+      87,
+      89
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc12_target9",
+    "document_id": "3178. Process for the preparation of tocols and squalene.txt",
+    "target_sentence": "The tocopherols [vitamin E derivatives] of plant origin are widely used as vitamin supplements in various food and cosmetics products.",
+    "context_positions": [
+      12
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc13_target0",
+    "document_id": "3328. Efficient determination of MR scan parameters.txt",
+    "target_sentence": "Various modifications, however, will remain readily apparent to those in the art.",
+    "context_positions": [
+      19
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc13_target1",
+    "document_id": "3328. Efficient determination of MR scan parameters.txt",
+    "target_sentence": "Sequence controller also controls the generation of RF pulses by RF system and RF power amplifier.",
+    "context_positions": [
+      35
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc13_target2",
+    "document_id": "3328. Efficient determination of MR scan parameters.txt",
+    "target_sentence": "System may comprise any general-purpose or dedicated computing system.",
+    "context_positions": [
+      47
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc13_target3",
+    "document_id": "3328. Efficient determination of MR scan parameters.txt",
+    "target_sentence": "The commands may specify MR scan parameter values which are used by system.",
+    "context_positions": [
+      60
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc13_target4",
+    "document_id": "3328. Efficient determination of MR scan parameters.txt",
+    "target_sentence": "The FOV and desired resolution will be used to determine the matrix size.",
+    "context_positions": [
+      128
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc13_target5",
+    "document_id": "3328. Efficient determination of MR scan parameters.txt",
+    "target_sentence": "These factors may contribute to inefficient and/or incorrect selection of MR scan parameters, which may subsequently lead to sub-optimal imaging.",
+    "context_positions": [
+      6
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc13_target6",
+    "document_id": "3328. Efficient determination of MR scan parameters.txt",
+    "target_sentence": "For example, an inversion, or saturation, pulse is used in non-contrast-enhanced angiography to suppress venous blood in order to highlight the arterial system.",
+    "context_positions": [
+      32
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc13_target7",
+    "document_id": "3328. Efficient determination of MR scan parameters.txt",
+    "target_sentence": "For example, sequence controller may be instructed to initiate an MR pulse sequence based on a set of parameter values which was received and determined as described herein.",
+    "context_positions": [
+      55
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc13_target8",
+    "document_id": "3328. Efficient determination of MR scan parameters.txt",
+    "target_sentence": "In some instances, user input of some MR scan parameter values is required while user input of other MR scan parameter values is optional.",
+    "context_positions": [
+      82
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc13_target9",
+    "document_id": "3328. Efficient determination of MR scan parameters.txt",
+    "target_sentence": "All systems and processes discussed herein may be embodied in program code stored on one or more non-transitory computer-readable media.",
+    "context_positions": [
+      148
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc14_target0",
+    "document_id": "3474. Neighbour wireless sensor network discovery mechanism.txt",
+    "target_sentence": "These modes are advertising, scanning and initiating.",
+    "context_positions": [
+      13
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc14_target1",
+    "document_id": "3474. Neighbour wireless sensor network discovery mechanism.txt",
+    "target_sentence": "The CCH may be a distinct logical or physical radio channel.",
+    "context_positions": [
+      58
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc14_target2",
+    "document_id": "3474. Neighbour wireless sensor network discovery mechanism.txt",
+    "target_sentence": "The first physical channel is a control channel (abbreviated as CCH) and the second physical channel is a data channel (DCH).",
+    "context_positions": [
+      56
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc14_target3",
+    "document_id": "3474. Neighbour wireless sensor network discovery mechanism.txt",
+    "target_sentence": "The present invention is not restricted to embodiments disclosed above but the invention may vary within the scope of the claims.",
+    "context_positions": [
+      138
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc14_target4",
+    "document_id": "3474. Neighbour wireless sensor network discovery mechanism.txt",
+    "target_sentence": "The active period commences at the start of Beacon Period and the active period is followed by the inactive period.",
+    "context_positions": [
+      67
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc14_target5",
+    "document_id": "3474. Neighbour wireless sensor network discovery mechanism.txt",
+    "target_sentence": "The prior art solutions mainly focus on the situation where just a single operational network exists in the situation where neighbouring networks are desired to be found out.",
+    "context_positions": [
+      16
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc14_target6",
+    "document_id": "3474. Neighbour wireless sensor network discovery mechanism.txt",
+    "target_sentence": "Certain alarms can be set and triggered if a certain measurement result gives a reason to be worried, or at least, if there is a life-threatening change in the patient's measured condition.",
+    "context_positions": [
+      52
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc14_target7",
+    "document_id": "3474. Neighbour wireless sensor network discovery mechanism.txt",
+    "target_sentence": "Regarding the definitions of the parts present in the inter-beacon interval, it is possible in another embodiment to define the IBI so that it comprises an inactive period and after the inactive period, an active period will follow.",
+    "context_positions": [
+      72
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc14_target8",
+    "document_id": "3474. Neighbour wireless sensor network discovery mechanism.txt",
+    "target_sentence": "It can be thus deduced that in case there is a transmission or reception in the inactive period of the IBI, the transmitting or receiving entity must then always be the Hub.",
+    "context_positions": [
+      77
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc14_target9",
+    "document_id": "3474. Neighbour wireless sensor network discovery mechanism.txt",
+    "target_sentence": "The control channel is used in initializing the network.",
+    "context_positions": [
+      57
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc15_target0",
+    "document_id": "3540. Optical system using camera and light source of handheld device.txt",
+    "target_sentence": "The optical system may also be fixed to the casing of the handheld device.",
+    "context_positions": [
+      84
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc15_target1",
+    "document_id": "3540. Optical system using camera and light source of handheld device.txt",
+    "target_sentence": "The optical system may be built as a single unit and can be annexed with a handheld device.",
+    "context_positions": [
+      146
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc15_target2",
+    "document_id": "3540. Optical system using camera and light source of handheld device.txt",
+    "target_sentence": "Colorimetric strips relating to water quality may also be imaged for testing water quality.",
+    "context_positions": [
+      150
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc15_target3",
+    "document_id": "3540. Optical system using camera and light source of handheld device.txt",
+    "target_sentence": "However, other optical devices for directing light may also be used.",
+    "context_positions": [
+      68
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc15_target4",
+    "document_id": "3540. Optical system using camera and light source of handheld device.txt",
+    "target_sentence": "According to an embodiment herein, the optical system is positioned in front of the camera and the light source of the handheld device.",
+    "context_positions": [
+      78
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc15_target5",
+    "document_id": "3540. Optical system using camera and light source of handheld device.txt",
+    "target_sentence": "Efforts have been put in to explore as to how the high penetration of communication devices can improve such healthcare outcomes as well as generate cost savings.",
+    "context_positions": [
+      7
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc15_target6",
+    "document_id": "3540. Optical system using camera and light source of handheld device.txt",
+    "target_sentence": "According to yet another embodiment, wherein the second portion comprises an extraction element adapted to uniformly extract the light.",
+    "context_positions": [
+      26
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc15_target7",
+    "document_id": "3540. Optical system using camera and light source of handheld device.txt",
+    "target_sentence": "Use of a turning optic for providing the added turn angle provides the advantage of deploying a flat transparent optic.",
+    "context_positions": [
+      56
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc15_target8",
+    "document_id": "3540. Optical system using camera and light source of handheld device.txt",
+    "target_sentence": "According to another embodiment, guided fitment may be achieved by providing the user a visual or audio feedback.",
+    "context_positions": [
+      85
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc15_target9",
+    "document_id": "3540. Optical system using camera and light source of handheld device.txt",
+    "target_sentence": "The handheld device may be a mobile phone, a tablet computer, or any other handheld device comprising a camera, a light source and processing capabilities.",
+    "context_positions": [
+      145
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc16_target0",
+    "document_id": "3988. System and method for model-based reconstruction of quantitative images.txt",
+    "target_sentence": "Batch mode images or selected real time images are stored in a host database on disc storage.",
+    "context_positions": [
+      79
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc16_target1",
+    "document_id": "3988. System and method for model-based reconstruction of quantitative images.txt",
+    "target_sentence": "The system also includes a processor configured to receive the image data.",
+    "context_positions": [
+      18
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc16_target2",
+    "document_id": "3988. System and method for model-based reconstruction of quantitative images.txt",
+    "target_sentence": "Thus, at decision block 208, a check is made against a threshold, which may be a boundary condition or optimization criteria.",
+    "context_positions": [
+      125
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc16_target3",
+    "document_id": "3988. System and method for model-based reconstruction of quantitative images.txt",
+    "target_sentence": "The RF system also includes one or more RF receiver channels.",
+    "context_positions": [
+      61
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc16_target4",
+    "document_id": "3988. System and method for model-based reconstruction of quantitative images.txt",
+    "target_sentence": "Common examples of quantitative MRI applications include diffusion imaging, perfusion imaging, relaxometry, and elastography.",
+    "context_positions": [
+      3
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc16_target5",
+    "document_id": "3988. System and method for model-based reconstruction of quantitative images.txt",
+    "target_sentence": "The model of the medical imaging system may be, for example, a large-scale system operator that describes the acquisition of data using the medical imaging system.",
+    "context_positions": [
+      14
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc16_target6",
+    "document_id": "3988. System and method for model-based reconstruction of quantitative images.txt",
+    "target_sentence": "In general, the operator workstation may be coupled to four servers: a pulse sequence server; a data acquisition server; a data processing server; and a data store server.",
+    "context_positions": [
+      49
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc16_target7",
+    "document_id": "3988. System and method for model-based reconstruction of quantitative images.txt",
+    "target_sentence": "The networked workstation may be located within the same facility as the operator workstation, or in a different facility, such as a different healthcare institution or clinic.",
+    "context_positions": [
+      84
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc16_target8",
+    "document_id": "3988. System and method for model-based reconstruction of quantitative images.txt",
+    "target_sentence": "In particular, an initial estimate may be derived from the acquired data and, for this estimation to be well-posed, auxiliary regularization or constraints may be used.",
+    "context_positions": [
+      105
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc16_target9",
+    "document_id": "3988. System and method for model-based reconstruction of quantitative images.txt",
+    "target_sentence": "For example, the quantitative estimates may be overlaid on anatomical images, such as using a color coding or other display or report mechanism.",
+    "context_positions": [
+      135
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc17_target0",
+    "document_id": "4397. Electric toothbrush with rigidly connected grip portion and brush portion.txt",
+    "target_sentence": "A top rubber cover is also provided as part of the intermediate portion.",
+    "context_positions": [
+      40
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc17_target1",
+    "document_id": "4397. Electric toothbrush with rigidly connected grip portion and brush portion.txt",
+    "target_sentence": "Stem is also formed by synthetic resin, such as for example, POM.",
+    "context_positions": [
+      133
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc17_target2",
+    "document_id": "4397. Electric toothbrush with rigidly connected grip portion and brush portion.txt",
+    "target_sentence": "A battery to be inserted in the battery holder is a rechargeable battery or a dry cell battery.",
+    "context_positions": [
+      42
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc17_target3",
+    "document_id": "4397. Electric toothbrush with rigidly connected grip portion and brush portion.txt",
+    "target_sentence": "Next, the connection between the lower cylinder portion 42b and the illumination ring body is explained.",
+    "context_positions": [
+      120
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc17_target4",
+    "document_id": "4397. Electric toothbrush with rigidly connected grip portion and brush portion.txt",
+    "target_sentence": "The vibration shaft freely rotates inside the elongated cavity even under high frequency vibration.",
+    "context_positions": [
+      139
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc17_target5",
+    "document_id": "4397. Electric toothbrush with rigidly connected grip portion and brush portion.txt",
+    "target_sentence": "The body cover has an interior cavity, which may be for example, cylindrical, for accommodating the chassis, battery holder and circuit board.",
+    "context_positions": [
+      46
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc17_target6",
+    "document_id": "4397. Electric toothbrush with rigidly connected grip portion and brush portion.txt",
+    "target_sentence": "The third occasion is when the electric toothbrush is held at about the plane level so that the bristle touches the front face or back face of the tooth perpendicularly.",
+    "context_positions": [
+      98
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc17_target7",
+    "document_id": "4397. Electric toothbrush with rigidly connected grip portion and brush portion.txt",
+    "target_sentence": "DC motor has two wires extending from a bottom face thereof for electric connection with the circuit board through connector.",
+    "context_positions": [
+      127
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc17_target8",
+    "document_id": "4397. Electric toothbrush with rigidly connected grip portion and brush portion.txt",
+    "target_sentence": "The resilient shaft portion has a flexibility to receive the high frequency vibration of the eccentric portion.",
+    "context_positions": [
+      132
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc17_target9",
+    "document_id": "4397. Electric toothbrush with rigidly connected grip portion and brush portion.txt",
+    "target_sentence": "According to an embodiment, the stem joint arrangement further includes a stem packing made of rubber and a rubber cover covering the lower cylinder portion.",
+    "context_positions": [
+      13
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc18_target0",
+    "document_id": "4419. Hydro-jet endoscopic capsule and methods for gastric cancer screening in low resource settings.txt",
+    "target_sentence": "This flow redirection also results in some forward thrust on the capsule.",
+    "context_positions": [
+      162
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc18_target1",
+    "document_id": "4419. Hydro-jet endoscopic capsule and methods for gastric cancer screening in low resource settings.txt",
+    "target_sentence": "The pinch valve includes a controllable piston/actuator that is moved linearly up and down.",
+    "context_positions": [
+      154
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc18_target2",
+    "document_id": "4419. Hydro-jet endoscopic capsule and methods for gastric cancer screening in low resource settings.txt",
+    "target_sentence": "The capsule housing is configured to be inserted into an anatomical structure of a patient.",
+    "context_positions": [
+      46
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc18_target3",
+    "document_id": "4419. Hydro-jet endoscopic capsule and methods for gastric cancer screening in low resource settings.txt",
+    "target_sentence": "The video processing unit presents the camera view on a dedicated monitor.",
+    "context_positions": [
+      30
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc18_target4",
+    "document_id": "4419. Hydro-jet endoscopic capsule and methods for gastric cancer screening in low resource settings.txt",
+    "target_sentence": "As discussed above, the capsule system receives pressurized fluid from an external system to control lateral movement of the capsule.",
+    "context_positions": [
+      136
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc18_target5",
+    "document_id": "4419. Hydro-jet endoscopic capsule and methods for gastric cancer screening in low resource settings.txt",
+    "target_sentence": "This novel approach bypasses the typical expenses of traditional endoscopes which are both expensive to purchase and require additional machinery to clean for reuse.",
+    "context_positions": [
+      15
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc18_target6",
+    "document_id": "4419. Hydro-jet endoscopic capsule and methods for gastric cancer screening in low resource settings.txt",
+    "target_sentence": "Nearly 70% of cases occur in low/middle income countries (LMICs), where endoscopy resources are traditionally limited.",
+    "context_positions": [
+      2
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc18_target7",
+    "document_id": "4419. Hydro-jet endoscopic capsule and methods for gastric cancer screening in low resource settings.txt",
+    "target_sentence": "The capsule housing is inserted into the patient's esophagus through the mouth and linearly advanced to the stomach of the patient.",
+    "context_positions": [
+      51
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc18_target8",
+    "document_id": "4419. Hydro-jet endoscopic capsule and methods for gastric cancer screening in low resource settings.txt",
+    "target_sentence": "For example, to move the capsule to the right, water is controllably expelled from the exhaust port on the left of the capsule main body.",
+    "context_positions": [
+      88
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc18_target9",
+    "document_id": "4419. Hydro-jet endoscopic capsule and methods for gastric cancer screening in low resource settings.txt",
+    "target_sentence": "Instead, the compressed gas, which can be carried in portable canisters, is used in conjunction with the dispensing pressure vessel to control maneuvering of the capsule.",
+    "context_positions": [
+      146
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc19_target0",
+    "document_id": "4895. Anomaly detection by self-learning of sensor signals.txt",
+    "target_sentence": "The embodiments herein can comprise hardware and software elements.",
+    "context_positions": [
+      104
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc19_target1",
+    "document_id": "4895. Anomaly detection by self-learning of sensor signals.txt",
+    "target_sentence": "Conventional methods have used supervised learning to classify normal and anomalous phenomena.",
+    "context_positions": [
+      32
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc19_target2",
+    "document_id": "4895. Anomaly detection by self-learning of sensor signals.txt",
+    "target_sentence": "Classification of normal and anomalous portions is based on ground truth.",
+    "context_positions": [
+      70
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc19_target3",
+    "document_id": "4895. Anomaly detection by self-learning of sensor signals.txt",
+    "target_sentence": "The method embodiments described herein could be implemented in hardware and software.",
+    "context_positions": [
+      101
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc19_target4",
+    "document_id": "4895. Anomaly detection by self-learning of sensor signals.txt",
+    "target_sentence": "Alternative boundaries can be defined so long as the specified functions and relationships thereof are appropriately performed.",
+    "context_positions": [
+      117
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc19_target5",
+    "document_id": "4895. Anomaly detection by self-learning of sensor signals.txt",
+    "target_sentence": "In the context of the present disclosure, anomalous phenomena indicate outliers that may encompass noise, mainly due to motion artifacts and/or abnormalities.",
+    "context_positions": [
+      30
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc19_target6",
+    "document_id": "4895. Anomaly detection by self-learning of sensor signals.txt",
+    "target_sentence": "The illustrated steps are set out to explain the exemplary embodiments shown, and it should be anticipated that ongoing technological development will change the manner in which particular functions are performed.",
+    "context_positions": [
+      114
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc19_target7",
+    "document_id": "4895. Anomaly detection by self-learning of sensor signals.txt",
+    "target_sentence": "Alternatively, the embodiments of the present disclosure may be implemented on different hardware devices, for example using a plurality of CPUs.",
+    "context_positions": [
+      103
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc19_target8",
+    "document_id": "4895. Anomaly detection by self-learning of sensor signals.txt",
+    "target_sentence": "In an embodiment, the pre-defined first threshold and the pre-defined second threshold may have same values.",
+    "context_positions": [
+      59
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc19_target9",
+    "document_id": "4895. Anomaly detection by self-learning of sensor signals.txt",
+    "target_sentence": "This is followed by identifying one or more defining features from the derived primary features based on statistical learning of normal signature of the sensor signals.",
+    "context_positions": [
+      35
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc20_target0",
+    "document_id": "4975. Sensor based truth maintenance.txt",
+    "target_sentence": "System combines advanced artificial intelligence approaches with RFID data mediation and delivery in a cloud based usage model.",
+    "context_positions": [
+      29
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc20_target1",
+    "document_id": "4975. Sensor based truth maintenance.txt",
+    "target_sentence": "Cloud hosted mediation system utilizes a cloud infrastructure instantiating an application based on a consumption based pay as you go delivery model.",
+    "context_positions": [
+      15
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc20_target2",
+    "document_id": "4975. Sensor based truth maintenance.txt",
+    "target_sentence": "The use of the D-S approach requires inference engine to deduce belief functions.",
+    "context_positions": [
+      54
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc20_target3",
+    "document_id": "4975. Sensor based truth maintenance.txt",
+    "target_sentence": "While embodiments of the present invention have been described herein for purposes of illustration, many modifications and changes will become apparent to those skilled in the art.",
+    "context_positions": [
+      129
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc20_target4",
+    "document_id": "4975. Sensor based truth maintenance.txt",
+    "target_sentence": "Vehicles comprising a problem may be quickly identified and pulled off the streets.",
+    "context_positions": [
+      89
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc20_target5",
+    "document_id": "4975. Sensor based truth maintenance.txt",
+    "target_sentence": "Based on this new information, the person walks back to the house (i.e., action) and picks up and opens an umbrella and then continues to walk to work.",
+    "context_positions": [
+      43
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc20_target6",
+    "document_id": "4975. Sensor based truth maintenance.txt",
+    "target_sentence": "Inference engine crawls through the classified data (facts) stored in classification database and derives assumption type answers.",
+    "context_positions": [
+      82
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc20_target7",
+    "document_id": "4975. Sensor based truth maintenance.txt",
+    "target_sentence": "In return, the service provider can receive payment from the customer(s) under a subscription and/or fee agreement and/or the service provider can receive payment from the sale of advertising content to one or more third parties.",
+    "context_positions": [
+      126
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc20_target8",
+    "document_id": "4975. Sensor based truth maintenance.txt",
+    "target_sentence": "The two sets of beliefs that are established by the previous step 3 and which are processed using D-S theory are stored in a TMS (for example, TMS).",
+    "context_positions": [
+      76
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc20_target9",
+    "document_id": "4975. Sensor based truth maintenance.txt",
+    "target_sentence": "Additionally, the person notices bolt of lightning in the distance (i.e., evidence) and determines that there is currently a very high likelihood of rain.",
+    "context_positions": [
+      42
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc21_target0",
+    "document_id": "5328. Composition having antifungal activity.txt",
+    "target_sentence": "Moreover, the intrusion of filamentous fungi in houses as a result of condensation and the like, which is reflective of modern housing conditions, causes symptoms such as allergies and the like in humans, and has a deleterious effect on the health of humans and animals.",
+    "context_positions": [
+      9
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc21_target1",
+    "document_id": "5328. Composition having antifungal activity.txt",
+    "target_sentence": "As a result, the Candida mycelia adhering to the surface of the wells were dyed.",
+    "context_positions": [
+      84
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc21_target2",
+    "document_id": "5328. Composition having antifungal activity.txt",
+    "target_sentence": "Once this culturing had ended, the solutions in each well were removed by suction, and the wells were washed using physiological saline.",
+    "context_positions": [
+      83
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc21_target3",
+    "document_id": "5328. Composition having antifungal activity.txt",
+    "target_sentence": "In contrast, when LYZOX was used, an improvement effect in the anticandidal activity against Candida mycelial growth was visible, and it was seen that the anticandidal activity effect gradually increased as the concentration increased.",
+    "context_positions": [
+      128
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc21_target4",
+    "document_id": "5328. Composition having antifungal activity.txt",
+    "target_sentence": "It is desirable that a composition having an antifungal activity further comprises terpene alcohol or a fatty acid.",
+    "context_positions": [
+      26
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc21_target5",
+    "document_id": "5328. Composition having antifungal activity.txt",
+    "target_sentence": "The present invention uses a complex of lysozyme, which is an extremely safe, natural food additive, and a polysaccharide, and can therefore be safely used by a patient without risks such as those described above needing to be considered.",
+    "context_positions": [
+      35
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc21_target6",
+    "document_id": "5328. Composition having antifungal activity.txt",
+    "target_sentence": "The number of viable Candida bacteria CFU (colony forming units) recovered from the relevant individuals was then calculated from the number of colonies.",
+    "context_positions": [
+      110
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc21_target7",
+    "document_id": "5328. Composition having antifungal activity.txt",
+    "target_sentence": "Moreover, it is also disclosed in Patent document that, in oral candidiasis models in mice, a combination of capric acid and ginger essential oil had the greatest effect towards improving tongue symptoms.",
+    "context_positions": [
+      13
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc21_target8",
+    "document_id": "5328. Composition having antifungal activity.txt",
+    "target_sentence": "The interior of the oral cavity of each mouse was then wiped with a cotton bud, and the Candida bacterial cells recovered by that cotton bud were suspended in a saline solution.",
+    "context_positions": [
+      107
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc21_target9",
+    "document_id": "5328. Composition having antifungal activity.txt",
+    "target_sentence": "A clinical isolate, Trichophyton mentagrophytes TIMM, held by the Teikyo University Medical Mycology Research Center was used as the Trichophyton.",
+    "context_positions": [
+      148
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc22_target0",
+    "document_id": "5542. Rotatable cantilever gantry in radiotherapy system.txt",
+    "target_sentence": "A rotational gantry with a radiation nozzle is located at the end of the beam transport system.",
+    "context_positions": [
+      5
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc22_target1",
+    "document_id": "5542. Rotatable cantilever gantry in radiotherapy system.txt",
+    "target_sentence": "In this example, the main bearing is coupled to the external supporting structure and also serves to support the weight of the cantilever gantry.",
+    "context_positions": [
+      86
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc22_target2",
+    "document_id": "5542. Rotatable cantilever gantry in radiotherapy system.txt",
+    "target_sentence": "Moreover, by using monocoque housing, a gantry according to the present disclosures can be delivered to a healthcare facility as a fully-assembly, pre-tested unit.",
+    "context_positions": [
+      39
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc22_target3",
+    "document_id": "5542. Rotatable cantilever gantry in radiotherapy system.txt",
+    "target_sentence": "Each section of the monocoque housing may be a fully welded steel monocoque or box structure.",
+    "context_positions": [
+      109
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc22_target4",
+    "document_id": "5542. Rotatable cantilever gantry in radiotherapy system.txt",
+    "target_sentence": "The main bearing is covered by a main bearing housing which may or may not be an integral part of the monocoque housing of the cantilever gantry.",
+    "context_positions": [
+      145
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc22_target5",
+    "document_id": "5542. Rotatable cantilever gantry in radiotherapy system.txt",
+    "target_sentence": "A large counterweight can be disposed in the fixed end portion to keep the system center of mass close to the bearing.",
+    "context_positions": [
+      33
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc22_target6",
+    "document_id": "5542. Rotatable cantilever gantry in radiotherapy system.txt",
+    "target_sentence": "The main bearing may be a slew bearing sufficiently large to encompass the sweeping volume of the first bending magnet.",
+    "context_positions": [
+      89
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc22_target7",
+    "document_id": "5542. Rotatable cantilever gantry in radiotherapy system.txt",
+    "target_sentence": "The cantilever section may be made increasingly stiffer toward the main bearing location to counter the significant forces imposed in this region.",
+    "context_positions": [
+      116
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc22_target8",
+    "document_id": "5542. Rotatable cantilever gantry in radiotherapy system.txt",
+    "target_sentence": "Further, in some other embodiments, a rotating mechanical component other than a bearing can be used to enable rotational motion of the cantilever gantry.",
+    "context_positions": [
+      91
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc22_target9",
+    "document_id": "5542. Rotatable cantilever gantry in radiotherapy system.txt",
+    "target_sentence": "A counterweight is attached to the drum section near the external wall.",
+    "context_positions": [
+      136
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc23_target0",
+    "document_id": "5921. Systems and methods for diffusion-weighted multi-spectral magnetic resonance imaging.txt",
+    "target_sentence": "For two-dimensional implementations, the combination is done for spectral bin images reconstructed for the same slice location.",
+    "context_positions": [
+      20
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc23_target1",
+    "document_id": "5921. Systems and methods for diffusion-weighted multi-spectral magnetic resonance imaging.txt",
+    "target_sentence": "Image reconstruction is then performed as outlined above to create diffusion-weighted images.",
+    "context_positions": [
+      62,
+      90
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc23_target2",
+    "document_id": "5921. Systems and methods for diffusion-weighted multi-spectral magnetic resonance imaging.txt",
+    "target_sentence": "The operator workstation provides an operator interface that facilitates entering scan parameters into the MRI system.",
+    "context_positions": [
+      99
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc23_target3",
+    "document_id": "5921. Systems and methods for diffusion-weighted multi-spectral magnetic resonance imaging.txt",
+    "target_sentence": "RF waveforms are applied by the RF system to the RF coil, or a separate local coil to perform the prescribed magnetic resonance pulse sequence.",
+    "context_positions": [
+      104
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc23_target4",
+    "document_id": "5921. Systems and methods for diffusion-weighted multi-spectral magnetic resonance imaging.txt",
+    "target_sentence": "Accordingly, multiple networked workstations may have access to the data processing server and the data store server.",
+    "context_positions": [
+      136
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc23_target5",
+    "document_id": "5921. Systems and methods for diffusion-weighted multi-spectral magnetic resonance imaging.txt",
+    "target_sentence": "As one non-limiting example, the systems and methods can provide quantitative diffusion-weighted assessment of spinal cord health in the immediate vicinity of spinal fusion devices or disc replacements.",
+    "context_positions": [
+      32
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc23_target6",
+    "document_id": "5921. Systems and methods for diffusion-weighted multi-spectral magnetic resonance imaging.txt",
+    "target_sentence": "The amplitude of the slice-select gradient is flipped relative to the refocusing gradients to excite spatially and spectrally selective bins.",
+    "context_positions": [
+      64
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc23_target7",
+    "document_id": "5921. Systems and methods for diffusion-weighted multi-spectral magnetic resonance imaging.txt",
+    "target_sentence": "Real-time images may be stored in a data base memory cache, from which they may be output to operator display or a display.",
+    "context_positions": [
+      128
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc23_target8",
+    "document_id": "5921. Systems and methods for diffusion-weighted multi-spectral magnetic resonance imaging.txt",
+    "target_sentence": "The networked workstation may gain remote access to the data processing server or data store server via the communication system.",
+    "context_positions": [
+      135
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc23_target9",
+    "document_id": "5921. Systems and methods for diffusion-weighted multi-spectral magnetic resonance imaging.txt",
+    "target_sentence": "To enable additional phase correction of odd and even echoes within the echo train, alternating echoes can be split into orthogonal blades.",
+    "context_positions": [
+      67
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc24_target0",
+    "document_id": "6369. Automatic detection of medical image acquisition protocol.txt",
+    "target_sentence": "The method and device makes use of image analysis and statistical algorithms for automatically detecting the image acquisition protocol of a medical image.",
+    "context_positions": [
+      23
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc24_target1",
+    "document_id": "6369. Automatic detection of medical image acquisition protocol.txt",
+    "target_sentence": "Further, the salient regions in the volume of the medical image may be determined by applying a blurring filter and then assigning a saliency value for the pixels above a mean intensity value.",
+    "context_positions": [
+      76
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc24_target2",
+    "document_id": "6369. Automatic detection of medical image acquisition protocol.txt",
+    "target_sentence": "In certain other embodiments, the outlier detection is performed using statistical transformation algorithms.",
+    "context_positions": [
+      45
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc24_target3",
+    "document_id": "6369. Automatic detection of medical image acquisition protocol.txt",
+    "target_sentence": "Another object of the disclosure is to provide a device to automatically detect the image acquisition protocol of a set of medical images.",
+    "context_positions": [
+      46
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc24_target4",
+    "document_id": "6369. Automatic detection of medical image acquisition protocol.txt",
+    "target_sentence": "The above mentioned and other features of the disclosure will now be addressed with reference to the accompanying drawings of the present disclosure.",
+    "context_positions": [
+      48
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc24_target5",
+    "document_id": "6369. Automatic detection of medical image acquisition protocol.txt",
+    "target_sentence": "The memory includes an anatomy detection module, a feature extraction module, a statistical classifier module, an outlier protocol detection module and label assignment module.",
+    "context_positions": [
+      69
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc24_target6",
+    "document_id": "6369. Automatic detection of medical image acquisition protocol.txt",
+    "target_sentence": "The device further includes a communication module for communicating with other devices via a network connection.",
+    "context_positions": [
+      97
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc24_target7",
+    "document_id": "6369. Automatic detection of medical image acquisition protocol.txt",
+    "target_sentence": "The HSWLBP is computed by developing a 256 dimensional histogram of the combined LBP of all the slices of an anatomy.",
+    "context_positions": [
+      81
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc24_target8",
+    "document_id": "6369. Automatic detection of medical image acquisition protocol.txt",
+    "target_sentence": "The statistical classifier module may be configured to Support Vector Machine (SVM) algorithm with linear kernel to provide a good classification of the imaging protocols.",
+    "context_positions": [
+      122
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc24_target9",
+    "document_id": "6369. Automatic detection of medical image acquisition protocol.txt",
+    "target_sentence": "In some other embodiments, a plurality of medical images of similar image acquisition protocols is displayed adjacent to one another.",
+    "context_positions": [
+      141
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc25_target0",
+    "document_id": "6393. Methods for adjusting a magnetic field of a magnetic resonance tomography device, magnetic power supplies, and magnetic resonance tomography devices.txt",
+    "target_sentence": "In another embodiment, the reference parameter is a frequency, in particular, a frequency emitted by a phantom being placed into the MRT-device.",
+    "context_positions": [
+      64
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc25_target1",
+    "document_id": "6393. Methods for adjusting a magnetic field of a magnetic resonance tomography device, magnetic power supplies, and magnetic resonance tomography devices.txt",
+    "target_sentence": "This object is achieved by a method for adjusting a magnetic field of a magnetic resonance, by a magnetic power supply, and by a magnetic resonance tomography (MRT) device as disclosed herein.",
+    "context_positions": [
+      22
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc25_target2",
+    "document_id": "6393. Methods for adjusting a magnetic field of a magnetic resonance tomography device, magnetic power supplies, and magnetic resonance tomography devices.txt",
+    "target_sentence": "As a consequence, excited hydrogen atoms emit a radio frequency signal, which is measured by a receiving coil.",
+    "context_positions": [
+      86
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc25_target3",
+    "document_id": "6393. Methods for adjusting a magnetic field of a magnetic resonance tomography device, magnetic power supplies, and magnetic resonance tomography devices.txt",
+    "target_sentence": "Measuring the current that realizes the magnetic field may be established, for example, by integrating a shunt into the magnetic power supply.",
+    "context_positions": [
+      37
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc25_target4",
+    "document_id": "6393. Methods for adjusting a magnetic field of a magnetic resonance tomography device, magnetic power supplies, and magnetic resonance tomography devices.txt",
+    "target_sentence": "In other words, the magnetic field is not measured directly and thus complex measuring systems for observing the magnetic field may be avoided.",
+    "context_positions": [
+      25
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc25_target5",
+    "document_id": "6393. Methods for adjusting a magnetic field of a magnetic resonance tomography device, magnetic power supplies, and magnetic resonance tomography devices.txt",
+    "target_sentence": "Removing the Helium system presents many technical challenges and practical challenges of having such a magnet operate in a real hospital or clinic environment.",
+    "context_positions": [
+      8
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc25_target6",
+    "document_id": "6393. Methods for adjusting a magnetic field of a magnetic resonance tomography device, magnetic power supplies, and magnetic resonance tomography devices.txt",
+    "target_sentence": "Additionally, it is possible to adjust the magnetic field accurately for establishing a desired center frequency matching to the center frequency of the receiving coil.",
+    "context_positions": [
+      26
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc25_target7",
+    "document_id": "6393. Methods for adjusting a magnetic field of a magnetic resonance tomography device, magnetic power supplies, and magnetic resonance tomography devices.txt",
+    "target_sentence": "In certain examples, the reference parameter is only observed during the ramp-up-mode or during a defined time span of the ramp-up mode.",
+    "context_positions": [
+      35
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc25_target8",
+    "document_id": "6393. Methods for adjusting a magnetic field of a magnetic resonance tomography device, magnetic power supplies, and magnetic resonance tomography devices.txt",
+    "target_sentence": "In an embodiment for setting the target value, the current is calibrated during a previous ramp-down mode, in particular, during the ramp-down mode preceding the ramp-up mode.",
+    "context_positions": [
+      45
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc25_target9",
+    "document_id": "6393. Methods for adjusting a magnetic field of a magnetic resonance tomography device, magnetic power supplies, and magnetic resonance tomography devices.txt",
+    "target_sentence": "By automatically placing the phantom, it is guaranteed that the position of the phantom is repeatable and there is no interference by an operator necessary.",
+    "context_positions": [
+      72
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc26_target0",
+    "document_id": "6757. Mucosal capture fixation of medical device.txt",
+    "target_sentence": "Fixation mechanism may be used to resist shear force, such as that created by peristalsis and thereby functions as an anti-migration mechanism.",
+    "context_positions": [
+      45
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc26_target1",
+    "document_id": "6757. Mucosal capture fixation of medical device.txt",
+    "target_sentence": "As the mucosa passes through openings, the bulges of the mucosa tend to bridge spacer and come together in apposition.",
+    "context_positions": [
+      94
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc26_target2",
+    "document_id": "6757. Mucosal capture fixation of medical device.txt",
+    "target_sentence": "The device may include a retainer that retains the section of the mucosa within the at least one opening while maintaining perfusion of the section of the mucosa.",
+    "context_positions": [
+      9
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc26_target3",
+    "document_id": "6757. Mucosal capture fixation of medical device.txt",
+    "target_sentence": "Alternatively, the penetrating component may include an elongated member that penetrates the sections of the mucosa at the plurality of openings.",
+    "context_positions": [
+      16
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc26_target4",
+    "document_id": "6757. Mucosal capture fixation of medical device.txt",
+    "target_sentence": "The penetrating component may be made up of a plurality of pointed members extending into the at least one opening from at least one of said moveable portions.",
+    "context_positions": [
+      20
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc26_target5",
+    "document_id": "6757. Mucosal capture fixation of medical device.txt",
+    "target_sentence": "The retainer may include a fibrotic tissue response inducing material at least partially surrounding the at least one opening.",
+    "context_positions": [
+      24
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc26_target6",
+    "document_id": "6757. Mucosal capture fixation of medical device.txt",
+    "target_sentence": "The at least one opening may be a plurality of openings and the penetrating component may include a plurality of penetrating components, one for retaining the section of the mucosa within each of the openings.",
+    "context_positions": [
+      15
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc26_target7",
+    "document_id": "6757. Mucosal capture fixation of medical device.txt",
+    "target_sentence": "The pressure component applies sufficient pressure to retain the section of the mucosa, but not enough pressure to cause ischemia which can lead to necrosis.",
+    "context_positions": [
+      64
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc26_target8",
+    "document_id": "6757. Mucosal capture fixation of medical device.txt",
+    "target_sentence": "The mucosa is retained by the needles of the retainer being moved together by the moveable portions of the wall as well as the force component previously described.",
+    "context_positions": [
+      127
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc26_target9",
+    "document_id": "6757. Mucosal capture fixation of medical device.txt",
+    "target_sentence": "The engaging ends of clip may also be configured with a penetrating component to penetrate the sections of the mucosa.",
+    "context_positions": [
+      100
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc27_target0",
+    "document_id": "7199. Rotating object holder for multi-function sanitization, disinfection, and sterilization in a cabinet.txt",
+    "target_sentence": "The motor controller includes two output terminals, which output a clockwise voltage and a counter clockwise voltage.",
+    "context_positions": [
+      166
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc27_target1",
+    "document_id": "7199. Rotating object holder for multi-function sanitization, disinfection, and sterilization in a cabinet.txt",
+    "target_sentence": "The clockwise voltage is outputted for a first period of time and the counter clockwise voltage is outputted for a second period of time.",
+    "context_positions": [
+      167
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc27_target2",
+    "document_id": "7199. Rotating object holder for multi-function sanitization, disinfection, and sterilization in a cabinet.txt",
+    "target_sentence": "Generally, they are high-use medical products and/or medical devices, and are constructed of materials that are not safe for high temperature disinfection methods.",
+    "context_positions": [
+      2
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc27_target3",
+    "document_id": "7199. Rotating object holder for multi-function sanitization, disinfection, and sterilization in a cabinet.txt",
+    "target_sentence": "Currently, lacking a comprehensive solution for the disinfection, high-level disinfection, and/or sterilization, storage and grouping of like devices, hospitals have adopted a variety of less than optimal, methods.",
+    "context_positions": [
+      12
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc27_target4",
+    "document_id": "7199. Rotating object holder for multi-function sanitization, disinfection, and sterilization in a cabinet.txt",
+    "target_sentence": "Without being limited, the said interface test blocks can be removably positioned and/or located within the said treatment chamber(s).",
+    "context_positions": [
+      44
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc27_target5",
+    "document_id": "7199. Rotating object holder for multi-function sanitization, disinfection, and sterilization in a cabinet.txt",
+    "target_sentence": "A bottom of the second plurality of V-shaped members are preferably, and without limitation, welded to a second mounting rod.",
+    "context_positions": [
+      148
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc27_target6",
+    "document_id": "7199. Rotating object holder for multi-function sanitization, disinfection, and sterilization in a cabinet.txt",
+    "target_sentence": "A clockwise DPDT relay and a counter clockwise DPDT relay are used to provide power to a motor of the motor with gear reduction.",
+    "context_positions": [
+      165
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc27_target7",
+    "document_id": "7199. Rotating object holder for multi-function sanitization, disinfection, and sterilization in a cabinet.txt",
+    "target_sentence": "In addition, patient monitoring leads, probes, sensors, and other medical device(s), routinely fail through repeated use, hand cleaning, abuse, mishandling, and stress.",
+    "context_positions": [
+      5
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc27_target8",
+    "document_id": "7199. Rotating object holder for multi-function sanitization, disinfection, and sterilization in a cabinet.txt",
+    "target_sentence": "This function usually defaults to the clinical end user at the most inopportune or inconvenient time.",
+    "context_positions": [
+      13
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc27_target9",
+    "document_id": "7199. Rotating object holder for multi-function sanitization, disinfection, and sterilization in a cabinet.txt",
+    "target_sentence": "Without being limited, the one or more interface test block(s) can also be permanently mounted in the sealed treatment chamber(s).",
+    "context_positions": [
+      120
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc28_target0",
+    "document_id": "7313. Responsive visual communication system and method.txt",
+    "target_sentence": "Although such a device preferably performs a number of different functions, it is preferred that the wearable device be relatively simple and/or intuitive in operation.",
+    "context_positions": [
+      41
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc28_target1",
+    "document_id": "7313. Responsive visual communication system and method.txt",
+    "target_sentence": "As previously explained visual indicators such as LEDs or other lighting elements may provide feedback directly to users based on mode of operation or context.",
+    "context_positions": [
+      100
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc28_target2",
+    "document_id": "7313. Responsive visual communication system and method.txt",
+    "target_sentence": "Another use of the app is to interpret visual flashes used to convey information about debugging protocols.",
+    "context_positions": [
+      106
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc28_target3",
+    "document_id": "7313. Responsive visual communication system and method.txt",
+    "target_sentence": "Therefore methods, devices, and systems which provide responsive visual feedback have been shown and described.",
+    "context_positions": [
+      113
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc28_target4",
+    "document_id": "7313. Responsive visual communication system and method.txt",
+    "target_sentence": "The same lighting may be used to provide visual feedback regarding other functionality or modes of operation of the device.",
+    "context_positions": [
+      58
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc28_target5",
+    "document_id": "7313. Responsive visual communication system and method.txt",
+    "target_sentence": "The system further includes a software application executing on a computing device wherein the software application is programmed to acquire imagery of the visual feedback and recover the data.",
+    "context_positions": [
+      27
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc28_target6",
+    "document_id": "7313. Responsive visual communication system and method.txt",
+    "target_sentence": "Other modes of operation may include those associated with providing visual data, providing visual feedback, activating optional features, or other types of operations that may be desirable or appropriate for a particular device.",
+    "context_positions": [
+      68
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc28_target7",
+    "document_id": "7313. Responsive visual communication system and method.txt",
+    "target_sentence": "A first set of LEDs 40A are associated with a first device and a second set of LEDs 40B are associated with a second device.",
+    "context_positions": [
+      96
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc28_target8",
+    "document_id": "7313. Responsive visual communication system and method.txt",
+    "target_sentence": "The digital data may be encoded in any number of different ways and any number of types of information may be represented.",
+    "context_positions": [
+      104
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc28_target9",
+    "document_id": "7313. Responsive visual communication system and method.txt",
+    "target_sentence": "Wearable devices may be able to perform multiple functions some of which may be complex in nature.",
+    "context_positions": [
+      5
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc29_target0",
+    "document_id": "7440. Plunger covers and plungers for use in syringes.txt",
+    "target_sentence": "As known in the overmolding arts, a molecular bond can be formed between the material of sealing portion and central portion.",
+    "context_positions": [
+      125
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc29_target1",
+    "document_id": "7440. Plunger covers and plungers for use in syringes.txt",
+    "target_sentence": "Sealing portion is then inserted into another process/mold and is overmolded over with another polymer.",
+    "context_positions": [
+      120
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc29_target2",
+    "document_id": "7440. Plunger covers and plungers for use in syringes.txt",
+    "target_sentence": "Central portion can include extending tabs which can assist in forming a secure interconnection between central portion and sealing portion.",
+    "context_positions": [
+      154
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc29_target3",
+    "document_id": "7440. Plunger covers and plungers for use in syringes.txt",
+    "target_sentence": "Although a number of syringe plungers and methods of fabrication or manufacture of syringe plungers have been developed, it is desirable to develop improved syringe plungers and methods of fabrication of syringe plungers.",
+    "context_positions": [
+      22
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc29_target4",
+    "document_id": "7440. Plunger covers and plungers for use in syringes.txt",
+    "target_sentence": "In one embodiment, the central portion is positioned forward of at least a portion of the sealing portion and is adapted to contact fluid within the syringe.",
+    "context_positions": [
+      52
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc29_target5",
+    "document_id": "7440. Plunger covers and plungers for use in syringes.txt",
+    "target_sentence": "The rubber covers can, for example, be molded into a sheet and then manually hand cut (through a cutting die) from the sheet.",
+    "context_positions": [
+      10
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc29_target6",
+    "document_id": "7440. Plunger covers and plungers for use in syringes.txt",
+    "target_sentence": "In another embodiment, the central portion is positioned rearward of a generally central section of the sealing portion and does not contact fluid within the syringe.",
+    "context_positions": [
+      53
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc29_target7",
+    "document_id": "7440. Plunger covers and plungers for use in syringes.txt",
+    "target_sentence": "The design and manufacturing methods associated with plunger reduce manufacturing costs, while maintaining functionality.",
+    "context_positions": [
+      136
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc29_target8",
+    "document_id": "7440. Plunger covers and plungers for use in syringes.txt",
+    "target_sentence": "As with other embodiments of the present invention, however, plunger cover is readily adjusted in shape and dimension to mate with a desired support.",
+    "context_positions": [
+      153,
+      164
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc29_target9",
+    "document_id": "7440. Plunger covers and plungers for use in syringes.txt",
+    "target_sentence": "Subsequently, the distal portion of the hard plastic core is overmolded with a soft rubber plunger cover in a second mold.",
+    "context_positions": [
+      15
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc30_target0",
+    "document_id": "7643. Specific, reversible, and wide-dynamic range sensor for real time detection of carbon dioxide.txt",
+    "target_sentence": "At least one photodiode is coupled to receive signals from the CO.sub.2 sensor and which responds to color change of the sensor element by transducing the color change into a light intensity change.",
+    "context_positions": [
+      16
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc30_target1",
+    "document_id": "7643. Specific, reversible, and wide-dynamic range sensor for real time detection of carbon dioxide.txt",
+    "target_sentence": "The total time for each test was around 16 min and after each test, the sensor was stored in a small package in the atmosphere until next test.",
+    "context_positions": [
+      141
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc30_target2",
+    "document_id": "7643. Specific, reversible, and wide-dynamic range sensor for real time detection of carbon dioxide.txt",
+    "target_sentence": "When the sensor is used for breath CO.sub.2 analysis, the probes can dissolve quickly upon contact with breath condensation to facilitate fast reaction kinetics.",
+    "context_positions": [
+      108
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc30_target3",
+    "document_id": "7643. Specific, reversible, and wide-dynamic range sensor for real time detection of carbon dioxide.txt",
+    "target_sentence": "This summary is not intended to identify key features of the claimed subject matter, nor is it intended to be used as an aid in determining the scope of the claimed subject matter.",
+    "context_positions": [
+      13
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc30_target4",
+    "document_id": "7643. Specific, reversible, and wide-dynamic range sensor for real time detection of carbon dioxide.txt",
+    "target_sentence": "In another aspect, the detector also includes a transmitter and a mobile device coupled to receive data transmitted by the transmitter.",
+    "context_positions": [
+      19
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc30_target5",
+    "document_id": "7643. Specific, reversible, and wide-dynamic range sensor for real time detection of carbon dioxide.txt",
+    "target_sentence": "In another aspect the porous hydrophobic surface, which comprises a plurality of microstructures is coated with sensing chemicals.",
+    "context_positions": [
+      25
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc30_target6",
+    "document_id": "7643. Specific, reversible, and wide-dynamic range sensor for real time detection of carbon dioxide.txt",
+    "target_sentence": "For example, the shapes of various elements and angles are not drawn to scale, and some of these elements are arbitrarily enlarged and positioned to improve drawing legibility.",
+    "context_positions": [
+      47
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc30_target7",
+    "document_id": "7643. Specific, reversible, and wide-dynamic range sensor for real time detection of carbon dioxide.txt",
+    "target_sentence": "Further, the particular shapes of the elements as drawn, are not intended to convey any information regarding the actual shape of the particular elements, and have been solely selected for ease of recognition in the drawings.",
+    "context_positions": [
+      48
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc30_target8",
+    "document_id": "7643. Specific, reversible, and wide-dynamic range sensor for real time detection of carbon dioxide.txt",
+    "target_sentence": "This is in contrast to existing CO.sub.2 sensors, where water condensation is a major source of interference.",
+    "context_positions": [
+      109
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc30_target9",
+    "document_id": "7643. Specific, reversible, and wide-dynamic range sensor for real time detection of carbon dioxide.txt",
+    "target_sentence": "Due to the fast response time, difference in respiration patterns between subjects with different lung capabilities could be clearly observed from the breath-by-breath CO.sub.2 waveforms.",
+    "context_positions": [
+      156
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc31_target0",
+    "document_id": "7844. Method and device for determining a change over time in a biomarker in a region to be examined.txt",
+    "target_sentence": "The treatment of psychiatric diseases such as depression, states of anxiety, manias, schizophrenia, etc., constitutes a considerable challenge.",
+    "context_positions": [
+      6
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc31_target1",
+    "document_id": "7844. Method and device for determining a change over time in a biomarker in a region to be examined.txt",
+    "target_sentence": "Treatments such as the administering of SSRIs have the effect for example of increasing the size of the amygdala, and this, in turn, can be associated with emotional recovery.",
+    "context_positions": [
+      19
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc31_target2",
+    "document_id": "7844. Method and device for determining a change over time in a biomarker in a region to be examined.txt",
+    "target_sentence": "In addition, image data reconstructed from the magnetic resonance signals and further patient data are transmitted via the data network and stored in a database in the data memory together with the biomarker values.",
+    "context_positions": [
+      59
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc31_target3",
+    "document_id": "7844. Method and device for determining a change over time in a biomarker in a region to be examined.txt",
+    "target_sentence": "In method step 38 the quantified biomarker information or one or more biomarker value(s) are then stored together with patient data in the data memory.",
+    "context_positions": [
+      91
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc31_target4",
+    "document_id": "7844. Method and device for determining a change over time in a biomarker in a region to be examined.txt",
+    "target_sentence": "Additional data may also be stored in the database for this purpose, for example clinical scores for evaluation of the severity of the disease or for the medication.",
+    "context_positions": [
+      43
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc31_target5",
+    "document_id": "7844. Method and device for determining a change over time in a biomarker in a region to be examined.txt",
+    "target_sentence": "Magnetic resonance spectroscopy is also used to determine conclusions about abnormal changes in individual areas of the brain.",
+    "context_positions": [
+      20
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc31_target6",
+    "document_id": "7844. Method and device for determining a change over time in a biomarker in a region to be examined.txt",
+    "target_sentence": "Various magnetic resonance imaging methods have been evaluated in research which may be of significance to diagnostics and differential diagnostics as well as to treatment monitoring.",
+    "context_positions": [
+      10
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc31_target7",
+    "document_id": "7844. Method and device for determining a change over time in a biomarker in a region to be examined.txt",
+    "target_sentence": "A first examination of the patient begins in the magnetic resonance device, already described in the introduction, after the capture of fundamental patient data.",
+    "context_positions": [
+      87
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc31_target8",
+    "document_id": "7844. Method and device for determining a change over time in a biomarker in a region to be examined.txt",
+    "target_sentence": "Furthermore, it is also possible for measuring parameters, which were used by a first examination center in the initial examination, to be used by a second, different examination center in the follow-up examination.",
+    "context_positions": [
+      67
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc31_target9",
+    "document_id": "7844. Method and device for determining a change over time in a biomarker in a region to be examined.txt",
+    "target_sentence": "The dilemma arises therefrom for the patient and doctor of weighing up the sometimes severe side effects which worsen symptoms against the long-term effect of the medication.",
+    "context_positions": [
+      8
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc32_target0",
+    "document_id": "8177. Anti-clog suction tip apparatus and methods.txt",
+    "target_sentence": "In this respect, at least the body is reusable, and additional components of the anti-clog suction tip apparatus that are not part of the kit also are reusable.",
+    "context_positions": [
+      33
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc32_target1",
+    "document_id": "8177. Anti-clog suction tip apparatus and methods.txt",
+    "target_sentence": "The anti-clog suction tip apparatus is adapted to attach to a hose at the hose attachment portion, with the hose having a suction source attached thereto.",
+    "context_positions": [
+      100
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc32_target2",
+    "document_id": "8177. Anti-clog suction tip apparatus and methods.txt",
+    "target_sentence": "Additional preferred embodiments of anti-clog suction tip apparatus in accordance with one or more aspects of the invention are shown in the remaining figures.",
+    "context_positions": [
+      146
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc32_target3",
+    "document_id": "8177. Anti-clog suction tip apparatus and methods.txt",
+    "target_sentence": "Indeed, the steps in such processes or methods generally may be carried out in various different sequences and orders while still falling within the scope of the present invention.",
+    "context_positions": [
+      79
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc32_target4",
+    "document_id": "8177. Anti-clog suction tip apparatus and methods.txt",
+    "target_sentence": "Furthermore, any embodiment discussed and identified as being \"preferred\" is considered to be part of a best mode contemplated for carrying out the present invention.",
+    "context_positions": [
+      70
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc32_target5",
+    "document_id": "8177. Anti-clog suction tip apparatus and methods.txt",
+    "target_sentence": "In yet another feature, the ejection wire is inserted into the ejection wire channel through a wire insertion opening.",
+    "context_positions": [
+      16
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc32_target6",
+    "document_id": "8177. Anti-clog suction tip apparatus and methods.txt",
+    "target_sentence": "The sterile packaging in which the anti-clog suction tip apparatus is provided is opened by sterile technique in the surgical environment, and the anti-clog suction tip apparatus is removed from the packaging and placed on a sterile table to await use by a surgeon or surgical assistant.",
+    "context_positions": [
+      128
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc32_target7",
+    "document_id": "8177. Anti-clog suction tip apparatus and methods.txt",
+    "target_sentence": "The ejection wire includes a small ball tip at the end thereof to prevent unintended injury during use, as well as to provide an enlarged end for clearing of the suction channel when the ball tip is deployed.",
+    "context_positions": [
+      206
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc32_target8",
+    "document_id": "8177. Anti-clog suction tip apparatus and methods.txt",
+    "target_sentence": "Based on the foregoing description, it will be readily understood by those persons skilled in the art that the present invention is susceptible of broad utility and application.",
+    "context_positions": [
+      214
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc32_target9",
+    "document_id": "8177. Anti-clog suction tip apparatus and methods.txt",
+    "target_sentence": "In another variation, the biasing spring biases the ejection button away from the outer member.",
+    "context_positions": [
+      20
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc33_target0",
+    "document_id": "8321. Staged battery latching mechanism.txt",
+    "target_sentence": "In the present example the grip is a pistol grip, although in other examples the grip can have various other configurations, or can simply be omitted.",
+    "context_positions": [
+      21
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc33_target1",
+    "document_id": "8321. Staged battery latching mechanism.txt",
+    "target_sentence": "In addition, in the foregoing Detailed Description, it can be seen that various features are grouped together in various embodiments for the purpose of streamlining the disclosure.",
+    "context_positions": [
+      118
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc33_target2",
+    "document_id": "8321. Staged battery latching mechanism.txt",
+    "target_sentence": "In a first stage, the battery is moved from the inserted position to the intermediate position by applying pressure to the primary actuators from outside the mobile device.",
+    "context_positions": [
+      86
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc33_target3",
+    "document_id": "8321. Staged battery latching mechanism.txt",
+    "target_sentence": "Skilled artisans will appreciate that elements in the figures are illustrated for simplicity and clarity and have not necessarily been drawn to scale.",
+    "context_positions": [
+      15
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc33_target4",
+    "document_id": "8321. Staged battery latching mechanism.txt",
+    "target_sentence": "To replace the battery into the compartment, the front end of the battery is placed into the compartment at the open rear end of the compartment.",
+    "context_positions": [
+      95
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc33_target5",
+    "document_id": "8321. Staged battery latching mechanism.txt",
+    "target_sentence": "In the present example, the contacts, which electrically connect the battery to the internal components of the mobile device when the battery is fully inserted into the compartment, are pogo pins.",
+    "context_positions": [
+      37
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc33_target6",
+    "document_id": "8321. Staged battery latching mechanism.txt",
+    "target_sentence": "In particular, when the latches are disengaged from the first latch stops, the battery moves rearward and the latches return to the extended position, as they are no longer forced inwards by the primary actuators.",
+    "context_positions": [
+      90
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc33_target7",
+    "document_id": "8321. Staged battery latching mechanism.txt",
+    "target_sentence": "For example, the dimensions of some of the elements in the figures may be exaggerated relative to other elements to help to improve understanding of embodiments of the present invention.",
+    "context_positions": [
+      16
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc33_target8",
+    "document_id": "8321. Staged battery latching mechanism.txt",
+    "target_sentence": "The term \"coupled\" as used herein is defined as connected, although not necessarily directly and not necessarily mechanically.",
+    "context_positions": [
+      108
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc33_target9",
+    "document_id": "8321. Staged battery latching mechanism.txt",
+    "target_sentence": "In particular, the front end of the compartment is defined by a wall bearing a set of contacts.",
+    "context_positions": [
+      36
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc34_target0",
+    "document_id": "8589. Graphical processing unit (GPU) implementation of magnetic resonance fingerprinting (MRF).txt",
+    "target_sentence": "Once these quantitative parameter maps are obtained, it may be possible to identify the tissue properties and provide information to improve diagnostic assessment.",
+    "context_positions": [
+      27
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc34_target1",
+    "document_id": "8589. Graphical processing unit (GPU) implementation of magnetic resonance fingerprinting (MRF).txt",
+    "target_sentence": "In other instances, well-known structures and devices are shown in block diagram form in order to avoid unnecessarily obscuring various exemplary embodiments.",
+    "context_positions": [
+      64
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc34_target2",
+    "document_id": "8589. Graphical processing unit (GPU) implementation of magnetic resonance fingerprinting (MRF).txt",
+    "target_sentence": "An increase in the size of MRF dictionary is the ultimate requirement to gain improvement in the MRF results and further in depth analysis of tissues.",
+    "context_positions": [
+      162
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc34_target3",
+    "document_id": "8589. Graphical processing unit (GPU) implementation of magnetic resonance fingerprinting (MRF).txt",
+    "target_sentence": "The GPU based MRF implementation provides cost effective solution to reduce the execution time of conventional MRF algorithm.",
+    "context_positions": [
+      168
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc34_target4",
+    "document_id": "8589. Graphical processing unit (GPU) implementation of magnetic resonance fingerprinting (MRF).txt",
+    "target_sentence": "Such memories may be implemented in any suitable form, including, but not limited to, non-volatile media, volatile media, and transmission media.",
+    "context_positions": [
+      77
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc34_target5",
+    "document_id": "8589. Graphical processing unit (GPU) implementation of magnetic resonance fingerprinting (MRF).txt",
+    "target_sentence": "However, Magnetic Resonance Fingerprinting (MRF), an innovative method can quantitatively examine many magnetic resonance tissue parameters simultaneously.",
+    "context_positions": [
+      6
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc34_target6",
+    "document_id": "8589. Graphical processing unit (GPU) implementation of magnetic resonance fingerprinting (MRF).txt",
+    "target_sentence": "The terminology used herein is for the purpose of describing particular embodiments and is not intended to be limiting.",
+    "context_positions": [
+      83
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc34_target7",
+    "document_id": "8589. Graphical processing unit (GPU) implementation of magnetic resonance fingerprinting (MRF).txt",
+    "target_sentence": "Then GPU is used to further reduce the computation time by introducing CUDA kernels for all the operations that process independent data.",
+    "context_positions": [
+      139
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc34_target8",
+    "document_id": "8589. Graphical processing unit (GPU) implementation of magnetic resonance fingerprinting (MRF).txt",
+    "target_sentence": "The main advantage of the exemplary method is a significant improvement in the computation time without reducing the size of data or number of operations required in the native MRF algorithm.",
+    "context_positions": [
+      159
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc34_target9",
+    "document_id": "8589. Graphical processing unit (GPU) implementation of magnetic resonance fingerprinting (MRF).txt",
+    "target_sentence": "When an exemplary embodiment may be implemented differently, a specific process order may be performed differently from the described order.",
+    "context_positions": [
+      68
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc35_target0",
+    "document_id": "8920. Use of an all-D-pentapeptide chemokine antagonist to reduce opioid dose in a person with pain.txt",
+    "target_sentence": "A series of von Frey filaments with logarithmically incrementing stiffness (Stoelting) was applied perpendicular to the mid-plantar region of the hind paw.",
+    "context_positions": [
+      41
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc35_target1",
+    "document_id": "8920. Use of an all-D-pentapeptide chemokine antagonist to reduce opioid dose in a person with pain.txt",
+    "target_sentence": "Chemokines are released during inflammation, and they block the signaling of opioid receptors by a process of heterologous desensitization.",
+    "context_positions": [
+      10
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc35_target2",
+    "document_id": "8920. Use of an all-D-pentapeptide chemokine antagonist to reduce opioid dose in a person with pain.txt",
+    "target_sentence": "Our results showed that following the induction of diabetes, rats exhibited persistent mechanical and cold allodynia (up to five months post-induction).",
+    "context_positions": [
+      17
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc35_target3",
+    "document_id": "8920. Use of an all-D-pentapeptide chemokine antagonist to reduce opioid dose in a person with pain.txt",
+    "target_sentence": "The results suggest that functional antagonism of multiple chemokine receptors and innate immune receptors may be treatments and medicines for pain and inflammation.",
+    "context_positions": [
+      27
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc35_target4",
+    "document_id": "8920. Use of an all-D-pentapeptide chemokine antagonist to reduce opioid dose in a person with pain.txt",
+    "target_sentence": "Microglia in the spinal cord dorsal horns became activated with hypertrophic morphology and an increase in microglial cell number.",
+    "context_positions": [
+      19
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc35_target5",
+    "document_id": "8920. Use of an all-D-pentapeptide chemokine antagonist to reduce opioid dose in a person with pain.txt",
+    "target_sentence": "Body weight and blood glucose levels were measured before and 3 days after streptozotocin injection, once a week for three weeks after diabetes induction.",
+    "context_positions": [
+      34
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc35_target6",
+    "document_id": "8920. Use of an all-D-pentapeptide chemokine antagonist to reduce opioid dose in a person with pain.txt",
+    "target_sentence": "Painful diabetic neuropathy (PDN) is a common complication of diabetes which adversely affects patients' daily life and represents a major public health problem.",
+    "context_positions": [
+      13
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc35_target7",
+    "document_id": "8920. Use of an all-D-pentapeptide chemokine antagonist to reduce opioid dose in a person with pain.txt",
+    "target_sentence": "Animals were brought back to their individual chambers for mechanical allodynia testing.",
+    "context_positions": [
+      68
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc35_target8",
+    "document_id": "8920. Use of an all-D-pentapeptide chemokine antagonist to reduce opioid dose in a person with pain.txt",
+    "target_sentence": "Although the most potent and effective drugs are the opioid analgesics, they are accompanied by a number of serious adverse effects, and they are not very effective in approximately half of the cases of chronic pain.",
+    "context_positions": [
+      7
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc35_target9",
+    "document_id": "8920. Use of an all-D-pentapeptide chemokine antagonist to reduce opioid dose in a person with pain.txt",
+    "target_sentence": "Rats were habituated to the testing environment daily for at least two days before the experiments started.",
+    "context_positions": [
+      50
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc36_target0",
+    "document_id": "9286. Method and magnetic resonance apparatus for generating a fat fraction-corrected T1 parameter map.txt",
+    "target_sentence": "The compartment associated with fat is known to show only small variations or dependencies on the surrounding tissue.",
+    "context_positions": [
+      19
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc36_target1",
+    "document_id": "9286. Method and magnetic resonance apparatus for generating a fat fraction-corrected T1 parameter map.txt",
+    "target_sentence": "As these excited nuclei relax and return to the equilibrium state, the transverse components of the excited spins induce a voltage in the receive coils that is measured.",
+    "context_positions": [
+      6
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc36_target2",
+    "document_id": "9286. Method and magnetic resonance apparatus for generating a fat fraction-corrected T1 parameter map.txt",
+    "target_sentence": "For a known fat content/fraction, the relative signal of fat thus can be modeled and considered in the determination of the relaxation times for the water compartment.",
+    "context_positions": [
+      37
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc36_target3",
+    "document_id": "9286. Method and magnetic resonance apparatus for generating a fat fraction-corrected T1 parameter map.txt",
+    "target_sentence": "These gradient pulses are radiated (activated) at precisely provided time positions and with a precisely predetermined time curve during a measurement.",
+    "context_positions": [
+      66
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc36_target4",
+    "document_id": "9286. Method and magnetic resonance apparatus for generating a fat fraction-corrected T1 parameter map.txt",
+    "target_sentence": "In a further embodiment that can be characterized as joint fitting, the fat fraction is also determined by fitting to a dedicated signal model, typically multi-echo acquisitions.",
+    "context_positions": [
+      101
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc36_target5",
+    "document_id": "9286. Method and magnetic resonance apparatus for generating a fat fraction-corrected T1 parameter map.txt",
+    "target_sentence": "The relaxation is not free (undisturbed), but the effect of the continuous FLASH acquisitions can be considered as the signal model.",
+    "context_positions": [
+      89
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc36_target6",
+    "document_id": "9286. Method and magnetic resonance apparatus for generating a fat fraction-corrected T1 parameter map.txt",
+    "target_sentence": "It is also possible to use multi-echo FLASH in T1 mapping, specifically in the context of the Look-Locker technique and the FLASH steady state technique.",
+    "context_positions": [
+      103
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc36_target7",
+    "document_id": "9286. Method and magnetic resonance apparatus for generating a fat fraction-corrected T1 parameter map.txt",
+    "target_sentence": "In this scenario, the signal contribution of fat can be modeled, and only the T1 value of water is then determined, by fitting a model to the acquired data.",
+    "context_positions": [
+      27
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc36_target8",
+    "document_id": "9286. Method and magnetic resonance apparatus for generating a fat fraction-corrected T1 parameter map.txt",
+    "target_sentence": "The MR signals are received with a local coil, which can be composed of one or more individual reception coils.",
+    "context_positions": [
+      58
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc36_target9",
+    "document_id": "9286. Method and magnetic resonance apparatus for generating a fat fraction-corrected T1 parameter map.txt",
+    "target_sentence": "The local coil can also be used to radiate the RF signals.",
+    "context_positions": [
+      59
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc37_target0",
+    "document_id": "10025. Method and composition for biomolecule stabilization.txt",
+    "target_sentence": "Items can be shipped to remote regions or regions with insufficient infrastructure without the concerns or costs associated with temperature-controlled shipments.",
+    "context_positions": [
+      16
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc37_target1",
+    "document_id": "10025. Method and composition for biomolecule stabilization.txt",
+    "target_sentence": "The kit may further comprise a receptacle suitable for performing a nucleic acid amplification reaction for one or more sequences of interest.",
+    "context_positions": [
+      67
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc37_target2",
+    "document_id": "10025. Method and composition for biomolecule stabilization.txt",
+    "target_sentence": "The quality and integrity of the resultant PCR products were investigated by performing DNA sequencing as a representative downstream application.",
+    "context_positions": [
+      123,
+      150
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc37_target3",
+    "document_id": "10025. Method and composition for biomolecule stabilization.txt",
+    "target_sentence": "The physically stable, solid lyophilised reagent provides long term stability at ambient temperature, can be dispensed in flexible formats, and is amenable to downstream manipulation.",
+    "context_positions": [
+      10
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc37_target4",
+    "document_id": "10025. Method and composition for biomolecule stabilization.txt",
+    "target_sentence": "The beads and the constituent reagents are room temperature stable and as such offer significant advantages over traditional PCR amplification workflows.",
+    "context_positions": [
+      20
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc37_target5",
+    "document_id": "10025. Method and composition for biomolecule stabilization.txt",
+    "target_sentence": "In some embodiments, the biomolecule in the composition is a protein, such as an enzyme, for example a nucleic acid polymerase.",
+    "context_positions": [
+      53
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc37_target6",
+    "document_id": "10025. Method and composition for biomolecule stabilization.txt",
+    "target_sentence": "The beads are removed from the liquid nitrogen using a sieve that ensures that beads exhibit a spherical shape with consistent diameter size and weight.",
+    "context_positions": [
+      117
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc37_target7",
+    "document_id": "10025. Method and composition for biomolecule stabilization.txt",
+    "target_sentence": "The end point of the determination is indicated voltametrically by applying an alternating current to an electrode immersed in the electrolyte.",
+    "context_positions": [
+      134
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc37_target8",
+    "document_id": "10025. Method and composition for biomolecule stabilization.txt",
+    "target_sentence": "Preferably the biological sample comprises nucleic acid and the stabilized biomolecule is a nucleic acid polymerase and the assay is an amplification reaction, such as PCR.",
+    "context_positions": [
+      55
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc37_target9",
+    "document_id": "10025. Method and composition for biomolecule stabilization.txt",
+    "target_sentence": "Ready-To-Go having Tg values well above room temperature ensure that the products can be shipped and stored without the need for refrigeration.",
+    "context_positions": [
+      7
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc38_target0",
+    "document_id": "10182. Array of acoustical returner devices to reflect sound back in the incident direction.txt",
+    "target_sentence": "Such corner reflectors are known for use in reflecting light or electromagnetic radiation directly back to their source.",
+    "context_positions": [
+      10
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc38_target1",
+    "document_id": "10182. Array of acoustical returner devices to reflect sound back in the incident direction.txt",
+    "target_sentence": "A person within the space or cubicle speaking on the phone or with others will have his or her words returned back to them and passively amplified with extraneous sounds filtered out.",
+    "context_positions": [
+      27
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc38_target2",
+    "document_id": "10182. Array of acoustical returner devices to reflect sound back in the incident direction.txt",
+    "target_sentence": "These surfaces were based on mathematical number theory sequences and numerical optimization and uniformly scattered the incident sound over a wide range of desirable frequencies for any angle of incidence.",
+    "context_positions": [
+      4
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc38_target3",
+    "document_id": "10182. Array of acoustical returner devices to reflect sound back in the incident direction.txt",
+    "target_sentence": "This is the least desirable embodiment because it reflects all the sound waves including low frequencies below the bottom frequency of speech which can cause confusion to the speaker when his or her speech is reflected directly back to them.",
+    "context_positions": [
+      78
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc38_target4",
+    "document_id": "10182. Array of acoustical returner devices to reflect sound back in the incident direction.txt",
+    "target_sentence": "These two patents disclose differing types of micro-slits used as a sound absorber and either could be employed in accordance with the teachings of the present invention.",
+    "context_positions": [
+      25
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc38_target5",
+    "document_id": "10182. Array of acoustical returner devices to reflect sound back in the incident direction.txt",
+    "target_sentence": "It is based on the tri-rectangular tetrahedron geometric shape and has the unique ability to return incident sound back in the direction of incidence, like a boomerang.",
+    "context_positions": [
+      6
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc38_target6",
+    "document_id": "10182. Array of acoustical returner devices to reflect sound back in the incident direction.txt",
+    "target_sentence": "At the same time, the array assists in preventing their speech from emanating to the next adjacent cubicle and disturbing its occupant.",
+    "context_positions": [
+      74
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc38_target7",
+    "document_id": "10182. Array of acoustical returner devices to reflect sound back in the incident direction.txt",
+    "target_sentence": "In such an environment, musicians will be better able to hear themselves and diffusers can also be employed so that such musicians can hear contributions from the entire ensemble.",
+    "context_positions": [
+      93
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc38_target8",
+    "document_id": "10182. Array of acoustical returner devices to reflect sound back in the incident direction.txt",
+    "target_sentence": "In an absorber, a percentage of the incident sound is absorbed by the absorber so that sound emanating from the absorber is reduced particularly in amplitude.",
+    "context_positions": [
+      49
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc38_target9",
+    "document_id": "10182. Array of acoustical returner devices to reflect sound back in the incident direction.txt",
+    "target_sentence": "The ceiling area is very important to provide useful early reflections.",
+    "context_positions": [
+      21
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc39_target0",
+    "document_id": "10521. Combination of clofazimine and imatinib for effective therapy of drug-resistant myeloid leukemia.txt",
+    "target_sentence": "The dosage will vary according to the type of disorder, the disease conditions and will be subject to the judgment of the medical practitioner involved.",
+    "context_positions": [
+      13
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc39_target1",
+    "document_id": "10521. Combination of clofazimine and imatinib for effective therapy of drug-resistant myeloid leukemia.txt",
+    "target_sentence": "Unless otherwise specified, all percentages and amounts expressed herein and elsewhere in the specification should be understood to refer to percentages by weight.",
+    "context_positions": [
+      100
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc39_target2",
+    "document_id": "10521. Combination of clofazimine and imatinib for effective therapy of drug-resistant myeloid leukemia.txt",
+    "target_sentence": "These results indicate that cytotoxic effects of CFZ alone or in combination with IMT are specific for leukemia cells only.",
+    "context_positions": [
+      195
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc39_target3",
+    "document_id": "10521. Combination of clofazimine and imatinib for effective therapy of drug-resistant myeloid leukemia.txt",
+    "target_sentence": "Further areas of applicability of the present invention will become apparent from the detailed description provided hereinafter.",
+    "context_positions": [
+      24
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc39_target4",
+    "document_id": "10521. Combination of clofazimine and imatinib for effective therapy of drug-resistant myeloid leukemia.txt",
+    "target_sentence": "Applicants incorporate the contents of the sequence listing by reference in its entirety.",
+    "context_positions": [
+      2
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc39_target5",
+    "document_id": "10521. Combination of clofazimine and imatinib for effective therapy of drug-resistant myeloid leukemia.txt",
+    "target_sentence": "As used throughout, ranges are used as shorthand for describing each and every value that is within the range.",
+    "context_positions": [
+      96
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc39_target6",
+    "document_id": "10521. Combination of clofazimine and imatinib for effective therapy of drug-resistant myeloid leukemia.txt",
+    "target_sentence": "Further, CFZ is shown here to synergize with imatinib and dasatinib and combination of CFZ with imatinib almost obliterates quiescent leukemia stem cells.",
+    "context_positions": [
+      103
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc39_target7",
+    "document_id": "10521. Combination of clofazimine and imatinib for effective therapy of drug-resistant myeloid leukemia.txt",
+    "target_sentence": "Total RNA was extracted using TRI Reagent (Life Technologies, Carlsbad, Calif.) according to manufacturer's instructions.",
+    "context_positions": [
+      117
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc39_target8",
+    "document_id": "10521. Combination of clofazimine and imatinib for effective therapy of drug-resistant myeloid leukemia.txt",
+    "target_sentence": "K562 cells were treated with CFZ for 120 h and May-Grunwald-Giemsa staining followed by light microscopy was used to assess cellular morphology.",
+    "context_positions": [
+      71
+    ],
+    "review_status": "unreviewed_original_retained"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc39_target9",
+    "document_id": "10521. Combination of clofazimine and imatinib for effective therapy of drug-resistant myeloid leukemia.txt",
+    "target_sentence": "These slides were stained with Giemsa and May-Grunwald solution (Sigma) as per manufacturer's instruction.",
+    "context_positions": [
+      152
+    ],
+    "review_status": "unreviewed_original_retained"
+  }
+]

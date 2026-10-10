@@ -1,0 +1,117 @@
+[
+  {
+    "head": "motors",
+    "relation": "produce",
+    "tail": "vibrational frequencies"
+  },
+  {
+    "head": "gear trains",
+    "relation": "produce",
+    "tail": "vibrational frequencies"
+  },
+  {
+    "head": "vibrational frequencies",
+    "relation": "are related to",
+    "tail": "the rotation speed of their various components"
+  },
+  {
+    "head": "the network",
+    "relation": "can be",
+    "tail": "wired"
+  },
+  {
+    "head": "the network",
+    "relation": "can be",
+    "tail": "wireless"
+  },
+  {
+    "head": "the network",
+    "relation": "can be",
+    "tail": "a combination of wired and wireless"
+  },
+  {
+    "head": "the POS device",
+    "relation": "is",
+    "tail": "an integrated scanner and scale"
+  },
+  {
+    "head": "this techniques",
+    "relation": "works well in",
+    "tail": "a scale"
+  },
+  {
+    "head": "a scale",
+    "relation": "has",
+    "tail": "multiple load cells"
+  },
+  {
+    "head": "a frequency",
+    "relation": "is produced on",
+    "tail": "a load cell"
+  },
+  {
+    "head": "a frequency produced on a load cell",
+    "relation": "is identified",
+    "tail": ""
+  },
+  {
+    "head": "the frequency",
+    "relation": "is recognized as",
+    "tail": "noise"
+  },
+  {
+    "head": "the majority of periodic mechanical vibrations",
+    "relation": "come primarily from",
+    "tail": "mechanical conduction of motor vibrations"
+  },
+  {
+    "head": "motor vibrations",
+    "relation": "are from",
+    "tail": "various sources"
+  },
+  {
+    "head": "the self-scale adjuster",
+    "relation": "may have access to",
+    "tail": "a network during its processing"
+  },
+  {
+    "head": "the self-scale adjuster",
+    "relation": "does not have to have access to",
+    "tail": "a network during its processing"
+  },
+  {
+    "head": "many other embodiments",
+    "relation": "will be apparent to",
+    "tail": "those of skill in the art"
+  },
+  {
+    "head": "the integrated scanner/scale",
+    "relation": "use",
+    "tail": "the spectra analyzer"
+  },
+  {
+    "head": "the integrated scanner/scale using the spectra analyzer",
+    "relation": "intelligently determines",
+    "tail": "the times"
+  },
+  {
+    "head": "a spectral analysis",
+    "relation": "may be performed at",
+    "tail": "the times"
+  },
+  {
+    "head": "the software modules",
+    "relation": "are illustrated as executing on",
+    "tail": "one piece of hardware"
+  },
+  {
+    "head": "the software",
+    "relation": "may be distributed over",
+    "tail": "multiple processors"
+  },
+  {
+    "head": "the software",
+    "relation": "may be distributed in",
+    "tail": "any other convenient manner"
+  }
+]

@@ -1,0 +1,177 @@
+[
+  {
+    "head": "it is desirable",
+    "relation": "to have",
+    "tail": "a threaded nut fastened on a threaded bolt"
+  },
+  {
+    "head": "a threaded nut",
+    "relation": "is fastened on",
+    "tail": "a threaded bolt with a permanent hold"
+  },
+  {
+    "head": "a threaded nut fastened on a threaded bolt",
+    "relation": "is with",
+    "tail": "a permanent hold"
+  },
+  {
+    "head": "a permanent hold",
+    "relation": "will not loosen when exposed to",
+    "tail": "high vibration environments"
+  },
+  {
+    "head": "the self-locking nut",
+    "relation": "may be made of",
+    "tail": "any standard nut materials"
+  },
+  {
+    "head": "standard nut materials",
+    "relation": "include",
+    "tail": "brass"
+  },
+  {
+    "head": "standard nut materials",
+    "relation": "include",
+    "tail": "steel"
+  },
+  {
+    "head": "standard nut materials",
+    "relation": "include",
+    "tail": "stainless steel"
+  },
+  {
+    "head": "standard nut materials",
+    "relation": "include",
+    "tail": "titanium"
+  },
+  {
+    "head": "standard nut materials",
+    "relation": "include",
+    "tail": "plastic"
+  },
+  {
+    "head": "standard nut materials",
+    "relation": "include",
+    "tail": "nylon"
+  },
+  {
+    "head": "standard nut materials",
+    "relation": "include",
+    "tail": "other materials depending on usage specifications and demands"
+  },
+  {
+    "head": "the thickness of the lip material",
+    "relation": "must fully collapse/seat at",
+    "tail": "8000 lbs to 9000 lbs of pressure"
+  },
+  {
+    "head": "more torque",
+    "relation": "is applied to overcome",
+    "tail": "the resistance"
+  },
+  {
+    "head": "the resistance",
+    "relation": "is of",
+    "tail": "the deforming crush-locking lips"
+  },
+  {
+    "head": "the gap between the two nut parts",
+    "relation": "begin to close as",
+    "tail": "they are compressed together"
+  },
+  {
+    "head": "the material and design",
+    "relation": "may change",
+    "tail": "shape"
+  },
+  {
+    "head": "the material and design",
+    "relation": "may change",
+    "tail": "height"
+  },
+  {
+    "head": "the material and design",
+    "relation": "may change",
+    "tail": "size"
+  },
+  {
+    "head": "the material and design",
+    "relation": "may change",
+    "tail": "number"
+  },
+  {
+    "head": "shape of relief cuts",
+    "relation": "may vary depending on",
+    "tail": "intended specific application"
+  },
+  {
+    "head": "the two parts",
+    "relation": "may be made of",
+    "tail": "solid metal material and tapped with threads"
+  },
+  {
+    "head": "the two parts",
+    "relation": "may initially have",
+    "tail": "no center hole"
+  },
+  {
+    "head": "the two parts",
+    "relation": "may initially have",
+    "tail": "no threads"
+  },
+  {
+    "head": "the collapsing volume of the jam nut portion",
+    "relation": "moves against",
+    "tail": "the threads of the nut body portion"
+  },
+  {
+    "head": "the collapsing volume of the jam nut portion",
+    "relation": "is threaded on",
+    "tail": "a bolt"
+  },
+  {
+    "head": "the collapsing volume of the jam nut portion threaded on a bolt",
+    "relation": "is to bring",
+    "tail": "the front face of the joined parts against an object"
+  },
+  {
+    "head": "it",
+    "relation": "has",
+    "tail": "a higher strength-to-weight ratio than conventional locking nuts"
+  },
+  {
+    "head": "it",
+    "relation": "has a higher strength-to-weight ratio than",
+    "tail": "conventional locking nuts"
+  },
+  {
+    "head": "it",
+    "relation": "resembles",
+    "tail": "a conventional nut when in the locked position"
+  },
+  {
+    "head": "it resembling a conventional nut",
+    "relation": "is when in",
+    "tail": "the locked position"
+  },
+  {
+    "head": "it",
+    "relation": "is weighing the same as",
+    "tail": "a conventional nut"
+  },
+  {
+    "head": "it",
+    "relation": "is lighter than",
+    "tail": "current two-piece lock-nuts"
+  },
+  {
+    "head": "all such modifications",
+    "relation": "are considered as within",
+    "tail": "the spirit and scope of this invention"
+  },
+  {
+    "head": "all such variations",
+    "relation": "are considered as within",
+    "tail": "the spirit and scope of this invention"
+  }
+]

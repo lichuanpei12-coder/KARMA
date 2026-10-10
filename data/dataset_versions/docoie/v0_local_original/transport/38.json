@@ -1,0 +1,132 @@
+[
+  {
+    "head": "it is often necessary",
+    "relation": "to close",
+    "tail": "lanes of a highway"
+  },
+  {
+    "head": "it is often necessary",
+    "relation": "to reroute traffic onto",
+    "tail": "other lanes"
+  },
+  {
+    "head": "closing lanes of a highway and rerouting traffic onto other lanes",
+    "relation": "is to permit",
+    "tail": "the closed lanes to be repaired"
+  },
+  {
+    "head": "it",
+    "relation": "is an object of the invention to provide",
+    "tail": "a less labor intensive way"
+  },
+  {
+    "head": "it",
+    "relation": "is an object of the invention to provide",
+    "tail": "a less labor quicker way"
+  },
+  {
+    "head": "an object of the invention",
+    "relation": "is to remove",
+    "tail": "temporary highway marking tape"
+  },
+  {
+    "head": "the lower section",
+    "relation": "is movable to position",
+    "tail": "the lower section"
+  },
+  {
+    "head": "the lower section",
+    "relation": "is in",
+    "tail": "a non-use orientation"
+  },
+  {
+    "head": "a non-use orientation",
+    "relation": "is on top of",
+    "tail": "the center section"
+  },
+  {
+    "head": "the apparatus",
+    "relation": "further comprises",
+    "tail": "a carriage"
+  },
+  {
+    "head": "a carriage",
+    "relation": "is for movably supporting",
+    "tail": "the mast from the road frame"
+  },
+  {
+    "head": "the tape",
+    "relation": "is then fed upward along",
+    "tail": "lower section"
+  },
+  {
+    "head": "the tape",
+    "relation": "is then fed upward along lower section over",
+    "tail": "a roller fairlead"
+  },
+  {
+    "head": "the tape",
+    "relation": "is then fed upward along lower section over",
+    "tail": "a roller mounted adjacent pivot"
+  },
+  {
+    "head": "the removal of the tape",
+    "relation": "has been performed manually with",
+    "tail": "the repair crew"
+  },
+  {
+    "head": "the repair crew",
+    "relation": "walks",
+    "tail": "the section of repaired highway"
+  },
+  {
+    "head": "the repair crew",
+    "relation": "pulls",
+    "tail": "the temporary marking tape"
+  },
+  {
+    "head": "the repair crew",
+    "relation": "pulls the temporary marking tape up in",
+    "tail": "short sections"
+  },
+  {
+    "head": "a double acting hydraulic cylinder motor",
+    "relation": "is mounted at",
+    "tail": "one of its ends to the road frame"
+  },
+  {
+    "head": "the upper section",
+    "relation": "extends from",
+    "tail": "the center section"
+  },
+  {
+    "head": "a direction",
+    "relation": "is generally opposite",
+    "tail": "the lower section"
+  },
+  {
+    "head": "the lower section and the upper section",
+    "relation": "are in",
+    "tail": "use orientations"
+  },
+  {
+    "head": "a drive sprocket and a companion sprocket",
+    "relation": "are coupled together by",
+    "tail": "a roller drive chain"
+  },
+  {
+    "head": "a drive sprocket",
+    "relation": "is at the end of",
+    "tail": "shaft opposite sprocket"
+  },
+  {
+    "head": "a companion sprocket",
+    "relation": "is at an end of",
+    "tail": "roller"
+  },
+  {
+    "head": "this tape",
+    "relation": "can then be removed from",
+    "tail": "the repaired section of highway"
+  }
+]

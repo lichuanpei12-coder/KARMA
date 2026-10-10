@@ -1,0 +1,122 @@
+[
+  {
+    "head": "the dosage",
+    "relation": "will vary according to",
+    "tail": "the type of disorder"
+  },
+  {
+    "head": "the dosage",
+    "relation": "will be subject to",
+    "tail": "the judgment of the medical practitioner involved"
+  },
+  {
+    "head": "all percentages and amounts expressed herein",
+    "relation": "should be understood to refer to",
+    "tail": "percentages by weight"
+  },
+  {
+    "head": "all percentages and amounts",
+    "relation": "are expressed herein",
+    "tail": ""
+  },
+  {
+    "head": "elsewhere in the specification",
+    "relation": "should be understood to refer to",
+    "tail": "percentages by weight"
+  },
+  {
+    "head": "cytotoxic effects of CFZ",
+    "relation": "are specific for",
+    "tail": "leukemia cells only"
+  },
+  {
+    "head": "cytotoxic effects of CFZ in combination with IMT",
+    "relation": "are specific for",
+    "tail": "leukemia cells only"
+  },
+  {
+    "head": "further areas of applicability of the present invention",
+    "relation": "will become apparent from",
+    "tail": "the detailed description provided hereinafter"
+  },
+  {
+    "head": "the detailed description",
+    "relation": "is provided hereinafter",
+    "tail": ""
+  },
+  {
+    "head": "applicants",
+    "relation": "incorporate",
+    "tail": "the contents of the sequence"
+  },
+  {
+    "head": "the contents",
+    "relation": "are  listed by",
+    "tail": "reference in its entirety"
+  },
+  {
+    "head": "ranges",
+    "relation": "are used as",
+    "tail": "shorthand for describing each and every value that is within the range"
+  },
+  {
+    "head": "ranges used as shorthand",
+    "relation": "is for describing",
+    "tail": "each and every value that is within the range"
+  },
+  {
+    "head": "CFZ",
+    "relation": "is shown here to synergize with",
+    "tail": "imatinib and dasatinib"
+  },
+  {
+    "head": "combination of CFZ with imatinib",
+    "relation": "almost obliterates",
+    "tail": "quiescent leukemia stem cells"
+  },
+  {
+    "head": "total RNA",
+    "relation": "was extracted using",
+    "tail": "TRI Reagent (Life Technologies, Carlsbad, Calif.)"
+  },
+  {
+    "head": "total RNA extracted using TRI Reagent (Life Technologies, Carlsbad, Calif.)",
+    "relation": "is according to",
+    "tail": "manufacturer's instructions"
+  },
+  {
+    "head": "TRI Reagent",
+    "relation": "is manufactured by",
+    "tail": "Life Technologies, Carlsbad, Calif."
+  },
+  {
+    "head": "K562 cells",
+    "relation": "were treated with",
+    "tail": "CFZ for 120 h"
+  },
+  {
+    "head": "May-Grunwald-Giemsa staining followed by light microscopy",
+    "relation": "was used to assess",
+    "tail": "cellular morphology"
+  },
+  {
+    "head": "May-Grunwald-Giemsa staining",
+    "relation": "is followed by",
+    "tail": "light microscopy"
+  },
+  {
+    "head": "these slides",
+    "relation": "were stained with",
+    "tail": "Giemsa and May-Grunwald solution (Sigma)"
+  },
+  {
+    "head": "these slides stained with Giemsa and May-Grunwald solution (Sigma)",
+    "relation": "is as per",
+    "tail": "manufacturer's instruction"
+  },
+  {
+    "head": "Giemsa and May-Grunwald solution",
+    "relation": "are manufactured by",
+    "tail": "Sigma"
+  }
+]

@@ -1,0 +1,132 @@
+[
+  {
+    "head": "data",
+    "relation": "is transferred over",
+    "tail": "a global network of heterogeneous computers"
+  },
+  {
+    "head": "data transferred over a global network of heterogeneous computers",
+    "relation": "is by means of",
+    "tail": "a plurality of routing devices"
+  },
+  {
+    "head": "a plurality of routing devices",
+    "relation": "are in accordance with",
+    "tail": "a standard protocol"
+  },
+  {
+    "head": "a standard protocol",
+    "relation": "is known as",
+    "tail": "Internet Protocol"
+  },
+  {
+    "head": "Internet Protocol",
+    "relation": "is abbreviated as",
+    "tail": "IP"
+  },
+  {
+    "head": "routers",
+    "relation": "are devices for accepting",
+    "tail": "incoming packets"
+  },
+  {
+    "head": "routers",
+    "relation": "are devices for temporarily storing",
+    "tail": "each packet"
+  },
+  {
+    "head": "routers",
+    "relation": "are devices for then forwarding",
+    "tail": "the packets"
+  },
+  {
+    "head": "routers",
+    "relation": "are devices for then forwarding the packets to",
+    "tail": "another part of the network"
+  },
+  {
+    "head": "large numbers of timers",
+    "relation": "are required for",
+    "tail": "high capacity routers"
+  },
+  {
+    "head": "high capacity routers",
+    "relation": "are with",
+    "tail": "large numbers of virtual circuits"
+  },
+  {
+    "head": "a fragment",
+    "relation": "is defined as",
+    "tail": "a part of a packet of data"
+  },
+  {
+    "head": "a packet of data",
+    "relation": "is transmitted separately due to",
+    "tail": "the constraints of a network"
+  },
+  {
+    "head": "packet handling",
+    "relation": "has to be as simple as possible to allow",
+    "tail": "the higher levels of hardware integration required"
+  },
+  {
+    "head": "packet handling",
+    "relation": "has to be as simple as possible to reduce",
+    "tail": "development risk"
+  },
+  {
+    "head": "any suitable number",
+    "relation": "can be employed in accordance with",
+    "tail": "a particular application"
+  },
+  {
+    "head": "a buffer element",
+    "relation": "is taken from",
+    "tail": "the head of the free list"
+  },
+  {
+    "head": "the packet data from the first cell",
+    "relation": "is copied into",
+    "tail": "that buffer element"
+  },
+  {
+    "head": "this technique",
+    "relation": "could be used for",
+    "tail": "protection"
+  },
+  {
+    "head": "protection",
+    "relation": "is against",
+    "tail": "certain so-called \"denial of service\" attacks upon computer networks"
+  },
+  {
+    "head": "so-called \"denial of service\" attacks",
+    "relation": "are upon",
+    "tail": "computer networks"
+  },
+  {
+    "head": "the target",
+    "relation": "will reserve resources for",
+    "tail": "each reassembly"
+  },
+  {
+    "head": "the target",
+    "relation": "is using",
+    "tail": "a conventional reassembly scheme"
+  },
+  {
+    "head": "the target reserving resources for each reassembly",
+    "relation": "results in",
+    "tail": "buffer exhaustion"
+  },
+  {
+    "head": "a large packet",
+    "relation": "may be broken into",
+    "tail": "a number of small packets"
+  },
+  {
+    "head": "a large packet broken into a number of small packets",
+    "relation": "is to be reassembled at",
+    "tail": "their ultimate destination"
+  }
+]

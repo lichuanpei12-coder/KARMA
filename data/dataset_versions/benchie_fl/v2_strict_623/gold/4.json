@@ -1,0 +1,190 @@
+{
+  "benchie_59": [
+    {
+      "head": "They",
+      "relation": "do n't possess",
+      "tail": "eyelids"
+    },
+    {
+      "head": "they",
+      "relation": "must",
+      "tail": "lick their eyeballs clean"
+    },
+    {
+      "head": "they",
+      "relation": "must lick their eyeballs clean in order to",
+      "tail": "keep them moist"
+    }
+  ],
+  "benchie_60": [
+    {
+      "head": "They",
+      "relation": "acquired",
+      "tail": "the Charles City Western"
+    },
+    {
+      "head": "They",
+      "relation": "acquired the Charles City Western on",
+      "tail": "December 31 , 1963"
+    }
+  ],
+  "benchie_61": [
+    {
+      "head": "Hofmann",
+      "relation": "was",
+      "tail": "born"
+    },
+    {
+      "head": "Hofmann",
+      "relation": "was born in",
+      "tail": "Salt Lake City"
+    }
+  ],
+  "benchie_63": [
+    {
+      "head": "locals",
+      "relation": "all speak",
+      "tail": "Minnan languages"
+    },
+    {
+      "head": "the `` triangle area",
+      "relation": "includes",
+      "tail": "Quanzhou"
+    }
+  ],
+  "benchie_64": [
+    {
+      "head": "Andrew Boyle",
+      "relation": "noted",
+      "tail": "`` For the next ten years Childers 's book remained the most powerful contribution of any English writer to the debate on Britain 's alleged military unpreparedness ''"
+    }
+  ],
+  "benchie_65": [
+    {
+      "head": "the Brumbies",
+      "relation": "won",
+      "tail": "47 to 38"
+    }
+  ],
+  "benchie_66": [
+    {
+      "head": "A different judge",
+      "relation": "then ordered",
+      "tail": "the case reviewed"
+    },
+    {
+      "head": "A different judge",
+      "relation": "then ordered the case reviewed by",
+      "tail": "a higher court"
+    }
+  ],
+  "benchie_67": [
+    {
+      "head": "environmental factors",
+      "relation": "are also understood to",
+      "tail": "contribute heavily to the strength of intimate relationships"
+    }
+  ],
+  "benchie_68": [
+    {
+      "head": "thermal relief valves",
+      "relation": "are generally characterized by",
+      "tail": "the relatively small size of the valve"
+    },
+    {
+      "head": "thermal relief valves",
+      "relation": "are generally characterized by",
+      "tail": "the relatively small size of the valve necessary to provide protection"
+    },
+    {
+      "head": "thermal relief valves",
+      "relation": "are generally characterized by",
+      "tail": "the relatively small size of the valve necessary to provide protection from excess pressure"
+    },
+    {
+      "head": "thermal relief valves",
+      "relation": "are generally characterized by",
+      "tail": "the relatively small size of the valve necessary to provide protection from excess pressure caused by thermal expansion"
+    }
+  ],
+  "benchie_69": [
+    {
+      "head": "Callaghan 's decision on the Japanese pilot 's funeral",
+      "relation": "would receive",
+      "tail": "praise"
+    },
+    {
+      "head": "Callaghan 's decision on the Japanese pilot 's funeral",
+      "relation": "would receive praise",
+      "tail": "years later"
+    },
+    {
+      "head": "a memorial service aboard the `` Missouri ''",
+      "relation": "attracted",
+      "tail": "controversy"
+    }
+  ],
+  "benchie_70": [
+    {
+      "head": "she",
+      "relation": "became",
+      "tail": "very ill"
+    },
+    {
+      "head": "she",
+      "relation": "became very ill with",
+      "tail": "a severe cold or pneumonia"
+    }
+  ],
+  "benchie_71": [
+    {
+      "head": "The RSNO 's base",
+      "relation": "is at",
+      "tail": "Henry Wood Hall"
+    },
+    {
+      "head": "The RSNO 's base",
+      "relation": "is also used as",
+      "tail": "its recording venue"
+    },
+    {
+      "head": "a new base",
+      "relation": "is",
+      "tail": "being constructed"
+    },
+    {
+      "head": "a new base",
+      "relation": "is being constructed within",
+      "tail": "the Royal Concert Hall"
+    }
+  ],
+  "benchie_72": [
+    {
+      "head": "the Omega Beam",
+      "relation": "is",
+      "tail": "a form of energy"
+    },
+    {
+      "head": "the Omega Beam",
+      "relation": "is a form of energy that he fires from",
+      "tail": "his eyes"
+    }
+  ],
+  "benchie_73": [
+    {
+      "head": "The 2005 model",
+      "relation": "introduced",
+      "tail": "a third row of seats"
+    },
+    {
+      "head": "The 2005 model",
+      "relation": "introduced a third row of seats to",
+      "tail": "the Pathfinder line"
+    },
+    {
+      "head": "The 2005 model",
+      "relation": "introduced a third row of seats to the Pathfinder line for",
+      "tail": "the first time"
+    }
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "benchie_268": [
+    {
+      "head": "Hani Zayadi",
+      "relation": "was appointed",
+      "tail": "president"
+    },
+    {
+      "head": "Hani Zayadi",
+      "relation": "succeeding",
+      "tail": "Frank Robertson"
+    },
+    {
+      "head": "Frank Robertson",
+      "relation": "is",
+      "tail": "retiring"
+    },
+    {
+      "head": "Frank Robertson",
+      "relation": "is retiring",
+      "tail": "early"
+    }
+  ],
+  "benchie_269": [
+    {
+      "head": "the problem",
+      "relation": "is that",
+      "tail": "once most poison pills are adopted , they survive forever"
+    },
+    {
+      "head": "once most poison pills",
+      "relation": "are adopted",
+      "tail": "they survive forever"
+    }
+  ],
+  "benchie_270": [
+    {
+      "head": "Hungary 's Parliament",
+      "relation": "voted to",
+      "tail": "hold a national referendum"
+    },
+    {
+      "head": "Hungary 's Parliament",
+      "relation": "voted to hold a national referendum on",
+      "tail": "an election"
+    }
+  ],
+  "benchie_271": [
+    {
+      "head": "those functions",
+      "relation": "account for",
+      "tail": "only about a third of the software market"
+    }
+  ],
+  "benchie_273": [
+    {
+      "head": "It",
+      "relation": "was",
+      "tail": "the most active"
+    },
+    {
+      "head": "It",
+      "relation": "was the most active of",
+      "tail": "the 100 - share index"
+    }
+  ],
+  "benchie_274": [
+    {
+      "head": "Japanese office workers",
+      "relation": "use",
+      "tail": "PCs"
+    },
+    {
+      "head": "Japanese office workers",
+      "relation": "use PCs at",
+      "tail": "half the rate of their European counterparts"
+    }
+  ],
+  "benchie_275": [
+    {
+      "head": "Labor costs",
+      "relation": "are",
+      "tail": "climbing"
+    },
+    {
+      "head": "Labor costs",
+      "relation": "are climbing at",
+      "tail": "a far more rapid pace"
+    },
+    {
+      "head": "Labor costs",
+      "relation": "are climbing at a far more rapid pace in",
+      "tail": "the health care industry"
+    },
+    {
+      "head": "Labor costs",
+      "relation": "are climbing at a far more rapid pace in the health care industry than",
+      "tail": "in other industries"
+    }
+  ],
+  "benchie_276": [
+    {
+      "head": "Mitsubishi",
+      "relation": "has",
+      "tail": "control"
+    },
+    {
+      "head": "Mitsubishi",
+      "relation": "has control of",
+      "tail": "some major projects"
+    }
+  ],
+  "benchie_277": [
+    {
+      "head": "Medical cooperatives",
+      "relation": "are",
+      "tail": "banned"
+    },
+    {
+      "head": "Medical cooperatives",
+      "relation": "are banned from",
+      "tail": "providing general - practitioner services"
+    }
+  ],
+  "benchie_278": [
+    {
+      "head": "Mr. Mulford",
+      "relation": "said",
+      "tail": "reports of tension between the Treasury and Fed have been exaggerated"
+    }
+  ],
+  "benchie_279": [
+    {
+      "head": "Mr. Ridley 's decision",
+      "relation": "fires",
+      "tail": "the starting pistol"
+    },
+    {
+      "head": "Mr. Ridley 's decision",
+      "relation": "fires the starting pistol for",
+      "tail": "perhaps a costly contest"
+    },
+    {
+      "head": "Mr. Ridley 's decision",
+      "relation": "fires the starting pistol for perhaps a costly contest between",
+      "tail": "the world 's auto giants"
+    }
+  ],
+  "benchie_280": [
+    {
+      "head": "Mr. Stoll",
+      "relation": "suspected",
+      "tail": "the intruder was one of those precocious students"
+    },
+    {
+      "head": "Mr. Stoll",
+      "relation": "suspected",
+      "tail": "the intruder"
+    }
+  ],
+  "benchie_281": [
+    {
+      "head": "Mr. Broberg",
+      "relation": "claims",
+      "tail": "he 'd play"
+    },
+    {
+      "head": "Mr. Broberg",
+      "relation": "claims he 'd play",
+      "tail": "for free"
+    }
+  ]
+}

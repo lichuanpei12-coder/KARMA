@@ -1,0 +1,178 @@
+{
+  "benchie_197": [
+    {
+      "head": "Males",
+      "relation": "had a median income of",
+      "tail": "$ 36,016"
+    }
+  ],
+  "benchie_198": [
+    {
+      "head": "the Mason City Division",
+      "relation": "continued to",
+      "tail": "operate"
+    },
+    {
+      "head": "the Mason City Division",
+      "relation": "continued to operate",
+      "tail": "as usual"
+    }
+  ],
+  "benchie_199": [
+    {
+      "head": "Models",
+      "relation": "produce figures",
+      "tail": "between 15,000 and 36,000 soldiers"
+    }
+  ],
+  "benchie_200": [
+    {
+      "head": "Modernity",
+      "relation": "has been",
+      "tail": "blended"
+    },
+    {
+      "head": "Modernity",
+      "relation": "has been blended without",
+      "tail": "sacrificing"
+    },
+    {
+      "head": "Modernity",
+      "relation": "has been blended without sacrificing on",
+      "tail": "the traditional Buddhist ethos"
+    }
+  ],
+  "benchie_201": [
+    {
+      "head": "1 individual",
+      "relation": "belonged to",
+      "tail": "the Christian Catholic faith"
+    }
+  ],
+  "benchie_202": [
+    {
+      "head": "Hank McCoy",
+      "relation": "retains",
+      "tail": "the basic features of a normal human"
+    }
+  ],
+  "benchie_203": [
+    {
+      "head": "Pakistan Chrome Mines Ltd",
+      "relation": "is",
+      "tail": "a mining company"
+    },
+    {
+      "head": "Pakistan Chrome Mines Ltd",
+      "relation": "incorporated in",
+      "tail": "the Islamic Republic of Pakistan"
+    }
+  ],
+  "benchie_204": [
+    {
+      "head": "Parental investment",
+      "relation": "is",
+      "tail": "any expenditure of resources"
+    },
+    {
+      "head": "Parental investment",
+      "relation": "is any expenditure of resources to benefit",
+      "tail": "one offspring"
+    }
+  ],
+  "benchie_205": [
+    {
+      "head": "Plants",
+      "relation": "have been",
+      "tail": "planted"
+    },
+    {
+      "head": "Plants",
+      "relation": "marking",
+      "tail": "parts of the foundations"
+    },
+    {
+      "head": "Plants",
+      "relation": "marking parts of the foundations of",
+      "tail": "the castle"
+    },
+    {
+      "head": "Plants",
+      "relation": "marking parts of the foundations of the castle , so",
+      "tail": "the positions of some of the buildings can still be inferred"
+    },
+    {
+      "head": "the positions of some of the buildings",
+      "relation": "can still be",
+      "tail": "inferred"
+    }
+  ],
+  "benchie_206": [
+    {
+      "head": "Scarpetta",
+      "relation": "returns to",
+      "tail": "Virginia"
+    },
+    {
+      "head": "Scarpetta",
+      "relation": "returns to Virginia in",
+      "tail": "`` Trace ''"
+    },
+    {
+      "head": "Scarpetta",
+      "relation": "convincing",
+      "tail": "herself"
+    },
+    {
+      "head": "Scarpetta",
+      "relation": "convincing herself that",
+      "tail": "she was fired"
+    },
+    {
+      "head": "Scarpetta",
+      "relation": "convincing herself that she was fired from",
+      "tail": "her position"
+    }
+  ],
+  "benchie_207": [
+    {
+      "head": "She",
+      "relation": "died in",
+      "tail": "October 1915"
+    }
+  ],
+  "benchie_208": [
+    {
+      "head": "She",
+      "relation": "was ordered to be",
+      "tail": "rebuilt"
+    },
+    {
+      "head": "She",
+      "relation": "was ordered to be rebuilt on",
+      "tail": "9 March 1724"
+    },
+    {
+      "head": "She",
+      "relation": "was",
+      "tail": "taken in hand"
+    },
+    {
+      "head": "She",
+      "relation": "was taken in hand at",
+      "tail": "Deptford Dockyard"
+    }
+  ],
+  "benchie_209": [
+    {
+      "head": "Shea",
+      "relation": "was",
+      "tail": "born"
+    },
+    {
+      "head": "Shea",
+      "relation": "was born on",
+      "tail": "September 5 , 1900"
+    }
+  ]
+}

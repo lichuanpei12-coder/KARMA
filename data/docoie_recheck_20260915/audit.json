@@ -1,0 +1,991 @@
+{
+  "status": "AUDIT_ONLY_NO_GOLD_MODIFIED",
+  "source_sha256": {
+    "DocOIE_healthcare_eval_gold.json": "29afd07ef116b3aeaed9616f357bcbb7c3336bca19a595b2b9b66a2014416455",
+    "DocOIE_healthcare_eval_sent.json": "345906a27f5e08e4a79143bd776c568ebf5f47d7261196d5f4b5b878b1e51527",
+    "DocOIE_transportation_eval_gold.json": "0eba41acc09b2a52fba9b96a16e10aa101dac68c5bd891faeb8ae7fb1628e383",
+    "DocOIE_transportation_eval_sent.json": "26de98d4f888b1a4e523cf115af6ebe27a5b4c7f094e854138bc6ec1760613e5"
+  },
+  "corpus_stats": {
+    "transportation": {
+      "documents": 40,
+      "target_sentences": 400,
+      "original_triples": 1137,
+      "sentence_gold_pairs_read_this_turn": 142,
+      "original_zero_gold_sentences": [
+        "docoie_transportation_doc11_target7",
+        "docoie_transportation_doc28_target6",
+        "docoie_transportation_doc30_target6"
+      ]
+    },
+    "healthcare": {
+      "documents": 40,
+      "target_sentences": 400,
+      "original_triples": 921,
+      "sentence_gold_pairs_read_this_turn": 162,
+      "original_zero_gold_sentences": []
+    }
+  },
+  "sentence_gold_pairs_read_this_turn": 304,
+  "read_sentence_ids": [
+    "docoie_transportation_doc1_target0",
+    "docoie_transportation_doc1_target1",
+    "docoie_transportation_doc1_target2",
+    "docoie_transportation_doc1_target3",
+    "docoie_transportation_doc1_target4",
+    "docoie_transportation_doc1_target5",
+    "docoie_transportation_doc1_target6",
+    "docoie_transportation_doc1_target7",
+    "docoie_transportation_doc1_target8",
+    "docoie_transportation_doc1_target9",
+    "docoie_transportation_doc2_target0",
+    "docoie_transportation_doc2_target1",
+    "docoie_transportation_doc2_target2",
+    "docoie_transportation_doc2_target3",
+    "docoie_transportation_doc2_target4",
+    "docoie_transportation_doc2_target5",
+    "docoie_transportation_doc2_target6",
+    "docoie_transportation_doc2_target7",
+    "docoie_transportation_doc2_target8",
+    "docoie_transportation_doc2_target9",
+    "docoie_transportation_doc3_target0",
+    "docoie_transportation_doc3_target1",
+    "docoie_transportation_doc3_target2",
+    "docoie_transportation_doc3_target3",
+    "docoie_transportation_doc3_target4",
+    "docoie_transportation_doc3_target5",
+    "docoie_transportation_doc3_target6",
+    "docoie_transportation_doc3_target7",
+    "docoie_transportation_doc3_target8",
+    "docoie_transportation_doc3_target9",
+    "docoie_transportation_doc4_target0",
+    "docoie_transportation_doc4_target1",
+    "docoie_transportation_doc4_target2",
+    "docoie_transportation_doc4_target3",
+    "docoie_transportation_doc4_target4",
+    "docoie_transportation_doc4_target5",
+    "docoie_transportation_doc4_target6",
+    "docoie_transportation_doc4_target7",
+    "docoie_transportation_doc4_target8",
+    "docoie_transportation_doc4_target9",
+    "docoie_transportation_doc5_target0",
+    "docoie_transportation_doc5_target1",
+    "docoie_transportation_doc5_target2",
+    "docoie_transportation_doc5_target3",
+    "docoie_transportation_doc5_target4",
+    "docoie_transportation_doc5_target5",
+    "docoie_transportation_doc5_target6",
+    "docoie_transportation_doc5_target7",
+    "docoie_transportation_doc5_target8",
+    "docoie_transportation_doc5_target9",
+    "docoie_transportation_doc6_target0",
+    "docoie_transportation_doc6_target1",
+    "docoie_transportation_doc6_target2",
+    "docoie_transportation_doc6_target3",
+    "docoie_transportation_doc6_target4",
+    "docoie_transportation_doc6_target5",
+    "docoie_transportation_doc6_target6",
+    "docoie_transportation_doc6_target7",
+    "docoie_transportation_doc6_target8",
+    "docoie_transportation_doc6_target9",
+    "docoie_transportation_doc7_target0",
+    "docoie_transportation_doc7_target1",
+    "docoie_transportation_doc7_target2",
+    "docoie_transportation_doc7_target3",
+    "docoie_transportation_doc7_target4",
+    "docoie_transportation_doc7_target5",
+    "docoie_transportation_doc7_target6",
+    "docoie_transportation_doc7_target7",
+    "docoie_transportation_doc7_target8",
+    "docoie_transportation_doc7_target9",
+    "docoie_transportation_doc8_target0",
+    "docoie_transportation_doc8_target1",
+    "docoie_transportation_doc8_target2",
+    "docoie_transportation_doc8_target3",
+    "docoie_transportation_doc8_target4",
+    "docoie_transportation_doc8_target5",
+    "docoie_transportation_doc8_target6",
+    "docoie_transportation_doc8_target7",
+    "docoie_transportation_doc8_target8",
+    "docoie_transportation_doc8_target9",
+    "docoie_transportation_doc9_target0",
+    "docoie_transportation_doc9_target1",
+    "docoie_transportation_doc9_target2",
+    "docoie_transportation_doc9_target3",
+    "docoie_transportation_doc9_target4",
+    "docoie_transportation_doc9_target5",
+    "docoie_transportation_doc9_target6",
+    "docoie_transportation_doc9_target7",
+    "docoie_transportation_doc9_target8",
+    "docoie_transportation_doc9_target9",
+    "docoie_transportation_doc10_target8",
+    "docoie_transportation_doc11_target2",
+    "docoie_transportation_doc11_target5",
+    "docoie_transportation_doc11_target7",
+    "docoie_transportation_doc12_target2",
+    "docoie_transportation_doc12_target7",
+    "docoie_transportation_doc12_target9",
+    "docoie_transportation_doc13_target1",
+    "docoie_transportation_doc13_target4",
+    "docoie_transportation_doc13_target6",
+    "docoie_transportation_doc14_target7",
+    "docoie_transportation_doc15_target5",
+    "docoie_transportation_doc15_target8",
+    "docoie_transportation_doc16_target7",
+    "docoie_transportation_doc18_target7",
+    "docoie_transportation_doc19_target1",
+    "docoie_transportation_doc20_target1",
+    "docoie_transportation_doc20_target2",
+    "docoie_transportation_doc20_target4",
+    "docoie_transportation_doc21_target0",
+    "docoie_transportation_doc21_target5",
+    "docoie_transportation_doc22_target3",
+    "docoie_transportation_doc22_target8",
+    "docoie_transportation_doc23_target3",
+    "docoie_transportation_doc23_target5",
+    "docoie_transportation_doc24_target1",
+    "docoie_transportation_doc24_target6",
+    "docoie_transportation_doc25_target9",
+    "docoie_transportation_doc26_target3",
+    "docoie_transportation_doc27_target1",
+    "docoie_transportation_doc27_target6",
+    "docoie_transportation_doc28_target6",
+    "docoie_transportation_doc28_target8",
+    "docoie_transportation_doc29_target0",
+    "docoie_transportation_doc29_target9",
+    "docoie_transportation_doc30_target6",
+    "docoie_transportation_doc30_target7",
+    "docoie_transportation_doc30_target9",
+    "docoie_transportation_doc32_target5",
+    "docoie_transportation_doc32_target6",
+    "docoie_transportation_doc33_target3",
+    "docoie_transportation_doc34_target0",
+    "docoie_transportation_doc34_target1",
+    "docoie_transportation_doc34_target4",
+    "docoie_transportation_doc34_target5",
+    "docoie_transportation_doc34_target9",
+    "docoie_transportation_doc36_target0",
+    "docoie_transportation_doc38_target2",
+    "docoie_transportation_doc38_target5",
+    "docoie_transportation_doc38_target6",
+    "docoie_transportation_doc38_target9",
+    "docoie_transportation_doc39_target1",
+    "docoie_healthcare_doc1_target0",
+    "docoie_healthcare_doc1_target1",
+    "docoie_healthcare_doc1_target2",
+    "docoie_healthcare_doc1_target3",
+    "docoie_healthcare_doc1_target4",
+    "docoie_healthcare_doc1_target5",
+    "docoie_healthcare_doc1_target6",
+    "docoie_healthcare_doc1_target7",
+    "docoie_healthcare_doc1_target8",
+    "docoie_healthcare_doc1_target9",
+    "docoie_healthcare_doc2_target0",
+    "docoie_healthcare_doc2_target1",
+    "docoie_healthcare_doc2_target2",
+    "docoie_healthcare_doc2_target3",
+    "docoie_healthcare_doc2_target4",
+    "docoie_healthcare_doc2_target5",
+    "docoie_healthcare_doc2_target6",
+    "docoie_healthcare_doc2_target7",
+    "docoie_healthcare_doc2_target8",
+    "docoie_healthcare_doc2_target9",
+    "docoie_healthcare_doc3_target0",
+    "docoie_healthcare_doc3_target1",
+    "docoie_healthcare_doc3_target2",
+    "docoie_healthcare_doc3_target3",
+    "docoie_healthcare_doc3_target4",
+    "docoie_healthcare_doc3_target5",
+    "docoie_healthcare_doc3_target6",
+    "docoie_healthcare_doc3_target7",
+    "docoie_healthcare_doc3_target8",
+    "docoie_healthcare_doc3_target9",
+    "docoie_healthcare_doc4_target0",
+    "docoie_healthcare_doc4_target1",
+    "docoie_healthcare_doc4_target2",
+    "docoie_healthcare_doc4_target3",
+    "docoie_healthcare_doc4_target4",
+    "docoie_healthcare_doc4_target5",
+    "docoie_healthcare_doc4_target6",
+    "docoie_healthcare_doc4_target7",
+    "docoie_healthcare_doc4_target8",
+    "docoie_healthcare_doc4_target9",
+    "docoie_healthcare_doc5_target0",
+    "docoie_healthcare_doc5_target1",
+    "docoie_healthcare_doc5_target2",
+    "docoie_healthcare_doc5_target3",
+    "docoie_healthcare_doc5_target4",
+    "docoie_healthcare_doc5_target5",
+    "docoie_healthcare_doc5_target6",
+    "docoie_healthcare_doc5_target7",
+    "docoie_healthcare_doc5_target8",
+    "docoie_healthcare_doc5_target9",
+    "docoie_healthcare_doc6_target0",
+    "docoie_healthcare_doc6_target1",
+    "docoie_healthcare_doc6_target2",
+    "docoie_healthcare_doc6_target3",
+    "docoie_healthcare_doc6_target4",
+    "docoie_healthcare_doc6_target5",
+    "docoie_healthcare_doc6_target6",
+    "docoie_healthcare_doc6_target7",
+    "docoie_healthcare_doc6_target8",
+    "docoie_healthcare_doc6_target9",
+    "docoie_healthcare_doc7_target0",
+    "docoie_healthcare_doc7_target1",
+    "docoie_healthcare_doc7_target2",
+    "docoie_healthcare_doc7_target3",
+    "docoie_healthcare_doc7_target4",
+    "docoie_healthcare_doc7_target5",
+    "docoie_healthcare_doc7_target6",
+    "docoie_healthcare_doc7_target7",
+    "docoie_healthcare_doc7_target8",
+    "docoie_healthcare_doc7_target9",
+    "docoie_healthcare_doc8_target0",
+    "docoie_healthcare_doc8_target1",
+    "docoie_healthcare_doc8_target2",
+    "docoie_healthcare_doc8_target3",
+    "docoie_healthcare_doc8_target4",
+    "docoie_healthcare_doc8_target5",
+    "docoie_healthcare_doc8_target6",
+    "docoie_healthcare_doc8_target7",
+    "docoie_healthcare_doc8_target8",
+    "docoie_healthcare_doc8_target9",
+    "docoie_healthcare_doc9_target0",
+    "docoie_healthcare_doc9_target1",
+    "docoie_healthcare_doc9_target2",
+    "docoie_healthcare_doc9_target3",
+    "docoie_healthcare_doc9_target4",
+    "docoie_healthcare_doc9_target5",
+    "docoie_healthcare_doc9_target6",
+    "docoie_healthcare_doc9_target7",
+    "docoie_healthcare_doc9_target8",
+    "docoie_healthcare_doc9_target9",
+    "docoie_healthcare_doc10_target4",
+    "docoie_healthcare_doc10_target7",
+    "docoie_healthcare_doc11_target3",
+    "docoie_healthcare_doc11_target5",
+    "docoie_healthcare_doc11_target7",
+    "docoie_healthcare_doc12_target2",
+    "docoie_healthcare_doc12_target4",
+    "docoie_healthcare_doc13_target0",
+    "docoie_healthcare_doc13_target1",
+    "docoie_healthcare_doc13_target4",
+    "docoie_healthcare_doc13_target6",
+    "docoie_healthcare_doc14_target0",
+    "docoie_healthcare_doc14_target1",
+    "docoie_healthcare_doc14_target7",
+    "docoie_healthcare_doc14_target8",
+    "docoie_healthcare_doc14_target9",
+    "docoie_healthcare_doc15_target0",
+    "docoie_healthcare_doc15_target3",
+    "docoie_healthcare_doc15_target6",
+    "docoie_healthcare_doc15_target8",
+    "docoie_healthcare_doc16_target0",
+    "docoie_healthcare_doc16_target3",
+    "docoie_healthcare_doc16_target6",
+    "docoie_healthcare_doc17_target0",
+    "docoie_healthcare_doc17_target2",
+    "docoie_healthcare_doc17_target6",
+    "docoie_healthcare_doc17_target8",
+    "docoie_healthcare_doc18_target0",
+    "docoie_healthcare_doc18_target2",
+    "docoie_healthcare_doc18_target3",
+    "docoie_healthcare_doc19_target0",
+    "docoie_healthcare_doc19_target1",
+    "docoie_healthcare_doc19_target2",
+    "docoie_healthcare_doc19_target8",
+    "docoie_healthcare_doc20_target2",
+    "docoie_healthcare_doc21_target7",
+    "docoie_healthcare_doc22_target2",
+    "docoie_healthcare_doc22_target3",
+    "docoie_healthcare_doc22_target8",
+    "docoie_healthcare_doc23_target5",
+    "docoie_healthcare_doc24_target2",
+    "docoie_healthcare_doc24_target3",
+    "docoie_healthcare_doc24_target4",
+    "docoie_healthcare_doc24_target7",
+    "docoie_healthcare_doc24_target9",
+    "docoie_healthcare_doc25_target4",
+    "docoie_healthcare_doc25_target7",
+    "docoie_healthcare_doc25_target8",
+    "docoie_healthcare_doc27_target4",
+    "docoie_healthcare_doc27_target5",
+    "docoie_healthcare_doc27_target6",
+    "docoie_healthcare_doc27_target7",
+    "docoie_healthcare_doc27_target9",
+    "docoie_healthcare_doc29_target8",
+    "docoie_healthcare_doc30_target9",
+    "docoie_healthcare_doc31_target3",
+    "docoie_healthcare_doc32_target5",
+    "docoie_healthcare_doc32_target7",
+    "docoie_healthcare_doc32_target8",
+    "docoie_healthcare_doc32_target9",
+    "docoie_healthcare_doc33_target0",
+    "docoie_healthcare_doc33_target1",
+    "docoie_healthcare_doc33_target3",
+    "docoie_healthcare_doc33_target5",
+    "docoie_healthcare_doc33_target6",
+    "docoie_healthcare_doc35_target2",
+    "docoie_healthcare_doc36_target2",
+    "docoie_healthcare_doc36_target9",
+    "docoie_healthcare_doc38_target3",
+    "docoie_healthcare_doc38_target9",
+    "docoie_healthcare_doc39_target1",
+    "docoie_healthcare_doc39_target2"
+  ],
+  "findings_sentence_count": 17,
+  "proposed_addition_count": 18,
+  "findings": [
+    {
+      "sentence_id": "docoie_transportation_doc1_target4",
+      "domain": "transportation",
+      "document_title": "2786. Method for providing congestion information in a network.txt",
+      "document_index": 1,
+      "target_index": 4,
+      "source_sentence": "While the invention has been illustrated and described in detail in the drawings and foregoing description, such illustration and description are to be considered illustrative or exemplary and not restrictive.",
+      "context_before": [
+        "Although specific terms are employed herein, they are used in a generic and descriptive sense only and not for purposes of limitation."
+      ],
+      "context_after": [
+        "It will be understood that changes and modifications may be made by those of ordinary skill within the scope of the following claims."
+      ],
+      "original_gold": [
+        {
+          "sub": "the invention",
+          "rel": "has been illustrated in detail in",
+          "obj": "the drawings and foregoing description"
+        },
+        {
+          "sub": "the invention",
+          "rel": "has been described in detail in",
+          "obj": "the drawings and foregoing description"
+        }
+      ],
+      "proposed_additions": [
+        {
+          "sub": "such illustration and description",
+          "rel": "are to be considered",
+          "obj": "illustrative or exemplary and not restrictive"
+        }
+      ],
+      "reason": "原 Gold 仅覆盖 While 从句的 illustrated/described，漏了主句；保留 are to be considered、or 和 not，不拆成无条件属性。",
+      "wording_notes": "无需新增词；按原句分配三元组槽位。",
+      "status": "coverage_gap_identified_expression_proposed_not_applied"
+    },
+    {
+      "sentence_id": "docoie_transportation_doc1_target7",
+      "domain": "transportation",
+      "document_title": "2786. Method for providing congestion information in a network.txt",
+      "document_index": 1,
+      "target_index": 7,
+      "source_sentence": "Although specific terms are employed herein, they are used in a generic and descriptive sense only and not for purposes of limitation.",
+      "context_before": [
+        "Therefore, it is to be understood that the invention is not to be limited to the specific embodiments disclosed and that modifications and other embodiments are intended to be included within the scope of the appended claims."
+      ],
+      "context_after": [
+        "While the invention has been illustrated and described in detail in the drawings and foregoing description, such illustration and description are to be considered illustrative or exemplary and not restrictive."
+      ],
+      "original_gold": [
+        {
+          "sub": "they",
+          "rel": "are used in",
+          "obj": "a generic and descriptive sense"
+        },
+        {
+          "sub": "they",
+          "rel": "are not for purposes of",
+          "obj": "limitation"
+        }
+      ],
+      "proposed_additions": [
+        {
+          "sub": "specific terms",
+          "rel": "are employed",
+          "obj": "herein"
+        }
+      ],
+      "reason": "原 Gold 覆盖术语的使用方式及不用于限制，但没有标出 Although 从句的术语被采用这一事件。",
+      "wording_notes": "无需新增词；按原句分配三元组槽位。",
+      "status": "coverage_gap_identified_expression_proposed_not_applied"
+    },
+    {
+      "sentence_id": "docoie_transportation_doc5_target8",
+      "domain": "transportation",
+      "document_title": "7717. One piece self locking nut.txt",
+      "document_index": 5,
+      "target_index": 8,
+      "source_sentence": "It is light-weight, weighing the same as a conventional nut, and lighter than current two-piece lock-nuts.",
+      "context_before": [
+        "The one-piece, self-locking nut is also durable in high temperature applications."
+      ],
+      "context_after": [
+        "It can use standard thread pitch bolts and studs, metric or U.S., just like conventional nuts."
+      ],
+      "original_gold": [
+        {
+          "sub": "it",
+          "rel": "is weighing the same as",
+          "obj": "a conventional nut"
+        },
+        {
+          "sub": "it",
+          "rel": "is lighter than",
+          "obj": "current two-piece lock-nuts"
+        }
+      ],
+      "proposed_additions": [
+        {
+          "sub": "It",
+          "rel": "is",
+          "obj": "light-weight"
+        }
+      ],
+      "reason": "原 Gold 只有同传统螺母重量相同及比两件式轻的比较，漏了直接表达的 light-weight 属性；不凭常识补重量数值。",
+      "wording_notes": "无需新增词；按原句分配三元组槽位。",
+      "status": "coverage_gap_identified_expression_proposed_not_applied"
+    },
+    {
+      "sentence_id": "docoie_transportation_doc8_target5",
+      "domain": "transportation",
+      "document_title": "13491. Preparation of extracellular matrix modified tissue engineered nerve grafts for peripheral nerve injury repair.txt",
+      "document_index": 8,
+      "target_index": 5,
+      "source_sentence": "Skins in the back are taken out and placed in a pre-cooled dissection solution to remove subcutaneous tissue (fat, hypodermic fascia layer, and blood vessels).",
+      "context_before": [
+        "In brief, newborn SD rats (1 day old) are killed and disinfected with alcohol."
+      ],
+      "context_after": [
+        "The centrifugation is conducted and the supernatant is abandoned."
+      ],
+      "original_gold": [
+        {
+          "sub": "skins in the back",
+          "rel": "are placed in",
+          "obj": "a pre-cooled dissection solution"
+        },
+        {
+          "sub": "skins in the back placed in a pre-cooled dissection solution",
+          "rel": "is to remove",
+          "obj": "subcutaneous tissue"
+        },
+        {
+          "sub": "subcutaneous tissue",
+          "rel": "is such as",
+          "obj": "fat"
+        },
+        {
+          "sub": "subcutaneous tissue",
+          "rel": "is such as",
+          "obj": "hypodermic fascia layer"
+        },
+        {
+          "sub": "subcutaneous tissue",
+          "rel": "is such as",
+          "obj": "blood vessels"
+        }
+      ],
+      "proposed_additions": [
+        {
+          "sub": "Skins in the back",
+          "rel": "are",
+          "obj": "taken out"
+        }
+      ],
+      "reason": "原句明确并列 taken out 和 placed，Gold 只有 placed 及其目的，没有 taken out。",
+      "wording_notes": "沿用被动语态；采用系动/助动词与分词分槽，不另加宾语占位符。",
+      "status": "coverage_gap_identified_expression_proposed_not_applied"
+    },
+    {
+      "sentence_id": "docoie_transportation_doc8_target6",
+      "domain": "transportation",
+      "document_title": "13491. Preparation of extracellular matrix modified tissue engineered nerve grafts for peripheral nerve injury repair.txt",
+      "document_index": 8,
+      "target_index": 6,
+      "source_sentence": "At one or two weeks post surgery, animals are transcardially perfused, and the regenerated nerve segments are then harvested and cut into sections.",
+      "context_before": [
+        "The animals are randomly divided into two groups: one group is using cell-derived ECM modified tissue engineered nerve grafts for repairing the sciatic nerve defects of rats, called a ECM group, and another group is using plain tissue engineered nerve grafts (without ECM modification) for repairing the sciatic nerve defects of rats, called a material group."
+      ],
+      "context_after": [
+        "NF immunohistochemistry shows that the nerve growth in ECM group is faster than that of material group."
+      ],
+      "original_gold": [
+        {
+          "sub": "animals",
+          "rel": "are transcardially perfused at",
+          "obj": "one or two weeks post surgery"
+        },
+        {
+          "sub": "the regenerated nerve segments",
+          "rel": "are cut into",
+          "obj": "sections"
+        }
+      ],
+      "proposed_additions": [
+        {
+          "sub": "the regenerated nerve segments",
+          "rel": "are then harvested at",
+          "obj": "one or two weeks post surgery"
+        }
+      ],
+      "reason": "原 Gold 标了灌注和切片，漏了 harvested；保留句首时间及 then，不把 one or two 展开成两个确定时间。",
+      "wording_notes": "时间取自同句句首 At 短语；仅调整位置与大小写，不新增时间信息。",
+      "status": "coverage_gap_identified_expression_proposed_not_applied"
+    },
+    {
+      "sentence_id": "docoie_transportation_doc9_target3",
+      "domain": "transportation",
+      "document_title": "13741. Electric motorcycles having crash bars and methods for modifying an electric motorcycle to include crash bars.txt",
+      "document_index": 9,
+      "target_index": 3,
+      "source_sentence": "Processes for modifying electric motorcycles are also provided, and these processes can include providing crash bars to the electric motorcycles.",
+      "context_before": [
+        "The electric motorcycle with crash bars can include opposing crash bars coupled to the frame of the electric motorcycle, with the crash bars being coupled to opposing portions of the rocker portion of the frame."
+      ],
+      "context_after": [
+        "The processes can include providing an exposed electric motorcycle frame, with the frame being exposed about a rocker portion and the extension between the rocker portion and the forks."
+      ],
+      "original_gold": [
+        {
+          "sub": "these processes",
+          "rel": "can include providing crash bars to",
+          "obj": "the electric motorcycles"
+        }
+      ],
+      "proposed_additions": [
+        {
+          "sub": "Processes for modifying electric motorcycles",
+          "rel": "are also",
+          "obj": "provided"
+        }
+      ],
+      "reason": "原 Gold 仅有这些过程可以包含安装防撞杆，漏了主句 Processes ... are also provided。",
+      "wording_notes": "无需新增词；按原句分配三元组槽位。",
+      "status": "coverage_gap_identified_expression_proposed_not_applied"
+    },
+    {
+      "sentence_id": "docoie_transportation_doc11_target7",
+      "domain": "transportation",
+      "document_title": "15667. Portable solar power trailer with rotatable panels.txt",
+      "document_index": 11,
+      "target_index": 7,
+      "source_sentence": "While an exemplary locking mechanism has been illustrated, in other embodiments, any other suitable rotational locking mechanism can be used.",
+      "context_before": [
+        "This locking mechanism can be placed on each post on the trailer."
+      ],
+      "context_after": [
+        "With reference to Figure 5, a more detailed view of the solar panel array is illustrated."
+      ],
+      "original_gold": [],
+      "proposed_additions": [
+        {
+          "sub": "an exemplary locking mechanism",
+          "rel": "has been",
+          "obj": "illustrated"
+        },
+        {
+          "sub": "any other suitable rotational locking mechanism",
+          "rel": "can be used in",
+          "obj": "other embodiments"
+        }
+      ],
+      "reason": "该目标句原 Gold 为空；让步从句说明已展示示例机构，主句说明其他实施例可使用其他适当机构。两条均有明示依据，保留 can 和 other embodiments。",
+      "wording_notes": "主句中的 in other embodiments 前置短语移入关系/宾语；没有把 can 改成确定使用。",
+      "status": "coverage_gap_identified_expression_proposed_not_applied"
+    },
+    {
+      "sentence_id": "docoie_transportation_doc28_target6",
+      "domain": "transportation",
+      "document_title": "25823. Printed circuit unit based on organic transistor.txt",
+      "document_index": 28,
+      "target_index": 6,
+      "source_sentence": "However, as the standard deviation increases, or more printed inverters are serially cascaded, the difference among the yields will be significant.",
+      "context_before": [
+        "The yields shown in Figure 7 are not very much different from one another."
+      ],
+      "context_after": [
+        "For example, a complexity of a current RFID tag is equivalent to 45-stage serially cascaded printed inverters."
+      ],
+      "original_gold": [],
+      "proposed_additions": [
+        {
+          "sub": "the difference among the yields",
+          "rel": "will be significant as",
+          "obj": "the standard deviation increases, or more printed inverters are serially cascaded"
+        }
+      ],
+      "reason": "该目标句原 Gold 为空；保留完整 as 条件/变化关系和 or，不单独断言标准差已经增加，也不把两个分支都当成已发生。",
+      "wording_notes": "调换前置 as 从句位置；as 的具体因果/条件读法不作额外推断。",
+      "status": "coverage_gap_identified_expression_proposed_not_applied"
+    },
+    {
+      "sentence_id": "docoie_transportation_doc30_target6",
+      "domain": "transportation",
+      "document_title": "27389.  Providing policy information to a remote device.txt",
+      "document_index": 30,
+      "target_index": 6,
+      "source_sentence": "Also, a hierarchy of the mapping servers can be created such that scalable policy distribution can be achieved.",
+      "context_before": [
+        "Additionally, the scalability of the architecture described above can be improved because only the appropriate low-level configuration information needs to be distributed to the selected target devices or the endstations."
+      ],
+      "context_after": [
+        "Other implementations are within the scope of the following claims."
+      ],
+      "original_gold": [],
+      "proposed_additions": [
+        {
+          "sub": "a hierarchy of the mapping servers",
+          "rel": "can be created such that",
+          "obj": "scalable policy distribution can be achieved"
+        }
+      ],
+      "reason": "该目标句原 Gold 为空；保留 can 和 such that，使用一条带完整结果结构的候选，暂不拆为两个无条件事件。",
+      "wording_notes": "无需新增词；按原句分配三元组槽位。",
+      "status": "coverage_gap_identified_expression_proposed_not_applied"
+    },
+    {
+      "sentence_id": "docoie_transportation_doc32_target5",
+      "domain": "transportation",
+      "document_title": "27697.  Buffer management.txt",
+      "document_index": 32,
+      "target_index": 5,
+      "source_sentence": "It will be appreciated that, although twenty buffer elements are shown, any suitable number can be employed in accordance with a particular application.",
+      "context_before": [
+        "The buffer is described in more detail with reference to Figure 3."
+      ],
+      "context_after": [
+        "As shown in Figure 3, element is at the top of the list and is therefore free for use, element contains at least one cell from a packet, and element may contain a substantially reassembled packet."
+      ],
+      "original_gold": [
+        {
+          "sub": "any suitable number",
+          "rel": "can be employed in accordance with",
+          "obj": "a particular application"
+        }
+      ],
+      "proposed_additions": [
+        {
+          "sub": "twenty buffer elements",
+          "rel": "are",
+          "obj": "shown"
+        }
+      ],
+      "reason": "原 Gold 只有可以采用任意合适数量，漏了 although 从句明确说图中显示20个；不将20认定为系统必要数量。",
+      "wording_notes": "无需新增词；按原句分配三元组槽位。",
+      "status": "coverage_gap_identified_expression_proposed_not_applied"
+    },
+    {
+      "sentence_id": "docoie_transportation_doc13_target4",
+      "domain": "transportation",
+      "document_title": "17760. Real time dynamic heavy vehicle idle alarm.txt",
+      "document_index": 13,
+      "target_index": 4,
+      "source_sentence": "In any event, the potential violation is identified and the driver of the vehicle, or other responsible party, is messaged or otherwise communicated with to address the threat.",
+      "context_before": [
+        "If no suitable response from the driver is received, additional automatic rules can be employed such that the vehicle itself may shut down or vehicle may receive a command from center to shut down."
+      ],
+      "context_after": [
+        "While embodiments of the present invention are particularly applicable to the context of a fleet management system operating with a vast fleet of vehicles communicating wirelessly with a central communication center, embodiments of the present invention are also applicable to a simple stand-alone system in a single vehicle."
+      ],
+      "original_gold": [
+        {
+          "sub": "the driver of the vehicle",
+          "rel": "is messaged or otherwise communicated with to address",
+          "obj": "the threat"
+        },
+        {
+          "sub": "other responsible party",
+          "rel": "is messaged or otherwise communicated with to address",
+          "obj": "the threat"
+        }
+      ],
+      "proposed_additions": [
+        {
+          "sub": "the potential violation",
+          "rel": "is",
+          "obj": "identified"
+        }
+      ],
+      "reason": "原 Gold 仅覆盖给驾驶员或责任方发送消息，漏了并列主句前半的违规被识别。",
+      "wording_notes": "无需新增词；按原句分配三元组槽位。",
+      "status": "coverage_gap_identified_expression_proposed_not_applied"
+    },
+    {
+      "sentence_id": "docoie_transportation_doc29_target9",
+      "domain": "transportation",
+      "document_title": "26004. Apparatus and method for cooperative multi target tracking and interception.txt",
+      "document_index": 29,
+      "target_index": 9,
+      "source_sentence": "Since the canister is very small and lightweight, it might not possess enough impulse to change its direction of motion to coincide with that of the target.",
+      "context_before": [
+        "It is noteworthy that a problem occurs when a canister is directly over a target, or nearly so, but the two are moving in opposite directions."
+      ],
+      "context_after": [
+        "Even if the required impulse were available there may not be enough time to make such a drastic course change since the canister is dropped from a relatively low altitude (for example 500 to 1000 feet) and is falling due to gravity."
+      ],
+      "original_gold": [
+        {
+          "sub": "it",
+          "rel": "might not possess enough impulse to change",
+          "obj": "its direction of motion"
+        },
+        {
+          "sub": "changing its direction of motion",
+          "rel": "is to coincide with",
+          "obj": "that of the target"
+        }
+      ],
+      "proposed_additions": [
+        {
+          "sub": "the canister",
+          "rel": "is",
+          "obj": "very small and lightweight"
+        }
+      ],
+      "reason": "原 Gold 只覆盖可能缺乏足够冲量及方向，漏了 Since 从句明说的小且轻的属性；保留原合并属性，不靠拆两个形容词增加数量。",
+      "wording_notes": "无需新增词；按原句分配三元组槽位。",
+      "status": "coverage_gap_identified_expression_proposed_not_applied"
+    },
+    {
+      "sentence_id": "docoie_transportation_doc33_target3",
+      "domain": "transportation",
+      "document_title": "28209.  Smart service unit.txt",
+      "document_index": 33,
+      "target_index": 3,
+      "source_sentence": "Accordingly, the administrative requirements for food service licensing have become more strict, thus greater efforts are needed to uphold this requirement to obtain and maintain the needed licensing.",
+      "context_before": [
+        "In recent years, the authorities in many countries have passed legislation in order to broaden the protection of public health by establishing strict regulations concerning many aspects of food services including storage, serving, hygiene requirements and the like (the EU is in the process of establishing a EU food safety policy including the establishment of a EU food Authority, which demonstrates the current trend)."
+      ],
+      "context_after": [
+        "There is, thus, a need in the art to provide a mobile food service unit typically, although not necessarily, belonging to or franchised by a food chain that can be selectively managed and controlled by a central headquarters."
+      ],
+      "original_gold": [
+        {
+          "sub": "the administrative requirements",
+          "rel": "are for",
+          "obj": "food service licensing"
+        },
+        {
+          "sub": "greater efforts",
+          "rel": "are needed to uphold",
+          "obj": "this requirement to obtain and maintain the needed licensing"
+        },
+        {
+          "sub": "upholding this requirement",
+          "rel": "is to obtain",
+          "obj": "the needed licensing"
+        },
+        {
+          "sub": "upholding this requirement",
+          "rel": "is to maintain",
+          "obj": "the needed licensing"
+        }
+      ],
+      "proposed_additions": [
+        {
+          "sub": "the administrative requirements for food service licensing",
+          "rel": "have become",
+          "obj": "more strict"
+        }
+      ],
+      "reason": "原 Gold 有 requirements 的 for 修饰关系及后续所需努力，却没有 have become more strict 的主断言。",
+      "wording_notes": "无需新增词；按原句分配三元组槽位。",
+      "status": "coverage_gap_identified_expression_proposed_not_applied"
+    },
+    {
+      "sentence_id": "docoie_transportation_doc38_target9",
+      "domain": "transportation",
+      "document_title": "29561.  Highway marking tape removal apparatus.txt",
+      "document_index": 38,
+      "target_index": 9,
+      "source_sentence": "This tape can then be removed from the repaired section of highway after the repair is complete and discarded.",
+      "context_before": [
+        "Reflective or other types of high visibility tape have become the lane boundary marking of choice for many types of highway repair projects."
+      ],
+      "context_after": [
+        "Until now, the removal of the tape has been performed manually, with the repair crew walking the section of repaired highway and pulling the temporary marking tape up in short sections."
+      ],
+      "original_gold": [
+        {
+          "sub": "this tape",
+          "rel": "can then be removed from",
+          "obj": "the repaired section of highway"
+        }
+      ],
+      "proposed_additions": [
+        {
+          "sub": "This tape",
+          "rel": "can then be discarded after",
+          "obj": "the repair is complete"
+        }
+      ],
+      "reason": "原 Gold 只标记胶带移除，漏了并列 discarded；保留共享 can 和维修完成后的时间限制。原移除条目本身也应另行补回时间限制。",
+      "wording_notes": "共享原句 can then be 和 after 时间结构；不能改成已经丢弃。",
+      "status": "coverage_gap_identified_expression_proposed_not_applied"
+    },
+    {
+      "sentence_id": "docoie_transportation_doc24_target1",
+      "domain": "transportation",
+      "document_title": "24565. Running profile of railway wheel.txt",
+      "document_index": 24,
+      "target_index": 1,
+      "source_sentence": "As a result of contact with the wheel flange, jerking steering movements and hence high quasi-static transverse forces are experienced, which may easily exceed the limit values for route loading.",
+      "context_before": [
+        "Because of the absence of .DELTA.R function, the wheel set is unable to develop sufficient steering force to force the bogie smoothly into the curve on contact with the wheel flange."
+      ],
+      "context_after": [
+        "This applies particularly to the negotiation of tight curves."
+      ],
+      "original_gold": [
+        {
+          "sub": "high quasi-static transverse forces",
+          "rel": "may easily exceed",
+          "obj": "the limit values for route loading"
+        }
+      ],
+      "proposed_additions": [
+        {
+          "sub": "jerking steering movements and hence high quasi-static transverse forces",
+          "rel": "are experienced as a result of",
+          "obj": "contact with the wheel flange"
+        }
+      ],
+      "reason": "原 Gold 只有横向力可能超限，漏了接触轮缘导致所述运动及横向力的主句；保持并列和 hence，不机械交叉展开。",
+      "wording_notes": "As a result of 前置因果短语移入关系，使用原词。",
+      "status": "coverage_gap_identified_expression_proposed_not_applied"
+    },
+    {
+      "sentence_id": "docoie_transportation_doc22_target3",
+      "domain": "transportation",
+      "document_title": "23145. Industrial process control loop monitor.txt",
+      "document_index": 22,
+      "target_index": 3,
+      "source_sentence": "Such issues can be particularly troublesome when the industrial process is located in a remote area, or when the service personnel are inexperienced in diagnosing network related problems.",
+      "context_before": [
+        "This can result in additional service calls to diagnose the networking related problems."
+      ],
+      "context_after": [
+        "The present invention provides a process control loop monitor configured to mount in the field of an industrial process and collect data from the two wire loop."
+      ],
+      "original_gold": [
+        {
+          "sub": "the industrial process",
+          "rel": "is located in",
+          "obj": "a remote area"
+        },
+        {
+          "sub": "the service personnel",
+          "rel": "are inexperienced in diagnosing",
+          "obj": "network related problems"
+        }
+      ],
+      "proposed_additions": [
+        {
+          "sub": "Such issues",
+          "rel": "can be particularly troublesome when",
+          "obj": "the industrial process is located in a remote area, or when the service personnel are inexperienced in diagnosing network related problems"
+        }
+      ],
+      "reason": "原 Gold 仅标了两个条件内部的命题，漏了主句问题在这些条件下可能特别棘手；整条保留 can、when 和 or。旧的两个无条件条目存在范围问题，不能据此认可。",
+      "wording_notes": "无需新增词；按原句分配三元组槽位。",
+      "status": "coverage_gap_identified_expression_proposed_not_applied"
+    },
+    {
+      "sentence_id": "docoie_healthcare_doc8_target8",
+      "domain": "healthcare",
+      "document_title": "1654. Method for regulating expressions of TPH1 gene, DDC gene, and or AANAT gene by using banana peel extract.txt",
+      "document_index": 8,
+      "target_index": 8,
+      "source_sentence": "The applied type, applied route, applied form, applied frequency and uses in related application of the composition are all in line with the above descriptions.",
+      "context_before": [
+        "The present invention also provides a method for increasing expression of TPH1 gene, DDC gene and/or AANAT gene, comprising administering a composition to a subject in need, wherein the composition comprises an effective amount of banana peel extract."
+      ],
+      "context_after": [
+        "The present invention will be further illustrated in detail with specific examples as follows."
+      ],
+      "original_gold": [
+        {
+          "sub": "the applied type",
+          "rel": "is in line with",
+          "obj": "the above descriptions"
+        },
+        {
+          "sub": "the applied route",
+          "rel": "is in line with",
+          "obj": "the above descriptions"
+        },
+        {
+          "sub": "the applied form",
+          "rel": "is in line with",
+          "obj": "the above descriptions"
+        },
+        {
+          "sub": "the uses in related application of the composition",
+          "rel": "are in line with",
+          "obj": "the above descriptions"
+        }
+      ],
+      "proposed_additions": [
+        {
+          "sub": "The applied frequency",
+          "rel": "is in line with",
+          "obj": "the above descriptions"
+        }
+      ],
+      "reason": "原句列举 type、route、form、frequency、uses，原 Gold 分别覆盖其余四项，却漏了 frequency；属于直接并列漏项，不是推断新的用途。",
+      "wording_notes": "共享 are all in line with ...，单数主语将 are 调整为 is，与旧 Gold 其他单数并列项的做法一致；省去集合分配词 all。",
+      "status": "coverage_gap_identified_expression_proposed_not_applied"
+    }
+  ],
+  "separate_issues": [
+    {
+      "domain": "transportation",
+      "doc": 6,
+      "target": 3,
+      "kind": "repair_not_add",
+      "issue": "原 Gold are with reference to 丢失主谓 described，应修复原条目，不直接当第二事实加一。"
+    },
+    {
+      "domain": "transportation",
+      "doc": 8,
+      "target": 8,
+      "kind": "scope_review",
+      "issue": "not described in details 只描述所限定的那组 processes and methods；若拆出需同时保留 following examples 和指代范围，未计入18条。"
+    },
+    {
+      "domain": "transportation",
+      "doc": 9,
+      "target": 4,
+      "kind": "grammatical_completion_review",
+      "issue": "brochure filed herewith 可恢复独立事实，但是否补入 is/was 涉及时态；未计入18条。"
+    },
+    {
+      "domain": "healthcare",
+      "doc": 14,
+      "target": 0,
+      "kind": "split_not_missing",
+      "issue": "advertising/scanning/initiating 已包含在原宾语中；展开是粒度调整，不是发现三项漏标。"
+    },
+    {
+      "domain": "healthcare",
+      "doc": 16,
+      "target": 6,
+      "kind": "split_not_missing",
+      "issue": "四种服务器都在原 Gold 宾语中，拆成四条不是四个此前缺失的事实，且要保留 may。"
+    },
+    {
+      "domain": "healthcare",
+      "doc": 0,
+      "target": 3,
+      "kind": "previous_merge_disputed",
+      "issue": "前次因 may 作用范围将两条合一，是否需要合并待定；本轮未改候选版。"
+    },
+    {
+      "domain": "healthcare",
+      "doc": 0,
+      "target": 6,
+      "kind": "previous_merge_disputed",
+      "issue": "前次因 would be desirable 范围将两条合一，是否需要合并待定；本轮未改候选版。"
+    }
+  ],
+  "limitations": "800句做了结构统计，本轮304句逐句查看了目标句及Gold；重点缺口进一步核对上下文。不是800句全部语义审查完成，18不是全数据集漏标总数，也不代表已应用修改。"
+}

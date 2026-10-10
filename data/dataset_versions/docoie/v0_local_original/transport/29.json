@@ -1,0 +1,142 @@
+[
+  {
+    "head": "the present invention",
+    "relation": "relates generally to",
+    "tail": "the field of self-organizing ad hoc network systems"
+  },
+  {
+    "head": "there",
+    "relation": "is a need for",
+    "tail": "an airborne system"
+  },
+  {
+    "head": "an airborne system",
+    "relation": "provides a means of engaging",
+    "tail": "a number of aggressive combatants"
+  },
+  {
+    "head": "the oracle",
+    "relation": "has a means for being located behind",
+    "tail": "said devices"
+  },
+  {
+    "head": "the oracle",
+    "relation": "relays",
+    "tail": "the devices shared data"
+  },
+  {
+    "head": "the oracle",
+    "relation": "relays",
+    "tail": "outcome to a control base"
+  },
+  {
+    "head": "an inter-vehicle data link",
+    "relation": "allows the vehicles to cooperate with",
+    "tail": "one another"
+  },
+  {
+    "head": "an inter-vehicle data link allowing the vehicles to cooperate with one another",
+    "relation": "is to achieve",
+    "tail": "a common goal"
+  },
+  {
+    "head": "a common goal",
+    "relation": "is to seek and pursue",
+    "tail": "targets"
+  },
+  {
+    "head": "a way",
+    "relation": "will increase",
+    "tail": "the probability of kill"
+  },
+  {
+    "head": "this message traffic",
+    "relation": "is used to initially assign canisters to",
+    "tail": "targets"
+  },
+  {
+    "head": "this message traffic used to initially assign canisters to targets",
+    "relation": "is so as to maximize",
+    "tail": "an objective"
+  },
+  {
+    "head": "an objective",
+    "relation": "is such as, for example",
+    "tail": "the global probability of intercepting all targets"
+  },
+  {
+    "head": "a low-cost infrared",
+    "relation": "may be used for detecting",
+    "tail": "the angular position of targets"
+  },
+  {
+    "head": "visible wavelength camera",
+    "relation": "may be used for detecting",
+    "tail": "the angular position of targets"
+  },
+  {
+    "head": "targets",
+    "relation": "are within the vicinity of, and relative to",
+    "tail": "the canister"
+  },
+  {
+    "head": "infrared",
+    "relation": "is abbreviated as",
+    "tail": "IR"
+  },
+  {
+    "head": "fuzing information",
+    "relation": "is transmitted just prior to",
+    "tail": "detonation"
+  },
+  {
+    "head": "the GPS information",
+    "relation": "can be used for locating",
+    "tail": "any unexploded ordinance"
+  },
+  {
+    "head": "the potential function",
+    "relation": "provides the local guidance for",
+    "tail": "formation flying"
+  },
+  {
+    "head": "the potential function",
+    "relation": "provides the local control for",
+    "tail": "formation flying"
+  },
+  {
+    "head": "divert thrusters",
+    "relation": "provide",
+    "tail": "the necessary maneuver capability"
+  },
+  {
+    "head": "the baseband transceiver",
+    "relation": "applies",
+    "tail": "a time-division duplex scheme"
+  },
+  {
+    "head": "a time-division duplex scheme",
+    "relation": "allows the canisters to alternately transmit",
+    "tail": "data packets"
+  },
+  {
+    "head": "a time-division duplex scheme",
+    "relation": "allows the canisters to alternately receive",
+    "tail": "data packets"
+  },
+  {
+    "head": "a time-division duplex scheme",
+    "relation": "allows the canisters to alternately transmit and receive data packets in",
+    "tail": "a synchronous manner"
+  },
+  {
+    "head": "it",
+    "relation": "might not possess enough impulse to change",
+    "tail": "its direction of motion"
+  },
+  {
+    "head": "changing its direction of motion",
+    "relation": "is to coincide with",
+    "tail": "that of the target"
+  }
+]

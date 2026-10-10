@@ -1,0 +1,142 @@
+[
+  {
+    "head": "a global optimization problem",
+    "relation": "is usually solved with",
+    "tail": "a numerical method"
+  },
+  {
+    "head": "a numerical method",
+    "relation": "is such as",
+    "tail": "simulated annealing"
+  },
+  {
+    "head": "a numerical method",
+    "relation": "is such as",
+    "tail": "tabu search"
+  },
+  {
+    "head": "a numerical method",
+    "relation": "is such as",
+    "tail": "genetic algorithm"
+  },
+  {
+    "head": "the business information",
+    "relation": "may include, but not limited to",
+    "tail": "transaction history with a specific customer"
+  },
+  {
+    "head": "the business information",
+    "relation": "may include, but not limited to",
+    "tail": "potential business from a specific customer"
+  },
+  {
+    "head": "the business information",
+    "relation": "may include, but not limited to",
+    "tail": "satisfaction of a specific customer"
+  },
+  {
+    "head": "the current solution",
+    "relation": "changes almost randomly when",
+    "tail": "T is large"
+  },
+  {
+    "head": "the current solution",
+    "relation": "increasingly become stable as",
+    "tail": "T goes to zero"
+  },
+  {
+    "head": "the problem",
+    "relation": "may include",
+    "tail": "more constraints"
+  },
+  {
+    "head": "the problem",
+    "relation": "may include more constraints other than",
+    "tail": "those set forth above"
+  },
+  {
+    "head": "the problem",
+    "relation": "may include more constraints to take",
+    "tail": "additional factors into consideration"
+  },
+  {
+    "head": "the following appended claims",
+    "relation": "may contain",
+    "tail": "usage of the introductory phrases"
+  },
+  {
+    "head": "the introductory phrases",
+    "relation": "are",
+    "tail": "\"at least one\" and \"one or more\""
+  },
+  {
+    "head": "the following appended claims",
+    "relation": "may contain usage of the introductory phrases to introduce",
+    "tail": "claim recitations"
+  },
+  {
+    "head": "the computer program",
+    "relation": "is equipped with",
+    "tail": "a computation engine"
+  },
+  {
+    "head": "a computation engine",
+    "relation": "is configured to operate",
+    "tail": "the simulated annealing algorithm"
+  },
+  {
+    "head": "the constraints",
+    "relation": "are consolidated to",
+    "tail": "a new numerical resultant"
+  },
+  {
+    "head": "the constraints",
+    "relation": "are in",
+    "tail": "a quantitative feasible solution"
+  },
+  {
+    "head": "the new numerical resultant",
+    "relation": "is mapped to",
+    "tail": "a qualitative solution"
+  },
+  {
+    "head": "the quantitative feasible solution",
+    "relation": "is mapped to",
+    "tail": "a \"moderately economical\" qualitative solution"
+  },
+  {
+    "head": "a vehicle routing problem",
+    "relation": "is within",
+    "tail": "time windows"
+  },
+  {
+    "head": "the capacity of each vehicle",
+    "relation": "is",
+    "tail": "an independent constraint"
+  },
+  {
+    "head": "it",
+    "relation": "is not associated with",
+    "tail": "other constraints"
+  },
+  {
+    "head": "the business consideration",
+    "relation": "may include, but is not limited to",
+    "tail": "transaction history with a specific customer"
+  },
+  {
+    "head": "the business consideration",
+    "relation": "may include, but is not limited to",
+    "tail": "potential business from a specific customer"
+  },
+  {
+    "head": "the business consideration",
+    "relation": "may include, but is not limited to",
+    "tail": "satisfaction of a specific customer"
+  },
+  {
+    "head": "the business consideration",
+    "relation": "is associated with",
+    "tail": "the second predetermined rule"
+  }
+]

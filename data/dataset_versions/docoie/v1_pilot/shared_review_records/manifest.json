@@ -1,0 +1,104 @@
+{
+  "status": "PILOT_AWAITING_USER_REVIEW_NOT_FOR_FORMAL_SCORING",
+  "rule_basis": "User original prompt; minimal justified edits; no added adjacency/string filtering rules",
+  "source_dataset": "BenchIE_FL, not original BenchIE; DocOIE transportation and healthcare",
+  "source_files": [
+    {
+      "path": "data\\BenchIE_FL_KARMA_Starter\\benchie-annotated_300.txt",
+      "sha256": "301fc6dd813174b843a32c82cdd7e091a45aac106b993e9d24ac0b98e739c168"
+    },
+    {
+      "path": "data\\BenchIE_FL_KARMA_Starter\\before_source_grounded\\gold.json",
+      "sha256": "41a9b577bc8873fbe464b58384904a30c71a25f404347bb8b4b20b92ee0b049a"
+    },
+    {
+      "path": "data\\BenchIE_FL_KARMA_Starter\\before_source_grounded\\input.json",
+      "sha256": "13366959b65c0ceabd650df587f9f55bef3308de41ad4ae6f050b6e38ae69b61"
+    },
+    {
+      "path": "data\\DocIOE\\DocOIE_transportation_eval_gold.json",
+      "sha256": "0eba41acc09b2a52fba9b96a16e10aa101dac68c5bd891faeb8ae7fb1628e383"
+    },
+    {
+      "path": "data\\DocIOE\\DocOIE_transportation_eval_sent.json",
+      "sha256": "26de98d4f888b1a4e523cf115af6ebe27a5b4c7f094e854138bc6ec1760613e5"
+    },
+    {
+      "path": "data\\DocIOE\\DocOIE_healthcare_eval_gold.json",
+      "sha256": "29afd07ef116b3aeaed9616f357bcbb7c3336bca19a595b2b9b66a2014416455"
+    },
+    {
+      "path": "data\\DocIOE\\DocOIE_healthcare_eval_sent.json",
+      "sha256": "345906a27f5e08e4a79143bd776c568ebf5f47d7261196d5f4b5b878b1e51527"
+    }
+  ],
+  "metrics": {
+    "benchie_fl": {
+      "sentences": 6,
+      "old_representative_or_triple_count": 70,
+      "original_expression_rows": 117,
+      "original_fact_clusters": 70,
+      "proposed_gold_count": 46,
+      "duplicate_facts_reduced": 1,
+      "entire_facts_removed": 8,
+      "scope_repair_net_reduction": 8,
+      "split_source_facts": 0,
+      "split_output_facts": 0,
+      "supplemented_facts": 0,
+      "unresolved_source_items": 7,
+      "zero_output_sentences": [],
+      "operations": {
+        "select_source_expression": 2,
+        "repair_alternative_scope": 4,
+        "remove_fact": 8,
+        "keep": 37,
+        "pending": 7,
+        "repair_conditional_scope": 1,
+        "merge_duplicate_fact": 1,
+        "repair_source_expression": 1
+      }
+    },
+    "docoie_transportation": {
+      "sentences": 3,
+      "old_representative_or_triple_count": 13,
+      "original_expression_rows": 13,
+      "original_fact_clusters": null,
+      "proposed_gold_count": 12,
+      "duplicate_facts_reduced": 1,
+      "entire_facts_removed": 0,
+      "scope_repair_net_reduction": 0,
+      "split_source_facts": 0,
+      "split_output_facts": 0,
+      "supplemented_facts": 1,
+      "unresolved_source_items": 1,
+      "zero_output_sentences": [],
+      "operations": {
+        "keep": 9,
+        "supplement": 1,
+        "repair_typo": 1,
+        "merge_duplicate_fact": 1,
+        "pending": 1
+      }
+    },
+    "docoie_healthcare": {
+      "sentences": 3,
+      "old_representative_or_triple_count": 5,
+      "original_expression_rows": 5,
+      "original_fact_clusters": null,
+      "proposed_gold_count": 4,
+      "duplicate_facts_reduced": 0,
+      "entire_facts_removed": 0,
+      "scope_repair_net_reduction": 1,
+      "split_source_facts": 0,
+      "split_output_facts": 0,
+      "supplemented_facts": 0,
+      "unresolved_source_items": 0,
+      "zero_output_sentences": [],
+      "operations": {
+        "keep": 3,
+        "repair_modal_scope": 1
+      }
+    }
+  },
+  "unresolved_source_items": 8
+}

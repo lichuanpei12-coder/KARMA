@@ -1,0 +1,92 @@
+[
+  {
+    "head": "The embodiments herein",
+    "relation": "can comprise",
+    "tail": "hardware and software elements."
+  },
+  {
+    "head": "conventional methods",
+    "relation": "have used supervised learning to classify",
+    "tail": "normal and anomalous phenomena"
+  },
+  {
+    "head": "classification of normal and anomalous portions",
+    "relation": "is based on",
+    "tail": "ground truth"
+  },
+  {
+    "head": "the method embodiments described herein",
+    "relation": "could be implemented in",
+    "tail": "hardware"
+  },
+  {
+    "head": "the method embodiments described herein",
+    "relation": "could be implemented in",
+    "tail": "software"
+  },
+  {
+    "head": "alternative boundaries",
+    "relation": "can be defined",
+    "tail": ""
+  },
+  {
+    "head": "the specified functions and relationships thereof",
+    "relation": "are appropriately performed",
+    "tail": ""
+  },
+  {
+    "head": "anomalous phenomena",
+    "relation": "indicate",
+    "tail": "outliers that may encompass noise"
+  },
+  {
+    "head": "outliers",
+    "relation": "may encompass",
+    "tail": "noise"
+  },
+  {
+    "head": "outliers that may encompass noise",
+    "relation": "is mainly due to motion",
+    "tail": "artifacts and/or abnormalities"
+  },
+  {
+    "head": "the illustrated steps",
+    "relation": "are set out to explain",
+    "tail": "the exemplary embodiments shown"
+  },
+  {
+    "head": "ongoing technological development",
+    "relation": "will change",
+    "tail": "the manner"
+  },
+  {
+    "head": "particular functions",
+    "relation": "are performed in",
+    "tail": "the manner"
+  },
+  {
+    "head": "the embodiments of the present disclosure",
+    "relation": "may be implemented on",
+    "tail": "different hardware devices"
+  },
+  {
+    "head": "the embodiments of the present disclosure implemented on different hardware devices",
+    "relation": "is for example using",
+    "tail": "a plurality of CPUs"
+  },
+  {
+    "head": "the pre-defined first threshold and the pre-defined second threshold",
+    "relation": "may have",
+    "tail": "same values"
+  },
+  {
+    "head": "this",
+    "relation": "is followed by identifying",
+    "tail": "one or more defining features from the derived primary features"
+  },
+  {
+    "head": "the derived primary features",
+    "relation": "are based on",
+    "tail": "statistical learning of normal signature of the sensor signals"
+  }
+]

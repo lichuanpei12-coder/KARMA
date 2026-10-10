@@ -1,0 +1,107 @@
+[
+  {
+    "head": "the control station",
+    "relation": "is typically located in",
+    "tail": "a place"
+  },
+  {
+    "head": "a place",
+    "relation": "is remote from",
+    "tail": "the robot face"
+  },
+  {
+    "head": "the CHANGE button",
+    "relation": "can be selected to change",
+    "tail": "the default robot face in a new session"
+  },
+  {
+    "head": "capturing and playing back video",
+    "relation": "can be taken through",
+    "tail": "graphical icons"
+  },
+  {
+    "head": "the robot face",
+    "relation": "may have",
+    "tail": "a voice recognition system that allows the user to grant access with a voice command"
+  },
+  {
+    "head": "the robot face",
+    "relation": "can be retrofitted onto",
+    "tail": "booms"
+  },
+  {
+    "head": "booms",
+    "relation": "presently exist in",
+    "tail": "medical facilities"
+  },
+  {
+    "head": "there",
+    "relation": "has been developed",
+    "tail": "a robotic system"
+  },
+  {
+    "head": "a robotic system",
+    "relation": "is sold by",
+    "tail": "Intuitive Surgical, Inc."
+  },
+  {
+    "head": "a robotic system",
+    "relation": "is sold under the trademark",
+    "tail": "Da Vinci"
+  },
+  {
+    "head": "a robotic system",
+    "relation": "allows a surgeon to remotely perform",
+    "tail": "a surgical procedure"
+  },
+  {
+    "head": "a robotic system",
+    "relation": "allows a surgeon to remotely perform a surgical procedure through",
+    "tail": "use of robot arms"
+  },
+  {
+    "head": "robot arms",
+    "relation": "are located at",
+    "tail": "the surgical site"
+  },
+  {
+    "head": "it would be desirable",
+    "relation": "to allow",
+    "tail": "remote medical consultation with a system that was relatively inexpensive and easy to install into existing operating rooms"
+  },
+  {
+    "head": "alert icon",
+    "relation": "can be selected by",
+    "tail": "the user at the remote station"
+  },
+  {
+    "head": "Alert icon",
+    "relation": "can be selected by the user at the remote station to generate",
+    "tail": "an alert indicator"
+  },
+  {
+    "head": "an alert indicator",
+    "relation": "is such as",
+    "tail": "a sound from the speaker of the robot face"
+  },
+  {
+    "head": "the annotated  image",
+    "relation": "may be stored by",
+    "tail": "the system"
+  },
+  {
+    "head": "the user",
+    "relation": "can rapidly move through",
+    "tail": "the still images in a slide show fashion"
+  },
+  {
+    "head": "the user",
+    "relation": "can rapidly move through",
+    "tail": "a captured video clip"
+  },
+  {
+    "head": "the user",
+    "relation": "can move through a captured video clip by moving",
+    "tail": "the slide bar"
+  }
+]

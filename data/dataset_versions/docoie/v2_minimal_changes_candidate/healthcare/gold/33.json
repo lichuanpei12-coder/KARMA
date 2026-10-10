@@ -1,0 +1,132 @@
+[
+  {
+    "head": "the grip",
+    "relation": "is",
+    "tail": "a pistol grip"
+  },
+  {
+    "head": "the grip",
+    "relation": "can have",
+    "tail": "various other configurations"
+  },
+  {
+    "head": "the grip",
+    "relation": "can simply be omitted",
+    "tail": ""
+  },
+  {
+    "head": "various features",
+    "relation": "are grouped together in",
+    "tail": "various embodiments"
+  },
+  {
+    "head": "various features grouped together",
+    "relation": "is for the purpose of",
+    "tail": "streamlining the disclosure"
+  },
+  {
+    "head": "the battery",
+    "relation": "is moved from the inserted position to",
+    "tail": "the intermediate position"
+  },
+  {
+    "head": "the battery",
+    "relation": "is moved by applying pressure to",
+    "tail": "the primary actuators from outside the mobile device"
+  },
+  {
+    "head": "the primary actuators",
+    "relation": "are applied pressure from",
+    "tail": "outside the mobile device"
+  },
+  {
+    "head": "elements in the figures",
+    "relation": "are illustrated for",
+    "tail": "simplicity and clarity"
+  },
+  {
+    "head": "elements in the figures",
+    "relation": "have not necessarily been drawn to scale",
+    "tail": ""
+  },
+  {
+    "head": "the front end of the battery",
+    "relation": "is placed into",
+    "tail": "the compartment"
+  },
+  {
+    "head": "the compartment",
+    "relation": "is at",
+    "tail": "the open rear end of the compartment"
+  },
+  {
+    "head": "the contacts",
+    "relation": "are",
+    "tail": "pogo pins"
+  },
+  {
+    "head": "the contacts",
+    "relation": "electrically connect the battery to",
+    "tail": "the internal components of the mobile device"
+  },
+  {
+    "head": "the battery",
+    "relation": "is fully inserted into",
+    "tail": "the compartment"
+  },
+  {
+    "head": "the latches",
+    "relation": "are disengaged from",
+    "tail": "the first latch"
+  },
+  {
+    "head": "the battery",
+    "relation": "moves rearward",
+    "tail": ""
+  },
+  {
+    "head": "the latches",
+    "relation": "return to",
+    "tail": "the extended position"
+  },
+  {
+    "head": "they",
+    "relation": "are no longer forced inwards by",
+    "tail": "the primary actuators"
+  },
+  {
+    "head": "the dimensions of some of the elements in the figures",
+    "relation": "may be exaggerated relative to",
+    "tail": "other elements"
+  },
+  {
+    "head": "the dimensions of some of the elements in the figures exaggerated relative to other elements",
+    "relation": "are to help to improve",
+    "tail": "understanding of embodiments of the present invention"
+  },
+  {
+    "head": "the term \"coupled\" as used herein",
+    "relation": "is defined as connected",
+    "tail": ""
+  },
+  {
+    "head": "the term \"coupled\"",
+    "relation": "is not necessarily directly connected",
+    "tail": ""
+  },
+  {
+    "head": "the term \"coupled\"",
+    "relation": "is not necessarily mechanically connected",
+    "tail": ""
+  },
+  {
+    "head": "the front end of the compartment",
+    "relation": "is defined by",
+    "tail": "a wall bearing a set of contacts"
+  },
+  {
+    "head": "a wall",
+    "relation": "bears",
+    "tail": "a set of contacts"
+  }
+]

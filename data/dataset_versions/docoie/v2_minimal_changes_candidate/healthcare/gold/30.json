@@ -1,0 +1,122 @@
+[
+  {
+    "head": "at least one photodiode",
+    "relation": "is coupled to receive",
+    "tail": "signals from the CO.sub.2 sensor"
+  },
+  {
+    "head": "photodiode",
+    "relation": "responds to",
+    "tail": "color change of the sensor element"
+  },
+  {
+    "head": "photodiode",
+    "relation": "transduces the color change into",
+    "tail": "a light intensity change"
+  },
+  {
+    "head": "the total time for each test",
+    "relation": "was around",
+    "tail": "16 min"
+  },
+  {
+    "head": "the sensor",
+    "relation": "was stored in",
+    "tail": "a small package in the atmosphere until next test"
+  },
+  {
+    "head": "the sensor",
+    "relation": "is used for",
+    "tail": "breath CO.sub.2 analysis"
+  },
+  {
+    "head": "the probes",
+    "relation": "can dissolve quickly upon",
+    "tail": "contact with breath condensation"
+  },
+  {
+    "head": "the probes dissolving upon contact with breath condensation",
+    "relation": "is to facilitate",
+    "tail": "fast reaction kinetics"
+  },
+  {
+    "head": "this summary",
+    "relation": "is not intended to identify",
+    "tail": "key features of the claimed subject matter"
+  },
+  {
+    "head": "this summary",
+    "relation": "is not intended to be used as",
+    "tail": "an aid in determining the scope of the claimed subject matter"
+  },
+  {
+    "head": "the detector",
+    "relation": "includes",
+    "tail": "a transmitter and a mobile device"
+  },
+  {
+    "head": "a transmitter and a mobile device",
+    "relation": "are coupled to receive",
+    "tail": "data"
+  },
+  {
+    "head": "data",
+    "relation": "is transmitted by",
+    "tail": "the transmitter"
+  },
+  {
+    "head": "the porous hydrophobic surface",
+    "relation": "is coated with",
+    "tail": "sensing chemicals"
+  },
+  {
+    "head": "the porous hydrophobic surface",
+    "relation": "comprises",
+    "tail": "a plurality of microstructures"
+  },
+  {
+    "head": "the shapes of various elements and angles",
+    "relation": "are not drawn to scale",
+    "tail": ""
+  },
+  {
+    "head": "some of these elements",
+    "relation": "are arbitrarily enlarged and positioned to improve",
+    "tail": "drawing legibility"
+  },
+  {
+    "head": "the particular shapes of the elements as drawn",
+    "relation": "are not intended to convey",
+    "tail": "any information regarding the actual shape of the particular elements"
+  },
+  {
+    "head": "information",
+    "relation": "is regarding",
+    "tail": "the actual shape of the particular elements"
+  },
+  {
+    "head": "the particular shapes of the elements as drawn",
+    "relation": "have been solely selected for ease of",
+    "tail": "recognition in the drawings"
+  },
+  {
+    "head": "this",
+    "relation": "is in contrast to",
+    "tail": "existing CO.sub.2 sensors"
+  },
+  {
+    "head": "water condensation",
+    "relation": "is",
+    "tail": "a major source of interference"
+  },
+  {
+    "head": "difference in respiration patterns between subjects with different lung capabilities",
+    "relation": "could be clearly observed from",
+    "tail": "the breath-by-breath CO.sub.2 waveforms"
+  },
+  {
+    "head": "difference in respiration patterns",
+    "relation": "is between",
+    "tail": "subjects with different lung capabilities"
+  }
+]

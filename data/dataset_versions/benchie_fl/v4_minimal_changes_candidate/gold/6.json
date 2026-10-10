@@ -1,0 +1,482 @@
+{
+  "benchie_91": [
+    {
+      "head": "He",
+      "relation": "had been at",
+      "tail": "Battle of Granicus River"
+    },
+    {
+      "head": "He",
+      "relation": "had believed that",
+      "tail": "Memnon's scorched Earth strategy would work here"
+    },
+    {
+      "head": "Memnon",
+      "relation": "had",
+      "tail": "strategy"
+    },
+    {
+      "head": "Memnon's strategy",
+      "relation": "is called",
+      "tail": "scorched Earth"
+    }
+  ],
+  "benchie_92": [
+    {
+      "head": "film",
+      "relation": "uses",
+      "tail": "some computer-generated graphics"
+    },
+    {
+      "head": "northern lights",
+      "relation": "are in the scene where",
+      "tail": "Inge walks through fields"
+    },
+    {
+      "head": "northern lights",
+      "relation": "are",
+      "tail": "computer-generated graphics"
+    },
+    {
+      "head": "Inge",
+      "relation": "walks through",
+      "tail": "fields"
+    },
+    {
+      "head": "Inge",
+      "relation": "walks to",
+      "tail": "Olaf's house"
+    },
+    {
+      "head": "Inge",
+      "relation": "walks to Olaf's house to",
+      "tail": "take bath"
+    },
+    {
+      "head": "geese",
+      "relation": "be flying over",
+      "tail": "Olaf's house"
+    },
+    {
+      "head": "geese",
+      "relation": "are",
+      "tail": "computer-generated graphics"
+    },
+    {
+      "head": "geese flying over Olaf's house",
+      "relation": "are after",
+      "tail": "the scene where Inge walks to Olaf's house to take a bath"
+    },
+    {
+      "head": "Olaf",
+      "relation": "has",
+      "tail": "house"
+    }
+  ],
+  "benchie_93": [
+    {
+      "head": "Sweeney",
+      "relation": "sponsored",
+      "tail": "Legislation"
+    },
+    {
+      "head": "Legislation",
+      "relation": "was signed into",
+      "tail": "law"
+    },
+    {
+      "head": "Legislation sponsored by Sweeney and signed into law",
+      "relation": "provides",
+      "tail": "state pensions"
+    },
+    {
+      "head": "Legislation sponsored by Sweeney and signed into law",
+      "relation": "provides state pensions to",
+      "tail": "surviving family members of police who die in line of duty"
+    },
+    {
+      "head": "Legislation sponsored by Sweeney and signed into law",
+      "relation": "provides state pensions to",
+      "tail": "surviving family members of firefighters who die in line of duty"
+    },
+    {
+      "head": "Legislation sponsored by Sweeney and signed into law",
+      "relation": "provides state pensions to",
+      "tail": "surviving family members of emergency services workers who die in line of duty"
+    },
+    {
+      "head": "surviving family members of police who die in line of duty",
+      "relation": "receive",
+      "tail": "state pensions"
+    },
+    {
+      "head": "surviving family members of firefighters who die in line of duty",
+      "relation": "receive",
+      "tail": "state pensions"
+    },
+    {
+      "head": "surviving family members of emergency services workers who die in line of duty",
+      "relation": "receive",
+      "tail": "state pensions"
+    },
+    {
+      "head": "police",
+      "relation": "die in",
+      "tail": "line of duty"
+    },
+    {
+      "head": "firefighters",
+      "relation": "die in",
+      "tail": "line of duty"
+    },
+    {
+      "head": "emergency services workers",
+      "relation": "die in",
+      "tail": "line of duty"
+    },
+    {
+      "head": "Legislation sponsored by Sweeney and signed into law",
+      "relation": "removes",
+      "tail": "remarriage prohibition"
+    },
+    {
+      "head": "Legislation sponsored by Sweeney and signed into law",
+      "relation": "removes remarriage prohibition to",
+      "tail": "receive death benefits"
+    },
+    {
+      "head": "Legislation sponsored by Sweeney and signed into law",
+      "relation": "removes remarriage prohibition to receive death benefits for",
+      "tail": "spouses of police officers killed while serving public good"
+    },
+    {
+      "head": "Legislation sponsored by Sweeney and signed into law",
+      "relation": "removes remarriage prohibition to receive death benefits for",
+      "tail": "spouses of firefighters killed while serving public good"
+    },
+    {
+      "head": "remarriage prohibition",
+      "relation": "was to",
+      "tail": "receive death benefits"
+    },
+    {
+      "head": "remarriage prohibition",
+      "relation": "was to receive death benefits for",
+      "tail": "spouses of police officers killed while serving the public good"
+    },
+    {
+      "head": "remarriage prohibition",
+      "relation": "was to receive death benefits for",
+      "tail": "spouses of firefighters killed while serving the public good"
+    },
+    {
+      "head": "police officers",
+      "relation": "are",
+      "tail": "killed"
+    },
+    {
+      "head": "police officers",
+      "relation": "are killed while",
+      "tail": "serving public good"
+    },
+    {
+      "head": "firefighters",
+      "relation": "are",
+      "tail": "killed"
+    },
+    {
+      "head": "firefighters",
+      "relation": "are killed while",
+      "tail": "serving public good"
+    }
+  ],
+  "benchie_94": [
+    {
+      "head": "latter",
+      "relation": "was lifted only as",
+      "tail": "b-side of Keep on Loving Me"
+    },
+    {
+      "head": "Keep on Loving Me",
+      "relation": "has",
+      "tail": "b-side"
+    }
+  ],
+  "benchie_95": [
+    {
+      "head": "Dreamer",
+      "relation": "is",
+      "tail": "first single"
+    },
+    {
+      "head": "Dreamer",
+      "relation": "features",
+      "tail": "performances"
+    },
+    {
+      "head": "Dreamer",
+      "relation": "features performances by",
+      "tail": "Philippe Saisse"
+    },
+    {
+      "head": "Dreamer",
+      "relation": "features performances by",
+      "tail": "Jasmine Roy"
+    },
+    {
+      "head": "Dreamer",
+      "relation": "features performances by",
+      "tail": "Rebeca Vega"
+    },
+    {
+      "head": "Philippe Saisse",
+      "relation": "is",
+      "tail": "keyboardist"
+    },
+    {
+      "head": "Jasmine Roy",
+      "relation": "is",
+      "tail": "vocalist"
+    },
+    {
+      "head": "Rebeca Vega",
+      "relation": "is",
+      "tail": "vocalist"
+    },
+    {
+      "head": "Dreamer",
+      "relation": "features performances by",
+      "tail": "keyboardist"
+    },
+    {
+      "head": "Dreamer",
+      "relation": "features performances by",
+      "tail": "vocalists"
+    }
+  ],
+  "benchie_96": [
+    {
+      "head": "QVC Network Inc.",
+      "relation": "said",
+      "tail": "it completed its acquisition"
+    },
+    {
+      "head": "QVC Network Inc.",
+      "relation": "said it completed its acquisition of",
+      "tail": "CVN Cos"
+    },
+    {
+      "head": "QVC Network Inc.",
+      "relation": "said",
+      "tail": "it completed its acquisition of CVN Cos for about $423 million"
+    }
+  ],
+  "benchie_97": [
+    {
+      "head": "Mr. Ackerman",
+      "relation": "contended that",
+      "tail": "it was a direct response"
+    },
+    {
+      "head": "Mr. Ackerman",
+      "relation": "contended that",
+      "tail": "it was a direct response to his efforts to gain control"
+    },
+    {
+      "head": "Mr. Ackerman",
+      "relation": "contended that it was a direct response to his efforts to gain control of",
+      "tail": "Datapoint"
+    }
+  ],
+  "benchie_98": [
+    {
+      "head": "Both companies",
+      "relation": "are allies of",
+      "tail": "Navigation Mixte"
+    },
+    {
+      "head": "Both companies",
+      "relation": "are allies of Navigation Mixte in",
+      "tail": "Navigation Mixte's fight against hostile takeover bid"
+    },
+    {
+      "head": "Cie",
+      "relation": "launched",
+      "tail": "hostile takeover bid"
+    },
+    {
+      "head": "hostile takeover bid",
+      "relation": "was launched by Cie",
+      "tail": "last week"
+    },
+    {
+      "head": "Navigation Mixte",
+      "relation": "is fighting against",
+      "tail": "hostile takeover bid"
+    },
+    {
+      "head": "Navigation Mixte",
+      "relation": "launched its fight against hostile takeover bid",
+      "tail": "last week"
+    },
+    {
+      "head": "Navigation Mixte",
+      "relation": "is fighting against hostile takeover bid launched by",
+      "tail": "Cie"
+    },
+    {
+      "head": "Both companies",
+      "relation": "are fighting against",
+      "tail": "hostile takeover bid"
+    },
+    {
+      "head": "Both companies",
+      "relation": "are fighting against hostile takeover bid launched",
+      "tail": "last week"
+    },
+    {
+      "head": "Both companies",
+      "relation": "are fighting against hostile takeover bid launched by",
+      "tail": "Cie"
+    },
+    {
+      "head": "Both companies",
+      "relation": "are",
+      "tail": "allies"
+    }
+  ],
+  "benchie_99": [
+    {
+      "head": "he",
+      "relation": "became",
+      "tail": "Lord Justice of Appeal"
+    },
+    {
+      "head": "he",
+      "relation": "became Lord Justice of Appeal after",
+      "tail": "a break"
+    },
+    {
+      "head": "he",
+      "relation": "became Lord Justice of Appeal after break of",
+      "tail": "four years"
+    }
+  ],
+  "benchie_100": [
+    {
+      "head": "Salomon Brothers",
+      "relation": "says",
+      "tail": "We believe real estate properties would trade at discount"
+    },
+    {
+      "head": "Salomon Brothers",
+      "relation": "says",
+      "tail": "We believe real estate properties would trade at discount... after realty unit is spun off..."
+    }
+  ],
+  "benchie_101": [
+    {
+      "head": "Paul Johanson",
+      "relation": "is",
+      "tail": "Monsanto's director of plant sciences"
+    },
+    {
+      "head": "Monsanto",
+      "relation": "has",
+      "tail": "director of plant sciences"
+    },
+    {
+      "head": "Paul Johanson",
+      "relation": "said",
+      "tail": "Monsanto's chemical spray overcomes these problems"
+    },
+    {
+      "head": "Paul Johanson",
+      "relation": "said",
+      "tail": "Monsanto's chemical spray is gentle on the female organ"
+    },
+    {
+      "head": "Paul Johanson",
+      "relation": "is",
+      "tail": "Monsanto's director"
+    }
+  ],
+  "benchie_102": [
+    {
+      "head": "Ms. Waleson",
+      "relation": "is",
+      "tail": "writer"
+    },
+    {
+      "head": "Ms. Waleson",
+      "relation": "is",
+      "tail": "free-lance"
+    },
+    {
+      "head": "Ms. Waleson",
+      "relation": "is based in",
+      "tail": "New York"
+    }
+  ],
+  "benchie_103": [
+    {
+      "head": "Premark International Inc.",
+      "relation": "peddles",
+      "tail": "M8.7sp Electronic Cycling Simulator"
+    },
+    {
+      "head": "M8.7sp Electronic Cycling Simulator",
+      "relation": "is",
+      "tail": "stationary cycle"
+    },
+    {
+      "head": "M8.7sp Electronic Cycling Simulator",
+      "relation": "costs",
+      "tail": "$2,000"
+    },
+    {
+      "head": "Premark International Inc.",
+      "relation": "peddles",
+      "tail": "stationary cycle"
+    }
+  ],
+  "benchie_104": [
+    {
+      "head": "Mrs. Marcos",
+      "relation": "has",
+      "tail": "trial"
+    },
+    {
+      "head": "Mrs. Marcos's trial",
+      "relation": "is expected to",
+      "tail": "begin"
+    },
+    {
+      "head": "Mrs. Marcos's trial",
+      "relation": "is expected to begin in",
+      "tail": "March"
+    }
+  ],
+  "benchie_105": [
+    {
+      "head": "Bioengineers",
+      "relation": "set out to duplicate",
+      "tail": "that feat"
+    },
+    {
+      "head": "Bioengineers",
+      "relation": "set out to duplicate that feat",
+      "tail": "scientifically"
+    },
+    {
+      "head": "Bioengineers",
+      "relation": "set out to duplicate that feat",
+      "tail": "commercially"
+    },
+    {
+      "head": "Bioengineers",
+      "relation": "set out to duplicate that feat with",
+      "tail": "new life forms"
+    }
+  ]
+}

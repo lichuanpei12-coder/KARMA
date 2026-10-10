@@ -1,0 +1,3651 @@
+{
+  "benchie_1": [
+    {
+      "head": "He",
+      "relation": "served as",
+      "tail": "the first Prime Minister of Australia"
+    },
+    {
+      "head": "He",
+      "relation": "became",
+      "tail": "a founding justice"
+    },
+    {
+      "head": "He",
+      "relation": "became a founding justice of",
+      "tail": "the High Court of Australia"
+    }
+  ],
+  "benchie_2": [
+    {
+      "head": "Graner",
+      "relation": "handcuffed",
+      "tail": "him"
+    },
+    {
+      "head": "Graner",
+      "relation": "handcuffed him to",
+      "tail": "the bars"
+    },
+    {
+      "head": "Graner",
+      "relation": "handcuffed him to the bars of",
+      "tail": "a cell window"
+    },
+    {
+      "head": "Graner",
+      "relation": "left",
+      "tail": "him there"
+    }
+  ],
+  "benchie_3": [
+    {
+      "head": "It",
+      "relation": "deals with",
+      "tail": "cases of fraud"
+    },
+    {
+      "head": "It",
+      "relation": "deals with cases of fraud in relation to",
+      "tail": "direct taxes"
+    },
+    {
+      "head": "cases",
+      "relation": "involving",
+      "tail": "United Nations trade sanctions"
+    }
+  ],
+  "benchie_4": [
+    {
+      "head": "St. Michael",
+      "relation": "was considered to be",
+      "tail": "the patron saint of colonial Maryland"
+    },
+    {
+      "head": "St. Michael",
+      "relation": "was honored by",
+      "tail": "the river being named for him"
+    },
+    {
+      "head": "St. Michael",
+      "relation": "was considered to be",
+      "tail": "the patron saint"
+    }
+  ],
+  "benchie_5": [
+    {
+      "head": "The show",
+      "relation": "was designed to",
+      "tail": "appear as if the viewer was channel surfing"
+    },
+    {
+      "head": "The show",
+      "relation": "was designed to appear as if the viewer was channel surfing through",
+      "tail": "a multi-channel wasteland"
+    }
+  ],
+  "benchie_6": [
+    {
+      "head": "the remaining trackage at Charles City",
+      "relation": "was",
+      "tail": "abandoned"
+    }
+  ],
+  "benchie_7": [
+    {
+      "head": "Dr. Jagan himself",
+      "relation": "was personally involved in",
+      "tail": "the organization of the strike"
+    },
+    {
+      "head": "Dr. Jagan himself",
+      "relation": "helped to",
+      "tail": "raise funds"
+    },
+    {
+      "head": "Dr. Jagan himself",
+      "relation": "helped to raise funds",
+      "tail": "across the country"
+    }
+  ],
+  "benchie_8": [
+    {
+      "head": "the municipality",
+      "relation": "was renamed",
+      "tail": "Jones"
+    },
+    {
+      "head": "William Jones",
+      "relation": "authored",
+      "tail": "the Philippine Autonomy Act of 1916"
+    },
+    {
+      "head": "the Philippine Autonomy Act of 1916",
+      "relation": "provided for",
+      "tail": "greater autonomy"
+    },
+    {
+      "head": "the Philippine Autonomy Act of 1916",
+      "relation": "provided for greater autonomy for",
+      "tail": "the Philippines"
+    },
+    {
+      "head": "the Philippine Autonomy Act of 1916",
+      "relation": "provided for greater autonomy for the Philippines under",
+      "tail": "American colonial rule"
+    }
+  ],
+  "benchie_9": [
+    {
+      "head": "the laser",
+      "relation": "cuts",
+      "tail": "a portion of the prostate"
+    },
+    {
+      "head": "a portion of the prostate",
+      "relation": "is then",
+      "tail": "cut"
+    },
+    {
+      "head": "a portion of the prostate",
+      "relation": "is then cut into",
+      "tail": "smaller pieces"
+    }
+  ],
+  "benchie_10": [
+    {
+      "head": "`` Kormoran ''",
+      "relation": "was the only Axis ship to",
+      "tail": "conduct attacks in Australian waters during 1941"
+    }
+  ],
+  "benchie_11": [
+    {
+      "head": "He",
+      "relation": "were said to",
+      "tail": "have made bombs"
+    },
+    {
+      "head": "his friends",
+      "relation": "were said to",
+      "tail": "have made bombs"
+    },
+    {
+      "head": "He",
+      "relation": "were said to have made bombs for",
+      "tail": "fun"
+    },
+    {
+      "head": "his friends",
+      "relation": "were said to have made bombs for",
+      "tail": "fun"
+    }
+  ],
+  "benchie_12": [
+    {
+      "head": "A large gravestone",
+      "relation": "was",
+      "tail": "erected"
+    },
+    {
+      "head": "A large gravestone",
+      "relation": "was erected in",
+      "tail": "1866"
+    }
+  ],
+  "benchie_13": [
+    {
+      "head": "he",
+      "relation": "was",
+      "tail": "re-elected"
+    },
+    {
+      "head": "he",
+      "relation": "was re-elected",
+      "tail": "U.S. Senator"
+    },
+    {
+      "head": "he",
+      "relation": "was tipped as",
+      "tail": "a Presidential candidate"
+    },
+    {
+      "head": "he",
+      "relation": "died",
+      "tail": "suddenly"
+    },
+    {
+      "head": "he",
+      "relation": "giving a speech in",
+      "tail": "Chicago"
+    }
+  ],
+  "benchie_14": [
+    {
+      "head": "Ryan Cameron",
+      "relation": "lobby for",
+      "tail": "a frequency change"
+    },
+    {
+      "head": "Ryan Cameron",
+      "relation": "lobby for a frequency change for",
+      "tail": "WHTA"
+    }
+  ],
+  "benchie_15": [
+    {
+      "head": "Each of the programs",
+      "relation": "uses",
+      "tail": "a combination of funding priorities and geographic requirements"
+    },
+    {
+      "head": "Each of the programs",
+      "relation": "uses a combination of funding priorities and geographic requirements to",
+      "tail": "select grants"
+    },
+    {
+      "head": "grants",
+      "relation": "described on",
+      "tail": "the foundation 's web site"
+    }
+  ],
+  "benchie_17": [
+    {
+      "head": "The main reason for this adoption over mainline gimp",
+      "relation": "was",
+      "tail": "its support for high bit depths"
+    },
+    {
+      "head": "high bit depths",
+      "relation": "can be required for",
+      "tail": "film work"
+    }
+  ],
+  "benchie_18": [
+    {
+      "head": "They",
+      "relation": "have",
+      "tail": "a large range of possible power supplies"
+    },
+    {
+      "head": "They",
+      "relation": "can be",
+      "tail": "380V"
+    }
+  ],
+  "benchie_19": [
+    {
+      "head": "She",
+      "relation": "began",
+      "tail": "her film career"
+    },
+    {
+      "head": "She",
+      "relation": "began her film career in",
+      "tail": "1947"
+    }
+  ],
+  "benchie_20": [
+    {
+      "head": "Alpha Serpentis",
+      "relation": "is",
+      "tail": "a red giant"
+    },
+    {
+      "head": "Alpha Serpentis",
+      "relation": "marks",
+      "tail": "the snake 's heart"
+    }
+  ],
+  "benchie_21": [
+    {
+      "head": "This manual",
+      "relation": "describes",
+      "tail": "the necessity for understanding an opponent 's weaknesses"
+    }
+  ],
+  "benchie_22": [
+    {
+      "head": "the senior team",
+      "relation": "was adopted by",
+      "tail": "Bill Dimovski"
+    }
+  ],
+  "benchie_23": [
+    {
+      "head": "Vaccinations against other viral diseases",
+      "relation": "including",
+      "tail": "the successful rabies vaccination"
+    }
+  ],
+  "benchie_24": [
+    {
+      "head": "the Photographic Model",
+      "relation": "follows",
+      "tail": "more of a step-by-step process"
+    },
+    {
+      "head": "the Comprehensive Model",
+      "relation": "demonstrates",
+      "tail": "an interconnected relationship"
+    },
+    {
+      "head": "the Comprehensive Model",
+      "relation": "demonstrates an interconnected relationship between",
+      "tail": "the variables"
+    }
+  ],
+  "benchie_25": [
+    {
+      "head": "300 soldiers",
+      "relation": "of",
+      "tail": "the 1st SS Battalion"
+    },
+    {
+      "head": "300 soldiers of the 1st SS Battalion",
+      "relation": "were able to",
+      "tail": "reinforce the hotel"
+    }
+  ],
+  "benchie_26": [
+    {
+      "head": "John Crozier , Jr",
+      "relation": "was",
+      "tail": "an early aviation pioneer"
+    },
+    {
+      "head": "John Crozier , Jr",
+      "relation": "began building",
+      "tail": "a human-powered flying machine"
+    },
+    {
+      "head": "John Crozier , Jr",
+      "relation": "began building a human-powered flying machine in",
+      "tail": "the 1890s"
+    },
+    {
+      "head": "John Crozier , Jr",
+      "relation": "was",
+      "tail": "killed"
+    },
+    {
+      "head": "John Crozier , Jr",
+      "relation": "was killed in",
+      "tail": "a feud"
+    }
+  ],
+  "benchie_27": [
+    {
+      "head": "Arminius",
+      "relation": "now had",
+      "tail": "a free hand"
+    }
+  ],
+  "benchie_28": [
+    {
+      "head": "The culture of Bhutan",
+      "relation": "is fully reflected in",
+      "tail": "the capital city"
+    },
+    {
+      "head": "The culture of Bhutan",
+      "relation": "is fully reflected in the capital city in respect of",
+      "tail": "literature"
+    }
+  ],
+  "benchie_29": [
+    {
+      "head": "`` My Classical Way ''",
+      "relation": "was",
+      "tail": "released"
+    },
+    {
+      "head": "`` My Classical Way ''",
+      "relation": "was released on",
+      "tail": "21 September 2010"
+    }
+  ],
+  "benchie_30": [
+    {
+      "head": "attempted murder",
+      "relation": "is",
+      "tail": "an offence"
+    },
+    {
+      "head": "attempted murder",
+      "relation": "is an offence under",
+      "tail": "section 1 of the Criminal Attempts Act 1981"
+    },
+    {
+      "head": "an indictable offence",
+      "relation": "carries",
+      "tail": "a maximum penalty of life imprisonment"
+    }
+  ],
+  "benchie_31": [
+    {
+      "head": "Lugo",
+      "relation": "were",
+      "tail": "released"
+    },
+    {
+      "head": "Lozano",
+      "relation": "were",
+      "tail": "released"
+    },
+    {
+      "head": "Lozano",
+      "relation": "were released in",
+      "tail": "1993"
+    },
+    {
+      "head": "Lugo",
+      "relation": "were released in",
+      "tail": "1993"
+    },
+    {
+      "head": "Lugo",
+      "relation": "continue to",
+      "tail": "reside in Venezuela"
+    },
+    {
+      "head": "Lozano",
+      "relation": "continue to",
+      "tail": "reside in Venezuela"
+    }
+  ],
+  "benchie_32": [
+    {
+      "head": "objects",
+      "relation": "do not",
+      "tail": "contribute significantly to the final image"
+    },
+    {
+      "head": "objects",
+      "relation": "are so far away that",
+      "tail": "they do not contribute significantly to the final image"
+    }
+  ],
+  "benchie_33": [
+    {
+      "head": "The school",
+      "relation": "was",
+      "tail": "founded"
+    },
+    {
+      "head": "The school",
+      "relation": "was founded in",
+      "tail": "1851"
+    }
+  ],
+  "benchie_34": [
+    {
+      "head": "They",
+      "relation": "held",
+      "tail": "the first Triangle workshop"
+    },
+    {
+      "head": "They",
+      "relation": "held the first Triangle workshop in",
+      "tail": "1982"
+    }
+  ],
+  "benchie_35": [
+    {
+      "head": "The town",
+      "relation": "were",
+      "tail": "hit"
+    },
+    {
+      "head": "The town",
+      "relation": "were hit by",
+      "tail": "two moderate earthquakes"
+    },
+    {
+      "head": "The town",
+      "relation": "were hit by two moderate earthquakes within",
+      "tail": "ten years"
+    },
+    {
+      "head": "surrounding villages",
+      "relation": "were",
+      "tail": "hit"
+    },
+    {
+      "head": "surrounding villages",
+      "relation": "were hit by",
+      "tail": "two moderate earthquakes"
+    },
+    {
+      "head": "surrounding villages",
+      "relation": "were hit by two moderate earthquakes within",
+      "tail": "ten years"
+    }
+  ],
+  "benchie_36": [
+    {
+      "head": "She",
+      "relation": "received",
+      "tail": "her Master Degree"
+    },
+    {
+      "head": "She",
+      "relation": "received her Master Degree in",
+      "tail": "the field of Controls , Guidance and Instrumentation"
+    }
+  ],
+  "benchie_37": [
+    {
+      "head": "The theatrical flourishes",
+      "relation": "went beyond",
+      "tail": "established burlesque routines like the fan dance and balloon dance"
+    },
+    {
+      "head": "unique gimmicks she used in her stage show",
+      "relation": "went beyond",
+      "tail": "established burlesque routines like the fan dance and balloon dance"
+    }
+  ],
+  "benchie_38": [
+    {
+      "head": "The RIAA",
+      "relation": "lists",
+      "tail": "it"
+    },
+    {
+      "head": "The RIAA",
+      "relation": "lists it as",
+      "tail": "one of the Best Selling Albums of All Time"
+    }
+  ],
+  "benchie_39": [
+    {
+      "head": "The Cathedral",
+      "relation": "were",
+      "tail": "thoroughly renovated"
+    },
+    {
+      "head": "The Cathedral",
+      "relation": "were thoroughly renovated from",
+      "tail": "2006"
+    },
+    {
+      "head": "the belfry",
+      "relation": "were",
+      "tail": "thoroughly renovated"
+    },
+    {
+      "head": "the belfry",
+      "relation": "were thoroughly renovated from",
+      "tail": "2006"
+    }
+  ],
+  "benchie_41": [
+    {
+      "head": "These screening activities",
+      "relation": "include",
+      "tail": "review of group-based data"
+    }
+  ],
+  "benchie_42": [
+    {
+      "head": "He",
+      "relation": "probably saw",
+      "tail": "active service"
+    },
+    {
+      "head": "He",
+      "relation": "probably saw active service as",
+      "tail": "a soldier"
+    }
+  ],
+  "benchie_43": [
+    {
+      "head": "The Nazis",
+      "relation": "did however permit",
+      "tail": "a single dress rehearsal"
+    },
+    {
+      "head": "The Nazis",
+      "relation": "did however permit a single dress rehearsal in",
+      "tail": "Salzburg"
+    },
+    {
+      "head": "Strauss",
+      "relation": "could hear",
+      "tail": "the work performed"
+    },
+    {
+      "head": "an invited audience",
+      "relation": "could hear",
+      "tail": "the work performed"
+    },
+    {
+      "head": "a single dress rehearsal",
+      "relation": "conducted by",
+      "tail": "Clemens Krauss"
+    }
+  ],
+  "benchie_44": [
+    {
+      "head": "This",
+      "relation": "is usually caused by",
+      "tail": "interacting inductive and capacitive elements"
+    },
+    {
+      "head": "This",
+      "relation": "is usually caused by interacting inductive and capacitive elements in",
+      "tail": "the oscillator"
+    }
+  ],
+  "benchie_45": [
+    {
+      "head": "Sligo town",
+      "relation": "then became",
+      "tail": "an incorporated municipal borough"
+    },
+    {
+      "head": "Sligo town",
+      "relation": "then became an incorporated municipal borough with",
+      "tail": "a Royal Charter"
+    }
+  ],
+  "benchie_46": [
+    {
+      "head": "Tom McMorran",
+      "relation": "joined",
+      "tail": "the band"
+    },
+    {
+      "head": "Tom McMorran",
+      "relation": "joined the band in",
+      "tail": "1994"
+    },
+    {
+      "head": "the band",
+      "relation": "released",
+      "tail": "`` Sahara ''"
+    }
+  ],
+  "benchie_47": [
+    {
+      "head": "she",
+      "relation": "also makes",
+      "tail": "veiled references"
+    },
+    {
+      "head": "she",
+      "relation": "reads",
+      "tail": "the articles"
+    }
+  ],
+  "benchie_48": [
+    {
+      "head": "23.8 % of all households",
+      "relation": "were made up of",
+      "tail": "individuals"
+    }
+  ],
+  "benchie_49": [
+    {
+      "head": "Overseas teams",
+      "relation": "would not return to Russia until",
+      "tail": "1998"
+    }
+  ],
+  "benchie_50": [
+    {
+      "head": "The British Army",
+      "relation": "had been shown to be",
+      "tail": "overstretched"
+    },
+    {
+      "head": "The British Army",
+      "relation": "had been shown to be overstretched by",
+      "tail": "the Crimean War"
+    },
+    {
+      "head": "the mutiny in India",
+      "relation": "had led to the responsibility for providing a garrison in the subcontinent from",
+      "tail": "the Honourable East India Company"
+    },
+    {
+      "head": "the mutiny in India",
+      "relation": "had led to",
+      "tail": "the responsibility"
+    },
+    {
+      "head": "the mutiny in India",
+      "relation": "had led to the responsibility for",
+      "tail": "providing a garrison"
+    },
+    {
+      "head": "the mutiny in India",
+      "relation": "had led to the responsibility for providing a garrison in",
+      "tail": "the subcontinent"
+    }
+  ],
+  "benchie_51": [
+    {
+      "head": "Just above",
+      "relation": "seen is",
+      "tail": "a replica of a Shiva lingam"
+    }
+  ],
+  "benchie_52": [
+    {
+      "head": "The ninth leaf",
+      "relation": "contains",
+      "tail": "a circular world map"
+    },
+    {
+      "head": "The ninth leaf",
+      "relation": "contains a circular world map measuring in",
+      "tail": "circumference"
+    },
+    {
+      "head": "a circular world map",
+      "relation": "measuring in",
+      "tail": "circumference"
+    }
+  ],
+  "benchie_53": [
+    {
+      "head": "It",
+      "relation": "hosts",
+      "tail": "the `` Zomercarnaval ''"
+    },
+    {
+      "head": "the `` Zomercarnaval ''",
+      "relation": "originally called",
+      "tail": "the Antillean carnival"
+    }
+  ],
+  "benchie_54": [
+    {
+      "head": "The power cepstrum of a signal",
+      "relation": "is defined as",
+      "tail": "the squared magnitude of the inverse Fourier transform of the logarithm of the squared magnitude of the Fourier transform of a signal"
+    }
+  ],
+  "benchie_55": [
+    {
+      "head": "Many lodge members",
+      "relation": "are",
+      "tail": "active staff members"
+    }
+  ],
+  "benchie_56": [
+    {
+      "head": "Gideon Rodan",
+      "relation": "taught at the University of Connecticut School of Dental Medicine until",
+      "tail": "he switched over to Merck"
+    },
+    {
+      "head": "Gideon Rodan",
+      "relation": "switched over to",
+      "tail": "Merck"
+    }
+  ],
+  "benchie_57": [
+    {
+      "head": "These",
+      "relation": "are known as",
+      "tail": "Porter 's three generic strategies"
+    }
+  ],
+  "benchie_58": [
+    {
+      "head": "the protocol",
+      "relation": "includes",
+      "tail": "support groups and/or psychotherapy"
+    }
+  ],
+  "benchie_59": [
+    {
+      "head": "They",
+      "relation": "do n't possess",
+      "tail": "eyelids"
+    },
+    {
+      "head": "they",
+      "relation": "must",
+      "tail": "lick their eyeballs clean"
+    },
+    {
+      "head": "they",
+      "relation": "must lick their eyeballs clean in order to",
+      "tail": "keep them moist"
+    }
+  ],
+  "benchie_60": [
+    {
+      "head": "They",
+      "relation": "acquired",
+      "tail": "the Charles City Western"
+    },
+    {
+      "head": "They",
+      "relation": "acquired the Charles City Western on",
+      "tail": "December 31 , 1963"
+    }
+  ],
+  "benchie_61": [
+    {
+      "head": "Hofmann",
+      "relation": "was",
+      "tail": "born"
+    },
+    {
+      "head": "Hofmann",
+      "relation": "was born in",
+      "tail": "Salt Lake City"
+    }
+  ],
+  "benchie_63": [
+    {
+      "head": "locals",
+      "relation": "all speak",
+      "tail": "Minnan languages"
+    },
+    {
+      "head": "the `` triangle area",
+      "relation": "includes",
+      "tail": "Quanzhou"
+    }
+  ],
+  "benchie_64": [
+    {
+      "head": "Andrew Boyle",
+      "relation": "noted",
+      "tail": "`` For the next ten years Childers 's book remained the most powerful contribution of any English writer to the debate on Britain 's alleged military unpreparedness ''"
+    }
+  ],
+  "benchie_65": [
+    {
+      "head": "the Brumbies",
+      "relation": "won",
+      "tail": "47 to 38"
+    }
+  ],
+  "benchie_66": [
+    {
+      "head": "A different judge",
+      "relation": "then ordered",
+      "tail": "the case reviewed"
+    },
+    {
+      "head": "A different judge",
+      "relation": "then ordered the case reviewed by",
+      "tail": "a higher court"
+    }
+  ],
+  "benchie_67": [
+    {
+      "head": "environmental factors",
+      "relation": "are also understood to",
+      "tail": "contribute heavily to the strength of intimate relationships"
+    }
+  ],
+  "benchie_68": [
+    {
+      "head": "thermal relief valves",
+      "relation": "are generally characterized by",
+      "tail": "the relatively small size of the valve"
+    },
+    {
+      "head": "thermal relief valves",
+      "relation": "are generally characterized by",
+      "tail": "the relatively small size of the valve necessary to provide protection"
+    },
+    {
+      "head": "thermal relief valves",
+      "relation": "are generally characterized by",
+      "tail": "the relatively small size of the valve necessary to provide protection from excess pressure"
+    },
+    {
+      "head": "thermal relief valves",
+      "relation": "are generally characterized by",
+      "tail": "the relatively small size of the valve necessary to provide protection from excess pressure caused by thermal expansion"
+    }
+  ],
+  "benchie_69": [
+    {
+      "head": "Callaghan 's decision on the Japanese pilot 's funeral",
+      "relation": "would receive",
+      "tail": "praise"
+    },
+    {
+      "head": "Callaghan 's decision on the Japanese pilot 's funeral",
+      "relation": "would receive praise",
+      "tail": "years later"
+    },
+    {
+      "head": "a memorial service aboard the `` Missouri ''",
+      "relation": "attracted",
+      "tail": "controversy"
+    }
+  ],
+  "benchie_70": [
+    {
+      "head": "she",
+      "relation": "became",
+      "tail": "very ill"
+    },
+    {
+      "head": "she",
+      "relation": "became very ill with",
+      "tail": "a severe cold or pneumonia"
+    }
+  ],
+  "benchie_71": [
+    {
+      "head": "The RSNO 's base",
+      "relation": "is at",
+      "tail": "Henry Wood Hall"
+    },
+    {
+      "head": "The RSNO 's base",
+      "relation": "is also used as",
+      "tail": "its recording venue"
+    },
+    {
+      "head": "a new base",
+      "relation": "is",
+      "tail": "being constructed"
+    },
+    {
+      "head": "a new base",
+      "relation": "is being constructed within",
+      "tail": "the Royal Concert Hall"
+    }
+  ],
+  "benchie_72": [
+    {
+      "head": "the Omega Beam",
+      "relation": "is",
+      "tail": "a form of energy"
+    },
+    {
+      "head": "the Omega Beam",
+      "relation": "is a form of energy that he fires from",
+      "tail": "his eyes"
+    }
+  ],
+  "benchie_73": [
+    {
+      "head": "The 2005 model",
+      "relation": "introduced",
+      "tail": "a third row of seats"
+    },
+    {
+      "head": "The 2005 model",
+      "relation": "introduced a third row of seats to",
+      "tail": "the Pathfinder line"
+    },
+    {
+      "head": "The 2005 model",
+      "relation": "introduced a third row of seats to the Pathfinder line for",
+      "tail": "the first time"
+    }
+  ],
+  "benchie_75": [
+    {
+      "head": "The very ease of acquiring Esperanto",
+      "relation": "might even",
+      "tail": "accelerate the process"
+    }
+  ],
+  "benchie_76": [
+    {
+      "head": "He",
+      "relation": "further stated",
+      "tail": "that Hauptmann looked different"
+    }
+  ],
+  "benchie_77": [
+    {
+      "head": "The RSNO",
+      "relation": "also performs throughout",
+      "tail": "Scotland"
+    }
+  ],
+  "benchie_78": [
+    {
+      "head": "Alvarez",
+      "relation": "was reunited with",
+      "tail": "his family"
+    },
+    {
+      "head": "Alvarez",
+      "relation": "was reunited with his family in",
+      "tail": "New York"
+    },
+    {
+      "head": "his father",
+      "relation": "was able to",
+      "tail": "start a business"
+    },
+    {
+      "head": "his father",
+      "relation": "was able to start a business in",
+      "tail": "Hoboken"
+    }
+  ],
+  "benchie_79": [
+    {
+      "head": "The Anti-Monitor",
+      "relation": "began to",
+      "tail": "siphon"
+    },
+    {
+      "head": "The Anti-Monitor",
+      "relation": "began to siphon",
+      "tail": "the positive matter"
+    },
+    {
+      "head": "The Anti-Monitor",
+      "relation": "began to siphon the positive matter of",
+      "tail": "New York City"
+    }
+  ],
+  "benchie_80": [
+    {
+      "head": "These tracks",
+      "relation": "have subsequently been",
+      "tail": "included on CD"
+    },
+    {
+      "head": "These tracks",
+      "relation": "have subsequently been included on CD reissues of",
+      "tail": "the album `` The Plan ''"
+    }
+  ],
+  "benchie_81": [
+    {
+      "head": "He",
+      "relation": "develops",
+      "tail": "significance"
+    },
+    {
+      "head": "He",
+      "relation": "appearing in",
+      "tail": "a total of seven issues"
+    },
+    {
+      "head": "seven issues",
+      "relation": "spanning",
+      "tail": "six hundred years"
+    }
+  ],
+  "benchie_82": [
+    {
+      "head": "Davis",
+      "relation": "released",
+      "tail": "about 25 singles"
+    },
+    {
+      "head": "Davis",
+      "relation": "released about 25 singles during his seven years with",
+      "tail": "Dakar"
+    },
+    {
+      "head": "Davis",
+      "relation": "with",
+      "tail": "Dakar"
+    },
+    {
+      "head": "big R&B sellers",
+      "relation": "produced by",
+      "tail": "Willie Henderson"
+    }
+  ],
+  "benchie_83": [
+    {
+      "head": "RedLetterMedia",
+      "relation": "delivered a scathing video critique of",
+      "tail": "the film"
+    }
+  ],
+  "benchie_85": [
+    {
+      "head": "These skills",
+      "relation": "were",
+      "tail": "readily proven"
+    }
+  ],
+  "benchie_86": [
+    {
+      "head": "when two such hydrophobic particles",
+      "relation": "come very close",
+      "tail": "the clathrate-like baskets surrounding them merge"
+    }
+  ],
+  "benchie_87": [
+    {
+      "head": "Erasistratus",
+      "relation": "suspects",
+      "tail": "love is behind Antiochus 's suffering"
+    }
+  ],
+  "benchie_88": [
+    {
+      "head": "The Lletty Shenkin explosion",
+      "relation": "of",
+      "tail": "1849"
+    },
+    {
+      "head": "The Lletty Shenkin explosion",
+      "relation": "led to",
+      "tail": "demands"
+    },
+    {
+      "head": "The Lletty Shenkin explosion",
+      "relation": "led to demands",
+      "tail": "the local middle classes"
+    }
+  ],
+  "benchie_89": [
+    {
+      "head": "Lady Mary Wortley Montagu",
+      "relation": "observed",
+      "tail": "the practice"
+    },
+    {
+      "head": "Lady Mary Wortley Montagu",
+      "relation": "observed the practice in",
+      "tail": "Istanbul"
+    }
+  ],
+  "benchie_90": [
+    {
+      "head": "The two companies",
+      "relation": "are",
+      "tail": "teaming up"
+    },
+    {
+      "head": "The two companies",
+      "relation": "are teaming up",
+      "tail": "again"
+    },
+    {
+      "head": "The two companies",
+      "relation": "are teaming up again for",
+      "tail": "the Future Vertical Lift prototype"
+    },
+    {
+      "head": "the Future Vertical Lift prototype",
+      "relation": "called",
+      "tail": "SB-1 Defiant"
+    },
+    {
+      "head": "employees from both companies",
+      "relation": "will",
+      "tail": "work together"
+    }
+  ],
+  "benchie_91": [
+    {
+      "head": "He",
+      "relation": "had been at",
+      "tail": "the Battle of the Granicus River"
+    },
+    {
+      "head": "He",
+      "relation": "had believed that",
+      "tail": "Memnon 's scorched Earth strategy would work here"
+    }
+  ],
+  "benchie_92": [
+    {
+      "head": "The film",
+      "relation": "uses",
+      "tail": "some computer-generated graphics"
+    },
+    {
+      "head": "Inge",
+      "relation": "walks",
+      "tail": "through the fields"
+    },
+    {
+      "head": "the geese",
+      "relation": "flying",
+      "tail": "over Olaf 's house"
+    }
+  ],
+  "benchie_93": [
+    {
+      "head": "Legislation",
+      "relation": "sponsored by",
+      "tail": "Sweeney"
+    },
+    {
+      "head": "Legislation sponsored by Sweeney",
+      "relation": "signed into",
+      "tail": "law"
+    },
+    {
+      "head": "Legislation sponsored by Sweeney and signed into law",
+      "relation": "provides",
+      "tail": "state pensions"
+    },
+    {
+      "head": "police",
+      "relation": "die",
+      "tail": "in the line of duty"
+    },
+    {
+      "head": "firefighters",
+      "relation": "die",
+      "tail": "in the line of duty"
+    },
+    {
+      "head": "emergency services workers",
+      "relation": "die",
+      "tail": "in the line of duty"
+    },
+    {
+      "head": "Legislation sponsored by Sweeney and signed into law",
+      "relation": "removes",
+      "tail": "the remarriage prohibition"
+    },
+    {
+      "head": "Legislation sponsored by Sweeney and signed into law",
+      "relation": "removes the remarriage prohibition to",
+      "tail": "receive death benefits"
+    },
+    {
+      "head": "the remarriage prohibition",
+      "relation": "to",
+      "tail": "receive death benefits"
+    }
+  ],
+  "benchie_94": [
+    {
+      "head": "The latter",
+      "relation": "was lifted only as",
+      "tail": "the b-side of `` Keep on Loving Me ''"
+    }
+  ],
+  "benchie_95": [
+    {
+      "head": "The first single",
+      "relation": "features",
+      "tail": "performances"
+    },
+    {
+      "head": "`` Dreamer",
+      "relation": "features performances by",
+      "tail": "keyboardist"
+    }
+  ],
+  "benchie_96": [
+    {
+      "head": "QVC Network Inc",
+      "relation": "said",
+      "tail": "it completed its acquisition"
+    },
+    {
+      "head": "QVC Network Inc",
+      "relation": "said it completed its acquisition of",
+      "tail": "CVN Cos"
+    },
+    {
+      "head": "QVC Network Inc",
+      "relation": "said",
+      "tail": "it completed its acquisition of CVN Cos. for about $ 423 million"
+    }
+  ],
+  "benchie_97": [
+    {
+      "head": "Mr. Ackerman",
+      "relation": "contended that",
+      "tail": "it was a direct response"
+    },
+    {
+      "head": "Mr. Ackerman",
+      "relation": "contended that",
+      "tail": "it was a direct response to his efforts to gain control"
+    },
+    {
+      "head": "Mr. Ackerman",
+      "relation": "contended that it was a direct response to his efforts to gain control of",
+      "tail": "Datapoint"
+    }
+  ],
+  "benchie_98": [
+    {
+      "head": "Both companies",
+      "relation": "are allies of",
+      "tail": "Navigation Mixte"
+    },
+    {
+      "head": "Both companies",
+      "relation": "are allies of Navigation Mixte in",
+      "tail": "its fight against a hostile takeover bid"
+    },
+    {
+      "head": "Navigation Mixte",
+      "relation": "its fight against",
+      "tail": "a hostile takeover bid"
+    },
+    {
+      "head": "Both companies",
+      "relation": "fight against",
+      "tail": "a hostile takeover bid"
+    },
+    {
+      "head": "Both companies",
+      "relation": "fight against a hostile takeover bid launched",
+      "tail": "last week"
+    },
+    {
+      "head": "Both companies",
+      "relation": "are",
+      "tail": "allies"
+    }
+  ],
+  "benchie_99": [
+    {
+      "head": "he",
+      "relation": "became",
+      "tail": "a Lord Justice of Appeal"
+    }
+  ],
+  "benchie_100": [
+    {
+      "head": "Salomon Brothers",
+      "relation": "says",
+      "tail": "`` We believe the real estate properties would trade at a discount"
+    },
+    {
+      "head": "Salomon Brothers",
+      "relation": "says",
+      "tail": "`` We believe the real estate properties would trade at a discount ... after the realty unit is spun off"
+    }
+  ],
+  "benchie_101": [
+    {
+      "head": "Paul Johanson",
+      "relation": "said",
+      "tail": "the company 's chemical spray overcomes these problems"
+    }
+  ],
+  "benchie_103": [
+    {
+      "head": "Premark International Inc",
+      "relation": "peddles",
+      "tail": "the M8.7sp Electronic Cycling Simulator"
+    }
+  ],
+  "benchie_104": [
+    {
+      "head": "Mrs. Marcos 's trial",
+      "relation": "is expected to",
+      "tail": "begin"
+    },
+    {
+      "head": "Mrs. Marcos 's trial",
+      "relation": "is expected to begin in",
+      "tail": "March"
+    }
+  ],
+  "benchie_105": [
+    {
+      "head": "Bioengineers",
+      "relation": "set out to",
+      "tail": "duplicate that feat"
+    },
+    {
+      "head": "Bioengineers",
+      "relation": "set out to duplicate that feat",
+      "tail": "scientifically"
+    }
+  ],
+  "benchie_106": [
+    {
+      "head": "The company",
+      "relation": "is expected to",
+      "tail": "spend"
+    },
+    {
+      "head": "The company",
+      "relation": "is expected to spend",
+      "tail": "about $ 30 million a year"
+    },
+    {
+      "head": "The company",
+      "relation": "is expected to spend about $ 30 million a year on",
+      "tail": "its two - year corporate campaign"
+    }
+  ],
+  "benchie_110": [
+    {
+      "head": "President Bush",
+      "relation": "said",
+      "tail": "that three members of his cabinet will lead a presidential mission"
+    },
+    {
+      "head": "President Bush",
+      "relation": "said",
+      "tail": "that three members of his cabinet will lead a presidential mission to Poland"
+    },
+    {
+      "head": "President Bush",
+      "relation": "said",
+      "tail": "that three members of his cabinet will lead a presidential mission to Poland to gauge how the U.S. can help the new non - Communist government 's economic changes"
+    }
+  ],
+  "benchie_111": [
+    {
+      "head": "Stephen McCartin",
+      "relation": "said",
+      "tail": "his client welcomed the gamble"
+    }
+  ],
+  "benchie_112": [
+    {
+      "head": "One group of middle - aged manufacturing men from the company 's Zama plant",
+      "relation": "was supposed to",
+      "tail": "check out a trendy restaurant"
+    },
+    {
+      "head": "One group of middle - aged manufacturing men from the company 's Zama plant",
+      "relation": "was supposed to",
+      "tail": "check out a trendy restaurant in the city"
+    }
+  ],
+  "benchie_113": [
+    {
+      "head": "Boyer",
+      "relation": "had to be talked into",
+      "tail": "applying for a patent"
+    },
+    {
+      "head": "Cohen",
+      "relation": "had to be talked into",
+      "tail": "applying for a patent"
+    },
+    {
+      "head": "Boyer",
+      "relation": "had to be talked into applying for",
+      "tail": "a patent on their gene - splicing technique"
+    },
+    {
+      "head": "Cohen",
+      "relation": "had to be talked into applying for",
+      "tail": "a patent on their gene - splicing technique"
+    },
+    {
+      "head": "Boyer",
+      "relation": "applying for",
+      "tail": "a patent"
+    },
+    {
+      "head": "Boyer",
+      "relation": "applying for a patent on",
+      "tail": "their gene - splicing technique"
+    },
+    {
+      "head": "Cohen",
+      "relation": "applying for",
+      "tail": "a patent"
+    },
+    {
+      "head": "Cohen",
+      "relation": "applying for a patent on",
+      "tail": "their gene - splicing technique"
+    }
+  ],
+  "benchie_114": [
+    {
+      "head": "His recent appearance at the Metropolitan Museum",
+      "relation": "dubbed",
+      "tail": "`` A Musical Odyssey"
+    },
+    {
+      "head": "His recent appearance at the Metropolitan Museum",
+      "relation": "was",
+      "tail": "a case in point"
+    }
+  ],
+  "benchie_116": [
+    {
+      "head": "The brokerage firm",
+      "relation": "tracks",
+      "tail": "technology stocks"
+    },
+    {
+      "head": "The brokerage firm",
+      "relation": "tracks technology stocks with",
+      "tail": "its Technology Index"
+    },
+    {
+      "head": "its Technology Index",
+      "relation": "appreciated",
+      "tail": "only 10.59 %"
+    },
+    {
+      "head": "Technology Index",
+      "relation": "appreciated only 10.59 % in",
+      "tail": "the first nine months of this year"
+    }
+  ],
+  "benchie_117": [
+    {
+      "head": "I",
+      "relation": "worry more about",
+      "tail": "things becoming so unraveled"
+    },
+    {
+      "head": "I",
+      "relation": "worry more about things becoming so unraveled on",
+      "tail": "the other side"
+    },
+    {
+      "head": "I",
+      "relation": "worry more about things becoming so unraveled on the other side that",
+      "tail": "they might become unable to negotiate"
+    }
+  ],
+  "benchie_118": [
+    {
+      "head": "We",
+      "relation": "finally rendezvoused with",
+      "tail": "our balloon"
+    },
+    {
+      "head": "our balloon",
+      "relation": "had come to",
+      "tail": "rest"
+    },
+    {
+      "head": "our balloon",
+      "relation": "had come to rest on",
+      "tail": "a dirt road"
+    },
+    {
+      "head": "our balloon",
+      "relation": "had come to rest on a dirt road amid",
+      "tail": "a clutch of Epinalers"
+    },
+    {
+      "head": "a clutch of Epinalers",
+      "relation": "watched us",
+      "tail": "disassemble our craft"
+    },
+    {
+      "head": "a clutch of Epinalers",
+      "relation": "watched",
+      "tail": "us"
+    }
+  ],
+  "benchie_119": [
+    {
+      "head": "A federation official",
+      "relation": "attributed the decline to",
+      "tail": "brisk demand"
+    },
+    {
+      "head": "A federation official",
+      "relation": "attributed the decline to",
+      "tail": "brisk demand from domestic industries"
+    }
+  ],
+  "benchie_120": [
+    {
+      "head": "it",
+      "relation": "could also",
+      "tail": "help"
+    },
+    {
+      "head": "it",
+      "relation": "could also help",
+      "tail": "American companies"
+    },
+    {
+      "head": "American companies",
+      "relation": "also are starting to",
+      "tail": "try to open the market"
+    }
+  ],
+  "benchie_121": [
+    {
+      "head": "A company spokesman",
+      "relation": "did n't know",
+      "tail": "Mr. Wakeman 's age"
+    }
+  ],
+  "benchie_122": [
+    {
+      "head": "Series 109",
+      "relation": "is",
+      "tail": "backed"
+    },
+    {
+      "head": "Series 109",
+      "relation": "is backed by",
+      "tail": "Freddie Mac 10 % securities"
+    }
+  ],
+  "benchie_123": [
+    {
+      "head": "The 10.48 % yield",
+      "relation": "represents",
+      "tail": "a spread"
+    },
+    {
+      "head": "The 10.48 % yield",
+      "relation": "represents a spread to",
+      "tail": "the 20 - year Treasury"
+    }
+  ],
+  "benchie_124": [
+    {
+      "head": "Orkem",
+      "relation": "said",
+      "tail": "it would fund the acquisition"
+    },
+    {
+      "head": "Orkem",
+      "relation": "said",
+      "tail": "it would fund the acquisition through internal resources"
+    }
+  ],
+  "benchie_125": [
+    {
+      "head": "`` I",
+      "relation": "ca n't",
+      "tail": "do anything score - wise"
+    },
+    {
+      "head": "I",
+      "relation": "like",
+      "tail": "meeting the girls"
+    }
+  ],
+  "benchie_126": [
+    {
+      "head": "New York bonds",
+      "relation": "have been",
+      "tail": "hammered"
+    },
+    {
+      "head": "New York bonds",
+      "relation": "have been hammered",
+      "tail": "in recent weeks"
+    },
+    {
+      "head": "New York bonds",
+      "relation": "rose",
+      "tail": "1\\/2 point"
+    },
+    {
+      "head": "New York bonds",
+      "relation": "rose 1\\/2 point",
+      "tail": "yesterday"
+    }
+  ],
+  "benchie_127": [
+    {
+      "head": "Four other countries in Europe",
+      "relation": "have approved",
+      "tail": "Proleukin"
+    },
+    {
+      "head": "Four other countries in Europe",
+      "relation": "have approved Proleukin in",
+      "tail": "recent months"
+    }
+  ],
+  "benchie_128": [
+    {
+      "head": "General Dynamics Corp",
+      "relation": "was given an $ 843 million Air Force contract for",
+      "tail": "F - 16 aircraft"
+    }
+  ],
+  "benchie_129": [
+    {
+      "head": "The divested Courtaulds textile operations",
+      "relation": "had",
+      "tail": "operating profit"
+    },
+    {
+      "head": "The divested Courtaulds textile operations",
+      "relation": "had operating profit of",
+      "tail": "50 million"
+    },
+    {
+      "head": "The divested Courtaulds textile operations",
+      "relation": "had operating profit of # 50 million on",
+      "tail": "980 million in revenue"
+    },
+    {
+      "head": "The divested Courtaulds textile operations",
+      "relation": "980 million in revenue in",
+      "tail": "the year ended March 31"
+    }
+  ],
+  "benchie_131": [
+    {
+      "head": "A Coca - Cola spokesman",
+      "relation": "said",
+      "tail": "it is too early to say how the joint venture would be structured"
+    }
+  ],
+  "benchie_132": [
+    {
+      "head": "We",
+      "relation": "just want",
+      "tail": "a plan"
+    },
+    {
+      "head": "We",
+      "relation": "just want a plan that",
+      "tail": "satisfies creditors"
+    }
+  ],
+  "benchie_133": [
+    {
+      "head": "Some",
+      "relation": "have been",
+      "tail": "training"
+    },
+    {
+      "head": "Some",
+      "relation": "have been training for",
+      "tail": "months"
+    },
+    {
+      "head": "others",
+      "relation": "only recently left",
+      "tail": "active status"
+    }
+  ],
+  "benchie_134": [
+    {
+      "head": "Merrill",
+      "relation": "also said",
+      "tail": "it is lobbying for significant regulatory controls"
+    },
+    {
+      "head": "Merrill",
+      "relation": "also said it is lobbying for significant regulatory controls on",
+      "tail": "program trading"
+    }
+  ],
+  "benchie_135": [
+    {
+      "head": "He",
+      "relation": "did not",
+      "tail": "go as far as he could have"
+    },
+    {
+      "head": "He",
+      "relation": "did not go as far as he could have in",
+      "tail": "tax reductions"
+    },
+    {
+      "head": "he",
+      "relation": "combined them with",
+      "tail": "increases in indirect taxes"
+    }
+  ],
+  "benchie_136": [
+    {
+      "head": "The problem",
+      "relation": "is that",
+      "tail": "Japanese businesses make decisions with a view well beyond the coming months"
+    },
+    {
+      "head": "Japanese businesses",
+      "relation": "make",
+      "tail": "decisions"
+    },
+    {
+      "head": "Japanese businesses",
+      "relation": "make decisions with a view well beyond",
+      "tail": "the coming months"
+    },
+    {
+      "head": "the coming months",
+      "relation": "weigh",
+      "tail": "so heavily"
+    },
+    {
+      "head": "the coming months",
+      "relation": "weigh so heavily on",
+      "tail": "Mr. Salinas"
+    }
+  ],
+  "benchie_137": [
+    {
+      "head": "A Ford spokesman",
+      "relation": "said",
+      "tail": "the Dearborn , Mich. , auto maker is n't aware of any injuries caused by the windshield problem"
+    }
+  ],
+  "benchie_138": [
+    {
+      "head": "More big Japanese investors",
+      "relation": "are buying",
+      "tail": "U.S. mortgage - backed securities"
+    }
+  ],
+  "benchie_139": [
+    {
+      "head": "more convincing explanation",
+      "relation": "is that",
+      "tail": "the new Soviet economic and social structures are intended to conform to a model other than that of the market"
+    }
+  ],
+  "benchie_140": [
+    {
+      "head": "RU-486",
+      "relation": "is being",
+      "tail": "administered"
+    },
+    {
+      "head": "RU-486",
+      "relation": "is being administered in",
+      "tail": "France"
+    },
+    {
+      "head": "RU-486",
+      "relation": "is being administered in France",
+      "tail": "only under strict supervision"
+    }
+  ],
+  "benchie_143": [
+    {
+      "head": "The New York City issue",
+      "relation": "included",
+      "tail": "$ 757 million of tax - exempt bonds"
+    }
+  ],
+  "benchie_144": [
+    {
+      "head": "the lawyers",
+      "relation": "were just as eager as",
+      "tail": "the judge"
+    }
+  ],
+  "benchie_145": [
+    {
+      "head": "Boyer",
+      "relation": "headed for",
+      "tail": "Wall Street"
+    },
+    {
+      "head": "Boyer",
+      "relation": "headed for Wall Street in",
+      "tail": "1980"
+    },
+    {
+      "head": "Swanson",
+      "relation": "headed for",
+      "tail": "Wall Street"
+    },
+    {
+      "head": "Swanson",
+      "relation": "headed for Wall Street in",
+      "tail": "1980"
+    }
+  ],
+  "benchie_146": [
+    {
+      "head": "Japan 's No. 111 4.6 % bond",
+      "relation": "due",
+      "tail": "1998"
+    },
+    {
+      "head": "Japan 's No. 111 4.6 % bond",
+      "relation": "ended the day on",
+      "tail": "brokers screens"
+    },
+    {
+      "head": "Japan 's No. 111 4.6 % bond",
+      "relation": "to yield",
+      "tail": "5.43 %"
+    }
+  ],
+  "benchie_147": [
+    {
+      "head": "He",
+      "relation": "accused",
+      "tail": "Dow Jones"
+    },
+    {
+      "head": "He",
+      "relation": "accused Dow Jones of",
+      "tail": "`` using unfair means"
+    },
+    {
+      "head": "He",
+      "relation": "accused Dow Jones of `` using unfair means to",
+      "tail": "obtain the stock"
+    },
+    {
+      "head": "He",
+      "relation": "accused Dow Jones of `` using unfair means to obtain the stock at",
+      "tail": "an unfair price"
+    }
+  ],
+  "benchie_149": [
+    {
+      "head": "Armstrong World Industries Inc",
+      "relation": "agreed in principle to sell",
+      "tail": "its carpet operations"
+    },
+    {
+      "head": "Armstrong World Industries Inc",
+      "relation": "agreed in principle to sell its carpet operations to",
+      "tail": "Shaw Industries Inc"
+    }
+  ],
+  "benchie_150": [
+    {
+      "head": "traders",
+      "relation": "sell",
+      "tail": "large amounts of stocks"
+    },
+    {
+      "head": "traders",
+      "relation": "sell large amounts of stocks with",
+      "tail": "offsetting trades"
+    },
+    {
+      "head": "traders",
+      "relation": "sell large amounts of stocks with offsetting trades in",
+      "tail": "stock - index futures"
+    }
+  ],
+  "benchie_152": [
+    {
+      "head": "Eastern",
+      "relation": "negotiating",
+      "tail": "a second reorganization plan"
+    }
+  ],
+  "benchie_153": [
+    {
+      "head": "Trek",
+      "relation": "previously made only",
+      "tail": "traditional road bikes"
+    }
+  ],
+  "benchie_154": [
+    {
+      "head": "Charles O. Givens",
+      "relation": "son of",
+      "tail": "a former stable owner"
+    },
+    {
+      "head": "Charles O. Givens",
+      "relation": "bred",
+      "tail": "Tennessee Walking Horses"
+    },
+    {
+      "head": "Charles O. Givens",
+      "relation": "bred Tennessee Walking Horses for",
+      "tail": "six years"
+    },
+    {
+      "head": "Charles O. Givens",
+      "relation": "raised",
+      "tail": "cattle"
+    }
+  ],
+  "benchie_155": [
+    {
+      "head": "Mr. Baker",
+      "relation": "heads",
+      "tail": "the Kentucky Association of Science Educators and Skeptics"
+    }
+  ],
+  "benchie_156": [
+    {
+      "head": "224 issues",
+      "relation": "were",
+      "tail": "unchanged"
+    },
+    {
+      "head": "Declining issues",
+      "relation": "outnumbered",
+      "tail": "advancers"
+    }
+  ],
+  "benchie_157": [
+    {
+      "head": "such a sale",
+      "relation": "could",
+      "tail": "help"
+    },
+    {
+      "head": "such a sale",
+      "relation": "could help",
+      "tail": "Armstrong"
+    },
+    {
+      "head": "such a sale",
+      "relation": "could help Armstrong",
+      "tail": "reassure its investors"
+    },
+    {
+      "head": "the Belzbergs",
+      "relation": "own",
+      "tail": "a 9.85 % stake"
+    },
+    {
+      "head": "the Belzbergs",
+      "relation": "own a 9.85 % stake in",
+      "tail": "the Lancaster , Pa. , company"
+    }
+  ],
+  "benchie_158": [
+    {
+      "head": "He",
+      "relation": "showed up",
+      "tail": "with a carpenter 's level"
+    },
+    {
+      "head": "He",
+      "relation": "carefully measured",
+      "tail": "every surface"
+    },
+    {
+      "head": "He",
+      "relation": "showed how",
+      "tail": "the apparent shrinkage was caused by the perspective"
+    },
+    {
+      "head": "the apparent shrinkage",
+      "relation": "was caused by",
+      "tail": "the perspective"
+    }
+  ],
+  "benchie_159": [
+    {
+      "head": "A cafeteria",
+      "relation": "is also located on",
+      "tail": "the sixth floor"
+    }
+  ],
+  "benchie_160": [
+    {
+      "head": "A casting director",
+      "relation": "told Scott that",
+      "tail": "he had wished that he 'd met him a week before"
+    }
+  ],
+  "benchie_162": [
+    {
+      "head": "Applying this technique",
+      "relation": "facilitates",
+      "tail": "the connection"
+    },
+    {
+      "head": "Applying this technique",
+      "relation": "facilitates the connection of",
+      "tail": "the center of the foot with the lower abdomen"
+    }
+  ],
+  "benchie_163": [
+    {
+      "head": "the lower river",
+      "relation": "had to be",
+      "tail": "dredged"
+    },
+    {
+      "head": "the lower river",
+      "relation": "had to be dredged",
+      "tail": "three times"
+    },
+    {
+      "head": "the lower river",
+      "relation": "had to be dredged three times in",
+      "tail": "two years"
+    }
+  ],
+  "benchie_164": [
+    {
+      "head": "Barbara",
+      "relation": "fought",
+      "tail": "a mugger"
+    },
+    {
+      "head": "Barbara",
+      "relation": "ultimately miscarried",
+      "tail": "her child"
+    }
+  ],
+  "benchie_165": [
+    {
+      "head": "Chevalier",
+      "relation": "fulfilled",
+      "tail": "his promise"
+    },
+    {
+      "head": "Chevalier",
+      "relation": "fulfilled his promise",
+      "tail": "the following year"
+    },
+    {
+      "head": "Chevalier",
+      "relation": "erecting a shrine dedicated to",
+      "tail": "the honour of Mary"
+    },
+    {
+      "head": "a shrine",
+      "relation": "dedicated to",
+      "tail": "the honour of Mary"
+    },
+    {
+      "head": "a shrine",
+      "relation": "under the title of",
+      "tail": "`` Our Lady of the Sacred Heart ''"
+    },
+    {
+      "head": "Chevalier",
+      "relation": "erecting",
+      "tail": "a shrine"
+    }
+  ],
+  "benchie_166": [
+    {
+      "head": "Citizens for Responsibility and Ethics in Washington",
+      "relation": "filed",
+      "tail": "an Ethics Committee complaint"
+    }
+  ],
+  "benchie_167": [
+    {
+      "head": "it",
+      "relation": "was",
+      "tail": "barely hearable"
+    },
+    {
+      "head": "it",
+      "relation": "was barely hearable in",
+      "tail": "the northern portions of Atlanta"
+    },
+    {
+      "head": "it",
+      "relation": "was",
+      "tail": "a rimshot to the southwest of the city"
+    },
+    {
+      "head": "the transmitter location",
+      "relation": "being based in",
+      "tail": "Tyrone"
+    }
+  ],
+  "benchie_169": [
+    {
+      "head": "the University",
+      "relation": "banned",
+      "tail": "smoking"
+    },
+    {
+      "head": "the University",
+      "relation": "banned smoking on",
+      "tail": "any of its property"
+    },
+    {
+      "head": "areas",
+      "relation": "were once designated as",
+      "tail": "smoking areas"
+    }
+  ],
+  "benchie_171": [
+    {
+      "head": "He",
+      "relation": "finds himself in",
+      "tail": "a desert"
+    },
+    {
+      "head": "a group of Neo Arcadians",
+      "relation": "surround",
+      "tail": "him"
+    },
+    {
+      "head": "a group of Neo Arcadians surround him",
+      "relation": "ending",
+      "tail": "the game"
+    }
+  ],
+  "benchie_172": [
+    {
+      "head": "He",
+      "relation": "played",
+      "tail": "Perker"
+    },
+    {
+      "head": "He",
+      "relation": "played Perker in",
+      "tail": "the 1985 adaptation of `` The Pickwick Papers ''"
+    }
+  ],
+  "benchie_173": [
+    {
+      "head": "He",
+      "relation": "represented the riding of",
+      "tail": "Nickel Belt"
+    },
+    {
+      "head": "He",
+      "relation": "represented",
+      "tail": "the riding"
+    }
+  ],
+  "benchie_174": [
+    {
+      "head": "He",
+      "relation": "was",
+      "tail": "buried"
+    },
+    {
+      "head": "He",
+      "relation": "was buried in",
+      "tail": "the Abbey of the Psalms mausoleum"
+    }
+  ],
+  "benchie_175": [
+    {
+      "head": "Aiseau",
+      "relation": "was",
+      "tail": "a village"
+    }
+  ],
+  "benchie_176": [
+    {
+      "head": "Hofmann",
+      "relation": "was",
+      "tail": "a below-average"
+    },
+    {
+      "head": "he",
+      "relation": "had",
+      "tail": "many hobbies"
+    },
+    {
+      "head": "Hofmann",
+      "relation": "had many hobbies including",
+      "tail": "magic"
+    },
+    {
+      "head": "hobbies",
+      "relation": "including",
+      "tail": "magic"
+    }
+  ],
+  "benchie_177": [
+    {
+      "head": "BAE Systems",
+      "relation": "recently stated",
+      "tail": "it no longer produces land mines"
+    }
+  ],
+  "benchie_178": [
+    {
+      "head": "when the antigenicities of the seed strains and wild viruses do not match",
+      "relation": "vaccines fail to",
+      "tail": "protect"
+    }
+  ],
+  "benchie_180": [
+    {
+      "head": "he",
+      "relation": "won from",
+      "tail": "Yakutpura"
+    }
+  ],
+  "benchie_181": [
+    {
+      "head": "researchers",
+      "relation": "found",
+      "tail": "metallic conductivity"
+    }
+  ],
+  "benchie_182": [
+    {
+      "head": "Sun",
+      "relation": "announced",
+      "tail": "`` Project Indiana ''"
+    },
+    {
+      "head": "`` Project Indiana ''",
+      "relation": "including providing",
+      "tail": "an open source binary distribution of the OpenSolaris project"
+    },
+    {
+      "head": "`` Project Indiana ''",
+      "relation": "replacing",
+      "tail": "SXDE"
+    },
+    {
+      "head": "an open source binary distribution of the OpenSolaris project",
+      "relation": "replacing",
+      "tail": "SXDE"
+    }
+  ],
+  "benchie_183": [
+    {
+      "head": "scam websites",
+      "relation": "co-opted",
+      "tail": "a photograph"
+    },
+    {
+      "head": "scam websites",
+      "relation": "co-opted a photograph of",
+      "tail": "her"
+    },
+    {
+      "head": "scam websites",
+      "relation": "co-opted a photograph of her to",
+      "tail": "promote health treatments"
+    },
+    {
+      "head": "Theuriau",
+      "relation": "was",
+      "tail": "initially unaware"
+    }
+  ],
+  "benchie_185": [
+    {
+      "head": "trains",
+      "relation": "being",
+      "tail": "cable hauled"
+    },
+    {
+      "head": "trains",
+      "relation": "being cable hauled to",
+      "tail": "Edge Hill"
+    }
+  ],
+  "benchie_186": [
+    {
+      "head": "Holkins",
+      "relation": "stated that",
+      "tail": "he reserved the right to bring Carl back"
+    },
+    {
+      "head": "Holkins",
+      "relation": "stated that he reserved the right to bring Carl back",
+      "tail": "any time Krahulik goes to France"
+    }
+  ],
+  "benchie_187": [
+    {
+      "head": "a Language A",
+      "relation": "occupies",
+      "tail": "a given territory"
+    },
+    {
+      "head": "another Language B",
+      "relation": "arrives",
+      "tail": "in the same territory"
+    }
+  ],
+  "benchie_188": [
+    {
+      "head": "Condon",
+      "relation": "told FBI Special Agent Turrou that",
+      "tail": "Hauptmann was not `` John"
+    }
+  ],
+  "benchie_189": [
+    {
+      "head": "UTA",
+      "relation": "ordered",
+      "tail": "77 Siemens S70 light rail vehicles"
+    }
+  ],
+  "benchie_190": [
+    {
+      "head": "most of Kabul 's economy",
+      "relation": "depended on",
+      "tail": "tourism"
+    }
+  ],
+  "benchie_191": [
+    {
+      "head": "he",
+      "relation": "advocated",
+      "tail": "strong prosecution of the Union War effort"
+    }
+  ],
+  "benchie_192": [
+    {
+      "head": "his chances of surviving",
+      "relation": "were thought to be",
+      "tail": "no better than 50-50"
+    }
+  ],
+  "benchie_193": [
+    {
+      "head": "It",
+      "relation": "should be noted that",
+      "tail": "these numbers are inclusive of any of the childminders own children"
+    }
+  ],
+  "benchie_194": [
+    {
+      "head": "Keats",
+      "relation": "had",
+      "tail": "a genuine desire to become a doctor"
+    }
+  ],
+  "benchie_195": [
+    {
+      "head": "Kim",
+      "relation": "graduated from",
+      "tail": "Ballard High School"
+    },
+    {
+      "head": "Kim",
+      "relation": "double-majored in",
+      "tail": "Government and English"
+    }
+  ],
+  "benchie_196": [
+    {
+      "head": "Lemmy",
+      "relation": "believes that",
+      "tail": "if Will Reid Dick had not been there , they could have worked through the problems"
+    }
+  ],
+  "benchie_197": [
+    {
+      "head": "Males",
+      "relation": "had a median income of",
+      "tail": "$ 36,016"
+    }
+  ],
+  "benchie_198": [
+    {
+      "head": "the Mason City Division",
+      "relation": "continued to",
+      "tail": "operate"
+    },
+    {
+      "head": "the Mason City Division",
+      "relation": "continued to operate",
+      "tail": "as usual"
+    }
+  ],
+  "benchie_199": [
+    {
+      "head": "Models",
+      "relation": "produce figures",
+      "tail": "between 15,000 and 36,000 soldiers"
+    }
+  ],
+  "benchie_200": [
+    {
+      "head": "Modernity",
+      "relation": "has been",
+      "tail": "blended"
+    },
+    {
+      "head": "Modernity",
+      "relation": "has been blended without",
+      "tail": "sacrificing"
+    },
+    {
+      "head": "Modernity",
+      "relation": "has been blended without sacrificing on",
+      "tail": "the traditional Buddhist ethos"
+    }
+  ],
+  "benchie_201": [
+    {
+      "head": "1 individual",
+      "relation": "belonged to",
+      "tail": "the Christian Catholic faith"
+    }
+  ],
+  "benchie_202": [
+    {
+      "head": "Hank McCoy",
+      "relation": "retains",
+      "tail": "the basic features of a normal human"
+    }
+  ],
+  "benchie_203": [
+    {
+      "head": "Pakistan Chrome Mines Ltd",
+      "relation": "is",
+      "tail": "a mining company"
+    },
+    {
+      "head": "Pakistan Chrome Mines Ltd",
+      "relation": "incorporated in",
+      "tail": "the Islamic Republic of Pakistan"
+    }
+  ],
+  "benchie_204": [
+    {
+      "head": "Parental investment",
+      "relation": "is",
+      "tail": "any expenditure of resources"
+    },
+    {
+      "head": "Parental investment",
+      "relation": "is any expenditure of resources to benefit",
+      "tail": "one offspring"
+    }
+  ],
+  "benchie_205": [
+    {
+      "head": "Plants",
+      "relation": "have been",
+      "tail": "planted"
+    },
+    {
+      "head": "Plants",
+      "relation": "marking",
+      "tail": "parts of the foundations"
+    },
+    {
+      "head": "Plants",
+      "relation": "marking parts of the foundations of",
+      "tail": "the castle"
+    },
+    {
+      "head": "Plants",
+      "relation": "marking parts of the foundations of the castle , so",
+      "tail": "the positions of some of the buildings can still be inferred"
+    },
+    {
+      "head": "the positions of some of the buildings",
+      "relation": "can still be",
+      "tail": "inferred"
+    }
+  ],
+  "benchie_206": [
+    {
+      "head": "Scarpetta",
+      "relation": "returns to",
+      "tail": "Virginia"
+    },
+    {
+      "head": "Scarpetta",
+      "relation": "returns to Virginia in",
+      "tail": "`` Trace ''"
+    },
+    {
+      "head": "Scarpetta",
+      "relation": "convincing",
+      "tail": "herself"
+    },
+    {
+      "head": "Scarpetta",
+      "relation": "convincing herself that",
+      "tail": "she was fired"
+    },
+    {
+      "head": "Scarpetta",
+      "relation": "convincing herself that she was fired from",
+      "tail": "her position"
+    }
+  ],
+  "benchie_207": [
+    {
+      "head": "She",
+      "relation": "died in",
+      "tail": "October 1915"
+    }
+  ],
+  "benchie_208": [
+    {
+      "head": "She",
+      "relation": "was ordered to be",
+      "tail": "rebuilt"
+    },
+    {
+      "head": "She",
+      "relation": "was ordered to be rebuilt on",
+      "tail": "9 March 1724"
+    },
+    {
+      "head": "She",
+      "relation": "was",
+      "tail": "taken in hand"
+    },
+    {
+      "head": "She",
+      "relation": "was taken in hand at",
+      "tail": "Deptford Dockyard"
+    }
+  ],
+  "benchie_209": [
+    {
+      "head": "Shea",
+      "relation": "was",
+      "tail": "born"
+    },
+    {
+      "head": "Shea",
+      "relation": "was born on",
+      "tail": "September 5 , 1900"
+    }
+  ],
+  "benchie_210": [
+    {
+      "head": "Superboy-Prime",
+      "relation": "seeing",
+      "tail": "an opportunity"
+    },
+    {
+      "head": "Superboy-Prime",
+      "relation": "flew",
+      "tail": "through the Anti-Monitor 's chest"
+    },
+    {
+      "head": "Superboy-Prime",
+      "relation": "hurled",
+      "tail": "his shattered body"
+    },
+    {
+      "head": "Superboy-Prime",
+      "relation": "hurled his shattered body into",
+      "tail": "space"
+    }
+  ],
+  "benchie_211": [
+    {
+      "head": "The 2nd Battalion of the 13th Light Infantry",
+      "relation": "was",
+      "tail": "raised"
+    },
+    {
+      "head": "The 2nd Battalion of the 13th Light Infantry",
+      "relation": "was raised at",
+      "tail": "Winchester"
+    },
+    {
+      "head": "The 2nd Battalion of the 13th Light Infantry",
+      "relation": "was raised at Winchester in",
+      "tail": "January 1858"
+    }
+  ],
+  "benchie_212": [
+    {
+      "head": "The Bureau of Alcohol , Tobacco , Firearms and Explosives",
+      "relation": "formed in",
+      "tail": "1886"
+    }
+  ],
+  "benchie_213": [
+    {
+      "head": "The CRZ",
+      "relation": "was",
+      "tail": "organized"
+    }
+  ],
+  "benchie_214": [
+    {
+      "head": "The Steinbrenner family",
+      "relation": "added",
+      "tail": "a monument"
+    },
+    {
+      "head": "The Steinbrenner family",
+      "relation": "added a monument to",
+      "tail": "Monument Park"
+    }
+  ],
+  "benchie_215": [
+    {
+      "head": "The Summer Programs Office",
+      "relation": "runs",
+      "tail": "these programs"
+    },
+    {
+      "head": "many Wardlaw-Hartridge Students",
+      "relation": "attend",
+      "tail": "camp"
+    }
+  ],
+  "benchie_216": [
+    {
+      "head": "The Triple-A Baseball National Championship Game",
+      "relation": "was",
+      "tail": "established"
+    },
+    {
+      "head": "The Triple-A Baseball National Championship Game",
+      "relation": "was established in",
+      "tail": "2006"
+    }
+  ],
+  "benchie_217": [
+    {
+      "head": "The Wilbur Cross Highway",
+      "relation": "formerly ended in",
+      "tail": "Sturbridge"
+    }
+  ],
+  "benchie_218": [
+    {
+      "head": "The `` Charleston Courier",
+      "relation": "founded in",
+      "tail": "1803"
+    },
+    {
+      "head": "`` Charleston Daily News",
+      "relation": "founded in",
+      "tail": "1865"
+    }
+  ],
+  "benchie_219": [
+    {
+      "head": "The canal",
+      "relation": "was",
+      "tail": "dammed off"
+    },
+    {
+      "head": "The canal",
+      "relation": "was dammed off from",
+      "tail": "the river"
+    }
+  ],
+  "benchie_220": [
+    {
+      "head": "The city",
+      "relation": "was",
+      "tail": "founded"
+    },
+    {
+      "head": "The city",
+      "relation": "was founded by",
+      "tail": "the Western Town Lot Company"
+    }
+  ],
+  "benchie_221": [
+    {
+      "head": "The community",
+      "relation": "is",
+      "tail": "served"
+    },
+    {
+      "head": "The community",
+      "relation": "is served by",
+      "tail": "the United States Postal Service Hinsdale Post Office"
+    }
+  ],
+  "benchie_222": [
+    {
+      "head": "The ensemble",
+      "relation": "also has",
+      "tail": "extensive recordings"
+    },
+    {
+      "head": "The ensemble",
+      "relation": "also has extensive recordings with",
+      "tail": "Deutsche Grammophon"
+    }
+  ],
+  "benchie_223": [
+    {
+      "head": "The failure of 1st Armored",
+      "relation": "would have",
+      "tail": "important consequences"
+    },
+    {
+      "head": "The failure of 1st Armored",
+      "relation": "would have important consequences in",
+      "tail": "later action"
+    },
+    {
+      "head": "The failure of 1st Armored",
+      "relation": "would have important consequences in later action against",
+      "tail": "German forces"
+    }
+  ],
+  "benchie_224": [
+    {
+      "head": "The first five laps",
+      "relation": "would be",
+      "tail": "added"
+    },
+    {
+      "head": "The first five laps",
+      "relation": "would be added to",
+      "tail": "the second part of the race"
+    },
+    {
+      "head": "the overall result",
+      "relation": "would be",
+      "tail": "decided"
+    },
+    {
+      "head": "the overall result",
+      "relation": "would be decided",
+      "tail": "on aggregate"
+    }
+  ],
+  "benchie_225": [
+    {
+      "head": "The following tour",
+      "relation": "featured",
+      "tail": "extensive dates"
+    },
+    {
+      "head": "The following tour",
+      "relation": "featured extensive dates in",
+      "tail": "East Asia"
+    }
+  ],
+  "benchie_227": [
+    {
+      "head": "The lodge",
+      "relation": "is open from",
+      "tail": "mid-May"
+    },
+    {
+      "head": "two weeks",
+      "relation": "reserved for",
+      "tail": "the Dartmouth First-Year Trips"
+    }
+  ],
+  "benchie_228": [
+    {
+      "head": "The permanent members",
+      "relation": "are",
+      "tail": "the provost"
+    }
+  ],
+  "benchie_229": [
+    {
+      "head": "their decorations",
+      "relation": "are according to",
+      "tail": "the Meenakshi Temple"
+    },
+    {
+      "head": "the Meenakshi Temple",
+      "relation": "at",
+      "tail": "Madurai"
+    },
+    {
+      "head": "the Meenakshi Temple",
+      "relation": "in",
+      "tail": "Tamil Nadu"
+    },
+    {
+      "head": "Madurai",
+      "relation": "in",
+      "tail": "Tamil Nadu"
+    }
+  ],
+  "benchie_230": [
+    {
+      "head": "The race",
+      "relation": "is",
+      "tail": "in mixed eights"
+    },
+    {
+      "head": "The race",
+      "relation": "usually held in",
+      "tail": "late February / early March"
+    }
+  ],
+  "benchie_231": [
+    {
+      "head": "The rapids at the head of the South Fork",
+      "relation": "were",
+      "tail": "removed"
+    },
+    {
+      "head": "The rapids at the head of the South Fork",
+      "relation": "were removed in",
+      "tail": "1908"
+    }
+  ],
+  "benchie_232": [
+    {
+      "head": "The redesigned 2006 Ram SRT-10",
+      "relation": "came in",
+      "tail": "Mineral Gray Metallic"
+    }
+  ],
+  "benchie_233": [
+    {
+      "head": "The residue",
+      "relation": "can be",
+      "tail": "reprocessed"
+    },
+    {
+      "head": "The residue",
+      "relation": "can be reprocessed for",
+      "tail": "more dripping"
+    }
+  ],
+  "benchie_234": [
+    {
+      "head": "The rest of the group",
+      "relation": "reach",
+      "tail": "a small shop"
+    },
+    {
+      "head": "Brady",
+      "relation": "attempts to phone",
+      "tail": "the Sheriff"
+    },
+    {
+      "head": "the crocodile",
+      "relation": "breaks through",
+      "tail": "a wall"
+    },
+    {
+      "head": "the crocodile",
+      "relation": "devours",
+      "tail": "Annabelle"
+    }
+  ],
+  "benchie_236": [
+    {
+      "head": "The station",
+      "relation": "has",
+      "tail": "a concourse and ticket office area"
+    },
+    {
+      "head": "concourse and ticket office area",
+      "relation": "was",
+      "tail": "internally redesigned"
+    },
+    {
+      "head": "concourse and ticket office area",
+      "relation": "reopened in",
+      "tail": "mid-2012"
+    }
+  ],
+  "benchie_237": [
+    {
+      "head": "The third known version",
+      "relation": "is",
+      "tail": "part number 2189014-00-212"
+    },
+    {
+      "head": "at least one model",
+      "relation": "being",
+      "tail": "produced"
+    },
+    {
+      "head": "at least one model",
+      "relation": "being produced in",
+      "tail": "February 1993"
+    }
+  ],
+  "benchie_238": [
+    {
+      "head": "the fillets",
+      "relation": "are put in",
+      "tail": "a mix"
+    },
+    {
+      "head": "the fillets",
+      "relation": "are put in a mix of",
+      "tail": "olive oil , vinegar , sugar , garlic , chill peppers , and lots of parsley or celery"
+    }
+  ],
+  "benchie_239": [
+    {
+      "head": "There",
+      "relation": "were",
+      "tail": "47,604 households"
+    }
+  ],
+  "benchie_240": [
+    {
+      "head": "These objects",
+      "relation": "are thrown away if",
+      "tail": "their screen projection is too small"
+    }
+  ],
+  "benchie_241": [
+    {
+      "head": "These",
+      "relation": "were often related to",
+      "tail": "European conflict"
+    },
+    {
+      "head": "the Stuart Pretenders",
+      "relation": "were",
+      "tail": "aided"
+    },
+    {
+      "head": "the Stuart Pretenders",
+      "relation": "encouraged by",
+      "tail": "Britain 's continental enemies"
+    },
+    {
+      "head": "the Stuart Pretenders",
+      "relation": "encouraged by Britain 's continental enemies for",
+      "tail": "their own ends"
+    }
+  ],
+  "benchie_242": [
+    {
+      "head": "They",
+      "relation": "beat",
+      "tail": "Milligan"
+    },
+    {
+      "head": "They",
+      "relation": "win",
+      "tail": "the NAIA National Championships"
+    },
+    {
+      "head": "They",
+      "relation": "beat Milligan",
+      "tail": "1-0"
+    }
+  ],
+  "benchie_243": [
+    {
+      "head": "This engine",
+      "relation": "was",
+      "tail": "equipped"
+    },
+    {
+      "head": "This engine",
+      "relation": "was equipped with",
+      "tail": "an electronically controlled carburetor"
+    }
+  ],
+  "benchie_244": [
+    {
+      "head": "This",
+      "relation": "had",
+      "tail": "considerable implications"
+    },
+    {
+      "head": "This",
+      "relation": "had considerable implications for",
+      "tail": "the Welsh language"
+    },
+    {
+      "head": "This",
+      "relation": "had considerable implications for the Welsh language as",
+      "tail": "it was the main language of the nonconformist churches in Wales"
+    },
+    {
+      "head": "the Welsh language",
+      "relation": "was the main language of",
+      "tail": "the nonconformist churches"
+    },
+    {
+      "head": "the Welsh language",
+      "relation": "was the main language of the nonconformist churches in",
+      "tail": "Wales"
+    }
+  ],
+  "benchie_245": [
+    {
+      "head": "Total ` Fresh Food Story",
+      "relation": "constructed at",
+      "tail": "the end of the North Mall"
+    }
+  ],
+  "benchie_246": [
+    {
+      "head": "Watson",
+      "relation": "editor of",
+      "tail": "`` newcritics.com"
+    },
+    {
+      "head": "`` newcritics.com",
+      "relation": "journal of",
+      "tail": "media"
+    },
+    {
+      "head": "`` newcritics.com",
+      "relation": "launched in",
+      "tail": "January , 2007"
+    },
+    {
+      "head": "`` newcritics.com",
+      "relation": "shuttered in",
+      "tail": "June , 2009"
+    }
+  ],
+  "benchie_248": [
+    {
+      "head": "the Cosmos",
+      "relation": "expressed",
+      "tail": "concern"
+    },
+    {
+      "head": "the Cosmos",
+      "relation": "expressed concern for",
+      "tail": "what Battra might do"
+    }
+  ],
+  "benchie_249": [
+    {
+      "head": "`` For a list of all medalists",
+      "relation": "please see",
+      "tail": "the List of Great American Beer Festival medalists ''"
+    }
+  ],
+  "benchie_250": [
+    {
+      "head": "A similar technique",
+      "relation": "is",
+      "tail": "almost impossible to apply"
+    },
+    {
+      "head": "A similar technique",
+      "relation": "is almost impossible to apply to",
+      "tail": "other crops"
+    }
+  ],
+  "benchie_251": [
+    {
+      "head": "Heathrow authorities",
+      "relation": "have been watching",
+      "tail": "a group of allegedly crooked baggage handlers"
+    },
+    {
+      "head": "Heathrow authorities",
+      "relation": "have been watching a group of allegedly crooked baggage handlers for",
+      "tail": "some time"
+    }
+  ],
+  "benchie_254": [
+    {
+      "head": "the London trading session",
+      "relation": "drew to",
+      "tail": "a close"
+    },
+    {
+      "head": "the market",
+      "relation": "was still",
+      "tail": "listening"
+    },
+    {
+      "head": "the market",
+      "relation": "was still listening to",
+      "tail": "the parliamentary debate"
+    },
+    {
+      "head": "the market",
+      "relation": "was still listening to the parliamentary debate on",
+      "tail": "the economy"
+    },
+    {
+      "head": "John Major",
+      "relation": "expected",
+      "tail": "to clarify his approach"
+    },
+    {
+      "head": "John Major",
+      "relation": "expected to clarify his approach to",
+      "tail": "the British economy"
+    }
+  ],
+  "benchie_255": [
+    {
+      "head": "patients",
+      "relation": "require",
+      "tail": "less attention"
+    },
+    {
+      "head": "patients",
+      "relation": "require less attention from",
+      "tail": "nurses"
+    },
+    {
+      "head": "room charges",
+      "relation": "are",
+      "tail": "lower"
+    }
+  ],
+  "benchie_256": [
+    {
+      "head": "Both",
+      "relation": "reflect",
+      "tail": "the dismissal"
+    }
+  ],
+  "benchie_258": [
+    {
+      "head": "it",
+      "relation": "deepening the taxpayer 's exposure if",
+      "tail": "the FHA is forced to pay for more loans going sour"
+    }
+  ],
+  "benchie_259": [
+    {
+      "head": "wire transfers from a standing account",
+      "relation": "are n't",
+      "tail": "reported"
+    }
+  ],
+  "benchie_260": [
+    {
+      "head": "Coca - Cola Co",
+      "relation": "aiming to",
+      "tail": "boost soft - drink volume"
+    },
+    {
+      "head": "Coca - Cola Co",
+      "relation": "aiming to boost soft - drink volume in",
+      "tail": "Singapore"
+    }
+  ],
+  "benchie_261": [
+    {
+      "head": "Mr. Lane",
+      "relation": "said",
+      "tail": "the filings required under the proposed rules `` will be at least as effective , if not more so , for investors following transactions"
+    }
+  ],
+  "benchie_262": [
+    {
+      "head": "Bert Campaneris",
+      "relation": "effortlessly scoops up",
+      "tail": "a groundball"
+    },
+    {
+      "head": "Bert Campaneris",
+      "relation": "flips it to",
+      "tail": "second"
+    }
+  ],
+  "benchie_263": [
+    {
+      "head": "traders",
+      "relation": "said",
+      "tail": "the market remains dull"
+    }
+  ],
+  "benchie_264": [
+    {
+      "head": "Mr. Sider",
+      "relation": "pores over",
+      "tail": "last wills"
+    }
+  ],
+  "benchie_265": [
+    {
+      "head": "Edison Brothers Stores Inc",
+      "relation": "said",
+      "tail": "it agreed"
+    },
+    {
+      "head": "Edison Brothers Stores Inc",
+      "relation": "said it agreed to",
+      "tail": "buy 229 Foxmoor women 's apparel stores"
+    },
+    {
+      "head": "Edison Brothers Stores Inc",
+      "relation": "said it agreed to buy 229 Foxmoor women 's apparel stores from",
+      "tail": "Foxmoor Specialty Stores Corp"
+    }
+  ],
+  "benchie_266": [
+    {
+      "head": "Few people in the advertising business",
+      "relation": "have raised as many hackles as",
+      "tail": "Alvin A. Achenbaum"
+    }
+  ],
+  "benchie_267": [
+    {
+      "head": "a passenger",
+      "relation": "can",
+      "tail": "fly"
+    },
+    {
+      "head": "a passenger",
+      "relation": "can fly from",
+      "tail": "Chardon"
+    }
+  ],
+  "benchie_268": [
+    {
+      "head": "Hani Zayadi",
+      "relation": "was appointed",
+      "tail": "president"
+    },
+    {
+      "head": "Hani Zayadi",
+      "relation": "succeeding",
+      "tail": "Frank Robertson"
+    },
+    {
+      "head": "Frank Robertson",
+      "relation": "is",
+      "tail": "retiring"
+    },
+    {
+      "head": "Frank Robertson",
+      "relation": "is retiring",
+      "tail": "early"
+    }
+  ],
+  "benchie_269": [
+    {
+      "head": "the problem",
+      "relation": "is that",
+      "tail": "once most poison pills are adopted , they survive forever"
+    },
+    {
+      "head": "once most poison pills",
+      "relation": "are adopted",
+      "tail": "they survive forever"
+    }
+  ],
+  "benchie_270": [
+    {
+      "head": "Hungary 's Parliament",
+      "relation": "voted to",
+      "tail": "hold a national referendum"
+    },
+    {
+      "head": "Hungary 's Parliament",
+      "relation": "voted to hold a national referendum on",
+      "tail": "an election"
+    }
+  ],
+  "benchie_271": [
+    {
+      "head": "those functions",
+      "relation": "account for",
+      "tail": "only about a third of the software market"
+    }
+  ],
+  "benchie_273": [
+    {
+      "head": "It",
+      "relation": "was",
+      "tail": "the most active"
+    },
+    {
+      "head": "It",
+      "relation": "was the most active of",
+      "tail": "the 100 - share index"
+    }
+  ],
+  "benchie_274": [
+    {
+      "head": "Japanese office workers",
+      "relation": "use",
+      "tail": "PCs"
+    },
+    {
+      "head": "Japanese office workers",
+      "relation": "use PCs at",
+      "tail": "half the rate of their European counterparts"
+    }
+  ],
+  "benchie_275": [
+    {
+      "head": "Labor costs",
+      "relation": "are",
+      "tail": "climbing"
+    },
+    {
+      "head": "Labor costs",
+      "relation": "are climbing at",
+      "tail": "a far more rapid pace"
+    },
+    {
+      "head": "Labor costs",
+      "relation": "are climbing at a far more rapid pace in",
+      "tail": "the health care industry"
+    },
+    {
+      "head": "Labor costs",
+      "relation": "are climbing at a far more rapid pace in the health care industry than",
+      "tail": "in other industries"
+    }
+  ],
+  "benchie_276": [
+    {
+      "head": "Mitsubishi",
+      "relation": "has",
+      "tail": "control"
+    },
+    {
+      "head": "Mitsubishi",
+      "relation": "has control of",
+      "tail": "some major projects"
+    }
+  ],
+  "benchie_277": [
+    {
+      "head": "Medical cooperatives",
+      "relation": "are",
+      "tail": "banned"
+    },
+    {
+      "head": "Medical cooperatives",
+      "relation": "are banned from",
+      "tail": "providing general - practitioner services"
+    }
+  ],
+  "benchie_278": [
+    {
+      "head": "Mr. Mulford",
+      "relation": "said",
+      "tail": "reports of tension between the Treasury and Fed have been exaggerated"
+    }
+  ],
+  "benchie_279": [
+    {
+      "head": "Mr. Ridley 's decision",
+      "relation": "fires",
+      "tail": "the starting pistol"
+    },
+    {
+      "head": "Mr. Ridley 's decision",
+      "relation": "fires the starting pistol for",
+      "tail": "perhaps a costly contest"
+    },
+    {
+      "head": "Mr. Ridley 's decision",
+      "relation": "fires the starting pistol for perhaps a costly contest between",
+      "tail": "the world 's auto giants"
+    }
+  ],
+  "benchie_280": [
+    {
+      "head": "Mr. Stoll",
+      "relation": "suspected",
+      "tail": "the intruder was one of those precocious students"
+    },
+    {
+      "head": "Mr. Stoll",
+      "relation": "suspected",
+      "tail": "the intruder"
+    }
+  ],
+  "benchie_281": [
+    {
+      "head": "Mr. Broberg",
+      "relation": "claims",
+      "tail": "he 'd play"
+    },
+    {
+      "head": "Mr. Broberg",
+      "relation": "claims he 'd play",
+      "tail": "for free"
+    }
+  ],
+  "benchie_282": [
+    {
+      "head": "Lee Kuan Yew",
+      "relation": "one of Asia 's leading statesmen for",
+      "tail": "30 years"
+    },
+    {
+      "head": "Lee Kuan Yew",
+      "relation": "recently announced",
+      "tail": "his intention"
+    },
+    {
+      "head": "Lee Kuan Yew",
+      "relation": "recently announced his intention to",
+      "tail": "retire"
+    },
+    {
+      "head": "Lee Kuan Yew",
+      "relation": "recently announced his intention to retire",
+      "tail": "next year"
+    }
+  ],
+  "benchie_283": [
+    {
+      "head": "Repeat customers",
+      "relation": "also can",
+      "tail": "purchase luxury items"
+    },
+    {
+      "head": "Repeat customers",
+      "relation": "also can purchase luxury items at",
+      "tail": "reduced prices"
+    }
+  ],
+  "benchie_284": [
+    {
+      "head": "Richard Newsom",
+      "relation": "said",
+      "tail": "he also saw evidence"
+    },
+    {
+      "head": "Richard Newsom",
+      "relation": "said he also saw evidence that",
+      "tail": "crimes had been committed"
+    }
+  ],
+  "benchie_285": [
+    {
+      "head": "Sen. Mitchell",
+      "relation": "is",
+      "tail": "confident"
+    },
+    {
+      "head": "Sen. Mitchell",
+      "relation": "is confident he has",
+      "tail": "sufficient votes"
+    },
+    {
+      "head": "Sen. Mitchell",
+      "relation": "is confident he has sufficient votes to",
+      "tail": "block such a measure"
+    },
+    {
+      "head": "Sen. Mitchell",
+      "relation": "is confident he has sufficient votes to block such a measure with",
+      "tail": "procedural actions"
+    }
+  ],
+  "benchie_286": [
+    {
+      "head": "The Chemical spokeswoman",
+      "relation": "said",
+      "tail": "the bank has examined its methodologies"
+    }
+  ],
+  "benchie_288": [
+    {
+      "head": "The National Transportation Safety Board",
+      "relation": "ruled that",
+      "tail": "pilots failed"
+    }
+  ],
+  "benchie_289": [
+    {
+      "head": "The discount rate on three - month Treasury bills",
+      "relation": "rose",
+      "tail": "slightly"
+    },
+    {
+      "head": "The discount rate on three - month Treasury bills",
+      "relation": "rose slightly from",
+      "tail": "the average rate at Monday 's auction"
+    }
+  ],
+  "benchie_290": [
+    {
+      "head": "The effect",
+      "relation": "is that",
+      "tail": "lawsuits that might have been barred because they were filed too late could proceed because of the one - year extension"
+    },
+    {
+      "head": "lawsuits",
+      "relation": "might have been",
+      "tail": "barred"
+    },
+    {
+      "head": "lawsuits",
+      "relation": "might have been barred because",
+      "tail": "they were filed too late"
+    }
+  ],
+  "benchie_291": [
+    {
+      "head": "The executives",
+      "relation": "had",
+      "tail": "profited handsomely"
+    },
+    {
+      "head": "The executives",
+      "relation": "had profited handsomely by",
+      "tail": "building American National Can Co"
+    }
+  ],
+  "benchie_293": [
+    {
+      "head": "The office",
+      "relation": "may also be able to",
+      "tail": "advise"
+    }
+  ],
+  "benchie_294": [
+    {
+      "head": "The three existing plants",
+      "relation": "will be",
+      "tail": "sold"
+    },
+    {
+      "head": "their land",
+      "relation": "will be",
+      "tail": "sold"
+    }
+  ],
+  "benchie_295": [
+    {
+      "head": "New York City",
+      "relation": "announced",
+      "tail": "a 10 - point policy"
+    },
+    {
+      "head": "New York City",
+      "relation": "announced a 10 - point policy patterned on",
+      "tail": "the federal bill of rights"
+    }
+  ],
+  "benchie_296": [
+    {
+      "head": "USG Corp",
+      "relation": "agreed to",
+      "tail": "sell"
+    },
+    {
+      "head": "USG Corp",
+      "relation": "agreed to sell",
+      "tail": "its headquarters building"
+    },
+    {
+      "head": "USG Corp",
+      "relation": "will lease the 19 - story facility until",
+      "tail": "it moves to a new quarters"
+    }
+  ]
+}

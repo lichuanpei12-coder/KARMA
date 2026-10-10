@@ -1,0 +1,1640 @@
+{
+  "benchie_228": {
+    "dataset": "BenchIE_FL",
+    "sentence": "The permanent members are the provost , the Carl H. Pforzheimer University Professor and the deans or designees from the following Schools : the Faculty of Arts and Sciences , Harvard Business School , Harvard Law School and Harvard Medical School .",
+    "source_line": 6138,
+    "target": true,
+    "context_sentences": [],
+    "clusters": [
+      {
+        "label": "228--> Cluster 1:",
+        "source_line": 6139,
+        "expressions": [
+          {
+            "source_line": 6140,
+            "triple": {
+              "head": "[The] permanent members",
+              "relation": "are",
+              "tail": "[the] provost"
+            }
+          },
+          {
+            "source_line": 6141,
+            "triple": {
+              "head": "[the] permanent members",
+              "relation": "are",
+              "tail": "[the] provost"
+            }
+          },
+          {
+            "source_line": 6142,
+            "triple": {
+              "head": "[the] provost",
+              "relation": "are",
+              "tail": "permanent members"
+            }
+          },
+          {
+            "source_line": 6143,
+            "triple": {
+              "head": "[the] provost",
+              "relation": "is [a]",
+              "tail": "permanent member"
+            }
+          },
+          {
+            "source_line": 6144,
+            "triple": {
+              "head": "[the] provost",
+              "relation": "is",
+              "tail": "[a] permanent member"
+            }
+          }
+        ]
+      },
+      {
+        "label": "228--> Cluster 2:",
+        "source_line": 6145,
+        "expressions": [
+          {
+            "source_line": 6146,
+            "triple": {
+              "head": "[The] permanent members",
+              "relation": "are",
+              "tail": "[the] Carl H. Pforzheimer University Professor"
+            }
+          },
+          {
+            "source_line": 6147,
+            "triple": {
+              "head": "[the] permanent members",
+              "relation": "are",
+              "tail": "[the] Carl H. Pforzheimer University Professor"
+            }
+          },
+          {
+            "source_line": 6148,
+            "triple": {
+              "head": "[the] Carl H. Pforzheimer University Professor",
+              "relation": "are",
+              "tail": "permanent members"
+            }
+          },
+          {
+            "source_line": 6149,
+            "triple": {
+              "head": "[the] Carl H. Pforzheimer University Professor",
+              "relation": "is [a]",
+              "tail": "permanent members"
+            }
+          },
+          {
+            "source_line": 6150,
+            "triple": {
+              "head": "[the] Carl H. Pforzheimer University Professor",
+              "relation": "is",
+              "tail": "[a] permanent members"
+            }
+          }
+        ]
+      },
+      {
+        "label": "228--> Cluster 3:",
+        "source_line": 6151,
+        "expressions": [
+          {
+            "source_line": 6152,
+            "triple": {
+              "head": "[The] permanent members",
+              "relation": "are",
+              "tail": "[the] deans"
+            }
+          },
+          {
+            "source_line": 6153,
+            "triple": {
+              "head": "[the] permanent members",
+              "relation": "are",
+              "tail": "[the] deans"
+            }
+          },
+          {
+            "source_line": 6154,
+            "triple": {
+              "head": "[the] deans",
+              "relation": "are",
+              "tail": "permanent members"
+            }
+          }
+        ]
+      },
+      {
+        "label": "228--> Cluster 4:",
+        "source_line": 6155,
+        "expressions": [
+          {
+            "source_line": 6156,
+            "triple": {
+              "head": "[The] permanent members",
+              "relation": "are",
+              "tail": "[the] designees"
+            }
+          },
+          {
+            "source_line": 6157,
+            "triple": {
+              "head": "[the] permanent members",
+              "relation": "are",
+              "tail": "[the] designees"
+            }
+          },
+          {
+            "source_line": 6158,
+            "triple": {
+              "head": "[the] designees",
+              "relation": "are",
+              "tail": "permanent members"
+            }
+          }
+        ]
+      },
+      {
+        "label": "228--> Cluster 5:",
+        "source_line": 6159,
+        "expressions": [
+          {
+            "source_line": 6160,
+            "triple": {
+              "head": "[The] permanent members",
+              "relation": "are [the] deans from",
+              "tail": "[the] Faculty of Arts and Sciences"
+            }
+          },
+          {
+            "source_line": 6161,
+            "triple": {
+              "head": "[the] permanent members",
+              "relation": "are [the] deans from",
+              "tail": "[the] Faculty of Arts and Sciences"
+            }
+          },
+          {
+            "source_line": 6162,
+            "triple": {
+              "head": "[the] deans from [the] Faculty of Arts and Sciences",
+              "relation": "are",
+              "tail": "permanent members"
+            }
+          }
+        ]
+      },
+      {
+        "label": "228--> Cluster 6:",
+        "source_line": 6163,
+        "expressions": [
+          {
+            "source_line": 6164,
+            "triple": {
+              "head": "[The] permanent members",
+              "relation": "are [the] designees from",
+              "tail": "[the] Faculty of Arts and Sciences"
+            }
+          },
+          {
+            "source_line": 6165,
+            "triple": {
+              "head": "[the] permanent members",
+              "relation": "are [the] designees from",
+              "tail": "[the] Faculty of Arts and Sciences"
+            }
+          },
+          {
+            "source_line": 6166,
+            "triple": {
+              "head": "[the] designees from [the] Faculty of Arts and Sciences",
+              "relation": "are",
+              "tail": "permanent members"
+            }
+          }
+        ]
+      },
+      {
+        "label": "228--> Cluster 7:",
+        "source_line": 6167,
+        "expressions": [
+          {
+            "source_line": 6168,
+            "triple": {
+              "head": "[The] permanent members",
+              "relation": "are [the] deans from",
+              "tail": "Harvard Business School"
+            }
+          },
+          {
+            "source_line": 6169,
+            "triple": {
+              "head": "[the] permanent members",
+              "relation": "are [the] deans from",
+              "tail": "Harvard Business School"
+            }
+          },
+          {
+            "source_line": 6170,
+            "triple": {
+              "head": "[the] deans from Harvard Business School",
+              "relation": "are",
+              "tail": "permanent members"
+            }
+          }
+        ]
+      },
+      {
+        "label": "228--> Cluster 8:",
+        "source_line": 6171,
+        "expressions": [
+          {
+            "source_line": 6172,
+            "triple": {
+              "head": "[The] permanent members",
+              "relation": "are [the] designees from",
+              "tail": "Harvard Business School"
+            }
+          },
+          {
+            "source_line": 6173,
+            "triple": {
+              "head": "[the] permanent members",
+              "relation": "are [the] designees from",
+              "tail": "Harvard Business School"
+            }
+          },
+          {
+            "source_line": 6174,
+            "triple": {
+              "head": "[the] designees from Harvard Business School",
+              "relation": "are",
+              "tail": "permanent members"
+            }
+          }
+        ]
+      },
+      {
+        "label": "228--> Cluster 9:",
+        "source_line": 6175,
+        "expressions": [
+          {
+            "source_line": 6176,
+            "triple": {
+              "head": "[The] permanent members",
+              "relation": "are [the] deans from",
+              "tail": "Harvard Law School"
+            }
+          },
+          {
+            "source_line": 6177,
+            "triple": {
+              "head": "[the] permanent members",
+              "relation": "are [the] deans from",
+              "tail": "Harvard Law School"
+            }
+          },
+          {
+            "source_line": 6178,
+            "triple": {
+              "head": "[the] deans from Harvard Law School",
+              "relation": "are",
+              "tail": "permanent members"
+            }
+          }
+        ]
+      },
+      {
+        "label": "228--> Cluster 10:",
+        "source_line": 6179,
+        "expressions": [
+          {
+            "source_line": 6180,
+            "triple": {
+              "head": "[The] permanent members",
+              "relation": "are [the] designees from",
+              "tail": "Harvard Law School"
+            }
+          },
+          {
+            "source_line": 6181,
+            "triple": {
+              "head": "[the] permanent members",
+              "relation": "are [the] designees from",
+              "tail": "Harvard Law School"
+            }
+          },
+          {
+            "source_line": 6182,
+            "triple": {
+              "head": "[the] designees from Harvard Law School",
+              "relation": "are",
+              "tail": "permanent members"
+            }
+          }
+        ]
+      },
+      {
+        "label": "228--> Cluster 11:",
+        "source_line": 6183,
+        "expressions": [
+          {
+            "source_line": 6184,
+            "triple": {
+              "head": "[The] permanent members",
+              "relation": "are [the] deans from",
+              "tail": "Harvard Medical School"
+            }
+          },
+          {
+            "source_line": 6185,
+            "triple": {
+              "head": "[the] permanent members",
+              "relation": "are [the] deans from",
+              "tail": "Harvard Medical School"
+            }
+          },
+          {
+            "source_line": 6186,
+            "triple": {
+              "head": "[the] deans from Harvard Medical School",
+              "relation": "are",
+              "tail": "permanent members"
+            }
+          }
+        ]
+      },
+      {
+        "label": "228--> Cluster 12:",
+        "source_line": 6187,
+        "expressions": [
+          {
+            "source_line": 6188,
+            "triple": {
+              "head": "[The] permanent members",
+              "relation": "are [the] designees from",
+              "tail": "Harvard Medical School"
+            }
+          },
+          {
+            "source_line": 6189,
+            "triple": {
+              "head": "[the] permanent members",
+              "relation": "are [the] designees from",
+              "tail": "Harvard Medical School"
+            }
+          },
+          {
+            "source_line": 6190,
+            "triple": {
+              "head": "[the] designees from Harvard Medical School",
+              "relation": "are",
+              "tail": "permanent members"
+            }
+          }
+        ]
+      },
+      {
+        "label": "228--> Cluster 13:",
+        "source_line": 6191,
+        "expressions": [
+          {
+            "source_line": 6192,
+            "triple": {
+              "head": "[the] Faculty of Arts and Sciences",
+              "relation": "has",
+              "tail": "deans"
+            }
+          }
+        ]
+      },
+      {
+        "label": "228--> Cluster 14:",
+        "source_line": 6193,
+        "expressions": [
+          {
+            "source_line": 6194,
+            "triple": {
+              "head": "[the] Faculty of Arts and Sciences",
+              "relation": "has",
+              "tail": "designees"
+            }
+          }
+        ]
+      },
+      {
+        "label": "228--> Cluster 15:",
+        "source_line": 6195,
+        "expressions": [
+          {
+            "source_line": 6196,
+            "triple": {
+              "head": "Harvard Business School",
+              "relation": "has",
+              "tail": "deans"
+            }
+          }
+        ]
+      },
+      {
+        "label": "228--> Cluster 16:",
+        "source_line": 6197,
+        "expressions": [
+          {
+            "source_line": 6198,
+            "triple": {
+              "head": "Harvard Business School",
+              "relation": "has",
+              "tail": "designees"
+            }
+          }
+        ]
+      },
+      {
+        "label": "228--> Cluster 17:",
+        "source_line": 6199,
+        "expressions": [
+          {
+            "source_line": 6200,
+            "triple": {
+              "head": "Harvard Law School",
+              "relation": "has",
+              "tail": "deans"
+            }
+          }
+        ]
+      },
+      {
+        "label": "228--> Cluster 18:",
+        "source_line": 6201,
+        "expressions": [
+          {
+            "source_line": 6202,
+            "triple": {
+              "head": "Harvard Law School",
+              "relation": "has",
+              "tail": "designees"
+            }
+          }
+        ]
+      },
+      {
+        "label": "228--> Cluster 19:",
+        "source_line": 6203,
+        "expressions": [
+          {
+            "source_line": 6204,
+            "triple": {
+              "head": "Harvard Medical School",
+              "relation": "has",
+              "tail": "deans"
+            }
+          }
+        ]
+      },
+      {
+        "label": "228--> Cluster 20:",
+        "source_line": 6205,
+        "expressions": [
+          {
+            "source_line": 6206,
+            "triple": {
+              "head": "Harvard Medical School",
+              "relation": "has",
+              "tail": "designees"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "benchie_85": {
+    "dataset": "BenchIE_FL",
+    "sentence": "These skills were readily proven when squadrons and personnel were mobilized and recalled back to active duty during the Korean War and the Berlin Crisis .",
+    "source_line": 2546,
+    "target": true,
+    "context_sentences": [],
+    "clusters": [
+      {
+        "label": "85--> Cluster 1:",
+        "source_line": 2547,
+        "expressions": [
+          {
+            "source_line": 2548,
+            "triple": {
+              "head": "These skills",
+              "relation": "were",
+              "tail": "[readily] proven"
+            }
+          }
+        ]
+      },
+      {
+        "label": "85--> Cluster 2:",
+        "source_line": 2549,
+        "expressions": [
+          {
+            "source_line": 2550,
+            "triple": {
+              "head": "These skills",
+              "relation": "[were] [readily] proven when",
+              "tail": "squadrons were mobilized"
+            }
+          }
+        ]
+      },
+      {
+        "label": "85--> Cluster 3:",
+        "source_line": 2551,
+        "expressions": [
+          {
+            "source_line": 2552,
+            "triple": {
+              "head": "These skills",
+              "relation": "[were] [readily] proven when",
+              "tail": "personnel were mobilized"
+            }
+          }
+        ]
+      },
+      {
+        "label": "85--> Cluster 4:",
+        "source_line": 2553,
+        "expressions": [
+          {
+            "source_line": 2554,
+            "triple": {
+              "head": "These skills",
+              "relation": "[were] [readily] proven when",
+              "tail": "squadrons were recalled back to active duty"
+            }
+          }
+        ]
+      },
+      {
+        "label": "85--> Cluster 5:",
+        "source_line": 2555,
+        "expressions": [
+          {
+            "source_line": 2556,
+            "triple": {
+              "head": "These skills",
+              "relation": "[were] [readily] proven when",
+              "tail": "personnel were recalled back to active duty"
+            }
+          }
+        ]
+      },
+      {
+        "label": "85--> Cluster 6:",
+        "source_line": 2557,
+        "expressions": [
+          {
+            "source_line": 2558,
+            "triple": {
+              "head": "These skills",
+              "relation": "[were] [readily] proven during",
+              "tail": "[the] Korean War"
+            }
+          }
+        ]
+      },
+      {
+        "label": "85--> Cluster 7:",
+        "source_line": 2559,
+        "expressions": [
+          {
+            "source_line": 2560,
+            "triple": {
+              "head": "These skills",
+              "relation": "[were] [readily] proven during",
+              "tail": "[the] Berlin Crisis"
+            }
+          }
+        ]
+      },
+      {
+        "label": "85--> Cluster 8:",
+        "source_line": 2561,
+        "expressions": [
+          {
+            "source_line": 2562,
+            "triple": {
+              "head": "squadrons",
+              "relation": "[were] mobilized during",
+              "tail": "[the] Korean War"
+            }
+          }
+        ]
+      },
+      {
+        "label": "85--> Cluster 9:",
+        "source_line": 2563,
+        "expressions": [
+          {
+            "source_line": 2564,
+            "triple": {
+              "head": "squadrons",
+              "relation": "[were] mobilized during",
+              "tail": "[the] Berlin Crisis"
+            }
+          }
+        ]
+      },
+      {
+        "label": "85--> Cluster 10:",
+        "source_line": 2565,
+        "expressions": [
+          {
+            "source_line": 2566,
+            "triple": {
+              "head": "personnel",
+              "relation": "[were] mobilized during",
+              "tail": "[the] Korean War"
+            }
+          },
+          {
+            "source_line": 2567,
+            "triple": {
+              "head": "personnel",
+              "relation": "was mobilized during",
+              "tail": "[the] Korean War"
+            }
+          }
+        ]
+      },
+      {
+        "label": "85--> Cluster 11:",
+        "source_line": 2568,
+        "expressions": [
+          {
+            "source_line": 2569,
+            "triple": {
+              "head": "personnel",
+              "relation": "[were] mobilized during",
+              "tail": "[the] Berlin Crisis"
+            }
+          },
+          {
+            "source_line": 2570,
+            "triple": {
+              "head": "personnel",
+              "relation": "was mobilized during",
+              "tail": "[the] Berlin Crisis"
+            }
+          }
+        ]
+      },
+      {
+        "label": "85--> Cluster 12:",
+        "source_line": 2571,
+        "expressions": [
+          {
+            "source_line": 2572,
+            "triple": {
+              "head": "squadrons",
+              "relation": "[were] recalled back to active duty during",
+              "tail": "[the] Korean War"
+            }
+          }
+        ]
+      },
+      {
+        "label": "85--> Cluster 13:",
+        "source_line": 2573,
+        "expressions": [
+          {
+            "source_line": 2574,
+            "triple": {
+              "head": "squadrons",
+              "relation": "[were] recalled back to active duty during",
+              "tail": "[the] Berlin Crisis"
+            }
+          }
+        ]
+      },
+      {
+        "label": "85--> Cluster 14:",
+        "source_line": 2575,
+        "expressions": [
+          {
+            "source_line": 2576,
+            "triple": {
+              "head": "personnel",
+              "relation": "[were] recalled back to active duty during",
+              "tail": "[the] Korean War"
+            }
+          },
+          {
+            "source_line": 2577,
+            "triple": {
+              "head": "personnel",
+              "relation": "was recalled back to active duty during",
+              "tail": "[the] Korean War"
+            }
+          }
+        ]
+      },
+      {
+        "label": "85--> Cluster 15:",
+        "source_line": 2578,
+        "expressions": [
+          {
+            "source_line": 2579,
+            "triple": {
+              "head": "personnel",
+              "relation": "[were] recalled back to active duty during",
+              "tail": "[the] Berlin Crisis"
+            }
+          },
+          {
+            "source_line": 2580,
+            "triple": {
+              "head": "personnel",
+              "relation": "was recalled back to active duty during",
+              "tail": "[the] Berlin Crisis"
+            }
+          }
+        ]
+      },
+      {
+        "label": "85--> Cluster 16:",
+        "source_line": 2581,
+        "expressions": [
+          {
+            "source_line": 2582,
+            "triple": {
+              "head": "squadrons",
+              "relation": "were",
+              "tail": "mobilized"
+            }
+          }
+        ]
+      },
+      {
+        "label": "85--> Cluster 17:",
+        "source_line": 2583,
+        "expressions": [
+          {
+            "source_line": 2584,
+            "triple": {
+              "head": "personnel",
+              "relation": "were",
+              "tail": "mobilized"
+            }
+          },
+          {
+            "source_line": 2585,
+            "triple": {
+              "head": "personnel",
+              "relation": "was",
+              "tail": "mobilized"
+            }
+          }
+        ]
+      },
+      {
+        "label": "85--> Cluster 18:",
+        "source_line": 2586,
+        "expressions": [
+          {
+            "source_line": 2587,
+            "triple": {
+              "head": "squadrons",
+              "relation": "were",
+              "tail": "recalled back to active duty"
+            }
+          }
+        ]
+      },
+      {
+        "label": "85--> Cluster 19:",
+        "source_line": 2588,
+        "expressions": [
+          {
+            "source_line": 2589,
+            "triple": {
+              "head": "personnel",
+              "relation": "were",
+              "tail": "recalled back to active duty"
+            }
+          },
+          {
+            "source_line": 2590,
+            "triple": {
+              "head": "personnel",
+              "relation": "was",
+              "tail": "recalled back to active duty"
+            }
+          },
+          {
+            "source_line": 2591,
+            "triple": {
+              "head": "personnel",
+              "relation": "were recalled back to",
+              "tail": "active duty"
+            }
+          },
+          {
+            "source_line": 2592,
+            "triple": {
+              "head": "personnel",
+              "relation": "was recalled back to",
+              "tail": "active duty"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "benchie_19": {
+    "dataset": "BenchIE_FL",
+    "sentence": "She began her film career in 1947 in the film `` A New Oath '' .",
+    "source_line": 679,
+    "target": true,
+    "context_sentences": [],
+    "clusters": [
+      {
+        "label": "19--> Cluster 1:",
+        "source_line": 680,
+        "expressions": [
+          {
+            "source_line": 681,
+            "triple": {
+              "head": "She",
+              "relation": "began",
+              "tail": "[her] film career"
+            }
+          }
+        ]
+      },
+      {
+        "label": "19--> Cluster 2:",
+        "source_line": 682,
+        "expressions": [
+          {
+            "source_line": 683,
+            "triple": {
+              "head": "She",
+              "relation": "began [her] film career in",
+              "tail": "1947"
+            }
+          }
+        ]
+      },
+      {
+        "label": "19--> Cluster 3:",
+        "source_line": 684,
+        "expressions": [
+          {
+            "source_line": 685,
+            "triple": {
+              "head": "She",
+              "relation": "began [her] film career in",
+              "tail": "[`] [`] A New Oath ['']"
+            }
+          }
+        ]
+      },
+      {
+        "label": "19--> Cluster 4:",
+        "source_line": 686,
+        "expressions": [
+          {
+            "source_line": 687,
+            "triple": {
+              "head": "[`] [`] A New Oath ['']",
+              "relation": "is [a]",
+              "tail": "film"
+            }
+          },
+          {
+            "source_line": 688,
+            "triple": {
+              "head": "[`] [`] A New Oath ['']",
+              "relation": "is",
+              "tail": "[a] film"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "benchie_34": {
+    "dataset": "BenchIE_FL",
+    "sentence": "They held the first Triangle workshop in 1982 for thirty sculptors and painters from the US , the UK and Canada at Pine Plains , New York .",
+    "source_line": 1076,
+    "target": true,
+    "context_sentences": [],
+    "clusters": [
+      {
+        "label": "34--> Cluster 1:",
+        "source_line": 1077,
+        "expressions": [
+          {
+            "source_line": 1078,
+            "triple": {
+              "head": "They",
+              "relation": "held",
+              "tail": "[the] first Triangle workshop"
+            }
+          }
+        ]
+      },
+      {
+        "label": "34--> Cluster 2:",
+        "source_line": 1079,
+        "expressions": [
+          {
+            "source_line": 1080,
+            "triple": {
+              "head": "They",
+              "relation": "held [the] first Triangle workshop in",
+              "tail": "1982"
+            }
+          }
+        ]
+      },
+      {
+        "label": "34--> Cluster 3:",
+        "source_line": 1081,
+        "expressions": [
+          {
+            "source_line": 1082,
+            "triple": {
+              "head": "They",
+              "relation": "held [the] first Triangle workshop for",
+              "tail": "thirty sculptors and painters"
+            }
+          }
+        ]
+      },
+      {
+        "label": "34--> Cluster 4:",
+        "source_line": 1083,
+        "expressions": [
+          {
+            "source_line": 1084,
+            "triple": {
+              "head": "They",
+              "relation": "held [the] first Triangle workshop for [thirty] sculptors and painters from",
+              "tail": "[the] US [,] [the] UK and Canada"
+            }
+          }
+        ]
+      },
+      {
+        "label": "34--> Cluster 5:",
+        "source_line": 1085,
+        "expressions": [
+          {
+            "source_line": 1086,
+            "triple": {
+              "head": "They",
+              "relation": "held [the] first Triangle workshop at",
+              "tail": "Pine Plains"
+            }
+          },
+          {
+            "source_line": 1087,
+            "triple": {
+              "head": "They",
+              "relation": "held [the] first Triangle workshop in",
+              "tail": "Pine Plains"
+            }
+          }
+        ]
+      },
+      {
+        "label": "34--> Cluster 6:",
+        "source_line": 1088,
+        "expressions": [
+          {
+            "source_line": 1089,
+            "triple": {
+              "head": "Pine Plains",
+              "relation": "is [located] in",
+              "tail": "New York"
+            }
+          }
+        ]
+      },
+      {
+        "label": "34--> Cluster 7:",
+        "source_line": 1090,
+        "expressions": [
+          {
+            "source_line": 1091,
+            "triple": {
+              "head": "They",
+              "relation": "held [the] first Triangle workshop in",
+              "tail": "New York"
+            }
+          }
+        ]
+      },
+      {
+        "label": "34--> Cluster 8:",
+        "source_line": 1092,
+        "expressions": [
+          {
+            "source_line": 1093,
+            "triple": {
+              "head": "They",
+              "relation": "held [the] first Triangle workshop for sculptors from",
+              "tail": "[the] US"
+            }
+          }
+        ]
+      },
+      {
+        "label": "34--> Cluster 9:",
+        "source_line": 1094,
+        "expressions": [
+          {
+            "source_line": 1095,
+            "triple": {
+              "head": "They",
+              "relation": "held [the] first Triangle workshop for sculptors from",
+              "tail": "[the] UK"
+            }
+          }
+        ]
+      },
+      {
+        "label": "34--> Cluster 10:",
+        "source_line": 1096,
+        "expressions": [
+          {
+            "source_line": 1097,
+            "triple": {
+              "head": "They",
+              "relation": "held [the] first Triangle workshop for sculptors from",
+              "tail": "Canada"
+            }
+          }
+        ]
+      },
+      {
+        "label": "34--> Cluster 11:",
+        "source_line": 1098,
+        "expressions": [
+          {
+            "source_line": 1099,
+            "triple": {
+              "head": "They",
+              "relation": "held [the] first Triangle workshop for painters from",
+              "tail": "[the] US"
+            }
+          }
+        ]
+      },
+      {
+        "label": "34--> Cluster 12:",
+        "source_line": 1100,
+        "expressions": [
+          {
+            "source_line": 1101,
+            "triple": {
+              "head": "They",
+              "relation": "held [the] first Triangle workshop for painters from",
+              "tail": "[the] UK"
+            }
+          }
+        ]
+      },
+      {
+        "label": "34--> Cluster 13:",
+        "source_line": 1102,
+        "expressions": [
+          {
+            "source_line": 1103,
+            "triple": {
+              "head": "They",
+              "relation": "held [the] first Triangle workshop for painters from",
+              "tail": "Canada"
+            }
+          }
+        ]
+      },
+      {
+        "label": "34--> Cluster 14:",
+        "source_line": 1104,
+        "expressions": [
+          {
+            "source_line": 1105,
+            "triple": {
+              "head": "They",
+              "relation": "held [the] first Triangle workshop for",
+              "tail": "sculptors"
+            }
+          }
+        ]
+      },
+      {
+        "label": "34--> Cluster 15:",
+        "source_line": 1106,
+        "expressions": [
+          {
+            "source_line": 1107,
+            "triple": {
+              "head": "They",
+              "relation": "held [the] first Triangle workshop for",
+              "tail": "painters"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "benchie_240": {
+    "dataset": "BenchIE_FL",
+    "sentence": "These objects are thrown away if their screen projection is too small .",
+    "source_line": 6552,
+    "target": true,
+    "context_sentences": [],
+    "clusters": [
+      {
+        "label": "240--> Cluster 1:",
+        "source_line": 6553,
+        "expressions": [
+          {
+            "source_line": 6554,
+            "triple": {
+              "head": "These objects",
+              "relation": "are",
+              "tail": "thrown away"
+            }
+          }
+        ]
+      },
+      {
+        "label": "240--> Cluster 2:",
+        "source_line": 6555,
+        "expressions": [
+          {
+            "source_line": 6556,
+            "triple": {
+              "head": "These objects",
+              "relation": "are thrown away if",
+              "tail": "[their] screen projection is too small"
+            }
+          },
+          {
+            "source_line": 6557,
+            "triple": {
+              "head": "These objects",
+              "relation": "are thrown away if",
+              "tail": "These objects screen projection is too small"
+            }
+          }
+        ]
+      },
+      {
+        "label": "240--> Cluster 3:",
+        "source_line": 6558,
+        "expressions": [
+          {
+            "source_line": 6559,
+            "triple": {
+              "head": "These objects",
+              "relation": "have",
+              "tail": "screen projection"
+            }
+          }
+        ]
+      },
+      {
+        "label": "240--> Cluster 4:",
+        "source_line": 6560,
+        "expressions": [
+          {
+            "source_line": 6561,
+            "triple": {
+              "head": "their screen projection",
+              "relation": "is",
+              "tail": "too small"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "benchie_2": {
+    "dataset": "BenchIE_FL",
+    "sentence": "Graner handcuffed him to the bars of a cell window and left him there , feet dangling off the floor , for nearly five hours .",
+    "source_line": 30,
+    "target": true,
+    "context_sentences": [],
+    "clusters": [
+      {
+        "label": "2--> Cluster 1:",
+        "source_line": 31,
+        "expressions": [
+          {
+            "source_line": 32,
+            "triple": {
+              "head": "Graner",
+              "relation": "handcuffed",
+              "tail": "him"
+            }
+          }
+        ]
+      },
+      {
+        "label": "2--> Cluster 2:",
+        "source_line": 33,
+        "expressions": [
+          {
+            "source_line": 34,
+            "triple": {
+              "head": "Graner",
+              "relation": "handcuffed him to",
+              "tail": "[the] bars"
+            }
+          }
+        ]
+      },
+      {
+        "label": "2--> Cluster 3:",
+        "source_line": 35,
+        "expressions": [
+          {
+            "source_line": 36,
+            "triple": {
+              "head": "Graner",
+              "relation": "handcuffed him to [the] bars of",
+              "tail": "[a] cell window"
+            }
+          },
+          {
+            "source_line": 37,
+            "triple": {
+              "head": "Graner",
+              "relation": "handcuffed him to [the] bars of [a]",
+              "tail": "cell window"
+            }
+          },
+          {
+            "source_line": 38,
+            "triple": {
+              "head": "Graner",
+              "relation": "handcuffed him to",
+              "tail": "[a] cell window"
+            }
+          },
+          {
+            "source_line": 39,
+            "triple": {
+              "head": "Graner",
+              "relation": "handcuffed him to [a]",
+              "tail": "cell window"
+            }
+          }
+        ]
+      },
+      {
+        "label": "2--> Cluster 4:",
+        "source_line": 40,
+        "expressions": [
+          {
+            "source_line": 41,
+            "triple": {
+              "head": "Graner",
+              "relation": "left",
+              "tail": "him [there]"
+            }
+          },
+          {
+            "source_line": 42,
+            "triple": {
+              "head": "Graner",
+              "relation": "left him",
+              "tail": "there"
+            }
+          }
+        ]
+      },
+      {
+        "label": "2--> Cluster 5:",
+        "source_line": 43,
+        "expressions": [
+          {
+            "source_line": 44,
+            "triple": {
+              "head": "Graner",
+              "relation": "left him",
+              "tail": "[feet] dangling off [the] floor"
+            }
+          }
+        ]
+      },
+      {
+        "label": "2--> Cluster 6:",
+        "source_line": 45,
+        "expressions": [
+          {
+            "source_line": 46,
+            "triple": {
+              "head": "Graner",
+              "relation": "left him [there] for",
+              "tail": "[nearly] five hours"
+            }
+          }
+        ]
+      },
+      {
+        "label": "2--> Cluster 7:",
+        "source_line": 47,
+        "expressions": [
+          {
+            "source_line": 48,
+            "triple": {
+              "head": "him",
+              "relation": "was [left]",
+              "tail": "[feet] dangling off [the] floor"
+            }
+          },
+          {
+            "source_line": 49,
+            "triple": {
+              "head": "he",
+              "relation": "was [left]",
+              "tail": "[feet] dangling off [the] floor"
+            }
+          },
+          {
+            "source_line": 50,
+            "triple": {
+              "head": "his feet",
+              "relation": "[were] dangling off",
+              "tail": "[the] floor"
+            }
+          },
+          {
+            "source_line": 51,
+            "triple": {
+              "head": "he",
+              "relation": "was dangling off",
+              "tail": "[the] floor"
+            }
+          }
+        ]
+      },
+      {
+        "label": "2--> Cluster 8:",
+        "source_line": 52,
+        "expressions": [
+          {
+            "source_line": 53,
+            "triple": {
+              "head": "him",
+              "relation": "was [left] there for",
+              "tail": "[nearly] five hours"
+            }
+          },
+          {
+            "source_line": 54,
+            "triple": {
+              "head": "he",
+              "relation": "was [left] there for",
+              "tail": "[nearly] five hours"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "docoie_transportation_doc0_target0": {
+    "dataset": "DocOIE",
+    "domain": "transportation",
+    "document_id": "857. Systems and methods for a cryptographically guaranteed vehicle identity.txt",
+    "target_index_in_gold_document": 0,
+    "context_index": 20,
+    "sentence": "Because such elements and operations are well known in the art, and because they do not facilitate a better understanding of the present disclosure, a discussion of such elements and operations may not be provided herein.",
+    "target": true,
+    "context_sentences": [
+      {
+        "sentence": "Those of ordinary skill may recognize that other elements and/or operations may be desirable and/or necessary to implement the devices, systems, and methods described herein.",
+        "context_index": 19,
+        "evaluation_target": false
+      },
+      {
+        "sentence": "However, the present disclosure is deemed to inherently include all such elements, variations, and modifications to the described aspects that would be known to those of ordinary skill in the art.",
+        "context_index": 21,
+        "evaluation_target": false
+      }
+    ],
+    "original_sub_rel_obj": [
+      {
+        "sub": "such elements",
+        "rel": "are well known in",
+        "obj": "the art"
+      },
+      {
+        "sub": "such operations",
+        "rel": "are well known in",
+        "obj": "the art"
+      },
+      {
+        "sub": "they",
+        "rel": "do not facilitate",
+        "obj": "a better understanding of the present disclosure"
+      }
+    ]
+  },
+  "docoie_transportation_doc0_target2": {
+    "dataset": "DocOIE",
+    "domain": "transportation",
+    "document_id": "857. Systems and methods for a cryptographically guaranteed vehicle identity.txt",
+    "target_index_in_gold_document": 2,
+    "context_index": 108,
+    "sentence": "In this manner, validation of the vehicle identity ensures the integrity of all of the components that make up the vehicle as well as information generated by any of the components that make up the vehicle.",
+    "target": true,
+    "context_sentences": [
+      {
+        "sentence": "There is a need to identify the vehicle that reflects changes in the components that make up the vehicle.",
+        "context_index": 107,
+        "evaluation_target": false
+      },
+      {
+        "sentence": "By generating hashes for each vehicle component a cryptology tree, similar to a Merkle Tree, may be used to verify vehicle integrity.",
+        "context_index": 109,
+        "evaluation_target": false
+      }
+    ],
+    "original_sub_rel_obj": [
+      {
+        "sub": "vlidation of the vehicle identity",
+        "rel": "ensures",
+        "obj": "the integrity of all of the components"
+      },
+      {
+        "sub": "the components",
+        "rel": "make up",
+        "obj": "the vehicle"
+      },
+      {
+        "sub": "vlidation of the vehicle identity",
+        "rel": "ensures",
+        "obj": "information generated by any of the components that make up the vehicle"
+      },
+      {
+        "sub": "information",
+        "rel": "is generated by",
+        "obj": "any of the components that make up the vehicle"
+      },
+      {
+        "sub": "components",
+        "rel": "make up",
+        "obj": "the vehicle"
+      }
+    ]
+  },
+  "docoie_transportation_doc0_target3": {
+    "dataset": "DocOIE",
+    "domain": "transportation",
+    "document_id": "857. Systems and methods for a cryptographically guaranteed vehicle identity.txt",
+    "target_index_in_gold_document": 3,
+    "context_index": 131,
+    "sentence": "Further, the term computer readable medium is meant to refer to any machine-readable medium (automated data medium) capable of storing data in a format readable by a mechanical device.",
+    "target": true,
+    "context_sentences": [
+      {
+        "sentence": "A \"computing platform\" or \"controller\" may comprise one or more processors.",
+        "context_index": 130,
+        "evaluation_target": false
+      },
+      {
+        "sentence": "Examples of computer-readable media include magnetic media such as magnetic disks, cards, tapes, and drums, punched cards and paper tapes, optical disks, barcodes and magnetic ink characters.",
+        "context_index": 132,
+        "evaluation_target": false
+      }
+    ],
+    "original_sub_rel_obj": [
+      {
+        "sub": "the term computer readable medium",
+        "rel": "is meant to refer to",
+        "obj": "any machine-readable medium"
+      },
+      {
+        "sub": "machine-readable medium",
+        "rel": "is",
+        "obj": "automated data medium"
+      },
+      {
+        "sub": "machine-readable medium",
+        "rel": "is capable of",
+        "obj": "storing data"
+      },
+      {
+        "sub": "machine-readable medium",
+        "rel": "is capable of storing data in",
+        "obj": "a format"
+      },
+      {
+        "sub": "a format",
+        "rel": "is readable by",
+        "obj": "a mechanical device"
+      }
+    ]
+  },
+  "docoie_healthcare_doc0_target0": {
+    "dataset": "DocOIE",
+    "domain": "healthcare",
+    "document_id": "157. Remote presence system mounted to operating room hardware.txt",
+    "target_index_in_gold_document": 0,
+    "context_index": 34,
+    "sentence": "The control station is typically located in a place that is remote from the robot face.",
+    "target": true,
+    "context_sentences": [
+      {
+        "sentence": "The computer may also contain an input device 32 such as a joystick or a mouse.",
+        "context_index": 33,
+        "evaluation_target": false
+      },
+      {
+        "sentence": "Although only one remote control station is shown, the system may include a plurality of remote stations.",
+        "context_index": 35,
+        "evaluation_target": false
+      }
+    ],
+    "original_sub_rel_obj": [
+      {
+        "sub": "the control station",
+        "rel": "is typically located in",
+        "obj": "a place"
+      },
+      {
+        "sub": "a place",
+        "rel": "is remote from",
+        "obj": "the robot face"
+      }
+    ]
+  },
+  "docoie_healthcare_doc0_target3": {
+    "dataset": "DocOIE",
+    "domain": "healthcare",
+    "document_id": "157. Remote presence system mounted to operating room hardware.txt",
+    "target_index_in_gold_document": 3,
+    "context_index": 94,
+    "sentence": "The robot face may also have a voice recognition system that allows the user to grant access with a voice command.",
+    "target": true,
+    "context_sentences": [
+      {
+        "sentence": "In response to the alert indicator the user may provide a user input such as the depression of a button on the robot face, or the selection of a graphical image on the robot monitor, to allow access to the robot camera.",
+        "context_index": 93,
+        "evaluation_target": false
+      },
+      {
+        "sentence": "The user input causes the robot face to begin transmitting video images from the robot camera to the remote station that requested access to the robot face.",
+        "context_index": 95,
+        "evaluation_target": false
+      }
+    ],
+    "original_sub_rel_obj": [
+      {
+        "sub": "the robot face",
+        "rel": "may have",
+        "obj": "a voice recognition system"
+      },
+      {
+        "sub": "a voice recognition system",
+        "rel": "allows the user to grant access with",
+        "obj": "a voice command"
+      }
+    ]
+  },
+  "docoie_healthcare_doc0_target8": {
+    "dataset": "DocOIE",
+    "domain": "healthcare",
+    "document_id": "157. Remote presence system mounted to operating room hardware.txt",
+    "target_index_in_gold_document": 8,
+    "context_index": 121,
+    "sentence": "The annotated image may be stored by the system.",
+    "target": true,
+    "context_sentences": [
+      {
+        "sentence": "For example, a doctor at the remote station may annotate some portion of the image captured by the robot face camera.",
+        "context_index": 120,
+        "evaluation_target": false
+      },
+      {
+        "sentence": "The system may also allow for annotation of images sent to the robot face through icon.",
+        "context_index": 122,
+        "evaluation_target": false
+      }
+    ],
+    "original_sub_rel_obj": [
+      {
+        "sub": "the annotated  image",
+        "rel": "may be stored by",
+        "obj": "the system"
+      }
+    ]
+  }
+}

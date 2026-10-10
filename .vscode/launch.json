@@ -1,0 +1,48 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "评估：严格 + 宽松（首篇 R1/R2）",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/evaluate_lenient.py",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "args": [
+                "outputs/revisions/first_document_20261009_60671500",
+                "data/DocIOE/transport",
+                "--compare-strict",
+                "--output-dir",
+                "outputs/evaluation_20261010/revision"
+            ]
+        },
+        {
+            "name": "评估：仅严格（首篇 R1/R2）",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/evaluate_strict.py",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "args": [
+                "outputs/revisions/first_document_20261009_60671500",
+                "data/DocIOE/transport",
+                "--output-dir",
+                "outputs/evaluation_20261010/revision"
+            ]
+        },
+        {
+            "name": "评估：仅宽松（首篇 R1/R2）",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/evaluate_lenient.py",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "args": [
+                "outputs/revisions/first_document_20261009_60671500",
+                "data/DocIOE/transport",
+                "--output-dir",
+                "outputs/evaluation_20261010/revision"
+            ]
+        }
+    ]
+}

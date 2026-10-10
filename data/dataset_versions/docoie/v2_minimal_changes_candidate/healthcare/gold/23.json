@@ -1,0 +1,102 @@
+[
+  {
+    "head": "the combination",
+    "relation": "is done for",
+    "tail": "spectral bin images"
+  },
+  {
+    "head": "spectral bin images",
+    "relation": "are reconstructed for",
+    "tail": "the same slice location"
+  },
+  {
+    "head": "image reconstruction",
+    "relation": "is performed as",
+    "tail": "outlined above"
+  },
+  {
+    "head": "image reconstruction performed as outlined above",
+    "relation": "is to create",
+    "tail": "diffusion-weighted images"
+  },
+  {
+    "head": "the operator workstation",
+    "relation": "provides",
+    "tail": "an operator interface"
+  },
+  {
+    "head": "an operator interface",
+    "relation": "facilitates entering scan parameters into",
+    "tail": "the MRI system"
+  },
+  {
+    "head": "RF waveforms",
+    "relation": "are applied by the RF system to",
+    "tail": "the RF coil"
+  },
+  {
+    "head": "RF waveforms",
+    "relation": "are applied by a separate local coil to perform",
+    "tail": "the prescribed magnetic resonance pulse sequence"
+  },
+  {
+    "head": "multiple networked workstations",
+    "relation": "may have access to",
+    "tail": "the data processing server"
+  },
+  {
+    "head": "multiple networked workstations",
+    "relation": "may have access to",
+    "tail": "the data store server"
+  },
+  {
+    "head": "the systems and methods",
+    "relation": "can provide",
+    "tail": "quantitative diffusion-weighted assessment of spinal cord health"
+  },
+  {
+    "head": "the systems and methods providing quantitative diffusion-weighted assessment of spinal cord health",
+    "relation": "is in",
+    "tail": "the immediate vicinity of spinal fusion devices or disc replacements"
+  },
+  {
+    "head": "the amplitude of the slice-select gradient",
+    "relation": "is flipped relative to",
+    "tail": "the refocusing gradients"
+  },
+  {
+    "head": "the amplitude of the slice-select gradient flipped relative to the refocusing gradients",
+    "relation": "is to excite",
+    "tail": "spatially and spectrally selective bins"
+  },
+  {
+    "head": "real-time images",
+    "relation": "may be stored in",
+    "tail": "a data base memory cache"
+  },
+  {
+    "head": "they",
+    "relation": "may be output to",
+    "tail": "operator display or a display"
+  },
+  {
+    "head": "the networked workstation",
+    "relation": "may gain remote access to",
+    "tail": "the data processing server or data store server"
+  },
+  {
+    "head": "the networked workstation gaining remote access to the data processing server or data store server",
+    "relation": "is via",
+    "tail": "the communication system"
+  },
+  {
+    "head": "alternating echoes",
+    "relation": "can be split into",
+    "tail": "orthogonal blades"
+  },
+  {
+    "head": "alternating echoes split into orthogonal blades",
+    "relation": "is to enable",
+    "tail": "additional phase correction of odd and even echoes within the echo train"
+  }
+]

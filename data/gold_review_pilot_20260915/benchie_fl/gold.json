@@ -1,0 +1,244 @@
+{
+  "benchie_228": [
+    {
+      "head": "The permanent members",
+      "relation": "are",
+      "tail": "the provost"
+    },
+    {
+      "head": "The permanent members",
+      "relation": "are",
+      "tail": "the Carl H. Pforzheimer University Professor"
+    },
+    {
+      "head": "The permanent members",
+      "relation": "are",
+      "tail": "the deans or designees from the Faculty of Arts and Sciences"
+    },
+    {
+      "head": "The permanent members",
+      "relation": "are",
+      "tail": "the deans or designees from Harvard Business School"
+    },
+    {
+      "head": "The permanent members",
+      "relation": "are",
+      "tail": "the deans or designees from Harvard Law School"
+    },
+    {
+      "head": "The permanent members",
+      "relation": "are",
+      "tail": "the deans or designees from Harvard Medical School"
+    }
+  ],
+  "benchie_85": [
+    {
+      "head": "These skills",
+      "relation": "were",
+      "tail": "readily proven"
+    },
+    {
+      "head": "These skills",
+      "relation": "were readily proven when",
+      "tail": "squadrons were mobilized"
+    },
+    {
+      "head": "These skills",
+      "relation": "were readily proven when",
+      "tail": "personnel were mobilized"
+    },
+    {
+      "head": "These skills",
+      "relation": "were readily proven when",
+      "tail": "squadrons were recalled back to active duty"
+    },
+    {
+      "head": "These skills",
+      "relation": "were readily proven when",
+      "tail": "personnel were recalled back to active duty"
+    },
+    {
+      "head": "These skills",
+      "relation": "were readily proven during",
+      "tail": "Korean War"
+    },
+    {
+      "head": "These skills",
+      "relation": "were readily proven during",
+      "tail": "Berlin Crisis"
+    },
+    {
+      "head": "squadrons",
+      "relation": "were mobilized during",
+      "tail": "Korean War"
+    },
+    {
+      "head": "squadrons",
+      "relation": "were mobilized during",
+      "tail": "Berlin Crisis"
+    },
+    {
+      "head": "personnel",
+      "relation": "were mobilized during",
+      "tail": "Korean War"
+    },
+    {
+      "head": "personnel",
+      "relation": "were mobilized during",
+      "tail": "Berlin Crisis"
+    },
+    {
+      "head": "squadrons",
+      "relation": "were recalled back to active duty during",
+      "tail": "Korean War"
+    },
+    {
+      "head": "squadrons",
+      "relation": "were recalled back to active duty during",
+      "tail": "Berlin Crisis"
+    },
+    {
+      "head": "personnel",
+      "relation": "were recalled back to active duty during",
+      "tail": "Korean War"
+    },
+    {
+      "head": "personnel",
+      "relation": "were recalled back to active duty during",
+      "tail": "Berlin Crisis"
+    },
+    {
+      "head": "squadrons",
+      "relation": "were",
+      "tail": "mobilized"
+    },
+    {
+      "head": "personnel",
+      "relation": "were",
+      "tail": "mobilized"
+    },
+    {
+      "head": "squadrons",
+      "relation": "were",
+      "tail": "recalled back to active duty"
+    },
+    {
+      "head": "personnel",
+      "relation": "were recalled back to",
+      "tail": "active duty"
+    }
+  ],
+  "benchie_19": [
+    {
+      "head": "She",
+      "relation": "began",
+      "tail": "her film career"
+    },
+    {
+      "head": "She",
+      "relation": "began her film career in",
+      "tail": "1947"
+    },
+    {
+      "head": "She",
+      "relation": "began her film career in",
+      "tail": "A New Oath"
+    },
+    {
+      "head": "A New Oath",
+      "relation": "is",
+      "tail": "film"
+    }
+  ],
+  "benchie_34": [
+    {
+      "head": "They",
+      "relation": "held",
+      "tail": "first Triangle workshop"
+    },
+    {
+      "head": "They",
+      "relation": "held first Triangle workshop in",
+      "tail": "1982"
+    },
+    {
+      "head": "They",
+      "relation": "held first Triangle workshop for",
+      "tail": "thirty sculptors and painters"
+    },
+    {
+      "head": "They",
+      "relation": "held first Triangle workshop for thirty sculptors and painters from",
+      "tail": "US UK and Canada"
+    },
+    {
+      "head": "They",
+      "relation": "held first Triangle workshop at",
+      "tail": "Pine Plains"
+    },
+    {
+      "head": "Pine Plains",
+      "relation": "is located in",
+      "tail": "New York"
+    },
+    {
+      "head": "They",
+      "relation": "held first Triangle workshop in",
+      "tail": "New York"
+    },
+    {
+      "head": "They",
+      "relation": "held first Triangle workshop for",
+      "tail": "sculptors"
+    },
+    {
+      "head": "They",
+      "relation": "held first Triangle workshop for",
+      "tail": "painters"
+    }
+  ],
+  "benchie_240": [
+    {
+      "head": "These objects",
+      "relation": "are thrown away if",
+      "tail": "their screen projection is too small"
+    }
+  ],
+  "benchie_2": [
+    {
+      "head": "Graner",
+      "relation": "handcuffed",
+      "tail": "him"
+    },
+    {
+      "head": "Graner",
+      "relation": "handcuffed him to",
+      "tail": "bars"
+    },
+    {
+      "head": "Graner",
+      "relation": "handcuffed him to bars of",
+      "tail": "cell window"
+    },
+    {
+      "head": "Graner",
+      "relation": "left him",
+      "tail": "there"
+    },
+    {
+      "head": "Graner",
+      "relation": "left him",
+      "tail": "feet dangling off floor"
+    },
+    {
+      "head": "Graner",
+      "relation": "left him there for",
+      "tail": "nearly five hours"
+    },
+    {
+      "head": "feet",
+      "relation": "dangling off",
+      "tail": "the floor"
+    }
+  ]
+}

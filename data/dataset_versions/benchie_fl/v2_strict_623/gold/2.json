@@ -1,0 +1,235 @@
+{
+  "benchie_30": [
+    {
+      "head": "attempted murder",
+      "relation": "is",
+      "tail": "an offence"
+    },
+    {
+      "head": "attempted murder",
+      "relation": "is an offence under",
+      "tail": "section 1 of the Criminal Attempts Act 1981"
+    },
+    {
+      "head": "an indictable offence",
+      "relation": "carries",
+      "tail": "a maximum penalty of life imprisonment"
+    }
+  ],
+  "benchie_31": [
+    {
+      "head": "Lugo",
+      "relation": "were",
+      "tail": "released"
+    },
+    {
+      "head": "Lozano",
+      "relation": "were",
+      "tail": "released"
+    },
+    {
+      "head": "Lozano",
+      "relation": "were released in",
+      "tail": "1993"
+    },
+    {
+      "head": "Lugo",
+      "relation": "were released in",
+      "tail": "1993"
+    },
+    {
+      "head": "Lugo",
+      "relation": "continue to",
+      "tail": "reside in Venezuela"
+    },
+    {
+      "head": "Lozano",
+      "relation": "continue to",
+      "tail": "reside in Venezuela"
+    }
+  ],
+  "benchie_32": [
+    {
+      "head": "objects",
+      "relation": "do not",
+      "tail": "contribute significantly to the final image"
+    },
+    {
+      "head": "objects",
+      "relation": "are so far away that",
+      "tail": "they do not contribute significantly to the final image"
+    }
+  ],
+  "benchie_33": [
+    {
+      "head": "The school",
+      "relation": "was",
+      "tail": "founded"
+    },
+    {
+      "head": "The school",
+      "relation": "was founded in",
+      "tail": "1851"
+    }
+  ],
+  "benchie_34": [
+    {
+      "head": "They",
+      "relation": "held",
+      "tail": "the first Triangle workshop"
+    },
+    {
+      "head": "They",
+      "relation": "held the first Triangle workshop in",
+      "tail": "1982"
+    }
+  ],
+  "benchie_35": [
+    {
+      "head": "The town",
+      "relation": "were",
+      "tail": "hit"
+    },
+    {
+      "head": "The town",
+      "relation": "were hit by",
+      "tail": "two moderate earthquakes"
+    },
+    {
+      "head": "The town",
+      "relation": "were hit by two moderate earthquakes within",
+      "tail": "ten years"
+    },
+    {
+      "head": "surrounding villages",
+      "relation": "were",
+      "tail": "hit"
+    },
+    {
+      "head": "surrounding villages",
+      "relation": "were hit by",
+      "tail": "two moderate earthquakes"
+    },
+    {
+      "head": "surrounding villages",
+      "relation": "were hit by two moderate earthquakes within",
+      "tail": "ten years"
+    }
+  ],
+  "benchie_36": [
+    {
+      "head": "She",
+      "relation": "received",
+      "tail": "her Master Degree"
+    },
+    {
+      "head": "She",
+      "relation": "received her Master Degree in",
+      "tail": "the field of Controls , Guidance and Instrumentation"
+    }
+  ],
+  "benchie_37": [
+    {
+      "head": "The theatrical flourishes",
+      "relation": "went beyond",
+      "tail": "established burlesque routines like the fan dance and balloon dance"
+    },
+    {
+      "head": "unique gimmicks she used in her stage show",
+      "relation": "went beyond",
+      "tail": "established burlesque routines like the fan dance and balloon dance"
+    }
+  ],
+  "benchie_38": [
+    {
+      "head": "The RIAA",
+      "relation": "lists",
+      "tail": "it"
+    },
+    {
+      "head": "The RIAA",
+      "relation": "lists it as",
+      "tail": "one of the Best Selling Albums of All Time"
+    }
+  ],
+  "benchie_39": [
+    {
+      "head": "The Cathedral",
+      "relation": "were",
+      "tail": "thoroughly renovated"
+    },
+    {
+      "head": "The Cathedral",
+      "relation": "were thoroughly renovated from",
+      "tail": "2006"
+    },
+    {
+      "head": "the belfry",
+      "relation": "were",
+      "tail": "thoroughly renovated"
+    },
+    {
+      "head": "the belfry",
+      "relation": "were thoroughly renovated from",
+      "tail": "2006"
+    }
+  ],
+  "benchie_41": [
+    {
+      "head": "These screening activities",
+      "relation": "include",
+      "tail": "review of group-based data"
+    }
+  ],
+  "benchie_42": [
+    {
+      "head": "He",
+      "relation": "probably saw",
+      "tail": "active service"
+    },
+    {
+      "head": "He",
+      "relation": "probably saw active service as",
+      "tail": "a soldier"
+    }
+  ],
+  "benchie_43": [
+    {
+      "head": "The Nazis",
+      "relation": "did however permit",
+      "tail": "a single dress rehearsal"
+    },
+    {
+      "head": "The Nazis",
+      "relation": "did however permit a single dress rehearsal in",
+      "tail": "Salzburg"
+    },
+    {
+      "head": "Strauss",
+      "relation": "could hear",
+      "tail": "the work performed"
+    },
+    {
+      "head": "an invited audience",
+      "relation": "could hear",
+      "tail": "the work performed"
+    },
+    {
+      "head": "a single dress rehearsal",
+      "relation": "conducted by",
+      "tail": "Clemens Krauss"
+    }
+  ],
+  "benchie_44": [
+    {
+      "head": "This",
+      "relation": "is usually caused by",
+      "tail": "interacting inductive and capacitive elements"
+    },
+    {
+      "head": "This",
+      "relation": "is usually caused by interacting inductive and capacitive elements in",
+      "tail": "the oscillator"
+    }
+  ]
+}

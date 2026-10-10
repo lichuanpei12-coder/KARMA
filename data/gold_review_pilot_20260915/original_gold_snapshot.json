@@ -1,0 +1,466 @@
+{
+  "benchie_228": [
+    {
+      "head": "provost",
+      "relation": "is",
+      "tail": "permanent member"
+    },
+    {
+      "head": "Carl H. Pforzheimer University Professor",
+      "relation": "is",
+      "tail": "permanent members"
+    },
+    {
+      "head": "deans",
+      "relation": "are",
+      "tail": "permanent members"
+    },
+    {
+      "head": "designees",
+      "relation": "are",
+      "tail": "permanent members"
+    },
+    {
+      "head": "deans from Faculty of Arts and Sciences",
+      "relation": "are",
+      "tail": "permanent members"
+    },
+    {
+      "head": "designees from Faculty of Arts and Sciences",
+      "relation": "are",
+      "tail": "permanent members"
+    },
+    {
+      "head": "deans from Harvard Business School",
+      "relation": "are",
+      "tail": "permanent members"
+    },
+    {
+      "head": "designees from Harvard Business School",
+      "relation": "are",
+      "tail": "permanent members"
+    },
+    {
+      "head": "deans from Harvard Law School",
+      "relation": "are",
+      "tail": "permanent members"
+    },
+    {
+      "head": "designees from Harvard Law School",
+      "relation": "are",
+      "tail": "permanent members"
+    },
+    {
+      "head": "deans from Harvard Medical School",
+      "relation": "are",
+      "tail": "permanent members"
+    },
+    {
+      "head": "designees from Harvard Medical School",
+      "relation": "are",
+      "tail": "permanent members"
+    },
+    {
+      "head": "Faculty of Arts and Sciences",
+      "relation": "has",
+      "tail": "deans"
+    },
+    {
+      "head": "Faculty of Arts and Sciences",
+      "relation": "has",
+      "tail": "designees"
+    },
+    {
+      "head": "Harvard Business School",
+      "relation": "has",
+      "tail": "deans"
+    },
+    {
+      "head": "Harvard Business School",
+      "relation": "has",
+      "tail": "designees"
+    },
+    {
+      "head": "Harvard Law School",
+      "relation": "has",
+      "tail": "deans"
+    },
+    {
+      "head": "Harvard Law School",
+      "relation": "has",
+      "tail": "designees"
+    },
+    {
+      "head": "Harvard Medical School",
+      "relation": "has",
+      "tail": "deans"
+    },
+    {
+      "head": "Harvard Medical School",
+      "relation": "has",
+      "tail": "designees"
+    }
+  ],
+  "benchie_85": [
+    {
+      "head": "These skills",
+      "relation": "were",
+      "tail": "readily proven"
+    },
+    {
+      "head": "These skills",
+      "relation": "were readily proven when",
+      "tail": "squadrons were mobilized"
+    },
+    {
+      "head": "These skills",
+      "relation": "were readily proven when",
+      "tail": "personnel were mobilized"
+    },
+    {
+      "head": "These skills",
+      "relation": "were readily proven when",
+      "tail": "squadrons were recalled back to active duty"
+    },
+    {
+      "head": "These skills",
+      "relation": "were readily proven when",
+      "tail": "personnel were recalled back to active duty"
+    },
+    {
+      "head": "These skills",
+      "relation": "were readily proven during",
+      "tail": "Korean War"
+    },
+    {
+      "head": "These skills",
+      "relation": "were readily proven during",
+      "tail": "Berlin Crisis"
+    },
+    {
+      "head": "squadrons",
+      "relation": "were mobilized during",
+      "tail": "Korean War"
+    },
+    {
+      "head": "squadrons",
+      "relation": "were mobilized during",
+      "tail": "Berlin Crisis"
+    },
+    {
+      "head": "personnel",
+      "relation": "were mobilized during",
+      "tail": "Korean War"
+    },
+    {
+      "head": "personnel",
+      "relation": "were mobilized during",
+      "tail": "Berlin Crisis"
+    },
+    {
+      "head": "squadrons",
+      "relation": "were recalled back to active duty during",
+      "tail": "Korean War"
+    },
+    {
+      "head": "squadrons",
+      "relation": "were recalled back to active duty during",
+      "tail": "Berlin Crisis"
+    },
+    {
+      "head": "personnel",
+      "relation": "were recalled back to active duty during",
+      "tail": "Korean War"
+    },
+    {
+      "head": "personnel",
+      "relation": "were recalled back to active duty during",
+      "tail": "Berlin Crisis"
+    },
+    {
+      "head": "squadrons",
+      "relation": "were",
+      "tail": "mobilized"
+    },
+    {
+      "head": "personnel",
+      "relation": "were",
+      "tail": "mobilized"
+    },
+    {
+      "head": "squadrons",
+      "relation": "were",
+      "tail": "recalled back to active duty"
+    },
+    {
+      "head": "personnel",
+      "relation": "were recalled back to",
+      "tail": "active duty"
+    }
+  ],
+  "benchie_19": [
+    {
+      "head": "She",
+      "relation": "began",
+      "tail": "her film career"
+    },
+    {
+      "head": "She",
+      "relation": "began her film career in",
+      "tail": "1947"
+    },
+    {
+      "head": "She",
+      "relation": "began her film career in",
+      "tail": "A New Oath"
+    },
+    {
+      "head": "A New Oath",
+      "relation": "is",
+      "tail": "film"
+    }
+  ],
+  "benchie_34": [
+    {
+      "head": "They",
+      "relation": "held",
+      "tail": "first Triangle workshop"
+    },
+    {
+      "head": "They",
+      "relation": "held first Triangle workshop in",
+      "tail": "1982"
+    },
+    {
+      "head": "They",
+      "relation": "held first Triangle workshop for",
+      "tail": "thirty sculptors and painters"
+    },
+    {
+      "head": "They",
+      "relation": "held first Triangle workshop for thirty sculptors and painters from",
+      "tail": "US UK and Canada"
+    },
+    {
+      "head": "They",
+      "relation": "held first Triangle workshop at",
+      "tail": "Pine Plains"
+    },
+    {
+      "head": "Pine Plains",
+      "relation": "is located in",
+      "tail": "New York"
+    },
+    {
+      "head": "They",
+      "relation": "held first Triangle workshop in",
+      "tail": "New York"
+    },
+    {
+      "head": "They",
+      "relation": "held first Triangle workshop for sculptors from",
+      "tail": "US"
+    },
+    {
+      "head": "They",
+      "relation": "held first Triangle workshop for sculptors from",
+      "tail": "UK"
+    },
+    {
+      "head": "They",
+      "relation": "held first Triangle workshop for sculptors from",
+      "tail": "Canada"
+    },
+    {
+      "head": "They",
+      "relation": "held first Triangle workshop for painters from",
+      "tail": "US"
+    },
+    {
+      "head": "They",
+      "relation": "held first Triangle workshop for painters from",
+      "tail": "UK"
+    },
+    {
+      "head": "They",
+      "relation": "held first Triangle workshop for painters from",
+      "tail": "Canada"
+    },
+    {
+      "head": "They",
+      "relation": "held first Triangle workshop for",
+      "tail": "sculptors"
+    },
+    {
+      "head": "They",
+      "relation": "held first Triangle workshop for",
+      "tail": "painters"
+    }
+  ],
+  "benchie_240": [
+    {
+      "head": "These objects",
+      "relation": "are",
+      "tail": "thrown away"
+    },
+    {
+      "head": "These objects",
+      "relation": "are thrown away if",
+      "tail": "their screen projection is too small"
+    },
+    {
+      "head": "These objects",
+      "relation": "have",
+      "tail": "screen projection"
+    },
+    {
+      "head": "their screen projection",
+      "relation": "is",
+      "tail": "too small"
+    }
+  ],
+  "benchie_2": [
+    {
+      "head": "Graner",
+      "relation": "handcuffed",
+      "tail": "him"
+    },
+    {
+      "head": "Graner",
+      "relation": "handcuffed him to",
+      "tail": "bars"
+    },
+    {
+      "head": "Graner",
+      "relation": "handcuffed him to bars of",
+      "tail": "cell window"
+    },
+    {
+      "head": "Graner",
+      "relation": "left him",
+      "tail": "there"
+    },
+    {
+      "head": "Graner",
+      "relation": "left him",
+      "tail": "feet dangling off floor"
+    },
+    {
+      "head": "Graner",
+      "relation": "left him there for",
+      "tail": "nearly five hours"
+    },
+    {
+      "head": "his feet",
+      "relation": "were dangling off",
+      "tail": "floor"
+    },
+    {
+      "head": "he",
+      "relation": "was left there for",
+      "tail": "nearly five hours"
+    }
+  ],
+  "docoie_transportation_doc0_target0": [
+    {
+      "head": "such elements",
+      "relation": "are well known in",
+      "tail": "the art"
+    },
+    {
+      "head": "such operations",
+      "relation": "are well known in",
+      "tail": "the art"
+    },
+    {
+      "head": "they",
+      "relation": "do not facilitate",
+      "tail": "a better understanding of the present disclosure"
+    }
+  ],
+  "docoie_transportation_doc0_target2": [
+    {
+      "head": "vlidation of the vehicle identity",
+      "relation": "ensures",
+      "tail": "the integrity of all of the components"
+    },
+    {
+      "head": "the components",
+      "relation": "make up",
+      "tail": "the vehicle"
+    },
+    {
+      "head": "vlidation of the vehicle identity",
+      "relation": "ensures",
+      "tail": "information generated by any of the components that make up the vehicle"
+    },
+    {
+      "head": "information",
+      "relation": "is generated by",
+      "tail": "any of the components that make up the vehicle"
+    },
+    {
+      "head": "components",
+      "relation": "make up",
+      "tail": "the vehicle"
+    }
+  ],
+  "docoie_transportation_doc0_target3": [
+    {
+      "head": "the term computer readable medium",
+      "relation": "is meant to refer to",
+      "tail": "any machine-readable medium"
+    },
+    {
+      "head": "machine-readable medium",
+      "relation": "is",
+      "tail": "automated data medium"
+    },
+    {
+      "head": "machine-readable medium",
+      "relation": "is capable of",
+      "tail": "storing data"
+    },
+    {
+      "head": "machine-readable medium",
+      "relation": "is capable of storing data in",
+      "tail": "a format"
+    },
+    {
+      "head": "a format",
+      "relation": "is readable by",
+      "tail": "a mechanical device"
+    }
+  ],
+  "docoie_healthcare_doc0_target0": [
+    {
+      "head": "the control station",
+      "relation": "is typically located in",
+      "tail": "a place"
+    },
+    {
+      "head": "a place",
+      "relation": "is remote from",
+      "tail": "the robot face"
+    }
+  ],
+  "docoie_healthcare_doc0_target3": [
+    {
+      "head": "the robot face",
+      "relation": "may have",
+      "tail": "a voice recognition system"
+    },
+    {
+      "head": "a voice recognition system",
+      "relation": "allows the user to grant access with",
+      "tail": "a voice command"
+    }
+  ],
+  "docoie_healthcare_doc0_target8": [
+    {
+      "head": "the annotated  image",
+      "relation": "may be stored by",
+      "tail": "the system"
+    }
+  ]
+}

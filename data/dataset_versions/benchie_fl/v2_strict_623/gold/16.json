@@ -1,0 +1,178 @@
+{
+  "benchie_238": [
+    {
+      "head": "the fillets",
+      "relation": "are put in",
+      "tail": "a mix"
+    },
+    {
+      "head": "the fillets",
+      "relation": "are put in a mix of",
+      "tail": "olive oil , vinegar , sugar , garlic , chill peppers , and lots of parsley or celery"
+    }
+  ],
+  "benchie_239": [
+    {
+      "head": "There",
+      "relation": "were",
+      "tail": "47,604 households"
+    }
+  ],
+  "benchie_240": [
+    {
+      "head": "These objects",
+      "relation": "are thrown away if",
+      "tail": "their screen projection is too small"
+    }
+  ],
+  "benchie_241": [
+    {
+      "head": "These",
+      "relation": "were often related to",
+      "tail": "European conflict"
+    },
+    {
+      "head": "the Stuart Pretenders",
+      "relation": "were",
+      "tail": "aided"
+    },
+    {
+      "head": "the Stuart Pretenders",
+      "relation": "encouraged by",
+      "tail": "Britain 's continental enemies"
+    },
+    {
+      "head": "the Stuart Pretenders",
+      "relation": "encouraged by Britain 's continental enemies for",
+      "tail": "their own ends"
+    }
+  ],
+  "benchie_242": [
+    {
+      "head": "They",
+      "relation": "beat",
+      "tail": "Milligan"
+    },
+    {
+      "head": "They",
+      "relation": "win",
+      "tail": "the NAIA National Championships"
+    },
+    {
+      "head": "They",
+      "relation": "beat Milligan",
+      "tail": "1-0"
+    }
+  ],
+  "benchie_243": [
+    {
+      "head": "This engine",
+      "relation": "was",
+      "tail": "equipped"
+    },
+    {
+      "head": "This engine",
+      "relation": "was equipped with",
+      "tail": "an electronically controlled carburetor"
+    }
+  ],
+  "benchie_244": [
+    {
+      "head": "This",
+      "relation": "had",
+      "tail": "considerable implications"
+    },
+    {
+      "head": "This",
+      "relation": "had considerable implications for",
+      "tail": "the Welsh language"
+    },
+    {
+      "head": "This",
+      "relation": "had considerable implications for the Welsh language as",
+      "tail": "it was the main language of the nonconformist churches in Wales"
+    },
+    {
+      "head": "the Welsh language",
+      "relation": "was the main language of",
+      "tail": "the nonconformist churches"
+    },
+    {
+      "head": "the Welsh language",
+      "relation": "was the main language of the nonconformist churches in",
+      "tail": "Wales"
+    }
+  ],
+  "benchie_245": [
+    {
+      "head": "Total ` Fresh Food Story",
+      "relation": "constructed at",
+      "tail": "the end of the North Mall"
+    }
+  ],
+  "benchie_246": [
+    {
+      "head": "Watson",
+      "relation": "editor of",
+      "tail": "`` newcritics.com"
+    },
+    {
+      "head": "`` newcritics.com",
+      "relation": "journal of",
+      "tail": "media"
+    },
+    {
+      "head": "`` newcritics.com",
+      "relation": "launched in",
+      "tail": "January , 2007"
+    },
+    {
+      "head": "`` newcritics.com",
+      "relation": "shuttered in",
+      "tail": "June , 2009"
+    }
+  ],
+  "benchie_248": [
+    {
+      "head": "the Cosmos",
+      "relation": "expressed",
+      "tail": "concern"
+    },
+    {
+      "head": "the Cosmos",
+      "relation": "expressed concern for",
+      "tail": "what Battra might do"
+    }
+  ],
+  "benchie_249": [
+    {
+      "head": "`` For a list of all medalists",
+      "relation": "please see",
+      "tail": "the List of Great American Beer Festival medalists ''"
+    }
+  ],
+  "benchie_250": [
+    {
+      "head": "A similar technique",
+      "relation": "is",
+      "tail": "almost impossible to apply"
+    },
+    {
+      "head": "A similar technique",
+      "relation": "is almost impossible to apply to",
+      "tail": "other crops"
+    }
+  ],
+  "benchie_251": [
+    {
+      "head": "Heathrow authorities",
+      "relation": "have been watching",
+      "tail": "a group of allegedly crooked baggage handlers"
+    },
+    {
+      "head": "Heathrow authorities",
+      "relation": "have been watching a group of allegedly crooked baggage handlers for",
+      "tail": "some time"
+    }
+  ]
+}

@@ -1,0 +1,175 @@
+{
+  "benchie_15": [
+    {
+      "head": "Each of the programs",
+      "relation": "uses",
+      "tail": "a combination of funding priorities and geographic requirements"
+    },
+    {
+      "head": "Each of the programs",
+      "relation": "uses a combination of funding priorities and geographic requirements to",
+      "tail": "select grants"
+    },
+    {
+      "head": "grants",
+      "relation": "described on",
+      "tail": "the foundation 's web site"
+    }
+  ],
+  "benchie_17": [
+    {
+      "head": "The main reason for this adoption over mainline gimp",
+      "relation": "was",
+      "tail": "its support for high bit depths"
+    },
+    {
+      "head": "high bit depths",
+      "relation": "can be required for",
+      "tail": "film work"
+    }
+  ],
+  "benchie_18": [
+    {
+      "head": "They",
+      "relation": "have",
+      "tail": "a large range of possible power supplies"
+    },
+    {
+      "head": "They",
+      "relation": "can be",
+      "tail": "380V"
+    }
+  ],
+  "benchie_19": [
+    {
+      "head": "She",
+      "relation": "began",
+      "tail": "her film career"
+    },
+    {
+      "head": "She",
+      "relation": "began her film career in",
+      "tail": "1947"
+    }
+  ],
+  "benchie_20": [
+    {
+      "head": "Alpha Serpentis",
+      "relation": "is",
+      "tail": "a red giant"
+    },
+    {
+      "head": "Alpha Serpentis",
+      "relation": "marks",
+      "tail": "the snake 's heart"
+    }
+  ],
+  "benchie_21": [
+    {
+      "head": "This manual",
+      "relation": "describes",
+      "tail": "the necessity for understanding an opponent 's weaknesses"
+    }
+  ],
+  "benchie_22": [
+    {
+      "head": "the senior team",
+      "relation": "was adopted by",
+      "tail": "Bill Dimovski"
+    }
+  ],
+  "benchie_23": [
+    {
+      "head": "Vaccinations against other viral diseases",
+      "relation": "including",
+      "tail": "the successful rabies vaccination"
+    }
+  ],
+  "benchie_24": [
+    {
+      "head": "the Photographic Model",
+      "relation": "follows",
+      "tail": "more of a step-by-step process"
+    },
+    {
+      "head": "the Comprehensive Model",
+      "relation": "demonstrates",
+      "tail": "an interconnected relationship"
+    },
+    {
+      "head": "the Comprehensive Model",
+      "relation": "demonstrates an interconnected relationship between",
+      "tail": "the variables"
+    }
+  ],
+  "benchie_25": [
+    {
+      "head": "300 soldiers",
+      "relation": "of",
+      "tail": "the 1st SS Battalion"
+    },
+    {
+      "head": "300 soldiers of the 1st SS Battalion",
+      "relation": "were able to",
+      "tail": "reinforce the hotel"
+    }
+  ],
+  "benchie_26": [
+    {
+      "head": "John Crozier , Jr",
+      "relation": "was",
+      "tail": "an early aviation pioneer"
+    },
+    {
+      "head": "John Crozier , Jr",
+      "relation": "began building",
+      "tail": "a human-powered flying machine"
+    },
+    {
+      "head": "John Crozier , Jr",
+      "relation": "began building a human-powered flying machine in",
+      "tail": "the 1890s"
+    },
+    {
+      "head": "John Crozier , Jr",
+      "relation": "was",
+      "tail": "killed"
+    },
+    {
+      "head": "John Crozier , Jr",
+      "relation": "was killed in",
+      "tail": "a feud"
+    }
+  ],
+  "benchie_27": [
+    {
+      "head": "Arminius",
+      "relation": "now had",
+      "tail": "a free hand"
+    }
+  ],
+  "benchie_28": [
+    {
+      "head": "The culture of Bhutan",
+      "relation": "is fully reflected in",
+      "tail": "the capital city"
+    },
+    {
+      "head": "The culture of Bhutan",
+      "relation": "is fully reflected in the capital city in respect of",
+      "tail": "literature"
+    }
+  ],
+  "benchie_29": [
+    {
+      "head": "`` My Classical Way ''",
+      "relation": "was",
+      "tail": "released"
+    },
+    {
+      "head": "`` My Classical Way ''",
+      "relation": "was released on",
+      "tail": "21 September 2010"
+    }
+  ]
+}

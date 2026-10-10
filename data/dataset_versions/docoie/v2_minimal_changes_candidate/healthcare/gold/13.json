@@ -1,0 +1,97 @@
+[
+  {
+    "head": "various modifications",
+    "relation": "will remain apparent to",
+    "tail": "those in the art"
+  },
+  {
+    "head": "sequence controller",
+    "relation": "controls the generation of RF pulses by",
+    "tail": "RF system and RF power amplifier"
+  },
+  {
+    "head": "system",
+    "relation": "may comprise",
+    "tail": "general-purpose computing system"
+  },
+  {
+    "head": "system",
+    "relation": "may comprise",
+    "tail": "dedicated computing system"
+  },
+  {
+    "head": "the commands",
+    "relation": "may specify",
+    "tail": "MR scan parameter values"
+  },
+  {
+    "head": "MR scan parameter values",
+    "relation": "are used by",
+    "tail": "system"
+  },
+  {
+    "head": "the FOV and desired resolution",
+    "relation": "will be used to determine",
+    "tail": "the matrix size"
+  },
+  {
+    "head": "these factors",
+    "relation": "may contribute to",
+    "tail": "inefficient and/or incorrect selection of MR scan parameters"
+  },
+  {
+    "head": "inefficient and/or incorrect selection of MR scan parameters",
+    "relation": "may lead to",
+    "tail": "sub-optimal imaging"
+  },
+  {
+    "head": "an inversion pulse",
+    "relation": "is used in non-contrast-enhanced angiography to suppress",
+    "tail": "venous blood"
+  },
+  {
+    "head": "a saturation pulse used in non-contrast-enhanced angiography",
+    "relation": "is to suppress",
+    "tail": "venous blood"
+  },
+  {
+    "head": "sequence controller",
+    "relation": "may be instructed to initiate",
+    "tail": "an MR pulse sequence"
+  },
+  {
+    "head": "an MR pulse sequence",
+    "relation": "is based on",
+    "tail": "a set of parameter values"
+  },
+  {
+    "head": "parameter values",
+    "relation": "was received and determined as described herein",
+    "tail": ""
+  },
+  {
+    "head": "user input of some MR scan parameter values",
+    "relation": "is required",
+    "tail": ""
+  },
+  {
+    "head": "user input of other MR scan parameter values",
+    "relation": "is optional",
+    "tail": ""
+  },
+  {
+    "head": "all systems and processes",
+    "relation": "are discussed herein",
+    "tail": ""
+  },
+  {
+    "head": "all systems and processes discussed herein",
+    "relation": "may be embodied in",
+    "tail": "program code"
+  },
+  {
+    "head": "program code",
+    "relation": "is stored on",
+    "tail": "one or more non-transitory computer-readable media"
+  }
+]

@@ -1,0 +1,112 @@
+[
+  {
+    "head": "the optical system",
+    "relation": "may be fixed to",
+    "tail": "the casing of the handheld device"
+  },
+  {
+    "head": "the optical system",
+    "relation": "may be built as",
+    "tail": "a single unit"
+  },
+  {
+    "head": "the optical system",
+    "relation": "can be annexed with",
+    "tail": "a handheld device"
+  },
+  {
+    "head": "colorimetric strips",
+    "relation": "relates to",
+    "tail": "water quality"
+  },
+  {
+    "head": "colorimetric strips relating to water quality",
+    "relation": "may be imaged for testing",
+    "tail": "water quality"
+  },
+  {
+    "head": "other optical devices for directing light",
+    "relation": "may be used",
+    "tail": ""
+  },
+  {
+    "head": "the optical system",
+    "relation": "is positioned in front of",
+    "tail": "the camera"
+  },
+  {
+    "head": "the optical system",
+    "relation": "is positioned in front of",
+    "tail": "the light source of the handheld device"
+  },
+  {
+    "head": "Efforts",
+    "relation": "have been put in to explore as to",
+    "tail": "how the high penetration of communication devices can improve such healthcare outcomes as well as generate cost savings"
+  },
+  {
+    "head": "the high penetration of communication devices",
+    "relation": "can",
+    "tail": "improve such healthcare outcomes"
+  },
+  {
+    "head": "the high penetration of communication devices",
+    "relation": "can",
+    "tail": "generate cost savings"
+  },
+  {
+    "head": "the second portion",
+    "relation": "comprises",
+    "tail": "an extraction element"
+  },
+  {
+    "head": "an extraction element",
+    "relation": "is adapted to uniformly extract",
+    "tail": "the light"
+  },
+  {
+    "head": "use of a turning optic for providing the added turn angle",
+    "relation": "provides the advantage of deploying",
+    "tail": "a flat transparent optic"
+  },
+  {
+    "head": "use of a turning optic",
+    "relation": "is for providing",
+    "tail": "the added turn angle"
+  },
+  {
+    "head": "guided fitment",
+    "relation": "may be achieved by providing",
+    "tail": "the user a visual or audio feedback"
+  },
+  {
+    "head": "the handheld device",
+    "relation": "may be",
+    "tail": "a mobile phone"
+  },
+  {
+    "head": "the handheld device",
+    "relation": "may be",
+    "tail": "a tablet computer"
+  },
+  {
+    "head": "the handheld device",
+    "relation": "may be",
+    "tail": "any other handheld device"
+  },
+  {
+    "head": "handheld device",
+    "relation": "comprises",
+    "tail": "a camera"
+  },
+  {
+    "head": "handheld device",
+    "relation": "comprises",
+    "tail": "a light source"
+  },
+  {
+    "head": "handheld device",
+    "relation": "comprises",
+    "tail": "processing capabilities"
+  }
+]

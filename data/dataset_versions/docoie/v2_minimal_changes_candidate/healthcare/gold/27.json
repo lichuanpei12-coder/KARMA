@@ -1,0 +1,102 @@
+[
+  {
+    "head": "the motor controller",
+    "relation": "includes",
+    "tail": "two output terminals"
+  },
+  {
+    "head": "two output terminals",
+    "relation": "output",
+    "tail": "a clockwise voltage and a counter clockwise voltage"
+  },
+  {
+    "head": "the clockwise voltage",
+    "relation": "is outputted for",
+    "tail": "a first period of time"
+  },
+  {
+    "head": "the counter clockwise voltage",
+    "relation": "is outputted for",
+    "tail": "a second period of time"
+  },
+  {
+    "head": "they",
+    "relation": "are",
+    "tail": "high-use medical products and/or medical devices"
+  },
+  {
+    "head": "they",
+    "relation": "are constructed of",
+    "tail": "materials"
+  },
+  {
+    "head": "materials",
+    "relation": "are not safe for",
+    "tail": "high temperature disinfection methods"
+  },
+  {
+    "head": "hospitals",
+    "relation": "lack",
+    "tail": "a comprehensive solution for the disinfection"
+  },
+  {
+    "head": "hospitals",
+    "relation": "lack",
+    "tail": "a comprehensive solution for the high-level disinfection"
+  },
+  {
+    "head": "hospitals",
+    "relation": "lack",
+    "tail": "a comprehensive solution for the sterilization"
+  },
+  {
+    "head": "hospitals",
+    "relation": "lack",
+    "tail": "a comprehensive solution for the storage"
+  },
+  {
+    "head": "hospitals",
+    "relation": "lack",
+    "tail": "a comprehensive solution for the grouping of like devices"
+  },
+  {
+    "head": "hospitals",
+    "relation": "have adopted",
+    "tail": "a variety of less than optimal, methods"
+  },
+  {
+    "head": "the said interface test blocks",
+    "relation": "can be positioned and/or located within",
+    "tail": "the said treatment chamber(s)"
+  },
+  {
+    "head": "a bottom of the second plurality of V-shaped members",
+    "relation": "are preferably, and without limitation, welded to",
+    "tail": "a second mounting rod"
+  },
+  {
+    "head": "a clockwise DPDT relay and a counter clockwise DPDT relay",
+    "relation": "are used to provide power to",
+    "tail": "a motor of the motor with gear reduction"
+  },
+  {
+    "head": "patient monitoring leads, probes, sensors, and other medical device(s)",
+    "relation": "routinely fail through",
+    "tail": "repeated use, hand cleaning, abuse, mishandling, and stress"
+  },
+  {
+    "head": "this function",
+    "relation": "usually defaults to",
+    "tail": "the clinical end user"
+  },
+  {
+    "head": "this function usually defaulting to the clinical end user",
+    "relation": "is at",
+    "tail": "most inopportune or inconvenient time"
+  },
+  {
+    "head": "the one or more interface test block(s)",
+    "relation": "can be permanently mounted in",
+    "tail": "the sealed treatment chamber(s)"
+  }
+]

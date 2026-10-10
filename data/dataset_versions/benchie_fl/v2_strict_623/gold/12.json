@@ -1,0 +1,128 @@
+{
+  "benchie_183": [
+    {
+      "head": "scam websites",
+      "relation": "co-opted",
+      "tail": "a photograph"
+    },
+    {
+      "head": "scam websites",
+      "relation": "co-opted a photograph of",
+      "tail": "her"
+    },
+    {
+      "head": "scam websites",
+      "relation": "co-opted a photograph of her to",
+      "tail": "promote health treatments"
+    },
+    {
+      "head": "Theuriau",
+      "relation": "was",
+      "tail": "initially unaware"
+    }
+  ],
+  "benchie_185": [
+    {
+      "head": "trains",
+      "relation": "being",
+      "tail": "cable hauled"
+    },
+    {
+      "head": "trains",
+      "relation": "being cable hauled to",
+      "tail": "Edge Hill"
+    }
+  ],
+  "benchie_186": [
+    {
+      "head": "Holkins",
+      "relation": "stated that",
+      "tail": "he reserved the right to bring Carl back"
+    },
+    {
+      "head": "Holkins",
+      "relation": "stated that he reserved the right to bring Carl back",
+      "tail": "any time Krahulik goes to France"
+    }
+  ],
+  "benchie_187": [
+    {
+      "head": "a Language A",
+      "relation": "occupies",
+      "tail": "a given territory"
+    },
+    {
+      "head": "another Language B",
+      "relation": "arrives",
+      "tail": "in the same territory"
+    }
+  ],
+  "benchie_188": [
+    {
+      "head": "Condon",
+      "relation": "told FBI Special Agent Turrou that",
+      "tail": "Hauptmann was not `` John"
+    }
+  ],
+  "benchie_189": [
+    {
+      "head": "UTA",
+      "relation": "ordered",
+      "tail": "77 Siemens S70 light rail vehicles"
+    }
+  ],
+  "benchie_190": [
+    {
+      "head": "most of Kabul 's economy",
+      "relation": "depended on",
+      "tail": "tourism"
+    }
+  ],
+  "benchie_191": [
+    {
+      "head": "he",
+      "relation": "advocated",
+      "tail": "strong prosecution of the Union War effort"
+    }
+  ],
+  "benchie_192": [
+    {
+      "head": "his chances of surviving",
+      "relation": "were thought to be",
+      "tail": "no better than 50-50"
+    }
+  ],
+  "benchie_193": [
+    {
+      "head": "It",
+      "relation": "should be noted that",
+      "tail": "these numbers are inclusive of any of the childminders own children"
+    }
+  ],
+  "benchie_194": [
+    {
+      "head": "Keats",
+      "relation": "had",
+      "tail": "a genuine desire to become a doctor"
+    }
+  ],
+  "benchie_195": [
+    {
+      "head": "Kim",
+      "relation": "graduated from",
+      "tail": "Ballard High School"
+    },
+    {
+      "head": "Kim",
+      "relation": "double-majored in",
+      "tail": "Government and English"
+    }
+  ],
+  "benchie_196": [
+    {
+      "head": "Lemmy",
+      "relation": "believes that",
+      "tail": "if Will Reid Dick had not been there , they could have worked through the problems"
+    }
+  ]
+}

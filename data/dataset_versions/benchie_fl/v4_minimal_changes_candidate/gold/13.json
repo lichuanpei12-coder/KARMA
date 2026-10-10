@@ -1,0 +1,327 @@
+{
+  "benchie_197": [
+    {
+      "head": "Males",
+      "relation": "had median income of",
+      "tail": "$36,016"
+    },
+    {
+      "head": "females",
+      "relation": "had median income of",
+      "tail": "$32,679"
+    }
+  ],
+  "benchie_198": [
+    {
+      "head": "Mason City Division",
+      "relation": "continued to",
+      "tail": "operate"
+    },
+    {
+      "head": "Mason City Division",
+      "relation": "continued to operate",
+      "tail": "as usual"
+    }
+  ],
+  "benchie_199": [
+    {
+      "head": "Models",
+      "relation": "take into account",
+      "tail": "size of barrack blocks in Gorgan Wall forts"
+    },
+    {
+      "head": "Models",
+      "relation": "take into account",
+      "tail": "room number of barrack blocks in Gorgan Wall forts"
+    },
+    {
+      "head": "Models",
+      "relation": "take into account",
+      "tail": "occupation density"
+    },
+    {
+      "head": "Models",
+      "relation": "produce figures between",
+      "tail": "15,000 and 36,000 soldiers"
+    }
+  ],
+  "benchie_200": [
+    {
+      "head": "Modernity",
+      "relation": "has been",
+      "tail": "blended"
+    },
+    {
+      "head": "Modernity",
+      "relation": "has been blended without",
+      "tail": "sacrificing"
+    },
+    {
+      "head": "Modernity",
+      "relation": "has been blended without sacrificing on",
+      "tail": "traditional Buddhist ethos"
+    }
+  ],
+  "benchie_201": [
+    {
+      "head": "1 individual",
+      "relation": "belonged to",
+      "tail": "Christian Catholic faith"
+    },
+    {
+      "head": "1 individual",
+      "relation": "belonged to Christian Catholic faith of",
+      "tail": "rest of population"
+    }
+  ],
+  "benchie_202": [
+    {
+      "head": "Hank McCoy",
+      "relation": "originally retains",
+      "tail": "basic features of normal human"
+    },
+    {
+      "head": "Hank McCoy",
+      "relation": "originally retains",
+      "tail": "generally simian physiology"
+    },
+    {
+      "head": "Hank McCoy",
+      "relation": "originally retains",
+      "tail": "physiology equivalent to that of Great Ape"
+    },
+    {
+      "head": "normal human",
+      "relation": "has",
+      "tail": "basic features"
+    },
+    {
+      "head": "Great Ape",
+      "relation": "has",
+      "tail": "generally simian physiology"
+    }
+  ],
+  "benchie_203": [
+    {
+      "head": "Pakistan Chrome Mines Ltd.",
+      "relation": "is",
+      "tail": "mining company"
+    },
+    {
+      "head": "Pakistan Chrome Mines Ltd.",
+      "relation": "is",
+      "tail": "company"
+    },
+    {
+      "head": "Pakistan Chrome Mines Ltd.",
+      "relation": "is incorporated in",
+      "tail": "Islamic Republic of Pakistan"
+    }
+  ],
+  "benchie_204": [
+    {
+      "head": "Parental investment",
+      "relation": "is",
+      "tail": "any expenditure of resources"
+    },
+    {
+      "head": "Parental investment",
+      "relation": "is any expenditure of resources to benefit",
+      "tail": "one offspring"
+    }
+  ],
+  "benchie_205": [
+    {
+      "head": "Plants",
+      "relation": "have been",
+      "tail": "planted"
+    },
+    {
+      "head": "Plants",
+      "relation": "are marking",
+      "tail": "parts of foundations"
+    },
+    {
+      "head": "Plants",
+      "relation": "are marking parts of foundations of",
+      "tail": "castle"
+    },
+    {
+      "head": "Plants",
+      "relation": "are marking parts of foundations of castle so",
+      "tail": "positions of some of buildings can still be inferred"
+    },
+    {
+      "head": "positions of some of buildings",
+      "relation": "can still be",
+      "tail": "inferred"
+    }
+  ],
+  "benchie_206": [
+    {
+      "head": "Scarpetta",
+      "relation": "returns to",
+      "tail": "Virginia"
+    },
+    {
+      "head": "Scarpetta",
+      "relation": "returns to Virginia in",
+      "tail": "Trace"
+    },
+    {
+      "head": "Scarpetta",
+      "relation": "convincing",
+      "tail": "herself"
+    },
+    {
+      "head": "Scarpetta",
+      "relation": "convincing herself that",
+      "tail": "she was fired"
+    },
+    {
+      "head": "Scarpetta",
+      "relation": "convincing herself that she was fired from",
+      "tail": "her position"
+    },
+    {
+      "head": "Scarpetta",
+      "relation": "convincing herself that she was fired at request of",
+      "tail": "her replacement"
+    },
+    {
+      "head": "Scarpetta's replacement",
+      "relation": "is",
+      "tail": "Dr. Joel Marcus"
+    },
+    {
+      "head": "Joel Marcus",
+      "relation": "is",
+      "tail": "Doctor"
+    }
+  ],
+  "benchie_207": [
+    {
+      "head": "She",
+      "relation": "died in",
+      "tail": "October 1915"
+    },
+    {
+      "head": "She",
+      "relation": "died of",
+      "tail": "heart attack"
+    }
+  ],
+  "benchie_208": [
+    {
+      "head": "She",
+      "relation": "was ordered to be",
+      "tail": "rebuilt"
+    },
+    {
+      "head": "She",
+      "relation": "was ordered to be rebuilt on",
+      "tail": "9 March 1724"
+    },
+    {
+      "head": "She",
+      "relation": "was",
+      "tail": "taken in hand"
+    },
+    {
+      "head": "She",
+      "relation": "was taken in hand at",
+      "tail": "Deptford Dockyard"
+    },
+    {
+      "head": "She",
+      "relation": "was taken in hand by",
+      "tail": "Richard Stacey"
+    },
+    {
+      "head": "Richard Stacey",
+      "relation": "was",
+      "tail": "Master Shipwright"
+    }
+  ],
+  "benchie_209": [
+    {
+      "head": "Shea",
+      "relation": "was",
+      "tail": "born"
+    },
+    {
+      "head": "Shea",
+      "relation": "was born on",
+      "tail": "September 5 1900"
+    },
+    {
+      "head": "Shea",
+      "relation": "was born in",
+      "tail": "San Francisco"
+    },
+    {
+      "head": "Shea",
+      "relation": "was born in",
+      "tail": "California"
+    },
+    {
+      "head": "San Francisco",
+      "relation": "is in",
+      "tail": "California"
+    }
+  ],
+  "benchie_210": [
+    {
+      "head": "Superboy-Prime",
+      "relation": "saw",
+      "tail": "opportunity"
+    },
+    {
+      "head": "Superboy-Prime",
+      "relation": "was seeing opportunity to defeat",
+      "tail": "Anti-Monitor"
+    },
+    {
+      "head": "Superboy-Prime",
+      "relation": "flew through",
+      "tail": "Anti-Monitor's chest"
+    },
+    {
+      "head": "Superboy-Prime",
+      "relation": "hurled",
+      "tail": "Anti-Monitor's shattered body"
+    },
+    {
+      "head": "Superboy-Prime",
+      "relation": "hurled Anti-Monitor's shattered body into",
+      "tail": "space"
+    },
+    {
+      "head": "Anti-Monitor",
+      "relation": "was now",
+      "tail": "weakened"
+    },
+    {
+      "head": "Anti-Monitor's body",
+      "relation": "was",
+      "tail": "shattered"
+    }
+  ],
+  "benchie_211": [
+    {
+      "head": "2nd Battalion of 13th Light Infantry",
+      "relation": "was",
+      "tail": "raised"
+    },
+    {
+      "head": "2nd Battalion of 13th Light Infantry",
+      "relation": "was raised at",
+      "tail": "Winchester"
+    },
+    {
+      "head": "2nd Battalion of 13th Light Infantry",
+      "relation": "was raised at Winchester in",
+      "tail": "January 1858"
+    }
+  ]
+}

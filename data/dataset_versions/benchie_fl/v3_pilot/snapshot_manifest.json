@@ -1,0 +1,39 @@
+{
+  "version": "b3",
+  "created": "2026-09-15",
+  "status": "HISTORICAL_SNAPSHOT",
+  "files": [
+    {
+      "path": "gold.json",
+      "sha256": "5fa690477af9b81df37b1a8a58c5e330a7bba90b8e37b30f7de4f2cc3a763f08"
+    },
+    {
+      "path": "input.json",
+      "sha256": "e702faeab9f62c3087caf428cfe96bc5c96796fc77e23bd86c0d7b03c61c654c"
+    },
+    {
+      "path": "shared_review_records\\coverage_review.json",
+      "sha256": "aeca6e0cac3fe6fde365c6a69e4fbeb30fa7b92bf269b0b29661c01874b5f38f"
+    },
+    {
+      "path": "shared_review_records\\decisions.json",
+      "sha256": "0e49060697d1d19771701c2a4f838981e32fa1018dd4801965457311268c690d"
+    },
+    {
+      "path": "shared_review_records\\manifest.json",
+      "sha256": "86415dceb61df84ab49f3d86e130eda88f71df1cdd924a6d8e54931006aa02e7"
+    },
+    {
+      "path": "shared_review_records\\pending.json",
+      "sha256": "577c66e47bf8b70893f61b56e5cc7095449a70ccae9f730849aa32c532759efc"
+    },
+    {
+      "path": "shared_review_records\\source_map.json",
+      "sha256": "404d265bbdfd5584f0549bb55e2017e5cf1a432912575c51e7440aa93a459a12"
+    },
+    {
+      "path": "shared_review_records\\试处理结果.md",
+      "sha256": "951be960491c11d77f8d6946922b01a0ceab218c9210a39e0b39402e24ccaa50"
+    }
+  ]
+}

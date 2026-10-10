@@ -1,0 +1,132 @@
+[
+  {
+    "head": "these quantitative parameter maps",
+    "relation": "are obtained",
+    "tail": ""
+  },
+  {
+    "head": "it may be possible",
+    "relation": "to identify the tissue properties to improve",
+    "tail": "diagnostic assessment"
+  },
+  {
+    "head": "it may be possible",
+    "relation": "to provide information to improve",
+    "tail": "diagnostic assessment"
+  },
+  {
+    "head": "well-known structures and devices",
+    "relation": "are shown in",
+    "tail": "block diagram form"
+  },
+  {
+    "head": "well-known structures and devices shown in block diagram form",
+    "relation": "are in order to avoid",
+    "tail": "unnecessarily obscuring various exemplary embodiments"
+  },
+  {
+    "head": "an increase",
+    "relation": "is in",
+    "tail": "the size of MRF dictionary"
+  },
+  {
+    "head": "an increase in the size of MRF dictionary",
+    "relation": "is the ultimate requirement to gain",
+    "tail": "improvement in the MRF results"
+  },
+  {
+    "head": "the improvement",
+    "relation": "is further in depth analysis of",
+    "tail": "tissues"
+  },
+  {
+    "head": "the GPU",
+    "relation": "is based",
+    "tail": "MRF implementation"
+  },
+  {
+    "head": "the GPU based MRF",
+    "relation": "provides cost effective solution to reduce",
+    "tail": "the execution time of conventional MRF algorithm"
+  },
+  {
+    "head": "such memories",
+    "relation": "may be implemented in",
+    "tail": "any suitable form"
+  },
+  {
+    "head": "suitable form",
+    "relation": "includes but is not limited to",
+    "tail": "non-volatile media"
+  },
+  {
+    "head": "suitable form",
+    "relation": "includes but is not limited to",
+    "tail": "volatile media"
+  },
+  {
+    "head": "suitable form",
+    "relation": "includes but is not limited to",
+    "tail": "transmission media"
+  },
+  {
+    "head": "Magnetic Resonance Fingerprinting (MRF)",
+    "relation": "is",
+    "tail": "an innovative method"
+  },
+  {
+    "head": "Magnetic Resonance Fingerprinting (MRF)",
+    "relation": "can quantitatively examine",
+    "tail": "many magnetic resonance tissue parameters"
+  },
+  {
+    "head": "the terminology used herein",
+    "relation": "is for the purpose of",
+    "tail": "describing particular embodiments"
+  },
+  {
+    "head": "the terminology used herein",
+    "relation": "is not intended to be",
+    "tail": "limiting"
+  },
+  {
+    "head": "GPU",
+    "relation": "is used to further reduce",
+    "tail": "the computation time"
+  },
+  {
+    "head": "GPU used to further reduce the computation time",
+    "relation": "is by introducing CUDA kernels for",
+    "tail": "all the operations that process independent data"
+  },
+  {
+    "head": "the operations",
+    "relation": "process",
+    "tail": "independent data"
+  },
+  {
+    "head": "the main advantage of the exemplary method",
+    "relation": "is",
+    "tail": "a significant improvement in the computation time"
+  },
+  {
+    "head": "the main advantage of the exemplary method",
+    "relation": "is without reducing",
+    "tail": "the size of data or number of operations required in the native MRF algorithm"
+  },
+  {
+    "head": "the size of data or number of operations",
+    "relation": "are required in",
+    "tail": "the native MRF algorithm"
+  },
+  {
+    "head": "an exemplary embodiment",
+    "relation": "may be implemented differently",
+    "tail": ""
+  },
+  {
+    "head": "a specific process order",
+    "relation": "may be performed differently from",
+    "tail": "the described order"
+  }
+]

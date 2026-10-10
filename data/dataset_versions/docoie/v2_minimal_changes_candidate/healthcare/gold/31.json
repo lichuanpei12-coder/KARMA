@@ -1,0 +1,142 @@
+[
+  {
+    "head": "the treatment of psychiatric diseases",
+    "relation": "constitutes",
+    "tail": "a considerable challenge"
+  },
+  {
+    "head": "the treatment of psychiatric diseases",
+    "relation": "are such as",
+    "tail": "depression"
+  },
+  {
+    "head": "the treatment of psychiatric diseases",
+    "relation": "are such as",
+    "tail": "states of anxiety"
+  },
+  {
+    "head": "the treatment of psychiatric diseases",
+    "relation": "are such as",
+    "tail": "manias"
+  },
+  {
+    "head": "the treatment of psychiatric diseases",
+    "relation": "are such as",
+    "tail": "schizophrenia"
+  },
+  {
+    "head": "treatments",
+    "relation": "are such as",
+    "tail": "the administering of SSRIs"
+  },
+  {
+    "head": "treatments",
+    "relation": "have",
+    "tail": "the effect for example of increasing the size of the amygdala"
+  },
+  {
+    "head": "the effect",
+    "relation": "is for example of increasing",
+    "tail": "the size of the amygdala"
+  },
+  {
+    "head": "treatments",
+    "relation": "can be associated with",
+    "tail": "emotional recovery"
+  },
+  {
+    "head": "image data",
+    "relation": "is reconstructed from",
+    "tail": "the magnetic resonance signals and further patient data"
+  },
+  {
+    "head": "image data reconstructed from the magnetic resonance signals and further patient data",
+    "relation": "are transmitted via",
+    "tail": "the data network"
+  },
+  {
+    "head": "image data reconstructed from the magnetic resonance signals and further patient data",
+    "relation": "are stored in",
+    "tail": "a database"
+  },
+  {
+    "head": "a database",
+    "relation": "is in",
+    "tail": "the data memory together with the biomarker values"
+  },
+  {
+    "head": "the quantified biomarker information or one or more biomarker value(s)",
+    "relation": "are stored together with",
+    "tail": "patient data in the data memory"
+  },
+  {
+    "head": "additional data",
+    "relation": "may also be stored in",
+    "tail": "the database for this purpose"
+  },
+  {
+    "head": "additional data",
+    "relation": "is for example",
+    "tail": "clinical scores for evaluation of the severity of the disease or for the medication"
+  },
+  {
+    "head": "magnetic resonance spectroscopy",
+    "relation": "is used to determine",
+    "tail": "conclusions about abnormal changes in individual areas of the brain"
+  },
+  {
+    "head": "conclusions",
+    "relation": "are bout",
+    "tail": "abnormal changes in individual areas of the brain"
+  },
+  {
+    "head": "various magnetic resonance imaging methods",
+    "relation": "have been evaluated in",
+    "tail": "research"
+  },
+  {
+    "head": "various magnetic resonance imaging methods",
+    "relation": "may be of significance to",
+    "tail": "diagnostics"
+  },
+  {
+    "head": "various magnetic resonance imaging methods",
+    "relation": "may be of significance to",
+    "tail": "differential diagnostics"
+  },
+  {
+    "head": "various magnetic resonance imaging methods",
+    "relation": "may be of significance to",
+    "tail": "treatment monitoring"
+  },
+  {
+    "head": "a first examination of the patient",
+    "relation": "begins in",
+    "tail": "the magnetic resonance device after the capture of fundamental patient data"
+  },
+  {
+    "head": "a first examination of the patient",
+    "relation": "have described in",
+    "tail": "the introduction"
+  },
+  {
+    "head": "measuring parameters",
+    "relation": "were used by",
+    "tail": "a first examination center in the initial examination"
+  },
+  {
+    "head": "measuring parameters",
+    "relation": "were used by",
+    "tail": "a second, different examination center in the follow-up examination"
+  },
+  {
+    "head": "the dilemma",
+    "relation": "arises therefrom for the patient and doctor of weighing up",
+    "tail": "the sometimes severe side effects"
+  },
+  {
+    "head": "the sometimes severe side effects",
+    "relation": "worsen symptoms against",
+    "tail": "the long-term effect of the medication"
+  }
+]

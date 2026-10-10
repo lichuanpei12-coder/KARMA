@@ -1,0 +1,157 @@
+[
+  {
+    "head": "different original equipment manufacturers",
+    "relation": "provide",
+    "tail": "similar after-sales service"
+  },
+  {
+    "head": "after-sales service",
+    "relation": "is such as",
+    "tail": "maintenance check service"
+  },
+  {
+    "head": "after-sales service",
+    "relation": "is such as",
+    "tail": "repair service"
+  },
+  {
+    "head": "an objective of the present invention",
+    "relation": "is to design",
+    "tail": "a system"
+  },
+  {
+    "head": "designing a system",
+    "relation": "is from the concept of",
+    "tail": "the vehicle original equipment manufacturer"
+  },
+  {
+    "head": "the information",
+    "relation": "is used to implement",
+    "tail": "after-sales service activities"
+  },
+  {
+    "head": "after-sales service activities",
+    "relation": "are to provide",
+    "tail": "innovative service"
+  },
+  {
+    "head": "after-sales service activities",
+    "relation": "are to meet",
+    "tail": "the owner's need"
+  },
+  {
+    "head": "the main controller",
+    "relation": "is adapted to be equipped on",
+    "tail": "a vehicle"
+  },
+  {
+    "head": "the main controller",
+    "relation": "is adapted to transmit",
+    "tail": "vehicle information of the vehicle"
+  },
+  {
+    "head": "vehicle information of the vehicle",
+    "relation": "is designated by",
+    "tail": "an original equipment manufacturer"
+  },
+  {
+    "head": "the cloud platform",
+    "relation": "can communicate with",
+    "tail": "an OEM electronic device"
+  },
+  {
+    "head": "Original Equipment Manufacturer",
+    "relation": "is abbreviated as",
+    "tail": "OEM"
+  },
+  {
+    "head": "the cloud platform",
+    "relation": "can communicate with",
+    "tail": "a vehicle owner's electronic device"
+  },
+  {
+    "head": "electronic device",
+    "relation": "is such as",
+    "tail": "personal computer"
+  },
+  {
+    "head": "electronic device",
+    "relation": "is such as",
+    "tail": "a laptop"
+  },
+  {
+    "head": "electronic device",
+    "relation": "is such as",
+    "tail": "a smart phone"
+  },
+  {
+    "head": "electronic device",
+    "relation": "is such as",
+    "tail": "a tablet"
+  },
+  {
+    "head": "the present invention",
+    "relation": "can accomplish",
+    "tail": "the purposes of timely and accurate after-sales service"
+  },
+  {
+    "head": "the present invention",
+    "relation": "can accomplish meeting",
+    "tail": "the vehicle's need"
+  },
+  {
+    "head": "the present invention accomplishing the purposes of timely and accurate after-sales service and meeting the vehicle's need",
+    "relation": "is by actively providing",
+    "tail": "the vehicle information"
+  },
+  {
+    "head": "the innovative service of the present invention",
+    "relation": "can advance",
+    "tail": "people's living standard"
+  },
+  {
+    "head": "the innovative service of the present invention",
+    "relation": "can integrate",
+    "tail": "various supply chains"
+  },
+  {
+    "head": "the innovative service of the present invention",
+    "relation": "can accomplish",
+    "tail": "the purposes of environment protection"
+  },
+  {
+    "head": "the innovative service of the present invention",
+    "relation": "can accomplish",
+    "tail": "the purposes of energy conservation"
+  },
+  {
+    "head": "the original equipment manufacturer",
+    "relation": "can determine",
+    "tail": "what kind of after-sales service should be offered"
+  },
+  {
+    "head": "what kind of after-sales service should be offered",
+    "relation": "is based on",
+    "tail": "the received vehicle information"
+  },
+  {
+    "head": "the original equipment manufacturer",
+    "relation": "fails to effectively monitor",
+    "tail": "the car condition"
+  },
+  {
+    "head": "the vehicle information",
+    "relation": "is sent to",
+    "tail": "the cloud platform"
+  },
+  {
+    "head": "the vehicle information sent to the cloud platform",
+    "relation": "is set by",
+    "tail": "an original equipment manufacturer"
+  },
+  {
+    "head": "an original equipment manufacturer",
+    "relation": "manufactures",
+    "tail": "the vehicle"
+  }
+]

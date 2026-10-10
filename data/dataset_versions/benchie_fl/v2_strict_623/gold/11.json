@@ -1,0 +1,173 @@
+{
+  "benchie_167": [
+    {
+      "head": "it",
+      "relation": "was",
+      "tail": "barely hearable"
+    },
+    {
+      "head": "it",
+      "relation": "was barely hearable in",
+      "tail": "the northern portions of Atlanta"
+    },
+    {
+      "head": "it",
+      "relation": "was",
+      "tail": "a rimshot to the southwest of the city"
+    },
+    {
+      "head": "the transmitter location",
+      "relation": "being based in",
+      "tail": "Tyrone"
+    }
+  ],
+  "benchie_169": [
+    {
+      "head": "the University",
+      "relation": "banned",
+      "tail": "smoking"
+    },
+    {
+      "head": "the University",
+      "relation": "banned smoking on",
+      "tail": "any of its property"
+    },
+    {
+      "head": "areas",
+      "relation": "were once designated as",
+      "tail": "smoking areas"
+    }
+  ],
+  "benchie_171": [
+    {
+      "head": "He",
+      "relation": "finds himself in",
+      "tail": "a desert"
+    },
+    {
+      "head": "a group of Neo Arcadians",
+      "relation": "surround",
+      "tail": "him"
+    },
+    {
+      "head": "a group of Neo Arcadians surround him",
+      "relation": "ending",
+      "tail": "the game"
+    }
+  ],
+  "benchie_172": [
+    {
+      "head": "He",
+      "relation": "played",
+      "tail": "Perker"
+    },
+    {
+      "head": "He",
+      "relation": "played Perker in",
+      "tail": "the 1985 adaptation of `` The Pickwick Papers ''"
+    }
+  ],
+  "benchie_173": [
+    {
+      "head": "He",
+      "relation": "represented the riding of",
+      "tail": "Nickel Belt"
+    },
+    {
+      "head": "He",
+      "relation": "represented",
+      "tail": "the riding"
+    }
+  ],
+  "benchie_174": [
+    {
+      "head": "He",
+      "relation": "was",
+      "tail": "buried"
+    },
+    {
+      "head": "He",
+      "relation": "was buried in",
+      "tail": "the Abbey of the Psalms mausoleum"
+    }
+  ],
+  "benchie_175": [
+    {
+      "head": "Aiseau",
+      "relation": "was",
+      "tail": "a village"
+    }
+  ],
+  "benchie_176": [
+    {
+      "head": "Hofmann",
+      "relation": "was",
+      "tail": "a below-average"
+    },
+    {
+      "head": "he",
+      "relation": "had",
+      "tail": "many hobbies"
+    },
+    {
+      "head": "Hofmann",
+      "relation": "had many hobbies including",
+      "tail": "magic"
+    },
+    {
+      "head": "hobbies",
+      "relation": "including",
+      "tail": "magic"
+    }
+  ],
+  "benchie_177": [
+    {
+      "head": "BAE Systems",
+      "relation": "recently stated",
+      "tail": "it no longer produces land mines"
+    }
+  ],
+  "benchie_178": [
+    {
+      "head": "when the antigenicities of the seed strains and wild viruses do not match",
+      "relation": "vaccines fail to",
+      "tail": "protect"
+    }
+  ],
+  "benchie_180": [
+    {
+      "head": "he",
+      "relation": "won from",
+      "tail": "Yakutpura"
+    }
+  ],
+  "benchie_181": [
+    {
+      "head": "researchers",
+      "relation": "found",
+      "tail": "metallic conductivity"
+    }
+  ],
+  "benchie_182": [
+    {
+      "head": "Sun",
+      "relation": "announced",
+      "tail": "`` Project Indiana ''"
+    },
+    {
+      "head": "`` Project Indiana ''",
+      "relation": "including providing",
+      "tail": "an open source binary distribution of the OpenSolaris project"
+    },
+    {
+      "head": "`` Project Indiana ''",
+      "relation": "replacing",
+      "tail": "SXDE"
+    },
+    {
+      "head": "an open source binary distribution of the OpenSolaris project",
+      "relation": "replacing",
+      "tail": "SXDE"
+    }
+  ]
+}

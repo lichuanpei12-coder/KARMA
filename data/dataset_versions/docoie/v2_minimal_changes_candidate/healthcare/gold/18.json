@@ -1,0 +1,97 @@
+[
+  {
+    "head": "this flow redirection",
+    "relation": "results in",
+    "tail": "some forward thrust on the capsule"
+  },
+  {
+    "head": "the pinch valve",
+    "relation": "includes",
+    "tail": "a controllable piston/actuator"
+  },
+  {
+    "head": "a controllable piston/actuator",
+    "relation": "is moved linearly up and down",
+    "tail": ""
+  },
+  {
+    "head": "the capsule housing",
+    "relation": "is configured to be inserted into",
+    "tail": "an anatomical structure of a patient"
+  },
+  {
+    "head": "the video processing unit",
+    "relation": "presents the camera view on",
+    "tail": "a dedicated monitor"
+  },
+  {
+    "head": "the capsule system",
+    "relation": "receives pressurized fluid from",
+    "tail": "an external system"
+  },
+  {
+    "head": "the capsule system receiving pressurized fluid from an external system",
+    "relation": "is to control",
+    "tail": "lateral movement of the capsule"
+  },
+  {
+    "head": "this novel approach",
+    "relation": "bypasses",
+    "tail": "the typical expenses of traditional endoscopes"
+  },
+  {
+    "head": "traditional endoscopes",
+    "relation": "are",
+    "tail": "expensive to purchase"
+  },
+  {
+    "head": "traditional endoscopes",
+    "relation": "require additional machinery to clean for",
+    "tail": "reuse"
+  },
+  {
+    "head": "nearly 70% of cases",
+    "relation": "occur in",
+    "tail": "low/middle income countries (LMICs)"
+  },
+  {
+    "head": "endoscopy resources",
+    "relation": "are traditionally limited",
+    "tail": ""
+  },
+  {
+    "head": "The capsule housing",
+    "relation": "is inserted into",
+    "tail": "the patient's esophagu through the mouth"
+  },
+  {
+    "head": "The capsule housing",
+    "relation": "is linearly advanced to",
+    "tail": "the stomach of the patient"
+  },
+  {
+    "head": "water",
+    "relation": "is controllably expelled from",
+    "tail": "the exhaust port on the left of the capsule main body"
+  },
+  {
+    "head": "water controllably expelled from the exhaust port on the left of the capsule main body",
+    "relation": "is to move the capsule to",
+    "tail": "the right"
+  },
+  {
+    "head": "the compressed gas",
+    "relation": "can be carried in",
+    "tail": "portable canisters"
+  },
+  {
+    "head": "the compressed gas",
+    "relation": "is used in conjunction with",
+    "tail": "the dispensing pressure vessel"
+  },
+  {
+    "head": "the compressed gas used in conjunction with the dispensing pressure vessel",
+    "relation": "is to control",
+    "tail": "maneuvering of the capsule"
+  }
+]

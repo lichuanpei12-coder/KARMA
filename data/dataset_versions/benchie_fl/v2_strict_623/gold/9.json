@@ -1,0 +1,178 @@
+{
+  "benchie_136": [
+    {
+      "head": "The problem",
+      "relation": "is that",
+      "tail": "Japanese businesses make decisions with a view well beyond the coming months"
+    },
+    {
+      "head": "Japanese businesses",
+      "relation": "make",
+      "tail": "decisions"
+    },
+    {
+      "head": "Japanese businesses",
+      "relation": "make decisions with a view well beyond",
+      "tail": "the coming months"
+    },
+    {
+      "head": "the coming months",
+      "relation": "weigh",
+      "tail": "so heavily"
+    },
+    {
+      "head": "the coming months",
+      "relation": "weigh so heavily on",
+      "tail": "Mr. Salinas"
+    }
+  ],
+  "benchie_137": [
+    {
+      "head": "A Ford spokesman",
+      "relation": "said",
+      "tail": "the Dearborn , Mich. , auto maker is n't aware of any injuries caused by the windshield problem"
+    }
+  ],
+  "benchie_138": [
+    {
+      "head": "More big Japanese investors",
+      "relation": "are buying",
+      "tail": "U.S. mortgage - backed securities"
+    }
+  ],
+  "benchie_139": [
+    {
+      "head": "more convincing explanation",
+      "relation": "is that",
+      "tail": "the new Soviet economic and social structures are intended to conform to a model other than that of the market"
+    }
+  ],
+  "benchie_140": [
+    {
+      "head": "RU-486",
+      "relation": "is being",
+      "tail": "administered"
+    },
+    {
+      "head": "RU-486",
+      "relation": "is being administered in",
+      "tail": "France"
+    },
+    {
+      "head": "RU-486",
+      "relation": "is being administered in France",
+      "tail": "only under strict supervision"
+    }
+  ],
+  "benchie_143": [
+    {
+      "head": "The New York City issue",
+      "relation": "included",
+      "tail": "$ 757 million of tax - exempt bonds"
+    }
+  ],
+  "benchie_144": [
+    {
+      "head": "the lawyers",
+      "relation": "were just as eager as",
+      "tail": "the judge"
+    }
+  ],
+  "benchie_145": [
+    {
+      "head": "Boyer",
+      "relation": "headed for",
+      "tail": "Wall Street"
+    },
+    {
+      "head": "Boyer",
+      "relation": "headed for Wall Street in",
+      "tail": "1980"
+    },
+    {
+      "head": "Swanson",
+      "relation": "headed for",
+      "tail": "Wall Street"
+    },
+    {
+      "head": "Swanson",
+      "relation": "headed for Wall Street in",
+      "tail": "1980"
+    }
+  ],
+  "benchie_146": [
+    {
+      "head": "Japan 's No. 111 4.6 % bond",
+      "relation": "due",
+      "tail": "1998"
+    },
+    {
+      "head": "Japan 's No. 111 4.6 % bond",
+      "relation": "ended the day on",
+      "tail": "brokers screens"
+    },
+    {
+      "head": "Japan 's No. 111 4.6 % bond",
+      "relation": "to yield",
+      "tail": "5.43 %"
+    }
+  ],
+  "benchie_147": [
+    {
+      "head": "He",
+      "relation": "accused",
+      "tail": "Dow Jones"
+    },
+    {
+      "head": "He",
+      "relation": "accused Dow Jones of",
+      "tail": "`` using unfair means"
+    },
+    {
+      "head": "He",
+      "relation": "accused Dow Jones of `` using unfair means to",
+      "tail": "obtain the stock"
+    },
+    {
+      "head": "He",
+      "relation": "accused Dow Jones of `` using unfair means to obtain the stock at",
+      "tail": "an unfair price"
+    }
+  ],
+  "benchie_149": [
+    {
+      "head": "Armstrong World Industries Inc",
+      "relation": "agreed in principle to sell",
+      "tail": "its carpet operations"
+    },
+    {
+      "head": "Armstrong World Industries Inc",
+      "relation": "agreed in principle to sell its carpet operations to",
+      "tail": "Shaw Industries Inc"
+    }
+  ],
+  "benchie_150": [
+    {
+      "head": "traders",
+      "relation": "sell",
+      "tail": "large amounts of stocks"
+    },
+    {
+      "head": "traders",
+      "relation": "sell large amounts of stocks with",
+      "tail": "offsetting trades"
+    },
+    {
+      "head": "traders",
+      "relation": "sell large amounts of stocks with offsetting trades in",
+      "tail": "stock - index futures"
+    }
+  ],
+  "benchie_152": [
+    {
+      "head": "Eastern",
+      "relation": "negotiating",
+      "tail": "a second reorganization plan"
+    }
+  ]
+}

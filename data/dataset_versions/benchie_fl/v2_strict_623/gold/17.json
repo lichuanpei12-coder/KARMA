@@ -1,0 +1,153 @@
+{
+  "benchie_254": [
+    {
+      "head": "the London trading session",
+      "relation": "drew to",
+      "tail": "a close"
+    },
+    {
+      "head": "the market",
+      "relation": "was still",
+      "tail": "listening"
+    },
+    {
+      "head": "the market",
+      "relation": "was still listening to",
+      "tail": "the parliamentary debate"
+    },
+    {
+      "head": "the market",
+      "relation": "was still listening to the parliamentary debate on",
+      "tail": "the economy"
+    },
+    {
+      "head": "John Major",
+      "relation": "expected",
+      "tail": "to clarify his approach"
+    },
+    {
+      "head": "John Major",
+      "relation": "expected to clarify his approach to",
+      "tail": "the British economy"
+    }
+  ],
+  "benchie_255": [
+    {
+      "head": "patients",
+      "relation": "require",
+      "tail": "less attention"
+    },
+    {
+      "head": "patients",
+      "relation": "require less attention from",
+      "tail": "nurses"
+    },
+    {
+      "head": "room charges",
+      "relation": "are",
+      "tail": "lower"
+    }
+  ],
+  "benchie_256": [
+    {
+      "head": "Both",
+      "relation": "reflect",
+      "tail": "the dismissal"
+    }
+  ],
+  "benchie_258": [
+    {
+      "head": "it",
+      "relation": "deepening the taxpayer 's exposure if",
+      "tail": "the FHA is forced to pay for more loans going sour"
+    }
+  ],
+  "benchie_259": [
+    {
+      "head": "wire transfers from a standing account",
+      "relation": "are n't",
+      "tail": "reported"
+    }
+  ],
+  "benchie_260": [
+    {
+      "head": "Coca - Cola Co",
+      "relation": "aiming to",
+      "tail": "boost soft - drink volume"
+    },
+    {
+      "head": "Coca - Cola Co",
+      "relation": "aiming to boost soft - drink volume in",
+      "tail": "Singapore"
+    }
+  ],
+  "benchie_261": [
+    {
+      "head": "Mr. Lane",
+      "relation": "said",
+      "tail": "the filings required under the proposed rules `` will be at least as effective , if not more so , for investors following transactions"
+    }
+  ],
+  "benchie_262": [
+    {
+      "head": "Bert Campaneris",
+      "relation": "effortlessly scoops up",
+      "tail": "a groundball"
+    },
+    {
+      "head": "Bert Campaneris",
+      "relation": "flips it to",
+      "tail": "second"
+    }
+  ],
+  "benchie_263": [
+    {
+      "head": "traders",
+      "relation": "said",
+      "tail": "the market remains dull"
+    }
+  ],
+  "benchie_264": [
+    {
+      "head": "Mr. Sider",
+      "relation": "pores over",
+      "tail": "last wills"
+    }
+  ],
+  "benchie_265": [
+    {
+      "head": "Edison Brothers Stores Inc",
+      "relation": "said",
+      "tail": "it agreed"
+    },
+    {
+      "head": "Edison Brothers Stores Inc",
+      "relation": "said it agreed to",
+      "tail": "buy 229 Foxmoor women 's apparel stores"
+    },
+    {
+      "head": "Edison Brothers Stores Inc",
+      "relation": "said it agreed to buy 229 Foxmoor women 's apparel stores from",
+      "tail": "Foxmoor Specialty Stores Corp"
+    }
+  ],
+  "benchie_266": [
+    {
+      "head": "Few people in the advertising business",
+      "relation": "have raised as many hackles as",
+      "tail": "Alvin A. Achenbaum"
+    }
+  ],
+  "benchie_267": [
+    {
+      "head": "a passenger",
+      "relation": "can",
+      "tail": "fly"
+    },
+    {
+      "head": "a passenger",
+      "relation": "can fly from",
+      "tail": "Chardon"
+    }
+  ]
+}

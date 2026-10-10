@@ -1,0 +1,118 @@
+{
+  "protocol": "lexical-one-to-one-v1",
+  "input": {
+    "result_dir": "E:\\huawei after\\KARMA\\outputs\\baselines\\first_document_20261009_60671500\\details",
+    "gold_source": "E:\\huawei after\\KARMA\\data\\DocIOE\\transport",
+    "layout": "manifest",
+    "stage": "baseline",
+    "baseline_sha256": "f724e0cb0940dd5c87e03f942c345ace574cb714a81b3867051d0aa43cd7c422",
+    "manifest_path": "E:\\huawei after\\KARMA\\outputs\\baselines\\first_document_20261009_60671500\\details\\_run_manifest.json",
+    "unused_gold_ids": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21",
+      "22",
+      "23",
+      "24",
+      "25",
+      "26",
+      "27",
+      "28",
+      "29",
+      "30",
+      "31",
+      "32",
+      "33",
+      "34",
+      "35",
+      "36",
+      "37",
+      "38",
+      "39"
+    ],
+    "warnings": [],
+    "aligned_triples_sha256": "6288b37fbc78cdf986e7747ac913be06b04429619f73074f814cd4912b16da2b"
+  },
+  "rules": {
+    "strict": "Whitespace cleanup only; case, punctuation and word order retained; binary equality in all fields.",
+    "lenient": "lower().split(); per-field Counter intersection; all three fields need positive overlap; no score threshold.",
+    "assignment": "Strict: maximum equality-pair count. Lenient: maximum SUM of pair F1, deterministic index-order ties.",
+    "aggregation": "micro P=sum(pair P)/all predictions; R=sum(pair R)/all gold; F1=harmonic(P,R). Unmatched contributes zero.",
+    "macro": "Mean per-document P and R, then harmonic mean (legacy convention); NOT mean document/pair F1.",
+    "empty": "Zero denominators produce zero; empty-field triples never match but remain in denominators.",
+    "duplicates": "Preserve all entries; report equality groups; one-to-one matching penalizes excess predictions.",
+    "language": "Whitespace tokenization, designed for English. No stemming, stopword removal, synonyms or language-specific rules.",
+    "interpretation": "Lenient scores measure lexical overlap, not whole-triple factual correctness; not the official CaRB protocol."
+  },
+  "document_ids": [
+    "857. Systems and methods for a cryptographically guaranteed vehicle identity.txt"
+  ],
+  "metrics": {
+    "strict": {
+      "R1": {
+        "micro": {
+          "precision": 0.03225806451612903,
+          "recall": 0.02857142857142857,
+          "f1": 0.030303030303030307,
+          "precision_sum": 1.0,
+          "recall_sum": 1.0,
+          "num_pred": 31,
+          "num_gold": 35,
+          "selected_pairs": 1,
+          "unmatched_pred": 30,
+          "unmatched_gold": 34,
+          "tp": 1,
+          "fp": 30,
+          "fn": 34
+        },
+        "macro": {
+          "precision": 0.03225806451612903,
+          "recall": 0.02857142857142857,
+          "f1": 0.030303030303030307
+        },
+        "per_doc": [
+          {
+            "precision": 0.03225806451612903,
+            "recall": 0.02857142857142857,
+            "f1": 0.030303030303030307,
+            "precision_sum": 1.0,
+            "recall_sum": 1.0,
+            "num_pred": 31,
+            "num_gold": 35,
+            "selected_pairs": 1,
+            "unmatched_pred": 30,
+            "unmatched_gold": 34,
+            "tp": 1,
+            "fp": 30,
+            "fn": 34,
+            "doc": "857. Systems and methods for a cryptographically guaranteed vehicle identity.txt",
+            "gold_key": "0",
+            "gold_duplicate_groups": [],
+            "pred_duplicate_groups": []
+          }
+        ]
+      }
+    }
+  },
+  "csv_verified": true,
+  "csv_file": "match_strict.csv",
+  "csv_sha256": "19707d268ad825313f8cefaf4639175104baf373edb35430140aaded260f98c7"
+}

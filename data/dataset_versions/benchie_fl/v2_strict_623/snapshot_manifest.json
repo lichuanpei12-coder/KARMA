@@ -1,0 +1,191 @@
+{
+  "version": "b2",
+  "created": "2026-09-15",
+  "status": "HISTORICAL_SNAPSHOT",
+  "files": [
+    {
+      "path": "batch_manifest.json",
+      "sha256": "cea06a63c87d17dd4e0a5254b867ad22bcb9873fe14263fc2939285e3527372f"
+    },
+    {
+      "path": "gold\\0.json",
+      "sha256": "aa384d2a4a00b7d2af76aa2b7c783f4ff76f22df6e8d5eeef04d1e150929c0af"
+    },
+    {
+      "path": "gold\\1.json",
+      "sha256": "bbb14bf5ceb836a84d4189af198aaa0a54b03e27e4ca94f27315fedc05a13e60"
+    },
+    {
+      "path": "gold\\10.json",
+      "sha256": "2703e4001efa3ccf0f82aa9063fe9d4935783d3caabca9958fc90841e615480c"
+    },
+    {
+      "path": "gold\\11.json",
+      "sha256": "a59dfe3100d837cf5157d52faa8c5febaa67db01769385f5f9b4d09bb455a79b"
+    },
+    {
+      "path": "gold\\12.json",
+      "sha256": "33e6b6305045ff6cb1ea125e4c8bdbdcce04a966fe1635861b8b7f2f47c71852"
+    },
+    {
+      "path": "gold\\13.json",
+      "sha256": "74c148d4648ed0c97bc026a32430b774819d73aefccd5c3bad7c5666429b8625"
+    },
+    {
+      "path": "gold\\14.json",
+      "sha256": "a857714237ff85acbb1de5f1d2f342bf6c1cbb06f31dd1c07f051aec78ce31bd"
+    },
+    {
+      "path": "gold\\15.json",
+      "sha256": "06cab18cc5ff4cf46bcd22dce670debc7edde2d461ee92c388f16c88a13fee4b"
+    },
+    {
+      "path": "gold\\16.json",
+      "sha256": "f74fe7897b7966bcc93fc2efb1f16e6a9803d7179d3c9e2a5d552ad4ca68836d"
+    },
+    {
+      "path": "gold\\17.json",
+      "sha256": "cd496439d525a27ef7fc5200063bb6ee188da7ab61295ad2f2b5d8b241ba1a32"
+    },
+    {
+      "path": "gold\\18.json",
+      "sha256": "5d41842a91185c52964dd0f39d209adfb332727ecf44953b025299253edb3f9d"
+    },
+    {
+      "path": "gold\\19.json",
+      "sha256": "3f102dd7ecad3c74d79e68942978852f9ba97ee78dd3d0ddd5ed4119c2a22af6"
+    },
+    {
+      "path": "gold\\2.json",
+      "sha256": "ddec6eb04f6d9bb96792a50b4d8d1514cdd90c94d2c1bdf18d8b12b668fd5193"
+    },
+    {
+      "path": "gold\\3.json",
+      "sha256": "fa2844db5426ad17cfe159bbf82cd411eb72506d77eaae2c7cf825d438723ece"
+    },
+    {
+      "path": "gold\\4.json",
+      "sha256": "f0bb99484b0b717fd0d458e8712eb71ae2cafed98340f3b1bcf6dec07f6e947a"
+    },
+    {
+      "path": "gold\\5.json",
+      "sha256": "8c33b83a6572071b3ddceda12cd7fb86db789fd6c6d9435679e6362e8df273be"
+    },
+    {
+      "path": "gold\\6.json",
+      "sha256": "9722c48134ec33d4d33533fa92e7c39d21f383a065607f1b54d5c1b8b1d0751b"
+    },
+    {
+      "path": "gold\\7.json",
+      "sha256": "7700643c38e65e8a8e71ad834d1e2a170d1468d3c4cc49d07ec193f189cd2672"
+    },
+    {
+      "path": "gold\\8.json",
+      "sha256": "1993a202a868496abf7d803ad8126072e245676ce9e4d928f46b6d24cf7483b3"
+    },
+    {
+      "path": "gold\\9.json",
+      "sha256": "3487d86abb80bda696a36256e7cb51a15bd37fd0c8aa570be639a0a3e6d16602"
+    },
+    {
+      "path": "gold.json",
+      "sha256": "cd76395d12d64a4729134a952f5d34accd0012747e0245ed13f47a86d17e872e"
+    },
+    {
+      "path": "input\\0.json",
+      "sha256": "389845ab1a0daaf48ef627ab64400426d34e778e91c1a0aa2e068515f6e4ab76"
+    },
+    {
+      "path": "input\\1.json",
+      "sha256": "ad154c02f681ef3cc0b47dd611ec93ccc7a77cbc15a84a1a86906db60d4ac6e2"
+    },
+    {
+      "path": "input\\10.json",
+      "sha256": "da012e82e3dfed267a49e274683ff0dac5c60c5dacf1d9ff5518083a56edf653"
+    },
+    {
+      "path": "input\\11.json",
+      "sha256": "15c5ddf34e50ac45fb46bcb71ec1025e82db2f505cee64beb1c425e9acc1254d"
+    },
+    {
+      "path": "input\\12.json",
+      "sha256": "8c4726ef4a2821ec5fd0c8577ff2e23c5924f346ef7a40998ac5bfa370ce789e"
+    },
+    {
+      "path": "input\\13.json",
+      "sha256": "7d4842c66ac90fd44733b95858cd82a64b73d6166a6c18683a48c6e8c9b5625e"
+    },
+    {
+      "path": "input\\14.json",
+      "sha256": "98d25ce575ff57073be4f7c404c6939e0bfc01447c04759ba70e3627cfdf5ce0"
+    },
+    {
+      "path": "input\\15.json",
+      "sha256": "38ed522bdb0be08c930991623b59e9eb7e45fd9f12e1b3d019ecdf0593644bb5"
+    },
+    {
+      "path": "input\\16.json",
+      "sha256": "54dfeeb9957d6f68818965b339ddd13818987fba78aff57d72c181381125033c"
+    },
+    {
+      "path": "input\\17.json",
+      "sha256": "c2d12f838bfaaafe20b0011090a9b438ba9a330c490cbeab3645c8173b2c4d58"
+    },
+    {
+      "path": "input\\18.json",
+      "sha256": "472c1589817895d51e03f2b00a33aefb9a4d76cf13fc3a18dcba624dae899eea"
+    },
+    {
+      "path": "input\\19.json",
+      "sha256": "56298b564e43b4884b3522877e24a2781185bcba0f2d9def6e83767a9dfd91de"
+    },
+    {
+      "path": "input\\2.json",
+      "sha256": "3d2b093e30018c232b8a9c6dead7fbc5b562c7645950bd86b72b091ff9677f0d"
+    },
+    {
+      "path": "input\\3.json",
+      "sha256": "c0201744f9b9cec255b73d5337d819ddcc14d2fff7ad5f30497af7a94b767abc"
+    },
+    {
+      "path": "input\\4.json",
+      "sha256": "58db2bdf3fdeb3dcb17e0a288d50baaddda7a88d938f8f717db1081a5df9e574"
+    },
+    {
+      "path": "input\\5.json",
+      "sha256": "76c24197b1aaa124a56442fa2278ed92500f57e41ae664bd29f2e080c4ed9a29"
+    },
+    {
+      "path": "input\\6.json",
+      "sha256": "7e0af3349615530e15c8fe1b44eca1be6a673069e4d36b6b3d6a0c571186e5ce"
+    },
+    {
+      "path": "input\\7.json",
+      "sha256": "c302b32edf7c532f20445b383e201a154a83eac9d92d61b4005134c3c3002231"
+    },
+    {
+      "path": "input\\8.json",
+      "sha256": "958b8cc82e21afa7d080f1b186aa5aaa0e3107835dcba0a7c8fcf4c784d50088"
+    },
+    {
+      "path": "input\\9.json",
+      "sha256": "55a1eafcf8f06495acc6c77e7a15d182aa975cf8cfe7e3abf3a4e85cf66a0444"
+    },
+    {
+      "path": "input.json",
+      "sha256": "b2f8f6b09f109a1b5dc4b018a6a257b7b7f271d375bede4b7fbc03caf8b47a5c"
+    },
+    {
+      "path": "source_grounded_audit.json",
+      "sha256": "af272f1339b441615140b52263b01276d9dac2935ec9162e458e5c4240827763"
+    },
+    {
+      "path": "原文严格重选说明.md",
+      "sha256": "e3533912c9217ea2a537beaaa57c44ee567734dc564d07a6cc63b94d739f98b7"
+    },
+    {
+      "path": "数据集处理与KARMA接入说明.md",
+      "sha256": "e5b6b95e944b1867829dd8236fe1d0b976f9564932689e411c7e5769de3de72d"
+    }
+  ]
+}

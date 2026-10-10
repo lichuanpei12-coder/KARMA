@@ -1,0 +1,40 @@
+{
+  "status": "FULL_SIZE_CANDIDATE_PARTIALLY_REVIEWED_NOT_FINAL_GOLD",
+  "benchie_fl": {
+    "samples": 299,
+    "gold": 1786,
+    "reviewed_sentences": 9,
+    "total_sentences": 299
+  },
+  "docoie": {
+    "transportation": {
+      "documents": 40,
+      "target_sentences": 400,
+      "gold": 1138,
+      "reviewed_sentences": 10
+    },
+    "healthcare": {
+      "documents": 40,
+      "target_sentences": 400,
+      "gold": 920,
+      "reviewed_sentences": 10
+    }
+  },
+  "additional_reviewed_sentences": 17,
+  "total_reviewed_sentences": 29,
+  "pending_records": 15,
+  "original_pending_items_retained": true,
+  "pending_source_references": 36,
+  "version_paths": {
+    "b0": "data\\dataset_versions\\benchie_fl\\v0_original_starter",
+    "b1": "data\\dataset_versions\\benchie_fl\\v1_without_xxx",
+    "b2": "data\\dataset_versions\\benchie_fl\\v2_strict_623",
+    "b3": "data\\dataset_versions\\benchie_fl\\v3_pilot",
+    "b4": "data\\dataset_versions\\benchie_fl\\v4_minimal_changes_candidate",
+    "d0": "data\\dataset_versions\\docoie\\v0_local_original",
+    "d1": "data\\dataset_versions\\docoie\\v1_pilot",
+    "d2": "data\\dataset_versions\\docoie\\v2_minimal_changes_candidate"
+  },
+  "active_paths_unchanged": true,
+  "scoring_code_unchanged": true
+}

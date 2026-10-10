@@ -1,0 +1,97 @@
+[
+  {
+    "head": "the composition",
+    "relation": "is",
+    "tail": "a pharmaceutical composition or a food composition"
+  },
+  {
+    "head": "the composition",
+    "relation": "is used for",
+    "tail": "increasing the expression of melatonin and/or promoting the secretion of melatonin"
+  },
+  {
+    "head": "the term \"subject\" recited in this specification",
+    "relation": "refers to",
+    "tail": "a mammalian"
+  },
+  {
+    "head": "a mammalian",
+    "relation": "includes",
+    "tail": "human animals and non-human animals"
+  },
+  {
+    "head": "banana",
+    "relation": "is",
+    "tail": "a perennial herb"
+  },
+  {
+    "head": "a perennial herb",
+    "relation": "is originated from",
+    "tail": "the tropical and subtropical Asia"
+  },
+  {
+    "head": "cells of the above groups",
+    "relation": "were harvested and subjected to",
+    "tail": "a RNA extraction"
+  },
+  {
+    "head": "cells of the above groups harvested and subjected to a RNA extraction",
+    "relation": "is with",
+    "tail": "an RNA Extract Kit"
+  },
+  {
+    "head": "people",
+    "relation": "can stay",
+    "tail": "awake during the daytime"
+  },
+  {
+    "head": "the secretion of melatonin",
+    "relation": "is suppressed by the exposure to",
+    "tail": "light"
+  },
+  {
+    "head": "the decreased expression of TPH1 gene",
+    "relation": "will affect",
+    "tail": "the above physiological functions"
+  },
+  {
+    "head": "the above physiological functions",
+    "relation": "are related to",
+    "tail": "serotonin"
+  },
+  {
+    "head": "DDC gene",
+    "relation": "is involved in",
+    "tail": "the synthesis of melatonin"
+  },
+  {
+    "head": "the deficiency of DDC gene",
+    "relation": "will lead to",
+    "tail": "neurometabolic disorder"
+  },
+  {
+    "head": "the applied type",
+    "relation": "is in line with",
+    "tail": "the above descriptions"
+  },
+  {
+    "head": "the applied route",
+    "relation": "is in line with",
+    "tail": "the above descriptions"
+  },
+  {
+    "head": "the applied form",
+    "relation": "is in line with",
+    "tail": "the above descriptions"
+  },
+  {
+    "head": "the uses in related application of the composition",
+    "relation": "are in line with",
+    "tail": "the above descriptions"
+  },
+  {
+    "head": "the RNA",
+    "relation": "was transcribed into cDNA with",
+    "tail": "a Reverse Transcriptase"
+  }
+]

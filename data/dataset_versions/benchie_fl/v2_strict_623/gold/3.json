@@ -1,0 +1,165 @@
+{
+  "benchie_45": [
+    {
+      "head": "Sligo town",
+      "relation": "then became",
+      "tail": "an incorporated municipal borough"
+    },
+    {
+      "head": "Sligo town",
+      "relation": "then became an incorporated municipal borough with",
+      "tail": "a Royal Charter"
+    }
+  ],
+  "benchie_46": [
+    {
+      "head": "Tom McMorran",
+      "relation": "joined",
+      "tail": "the band"
+    },
+    {
+      "head": "Tom McMorran",
+      "relation": "joined the band in",
+      "tail": "1994"
+    },
+    {
+      "head": "the band",
+      "relation": "released",
+      "tail": "`` Sahara ''"
+    }
+  ],
+  "benchie_47": [
+    {
+      "head": "she",
+      "relation": "also makes",
+      "tail": "veiled references"
+    },
+    {
+      "head": "she",
+      "relation": "reads",
+      "tail": "the articles"
+    }
+  ],
+  "benchie_48": [
+    {
+      "head": "23.8 % of all households",
+      "relation": "were made up of",
+      "tail": "individuals"
+    }
+  ],
+  "benchie_49": [
+    {
+      "head": "Overseas teams",
+      "relation": "would not return to Russia until",
+      "tail": "1998"
+    }
+  ],
+  "benchie_50": [
+    {
+      "head": "The British Army",
+      "relation": "had been shown to be",
+      "tail": "overstretched"
+    },
+    {
+      "head": "The British Army",
+      "relation": "had been shown to be overstretched by",
+      "tail": "the Crimean War"
+    },
+    {
+      "head": "the mutiny in India",
+      "relation": "had led to the responsibility for providing a garrison in the subcontinent from",
+      "tail": "the Honourable East India Company"
+    },
+    {
+      "head": "the mutiny in India",
+      "relation": "had led to",
+      "tail": "the responsibility"
+    },
+    {
+      "head": "the mutiny in India",
+      "relation": "had led to the responsibility for",
+      "tail": "providing a garrison"
+    },
+    {
+      "head": "the mutiny in India",
+      "relation": "had led to the responsibility for providing a garrison in",
+      "tail": "the subcontinent"
+    }
+  ],
+  "benchie_51": [
+    {
+      "head": "Just above",
+      "relation": "seen is",
+      "tail": "a replica of a Shiva lingam"
+    }
+  ],
+  "benchie_52": [
+    {
+      "head": "The ninth leaf",
+      "relation": "contains",
+      "tail": "a circular world map"
+    },
+    {
+      "head": "The ninth leaf",
+      "relation": "contains a circular world map measuring in",
+      "tail": "circumference"
+    },
+    {
+      "head": "a circular world map",
+      "relation": "measuring in",
+      "tail": "circumference"
+    }
+  ],
+  "benchie_53": [
+    {
+      "head": "It",
+      "relation": "hosts",
+      "tail": "the `` Zomercarnaval ''"
+    },
+    {
+      "head": "the `` Zomercarnaval ''",
+      "relation": "originally called",
+      "tail": "the Antillean carnival"
+    }
+  ],
+  "benchie_54": [
+    {
+      "head": "The power cepstrum of a signal",
+      "relation": "is defined as",
+      "tail": "the squared magnitude of the inverse Fourier transform of the logarithm of the squared magnitude of the Fourier transform of a signal"
+    }
+  ],
+  "benchie_55": [
+    {
+      "head": "Many lodge members",
+      "relation": "are",
+      "tail": "active staff members"
+    }
+  ],
+  "benchie_56": [
+    {
+      "head": "Gideon Rodan",
+      "relation": "taught at the University of Connecticut School of Dental Medicine until",
+      "tail": "he switched over to Merck"
+    },
+    {
+      "head": "Gideon Rodan",
+      "relation": "switched over to",
+      "tail": "Merck"
+    }
+  ],
+  "benchie_57": [
+    {
+      "head": "These",
+      "relation": "are known as",
+      "tail": "Porter 's three generic strategies"
+    }
+  ],
+  "benchie_58": [
+    {
+      "head": "the protocol",
+      "relation": "includes",
+      "tail": "support groups and/or psychotherapy"
+    }
+  ]
+}

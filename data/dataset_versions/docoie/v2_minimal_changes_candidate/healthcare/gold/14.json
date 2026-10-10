@@ -1,0 +1,112 @@
+[
+  {
+    "head": "these modes",
+    "relation": "are",
+    "tail": "advertising, scanning and initiating"
+  },
+  {
+    "head": "the CCH",
+    "relation": "may be",
+    "tail": "a distinct logical or physical radio channel"
+  },
+  {
+    "head": "the first physical channel",
+    "relation": "is",
+    "tail": "a control channel"
+  },
+  {
+    "head": "the control channel",
+    "relation": "is abbreviated as",
+    "tail": "CCH"
+  },
+  {
+    "head": "the second physical channel",
+    "relation": "is",
+    "tail": "a data channel (DCH)"
+  },
+  {
+    "head": "the data channel",
+    "relation": "is abbreviated as",
+    "tail": "DCH"
+  },
+  {
+    "head": "the present invention",
+    "relation": "is not restricted to",
+    "tail": "embodiments disclosed above"
+  },
+  {
+    "head": "the invention",
+    "relation": "may vary within",
+    "tail": "the scope of the claims"
+  },
+  {
+    "head": "the active period",
+    "relation": "commences at",
+    "tail": "the start of Beacon Period"
+  },
+  {
+    "head": "the active period",
+    "relation": "is followed by",
+    "tail": "the inactive period"
+  },
+  {
+    "head": "the prior art solutions",
+    "relation": "mainly focus on",
+    "tail": "the situation"
+  },
+  {
+    "head": "just a single operational network",
+    "relation": "exists in",
+    "tail": "the situation"
+  },
+  {
+    "head": "neighbouring networks",
+    "relation": "are desired to be found out",
+    "tail": ""
+  },
+  {
+    "head": "certain alarms",
+    "relation": "can be set and triggered",
+    "tail": ""
+  },
+  {
+    "head": "a certain measurement result",
+    "relation": "gives",
+    "tail": "a reason to be worried"
+  },
+  {
+    "head": "there",
+    "relation": "is",
+    "tail": "a life-threatening change in the patient's measured condition"
+  },
+  {
+    "head": "it is possible in another embodiment",
+    "relation": "to define",
+    "tail": "the IBI"
+  },
+  {
+    "head": "it",
+    "relation": "comprises",
+    "tail": "an inactive period"
+  },
+  {
+    "head": "an active period",
+    "relation": "will follow",
+    "tail": "the inactive period"
+  },
+  {
+    "head": "there",
+    "relation": "is",
+    "tail": "a transmission or reception in the inactive period of the IBI"
+  },
+  {
+    "head": "the transmitting or receiving entity",
+    "relation": "must always be",
+    "tail": "the Hub"
+  },
+  {
+    "head": "the control channel",
+    "relation": "is used in initializing",
+    "tail": "the network"
+  }
+]

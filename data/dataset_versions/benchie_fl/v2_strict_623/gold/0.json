@@ -1,0 +1,235 @@
+{
+  "benchie_1": [
+    {
+      "head": "He",
+      "relation": "served as",
+      "tail": "the first Prime Minister of Australia"
+    },
+    {
+      "head": "He",
+      "relation": "became",
+      "tail": "a founding justice"
+    },
+    {
+      "head": "He",
+      "relation": "became a founding justice of",
+      "tail": "the High Court of Australia"
+    }
+  ],
+  "benchie_2": [
+    {
+      "head": "Graner",
+      "relation": "handcuffed",
+      "tail": "him"
+    },
+    {
+      "head": "Graner",
+      "relation": "handcuffed him to",
+      "tail": "the bars"
+    },
+    {
+      "head": "Graner",
+      "relation": "handcuffed him to the bars of",
+      "tail": "a cell window"
+    },
+    {
+      "head": "Graner",
+      "relation": "left",
+      "tail": "him there"
+    }
+  ],
+  "benchie_3": [
+    {
+      "head": "It",
+      "relation": "deals with",
+      "tail": "cases of fraud"
+    },
+    {
+      "head": "It",
+      "relation": "deals with cases of fraud in relation to",
+      "tail": "direct taxes"
+    },
+    {
+      "head": "cases",
+      "relation": "involving",
+      "tail": "United Nations trade sanctions"
+    }
+  ],
+  "benchie_4": [
+    {
+      "head": "St. Michael",
+      "relation": "was considered to be",
+      "tail": "the patron saint of colonial Maryland"
+    },
+    {
+      "head": "St. Michael",
+      "relation": "was honored by",
+      "tail": "the river being named for him"
+    },
+    {
+      "head": "St. Michael",
+      "relation": "was considered to be",
+      "tail": "the patron saint"
+    }
+  ],
+  "benchie_5": [
+    {
+      "head": "The show",
+      "relation": "was designed to",
+      "tail": "appear as if the viewer was channel surfing"
+    },
+    {
+      "head": "The show",
+      "relation": "was designed to appear as if the viewer was channel surfing through",
+      "tail": "a multi-channel wasteland"
+    }
+  ],
+  "benchie_6": [
+    {
+      "head": "the remaining trackage at Charles City",
+      "relation": "was",
+      "tail": "abandoned"
+    }
+  ],
+  "benchie_7": [
+    {
+      "head": "Dr. Jagan himself",
+      "relation": "was personally involved in",
+      "tail": "the organization of the strike"
+    },
+    {
+      "head": "Dr. Jagan himself",
+      "relation": "helped to",
+      "tail": "raise funds"
+    },
+    {
+      "head": "Dr. Jagan himself",
+      "relation": "helped to raise funds",
+      "tail": "across the country"
+    }
+  ],
+  "benchie_8": [
+    {
+      "head": "the municipality",
+      "relation": "was renamed",
+      "tail": "Jones"
+    },
+    {
+      "head": "William Jones",
+      "relation": "authored",
+      "tail": "the Philippine Autonomy Act of 1916"
+    },
+    {
+      "head": "the Philippine Autonomy Act of 1916",
+      "relation": "provided for",
+      "tail": "greater autonomy"
+    },
+    {
+      "head": "the Philippine Autonomy Act of 1916",
+      "relation": "provided for greater autonomy for",
+      "tail": "the Philippines"
+    },
+    {
+      "head": "the Philippine Autonomy Act of 1916",
+      "relation": "provided for greater autonomy for the Philippines under",
+      "tail": "American colonial rule"
+    }
+  ],
+  "benchie_9": [
+    {
+      "head": "the laser",
+      "relation": "cuts",
+      "tail": "a portion of the prostate"
+    },
+    {
+      "head": "a portion of the prostate",
+      "relation": "is then",
+      "tail": "cut"
+    },
+    {
+      "head": "a portion of the prostate",
+      "relation": "is then cut into",
+      "tail": "smaller pieces"
+    }
+  ],
+  "benchie_10": [
+    {
+      "head": "`` Kormoran ''",
+      "relation": "was the only Axis ship to",
+      "tail": "conduct attacks in Australian waters during 1941"
+    }
+  ],
+  "benchie_11": [
+    {
+      "head": "He",
+      "relation": "were said to",
+      "tail": "have made bombs"
+    },
+    {
+      "head": "his friends",
+      "relation": "were said to",
+      "tail": "have made bombs"
+    },
+    {
+      "head": "He",
+      "relation": "were said to have made bombs for",
+      "tail": "fun"
+    },
+    {
+      "head": "his friends",
+      "relation": "were said to have made bombs for",
+      "tail": "fun"
+    }
+  ],
+  "benchie_12": [
+    {
+      "head": "A large gravestone",
+      "relation": "was",
+      "tail": "erected"
+    },
+    {
+      "head": "A large gravestone",
+      "relation": "was erected in",
+      "tail": "1866"
+    }
+  ],
+  "benchie_13": [
+    {
+      "head": "he",
+      "relation": "was",
+      "tail": "re-elected"
+    },
+    {
+      "head": "he",
+      "relation": "was re-elected",
+      "tail": "U.S. Senator"
+    },
+    {
+      "head": "he",
+      "relation": "was tipped as",
+      "tail": "a Presidential candidate"
+    },
+    {
+      "head": "he",
+      "relation": "died",
+      "tail": "suddenly"
+    },
+    {
+      "head": "he",
+      "relation": "giving a speech in",
+      "tail": "Chicago"
+    }
+  ],
+  "benchie_14": [
+    {
+      "head": "Ryan Cameron",
+      "relation": "lobby for",
+      "tail": "a frequency change"
+    },
+    {
+      "head": "Ryan Cameron",
+      "relation": "lobby for a frequency change for",
+      "tail": "WHTA"
+    }
+  ]
+}

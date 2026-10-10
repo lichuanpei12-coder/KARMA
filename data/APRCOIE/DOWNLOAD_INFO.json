@@ -1,0 +1,17 @@
+{
+  "name": "APRCOIE",
+  "url": "https://codeload.github.com/jialin666/APRCOIE_v1/zip/refs/heads/V_I",
+  "archive": "E:\\huawei after\\KARMA\\data\\APRCOIE.zip",
+  "bytes": 3322824,
+  "sha256": "365a6c0ca84f17a7768aa2a7996e8a44359a2f126abc542b636bea07d1d432fa",
+  "files": {
+    "data_regular.json": {
+      "records": 7836,
+      "bytes": 13142278
+    },
+    "data_att.json": {
+      "records": 206,
+      "bytes": 227779
+    }
+  }
+}

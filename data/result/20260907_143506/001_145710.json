@@ -1,0 +1,281 @@
+[
+  {
+    "head": "such elements and operations",
+    "relation": "are well known in the art",
+    "tail": "the art",
+    "confidence": 0.96,
+    "clarity": 0.88,
+    "relevance": 0.55,
+    "score": 0.8374999999999999
+  },
+  {
+    "head": "such elements and operations",
+    "relation": "do not facilitate",
+    "tail": "a better understanding of the present disclosure",
+    "confidence": 0.95,
+    "clarity": 0.86,
+    "relevance": 0.5,
+    "score": 0.815
+  },
+  {
+    "head": "a discussion of such elements and operations",
+    "relation": "may not be provided herein",
+    "tail": "herein",
+    "confidence": 0.94,
+    "clarity": 0.84,
+    "relevance": 0.45,
+    "score": 0.7925
+  },
+  {
+    "head": "ECUs",
+    "relation": "may include",
+    "tail": "PUF components",
+    "confidence": 0.98,
+    "clarity": 0.97,
+    "relevance": 0.98,
+    "score": 0.9774999999999999
+  },
+  {
+    "head": "controller",
+    "relation": "may query",
+    "tail": "the ECU",
+    "confidence": 0.98,
+    "clarity": 0.97,
+    "relevance": 0.99,
+    "score": 0.98
+  },
+  {
+    "head": "controller",
+    "relation": "identify",
+    "tail": "which PUF component is compromised",
+    "confidence": 0.92,
+    "clarity": 0.86,
+    "relevance": 0.99,
+    "score": 0.9225000000000001
+  },
+  {
+    "head": "compromise",
+    "relation": "is located in",
+    "tail": "the sub-system",
+    "confidence": 0.9,
+    "clarity": 0.82,
+    "relevance": 0.95,
+    "score": 0.8925000000000001
+  },
+  {
+    "head": "validation of the vehicle identity",
+    "relation": "ensures",
+    "tail": "the integrity of all of the components that make up the vehicle",
+    "confidence": 0.97,
+    "clarity": 0.9,
+    "relevance": 0.98,
+    "score": 0.955
+  },
+  {
+    "head": "components",
+    "relation": "make up",
+    "tail": "the vehicle",
+    "confidence": 0.97,
+    "clarity": 0.95,
+    "relevance": 0.96,
+    "score": 0.9624999999999999
+  },
+  {
+    "head": "components",
+    "relation": "generate",
+    "tail": "information",
+    "confidence": 0.95,
+    "clarity": 0.91,
+    "relevance": 0.91,
+    "score": 0.93
+  },
+  {
+    "head": "computer readable medium",
+    "relation": "is meant to refer to",
+    "tail": "any machine-readable medium",
+    "confidence": 0.98,
+    "clarity": 0.96,
+    "relevance": 0.97,
+    "score": 0.9724999999999999
+  },
+  {
+    "head": "machine-readable medium",
+    "relation": "is",
+    "tail": "automated data medium",
+    "confidence": 0.97,
+    "clarity": 0.95,
+    "relevance": 0.94,
+    "score": 0.9574999999999999
+  },
+  {
+    "head": "machine-readable medium",
+    "relation": "capable of storing",
+    "tail": "data",
+    "confidence": 0.98,
+    "clarity": 0.96,
+    "relevance": 0.98,
+    "score": 0.975
+  },
+  {
+    "head": "data",
+    "relation": "readable by",
+    "tail": "a mechanical device",
+    "confidence": 0.96,
+    "clarity": 0.93,
+    "relevance": 0.91,
+    "score": 0.9400000000000001
+  },
+  {
+    "head": "each specific element",
+    "relation": "includes",
+    "tail": "all technical equivalents",
+    "confidence": 0.98,
+    "clarity": 0.96,
+    "relevance": 0.86,
+    "score": 0.945
+  },
+  {
+    "head": "technical equivalents",
+    "relation": "operate in",
+    "tail": "a similar manner",
+    "confidence": 0.96,
+    "clarity": 0.91,
+    "relevance": 0.84,
+    "score": 0.9175
+  },
+  {
+    "head": "technical equivalents",
+    "relation": "accomplish",
+    "tail": "a similar purpose",
+    "confidence": 0.95,
+    "clarity": 0.91,
+    "relevance": 0.84,
+    "score": 0.9125
+  },
+  {
+    "head": "Embodiments of the invention",
+    "relation": "may be implemented in",
+    "tail": "hardware",
+    "confidence": 0.97,
+    "clarity": 0.93,
+    "relevance": 0.9,
+    "score": 0.9425
+  },
+  {
+    "head": "Embodiments of the invention",
+    "relation": "may be implemented in",
+    "tail": "firmware",
+    "confidence": 0.97,
+    "clarity": 0.93,
+    "relevance": 0.9,
+    "score": 0.9425
+  },
+  {
+    "head": "Embodiments of the invention",
+    "relation": "may be implemented in",
+    "tail": "software",
+    "confidence": 0.97,
+    "clarity": 0.93,
+    "relevance": 0.9,
+    "score": 0.9425
+  },
+  {
+    "head": "instructions",
+    "relation": "are stored on",
+    "tail": "a machine-readable medium",
+    "confidence": 0.99,
+    "clarity": 0.98,
+    "relevance": 0.99,
+    "score": 0.9875
+  },
+  {
+    "head": "machine-readable medium",
+    "relation": "may be read by",
+    "tail": "a computing platform",
+    "confidence": 0.91,
+    "clarity": 0.8,
+    "relevance": 0.88,
+    "score": 0.875
+  },
+  {
+    "head": "machine-readable medium",
+    "relation": "may be executed by",
+    "tail": "a computing platform",
+    "confidence": 0.88,
+    "clarity": 0.76,
+    "relevance": 0.83,
+    "score": 0.8375
+  },
+  {
+    "head": "computing platform",
+    "relation": "perform",
+    "tail": "the operations described herein",
+    "confidence": 0.95,
+    "clarity": 0.9,
+    "relevance": 0.87,
+    "score": 0.9175
+  },
+  {
+    "head": "specific exemplary embodiments",
+    "relation": "is for",
+    "tail": "illustration purposes only",
+    "confidence": 0.94,
+    "clarity": 0.87,
+    "relevance": 0.45,
+    "score": 0.8
+  },
+  {
+    "head": "repeated use of the phrase \"in one embodiment\" or \"in an exemplary embodiment\"",
+    "relation": "does not necessarily refer to",
+    "tail": "the same embodiment",
+    "confidence": 0.98,
+    "clarity": 0.93,
+    "relevance": 0.42,
+    "score": 0.8275
+  },
+  {
+    "head": "repeated use of the phrase \"in one embodiment\" or \"in an exemplary embodiment\"",
+    "relation": "may refer to",
+    "tail": "the same embodiment",
+    "confidence": 0.84,
+    "clarity": 0.68,
+    "relevance": 0.4,
+    "score": 0.69
+  },
+  {
+    "head": "This method",
+    "relation": "may be integrated in",
+    "tail": "connected cars",
+    "confidence": 0.98,
+    "clarity": 0.96,
+    "relevance": 0.97,
+    "score": 0.9724999999999999
+  },
+  {
+    "head": "This method",
+    "relation": "may be integrated in",
+    "tail": "car sharing",
+    "confidence": 0.98,
+    "clarity": 0.96,
+    "relevance": 0.97,
+    "score": 0.9724999999999999
+  },
+  {
+    "head": "This method",
+    "relation": "may be integrated in",
+    "tail": "rental car services",
+    "confidence": 0.98,
+    "clarity": 0.96,
+    "relevance": 0.97,
+    "score": 0.9724999999999999
+  },
+  {
+    "head": "This method",
+    "relation": "may be integrated in",
+    "tail": "maintenance and factory services",
+    "confidence": 0.98,
+    "clarity": 0.96,
+    "relevance": 0.97,
+    "score": 0.9724999999999999
+  }
+]

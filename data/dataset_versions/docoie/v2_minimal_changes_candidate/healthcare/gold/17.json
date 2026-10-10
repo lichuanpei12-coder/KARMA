@@ -1,0 +1,102 @@
+[
+  {
+    "head": "a top rubber cover",
+    "relation": "is provided as",
+    "tail": "part of the intermediate portion"
+  },
+  {
+    "head": "stem",
+    "relation": "is formed by",
+    "tail": "synthetic resin"
+  },
+  {
+    "head": "synthetic resin",
+    "relation": "is such as for example",
+    "tail": "POM"
+  },
+  {
+    "head": "a battery to be inserted in the battery holder",
+    "relation": "is",
+    "tail": "a rechargeable battery or a dry cell battery"
+  },
+  {
+    "head": "the connection between the lower cylinder portion 42b and the illumination ring body",
+    "relation": "is",
+    "tail": "explained"
+  },
+  {
+    "head": "the connection",
+    "relation": "is between",
+    "tail": "the lower cylinder portion 2b and the illumination ring body"
+  },
+  {
+    "head": "the vibration shaft",
+    "relation": "freely rotates inside",
+    "tail": "the elongated cavity"
+  },
+  {
+    "head": "the vibration shaft",
+    "relation": "freely rotates inside the elongated cavity even under",
+    "tail": "high frequency vibration"
+  },
+  {
+    "head": "the body cover",
+    "relation": "has",
+    "tail": "an interior cavity"
+  },
+  {
+    "head": "an interior cavity",
+    "relation": "may be for example",
+    "tail": "cylindrical"
+  },
+  {
+    "head": "an interior cavity",
+    "relation": "is for accommodating",
+    "tail": "the chassis, battery holder and circuit board"
+  },
+  {
+    "head": "the electric toothbrush",
+    "relation": "is held at about",
+    "tail": "the plane level"
+  },
+  {
+    "head": "the bristle",
+    "relation": "touches",
+    "tail": "the front face or back face of the tooth perpendicularly"
+  },
+  {
+    "head": "DC motor",
+    "relation": "has",
+    "tail": "two wires"
+  },
+  {
+    "head": "two wires",
+    "relation": "extend from",
+    "tail": "a bottom face"
+  },
+  {
+    "head": "two wires",
+    "relation": "are for",
+    "tail": "electric connection with the circuit board through connector"
+  },
+  {
+    "head": "the resilient shaft portion",
+    "relation": "has a flexibility to receive",
+    "tail": "the high frequency vibration of the eccentric portion"
+  },
+  {
+    "head": "the stem joint arrangement",
+    "relation": "further includes",
+    "tail": "a stem packing"
+  },
+  {
+    "head": "a stem packing",
+    "relation": "is made of",
+    "tail": "rubber and a rubber cover"
+  },
+  {
+    "head": "a rubber cover",
+    "relation": "covers",
+    "tail": "the lower cylinder portion"
+  }
+]

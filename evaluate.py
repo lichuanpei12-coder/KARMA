@@ -403,10 +403,82 @@ def latest_result_dir():
     """自动选 data/result 下最新的时间戳文件夹。"""
     if not RESULT_ROOT.exists():
         return None
-    subs = [d for d in RESULT_ROOT.iterdir() if d.is_dir()]
+    subs = [d for d in RESULT_ROOT.iterdir() if d.is_dir() and (
+        (d / '_run_manifest.json').exists()
+        or any(p.name.split('_')[0].isdigit() for p in d.glob('*.json')))]
     if not subs:
         return None
     return max(subs, key=lambda d: d.name)
+
+
+def load_run_pairs(result_dir, gold_source):
+    """Pair explicit document IDs, preserving empty predictions and selected subsets."""
+    manifest = json.loads((Path(result_dir) / '_run_manifest.json').read_text(encoding='utf-8'))
+    if manifest.get('format') != 'karma_run' or manifest.get('version') != 1 or not manifest.get('complete'):
+        raise ValueError('Run manifest is incomplete or unsupported')
+    gold_source = Path(gold_source)
+    if gold_source.is_dir():
+        gold_by_id = {p.stem: json.loads(p.read_text(encoding='utf-8'))
+                      for p in gold_source.glob('*.json')}
+    else:
+        data = json.loads(gold_source.read_text(encoding='utf-8'))
+        gold_by_id = data if isinstance(data, dict) else {'0': data}
+    paired = []
+    seen = set()
+    expected_rounds = {'1'} if manifest['stage'] == 'baseline' else {'1', '2'}
+    for doc in manifest['documents']:
+        doc_id = doc['doc_id']
+        if doc_id in seen:
+            raise ValueError(f'Duplicate document ID: {doc_id}')
+        seen.add(doc_id)
+        gold_key = doc_id
+        # Legacy gold directories use original source positions as filenames.
+        if gold_key not in gold_by_id and gold_source.is_dir():
+            gold_key = str(doc['source_index'])
+        if gold_key not in gold_by_id:
+            raise ValueError(f'Gold missing for document {doc_id}; provide the matching gold source')
+        if set(doc['rounds']) != expected_rounds:
+            raise ValueError(f'Missing/extra rounds for document {doc_id}')
+        if not isinstance(gold_by_id[gold_key], list):
+            raise ValueError(f'Gold must be a triple list: {gold_key}')
+        paired.append((doc, gold_by_id[gold_key]))
+    if not paired:
+        raise ValueError('No completed documents to evaluate')
+    return manifest, paired
+
+
+def evaluate_run_manifest(result_dir, gold_source):
+    """Evaluate baseline-only or resumed/full runs without relying on file order."""
+    manifest, paired = load_run_pairs(result_dir, gold_source)
+    rounds = ('1',) if manifest['stage'] == 'baseline' else ('1', '2')
+    gold_docs = [gold for _, gold in paired]
+    predictions = {r: [doc['rounds'][r] for doc, _ in paired] for r in rounds}
+    precompute_embeddings(gold_docs, [pred for r in rounds for pred in predictions[r]])
+    report = {'stage': manifest['stage'], 'baseline_sha256': manifest['baseline_sha256'],
+              'document_ids': [doc['doc_id'] for doc, _ in paired]}
+    for r in rounds:
+        result = evaluate(gold_docs, predictions[r])
+        for row, (doc, _) in zip(result['per_doc'], paired):
+            row['doc'] = doc['doc_id']
+        report['round' + r] = result
+        micro = result['micro']
+        print(f"Round {r}: Micro P/R/F1 = {micro['precision']:.4f} / {micro['recall']:.4f} / {micro['f1']:.4f}")
+        for (doc, gold), pred in zip(paired, predictions[r]):
+            rows = generate_match_rows([gold], [pred], 'R' + r)
+            for row in rows:
+                row['doc'] = doc['doc_id']
+            write_match_csv(rows, Path(result_dir) / f"match_doc{doc['source_index']}_r{r}.csv")
+    if '2' in rounds:
+        for averaging in ('micro', 'macro'):
+            report['delta_' + averaging] = {
+                metric: round(report['round2'][averaging][metric] - report['round1'][averaging][metric], 4)
+                for metric in ('precision', 'recall', 'f1')
+            }
+        print('Round 2 - Round 1:', report['delta_micro'])
+    out_path = Path(result_dir) / 'eval_result.json'
+    out_path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
+    print(f'Documents: {len(paired)}; evaluation saved: {out_path}')
+    return 0
 
 
 # gold 候选目录：名字 -> 路径
@@ -463,6 +535,24 @@ def main():
         print("  不指定抽取目录则自动选最新；不指定 gold 来源则自动检测领域")
         print("未指定抽取目录且 data/result 下无时间戳文件夹，请先跑 pipeline 生成抽取结果。")
         return 1
+
+    if (result_dir / 'details' / '_run_manifest.json').exists():
+        result_dir = result_dir / 'details'
+    if (result_dir / '_run_manifest.json').exists():
+        try:
+            if len(sys.argv) > 2 and sys.argv[2].strip():
+                gold_source = Path(sys.argv[2])
+            else:
+                manifest = json.loads((result_dir / '_run_manifest.json').read_text(encoding='utf-8'))
+                if manifest.get('stage') != 'full':
+                    print('For staged runs, specify the matching gold directory or JSON file explicitly.')
+                    return 1
+                extracted, _ = load_extracted(result_dir)
+                gold_source = detect_gold_dir(extracted)
+            return evaluate_run_manifest(result_dir, gold_source)
+        except (ValueError, KeyError, TypeError, OSError) as exc:
+            print(f'Evaluation input error: {exc}')
+            return 1
 
     # 先加载抽取结果（gold 自动检测需要用到）
     extracted, extracted_files = load_extracted(result_dir)

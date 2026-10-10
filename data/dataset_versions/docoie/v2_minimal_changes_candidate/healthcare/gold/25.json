@@ -1,0 +1,112 @@
+[
+  {
+    "head": "the reference parameter",
+    "relation": "is",
+    "tail": "a frequency"
+  },
+  {
+    "head": "a frequency",
+    "relation": "is particularly emitted by",
+    "tail": "a phantom being placed into the MRT-device"
+  },
+  {
+    "head": "a phantom",
+    "relation": "is being placed into",
+    "tail": "the MRT-device"
+  },
+  {
+    "head": "this object",
+    "relation": "is achieved by",
+    "tail": "a method for adjusting a magnetic field of a magnetic resonance"
+  },
+  {
+    "head": "this object",
+    "relation": "is achieved by",
+    "tail": "a magnetic power supply"
+  },
+  {
+    "head": "this object",
+    "relation": "is achieved by",
+    "tail": "a magnetic resonance tomography (MRT) device"
+  },
+  {
+    "head": "excited hydrogen atoms",
+    "relation": "emit",
+    "tail": "a radio frequency signal"
+  },
+  {
+    "head": "a radio frequency signal",
+    "relation": "is measured by",
+    "tail": "a receiving coil"
+  },
+  {
+    "head": "measuring the current",
+    "relation": "may be established by for example integrating",
+    "tail": "a shunt into the magnetic power supply"
+  },
+  {
+    "head": "the current",
+    "relation": "realizes",
+    "tail": "the magnetic field"
+  },
+  {
+    "head": "the magnetic fiel",
+    "relation": "is not measured directly",
+    "tail": ""
+  },
+  {
+    "head": "complex measuring systems for observing the magnetic field",
+    "relation": "may be avoided",
+    "tail": ""
+  },
+  {
+    "head": "complex measuring systems",
+    "relation": "are for observing",
+    "tail": "the magnetic field"
+  },
+  {
+    "head": "removing the Helium system",
+    "relation": "presents",
+    "tail": "many technical challenges and practical challenges"
+  },
+  {
+    "head": "practical challenges",
+    "relation": "have such a magnet operate in",
+    "tail": "a real hospital or clinic environment"
+  },
+  {
+    "head": "it is possible",
+    "relation": "to adjust the magnetic field accurately for establishing",
+    "tail": "a desired center frequency"
+  },
+  {
+    "head": "a desired center frequency",
+    "relation": "matches to",
+    "tail": "the center frequency of the receiving coil"
+  },
+  {
+    "head": "the reference parameter",
+    "relation": "is only observed during",
+    "tail": "the ramp-up-mode or a defined time span of the ramp-up mode"
+  },
+  {
+    "head": "the current",
+    "relation": "is calibrated during",
+    "tail": "a previous ramp-down mode"
+  },
+  {
+    "head": "the current",
+    "relation": "is calibrated in particular during",
+    "tail": "the ramp-down mode preceding the ramp-up mode"
+  },
+  {
+    "head": "the position of the phantom",
+    "relation": "is repeatable by automatically placing",
+    "tail": "the phantom"
+  },
+  {
+    "head": "there",
+    "relation": "is no interference by",
+    "tail": "an operator necessary"
+  }
+]

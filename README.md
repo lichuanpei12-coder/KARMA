@@ -1,5 +1,7 @@
 # KARMA: Leveraging Multi-Agent LLMs for Automated Knowledge Graph Enrichment 🤖
 
+> 当前两阶段实验的运行、结果阅读和协作说明，请先看 [同事上手说明](同事上手说明.md)。以下保留原项目介绍。
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![ArXiv](https://img.shields.io/badge/arXiv-2502.06472-b31b1b.svg)](https://arxiv.org/abs/2502.06472)

@@ -27,6 +27,7 @@ sys.path.insert(0, 'D:/files/rawcode/KARMA')
 
 from karma import KARMAPipeline
 from karma.config import create_default_config
+from karma.core.run_artifacts import load_baseline
 
 
 def get_active_api_config():
@@ -163,18 +164,41 @@ Examples:
                        help='OpenAI API key (default: from KARMA_API_KEY env var / .env)')
     parser.add_argument('--model', default=active_api['model'], help='Model to use')
     parser.add_argument('--relevance-threshold', type=float, default=0.2, help='Relevance threshold (default: 0.2)')
-    parser.add_argument('--integration-threshold', type=float, default=0, help='Integration threshold (default: 0)')
+    parser.add_argument('--integration-threshold', type=float, default=None, help='Integration threshold (default: 0; revise inherits baseline)')
     parser.add_argument('--output-dir', default='result.json', help='Output directory (default: karma_output)')
     parser.add_argument('--domain', default='biomedical', help='Domain context (default: biomedical)')
     parser.add_argument('--verbose', '-v', action='store_true', help='Verbose output')
+    parser.add_argument('--stage', choices=('full', 'baseline', 'revise'), default='full',
+                        help='full: original two rounds; baseline: round 1 only; revise: feedback and round 2 only')
+    parser.add_argument('--baseline', help='Baseline JSON path (input for revise; optional output for baseline/full)')
+    parser.add_argument('--limit', type=int, help='Run the first N selected documents')
+    parser.add_argument('--doc-ids', nargs='+', help='Select document IDs from the source JSON or baseline package')
 
     args = parser.parse_args()
 
     # Validate input file
-    input_path = Path(args.input)
+    if args.stage == 'revise' and not args.baseline:
+        parser.error('--stage revise requires --baseline')
+    if args.limit is not None and args.limit <= 0:
+        parser.error('--limit must be positive')
+    input_path = Path(args.baseline if args.stage == 'revise' else args.input)
     if not input_path.exists():
         print(f"❌ Error: Input file not found: {input_path}")
         return 1
+
+    if args.stage == 'revise':
+        try:
+            baseline_config = load_baseline(input_path)['config']
+        except (ValueError, KeyError, TypeError, OSError) as exc:
+            print(f'Invalid baseline: {exc}')
+            return 1
+        saved_threshold = baseline_config['integration_threshold']
+        if args.integration_threshold is not None and args.integration_threshold != saved_threshold:
+            print('Revision must use the baseline integration threshold; omit --integration-threshold.')
+            return 1
+        args.integration_threshold = saved_threshold
+    elif args.integration_threshold is None:
+        args.integration_threshold = 0
 
     if not args.api_key or not active_api['base_url'] or not args.model:
         print("Error: selected API mode is missing its API key, base URL, or model configuration")
@@ -182,6 +206,12 @@ Examples:
 
     # Setup output directory
     output_dir = Path(args.output_dir)
+    if output_dir.exists() and not output_dir.is_dir():
+        print('Output path must be a directory.')
+        return 1
+    if args.stage != 'full' and output_dir.exists() and any(output_dir.iterdir()):
+        print('Output directory must be empty for baseline/revise; choose a new experiment directory.')
+        return 1
     output_dir.mkdir(parents=True, exist_ok=True)
 
     print("🚀 KARMA Knowledge Graph Enrichment Pipeline")
@@ -206,6 +236,13 @@ Examples:
         # Initialize pipeline
         print("🔧 Initializing KARMA pipeline...")
         pipeline = KARMAPipeline.from_config(config, api_mode=active_api['api_mode'])
+        # Full runs retain the existing dump location. Split runs keep all output together.
+        if args.stage != 'full':
+            pipeline.evaluator_agent._dump_dir = output_dir / 'details'
+            pipeline.evaluator_agent._dump_dir.mkdir(parents=True, exist_ok=True)
+        baseline_path = args.baseline
+        if args.stage == 'baseline' and baseline_path is None:
+            baseline_path = output_dir / 'baseline.json'
 
         # Process document
         print(f"📖 Processing document: {input_path.name}")
@@ -214,8 +251,13 @@ Examples:
         result = pipeline.process_document(
             input_path,
             domain=args.domain,
-            relevance_threshold=args.relevance_threshold
+            relevance_threshold=args.relevance_threshold,
+            stage=args.stage, baseline_path=baseline_path,
+            doc_ids=args.doc_ids, limit=args.limit,
         )
+
+        print(f'Baseline package: {pipeline.last_baseline_path}')
+        print(f'Evaluation/audit directory: {pipeline.evaluator_agent._dump_dir}')
 
         print("✅ Processing completed successfully!")
         print("=" * 60)

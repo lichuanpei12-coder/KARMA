@@ -1,0 +1,132 @@
+[
+  {
+    "head": "there",
+    "relation": "are",
+    "tail": "several open source ASR packages"
+  },
+  {
+    "head": "open source ASR package",
+    "relation": "is such as",
+    "tail": "Sphinx"
+  },
+  {
+    "head": "open source ASR package",
+    "relation": "is such as",
+    "tail": "HTK"
+  },
+  {
+    "head": "open source ASR package",
+    "relation": "is such as",
+    "tail": "Kaldi"
+  },
+  {
+    "head": "technology",
+    "relation": "currently exists",
+    "tail": ""
+  },
+  {
+    "head": "current existing technology",
+    "relation": "enables",
+    "tail": "voice-based determination of a caller's demographic profile information"
+  },
+  {
+    "head": "speech compression",
+    "relation": "is",
+    "tail": "a mature technology"
+  },
+  {
+    "head": "speech compression",
+    "relation": "is",
+    "tail": "a widely utilized technology"
+  },
+  {
+    "head": "some systems",
+    "relation": "use",
+    "tail": "\"anti-speaker\" techniques"
+  },
+  {
+    "head": "\"anti-speaker\" techniques",
+    "relation": "are such as",
+    "tail": "cohort models"
+  },
+  {
+    "head": "\"anti-speaker\" techniques",
+    "relation": "are such as",
+    "tail": "world models"
+  },
+  {
+    "head": "Other approaches to estimating ASR confidence",
+    "relation": "are known and available in",
+    "tail": "the prior art"
+  },
+  {
+    "head": "there",
+    "relation": "is",
+    "tail": "a difference"
+  },
+  {
+    "head": "a difference",
+    "relation": "is between",
+    "tail": "speaker recognition and speech recognition"
+  },
+  {
+    "head": "speaker recognition",
+    "relation": "recognizes",
+    "tail": "who is speaking"
+  },
+  {
+    "head": "speech recognition",
+    "relation": "recognizes",
+    "tail": "what is being said"
+  },
+  {
+    "head": "its main function",
+    "relation": "is to eliminate",
+    "tail": "dead space"
+  },
+  {
+    "head": "its main function",
+    "relation": "is to improve",
+    "tail": "utilization efficiency of more compute-intensive resources"
+  },
+  {
+    "head": "compute-intensive resources",
+    "relation": "is such as",
+    "tail": "the ASR engine"
+  },
+  {
+    "head": "its main function",
+    "relation": "is to improve",
+    "tail": "utilization efficiency of storage resources"
+  },
+  {
+    "head": "it",
+    "relation": "is depicted as",
+    "tail": "a distinct step"
+  },
+  {
+    "head": "it",
+    "relation": "may be performed as part of",
+    "tail": "the VAD or ASR processes"
+  },
+  {
+    "head": "data",
+    "relation": "is sent from the Storage Tier to",
+    "tail": "the Processing Tier"
+  },
+  {
+    "head": "data",
+    "relation": "is sent for",
+    "tail": "processing"
+  },
+  {
+    "head": "the processed data",
+    "relation": "is sent back to the Storage Tier",
+    "tail": "for storage/archiving"
+  },
+  {
+    "head": "one example",
+    "relation": "is",
+    "tail": "the caller's speaking dialect"
+  }
+]

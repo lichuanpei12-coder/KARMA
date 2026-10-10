@@ -1,0 +1,152 @@
+[
+  {
+    "head": "items",
+    "relation": "can be shipped to",
+    "tail": "remote regions"
+  },
+  {
+    "head": "items",
+    "relation": "can be shipped to",
+    "tail": "regions with insufficient infrastructure"
+  },
+  {
+    "head": "regions with insufficient infrastructure",
+    "relation": "is without",
+    "tail": "the concerns or costs"
+  },
+  {
+    "head": "the concerns or costs",
+    "relation": "are associated with",
+    "tail": "temperature-controlled shipments"
+  },
+  {
+    "head": "the kit",
+    "relation": "may further comprise",
+    "tail": "a receptacle"
+  },
+  {
+    "head": "a receptacle",
+    "relation": "is suitable for performing a nucleic acid amplification reaction for",
+    "tail": "one or more sequences of interest"
+  },
+  {
+    "head": "the quality and integrity of the resultant PCR products",
+    "relation": "were investigated by performing",
+    "tail": "DNA sequencing"
+  },
+  {
+    "head": "DNA sequencing",
+    "relation": "is",
+    "tail": "a representative downstream application"
+  },
+  {
+    "head": "the physically stable, solid lyophilised reagent",
+    "relation": "provides long term stability at",
+    "tail": "ambient temperature"
+  },
+  {
+    "head": "the physically stable, solid lyophilised reagent",
+    "relation": "can be dispensed in",
+    "tail": "flexible formats"
+  },
+  {
+    "head": "the physically stable, solid lyophilised reagent",
+    "relation": "is amenable to",
+    "tail": "downstream manipulation"
+  },
+  {
+    "head": "the beads and the constituent reagents",
+    "relation": "are",
+    "tail": "room temperature stable"
+  },
+  {
+    "head": "the beads and the constituent reagents being room temperature stable",
+    "relation": "offers significant advantages over",
+    "tail": "traditional PCR amplification workflows"
+  },
+  {
+    "head": "the biomolecule in the composition",
+    "relation": "is",
+    "tail": "a protein"
+  },
+  {
+    "head": "a protein",
+    "relation": "is such as",
+    "tail": "an enzyme"
+  },
+  {
+    "head": "an enzyme",
+    "relation": "is for example",
+    "tail": "a nucleic acid polymerase"
+  },
+  {
+    "head": "the beads",
+    "relation": "are removed from",
+    "tail": "the liquid nitrogen using a sieve"
+  },
+  {
+    "head": "a sieve",
+    "relation": "ensures that",
+    "tail": "beads exhibit a spherical shape with consistent diameter size and weight"
+  },
+  {
+    "head": "beads",
+    "relation": "exhibit",
+    "tail": "a spherical shape with consistent diameter size and weight"
+  },
+  {
+    "head": "beads",
+    "relation": "exhibit a spherical shape with",
+    "tail": "consistent diameter size and weight"
+  },
+  {
+    "head": "the end point of the determination",
+    "relation": "is indicated voltametrically by",
+    "tail": "applying an alternating current to an electrode immersed in the electrolyte"
+  },
+  {
+    "head": "applying an alternating current",
+    "relation": "is to",
+    "tail": "an electrode immersed in the electrolyte"
+  },
+  {
+    "head": "an electrode",
+    "relation": "is immersed in",
+    "tail": "the electrolyte"
+  },
+  {
+    "head": "the biological sample",
+    "relation": "comprises",
+    "tail": "nucleic acid"
+  },
+  {
+    "head": "the stabilized biomolecule",
+    "relation": "is",
+    "tail": "a nucleic acid polymerase"
+  },
+  {
+    "head": "the assay",
+    "relation": "is",
+    "tail": "an amplification reaction"
+  },
+  {
+    "head": "an amplification reaction",
+    "relation": "is such as",
+    "tail": "PCR"
+  },
+  {
+    "head": "Ready-To-Go having Tg values well above room temperature",
+    "relation": "ensure that",
+    "tail": "the products can be shipped and stored without the need for refrigeration"
+  },
+  {
+    "head": "Ready-To-Go",
+    "relation": "have Tg values well above",
+    "tail": "room temperature"
+  },
+  {
+    "head": "products",
+    "relation": "can be shipped and stored without",
+    "tail": "the need for refrigeration"
+  }
+]

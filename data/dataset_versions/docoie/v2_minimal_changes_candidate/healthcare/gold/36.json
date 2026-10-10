@@ -1,0 +1,107 @@
+[
+  {
+    "head": "the compartment",
+    "relation": "is associated with",
+    "tail": "fat"
+  },
+  {
+    "head": "the compartment associated with fat",
+    "relation": "is known to show",
+    "tail": "only small variations or dependencies on the surrounding tissue"
+  },
+  {
+    "head": "these",
+    "relation": "excited",
+    "tail": "nuclei relax and return to the equilibrium state"
+  },
+  {
+    "head": "the transverse components of the excited spins",
+    "relation": "induce",
+    "tail": "a voltage in the receive coils"
+  },
+  {
+    "head": "a voltage",
+    "relation": "is in",
+    "tail": "the receive coils"
+  },
+  {
+    "head": "a voltage",
+    "relation": "is measured",
+    "tail": ""
+  },
+  {
+    "head": "the relative signal of fat",
+    "relation": "can be modeled and considered in",
+    "tail": "the determination of the relaxation times for the water compartment"
+  },
+  {
+    "head": "these gradient pulses",
+    "relation": "are radiated (activated) at",
+    "tail": "precisely provided time positions"
+  },
+  {
+    "head": "these gradient pulses",
+    "relation": "are radiated (activated) with",
+    "tail": "a precisely predetermined time curve during a measurement"
+  },
+  {
+    "head": "a further embodiment",
+    "relation": "can be characterized as",
+    "tail": "joint fitting"
+  },
+  {
+    "head": "the fat fraction",
+    "relation": "is determined by fitting to",
+    "tail": "a dedicated signal model"
+  },
+  {
+    "head": "a dedicated signal model",
+    "relation": "is typically",
+    "tail": "multi-echo acquisitions"
+  },
+  {
+    "head": "the relaxation",
+    "relation": "is not",
+    "tail": "free (undisturbed)"
+  },
+  {
+    "head": "the effect of the continuous FLASH acquisitions",
+    "relation": "can be considered as",
+    "tail": "the signal model"
+  },
+  {
+    "head": "it is possible",
+    "relation": "to use",
+    "tail": "multi-echo FLASH in T1 mapping"
+  },
+  {
+    "head": "it is possible",
+    "relation": "to use multi-echo FLASH specifically in the context of",
+    "tail": "the Look-Locker technique and the FLASH steady state technique."
+  },
+  {
+    "head": "the signal contribution of fat",
+    "relation": "can be modeled in",
+    "tail": "this scenario"
+  },
+  {
+    "head": "only the T1 value of water",
+    "relation": "is determined by",
+    "tail": "fitting a model to the acquired data"
+  },
+  {
+    "head": "the MR signals",
+    "relation": "are received with",
+    "tail": "a local coil"
+  },
+  {
+    "head": "a local coil",
+    "relation": "can be composed of",
+    "tail": "one or more individual reception coils"
+  },
+  {
+    "head": "the local coil",
+    "relation": "can be used to radiate",
+    "tail": "the RF signals"
+  }
+]

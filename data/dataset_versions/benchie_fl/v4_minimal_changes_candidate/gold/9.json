@@ -1,0 +1,412 @@
+{
+  "benchie_137": [
+    {
+      "head": "Ford",
+      "relation": "has",
+      "tail": "spokesman"
+    },
+    {
+      "head": "Ford spokesman",
+      "relation": "said",
+      "tail": "Dearborn Mich. auto maker is not aware of any injuries caused by windshield problem"
+    }
+  ],
+  "benchie_138": [
+    {
+      "head": "More big Japanese investors",
+      "relation": "are buying",
+      "tail": "U.S. mortgage-backed securities"
+    },
+    {
+      "head": "More big Japanese investors buying U.S. mortgage-backed securities",
+      "relation": "is reversing",
+      "tail": "recent trend"
+    }
+  ],
+  "benchie_139": [
+    {
+      "head": "alternative explanation",
+      "relation": "is that",
+      "tail": "new Soviet economic and social structures are intended to conform to model other than that of market"
+    },
+    {
+      "head": "more convincing explanation",
+      "relation": "is that",
+      "tail": "new Soviet economic and social structures are intended to conform to model other than that of market"
+    },
+    {
+      "head": "explanation that new Soviet economic and social structures are intended to conform to model other than that of market",
+      "relation": "is",
+      "tail": "confirmed"
+    },
+    {
+      "head": "explanation that new Soviet economic and social structures are intended to conform to model other than that of market",
+      "relation": "is confirmed by",
+      "tail": "recent events"
+    },
+    {
+      "head": "explanation that new Soviet economic and social structures are intended to conform to model other than that of market",
+      "relation": "is confirmed by",
+      "tail": "close inspection"
+    },
+    {
+      "head": "explanation that new Soviet economic and social structures are intended to conform to model other than that of market",
+      "relation": "is confirmed by close inspection of",
+      "tail": "Gorbachev program"
+    }
+  ],
+  "benchie_140": [
+    {
+      "head": "RU-486",
+      "relation": "is being",
+      "tail": "administered"
+    },
+    {
+      "head": "RU-486",
+      "relation": "is only being administered in",
+      "tail": "France"
+    },
+    {
+      "head": "RU-486",
+      "relation": "is being administered in France only under",
+      "tail": "strict supervision"
+    },
+    {
+      "head": "RU-486",
+      "relation": "is being administered in France only in presence of",
+      "tail": "doctor"
+    }
+  ],
+  "benchie_141": [
+    {
+      "head": "President Bush",
+      "relation": "made",
+      "tail": "final offer"
+    },
+    {
+      "head": "President Bush",
+      "relation": "made",
+      "tail": "final take-it-or-leave it offer"
+    },
+    {
+      "head": "President Bush",
+      "relation": "made final offer on",
+      "tail": "minimum wage"
+    },
+    {
+      "head": "President Bush's offer on minimum wage",
+      "relation": "is",
+      "tail": "increase to $4.25 an hour"
+    },
+    {
+      "head": "President Bush's offer on minimum wage",
+      "relation": "is increase to $4.25 an hour only if",
+      "tail": "accompanied by lower wage"
+    },
+    {
+      "head": "President Bush's offer on minimum wage",
+      "relation": "is increase to $4.25 an hour only if accompanied by lower wage for",
+      "tail": "first six months of job"
+    },
+    {
+      "head": "President Bush",
+      "relation": "made final offer on minimum wage",
+      "tail": "Earlier this year"
+    },
+    {
+      "head": "Bush",
+      "relation": "is",
+      "tail": "President"
+    }
+  ],
+  "benchie_142": [
+    {
+      "head": "Mazda",
+      "relation": "will extend",
+      "tail": "warranty term for engine damage"
+    },
+    {
+      "head": "Mazda",
+      "relation": "will extend warranty term for engine damage due to",
+      "tail": "abnormal engine oil deterioration"
+    },
+    {
+      "head": "Mazda",
+      "relation": "will extend warranty term for engine damage to",
+      "tail": "five years or 60,000 miles"
+    },
+    {
+      "head": "Mazda",
+      "relation": "will extend warranty term for engine damage for",
+      "tail": "owners who have followed recommended oil maintenance schedule"
+    },
+    {
+      "head": "abnormal engine oil deterioration",
+      "relation": "can cause",
+      "tail": "engine damage"
+    },
+    {
+      "head": "warranty term for engine damage due to abnormal engine oil deterioration",
+      "relation": "will extend to five years or 60,000 miles for",
+      "tail": "owners who have followed recommended oil maintenance schedule"
+    }
+  ],
+  "benchie_143": [
+    {
+      "head": "New York City issue",
+      "relation": "included",
+      "tail": "$757 million of tax-exempt bonds"
+    },
+    {
+      "head": "New York City issue",
+      "relation": "included tax-exempt bonds priced to yield",
+      "tail": "between 6.50% to 7.88%"
+    },
+    {
+      "head": "New York City issue",
+      "relation": "included tax-exempt bonds priced depending on",
+      "tail": "maturity"
+    }
+  ],
+  "benchie_144": [
+    {
+      "head": "lawyers",
+      "relation": "were",
+      "tail": "eager"
+    },
+    {
+      "head": "judge",
+      "relation": "were",
+      "tail": "eager"
+    },
+    {
+      "head": "lawyers",
+      "relation": "were eager to",
+      "tail": "wrap it up"
+    },
+    {
+      "head": "judge",
+      "relation": "were eager to",
+      "tail": "wrap it up"
+    },
+    {
+      "head": "lawyers",
+      "relation": "were just as eager as",
+      "tail": "judge"
+    }
+  ],
+  "benchie_145": [
+    {
+      "head": "Boyer",
+      "relation": "headed for",
+      "tail": "Wall Street"
+    },
+    {
+      "head": "Boyer",
+      "relation": "headed for Wall Street in",
+      "tail": "1980"
+    },
+    {
+      "head": "Boyer",
+      "relation": "headed for Wall Street with",
+      "tail": "their laboratory credentials established"
+    },
+    {
+      "head": "Boyer's laboratory credentials",
+      "relation": "were",
+      "tail": "established"
+    },
+    {
+      "head": "Swanson",
+      "relation": "headed for",
+      "tail": "Wall Street"
+    },
+    {
+      "head": "Swanson",
+      "relation": "headed for Wall Street in",
+      "tail": "1980"
+    },
+    {
+      "head": "Swanson",
+      "relation": "headed for Wall Street with",
+      "tail": "their laboratory credentials established"
+    },
+    {
+      "head": "Swanson's laboratory credentials",
+      "relation": "were",
+      "tail": "established"
+    }
+  ],
+  "benchie_146": [
+    {
+      "head": "Japan's No 111 4.6% bond",
+      "relation": "is due",
+      "tail": "1998"
+    },
+    {
+      "head": "Japan's No 111 4.6% bond",
+      "relation": "ended day on",
+      "tail": "brokers screens"
+    },
+    {
+      "head": "Japan's No 111 4.6% bond",
+      "relation": "ended day at",
+      "tail": "95.11"
+    },
+    {
+      "head": "Japan's No 111 4.6% bond",
+      "relation": "ended day to yield",
+      "tail": "5.43%"
+    },
+    {
+      "head": "brokers",
+      "relation": "have",
+      "tail": "screens"
+    }
+  ],
+  "benchie_147": [
+    {
+      "head": "He",
+      "relation": "accused",
+      "tail": "Dow Jones"
+    },
+    {
+      "head": "He",
+      "relation": "accused Dow Jones of",
+      "tail": "using unfair means"
+    },
+    {
+      "head": "He",
+      "relation": "accused Dow Jones of using unfair means to obtain",
+      "tail": "stock"
+    },
+    {
+      "head": "He",
+      "relation": "accused Dow Jones of using unfair means to obtain stock at",
+      "tail": "unfair price"
+    }
+  ],
+  "benchie_148": [
+    {
+      "head": "she",
+      "relation": "added that",
+      "tail": "They are getting some major wins"
+    }
+  ],
+  "benchie_149": [
+    {
+      "head": "Armstrong World Industries Inc.",
+      "relation": "agreed in principle to sell",
+      "tail": "its carpet operations"
+    },
+    {
+      "head": "Armstrong World Industries Inc.",
+      "relation": "agreed in principle to sell its carpet operations to",
+      "tail": "Shaw Industries Inc"
+    },
+    {
+      "head": "Armstrong World Industries Inc.",
+      "relation": "has",
+      "tail": "carpet operations"
+    },
+    {
+      "head": "Shaw Industries Inc",
+      "relation": "agreed in principle to buy",
+      "tail": "carpet operations"
+    }
+  ],
+  "benchie_150": [
+    {
+      "head": "traders",
+      "relation": "buy",
+      "tail": "large amounts of stocks"
+    },
+    {
+      "head": "traders",
+      "relation": "sell",
+      "tail": "large amounts of stocks"
+    },
+    {
+      "head": "traders",
+      "relation": "buy large amounts of stocks with",
+      "tail": "offsetting trades"
+    },
+    {
+      "head": "traders",
+      "relation": "sell large amounts of stocks with",
+      "tail": "offsetting trades"
+    },
+    {
+      "head": "traders",
+      "relation": "buy large amounts of stocks with offsetting trades in",
+      "tail": "stock-index futures"
+    },
+    {
+      "head": "traders",
+      "relation": "sell large amounts of stocks with offsetting trades in",
+      "tail": "stock-index futures"
+    },
+    {
+      "head": "traders",
+      "relation": "buy large amounts of stocks with offsetting trades in",
+      "tail": "stock-index options"
+    },
+    {
+      "head": "traders",
+      "relation": "sell large amounts of stocks with offsetting trades in",
+      "tail": "stock-index options"
+    },
+    {
+      "head": "traders",
+      "relation": "buy large amounts of stocks in",
+      "tail": "stock-index arbitrage"
+    },
+    {
+      "head": "traders",
+      "relation": "sell large amounts of stocks in",
+      "tail": "stock-index arbitrage"
+    }
+  ],
+  "benchie_151": [
+    {
+      "head": "Interstate / Johnson Lane Inc.",
+      "relation": "adds",
+      "tail": "70 people to its staff"
+    },
+    {
+      "head": "Interstate / Johnson Lane Inc.",
+      "relation": "adds 70 people to its staff",
+      "tail": "this year"
+    },
+    {
+      "head": "Interstate / Johnson Lane Inc.",
+      "relation": "adds people to",
+      "tail": "its staff"
+    },
+    {
+      "head": "Interstate / Johnson Lane Inc.",
+      "relation": "adds people to",
+      "tail": "its retail staff"
+    },
+    {
+      "head": "Interstate / Johnson Lane Inc.",
+      "relation": "adds people 60 to",
+      "tail": "its retail staff"
+    },
+    {
+      "head": "Interstate /Johnson Lane Inc.",
+      "relation": "adds 60 people to its retail staff",
+      "tail": "this year"
+    },
+    {
+      "head": "Interstate / Johnson Lane Inc.",
+      "relation": "has",
+      "tail": "staff"
+    },
+    {
+      "head": "Interstate / Johnson Lane Inc.",
+      "relation": "has",
+      "tail": "1,300-member staff"
+    }
+  ]
+}

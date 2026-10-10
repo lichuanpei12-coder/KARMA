@@ -1,0 +1,117 @@
+[
+  {
+    "head": "other networks",
+    "relation": "take advantage of",
+    "tail": "advanced features of network devices"
+  },
+  {
+    "head": "advanced features of network devices",
+    "relation": "are such as",
+    "tail": "priority"
+  },
+  {
+    "head": "advanced features of network devices",
+    "relation": "are such as",
+    "tail": "custom"
+  },
+  {
+    "head": "advanced features of network devices",
+    "relation": "are such as",
+    "tail": "weighted fair queuing"
+  },
+  {
+    "head": "PBNM",
+    "relation": "requires",
+    "tail": "enforcement of high-level policy information"
+  },
+  {
+    "head": "enforcement of high-level policy information",
+    "relation": "is throughout",
+    "tail": "a computer data network"
+  },
+  {
+    "head": "the information",
+    "relation": "can include, for example",
+    "tail": "source and destination addresse"
+  },
+  {
+    "head": "the information",
+    "relation": "can include, for example",
+    "tail": "application identification information"
+  },
+  {
+    "head": "the information",
+    "relation": "can include, for example",
+    "tail": "protocol type"
+  },
+  {
+    "head": "the network devices",
+    "relation": "typically support",
+    "tail": "configuration information"
+  },
+  {
+    "head": "configuration information",
+    "relation": "is called",
+    "tail": "remotely modifiable filter lists"
+  },
+  {
+    "head": "remotely modifiable filter lists",
+    "relation": "allow basic actions to be performed on",
+    "tail": "data packets"
+  },
+  {
+    "head": "data packets whose protocol fields",
+    "relation": "match",
+    "tail": "the filter"
+  },
+  {
+    "head": "mapping high-level information into low-level configuration information",
+    "relation": "is a",
+    "tail": "dynamic process"
+  },
+  {
+    "head": "mapping high-level information into low-level configuration information",
+    "relation": "is an",
+    "tail": "on-going process"
+  },
+  {
+    "head": "only a few mapping servers",
+    "relation": "are required to provide",
+    "tail": "the desired result"
+  },
+  {
+    "head": "only a few mapping servers",
+    "relation": "interact with",
+    "tail": "the network's infrastructure"
+  },
+  {
+    "head": "an efficient and distributed architecture",
+    "relation": "is for controlling networks through",
+    "tail": "policy information"
+  },
+  {
+    "head": "the endstations",
+    "relation": "interact with",
+    "tail": "other network infrastructure devices"
+  },
+  {
+    "head": "other network infrastructure devices",
+    "relation": "are responsible for handling",
+    "tail": "communications data"
+  },
+  {
+    "head": "other network infrastructure devices",
+    "relation": "are responsible for forwarding",
+    "tail": "communications data"
+  },
+  {
+    "head": "other network infrastructure devices",
+    "relation": "are responsible for routing",
+    "tail": "communications data"
+  },
+  {
+    "head": "a highly dynamic mapping",
+    "relation": "is from high-level policy to",
+    "tail": "low-level configuration information"
+  }
+]

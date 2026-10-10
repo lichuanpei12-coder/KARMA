@@ -1,0 +1,102 @@
+[
+  {
+    "head": "the threshold voltage",
+    "relation": "drifts in",
+    "tail": "a very large range"
+  },
+  {
+    "head": "distribution",
+    "relation": "can be simulated like",
+    "tail": "a Gaussian curve"
+  },
+  {
+    "head": "the gate of the organic transistor",
+    "relation": "is connected to",
+    "tail": "the ground voltage"
+  },
+  {
+    "head": "the first source/drain of the organic transistor",
+    "relation": "is connected to",
+    "tail": "the power source voltage Vdd"
+  },
+  {
+    "head": "the printed NAND gate",
+    "relation": "includes",
+    "tail": "a plurality of sets of signal input circuits"
+  },
+  {
+    "head": "the printed NAND gate",
+    "relation": "includes",
+    "tail": "a load circuit"
+  },
+  {
+    "head": "the printed NAND gate",
+    "relation": "includes",
+    "tail": "a level shifter circuit"
+  },
+  {
+    "head": "the accompanying drawings",
+    "relation": "are included to provide",
+    "tail": "a further understanding of the invention"
+  },
+  {
+    "head": "the accompanying drawings",
+    "relation": "are incorporated in and constitute",
+    "tail": "a part of this specification"
+  },
+  {
+    "head": "the voltage at the node",
+    "relation": "can be shifted to",
+    "tail": "a predetermined level"
+  },
+  {
+    "head": "the voltage at the node",
+    "relation": "can be shifted to a predetermined level by",
+    "tail": "the level shifter circuit"
+  },
+  {
+    "head": "the signal input circuit and the load circuit",
+    "relation": "connected to each other at",
+    "tail": "the node"
+  },
+  {
+    "head": "all organic transistors",
+    "relation": "are employed in",
+    "tail": "the embodiment of the present invention"
+  },
+  {
+    "head": "all organic transistors",
+    "relation": "are exemplified with",
+    "tail": "PMOS transistors"
+  },
+  {
+    "head": "the level shifter circuit",
+    "relation": "includes",
+    "tail": "a gain organic transistor"
+  },
+  {
+    "head": "the level shifter circuit",
+    "relation": "includes",
+    "tail": "a level shifter organic transistor"
+  },
+  {
+    "head": "the organic transistor",
+    "relation": "is still cut-off so as to maintain",
+    "tail": "routine operation of the circuit"
+  },
+  {
+    "head": "it",
+    "relation": "will be apparent to",
+    "tail": "those skilled in the art"
+  },
+  {
+    "head": "various modifications and variations",
+    "relation": "can be made to",
+    "tail": "the structure of the present invention"
+  },
+  {
+    "head": "various modifications and variations",
+    "relation": "can be made without departing from",
+    "tail": "the scope or spirit of the invention"
+  }
+]

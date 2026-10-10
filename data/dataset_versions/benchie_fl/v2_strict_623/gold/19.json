@@ -1,0 +1,173 @@
+{
+  "benchie_282": [
+    {
+      "head": "Lee Kuan Yew",
+      "relation": "one of Asia 's leading statesmen for",
+      "tail": "30 years"
+    },
+    {
+      "head": "Lee Kuan Yew",
+      "relation": "recently announced",
+      "tail": "his intention"
+    },
+    {
+      "head": "Lee Kuan Yew",
+      "relation": "recently announced his intention to",
+      "tail": "retire"
+    },
+    {
+      "head": "Lee Kuan Yew",
+      "relation": "recently announced his intention to retire",
+      "tail": "next year"
+    }
+  ],
+  "benchie_283": [
+    {
+      "head": "Repeat customers",
+      "relation": "also can",
+      "tail": "purchase luxury items"
+    },
+    {
+      "head": "Repeat customers",
+      "relation": "also can purchase luxury items at",
+      "tail": "reduced prices"
+    }
+  ],
+  "benchie_284": [
+    {
+      "head": "Richard Newsom",
+      "relation": "said",
+      "tail": "he also saw evidence"
+    },
+    {
+      "head": "Richard Newsom",
+      "relation": "said he also saw evidence that",
+      "tail": "crimes had been committed"
+    }
+  ],
+  "benchie_285": [
+    {
+      "head": "Sen. Mitchell",
+      "relation": "is",
+      "tail": "confident"
+    },
+    {
+      "head": "Sen. Mitchell",
+      "relation": "is confident he has",
+      "tail": "sufficient votes"
+    },
+    {
+      "head": "Sen. Mitchell",
+      "relation": "is confident he has sufficient votes to",
+      "tail": "block such a measure"
+    },
+    {
+      "head": "Sen. Mitchell",
+      "relation": "is confident he has sufficient votes to block such a measure with",
+      "tail": "procedural actions"
+    }
+  ],
+  "benchie_286": [
+    {
+      "head": "The Chemical spokeswoman",
+      "relation": "said",
+      "tail": "the bank has examined its methodologies"
+    }
+  ],
+  "benchie_288": [
+    {
+      "head": "The National Transportation Safety Board",
+      "relation": "ruled that",
+      "tail": "pilots failed"
+    }
+  ],
+  "benchie_289": [
+    {
+      "head": "The discount rate on three - month Treasury bills",
+      "relation": "rose",
+      "tail": "slightly"
+    },
+    {
+      "head": "The discount rate on three - month Treasury bills",
+      "relation": "rose slightly from",
+      "tail": "the average rate at Monday 's auction"
+    }
+  ],
+  "benchie_290": [
+    {
+      "head": "The effect",
+      "relation": "is that",
+      "tail": "lawsuits that might have been barred because they were filed too late could proceed because of the one - year extension"
+    },
+    {
+      "head": "lawsuits",
+      "relation": "might have been",
+      "tail": "barred"
+    },
+    {
+      "head": "lawsuits",
+      "relation": "might have been barred because",
+      "tail": "they were filed too late"
+    }
+  ],
+  "benchie_291": [
+    {
+      "head": "The executives",
+      "relation": "had",
+      "tail": "profited handsomely"
+    },
+    {
+      "head": "The executives",
+      "relation": "had profited handsomely by",
+      "tail": "building American National Can Co"
+    }
+  ],
+  "benchie_293": [
+    {
+      "head": "The office",
+      "relation": "may also be able to",
+      "tail": "advise"
+    }
+  ],
+  "benchie_294": [
+    {
+      "head": "The three existing plants",
+      "relation": "will be",
+      "tail": "sold"
+    },
+    {
+      "head": "their land",
+      "relation": "will be",
+      "tail": "sold"
+    }
+  ],
+  "benchie_295": [
+    {
+      "head": "New York City",
+      "relation": "announced",
+      "tail": "a 10 - point policy"
+    },
+    {
+      "head": "New York City",
+      "relation": "announced a 10 - point policy patterned on",
+      "tail": "the federal bill of rights"
+    }
+  ],
+  "benchie_296": [
+    {
+      "head": "USG Corp",
+      "relation": "agreed to",
+      "tail": "sell"
+    },
+    {
+      "head": "USG Corp",
+      "relation": "agreed to sell",
+      "tail": "its headquarters building"
+    },
+    {
+      "head": "USG Corp",
+      "relation": "will lease the 19 - story facility until",
+      "tail": "it moves to a new quarters"
+    }
+  ]
+}

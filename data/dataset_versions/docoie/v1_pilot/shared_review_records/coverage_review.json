@@ -1,0 +1,62 @@
+[
+  {
+    "sentence_id": "benchie_228",
+    "review": "已覆盖 provost、教授职位、四所学校对应的院长或代表成员；保留 or，不恢复全部20条。",
+    "unresolved": false
+  },
+  {
+    "sentence_id": "benchie_85",
+    "review": "复核全部19簇后保留19条，覆盖技能证明、动员、召回及原文两个时期；采用末尾时间状语修饰并列谓语的通常读法。",
+    "unresolved": false
+  },
+  {
+    "sentence_id": "benchie_19",
+    "review": "4条原 Gold 保留，覆盖职业起点、1947、影片及片名类型；无新增独立事实。",
+    "unresolved": false
+  },
+  {
+    "sentence_id": "benchie_34",
+    "review": "9条有依据的旧 Gold 保留，6条职业×国家组合待定；总人数30没有被拆成各职业人数。",
+    "unresolved": true
+  },
+  {
+    "sentence_id": "benchie_240",
+    "review": "条件与结果由1条完整 Gold 保留；不会把 if 条件当成已成立；对象—投影的单列关系待定。",
+    "unresolved": true
+  },
+  {
+    "sentence_id": "benchie_2",
+    "review": "8簇对应7个计分事实；主动与被动时长表达合并，保留脚部修饰事实及 nearly five hours。",
+    "unresolved": false
+  },
+  {
+    "sentence_id": "docoie_transportation_doc0_target0",
+    "review": "原3条保留，补充原文明示但漏标的主句1条；未将上下文句加入目标。",
+    "unresolved": false
+  },
+  {
+    "sentence_id": "docoie_transportation_doc0_target2",
+    "review": "修正一处明确拼写；合并重复组成关系；保留完整生成来源限定。ensures 的并列范围仍有1项争议。",
+    "unresolved": true
+  },
+  {
+    "sentence_id": "docoie_transportation_doc0_target3",
+    "review": "原5条已有合理拆分，全部保留；不因长术语继续拆分。",
+    "unresolved": false
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc0_target0",
+    "review": "原2条保留；长地点描述已由共享 a place 的关系分解，不额外扩充。",
+    "unresolved": false
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc0_target3",
+    "review": "两条合为1条保留 may 的完整系统描述；未删除功能，也未为拆分而新增现实存在断言。",
+    "unresolved": false
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc0_target8",
+    "review": "原1条保留，不变更语态或情态。",
+    "unresolved": false
+  }
+]

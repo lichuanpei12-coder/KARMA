@@ -1,0 +1,155 @@
+[
+  {
+    "head": "vehicle integrity verification system",
+    "relation": "generates",
+    "tail": "vehicle identification hash value",
+    "confidence": 1.0,
+    "clarity": 0.95,
+    "relevance": 0.95,
+    "score": 0.9750000000000001
+  },
+  {
+    "head": "ECUs",
+    "relation": "generate",
+    "tail": "component hashes",
+    "confidence": 1.0,
+    "clarity": 0.95,
+    "relevance": 0.9,
+    "score": 0.9625
+  },
+  {
+    "head": "NON-ECUs",
+    "relation": "generate",
+    "tail": "component hashes",
+    "confidence": 0.85,
+    "clarity": 0.85,
+    "relevance": 0.9,
+    "score": 0.8624999999999999
+  },
+  {
+    "head": "vehicle control unit",
+    "relation": "combines",
+    "tail": "component hashes",
+    "confidence": 1.0,
+    "clarity": 0.95,
+    "relevance": 0.95,
+    "score": 0.9750000000000001
+  },
+  {
+    "head": "vehicle control unit",
+    "relation": "determines",
+    "tail": "vehicle identification hash value",
+    "confidence": 1.0,
+    "clarity": 0.95,
+    "relevance": 0.95,
+    "score": 0.9750000000000001
+  },
+  {
+    "head": "vehicle control unit",
+    "relation": "compares",
+    "tail": "vehicle identification hash value with predetermined hash",
+    "confidence": 0.85,
+    "clarity": 0.85,
+    "relevance": 0.95,
+    "score": 0.875
+  },
+  {
+    "head": "transceiver",
+    "relation": "transmits",
+    "tail": "vehicle information",
+    "confidence": 0.95,
+    "clarity": 0.9,
+    "relevance": 0.8,
+    "score": 0.8999999999999999
+  },
+  {
+    "head": "vehicle integrity verification system",
+    "relation": "overcomes",
+    "tail": "PKI limitations",
+    "confidence": 1.0,
+    "clarity": 0.9,
+    "relevance": 0.8,
+    "score": 0.925
+  },
+  {
+    "head": "vehicle integrity verification system",
+    "relation": "uses",
+    "tail": "cryptology tree",
+    "confidence": 1.0,
+    "clarity": 0.9,
+    "relevance": 0.85,
+    "score": 0.9375
+  },
+  {
+    "head": "authorized replacements",
+    "relation": "update",
+    "tail": "stored hash",
+    "confidence": 1.0,
+    "clarity": 0.95,
+    "relevance": 0.7,
+    "score": 0.9125000000000001
+  },
+  {
+    "head": "vehicle information integrity module",
+    "relation": "processes",
+    "tail": "sensor data",
+    "confidence": 0.95,
+    "clarity": 0.95,
+    "relevance": 0.8,
+    "score": 0.9124999999999999
+  },
+  {
+    "head": "vehicle control unit",
+    "relation": "includes",
+    "tail": "vehicle integrity module",
+    "confidence": 1.0,
+    "clarity": 0.95,
+    "relevance": 0.75,
+    "score": 0.925
+  },
+  {
+    "head": "vehicle control unit",
+    "relation": "includes",
+    "tail": "vehicle information integrity module",
+    "confidence": 1.0,
+    "clarity": 0.95,
+    "relevance": 0.75,
+    "score": 0.925
+  },
+  {
+    "head": "vehicle control unit",
+    "relation": "generates",
+    "tail": "component challenges",
+    "confidence": 0.8,
+    "clarity": 0.9,
+    "relevance": 0.7,
+    "score": 0.8
+  },
+  {
+    "head": "vehicle control unit",
+    "relation": "receives",
+    "tail": "responses",
+    "confidence": 0.8,
+    "clarity": 0.85,
+    "relevance": 0.75,
+    "score": 0.8
+  },
+  {
+    "head": "predetermined hash",
+    "relation": "stored in",
+    "tail": "memory",
+    "confidence": 1.0,
+    "clarity": 0.95,
+    "relevance": 0.7,
+    "score": 0.9125000000000001
+  },
+  {
+    "head": "vehicle integrity verification system",
+    "relation": "integrated with",
+    "tail": "driving assist systems",
+    "confidence": 0.95,
+    "clarity": 0.9,
+    "relevance": 0.7,
+    "score": 0.875
+  }
+]

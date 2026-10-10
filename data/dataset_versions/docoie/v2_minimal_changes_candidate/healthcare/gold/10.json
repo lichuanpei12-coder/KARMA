@@ -1,0 +1,117 @@
+[
+  {
+    "head": "the isolated gate driver power supply circuit",
+    "relation": "includes",
+    "tail": "an air core transformer"
+  },
+  {
+    "head": "an air core transformer",
+    "relation": "includes",
+    "tail": "multiple windings magnetically coupled together"
+  },
+  {
+    "head": "the gate driver",
+    "relation": "provides",
+    "tail": "high power efficiency"
+  },
+  {
+    "head": "the gate driver",
+    "relation": "provides",
+    "tail": "load insensitivity at lower cost"
+  },
+  {
+    "head": "the gate driver",
+    "relation": "provides load insensitivity at",
+    "tail": "lower cost"
+  },
+  {
+    "head": "the patentable scope of the invention",
+    "relation": "is defined by",
+    "tail": "the claims"
+  },
+  {
+    "head": "the patentable scope of the invention",
+    "relation": "may include",
+    "tail": "other examples"
+  },
+  {
+    "head": "examples",
+    "relation": "occur to",
+    "tail": "those skilled in the art"
+  },
+  {
+    "head": "the gate driver",
+    "relation": "includes",
+    "tail": "an isolated gate driver power supply circuit"
+  },
+  {
+    "head": "an isolated gate driver power supply circuit",
+    "relation": "includes",
+    "tail": "a coreless transformer"
+  },
+  {
+    "head": "a coreless transformer",
+    "relation": "is for example",
+    "tail": "air core transformer"
+  },
+  {
+    "head": "the transformer",
+    "relation": "may include",
+    "tail": "a different number of windings or coils"
+  },
+  {
+    "head": "the isolated gate driver power supply circuit",
+    "relation": "includes",
+    "tail": "a resonance converter"
+  },
+  {
+    "head": "a resonance converter",
+    "relation": "is coupled to",
+    "tail": "the air core transformer"
+  },
+  {
+    "head": "the gate drivers",
+    "relation": "are",
+    "tail": "electronic circuits"
+  },
+  {
+    "head": "electronic circuits",
+    "relation": "couple the control electronics to power",
+    "tail": "semiconductor devices"
+  },
+  {
+    "head": "coupling the control electronics to power semiconductor devices",
+    "relation": "is to enable control functions such as turning on/off",
+    "tail": "the power devices"
+  },
+  {
+    "head": "the gate drivers",
+    "relation": "are configured to be utilized reliably and safely in presence of",
+    "tail": "a high magnetic field within the scan room"
+  },
+  {
+    "head": "the transformer",
+    "relation": "includes",
+    "tail": "a primary winding or coil"
+  },
+  {
+    "head": "the transformer",
+    "relation": "includes",
+    "tail": "secondary winding or coil"
+  },
+  {
+    "head": "the transformer",
+    "relation": "includes",
+    "tail": "tertiary winding or coil"
+  },
+  {
+    "head": "the resonance converter",
+    "relation": "tunes",
+    "tail": "the transformer"
+  },
+  {
+    "head": "the resonance converter tuning the transformer",
+    "relation": "is to enable the isolated gate driver power supply circuit to generate",
+    "tail": "an output independent of load"
+  }
+]

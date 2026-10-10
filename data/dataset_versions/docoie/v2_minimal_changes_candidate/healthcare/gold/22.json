@@ -1,0 +1,102 @@
+[
+  {
+    "head": "a rotational gantry",
+    "relation": "is with",
+    "tail": "a radiation"
+  },
+  {
+    "head": "a rotational gantry with a radiation nozzle",
+    "relation": "is located at",
+    "tail": "the end of the beam transport system"
+  },
+  {
+    "head": "the main bearing",
+    "relation": "is coupled to",
+    "tail": "the external supporting structure"
+  },
+  {
+    "head": "the main bearing",
+    "relation": "serves to support",
+    "tail": "the weight of the cantilever gantry"
+  },
+  {
+    "head": "a gantry according to the present disclosures",
+    "relation": "can be delivered to",
+    "tail": "a healthcare facility"
+  },
+  {
+    "head": "a gantry",
+    "relation": "is according to",
+    "tail": "the present disclosures"
+  },
+  {
+    "head": "a healthcare facility",
+    "relation": "is as",
+    "tail": "a fully-assembly, pre-tested unit"
+  },
+  {
+    "head": "each section of the monocoque housing",
+    "relation": "may be",
+    "tail": "a fully welded steel monocoque or box structure"
+  },
+  {
+    "head": "the main bearing",
+    "relation": "is covered by",
+    "tail": "a main bearing housing"
+  },
+  {
+    "head": "a main bearing housing",
+    "relation": "may or may not be an integral part of",
+    "tail": "the monocoque housing of the cantilever gantry"
+  },
+  {
+    "head": "a large counterweight",
+    "relation": "can be disposed in",
+    "tail": "the fixed end portion"
+  },
+  {
+    "head": "a large counterweight disposed in the fixed end portion",
+    "relation": "is to keep",
+    "tail": "the system center of mass close to the bearing"
+  },
+  {
+    "head": "the main bearing",
+    "relation": "may be",
+    "tail": "a slew bearing"
+  },
+  {
+    "head": "a slew",
+    "relation": "bears sufficiently large to encompass",
+    "tail": "the sweeping volume of the first bending magnet"
+  },
+  {
+    "head": "the cantilever section",
+    "relation": "may be made increasingly stiffer toward",
+    "tail": "the main bearing location"
+  },
+  {
+    "head": "the cantilever section made increasingly stiffer toward the main bearing location",
+    "relation": "is to counter",
+    "tail": "the significant forces imposed in this region"
+  },
+  {
+    "head": "the significant forces",
+    "relation": "are imposed in",
+    "tail": "this region"
+  },
+  {
+    "head": "a rotating mechanical component other than a bearing",
+    "relation": "can be used to enable",
+    "tail": "rotational motion of the cantilever gantry"
+  },
+  {
+    "head": "a counterweight",
+    "relation": "is attached to",
+    "tail": "the drum section near the external wall"
+  },
+  {
+    "head": "the drum section",
+    "relation": "is near",
+    "tail": "the external wall"
+  }
+]

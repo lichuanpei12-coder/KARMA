@@ -1,0 +1,457 @@
+{
+  "benchie_106": [
+    {
+      "head": "company",
+      "relation": "is expected to",
+      "tail": "spend"
+    },
+    {
+      "head": "company",
+      "relation": "is expected to spend",
+      "tail": "about $30 million a year"
+    },
+    {
+      "head": "company",
+      "relation": "is expected to spend about $30 million a year on",
+      "tail": "company's two-year corporate campaign"
+    },
+    {
+      "head": "company's two-year corporate campaign",
+      "relation": "was created by",
+      "tail": "WPP Group's Ogilvy & Mather unit"
+    },
+    {
+      "head": "company's two-year corporate campaign",
+      "relation": "was created in",
+      "tail": "New York"
+    },
+    {
+      "head": "WPP Group",
+      "relation": "has",
+      "tail": "Ogilvy & Mather unit"
+    },
+    {
+      "head": "company",
+      "relation": "has",
+      "tail": "two-year corporate campaign"
+    }
+  ],
+  "benchie_107": [
+    {
+      "head": "Great Northern Nekoosa",
+      "relation": "soared from",
+      "tail": "$20.125 a share"
+    },
+    {
+      "head": "Great Northern Nekoosa",
+      "relation": "soared to",
+      "tail": "$62.875 a share"
+    },
+    {
+      "head": "Great Northern Nekoosa",
+      "relation": "soared substantially above",
+      "tail": "$58 a share"
+    },
+    {
+      "head": "Great Northern Nekoosa",
+      "relation": "soared substantially above",
+      "tail": "$58 a share that Georgia-Pacific is offering"
+    },
+    {
+      "head": "Georgia-Pacific",
+      "relation": "is offering",
+      "tail": "$58 a share"
+    }
+  ],
+  "benchie_108": [
+    {
+      "head": "company",
+      "relation": "said",
+      "tail": "machine can run software written for other Mips computers"
+    }
+  ],
+  "benchie_110": [
+    {
+      "head": "President Bush",
+      "relation": "said that",
+      "tail": "three members of his cabinet will lead presidential mission"
+    },
+    {
+      "head": "President Bush",
+      "relation": "said that",
+      "tail": "three members of his cabinet will lead presidential mission to Poland"
+    },
+    {
+      "head": "President Bush",
+      "relation": "said that",
+      "tail": "three members of his cabinet will lead presidential mission to Poland to gauge how U.S. can help new non-Communist government's economic changes"
+    },
+    {
+      "head": "Bush",
+      "relation": "is",
+      "tail": "President"
+    }
+  ],
+  "benchie_111": [
+    {
+      "head": "Stephen McCartin",
+      "relation": "is",
+      "tail": "Mr. Hunt's attorney"
+    },
+    {
+      "head": "Mr. Hunt",
+      "relation": "has",
+      "tail": "attorney"
+    },
+    {
+      "head": "Stephen McCartin",
+      "relation": "is",
+      "tail": "attorney"
+    },
+    {
+      "head": "Stephen McCartin",
+      "relation": "said",
+      "tail": "his client welcomed the gamble"
+    }
+  ],
+  "benchie_112": [
+    {
+      "head": "One group of middle-aged manufacturing men from company's Zama plant",
+      "relation": "was supposed to check out",
+      "tail": "trendy restaurant"
+    },
+    {
+      "head": "One group of middle-aged manufacturing men from company's Zama plant",
+      "relation": "was supposed to check out",
+      "tail": "a trendy restaurant in city"
+    },
+    {
+      "head": "company",
+      "relation": "has",
+      "tail": "Zama plant"
+    },
+    {
+      "head": "company's Zama plant",
+      "relation": "is outside",
+      "tail": "Tokyo"
+    },
+    {
+      "head": "company's Zama plant",
+      "relation": "has",
+      "tail": "one group of men"
+    },
+    {
+      "head": "company's Zama plant",
+      "relation": "has",
+      "tail": "one group of middle-aged men"
+    },
+    {
+      "head": "company's Zama plant",
+      "relation": "has",
+      "tail": "one group of manufacturing men"
+    },
+    {
+      "head": "city",
+      "relation": "has",
+      "tail": "restaurant"
+    },
+    {
+      "head": "city",
+      "relation": "has",
+      "tail": "trendy restaurant"
+    }
+  ],
+  "benchie_113": [
+    {
+      "head": "Boyer",
+      "relation": "is",
+      "tail": "university researcher"
+    },
+    {
+      "head": "Cohen",
+      "relation": "is",
+      "tail": "university researcher"
+    },
+    {
+      "head": "Boyer",
+      "relation": "had to be talked into",
+      "tail": "applying for patent"
+    },
+    {
+      "head": "Cohen",
+      "relation": "had to be talked into",
+      "tail": "applying for patent"
+    },
+    {
+      "head": "Boyer",
+      "relation": "had to be talked into applying for",
+      "tail": "patent on Boyer and Cohen's gene-splicing technique"
+    },
+    {
+      "head": "Cohen",
+      "relation": "had to be talked into applying for",
+      "tail": "patent on Boyer and Cohen's gene-splicing technique"
+    },
+    {
+      "head": "Patent Office",
+      "relation": "refused to grant",
+      "tail": "patent on gene-splicing technique of Boyer and Cohen"
+    },
+    {
+      "head": "Boyer",
+      "relation": "has",
+      "tail": "gene-splicing technique"
+    },
+    {
+      "head": "Cohen",
+      "relation": "has",
+      "tail": "gene-splicing technique"
+    },
+    {
+      "head": "Boyer",
+      "relation": "applied for",
+      "tail": "patent"
+    },
+    {
+      "head": "Boyer",
+      "relation": "applied for patent on",
+      "tail": "Boyer and Cohen's gene-splicing technique"
+    },
+    {
+      "head": "Cohen",
+      "relation": "applied for",
+      "tail": "patent"
+    },
+    {
+      "head": "Cohen",
+      "relation": "applied for patent on",
+      "tail": "Boyer and Cohen's gene-splicing technique"
+    }
+  ],
+  "benchie_114": [
+    {
+      "head": "He",
+      "relation": "appeared recently at",
+      "tail": "Metropolitan Museum"
+    },
+    {
+      "head": "His recent appearance at Metropolitan Museum",
+      "relation": "was dubbed",
+      "tail": "A Musical Odyssey"
+    },
+    {
+      "head": "His recent appearance at Metropolitan Museum",
+      "relation": "was",
+      "tail": "a case in point"
+    }
+  ],
+  "benchie_115": [
+    {
+      "head": "she",
+      "relation": "says",
+      "tail": "There are some things that have gone on here"
+    },
+    {
+      "head": "she",
+      "relation": "says",
+      "tail": "There are some things that have gone on here that nobody can explain"
+    }
+  ],
+  "benchie_116": [
+    {
+      "head": "brokerage firm",
+      "relation": "tracks",
+      "tail": "technology stocks"
+    },
+    {
+      "head": "brokerage firm",
+      "relation": "tracks technology stocks with",
+      "tail": "brokerage firm's Technology Index"
+    },
+    {
+      "head": "brokerage firm",
+      "relation": "has",
+      "tail": "Technology Index"
+    },
+    {
+      "head": "brokerage firm's Technology Index",
+      "relation": "tracks",
+      "tail": "technology stocks"
+    },
+    {
+      "head": "Technology Index",
+      "relation": "appreciated",
+      "tail": "only 10.59%"
+    },
+    {
+      "head": "brokerage firm's Technology Index",
+      "relation": "appreciated only 10.59% in",
+      "tail": "the first nine months of this year"
+    }
+  ],
+  "benchie_117": [
+    {
+      "head": "I",
+      "relation": "worry more about",
+      "tail": "things becoming so unraveled"
+    },
+    {
+      "head": "I",
+      "relation": "worry more about things becoming so unraveled on",
+      "tail": "other side"
+    },
+    {
+      "head": "I",
+      "relation": "worry more about things becoming so unraveled on other side that",
+      "tail": "they might become unable to negotiate"
+    }
+  ],
+  "benchie_118": [
+    {
+      "head": "We",
+      "relation": "finally rendezvoused with",
+      "tail": "our balloon"
+    },
+    {
+      "head": "We",
+      "relation": "had",
+      "tail": "balloon"
+    },
+    {
+      "head": "our balloon",
+      "relation": "had come to",
+      "tail": "rest"
+    },
+    {
+      "head": "our balloon",
+      "relation": "had come to rest on",
+      "tail": "dirt road"
+    },
+    {
+      "head": "our balloon",
+      "relation": "had come to rest on dirt road amid",
+      "tail": "clutch of Epinalers"
+    },
+    {
+      "head": "clutch of Epinalers",
+      "relation": "watched us disassemble",
+      "tail": "our craft"
+    },
+    {
+      "head": "disassemble our craft",
+      "relation": "took",
+      "tail": "another half-an-hour"
+    },
+    {
+      "head": "disassembling our craft",
+      "relation": "was",
+      "tail": "non-flight activity"
+    },
+    {
+      "head": "disassembling our craft",
+      "relation": "included",
+      "tail": "yanking balloon to ground"
+    },
+    {
+      "head": "disassembling our craft",
+      "relation": "included",
+      "tail": "punching all air out of balloon"
+    },
+    {
+      "head": "disassembling our craft",
+      "relation": "included",
+      "tail": "rolling up balloon"
+    },
+    {
+      "head": "disassembling our craft",
+      "relation": "included",
+      "tail": "cramming balloon into trailer"
+    },
+    {
+      "head": "disassembling our craft",
+      "relation": "included",
+      "tail": "cramming basket into trailer"
+    },
+    {
+      "head": "precision routine",
+      "relation": "included",
+      "tail": "yanking balloon to ground"
+    },
+    {
+      "head": "precision routine",
+      "relation": "included",
+      "tail": "punching all air out of balloon"
+    },
+    {
+      "head": "precision routine",
+      "relation": "included",
+      "tail": "rolling up balloon"
+    },
+    {
+      "head": "precision routine",
+      "relation": "included",
+      "tail": "cramming balloon into trailer"
+    },
+    {
+      "head": "precision routine",
+      "relation": "included",
+      "tail": "cramming basket into trailer"
+    },
+    {
+      "head": "disassembling our craft",
+      "relation": "was",
+      "tail": "precision routine"
+    },
+    {
+      "head": "clutch of Epinalers",
+      "relation": "watched",
+      "tail": "us"
+    }
+  ],
+  "benchie_119": [
+    {
+      "head": "A federation official",
+      "relation": "attributed decline to",
+      "tail": "brisk demand"
+    },
+    {
+      "head": "A federation official",
+      "relation": "attributed decline to",
+      "tail": "continuing economic expansion"
+    },
+    {
+      "head": "A federation official",
+      "relation": "attributed decline to",
+      "tail": "brisk demand from domestic industries"
+    },
+    {
+      "head": "A federation official",
+      "relation": "attributed decline to",
+      "tail": "continuing economic expansion in Japan"
+    }
+  ],
+  "benchie_120": [
+    {
+      "head": "it",
+      "relation": "could also",
+      "tail": "help"
+    },
+    {
+      "head": "it",
+      "relation": "could also help",
+      "tail": "American companies"
+    },
+    {
+      "head": "American companies",
+      "relation": "also are starting to try to open",
+      "tail": "the market"
+    }
+  ],
+  "benchie_121": [
+    {
+      "head": "company spokesman",
+      "relation": "did not know",
+      "tail": "Mr. Wakeman's age"
+    }
+  ]
+}

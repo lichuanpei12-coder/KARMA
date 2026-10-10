@@ -1,0 +1,147 @@
+[
+  {
+    "head": "an IPS",
+    "relation": "can locate mobile devices inside",
+    "tail": "a building"
+  },
+  {
+    "head": "an IPS locating mobile devices inside a building",
+    "relation": "uses",
+    "tail": "radio waves"
+  },
+  {
+    "head": "an IPS locating mobile devices inside a building",
+    "relation": "uses",
+    "tail": "magnetic fields"
+  },
+  {
+    "head": "an IPS locating mobile devices inside a building",
+    "relation": "uses",
+    "tail": "acoustic signals"
+  },
+  {
+    "head": "an IPS locating mobile devices inside a building",
+    "relation": "uses",
+    "tail": "other sensory information"
+  },
+  {
+    "head": "other sensory information",
+    "relation": "is collected by",
+    "tail": "mobile devices"
+  },
+  {
+    "head": "there",
+    "relation": "are provided methods of removing",
+    "tail": "IPS noise"
+  },
+  {
+    "head": "there",
+    "relation": "are provided systems of removing",
+    "tail": "IPS noise"
+  },
+  {
+    "head": "provided methods and systems of removing IPS noise",
+    "relation": "are according to",
+    "tail": "some embodiments of the present invention"
+  },
+  {
+    "head": "the predetermined maximal time difference",
+    "relation": "is configurable for example between",
+    "tail": "3 seconds and 3 minutes"
+  },
+  {
+    "head": "the predetermined maximal time difference",
+    "relation": "is configurable for example between",
+    "tail": "any other range"
+  },
+  {
+    "head": "some embodiments of the invention",
+    "relation": "are with reference to",
+    "tail": "the accompanying drawings"
+  },
+  {
+    "head": "the signals",
+    "relation": "are attenuated and scattered by",
+    "tail": "static obstacles and \"dynamic obstacles\""
+  },
+  {
+    "head": "static obstacles",
+    "relation": "are such as",
+    "tail": "walls"
+  },
+  {
+    "head": "\"dynamic obstacles\"",
+    "relation": "are such as",
+    "tail": "people"
+  },
+  {
+    "head": "the difference between the movement direction and the new movement direction",
+    "relation": "is",
+    "tail": "small"
+  },
+  {
+    "head": "the difference",
+    "relation": "is between",
+    "tail": "the movement direction and the new movement direction"
+  },
+  {
+    "head": "the movement velocity",
+    "relation": "is higher than",
+    "tail": "a predetermined maximal velocity"
+  },
+  {
+    "head": "the current position sample",
+    "relation": "is marked as",
+    "tail": "noise"
+  },
+  {
+    "head": "such a classification error",
+    "relation": "may cause the algorithm to classify",
+    "tail": "subsequent samples"
+  },
+  {
+    "head": "such a classification error",
+    "relation": "may cause the algorithm to classify subsequent samples as",
+    "tail": "noisy ones"
+  },
+  {
+    "head": "a valid sample",
+    "relation": "was eliminated from",
+    "tail": "the data"
+  },
+  {
+    "head": "many modifications",
+    "relation": "will be apparent to",
+    "tail": "those of ordinary skill in the art"
+  },
+  {
+    "head": "many variations",
+    "relation": "will be apparent to",
+    "tail": "those of ordinary skill in the art"
+  },
+  {
+    "head": "those of ordinary skill in the art",
+    "relation": "are without departing from",
+    "tail": "the scope of the described embodiments"
+  },
+  {
+    "head": "those of ordinary skill in the art",
+    "relation": "are without departing from",
+    "tail": "the spirit of the described embodiments"
+  },
+  {
+    "head": "certain features of the invention",
+    "relation": "may also be provided in",
+    "tail": "combination"
+  },
+  {
+    "head": "certain features of the invention",
+    "relation": "may also be provided in combination in",
+    "tail": "a single embodiment"
+  },
+  {
+    "head": "certain features of the invention",
+    "relation": "is for clarity, described in",
+    "tail": "the context of separate embodiments"
+  }
+]

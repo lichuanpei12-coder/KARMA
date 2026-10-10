@@ -1,0 +1,82 @@
+[
+  {
+    "name": "ECUs",
+    "type": "component"
+  },
+  {
+    "name": "PUF components",
+    "type": "component"
+  },
+  {
+    "name": "controller",
+    "type": "component"
+  },
+  {
+    "name": "ECU",
+    "type": "component"
+  },
+  {
+    "name": "PUF component",
+    "type": "component"
+  },
+  {
+    "name": "sub-system",
+    "type": "system"
+  },
+  {
+    "name": "vehicle identity",
+    "type": "technical concept"
+  },
+  {
+    "name": "computer readable medium",
+    "type": "medium"
+  },
+  {
+    "name": "machine-readable medium",
+    "type": "medium"
+  },
+  {
+    "name": "automated data medium",
+    "type": "medium"
+  },
+  {
+    "name": "mechanical device",
+    "type": "device"
+  },
+  {
+    "name": "hardware",
+    "type": "implementation"
+  },
+  {
+    "name": "firmware",
+    "type": "implementation"
+  },
+  {
+    "name": "software",
+    "type": "implementation"
+  },
+  {
+    "name": "instructions",
+    "type": "software artifact"
+  },
+  {
+    "name": "computing platform",
+    "type": "platform"
+  },
+  {
+    "name": "connected cars",
+    "type": "system"
+  },
+  {
+    "name": "car sharing",
+    "type": "service"
+  },
+  {
+    "name": "rental car services",
+    "type": "service"
+  },
+  {
+    "name": "maintenance and factory services",
+    "type": "service"
+  }
+]

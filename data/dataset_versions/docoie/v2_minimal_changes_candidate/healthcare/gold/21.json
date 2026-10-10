@@ -1,0 +1,147 @@
+[
+  {
+    "head": "the intrusion of filamentous fungi in houses",
+    "relation": "is as a result of",
+    "tail": "condensation and the like"
+  },
+  {
+    "head": "the intrusion of filamentous fungi in houses",
+    "relation": "is reflective of",
+    "tail": "modern housing conditions"
+  },
+  {
+    "head": "the intrusion of filamentous fungi in houses",
+    "relation": "causes",
+    "tail": "symptoms such as allergies and the like in humans"
+  },
+  {
+    "head": "the intrusion of filamentous fungi in houses",
+    "relation": "has a deleterious effect on",
+    "tail": "the health of humans and animals"
+  },
+  {
+    "head": "the Candida mycelia adhering to the surface of the wells",
+    "relation": "were dyed",
+    "tail": ""
+  },
+  {
+    "head": "the Candida mycelia",
+    "relation": "adheres to",
+    "tail": "the surface of the wells"
+  },
+  {
+    "head": "this culturing",
+    "relation": "had ended",
+    "tail": ""
+  },
+  {
+    "head": "the solutions in each well",
+    "relation": "were removed by",
+    "tail": "suction"
+  },
+  {
+    "head": "the wells",
+    "relation": "were washed using",
+    "tail": "physiological saline"
+  },
+  {
+    "head": "LYZOX",
+    "relation": "was used",
+    "tail": ""
+  },
+  {
+    "head": "an improvement effect in the anticandidal activity against Candida mycelial growth",
+    "relation": "was visible",
+    "tail": ""
+  },
+  {
+    "head": "an improvement effect",
+    "relation": "is in",
+    "tail": "the anticandidal activity against Candida mycelial growth"
+  },
+  {
+    "head": "the anticandidal activity effect",
+    "relation": "gradually increased as",
+    "tail": "the concentration increased"
+  },
+  {
+    "head": "a composition having an antifungal activity",
+    "relation": "further comprises",
+    "tail": "terpene alcohol or a fatty acid"
+  },
+  {
+    "head": "a composition",
+    "relation": "has",
+    "tail": "an antifungal activity further"
+  },
+  {
+    "head": "the present invention",
+    "relation": "uses",
+    "tail": "a complex of lysozyme"
+  },
+  {
+    "head": "a complex of lysozyme",
+    "relation": "is",
+    "tail": "an extremely safe, natural food additive"
+  },
+  {
+    "head": "a complex of lysozyme",
+    "relation": "is",
+    "tail": "a polysaccharide"
+  },
+  {
+    "head": "a complex of lysozyme",
+    "relation": "can be safely used by",
+    "tail": "a patient without risks such as those described above needing to be considered"
+  },
+  {
+    "head": "risks such as those described above",
+    "relation": "needs to be considered",
+    "tail": ""
+  },
+  {
+    "head": "viable Candida bacteria CFU (colony forming units)",
+    "relation": "was recovered from",
+    "tail": "the relevant individuals"
+  },
+  {
+    "head": "the number of viable Candida bacteria CFU (colony forming units) recovered from the relevant individuals",
+    "relation": "was calculated from",
+    "tail": "the number of colonies"
+  },
+  {
+    "head": "a combination of capric acid and ginger essential oil",
+    "relation": "had the greatest effect towards improving",
+    "tail": "tongue symptoms in oral candidiasis models in mice"
+  },
+  {
+    "head": "the interior of the oral cavity of each mouse",
+    "relation": "was then wiped with",
+    "tail": "a cotton bud"
+  },
+  {
+    "head": "the Candida bacterial cells recovered by that cotton bud",
+    "relation": "were suspended in",
+    "tail": "a saline solution"
+  },
+  {
+    "head": "the Candida bacterial cells",
+    "relation": "were recovered by",
+    "tail": "that cotton bud"
+  },
+  {
+    "head": "a clinical isolate held by the Teikyo University Medical Mycology Research Center",
+    "relation": "was used as",
+    "tail": "the Trichophyton"
+  },
+  {
+    "head": "a clinical isolate",
+    "relation": "was held by",
+    "tail": "the Teikyo University Medical Mycology Research Center"
+  },
+  {
+    "head": "Trichophyton mentagrophytes TIMM",
+    "relation": "is",
+    "tail": "a clinical isolate"
+  }
+]

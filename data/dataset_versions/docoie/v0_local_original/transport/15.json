@@ -1,0 +1,152 @@
+[
+  {
+    "head": "each such layer",
+    "relation": "is designed to accomplish",
+    "tail": "a certain objective"
+  },
+  {
+    "head": "ach such layer",
+    "relation": "requires",
+    "tail": "a certain format of data"
+  },
+  {
+    "head": "these extra bytes",
+    "relation": "are overhead to",
+    "tail": "the data"
+  },
+  {
+    "head": "the data",
+    "relation": "is being transferred across",
+    "tail": "the air interface"
+  },
+  {
+    "head": "the data",
+    "relation": "is excessive in",
+    "tail": "many situations"
+  },
+  {
+    "head": "the data",
+    "relation": "is excessive, particularly for",
+    "tail": "low data rate transfers"
+  },
+  {
+    "head": "advantage",
+    "relation": "is taken of",
+    "tail": "the fact"
+  },
+  {
+    "head": "the extra overhead",
+    "relation": "is from, for example",
+    "tail": "the Ethernet protocol"
+  },
+  {
+    "head": "the Ethernet protocol",
+    "relation": "is addressing information pertaining to",
+    "tail": "the destination of the packet"
+  },
+  {
+    "head": "information",
+    "relation": "pertains to",
+    "tail": "the destination of the packet"
+  },
+  {
+    "head": "the MAC address of the destination",
+    "relation": "is used for",
+    "tail": "the air interface"
+  },
+  {
+    "head": "the Ethernet address",
+    "relation": "is recreated and added on",
+    "tail": "the far side of the air interface"
+  },
+  {
+    "head": "the access router",
+    "relation": "tells the base station",
+    "tail": "the Ethernet address information of the destination"
+  },
+  {
+    "head": "the access router",
+    "relation": "tells the base station the Ethernet address information of the destination during",
+    "tail": "the authentication process"
+  },
+  {
+    "head": "the CPE",
+    "relation": "have the same information in",
+    "tail": "its look-up table"
+  },
+  {
+    "head": "the CPE",
+    "relation": "then adds",
+    "tail": "the Ethernet address"
+  },
+  {
+    "head": "the CPE",
+    "relation": "then adds the Ethernet address for",
+    "tail": "delivery to the PC"
+  },
+  {
+    "head": "the packets",
+    "relation": "will be delivered to",
+    "tail": "the base station"
+  },
+  {
+    "head": "the packets will then be delivered to the base station",
+    "relation": "use",
+    "tail": "the base station's address"
+  },
+  {
+    "head": "the base station",
+    "relation": "will forward the packet",
+    "tail": "the CPE"
+  },
+  {
+    "head": "the base station",
+    "relation": "adds",
+    "tail": "the proper Ethernet header"
+  },
+  {
+    "head": "the base station",
+    "relation": "saved",
+    "tail": "the response from the DHCP server"
+  },
+  {
+    "head": "the base station",
+    "relation": "saved the response from",
+    "tail": "the DHCP server"
+  },
+  {
+    "head": "the system",
+    "relation": "actually snoops",
+    "tail": "the DHCP packet"
+  },
+  {
+    "head": "the system",
+    "relation": "actually snoops the DHCP packet at",
+    "tail": "both the CPE and base station"
+  },
+  {
+    "head": "the bridge",
+    "relation": "knows how to route",
+    "tail": "the IP packets"
+  },
+  {
+    "head": "the scope of the present application",
+    "relation": "is not intended to be limited to",
+    "tail": "the particular embodiments of the process"
+  },
+  {
+    "head": "the scope of the present application",
+    "relation": "is not intended to be limited to",
+    "tail": "the particular embodiments of the machine"
+  },
+  {
+    "head": "the scope of the present application",
+    "relation": "is not intended to be limited to",
+    "tail": "the particular embodiments of the manufacture"
+  },
+  {
+    "head": "the scope of the present application",
+    "relation": "is not intended to be limited to",
+    "tail": "the particular embodiments of the composition of matter, means, methods and steps described in the specification"
+  }
+]

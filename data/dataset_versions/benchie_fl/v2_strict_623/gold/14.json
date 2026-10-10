@@ -1,0 +1,158 @@
+{
+  "benchie_210": [
+    {
+      "head": "Superboy-Prime",
+      "relation": "seeing",
+      "tail": "an opportunity"
+    },
+    {
+      "head": "Superboy-Prime",
+      "relation": "flew",
+      "tail": "through the Anti-Monitor 's chest"
+    },
+    {
+      "head": "Superboy-Prime",
+      "relation": "hurled",
+      "tail": "his shattered body"
+    },
+    {
+      "head": "Superboy-Prime",
+      "relation": "hurled his shattered body into",
+      "tail": "space"
+    }
+  ],
+  "benchie_211": [
+    {
+      "head": "The 2nd Battalion of the 13th Light Infantry",
+      "relation": "was",
+      "tail": "raised"
+    },
+    {
+      "head": "The 2nd Battalion of the 13th Light Infantry",
+      "relation": "was raised at",
+      "tail": "Winchester"
+    },
+    {
+      "head": "The 2nd Battalion of the 13th Light Infantry",
+      "relation": "was raised at Winchester in",
+      "tail": "January 1858"
+    }
+  ],
+  "benchie_212": [
+    {
+      "head": "The Bureau of Alcohol , Tobacco , Firearms and Explosives",
+      "relation": "formed in",
+      "tail": "1886"
+    }
+  ],
+  "benchie_213": [
+    {
+      "head": "The CRZ",
+      "relation": "was",
+      "tail": "organized"
+    }
+  ],
+  "benchie_214": [
+    {
+      "head": "The Steinbrenner family",
+      "relation": "added",
+      "tail": "a monument"
+    },
+    {
+      "head": "The Steinbrenner family",
+      "relation": "added a monument to",
+      "tail": "Monument Park"
+    }
+  ],
+  "benchie_215": [
+    {
+      "head": "The Summer Programs Office",
+      "relation": "runs",
+      "tail": "these programs"
+    },
+    {
+      "head": "many Wardlaw-Hartridge Students",
+      "relation": "attend",
+      "tail": "camp"
+    }
+  ],
+  "benchie_216": [
+    {
+      "head": "The Triple-A Baseball National Championship Game",
+      "relation": "was",
+      "tail": "established"
+    },
+    {
+      "head": "The Triple-A Baseball National Championship Game",
+      "relation": "was established in",
+      "tail": "2006"
+    }
+  ],
+  "benchie_217": [
+    {
+      "head": "The Wilbur Cross Highway",
+      "relation": "formerly ended in",
+      "tail": "Sturbridge"
+    }
+  ],
+  "benchie_218": [
+    {
+      "head": "The `` Charleston Courier",
+      "relation": "founded in",
+      "tail": "1803"
+    },
+    {
+      "head": "`` Charleston Daily News",
+      "relation": "founded in",
+      "tail": "1865"
+    }
+  ],
+  "benchie_219": [
+    {
+      "head": "The canal",
+      "relation": "was",
+      "tail": "dammed off"
+    },
+    {
+      "head": "The canal",
+      "relation": "was dammed off from",
+      "tail": "the river"
+    }
+  ],
+  "benchie_220": [
+    {
+      "head": "The city",
+      "relation": "was",
+      "tail": "founded"
+    },
+    {
+      "head": "The city",
+      "relation": "was founded by",
+      "tail": "the Western Town Lot Company"
+    }
+  ],
+  "benchie_221": [
+    {
+      "head": "The community",
+      "relation": "is",
+      "tail": "served"
+    },
+    {
+      "head": "The community",
+      "relation": "is served by",
+      "tail": "the United States Postal Service Hinsdale Post Office"
+    }
+  ],
+  "benchie_222": [
+    {
+      "head": "The ensemble",
+      "relation": "also has",
+      "tail": "extensive recordings"
+    },
+    {
+      "head": "The ensemble",
+      "relation": "also has extensive recordings with",
+      "tail": "Deutsche Grammophon"
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+[
+  {
+    "head": "the \"pharmaceutical composition\"",
+    "relation": "can be",
+    "tail": "a veterinary composition"
+  },
+  {
+    "head": "the \"pharmaceutical composition\" being a veterinary composition",
+    "relation": "is when given to",
+    "tail": "a subject other than a human"
+  },
+  {
+    "head": "the stainless steel container",
+    "relation": "can be cooled with",
+    "tail": "liquid nitrogen"
+  },
+  {
+    "head": "the valve",
+    "relation": "can be opened",
+    "tail": ""
+  },
+  {
+    "head": "the composition of the invention",
+    "relation": "is more effective than",
+    "tail": "the compositions  described so far"
+  },
+  {
+    "head": "the composition of the invention",
+    "relation": "is safer than",
+    "tail": "the compositions  described so far"
+  },
+  {
+    "head": "this tracer",
+    "relation": "is for instance used to diagnose",
+    "tail": "cancer metastasis"
+  },
+  {
+    "head": "this process",
+    "relation": "is in contrast to",
+    "tail": "diagnostics by X-ray"
+  },
+  {
+    "head": "external radiation",
+    "relation": "is passed through",
+    "tail": "the body"
+  },
+  {
+    "head": "external radiation passed through the body",
+    "relation": "is to form",
+    "tail": "an image"
+  },
+  {
+    "head": "the fact",
+    "relation": "is that",
+    "tail": "PET is not widely used in ventilation studies"
+  },
+  {
+    "head": "PET",
+    "relation": "is not widely used in",
+    "tail": "ventilation studies"
+  },
+  {
+    "head": "the fact",
+    "relation": "is mainly because of",
+    "tail": "a series of limitations"
+  },
+  {
+    "head": "a series of limitations",
+    "relation": "are associated to",
+    "tail": "the positron emitting labels"
+  },
+  {
+    "head": "a third aspect of the invention",
+    "relation": "is",
+    "tail": "a pharmaceutical composition"
+  },
+  {
+    "head": "the first aspect of the invention",
+    "relation": "is for use as",
+    "tail": "an image contrast agent"
+  },
+  {
+    "head": "increasing the integrated current C.sub.1",
+    "relation": "resulted in",
+    "tail": "a significant increase"
+  },
+  {
+    "head": "a significant increase",
+    "relation": "is in",
+    "tail": "the final amount of radioactivity"
+  },
+  {
+    "head": "it",
+    "relation": "forms part of",
+    "tail": "the invention a pharmaceutical composition"
+  },
+  {
+    "head": "the second aspect of the invention",
+    "relation": "is obtainable by",
+    "tail": "the process of the first aspect of the invention"
+  },
+  {
+    "head": "the amount of activity",
+    "relation": "was measured in",
+    "tail": "a dose calibrator"
+  },
+  {
+    "head": "the gas",
+    "relation": "was analyzed using",
+    "tail": "the same analytical system as described above"
+  }
+]

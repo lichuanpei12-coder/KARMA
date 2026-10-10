@@ -1,0 +1,193 @@
+{
+  "benchie_223": [
+    {
+      "head": "The failure of 1st Armored",
+      "relation": "would have",
+      "tail": "important consequences"
+    },
+    {
+      "head": "The failure of 1st Armored",
+      "relation": "would have important consequences in",
+      "tail": "later action"
+    },
+    {
+      "head": "The failure of 1st Armored",
+      "relation": "would have important consequences in later action against",
+      "tail": "German forces"
+    }
+  ],
+  "benchie_224": [
+    {
+      "head": "The first five laps",
+      "relation": "would be",
+      "tail": "added"
+    },
+    {
+      "head": "The first five laps",
+      "relation": "would be added to",
+      "tail": "the second part of the race"
+    },
+    {
+      "head": "the overall result",
+      "relation": "would be",
+      "tail": "decided"
+    },
+    {
+      "head": "the overall result",
+      "relation": "would be decided",
+      "tail": "on aggregate"
+    }
+  ],
+  "benchie_225": [
+    {
+      "head": "The following tour",
+      "relation": "featured",
+      "tail": "extensive dates"
+    },
+    {
+      "head": "The following tour",
+      "relation": "featured extensive dates in",
+      "tail": "East Asia"
+    }
+  ],
+  "benchie_227": [
+    {
+      "head": "The lodge",
+      "relation": "is open from",
+      "tail": "mid-May"
+    },
+    {
+      "head": "two weeks",
+      "relation": "reserved for",
+      "tail": "the Dartmouth First-Year Trips"
+    }
+  ],
+  "benchie_228": [
+    {
+      "head": "The permanent members",
+      "relation": "are",
+      "tail": "the provost"
+    }
+  ],
+  "benchie_229": [
+    {
+      "head": "their decorations",
+      "relation": "are according to",
+      "tail": "the Meenakshi Temple"
+    },
+    {
+      "head": "the Meenakshi Temple",
+      "relation": "at",
+      "tail": "Madurai"
+    },
+    {
+      "head": "the Meenakshi Temple",
+      "relation": "in",
+      "tail": "Tamil Nadu"
+    },
+    {
+      "head": "Madurai",
+      "relation": "in",
+      "tail": "Tamil Nadu"
+    }
+  ],
+  "benchie_230": [
+    {
+      "head": "The race",
+      "relation": "is",
+      "tail": "in mixed eights"
+    },
+    {
+      "head": "The race",
+      "relation": "usually held in",
+      "tail": "late February / early March"
+    }
+  ],
+  "benchie_231": [
+    {
+      "head": "The rapids at the head of the South Fork",
+      "relation": "were",
+      "tail": "removed"
+    },
+    {
+      "head": "The rapids at the head of the South Fork",
+      "relation": "were removed in",
+      "tail": "1908"
+    }
+  ],
+  "benchie_232": [
+    {
+      "head": "The redesigned 2006 Ram SRT-10",
+      "relation": "came in",
+      "tail": "Mineral Gray Metallic"
+    }
+  ],
+  "benchie_233": [
+    {
+      "head": "The residue",
+      "relation": "can be",
+      "tail": "reprocessed"
+    },
+    {
+      "head": "The residue",
+      "relation": "can be reprocessed for",
+      "tail": "more dripping"
+    }
+  ],
+  "benchie_234": [
+    {
+      "head": "The rest of the group",
+      "relation": "reach",
+      "tail": "a small shop"
+    },
+    {
+      "head": "Brady",
+      "relation": "attempts to phone",
+      "tail": "the Sheriff"
+    },
+    {
+      "head": "the crocodile",
+      "relation": "breaks through",
+      "tail": "a wall"
+    },
+    {
+      "head": "the crocodile",
+      "relation": "devours",
+      "tail": "Annabelle"
+    }
+  ],
+  "benchie_236": [
+    {
+      "head": "The station",
+      "relation": "has",
+      "tail": "a concourse and ticket office area"
+    },
+    {
+      "head": "concourse and ticket office area",
+      "relation": "was",
+      "tail": "internally redesigned"
+    },
+    {
+      "head": "concourse and ticket office area",
+      "relation": "reopened in",
+      "tail": "mid-2012"
+    }
+  ],
+  "benchie_237": [
+    {
+      "head": "The third known version",
+      "relation": "is",
+      "tail": "part number 2189014-00-212"
+    },
+    {
+      "head": "at least one model",
+      "relation": "being",
+      "tail": "produced"
+    },
+    {
+      "head": "at least one model",
+      "relation": "being produced in",
+      "tail": "February 1993"
+    }
+  ]
+}

@@ -1,0 +1,2789 @@
+[
+  {
+    "sentence_id": "benchie_228",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      1
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "provost",
+        "relation": "is",
+        "tail": "permanent member"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_228:fact:1"
+    ],
+    "new_annotations": [
+      {
+        "head": "The permanent members",
+        "relation": "are",
+        "tail": "the provost"
+      }
+    ],
+    "operation": "select_source_expression",
+    "evidence_fragments": [
+      "The permanent members are the provost"
+    ],
+    "word_changes": [
+      {
+        "kind": "restore_source_direction",
+        "detail": "使用原句主语 The permanent members 和关系 are；不新增词。"
+      }
+    ],
+    "reason": "选择原簇已有的原文方向，不再把主语宾语倒置并将 are 改成 is。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_228",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      2
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "Carl H. Pforzheimer University Professor",
+        "relation": "is",
+        "tail": "permanent members"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_228:fact:2"
+    ],
+    "new_annotations": [
+      {
+        "head": "The permanent members",
+        "relation": "are",
+        "tail": "the Carl H. Pforzheimer University Professor"
+      }
+    ],
+    "operation": "select_source_expression",
+    "evidence_fragments": [
+      "The permanent members are",
+      "the Carl H. Pforzheimer University Professor"
+    ],
+    "word_changes": [],
+    "reason": "并列宾语共享 are。中间的 the provost 不阻止该成员事实成立。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_228",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "deans",
+        "relation": "are",
+        "tail": "permanent members"
+      },
+      {
+        "head": "designees",
+        "relation": "are",
+        "tail": "permanent members"
+      },
+      {
+        "head": "deans from Faculty of Arts and Sciences",
+        "relation": "are",
+        "tail": "permanent members"
+      },
+      {
+        "head": "designees from Faculty of Arts and Sciences",
+        "relation": "are",
+        "tail": "permanent members"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_228:fact:3"
+    ],
+    "new_annotations": [
+      {
+        "head": "The permanent members",
+        "relation": "are",
+        "tail": "the deans or designees from the Faculty of Arts and Sciences"
+      }
+    ],
+    "operation": "repair_alternative_scope",
+    "evidence_fragments": [
+      "The permanent members are",
+      "the deans or designees from the following Schools",
+      "the Faculty of Arts and Sciences"
+    ],
+    "word_changes": [
+      {
+        "kind": "restore_shared_or_and_from",
+        "detail": "组合原文共享成分；无新增词、无语态转换。"
+      }
+    ],
+    "reason": "原句列出各学校的 deans or designees。保留 or；不同时断言每所学校的两类角色都任成员。泛化的 deans/designees 条目由带学校限定的成员事实覆盖。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_228",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      7,
+      8
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "deans from Harvard Business School",
+        "relation": "are",
+        "tail": "permanent members"
+      },
+      {
+        "head": "designees from Harvard Business School",
+        "relation": "are",
+        "tail": "permanent members"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_228:fact:4"
+    ],
+    "new_annotations": [
+      {
+        "head": "The permanent members",
+        "relation": "are",
+        "tail": "the deans or designees from Harvard Business School"
+      }
+    ],
+    "operation": "repair_alternative_scope",
+    "evidence_fragments": [
+      "The permanent members are",
+      "the deans or designees from the following Schools",
+      "Harvard Business School"
+    ],
+    "word_changes": [
+      {
+        "kind": "restore_shared_or_and_from",
+        "detail": "组合原文共享成分；无新增词、无语态转换。"
+      }
+    ],
+    "reason": "原句列出各学校的 deans or designees。保留 or；不同时断言每所学校的两类角色都任成员。泛化的 deans/designees 条目由带学校限定的成员事实覆盖。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_228",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      9,
+      10
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "deans from Harvard Law School",
+        "relation": "are",
+        "tail": "permanent members"
+      },
+      {
+        "head": "designees from Harvard Law School",
+        "relation": "are",
+        "tail": "permanent members"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_228:fact:5"
+    ],
+    "new_annotations": [
+      {
+        "head": "The permanent members",
+        "relation": "are",
+        "tail": "the deans or designees from Harvard Law School"
+      }
+    ],
+    "operation": "repair_alternative_scope",
+    "evidence_fragments": [
+      "The permanent members are",
+      "the deans or designees from the following Schools",
+      "Harvard Law School"
+    ],
+    "word_changes": [
+      {
+        "kind": "restore_shared_or_and_from",
+        "detail": "组合原文共享成分；无新增词、无语态转换。"
+      }
+    ],
+    "reason": "原句列出各学校的 deans or designees。保留 or；不同时断言每所学校的两类角色都任成员。泛化的 deans/designees 条目由带学校限定的成员事实覆盖。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_228",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      11,
+      12
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "deans from Harvard Medical School",
+        "relation": "are",
+        "tail": "permanent members"
+      },
+      {
+        "head": "designees from Harvard Medical School",
+        "relation": "are",
+        "tail": "permanent members"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_228:fact:6"
+    ],
+    "new_annotations": [
+      {
+        "head": "The permanent members",
+        "relation": "are",
+        "tail": "the deans or designees from Harvard Medical School"
+      }
+    ],
+    "operation": "repair_alternative_scope",
+    "evidence_fragments": [
+      "The permanent members are",
+      "the deans or designees from the following Schools",
+      "Harvard Medical School"
+    ],
+    "word_changes": [
+      {
+        "kind": "restore_shared_or_and_from",
+        "detail": "组合原文共享成分；无新增词、无语态转换。"
+      }
+    ],
+    "reason": "原句列出各学校的 deans or designees。保留 or；不同时断言每所学校的两类角色都任成员。泛化的 deans/designees 条目由带学校限定的成员事实覆盖。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_228",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      13
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "Faculty of Arts and Sciences",
+        "relation": "has",
+        "tail": "deans"
+      }
+    ],
+    "new_fact_ids": [],
+    "new_annotations": [],
+    "operation": "remove_fact",
+    "evidence_fragments": [
+      "The permanent members are the provost , the Carl H. Pforzheimer University Professor and the deans or designees from the following Schools : the Faculty of Arts and Sciences , Harvard Business School , Harvard Law School and Harvard Medical School ."
+    ],
+    "word_changes": [],
+    "reason": "原句陈述成员由院长或代表担任，不能据此分别断言每校均具有 deans 和 designees；has 也不是这里的原文关系。原有学校成员信息已由保留 or 的表达覆盖。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_228",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      14
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "Faculty of Arts and Sciences",
+        "relation": "has",
+        "tail": "designees"
+      }
+    ],
+    "new_fact_ids": [],
+    "new_annotations": [],
+    "operation": "remove_fact",
+    "evidence_fragments": [
+      "The permanent members are the provost , the Carl H. Pforzheimer University Professor and the deans or designees from the following Schools : the Faculty of Arts and Sciences , Harvard Business School , Harvard Law School and Harvard Medical School ."
+    ],
+    "word_changes": [],
+    "reason": "原句陈述成员由院长或代表担任，不能据此分别断言每校均具有 deans 和 designees；has 也不是这里的原文关系。原有学校成员信息已由保留 or 的表达覆盖。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_228",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      15
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "Harvard Business School",
+        "relation": "has",
+        "tail": "deans"
+      }
+    ],
+    "new_fact_ids": [],
+    "new_annotations": [],
+    "operation": "remove_fact",
+    "evidence_fragments": [
+      "The permanent members are the provost , the Carl H. Pforzheimer University Professor and the deans or designees from the following Schools : the Faculty of Arts and Sciences , Harvard Business School , Harvard Law School and Harvard Medical School ."
+    ],
+    "word_changes": [],
+    "reason": "原句陈述成员由院长或代表担任，不能据此分别断言每校均具有 deans 和 designees；has 也不是这里的原文关系。原有学校成员信息已由保留 or 的表达覆盖。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_228",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      16
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "Harvard Business School",
+        "relation": "has",
+        "tail": "designees"
+      }
+    ],
+    "new_fact_ids": [],
+    "new_annotations": [],
+    "operation": "remove_fact",
+    "evidence_fragments": [
+      "The permanent members are the provost , the Carl H. Pforzheimer University Professor and the deans or designees from the following Schools : the Faculty of Arts and Sciences , Harvard Business School , Harvard Law School and Harvard Medical School ."
+    ],
+    "word_changes": [],
+    "reason": "原句陈述成员由院长或代表担任，不能据此分别断言每校均具有 deans 和 designees；has 也不是这里的原文关系。原有学校成员信息已由保留 or 的表达覆盖。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_228",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      17
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "Harvard Law School",
+        "relation": "has",
+        "tail": "deans"
+      }
+    ],
+    "new_fact_ids": [],
+    "new_annotations": [],
+    "operation": "remove_fact",
+    "evidence_fragments": [
+      "The permanent members are the provost , the Carl H. Pforzheimer University Professor and the deans or designees from the following Schools : the Faculty of Arts and Sciences , Harvard Business School , Harvard Law School and Harvard Medical School ."
+    ],
+    "word_changes": [],
+    "reason": "原句陈述成员由院长或代表担任，不能据此分别断言每校均具有 deans 和 designees；has 也不是这里的原文关系。原有学校成员信息已由保留 or 的表达覆盖。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_228",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      18
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "Harvard Law School",
+        "relation": "has",
+        "tail": "designees"
+      }
+    ],
+    "new_fact_ids": [],
+    "new_annotations": [],
+    "operation": "remove_fact",
+    "evidence_fragments": [
+      "The permanent members are the provost , the Carl H. Pforzheimer University Professor and the deans or designees from the following Schools : the Faculty of Arts and Sciences , Harvard Business School , Harvard Law School and Harvard Medical School ."
+    ],
+    "word_changes": [],
+    "reason": "原句陈述成员由院长或代表担任，不能据此分别断言每校均具有 deans 和 designees；has 也不是这里的原文关系。原有学校成员信息已由保留 or 的表达覆盖。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_228",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      19
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "Harvard Medical School",
+        "relation": "has",
+        "tail": "deans"
+      }
+    ],
+    "new_fact_ids": [],
+    "new_annotations": [],
+    "operation": "remove_fact",
+    "evidence_fragments": [
+      "The permanent members are the provost , the Carl H. Pforzheimer University Professor and the deans or designees from the following Schools : the Faculty of Arts and Sciences , Harvard Business School , Harvard Law School and Harvard Medical School ."
+    ],
+    "word_changes": [],
+    "reason": "原句陈述成员由院长或代表担任，不能据此分别断言每校均具有 deans 和 designees；has 也不是这里的原文关系。原有学校成员信息已由保留 or 的表达覆盖。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_228",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      20
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "Harvard Medical School",
+        "relation": "has",
+        "tail": "designees"
+      }
+    ],
+    "new_fact_ids": [],
+    "new_annotations": [],
+    "operation": "remove_fact",
+    "evidence_fragments": [
+      "The permanent members are the provost , the Carl H. Pforzheimer University Professor and the deans or designees from the following Schools : the Faculty of Arts and Sciences , Harvard Business School , Harvard Law School and Harvard Medical School ."
+    ],
+    "word_changes": [],
+    "reason": "原句陈述成员由院长或代表担任，不能据此分别断言每校均具有 deans 和 designees；has 也不是这里的原文关系。原有学校成员信息已由保留 or 的表达覆盖。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_85",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      1
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "These skills",
+        "relation": "were",
+        "tail": "readily proven"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_85:fact:1"
+    ],
+    "new_annotations": [
+      {
+        "head": "These skills",
+        "relation": "were",
+        "tail": "readily proven"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "These skills were readily proven when squadrons and personnel were mobilized and recalled back to active duty during the Korean War and the Berlin Crisis ."
+    ],
+    "word_changes": [],
+    "reason": "过去时 were proven 直接陈述技能已得到证明；保留 readily。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_85",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      2
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "These skills",
+        "relation": "were readily proven when",
+        "tail": "squadrons were mobilized"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_85:fact:2"
+    ],
+    "new_annotations": [
+      {
+        "head": "These skills",
+        "relation": "were readily proven when",
+        "tail": "squadrons were mobilized"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "These skills were readily proven when squadrons and personnel were mobilized and recalled back to active duty during the Korean War and the Berlin Crisis ."
+    ],
+    "word_changes": [
+      {
+        "kind": "shared_source_components",
+        "detail": "共享并列主语、were、谓语及原句末尾时间状语；没有在本次新增词。"
+      }
+    ],
+    "reason": "when 从句在此描述已发生的动员/召回，与技能得到证明的事件相联系；两个并列主语和谓语共享 were。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_85",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      3
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "These skills",
+        "relation": "were readily proven when",
+        "tail": "personnel were mobilized"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_85:fact:3"
+    ],
+    "new_annotations": [
+      {
+        "head": "These skills",
+        "relation": "were readily proven when",
+        "tail": "personnel were mobilized"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "These skills were readily proven when squadrons and personnel were mobilized and recalled back to active duty during the Korean War and the Berlin Crisis ."
+    ],
+    "word_changes": [
+      {
+        "kind": "shared_source_components",
+        "detail": "共享并列主语、were、谓语及原句末尾时间状语；没有在本次新增词。"
+      }
+    ],
+    "reason": "when 从句在此描述已发生的动员/召回，与技能得到证明的事件相联系；两个并列主语和谓语共享 were。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_85",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      4
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "These skills",
+        "relation": "were readily proven when",
+        "tail": "squadrons were recalled back to active duty"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_85:fact:4"
+    ],
+    "new_annotations": [
+      {
+        "head": "These skills",
+        "relation": "were readily proven when",
+        "tail": "squadrons were recalled back to active duty"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "These skills were readily proven when squadrons and personnel were mobilized and recalled back to active duty during the Korean War and the Berlin Crisis ."
+    ],
+    "word_changes": [
+      {
+        "kind": "shared_source_components",
+        "detail": "共享并列主语、were、谓语及原句末尾时间状语；没有在本次新增词。"
+      }
+    ],
+    "reason": "when 从句在此描述已发生的动员/召回，与技能得到证明的事件相联系；两个并列主语和谓语共享 were。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_85",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      5
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "These skills",
+        "relation": "were readily proven when",
+        "tail": "personnel were recalled back to active duty"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_85:fact:5"
+    ],
+    "new_annotations": [
+      {
+        "head": "These skills",
+        "relation": "were readily proven when",
+        "tail": "personnel were recalled back to active duty"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "These skills were readily proven when squadrons and personnel were mobilized and recalled back to active duty during the Korean War and the Berlin Crisis ."
+    ],
+    "word_changes": [
+      {
+        "kind": "shared_source_components",
+        "detail": "共享并列主语、were、谓语及原句末尾时间状语；没有在本次新增词。"
+      }
+    ],
+    "reason": "when 从句在此描述已发生的动员/召回，与技能得到证明的事件相联系；两个并列主语和谓语共享 were。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_85",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      6
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "These skills",
+        "relation": "were readily proven during",
+        "tail": "Korean War"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_85:fact:6"
+    ],
+    "new_annotations": [
+      {
+        "head": "These skills",
+        "relation": "were readily proven during",
+        "tail": "Korean War"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "These skills were readily proven when squadrons and personnel were mobilized and recalled back to active duty during the Korean War and the Berlin Crisis ."
+    ],
+    "word_changes": [
+      {
+        "kind": "shared_source_components",
+        "detail": "共享并列主语、were、谓语及原句末尾时间状语；没有在本次新增词。"
+      }
+    ],
+    "reason": "when 将技能证明与所述过去事件联系，句末 during 为该事件提供时间；保留原 Gold 的两个时间表达。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_85",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      7
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "These skills",
+        "relation": "were readily proven during",
+        "tail": "Berlin Crisis"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_85:fact:7"
+    ],
+    "new_annotations": [
+      {
+        "head": "These skills",
+        "relation": "were readily proven during",
+        "tail": "Berlin Crisis"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "These skills were readily proven when squadrons and personnel were mobilized and recalled back to active duty during the Korean War and the Berlin Crisis ."
+    ],
+    "word_changes": [
+      {
+        "kind": "shared_source_components",
+        "detail": "共享并列主语、were、谓语及原句末尾时间状语；没有在本次新增词。"
+      }
+    ],
+    "reason": "when 将技能证明与所述过去事件联系，句末 during 为该事件提供时间；保留原 Gold 的两个时间表达。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_85",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      8
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "squadrons",
+        "relation": "were mobilized during",
+        "tail": "Korean War"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_85:fact:8"
+    ],
+    "new_annotations": [
+      {
+        "head": "squadrons",
+        "relation": "were mobilized during",
+        "tail": "Korean War"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "These skills were readily proven when squadrons and personnel were mobilized and recalled back to active duty during the Korean War and the Berlin Crisis ."
+    ],
+    "word_changes": [
+      {
+        "kind": "shared_source_components",
+        "detail": "共享并列主语、were、谓语及原句末尾时间状语；没有在本次新增词。"
+      }
+    ],
+    "reason": "按原句通常的并列 VP 读法，句末 during 修饰 were mobilized and recalled back to active duty；共享两个主语和两项时间。逐项保留，不因 when 或非连续片段删除。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_85",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      9
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "squadrons",
+        "relation": "were mobilized during",
+        "tail": "Berlin Crisis"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_85:fact:9"
+    ],
+    "new_annotations": [
+      {
+        "head": "squadrons",
+        "relation": "were mobilized during",
+        "tail": "Berlin Crisis"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "These skills were readily proven when squadrons and personnel were mobilized and recalled back to active duty during the Korean War and the Berlin Crisis ."
+    ],
+    "word_changes": [
+      {
+        "kind": "shared_source_components",
+        "detail": "共享并列主语、were、谓语及原句末尾时间状语；没有在本次新增词。"
+      }
+    ],
+    "reason": "按原句通常的并列 VP 读法，句末 during 修饰 were mobilized and recalled back to active duty；共享两个主语和两项时间。逐项保留，不因 when 或非连续片段删除。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_85",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      10
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "personnel",
+        "relation": "were mobilized during",
+        "tail": "Korean War"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_85:fact:10"
+    ],
+    "new_annotations": [
+      {
+        "head": "personnel",
+        "relation": "were mobilized during",
+        "tail": "Korean War"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "These skills were readily proven when squadrons and personnel were mobilized and recalled back to active duty during the Korean War and the Berlin Crisis ."
+    ],
+    "word_changes": [
+      {
+        "kind": "shared_source_components",
+        "detail": "共享并列主语、were、谓语及原句末尾时间状语；没有在本次新增词。"
+      }
+    ],
+    "reason": "按原句通常的并列 VP 读法，句末 during 修饰 were mobilized and recalled back to active duty；共享两个主语和两项时间。逐项保留，不因 when 或非连续片段删除。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_85",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      11
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "personnel",
+        "relation": "were mobilized during",
+        "tail": "Berlin Crisis"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_85:fact:11"
+    ],
+    "new_annotations": [
+      {
+        "head": "personnel",
+        "relation": "were mobilized during",
+        "tail": "Berlin Crisis"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "These skills were readily proven when squadrons and personnel were mobilized and recalled back to active duty during the Korean War and the Berlin Crisis ."
+    ],
+    "word_changes": [
+      {
+        "kind": "shared_source_components",
+        "detail": "共享并列主语、were、谓语及原句末尾时间状语；没有在本次新增词。"
+      }
+    ],
+    "reason": "按原句通常的并列 VP 读法，句末 during 修饰 were mobilized and recalled back to active duty；共享两个主语和两项时间。逐项保留，不因 when 或非连续片段删除。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_85",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      12
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "squadrons",
+        "relation": "were recalled back to active duty during",
+        "tail": "Korean War"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_85:fact:12"
+    ],
+    "new_annotations": [
+      {
+        "head": "squadrons",
+        "relation": "were recalled back to active duty during",
+        "tail": "Korean War"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "These skills were readily proven when squadrons and personnel were mobilized and recalled back to active duty during the Korean War and the Berlin Crisis ."
+    ],
+    "word_changes": [
+      {
+        "kind": "shared_source_components",
+        "detail": "共享并列主语、were、谓语及原句末尾时间状语；没有在本次新增词。"
+      }
+    ],
+    "reason": "按原句通常的并列 VP 读法，句末 during 修饰 were mobilized and recalled back to active duty；共享两个主语和两项时间。逐项保留，不因 when 或非连续片段删除。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_85",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      13
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "squadrons",
+        "relation": "were recalled back to active duty during",
+        "tail": "Berlin Crisis"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_85:fact:13"
+    ],
+    "new_annotations": [
+      {
+        "head": "squadrons",
+        "relation": "were recalled back to active duty during",
+        "tail": "Berlin Crisis"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "These skills were readily proven when squadrons and personnel were mobilized and recalled back to active duty during the Korean War and the Berlin Crisis ."
+    ],
+    "word_changes": [
+      {
+        "kind": "shared_source_components",
+        "detail": "共享并列主语、were、谓语及原句末尾时间状语；没有在本次新增词。"
+      }
+    ],
+    "reason": "按原句通常的并列 VP 读法，句末 during 修饰 were mobilized and recalled back to active duty；共享两个主语和两项时间。逐项保留，不因 when 或非连续片段删除。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_85",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      14
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "personnel",
+        "relation": "were recalled back to active duty during",
+        "tail": "Korean War"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_85:fact:14"
+    ],
+    "new_annotations": [
+      {
+        "head": "personnel",
+        "relation": "were recalled back to active duty during",
+        "tail": "Korean War"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "These skills were readily proven when squadrons and personnel were mobilized and recalled back to active duty during the Korean War and the Berlin Crisis ."
+    ],
+    "word_changes": [
+      {
+        "kind": "shared_source_components",
+        "detail": "共享并列主语、were、谓语及原句末尾时间状语；没有在本次新增词。"
+      }
+    ],
+    "reason": "按原句通常的并列 VP 读法，句末 during 修饰 were mobilized and recalled back to active duty；共享两个主语和两项时间。逐项保留，不因 when 或非连续片段删除。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_85",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      15
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "personnel",
+        "relation": "were recalled back to active duty during",
+        "tail": "Berlin Crisis"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_85:fact:15"
+    ],
+    "new_annotations": [
+      {
+        "head": "personnel",
+        "relation": "were recalled back to active duty during",
+        "tail": "Berlin Crisis"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "These skills were readily proven when squadrons and personnel were mobilized and recalled back to active duty during the Korean War and the Berlin Crisis ."
+    ],
+    "word_changes": [
+      {
+        "kind": "shared_source_components",
+        "detail": "共享并列主语、were、谓语及原句末尾时间状语；没有在本次新增词。"
+      }
+    ],
+    "reason": "按原句通常的并列 VP 读法，句末 during 修饰 were mobilized and recalled back to active duty；共享两个主语和两项时间。逐项保留，不因 when 或非连续片段删除。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_85",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      16
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "squadrons",
+        "relation": "were",
+        "tail": "mobilized"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_85:fact:16"
+    ],
+    "new_annotations": [
+      {
+        "head": "squadrons",
+        "relation": "were",
+        "tail": "mobilized"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "These skills were readily proven when squadrons and personnel were mobilized and recalled back to active duty during the Korean War and the Berlin Crisis ."
+    ],
+    "word_changes": [
+      {
+        "kind": "shared_source_components",
+        "detail": "共享并列主语、were、谓语及原句末尾时间状语；没有在本次新增词。"
+      }
+    ],
+    "reason": "squadrons 和 personnel 分别参与动员及召回；mobilize/recall 可对各并列项成立，不是必须共同才能完成的集合动作。原文 were 直接共享。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_85",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      17
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "personnel",
+        "relation": "were",
+        "tail": "mobilized"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_85:fact:17"
+    ],
+    "new_annotations": [
+      {
+        "head": "personnel",
+        "relation": "were",
+        "tail": "mobilized"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "These skills were readily proven when squadrons and personnel were mobilized and recalled back to active duty during the Korean War and the Berlin Crisis ."
+    ],
+    "word_changes": [
+      {
+        "kind": "shared_source_components",
+        "detail": "共享并列主语、were、谓语及原句末尾时间状语；没有在本次新增词。"
+      }
+    ],
+    "reason": "squadrons 和 personnel 分别参与动员及召回；mobilize/recall 可对各并列项成立，不是必须共同才能完成的集合动作。原文 were 直接共享。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_85",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      18
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "squadrons",
+        "relation": "were",
+        "tail": "recalled back to active duty"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_85:fact:18"
+    ],
+    "new_annotations": [
+      {
+        "head": "squadrons",
+        "relation": "were",
+        "tail": "recalled back to active duty"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "These skills were readily proven when squadrons and personnel were mobilized and recalled back to active duty during the Korean War and the Berlin Crisis ."
+    ],
+    "word_changes": [
+      {
+        "kind": "shared_source_components",
+        "detail": "共享并列主语、were、谓语及原句末尾时间状语；没有在本次新增词。"
+      }
+    ],
+    "reason": "squadrons 和 personnel 分别参与动员及召回；mobilize/recall 可对各并列项成立，不是必须共同才能完成的集合动作。原文 were 直接共享。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_85",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      19
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "personnel",
+        "relation": "were recalled back to",
+        "tail": "active duty"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_85:fact:19"
+    ],
+    "new_annotations": [
+      {
+        "head": "personnel",
+        "relation": "were recalled back to",
+        "tail": "active duty"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "These skills were readily proven when squadrons and personnel were mobilized and recalled back to active duty during the Korean War and the Berlin Crisis ."
+    ],
+    "word_changes": [
+      {
+        "kind": "shared_source_components",
+        "detail": "共享并列主语、were、谓语及原句末尾时间状语；没有在本次新增词。"
+      }
+    ],
+    "reason": "squadrons 和 personnel 分别参与动员及召回；mobilize/recall 可对各并列项成立，不是必须共同才能完成的集合动作。原文 were 直接共享。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_19",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      1
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "She",
+        "relation": "began",
+        "tail": "her film career"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_19:fact:1"
+    ],
+    "new_annotations": [
+      {
+        "head": "She",
+        "relation": "began",
+        "tail": "her film career"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "She began her film career in 1947 in the film `` A New Oath '' ."
+    ],
+    "word_changes": [],
+    "reason": "职业起点、年份和影片由原句明确给出；film + 片名直接支持类型判断。无需为增加数量另拆事实。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_19",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      2
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "She",
+        "relation": "began her film career in",
+        "tail": "1947"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_19:fact:2"
+    ],
+    "new_annotations": [
+      {
+        "head": "She",
+        "relation": "began her film career in",
+        "tail": "1947"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "She began her film career in 1947 in the film `` A New Oath '' ."
+    ],
+    "word_changes": [],
+    "reason": "职业起点、年份和影片由原句明确给出；film + 片名直接支持类型判断。无需为增加数量另拆事实。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_19",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      3
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "She",
+        "relation": "began her film career in",
+        "tail": "A New Oath"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_19:fact:3"
+    ],
+    "new_annotations": [
+      {
+        "head": "She",
+        "relation": "began her film career in",
+        "tail": "A New Oath"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "She began her film career in 1947 in the film `` A New Oath '' ."
+    ],
+    "word_changes": [],
+    "reason": "职业起点、年份和影片由原句明确给出；film + 片名直接支持类型判断。无需为增加数量另拆事实。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_19",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      4
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "A New Oath",
+        "relation": "is",
+        "tail": "film"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_19:fact:4"
+    ],
+    "new_annotations": [
+      {
+        "head": "A New Oath",
+        "relation": "is",
+        "tail": "film"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "She began her film career in 1947 in the film `` A New Oath '' ."
+    ],
+    "word_changes": [
+      {
+        "kind": "existing_grammatical_completion",
+        "added_relative_to_source": [
+          "is"
+        ],
+        "detail": "原 Gold 已有，表达 film 与片名的类型关系；本次没有新增。"
+      }
+    ],
+    "reason": "film `` A New Oath `` 是明确的类型与名称结构；保留旧 Gold 的 is 作为系动词补全，不借助外部知识。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_34",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      1
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "They",
+        "relation": "held",
+        "tail": "first Triangle workshop"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_34:fact:1"
+    ],
+    "new_annotations": [
+      {
+        "head": "They",
+        "relation": "held",
+        "tail": "first Triangle workshop"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "They held the first Triangle workshop in 1982 for thirty sculptors and painters from the US , the UK and Canada at Pine Plains , New York ."
+    ],
+    "word_changes": [],
+    "reason": "保留有明确依据的活动、首次、1982、参加者总数和群体、国家列表及地点。thirty 只修饰整个 sculptors and painters 群体，不分配为两组各30人。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_34",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      2
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "They",
+        "relation": "held first Triangle workshop in",
+        "tail": "1982"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_34:fact:2"
+    ],
+    "new_annotations": [
+      {
+        "head": "They",
+        "relation": "held first Triangle workshop in",
+        "tail": "1982"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "They held the first Triangle workshop in 1982 for thirty sculptors and painters from the US , the UK and Canada at Pine Plains , New York ."
+    ],
+    "word_changes": [],
+    "reason": "保留有明确依据的活动、首次、1982、参加者总数和群体、国家列表及地点。thirty 只修饰整个 sculptors and painters 群体，不分配为两组各30人。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_34",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      3
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "They",
+        "relation": "held first Triangle workshop for",
+        "tail": "thirty sculptors and painters"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_34:fact:3"
+    ],
+    "new_annotations": [
+      {
+        "head": "They",
+        "relation": "held first Triangle workshop for",
+        "tail": "thirty sculptors and painters"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "They held the first Triangle workshop in 1982 for thirty sculptors and painters from the US , the UK and Canada at Pine Plains , New York ."
+    ],
+    "word_changes": [],
+    "reason": "保留有明确依据的活动、首次、1982、参加者总数和群体、国家列表及地点。thirty 只修饰整个 sculptors and painters 群体，不分配为两组各30人。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_34",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      4
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "They",
+        "relation": "held first Triangle workshop for thirty sculptors and painters from",
+        "tail": "US UK and Canada"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_34:fact:4"
+    ],
+    "new_annotations": [
+      {
+        "head": "They",
+        "relation": "held first Triangle workshop for thirty sculptors and painters from",
+        "tail": "US UK and Canada"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "They held the first Triangle workshop in 1982 for thirty sculptors and painters from the US , the UK and Canada at Pine Plains , New York ."
+    ],
+    "word_changes": [],
+    "reason": "保留有明确依据的活动、首次、1982、参加者总数和群体、国家列表及地点。thirty 只修饰整个 sculptors and painters 群体，不分配为两组各30人。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_34",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      5
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "They",
+        "relation": "held first Triangle workshop at",
+        "tail": "Pine Plains"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_34:fact:5"
+    ],
+    "new_annotations": [
+      {
+        "head": "They",
+        "relation": "held first Triangle workshop at",
+        "tail": "Pine Plains"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "They held the first Triangle workshop in 1982 for thirty sculptors and painters from the US , the UK and Canada at Pine Plains , New York ."
+    ],
+    "word_changes": [],
+    "reason": "保留有明确依据的活动、首次、1982、参加者总数和群体、国家列表及地点。thirty 只修饰整个 sculptors and painters 群体，不分配为两组各30人。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_34",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      6
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "Pine Plains",
+        "relation": "is located in",
+        "tail": "New York"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_34:fact:6"
+    ],
+    "new_annotations": [
+      {
+        "head": "Pine Plains",
+        "relation": "is located in",
+        "tail": "New York"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "They held the first Triangle workshop in 1982 for thirty sculptors and painters from the US , the UK and Canada at Pine Plains , New York ."
+    ],
+    "word_changes": [
+      {
+        "kind": "existing_structural_completion",
+        "added_relative_to_source": [
+          "is",
+          "located"
+        ],
+        "detail": "旧 Gold 把原句地名层级结构显式写为位置关系；本次不进一步改写。"
+      }
+    ],
+    "reason": "Pine Plains, New York 是原句地点标注结构；保留既有 is located in，不使用外部地理知识。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_34",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      7
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "They",
+        "relation": "held first Triangle workshop in",
+        "tail": "New York"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_34:fact:7"
+    ],
+    "new_annotations": [
+      {
+        "head": "They",
+        "relation": "held first Triangle workshop in",
+        "tail": "New York"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "They held the first Triangle workshop in 1982 for thirty sculptors and painters from the US , the UK and Canada at Pine Plains , New York ."
+    ],
+    "word_changes": [],
+    "reason": "保留有明确依据的活动、首次、1982、参加者总数和群体、国家列表及地点。thirty 只修饰整个 sculptors and painters 群体，不分配为两组各30人。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_34",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      8
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "They",
+        "relation": "held first Triangle workshop for sculptors from",
+        "tail": "US"
+      }
+    ],
+    "new_fact_ids": [],
+    "new_annotations": [],
+    "operation": "pending",
+    "evidence_fragments": [
+      "They held the first Triangle workshop in 1982 for thirty sculptors and painters from the US , the UK and Canada at Pine Plains , New York ."
+    ],
+    "word_changes": [],
+    "reason": "原句把 sculptors and painters 与三个国家并列，未明确每一职业在每个国家都有成员。保留原标注供复核，不机械生成职业×国家组合。",
+    "unresolved": "能否分别断言该职业在这个国家有人参加？整组来自三国不必然支持六个职业×国家组合。",
+    "approved_alternatives": [],
+    "status": "pending"
+  },
+  {
+    "sentence_id": "benchie_34",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      9
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "They",
+        "relation": "held first Triangle workshop for sculptors from",
+        "tail": "UK"
+      }
+    ],
+    "new_fact_ids": [],
+    "new_annotations": [],
+    "operation": "pending",
+    "evidence_fragments": [
+      "They held the first Triangle workshop in 1982 for thirty sculptors and painters from the US , the UK and Canada at Pine Plains , New York ."
+    ],
+    "word_changes": [],
+    "reason": "原句把 sculptors and painters 与三个国家并列，未明确每一职业在每个国家都有成员。保留原标注供复核，不机械生成职业×国家组合。",
+    "unresolved": "能否分别断言该职业在这个国家有人参加？整组来自三国不必然支持六个职业×国家组合。",
+    "approved_alternatives": [],
+    "status": "pending"
+  },
+  {
+    "sentence_id": "benchie_34",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      10
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "They",
+        "relation": "held first Triangle workshop for sculptors from",
+        "tail": "Canada"
+      }
+    ],
+    "new_fact_ids": [],
+    "new_annotations": [],
+    "operation": "pending",
+    "evidence_fragments": [
+      "They held the first Triangle workshop in 1982 for thirty sculptors and painters from the US , the UK and Canada at Pine Plains , New York ."
+    ],
+    "word_changes": [],
+    "reason": "原句把 sculptors and painters 与三个国家并列，未明确每一职业在每个国家都有成员。保留原标注供复核，不机械生成职业×国家组合。",
+    "unresolved": "能否分别断言该职业在这个国家有人参加？整组来自三国不必然支持六个职业×国家组合。",
+    "approved_alternatives": [],
+    "status": "pending"
+  },
+  {
+    "sentence_id": "benchie_34",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      11
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "They",
+        "relation": "held first Triangle workshop for painters from",
+        "tail": "US"
+      }
+    ],
+    "new_fact_ids": [],
+    "new_annotations": [],
+    "operation": "pending",
+    "evidence_fragments": [
+      "They held the first Triangle workshop in 1982 for thirty sculptors and painters from the US , the UK and Canada at Pine Plains , New York ."
+    ],
+    "word_changes": [],
+    "reason": "原句把 sculptors and painters 与三个国家并列，未明确每一职业在每个国家都有成员。保留原标注供复核，不机械生成职业×国家组合。",
+    "unresolved": "能否分别断言该职业在这个国家有人参加？整组来自三国不必然支持六个职业×国家组合。",
+    "approved_alternatives": [],
+    "status": "pending"
+  },
+  {
+    "sentence_id": "benchie_34",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      12
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "They",
+        "relation": "held first Triangle workshop for painters from",
+        "tail": "UK"
+      }
+    ],
+    "new_fact_ids": [],
+    "new_annotations": [],
+    "operation": "pending",
+    "evidence_fragments": [
+      "They held the first Triangle workshop in 1982 for thirty sculptors and painters from the US , the UK and Canada at Pine Plains , New York ."
+    ],
+    "word_changes": [],
+    "reason": "原句把 sculptors and painters 与三个国家并列，未明确每一职业在每个国家都有成员。保留原标注供复核，不机械生成职业×国家组合。",
+    "unresolved": "能否分别断言该职业在这个国家有人参加？整组来自三国不必然支持六个职业×国家组合。",
+    "approved_alternatives": [],
+    "status": "pending"
+  },
+  {
+    "sentence_id": "benchie_34",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      13
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "They",
+        "relation": "held first Triangle workshop for painters from",
+        "tail": "Canada"
+      }
+    ],
+    "new_fact_ids": [],
+    "new_annotations": [],
+    "operation": "pending",
+    "evidence_fragments": [
+      "They held the first Triangle workshop in 1982 for thirty sculptors and painters from the US , the UK and Canada at Pine Plains , New York ."
+    ],
+    "word_changes": [],
+    "reason": "原句把 sculptors and painters 与三个国家并列，未明确每一职业在每个国家都有成员。保留原标注供复核，不机械生成职业×国家组合。",
+    "unresolved": "能否分别断言该职业在这个国家有人参加？整组来自三国不必然支持六个职业×国家组合。",
+    "approved_alternatives": [],
+    "status": "pending"
+  },
+  {
+    "sentence_id": "benchie_34",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      14
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "They",
+        "relation": "held first Triangle workshop for",
+        "tail": "sculptors"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_34:fact:8"
+    ],
+    "new_annotations": [
+      {
+        "head": "They",
+        "relation": "held first Triangle workshop for",
+        "tail": "sculptors"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "They held the first Triangle workshop in 1982 for thirty sculptors and painters from the US , the UK and Canada at Pine Plains , New York ."
+    ],
+    "word_changes": [],
+    "reason": "保留有明确依据的活动、首次、1982、参加者总数和群体、国家列表及地点。thirty 只修饰整个 sculptors and painters 群体，不分配为两组各30人。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_34",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      15
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "They",
+        "relation": "held first Triangle workshop for",
+        "tail": "painters"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_34:fact:9"
+    ],
+    "new_annotations": [
+      {
+        "head": "They",
+        "relation": "held first Triangle workshop for",
+        "tail": "painters"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "They held the first Triangle workshop in 1982 for thirty sculptors and painters from the US , the UK and Canada at Pine Plains , New York ."
+    ],
+    "word_changes": [],
+    "reason": "保留有明确依据的活动、首次、1982、参加者总数和群体、国家列表及地点。thirty 只修饰整个 sculptors and painters 群体，不分配为两组各30人。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_240",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      1,
+      2,
+      4
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "These objects",
+        "relation": "are",
+        "tail": "thrown away"
+      },
+      {
+        "head": "These objects",
+        "relation": "are thrown away if",
+        "tail": "their screen projection is too small"
+      },
+      {
+        "head": "their screen projection",
+        "relation": "is",
+        "tail": "too small"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_240:fact:1"
+    ],
+    "new_annotations": [
+      {
+        "head": "These objects",
+        "relation": "are thrown away if",
+        "tail": "their screen projection is too small"
+      }
+    ],
+    "operation": "repair_conditional_scope",
+    "evidence_fragments": [
+      "These objects are thrown away if their screen projection is too small"
+    ],
+    "word_changes": [],
+    "reason": "保留原簇2的完整 if 表达。原簇1的无条件丢弃、原簇4的无条件 too small 都在这个条件命题中，不单独当作已发生事实计分。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_240",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      3
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "These objects",
+        "relation": "have",
+        "tail": "screen projection"
+      }
+    ],
+    "new_fact_ids": [],
+    "new_annotations": [],
+    "operation": "pending",
+    "evidence_fragments": [
+      "These objects are thrown away if their screen projection is too small ."
+    ],
+    "word_changes": [],
+    "reason": "their screen projection 可以表达对象与投影的指称联系，但单列 have 关系会增加原句未直接使用的关系表达；暂不决定删除整个事实。",
+    "unresolved": "这里是否将 their screen projection 单列为对象具有投影的结构事实？试处理先保留原标注待确认。",
+    "approved_alternatives": [],
+    "status": "pending"
+  },
+  {
+    "sentence_id": "benchie_2",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      1
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "Graner",
+        "relation": "handcuffed",
+        "tail": "him"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_2:fact:1"
+    ],
+    "new_annotations": [
+      {
+        "head": "Graner",
+        "relation": "handcuffed",
+        "tail": "him"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "Graner handcuffed him to the bars of a cell window and left him there , feet dangling off the floor , for nearly five hours ."
+    ],
+    "word_changes": [],
+    "reason": "保留原句直接陈述的上铐对象、栏杆/窗户附着关系、留在那里和悬脚状态；允许原句插入成分间的有据组合。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_2",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      2
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "Graner",
+        "relation": "handcuffed him to",
+        "tail": "bars"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_2:fact:2"
+    ],
+    "new_annotations": [
+      {
+        "head": "Graner",
+        "relation": "handcuffed him to",
+        "tail": "bars"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "Graner handcuffed him to the bars of a cell window and left him there , feet dangling off the floor , for nearly five hours ."
+    ],
+    "word_changes": [],
+    "reason": "保留原句直接陈述的上铐对象、栏杆/窗户附着关系、留在那里和悬脚状态；允许原句插入成分间的有据组合。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_2",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      3
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "Graner",
+        "relation": "handcuffed him to bars of",
+        "tail": "cell window"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_2:fact:3"
+    ],
+    "new_annotations": [
+      {
+        "head": "Graner",
+        "relation": "handcuffed him to bars of",
+        "tail": "cell window"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "Graner handcuffed him to the bars of a cell window and left him there , feet dangling off the floor , for nearly five hours ."
+    ],
+    "word_changes": [],
+    "reason": "保留原句直接陈述的上铐对象、栏杆/窗户附着关系、留在那里和悬脚状态；允许原句插入成分间的有据组合。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_2",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      4
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "Graner",
+        "relation": "left him",
+        "tail": "there"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_2:fact:4"
+    ],
+    "new_annotations": [
+      {
+        "head": "Graner",
+        "relation": "left him",
+        "tail": "there"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "Graner handcuffed him to the bars of a cell window and left him there , feet dangling off the floor , for nearly five hours ."
+    ],
+    "word_changes": [],
+    "reason": "保留原句直接陈述的上铐对象、栏杆/窗户附着关系、留在那里和悬脚状态；允许原句插入成分间的有据组合。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_2",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      5
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "Graner",
+        "relation": "left him",
+        "tail": "feet dangling off floor"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_2:fact:5"
+    ],
+    "new_annotations": [
+      {
+        "head": "Graner",
+        "relation": "left him",
+        "tail": "feet dangling off floor"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "Graner handcuffed him to the bars of a cell window and left him there , feet dangling off the floor , for nearly five hours ."
+    ],
+    "word_changes": [],
+    "reason": "保留原句直接陈述的上铐对象、栏杆/窗户附着关系、留在那里和悬脚状态；允许原句插入成分间的有据组合。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_2",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      6,
+      8
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "Graner",
+        "relation": "left him there for",
+        "tail": "nearly five hours"
+      },
+      {
+        "head": "he",
+        "relation": "was left there for",
+        "tail": "nearly five hours"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_2:fact:6"
+    ],
+    "new_annotations": [
+      {
+        "head": "Graner",
+        "relation": "left him there for",
+        "tail": "nearly five hours"
+      }
+    ],
+    "operation": "merge_duplicate_fact",
+    "evidence_fragments": [
+      "Graner handcuffed him to the bars of a cell window and left him there",
+      "for nearly five hours"
+    ],
+    "word_changes": [],
+    "reason": "原簇6与8描述同一次被留下及相同 nearly five hours。选择原文主动表达 Graner left him there for，保留 nearly；不另计被动改写版本。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "benchie_2",
+    "dataset": "benchie_fl",
+    "source_ids": [
+      7
+    ],
+    "source_id_unit": "cluster_ordinal",
+    "original_annotations": [
+      {
+        "head": "his feet",
+        "relation": "were dangling off",
+        "tail": "floor"
+      }
+    ],
+    "new_fact_ids": [
+      "benchie_2:fact:7"
+    ],
+    "new_annotations": [
+      {
+        "head": "feet",
+        "relation": "dangling off",
+        "tail": "the floor"
+      }
+    ],
+    "operation": "repair_source_expression",
+    "evidence_fragments": [
+      "feet dangling off the floor"
+    ],
+    "word_changes": [
+      {
+        "kind": "remove_unnecessary_completion",
+        "removed_from_old": [
+          "his",
+          "were"
+        ],
+        "restored_from_source": [
+          "the"
+        ],
+        "detail": "feet 指向同句被 Graner 留下的 him，由绝对结构依附关系确定。"
+      }
+    ],
+    "reason": "绝对结构 feet dangling off the floor 直接描述被留下者的脚部状态；恢复原文表达，去掉旧代表额外补入的 his 和 were，不删除该事实。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "docoie_transportation_doc0_target0",
+    "dataset": "docoie_transportation",
+    "source_ids": [
+      1
+    ],
+    "source_id_unit": "target_sentence_triple_ordinal",
+    "original_annotations": [
+      {
+        "head": "such elements",
+        "relation": "are well known in",
+        "tail": "the art"
+      }
+    ],
+    "new_fact_ids": [
+      "docoie_transportation_doc0_target0:fact:1"
+    ],
+    "new_annotations": [
+      {
+        "head": "such elements",
+        "relation": "are well known in",
+        "tail": "the art"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "Because such elements and operations are well known in the art, and because they do not facilitate a better understanding of the present disclosure, a discussion of such elements and operations may not be provided herein."
+    ],
+    "word_changes": [],
+    "reason": "because 从句陈述背景原因，elements/operations 可以共享谓语；保留 do not 的局部否定。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "docoie_transportation_doc0_target0",
+    "dataset": "docoie_transportation",
+    "source_ids": [
+      2
+    ],
+    "source_id_unit": "target_sentence_triple_ordinal",
+    "original_annotations": [
+      {
+        "head": "such operations",
+        "relation": "are well known in",
+        "tail": "the art"
+      }
+    ],
+    "new_fact_ids": [
+      "docoie_transportation_doc0_target0:fact:2"
+    ],
+    "new_annotations": [
+      {
+        "head": "such operations",
+        "relation": "are well known in",
+        "tail": "the art"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "Because such elements and operations are well known in the art, and because they do not facilitate a better understanding of the present disclosure, a discussion of such elements and operations may not be provided herein."
+    ],
+    "word_changes": [],
+    "reason": "because 从句陈述背景原因，elements/operations 可以共享谓语；保留 do not 的局部否定。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "docoie_transportation_doc0_target0",
+    "dataset": "docoie_transportation",
+    "source_ids": [
+      3
+    ],
+    "source_id_unit": "target_sentence_triple_ordinal",
+    "original_annotations": [
+      {
+        "head": "they",
+        "relation": "do not facilitate",
+        "tail": "a better understanding of the present disclosure"
+      }
+    ],
+    "new_fact_ids": [
+      "docoie_transportation_doc0_target0:fact:3"
+    ],
+    "new_annotations": [
+      {
+        "head": "they",
+        "relation": "do not facilitate",
+        "tail": "a better understanding of the present disclosure"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "Because such elements and operations are well known in the art, and because they do not facilitate a better understanding of the present disclosure, a discussion of such elements and operations may not be provided herein."
+    ],
+    "word_changes": [],
+    "reason": "because 从句陈述背景原因，elements/operations 可以共享谓语；保留 do not 的局部否定。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "docoie_transportation_doc0_target0",
+    "dataset": "docoie_transportation",
+    "source_ids": [],
+    "source_id_unit": "target_sentence_triple_ordinal",
+    "original_annotations": [],
+    "new_fact_ids": [
+      "docoie_transportation_doc0_target0:fact:4"
+    ],
+    "new_annotations": [
+      {
+        "head": "a discussion of such elements and operations",
+        "relation": "may not be provided",
+        "tail": "herein"
+      }
+    ],
+    "operation": "supplement",
+    "evidence_fragments": [
+      "a discussion of such elements and operations may not be provided herein"
+    ],
+    "word_changes": [],
+    "reason": "反向检查发现原 Gold 漏掉主句。直接保留 may not，不把可能不提供变成确定不提供；该事实与三个原因事实不同。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "docoie_transportation_doc0_target2",
+    "dataset": "docoie_transportation",
+    "source_ids": [
+      1
+    ],
+    "source_id_unit": "target_sentence_triple_ordinal",
+    "original_annotations": [
+      {
+        "head": "vlidation of the vehicle identity",
+        "relation": "ensures",
+        "tail": "the integrity of all of the components"
+      }
+    ],
+    "new_fact_ids": [
+      "docoie_transportation_doc0_target2:fact:1"
+    ],
+    "new_annotations": [
+      {
+        "head": "validation of the vehicle identity",
+        "relation": "ensures",
+        "tail": "the integrity of all of the components"
+      }
+    ],
+    "operation": "repair_typo",
+    "evidence_fragments": [
+      "In this manner, validation of the vehicle identity ensures the integrity of all of the components that make up the vehicle as well as information generated by any of the components that make up the vehicle."
+    ],
+    "word_changes": [
+      {
+        "kind": "typo",
+        "old": "vlidation",
+        "new": "validation"
+      }
+    ],
+    "reason": "仅修正 vlidation 拼写，使其与原文 validation 一致。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "docoie_transportation_doc0_target2",
+    "dataset": "docoie_transportation",
+    "source_ids": [
+      2,
+      5
+    ],
+    "source_id_unit": "target_sentence_triple_ordinal",
+    "original_annotations": [
+      {
+        "head": "the components",
+        "relation": "make up",
+        "tail": "the vehicle"
+      },
+      {
+        "head": "components",
+        "relation": "make up",
+        "tail": "the vehicle"
+      }
+    ],
+    "new_fact_ids": [
+      "docoie_transportation_doc0_target2:fact:2"
+    ],
+    "new_annotations": [
+      {
+        "head": "the components",
+        "relation": "make up",
+        "tail": "the vehicle"
+      }
+    ],
+    "operation": "merge_duplicate_fact",
+    "evidence_fragments": [
+      "In this manner, validation of the vehicle identity ensures the integrity of all of the components that make up the vehicle as well as information generated by any of the components that make up the vehicle."
+    ],
+    "word_changes": [],
+    "reason": "两条 components make up the vehicle 指向同句同一组成关系；合并重复，保留 the components。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "docoie_transportation_doc0_target2",
+    "dataset": "docoie_transportation",
+    "source_ids": [
+      3
+    ],
+    "source_id_unit": "target_sentence_triple_ordinal",
+    "original_annotations": [
+      {
+        "head": "vlidation of the vehicle identity",
+        "relation": "ensures",
+        "tail": "information generated by any of the components that make up the vehicle"
+      }
+    ],
+    "new_fact_ids": [],
+    "new_annotations": [],
+    "operation": "pending",
+    "evidence_fragments": [
+      "In this manner, validation of the vehicle identity ensures the integrity of all of the components that make up the vehicle as well as information generated by any of the components that make up the vehicle."
+    ],
+    "word_changes": [],
+    "reason": "长宾语中的 generated by... 限定信息来源，不能随意删除。更关键的是 as well as information 究竟与 integrity 还是 components 并列，影响 ensures 的范围。",
+    "unresolved": "原 Gold 的 ensures information 是否应为 ensures the integrity of information？不能在范围不明确时擅自补出 integrity；原标注原样保存。",
+    "approved_alternatives": [],
+    "status": "pending"
+  },
+  {
+    "sentence_id": "docoie_transportation_doc0_target2",
+    "dataset": "docoie_transportation",
+    "source_ids": [
+      4
+    ],
+    "source_id_unit": "target_sentence_triple_ordinal",
+    "original_annotations": [
+      {
+        "head": "information",
+        "relation": "is generated by",
+        "tail": "any of the components that make up the vehicle"
+      }
+    ],
+    "new_fact_ids": [
+      "docoie_transportation_doc0_target2:fact:3"
+    ],
+    "new_annotations": [
+      {
+        "head": "information",
+        "relation": "is generated by",
+        "tail": "any of the components that make up the vehicle"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "In this manner, validation of the vehicle identity ensures the integrity of all of the components that make up the vehicle as well as information generated by any of the components that make up the vehicle."
+    ],
+    "word_changes": [
+      {
+        "kind": "existing_grammatical_completion",
+        "added_relative_to_source": [
+          "is"
+        ],
+        "detail": "旧 Gold 已有 is；generated by 本身在原句中是被动修饰语，不是主动转被动。"
+      }
+    ],
+    "reason": "生成来源修饰语直接支持，保留 any of the components that make up the vehicle，以免扩大到任意组件。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "docoie_transportation_doc0_target3",
+    "dataset": "docoie_transportation",
+    "source_ids": [
+      1
+    ],
+    "source_id_unit": "target_sentence_triple_ordinal",
+    "original_annotations": [
+      {
+        "head": "the term computer readable medium",
+        "relation": "is meant to refer to",
+        "tail": "any machine-readable medium"
+      }
+    ],
+    "new_fact_ids": [
+      "docoie_transportation_doc0_target3:fact:1"
+    ],
+    "new_annotations": [
+      {
+        "head": "the term computer readable medium",
+        "relation": "is meant to refer to",
+        "tail": "any machine-readable medium"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "Further, the term computer readable medium is meant to refer to any machine-readable medium (automated data medium) capable of storing data in a format readable by a mechanical device."
+    ],
+    "word_changes": [],
+    "reason": "既有拆分覆盖定义、括号同位说明、存储能力和格式可读性。computer readable medium 等术语不按词数拆分，不新增无依据的关系。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "docoie_transportation_doc0_target3",
+    "dataset": "docoie_transportation",
+    "source_ids": [
+      2
+    ],
+    "source_id_unit": "target_sentence_triple_ordinal",
+    "original_annotations": [
+      {
+        "head": "machine-readable medium",
+        "relation": "is",
+        "tail": "automated data medium"
+      }
+    ],
+    "new_fact_ids": [
+      "docoie_transportation_doc0_target3:fact:2"
+    ],
+    "new_annotations": [
+      {
+        "head": "machine-readable medium",
+        "relation": "is",
+        "tail": "automated data medium"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "Further, the term computer readable medium is meant to refer to any machine-readable medium (automated data medium) capable of storing data in a format readable by a mechanical device."
+    ],
+    "word_changes": [
+      {
+        "kind": "existing_grammatical_completion",
+        "added_relative_to_source": [
+          "is"
+        ],
+        "detail": "原 Gold 已有系动词；来自括号同位结构或形容词修饰，不在本次另行补词。"
+      }
+    ],
+    "reason": "既有拆分覆盖定义、括号同位说明、存储能力和格式可读性。computer readable medium 等术语不按词数拆分，不新增无依据的关系。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "docoie_transportation_doc0_target3",
+    "dataset": "docoie_transportation",
+    "source_ids": [
+      3
+    ],
+    "source_id_unit": "target_sentence_triple_ordinal",
+    "original_annotations": [
+      {
+        "head": "machine-readable medium",
+        "relation": "is capable of",
+        "tail": "storing data"
+      }
+    ],
+    "new_fact_ids": [
+      "docoie_transportation_doc0_target3:fact:3"
+    ],
+    "new_annotations": [
+      {
+        "head": "machine-readable medium",
+        "relation": "is capable of",
+        "tail": "storing data"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "Further, the term computer readable medium is meant to refer to any machine-readable medium (automated data medium) capable of storing data in a format readable by a mechanical device."
+    ],
+    "word_changes": [
+      {
+        "kind": "existing_grammatical_completion",
+        "added_relative_to_source": [
+          "is"
+        ],
+        "detail": "原 Gold 已有系动词；来自括号同位结构或形容词修饰，不在本次另行补词。"
+      }
+    ],
+    "reason": "既有拆分覆盖定义、括号同位说明、存储能力和格式可读性。computer readable medium 等术语不按词数拆分，不新增无依据的关系。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "docoie_transportation_doc0_target3",
+    "dataset": "docoie_transportation",
+    "source_ids": [
+      4
+    ],
+    "source_id_unit": "target_sentence_triple_ordinal",
+    "original_annotations": [
+      {
+        "head": "machine-readable medium",
+        "relation": "is capable of storing data in",
+        "tail": "a format"
+      }
+    ],
+    "new_fact_ids": [
+      "docoie_transportation_doc0_target3:fact:4"
+    ],
+    "new_annotations": [
+      {
+        "head": "machine-readable medium",
+        "relation": "is capable of storing data in",
+        "tail": "a format"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "Further, the term computer readable medium is meant to refer to any machine-readable medium (automated data medium) capable of storing data in a format readable by a mechanical device."
+    ],
+    "word_changes": [
+      {
+        "kind": "existing_grammatical_completion",
+        "added_relative_to_source": [
+          "is"
+        ],
+        "detail": "原 Gold 已有系动词；来自括号同位结构或形容词修饰，不在本次另行补词。"
+      }
+    ],
+    "reason": "既有拆分覆盖定义、括号同位说明、存储能力和格式可读性。computer readable medium 等术语不按词数拆分，不新增无依据的关系。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "docoie_transportation_doc0_target3",
+    "dataset": "docoie_transportation",
+    "source_ids": [
+      5
+    ],
+    "source_id_unit": "target_sentence_triple_ordinal",
+    "original_annotations": [
+      {
+        "head": "a format",
+        "relation": "is readable by",
+        "tail": "a mechanical device"
+      }
+    ],
+    "new_fact_ids": [
+      "docoie_transportation_doc0_target3:fact:5"
+    ],
+    "new_annotations": [
+      {
+        "head": "a format",
+        "relation": "is readable by",
+        "tail": "a mechanical device"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "Further, the term computer readable medium is meant to refer to any machine-readable medium (automated data medium) capable of storing data in a format readable by a mechanical device."
+    ],
+    "word_changes": [
+      {
+        "kind": "existing_grammatical_completion",
+        "added_relative_to_source": [
+          "is"
+        ],
+        "detail": "原 Gold 已有系动词；来自括号同位结构或形容词修饰，不在本次另行补词。"
+      }
+    ],
+    "reason": "既有拆分覆盖定义、括号同位说明、存储能力和格式可读性。computer readable medium 等术语不按词数拆分，不新增无依据的关系。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc0_target0",
+    "dataset": "docoie_healthcare",
+    "source_ids": [
+      1
+    ],
+    "source_id_unit": "target_sentence_triple_ordinal",
+    "original_annotations": [
+      {
+        "head": "the control station",
+        "relation": "is typically located in",
+        "tail": "a place"
+      }
+    ],
+    "new_fact_ids": [
+      "docoie_healthcare_doc0_target0:fact:1"
+    ],
+    "new_annotations": [
+      {
+        "head": "the control station",
+        "relation": "is typically located in",
+        "tail": "a place"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "The control station is typically located in a place that is remote from the robot face."
+    ],
+    "word_changes": [],
+    "reason": "a place 在两条中指向同一地点；relative clause is remote from 直接给出地点属性，保留 typically，不另加站点位置推论。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc0_target0",
+    "dataset": "docoie_healthcare",
+    "source_ids": [
+      2
+    ],
+    "source_id_unit": "target_sentence_triple_ordinal",
+    "original_annotations": [
+      {
+        "head": "a place",
+        "relation": "is remote from",
+        "tail": "the robot face"
+      }
+    ],
+    "new_fact_ids": [
+      "docoie_healthcare_doc0_target0:fact:2"
+    ],
+    "new_annotations": [
+      {
+        "head": "a place",
+        "relation": "is remote from",
+        "tail": "the robot face"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "The control station is typically located in a place that is remote from the robot face."
+    ],
+    "word_changes": [],
+    "reason": "a place 在两条中指向同一地点；relative clause is remote from 直接给出地点属性，保留 typically，不另加站点位置推论。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc0_target3",
+    "dataset": "docoie_healthcare",
+    "source_ids": [
+      1,
+      2
+    ],
+    "source_id_unit": "target_sentence_triple_ordinal",
+    "original_annotations": [
+      {
+        "head": "the robot face",
+        "relation": "may have",
+        "tail": "a voice recognition system"
+      },
+      {
+        "head": "a voice recognition system",
+        "relation": "allows the user to grant access with",
+        "tail": "a voice command"
+      }
+    ],
+    "new_fact_ids": [
+      "docoie_healthcare_doc0_target3:fact:1"
+    ],
+    "new_annotations": [
+      {
+        "head": "the robot face",
+        "relation": "may have",
+        "tail": "a voice recognition system that allows the user to grant access with a voice command"
+      }
+    ],
+    "operation": "repair_modal_scope",
+    "evidence_fragments": [
+      "The robot face may also have a voice recognition system that allows the user to grant access with a voice command"
+    ],
+    "word_changes": [
+      {
+        "kind": "restore_relative_clause_scope",
+        "detail": "把旧第二条的功能重新置于第一条的系统描述中；全部内容来自原句。"
+      }
+    ],
+    "reason": "保留 may 和原句完整功能修饰。此处先用一个完整三元组保留可能配置的系统及其功能，不把这种可能配置直接写成已存在的系统实例。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  },
+  {
+    "sentence_id": "docoie_healthcare_doc0_target8",
+    "dataset": "docoie_healthcare",
+    "source_ids": [
+      1
+    ],
+    "source_id_unit": "target_sentence_triple_ordinal",
+    "original_annotations": [
+      {
+        "head": "the annotated  image",
+        "relation": "may be stored by",
+        "tail": "the system"
+      }
+    ],
+    "new_fact_ids": [
+      "docoie_healthcare_doc0_target8:fact:1"
+    ],
+    "new_annotations": [
+      {
+        "head": "the annotated  image",
+        "relation": "may be stored by",
+        "tail": "the system"
+      }
+    ],
+    "operation": "keep",
+    "evidence_fragments": [
+      "The annotated image may be stored by the system."
+    ],
+    "word_changes": [],
+    "reason": "普通控制样本：原句和旧 Gold 均保留 may 及原文被动语态；旧标注的多余空格不影响语义，本次不为格式另作改动。",
+    "unresolved": null,
+    "approved_alternatives": [],
+    "status": "reviewed_pilot_proposal"
+  }
+]

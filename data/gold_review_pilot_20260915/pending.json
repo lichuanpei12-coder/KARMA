@@ -1,0 +1,58 @@
+[
+  {
+    "sentence_id": "benchie_34",
+    "source_ids": [
+      8
+    ],
+    "question": "能否分别断言该职业在这个国家有人参加？整组来自三国不必然支持六个职业×国家组合。"
+  },
+  {
+    "sentence_id": "benchie_34",
+    "source_ids": [
+      9
+    ],
+    "question": "能否分别断言该职业在这个国家有人参加？整组来自三国不必然支持六个职业×国家组合。"
+  },
+  {
+    "sentence_id": "benchie_34",
+    "source_ids": [
+      10
+    ],
+    "question": "能否分别断言该职业在这个国家有人参加？整组来自三国不必然支持六个职业×国家组合。"
+  },
+  {
+    "sentence_id": "benchie_34",
+    "source_ids": [
+      11
+    ],
+    "question": "能否分别断言该职业在这个国家有人参加？整组来自三国不必然支持六个职业×国家组合。"
+  },
+  {
+    "sentence_id": "benchie_34",
+    "source_ids": [
+      12
+    ],
+    "question": "能否分别断言该职业在这个国家有人参加？整组来自三国不必然支持六个职业×国家组合。"
+  },
+  {
+    "sentence_id": "benchie_34",
+    "source_ids": [
+      13
+    ],
+    "question": "能否分别断言该职业在这个国家有人参加？整组来自三国不必然支持六个职业×国家组合。"
+  },
+  {
+    "sentence_id": "benchie_240",
+    "source_ids": [
+      3
+    ],
+    "question": "这里是否将 their screen projection 单列为对象具有投影的结构事实？试处理先保留原标注待确认。"
+  },
+  {
+    "sentence_id": "docoie_transportation_doc0_target2",
+    "source_ids": [
+      3
+    ],
+    "question": "原 Gold 的 ensures information 是否应为 ensures the integrity of information？不能在范围不明确时擅自补出 integrity；原标注原样保存。"
+  }
+]

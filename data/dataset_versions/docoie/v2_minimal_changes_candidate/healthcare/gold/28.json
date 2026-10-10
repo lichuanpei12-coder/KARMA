@@ -1,0 +1,122 @@
+[
+  {
+    "head": "a device",
+    "relation": "preferably performs",
+    "tail": "a number of different functions"
+  },
+  {
+    "head": "the wearable device",
+    "relation": "be relatively",
+    "tail": "simple and/or intuitive in operation"
+  },
+  {
+    "head": "visual indicators",
+    "relation": "are such as",
+    "tail": "LEDs or other lighting elements"
+  },
+  {
+    "head": "visual indicators",
+    "relation": "may provide feedback directly to",
+    "tail": "users"
+  },
+  {
+    "head": "visual indicators",
+    "relation": "may provide feedback directly to users based on",
+    "tail": "mode of operation or context"
+  },
+  {
+    "head": "another use of the app",
+    "relation": "is to interpret",
+    "tail": "visual flashes"
+  },
+  {
+    "head": "visual flashes",
+    "relation": "is used to convey",
+    "tail": "information about debugging protocols"
+  },
+  {
+    "head": "methods, devices, and systems",
+    "relation": "provide",
+    "tail": "responsive visual feedback"
+  },
+  {
+    "head": "methods, devices, and systems",
+    "relation": "have been shown and described",
+    "tail": ""
+  },
+  {
+    "head": "the same lighting",
+    "relation": "may be used to provide",
+    "tail": "visual feedback"
+  },
+  {
+    "head": "visual feedback",
+    "relation": "regards",
+    "tail": "other functionality or modes of operation of the device"
+  },
+  {
+    "head": "the system",
+    "relation": "further includes",
+    "tail": "a software application"
+  },
+  {
+    "head": "a software application",
+    "relation": "executes on",
+    "tail": "a computing device"
+  },
+  {
+    "head": "the software application",
+    "relation": "is programmed to acquire",
+    "tail": "imagery of the visual feedback"
+  },
+  {
+    "head": "the software application",
+    "relation": "is programmed to recover",
+    "tail": "the data"
+  },
+  {
+    "head": "Other modes of operation",
+    "relation": "may include",
+    "tail": "those associated with providing visual data, providing visual feedback, activating optional features, or other types of operations that may be desirable or appropriate for a particular device"
+  },
+  {
+    "head": "those",
+    "relation": "are associated with",
+    "tail": "providing visual data, providing visual feedback, activating optional features, or other types of operations that may be desirable or appropriate for a particular device"
+  },
+  {
+    "head": "other types of operations",
+    "relation": "may be desirable or appropriate for",
+    "tail": "a particular device"
+  },
+  {
+    "head": "a first set of LEDs 40A",
+    "relation": "are associated with",
+    "tail": "a first device"
+  },
+  {
+    "head": "a second set of LEDs 40B",
+    "relation": "are associated with",
+    "tail": "a second device"
+  },
+  {
+    "head": "the digital data",
+    "relation": "may be encoded in",
+    "tail": "any number of different ways"
+  },
+  {
+    "head": "any number of types of information",
+    "relation": "may be represented",
+    "tail": ""
+  },
+  {
+    "head": "wearable devices",
+    "relation": "may be able to perform",
+    "tail": "multiple functions"
+  },
+  {
+    "head": "some of which",
+    "relation": "may be complex in",
+    "tail": "nature"
+  }
+]

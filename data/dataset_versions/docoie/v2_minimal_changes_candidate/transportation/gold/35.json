@@ -1,0 +1,157 @@
+[
+  {
+    "head": "cities",
+    "relation": "are crowded with",
+    "tail": "traffic"
+  },
+  {
+    "head": "cities",
+    "relation": "are choked with",
+    "tail": "traffic"
+  },
+  {
+    "head": "even air transportation systems",
+    "relation": "are increasingly operating at",
+    "tail": "full capacity"
+  },
+  {
+    "head": "among the difficulties",
+    "relation": "is",
+    "tail": "the inherent lack of speed with conventional shipping"
+  },
+  {
+    "head": "among the difficulties",
+    "relation": "is",
+    "tail": "the rough ride associated with hydroplaning ships"
+  },
+  {
+    "head": "the difficulties",
+    "relation": "are in developing",
+    "tail": "water transportation"
+  },
+  {
+    "head": "the rough ride",
+    "relation": "is associated with",
+    "tail": "hydroplaning ships"
+  },
+  {
+    "head": "the present invention",
+    "relation": "teaches an apparatus for",
+    "tail": "traveling at high speeds over water"
+  },
+  {
+    "head": "the present invention",
+    "relation": "discloses an apparatus for",
+    "tail": "traveling at high speeds over water"
+  },
+  {
+    "head": "traveling at high speeds over water",
+    "relation": "is with",
+    "tail": "a comfortable ride"
+  },
+  {
+    "head": "traveling at high speeds over water",
+    "relation": "is with",
+    "tail": "dynamic stability"
+  },
+  {
+    "head": "traveling at high speeds over water",
+    "relation": "is with",
+    "tail": "efficient mechanical traction of props in water"
+  },
+  {
+    "head": "another object of the invention",
+    "relation": "is to provide",
+    "tail": "a hydrodynamic lifting means"
+  },
+  {
+    "head": "providing a hydrodynamic lifting means",
+    "relation": "is so as to lift the apparatus to",
+    "tail": "a dynamic waterline"
+  },
+  {
+    "head": "the apparatus",
+    "relation": "is operating under",
+    "tail": "flight conditions"
+  },
+  {
+    "head": "means for floatation",
+    "relation": "displaces",
+    "tail": "the platform element"
+  },
+  {
+    "head": "means for floatation",
+    "relation": "displaces the platform element upward to reestablish",
+    "tail": "a static waterline level"
+  },
+  {
+    "head": "retracting each one of the inflatable members",
+    "relation": "reduces",
+    "tail": "aerodynamic resistance"
+  },
+  {
+    "head": "retracting each one of the inflatable members",
+    "relation": "reduces aerodynamic resistance to",
+    "tail": "the forward travel of the apparatus"
+  },
+  {
+    "head": "air injector valves",
+    "relation": "actuate in combination with",
+    "tail": "air jet valves"
+  },
+  {
+    "head": "air injector valves actuating in combination with air jet valves",
+    "relation": "is to maintain",
+    "tail": "an air cushion under the apparatus"
+  },
+  {
+    "head": "air distributed",
+    "relation": "reinforces",
+    "tail": "a volumetric flow of air over the wing"
+  },
+  {
+    "head": "air distributed",
+    "relation": "is over",
+    "tail": "the cambered surface of forward wing element"
+  },
+  {
+    "head": "air distributed",
+    "relation": "generates",
+    "tail": "a secondary lifting effect"
+  },
+  {
+    "head": "another object of the invention",
+    "relation": "is to provide",
+    "tail": "a means for maneuvering operation"
+  },
+  {
+    "head": "another object of the invention",
+    "relation": "is to provide a means for maneuvering",
+    "tail": "operation"
+  },
+  {
+    "head": "another object of the invention",
+    "relation": "is so as to turn",
+    "tail": "the apparatus in `close` operating conditions"
+  },
+  {
+    "head": "another object of the invention",
+    "relation": "is so as to maneuver",
+    "tail": "the apparatus in `close` operating conditions"
+  },
+  {
+    "head": "`close` operating conditions",
+    "relation": "are such as when",
+    "tail": "docking"
+  },
+  {
+    "head": "the large surface area of platform element",
+    "relation": "is pulled through",
+    "tail": "the air"
+  },
+  {
+    "head": "a large coefficient of drag",
+    "relation": "builds up between",
+    "tail": "the flat underside of platform element and the water"
+  }
+]

@@ -1,0 +1,417 @@
+{
+  "benchie_152": [
+    {
+      "head": "Eastern",
+      "relation": "are",
+      "tail": "negotiating"
+    },
+    {
+      "head": "Eastern's creditors",
+      "relation": "are",
+      "tail": "negotiating"
+    },
+    {
+      "head": "Eastern",
+      "relation": "are negotiating",
+      "tail": "second reorganization plan"
+    },
+    {
+      "head": "Eastern's creditors",
+      "relation": "are negotiating",
+      "tail": "second reorganization plan"
+    },
+    {
+      "head": "Eastern",
+      "relation": "are negotiating second reorganization plan to",
+      "tail": "pay off airline's debts"
+    },
+    {
+      "head": "Eastern's creditors",
+      "relation": "are negotiating second reorganization plan to",
+      "tail": "pay off airline's debts"
+    },
+    {
+      "head": "airline",
+      "relation": "has",
+      "tail": "debts"
+    },
+    {
+      "head": "Eastern's negotiations",
+      "relation": "are in",
+      "tail": "final stages"
+    },
+    {
+      "head": "Eastern's negotiations",
+      "relation": "are in",
+      "tail": "delicate stages"
+    },
+    {
+      "head": "Eastern's creditors",
+      "relation": "are in",
+      "tail": "final stages of negotiating"
+    },
+    {
+      "head": "Eastern's creditors",
+      "relation": "are in",
+      "tail": "delicate stages of negotiating"
+    }
+  ],
+  "benchie_153": [
+    {
+      "head": "Trek",
+      "relation": "previously made only",
+      "tail": "traditional road bikes"
+    },
+    {
+      "head": "Trek",
+      "relation": "made",
+      "tail": "bikes"
+    },
+    {
+      "head": "Dick Burke",
+      "relation": "is",
+      "tail": "Trek's president"
+    },
+    {
+      "head": "Trek",
+      "relation": "has",
+      "tail": "president"
+    },
+    {
+      "head": "Dick Burke",
+      "relation": "says",
+      "tail": "it did not take rocket scientist to change road bike into mountain bike"
+    }
+  ],
+  "benchie_154": [
+    {
+      "head": "Charles O. Givens",
+      "relation": "is from",
+      "tail": "Mount Vernon"
+    },
+    {
+      "head": "Charles O. Givens",
+      "relation": "is",
+      "tail": "investment broker"
+    },
+    {
+      "head": "Charles O. Givens",
+      "relation": "is",
+      "tail": "ex-accountant"
+    },
+    {
+      "head": "Charles O. Givens",
+      "relation": "is son of",
+      "tail": "former stable owner"
+    },
+    {
+      "head": "Charles O. Givens",
+      "relation": "bred",
+      "tail": "Tennessee Walking Horses"
+    },
+    {
+      "head": "Charles O. Givens",
+      "relation": "bred Tennessee Walking Horses for",
+      "tail": "six years"
+    },
+    {
+      "head": "Charles O. Givens",
+      "relation": "raised",
+      "tail": "cattle"
+    },
+    {
+      "head": "Charles O. Givens",
+      "relation": "raised cattle for",
+      "tail": "four years"
+    },
+    {
+      "head": "Charles O. Givens",
+      "relation": "never made profit on breeding",
+      "tail": "Tennessee Walking Horses"
+    },
+    {
+      "head": "Charles O. Givens",
+      "relation": "never made profit on raising",
+      "tail": "cattle"
+    }
+  ],
+  "benchie_155": [
+    {
+      "head": "Mr. Baker",
+      "relation": "heads",
+      "tail": "Kentucky Association of Science Educators and Skeptics"
+    }
+  ],
+  "benchie_156": [
+    {
+      "head": "551 issues",
+      "relation": "were",
+      "tail": "declining"
+    },
+    {
+      "head": "349 issues",
+      "relation": "were",
+      "tail": "advancers"
+    },
+    {
+      "head": "224 issues",
+      "relation": "were",
+      "tail": "unchanged"
+    },
+    {
+      "head": "Declining issues",
+      "relation": "outnumbered",
+      "tail": "advancers issues"
+    }
+  ],
+  "benchie_157": [
+    {
+      "head": "such sale",
+      "relation": "could",
+      "tail": "help"
+    },
+    {
+      "head": "such sale",
+      "relation": "could help",
+      "tail": "Armstrong"
+    },
+    {
+      "head": "such sale",
+      "relation": "could help Armstrong reassure",
+      "tail": "Armstrong's investors"
+    },
+    {
+      "head": "such sale",
+      "relation": "could help Armstrong deter",
+      "tail": "Belzbergs"
+    },
+    {
+      "head": "Belzbergs",
+      "relation": "own",
+      "tail": "9.85% stake"
+    },
+    {
+      "head": "Belzbergs",
+      "relation": "own 9.85% stake in",
+      "tail": "Lancaster Pa. company"
+    },
+    {
+      "head": "Armstrong",
+      "relation": "has",
+      "tail": "investors"
+    }
+  ],
+  "benchie_158": [
+    {
+      "head": "He",
+      "relation": "showed up with",
+      "tail": "carpenter's level"
+    },
+    {
+      "head": "He",
+      "relation": "carefully measured",
+      "tail": "every surface"
+    },
+    {
+      "head": "He",
+      "relation": "showed how",
+      "tail": "apparent shrinkage was caused by perspective"
+    },
+    {
+      "head": "apparent shrinkage",
+      "relation": "was caused by",
+      "tail": "perspective"
+    },
+    {
+      "head": "shrinkage",
+      "relation": "was",
+      "tail": "apparent"
+    }
+  ],
+  "benchie_159": [
+    {
+      "head": "cafeteria",
+      "relation": "is also located on",
+      "tail": "sixth floor"
+    },
+    {
+      "head": "chapel",
+      "relation": "is located on",
+      "tail": "14th floor"
+    },
+    {
+      "head": "study hall",
+      "relation": "is located on",
+      "tail": "15th floor"
+    }
+  ],
+  "benchie_160": [
+    {
+      "head": "casting director",
+      "relation": "told Scott that",
+      "tail": "he had wished that he had met him a week before"
+    },
+    {
+      "head": "casting director",
+      "relation": "told Scott that he had wished that he had met him a week before",
+      "tail": "at the time"
+    },
+    {
+      "head": "casting director",
+      "relation": "was",
+      "tail": "casting"
+    },
+    {
+      "head": "casting director",
+      "relation": "was casting",
+      "tail": "a week before"
+    },
+    {
+      "head": "casting director",
+      "relation": "was casting for",
+      "tail": "G.I. Joe cartoon"
+    }
+  ],
+  "benchie_161": [
+    {
+      "head": "Samaritan ethnonym",
+      "relation": "is not derived from region of Samaria according to",
+      "tail": "Samaritan tradition"
+    },
+    {
+      "head": "Samaritan ethnonym",
+      "relation": "is derived from fact that they were Guardians of true Israelite religion according to",
+      "tail": "Samaritan tradition"
+    },
+    {
+      "head": "Samaritan",
+      "relation": "is",
+      "tail": "ethnonym"
+    }
+  ],
+  "benchie_162": [
+    {
+      "head": "Applying this technique",
+      "relation": "facilitates",
+      "tail": "connection"
+    },
+    {
+      "head": "Applying this technique",
+      "relation": "facilitates connection of",
+      "tail": "center of foot with lower abdomen"
+    }
+  ],
+  "benchie_163": [
+    {
+      "head": "lower river",
+      "relation": "had to be",
+      "tail": "dredged"
+    },
+    {
+      "head": "lower river",
+      "relation": "had to be dredged",
+      "tail": "three times"
+    },
+    {
+      "head": "lower river",
+      "relation": "had to be dredged three times in",
+      "tail": "two years"
+    },
+    {
+      "head": "lower river",
+      "relation": "had to be dredged as",
+      "tail": "result"
+    }
+  ],
+  "benchie_164": [
+    {
+      "head": "Barbara",
+      "relation": "was however",
+      "tail": "unable to leave behind her vigilante life"
+    },
+    {
+      "head": "Barbara",
+      "relation": "fought",
+      "tail": "mugger"
+    },
+    {
+      "head": "Barbara",
+      "relation": "ultimately miscarried",
+      "tail": "her child"
+    }
+  ],
+  "benchie_165": [
+    {
+      "head": "Chevalier",
+      "relation": "fulfilled",
+      "tail": "his promise"
+    },
+    {
+      "head": "Chevalier",
+      "relation": "fulfilled his promise",
+      "tail": "following year"
+    },
+    {
+      "head": "Chevalier",
+      "relation": "fulfilled his promise by",
+      "tail": "erecting shrine"
+    },
+    {
+      "head": "Chevalier",
+      "relation": "erected shrine dedicated to",
+      "tail": "honour of Mary"
+    },
+    {
+      "head": "Chevalier",
+      "relation": "erected shrine under title of",
+      "tail": "Our Lady of the Sacred Heart"
+    },
+    {
+      "head": "shrine",
+      "relation": "is dedicated to",
+      "tail": "honour of Mary"
+    },
+    {
+      "head": "shrine",
+      "relation": "is titled",
+      "tail": "Our Lady of the Sacred Heart"
+    },
+    {
+      "head": "Chevalier",
+      "relation": "erected",
+      "tail": "shrine"
+    },
+    {
+      "head": "Chevalier",
+      "relation": "made",
+      "tail": "promise"
+    }
+  ],
+  "benchie_166": [
+    {
+      "head": "Citizens for Responsibility and Ethics in Washington",
+      "relation": "filed",
+      "tail": "Ethics Committee complaint"
+    },
+    {
+      "head": "Citizens for Responsibility and Ethics in Washington",
+      "relation": "filed",
+      "tail": "complaint"
+    },
+    {
+      "head": "Citizens for Responsibility and Ethics in Washington",
+      "relation": "filed complaint against",
+      "tail": "Bond"
+    },
+    {
+      "head": "Citizens for Responsibility and Ethics in Washington",
+      "relation": "filed complaint against Bond over",
+      "tail": "Bond's role in ouster of Graves"
+    },
+    {
+      "head": "Graves",
+      "relation": "was",
+      "tail": "ousted"
+    }
+  ]
+}

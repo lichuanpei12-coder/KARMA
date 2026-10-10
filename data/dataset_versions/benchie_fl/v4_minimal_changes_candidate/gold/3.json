@@ -1,0 +1,467 @@
+{
+  "benchie_46": [
+    {
+      "head": "Tom McMorran",
+      "relation": "joined",
+      "tail": "band"
+    },
+    {
+      "head": "Tom McMorran",
+      "relation": "joined band in",
+      "tail": "1994"
+    },
+    {
+      "head": "Tom McMorran",
+      "relation": "joined band after",
+      "tail": "Mark Portmann left band"
+    },
+    {
+      "head": "Mark Portmann",
+      "relation": "left",
+      "tail": "band"
+    },
+    {
+      "head": "band",
+      "relation": "released",
+      "tail": "Sahara"
+    },
+    {
+      "head": "band",
+      "relation": "released Sahara in",
+      "tail": "August of 1994"
+    }
+  ],
+  "benchie_47": [
+    {
+      "head": "she",
+      "relation": "also makes",
+      "tail": "veiled references"
+    },
+    {
+      "head": "she",
+      "relation": "also makes veiled references as",
+      "tail": "she reads articles"
+    },
+    {
+      "head": "she",
+      "relation": "also makes veiled references relating to",
+      "tail": "slang use of beaver"
+    },
+    {
+      "head": "she",
+      "relation": "also makes",
+      "tail": "innuendo"
+    },
+    {
+      "head": "she",
+      "relation": "also makes veiled innuendo as",
+      "tail": "she reads articles"
+    },
+    {
+      "head": "she",
+      "relation": "also makes veiled innuendo relating to",
+      "tail": "slang use of beaver"
+    },
+    {
+      "head": "she",
+      "relation": "reads",
+      "tail": "articles"
+    }
+  ],
+  "benchie_48": [
+    {
+      "head": "23.8% of all households",
+      "relation": "were made up of",
+      "tail": "individuals"
+    },
+    {
+      "head": "13.0% of all households",
+      "relation": "had",
+      "tail": "someone living alone who was 65 years or older"
+    }
+  ],
+  "benchie_49": [
+    {
+      "head": "Overseas teams",
+      "relation": "would not return to",
+      "tail": "Russia"
+    },
+    {
+      "head": "Overseas teams",
+      "relation": "would not return to Russia until",
+      "tail": "1998"
+    },
+    {
+      "head": "Overseas teams",
+      "relation": "would not return to Russia until",
+      "tail": "youth tournament was held"
+    },
+    {
+      "head": "Overseas teams",
+      "relation": "would not return to Russia until youth tournament was held in",
+      "tail": "Moscow"
+    },
+    {
+      "head": "youth tournament",
+      "relation": "was",
+      "tail": "held"
+    },
+    {
+      "head": "youth tournament",
+      "relation": "was held in",
+      "tail": "Moscow"
+    },
+    {
+      "head": "youth tournament",
+      "relation": "was held in",
+      "tail": "1998"
+    },
+    {
+      "head": "Overseas teams",
+      "relation": "returned to",
+      "tail": "Russia"
+    }
+  ],
+  "benchie_50": [
+    {
+      "head": "British Army",
+      "relation": "had been shown to be",
+      "tail": "overstretched"
+    },
+    {
+      "head": "British Army",
+      "relation": "had been shown to be overstretched by",
+      "tail": "Crimean War"
+    },
+    {
+      "head": "mutiny in India",
+      "relation": "had led to responsibility for providing garrison in subcontinent to",
+      "tail": "Crown forces"
+    },
+    {
+      "head": "mutiny in India",
+      "relation": "had led to responsibility for providing garrison in subcontinent from",
+      "tail": "Honourable East India Company"
+    },
+    {
+      "head": "mutiny in India",
+      "relation": "had led to",
+      "tail": "responsibility"
+    },
+    {
+      "head": "mutiny in India",
+      "relation": "had led to responsibility for",
+      "tail": "providing garrison"
+    },
+    {
+      "head": "mutiny in India",
+      "relation": "had led to responsibility for providing garrison in",
+      "tail": "subcontinent"
+    }
+  ],
+  "benchie_51": [
+    {
+      "head": "replica of a Shiva lingam",
+      "relation": "is seen",
+      "tail": "just above"
+    },
+    {
+      "head": "Shiva lingam",
+      "relation": "has",
+      "tail": "replica"
+    }
+  ],
+  "benchie_52": [
+    {
+      "head": "ninth leaf",
+      "relation": "contains",
+      "tail": "circular world map"
+    },
+    {
+      "head": "ninth leaf",
+      "relation": "contains circular world map measuring in",
+      "tail": "circumference"
+    },
+    {
+      "head": "circular world map",
+      "relation": "measures in",
+      "tail": "circumference"
+    }
+  ],
+  "benchie_53": [
+    {
+      "head": "It",
+      "relation": "hosts",
+      "tail": "Zomercarnaval"
+    },
+    {
+      "head": "It",
+      "relation": "hosts",
+      "tail": "second largest Caribbean carnival in Europe"
+    },
+    {
+      "head": "Zomercarnaval",
+      "relation": "is",
+      "tail": "second largest Caribbean carnival in Europe"
+    },
+    {
+      "head": "Zomercarnaval",
+      "relation": "is",
+      "tail": "carnival"
+    },
+    {
+      "head": "Zomercarnaval",
+      "relation": "is",
+      "tail": "Caribbean"
+    },
+    {
+      "head": "Zomercarnaval",
+      "relation": "was originally called",
+      "tail": "Antillean carnival"
+    },
+    {
+      "head": "Zomercarnaval",
+      "relation": "is in",
+      "tail": "Europe"
+    }
+  ],
+  "benchie_54": [
+    {
+      "head": "signal",
+      "relation": "has",
+      "tail": "power cepstrum"
+    },
+    {
+      "head": "power cepstrum of signal",
+      "relation": "is defined as",
+      "tail": "squared magnitude of inverse Fourier transform of logarithm of squared magnitude of Fourier transform of signal"
+    },
+    {
+      "head": "signal",
+      "relation": "has",
+      "tail": "Fourier transform"
+    },
+    {
+      "head": "Fourier transform of signal",
+      "relation": "has",
+      "tail": "squared magnitude"
+    },
+    {
+      "head": "squared magnitude of Fourier transform of signal",
+      "relation": "has",
+      "tail": "logarithm"
+    },
+    {
+      "head": "logarithm of squared magnitude of Fourier transform of signal",
+      "relation": "has",
+      "tail": "inverse Fourier transform"
+    },
+    {
+      "head": "inverse Fourier transform of logarithm of squared magnitude of Fourier transform of signal",
+      "relation": "has",
+      "tail": "squared magnitude"
+    }
+  ],
+  "benchie_55": [
+    {
+      "head": "lodge",
+      "relation": "has",
+      "tail": "many members"
+    },
+    {
+      "head": "lodge",
+      "relation": "has",
+      "tail": "many youth members"
+    },
+    {
+      "head": "lodge",
+      "relation": "has",
+      "tail": "many adult members"
+    },
+    {
+      "head": "Many lodge members",
+      "relation": "are",
+      "tail": "active staff members"
+    },
+    {
+      "head": "Many lodge members",
+      "relation": "are active staff members of",
+      "tail": "Scout camps"
+    },
+    {
+      "head": "Many lodge members",
+      "relation": "are active staff members of",
+      "tail": "Cub Scout camps"
+    },
+    {
+      "head": "Many youth lodge members",
+      "relation": "are",
+      "tail": "active staff members"
+    },
+    {
+      "head": "Many youth lodge members",
+      "relation": "are active staff members of",
+      "tail": "Scout camps"
+    },
+    {
+      "head": "Many youth lodge members",
+      "relation": "are active staff members of",
+      "tail": "Cub Scout camps"
+    },
+    {
+      "head": "Many adult lodge members",
+      "relation": "are",
+      "tail": "active staff members"
+    },
+    {
+      "head": "Many adult lodge members",
+      "relation": "are active staff members of",
+      "tail": "Scout camps"
+    },
+    {
+      "head": "Many adult lodge members",
+      "relation": "are active staff members of",
+      "tail": "Cub Scout camps"
+    },
+    {
+      "head": "Scout camps",
+      "relation": "has",
+      "tail": "many active staff members"
+    },
+    {
+      "head": "Cub Scout camps",
+      "relation": "has",
+      "tail": "many active staff members"
+    }
+  ],
+  "benchie_56": [
+    {
+      "head": "Gideon Rodan",
+      "relation": "was",
+      "tail": "teacher"
+    },
+    {
+      "head": "Gideon Rodan",
+      "relation": "taught at",
+      "tail": "University of Connecticut School of Dental Medicine"
+    },
+    {
+      "head": "Gideon Rodan",
+      "relation": "taught at University of Connecticut School of Dental Medicine from",
+      "tail": "1970"
+    },
+    {
+      "head": "Gideon Rodan",
+      "relation": "taught at University of Connecticut School of Dental Medicine until",
+      "tail": "1985"
+    },
+    {
+      "head": "Gideon Rodan",
+      "relation": "taught at the University of Connecticut School of Dental Medicine until",
+      "tail": "he switched over to Merck"
+    },
+    {
+      "head": "Gideon Rodan",
+      "relation": "switched over to",
+      "tail": "Merck"
+    }
+  ],
+  "benchie_57": [
+    {
+      "head": "These",
+      "relation": "are known as",
+      "tail": "Porter's three generic strategies"
+    },
+    {
+      "head": "Porter's three generic strategies",
+      "relation": "can be applied to",
+      "tail": "any size of business"
+    },
+    {
+      "head": "Porter's three generic strategies",
+      "relation": "can be applied to",
+      "tail": "any form of business"
+    },
+    {
+      "head": "Porter",
+      "relation": "has",
+      "tail": "three generic strategies"
+    },
+    {
+      "head": "Porter",
+      "relation": "has",
+      "tail": "generic strategies"
+    }
+  ],
+  "benchie_58": [
+    {
+      "head": "protocol",
+      "relation": "includes",
+      "tail": "support groups"
+    },
+    {
+      "head": "protocol",
+      "relation": "includes",
+      "tail": "psychotherapy"
+    },
+    {
+      "head": "protocol",
+      "relation": "includes support groups for",
+      "tail": "patients"
+    },
+    {
+      "head": "protocol",
+      "relation": "includes psychotherapy for",
+      "tail": "patients"
+    },
+    {
+      "head": "protocol",
+      "relation": "includes support groups for patients who do not",
+      "tail": "recover quickly"
+    },
+    {
+      "head": "protocol",
+      "relation": "includes psychotherapy for patients who do not",
+      "tail": "recover quickly"
+    }
+  ],
+  "benchie_59": [
+    {
+      "head": "They",
+      "relation": "do not possess",
+      "tail": "eyelids"
+    },
+    {
+      "head": "they",
+      "relation": "must lick",
+      "tail": "their eyeballs clean"
+    },
+    {
+      "head": "they",
+      "relation": "must lick their eyeballs clean in order to",
+      "tail": "keep them moist"
+    },
+    {
+      "head": "they",
+      "relation": "must lick their eyeballs clean because",
+      "tail": "they do not possess eyelids"
+    },
+    {
+      "head": "They",
+      "relation": "do possess",
+      "tail": "eyeballs"
+    }
+  ],
+  "benchie_60": [
+    {
+      "head": "They",
+      "relation": "acquired",
+      "tail": "Charles City Western"
+    },
+    {
+      "head": "They",
+      "relation": "acquired Charles City Western on",
+      "tail": "December 31 1963"
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+[
+  {
+    "head": "the information gathered",
+    "relation": "can include",
+    "tail": "treatment parameters"
+  },
+  {
+    "head": "the information gathered",
+    "relation": "can include",
+    "tail": "patient feedback"
+  },
+  {
+    "head": "it",
+    "relation": "can be stored in",
+    "tail": "a cloud server"
+  },
+  {
+    "head": "the app",
+    "relation": "is used to control",
+    "tail": "the CES system"
+  },
+  {
+    "head": "the app",
+    "relation": "is used to gather",
+    "tail": "information about treatment including patient feedback"
+  },
+  {
+    "head": "microprocessor",
+    "relation": "communicates with",
+    "tail": "transceiver and a waveform generator"
+  },
+  {
+    "head": "a waveform generator",
+    "relation": "is a portion of",
+    "tail": "the circuitry on circuit board"
+  },
+  {
+    "head": "main unit",
+    "relation": "includes",
+    "tail": "a plastic enclosure"
+  },
+  {
+    "head": "a plastic enclosure",
+    "relation": "meets",
+    "tail": "applicable medical device safety standards"
+  },
+  {
+    "head": "the housing",
+    "relation": "features",
+    "tail": "a multi-color LED indicator"
+  },
+  {
+    "head": "the housing",
+    "relation": "features",
+    "tail": "a charging port"
+  },
+  {
+    "head": "the housing",
+    "relation": "features",
+    "tail": "an electrode connection"
+  },
+  {
+    "head": "the smart device with the software app",
+    "relation": "can control",
+    "tail": "the CES device"
+  },
+  {
+    "head": "the smart device",
+    "relation": "can gather",
+    "tail": "information about the treatment in certain embodiments"
+  },
+  {
+    "head": "there",
+    "relation": "are",
+    "tail": "the same or similar elements"
+  },
+  {
+    "head": "those elements",
+    "relation": "are designated with",
+    "tail": "the same or similar reference numerals"
+  },
+  {
+    "head": "the patient",
+    "relation": "may be prompted to annotate",
+    "tail": "his or her treatment with comments"
+  },
+  {
+    "head": "comments",
+    "relation": "are at",
+    "tail": "the conclusion of each treatment for further analysis"
+  },
+  {
+    "head": "further analysis",
+    "relation": "is by",
+    "tail": "the patient's treatment provider"
+  },
+  {
+    "head": "the app",
+    "relation": "stores",
+    "tail": "patient de-identified treatment information"
+  },
+  {
+    "head": "patient de-identified treatment information",
+    "relation": "is in",
+    "tail": "a secure cloud server"
+  },
+  {
+    "head": "this system",
+    "relation": "has the potential for",
+    "tail": "much better patient comfort and compliance"
+  },
+  {
+    "head": "it",
+    "relation": "can be easily incorporated into",
+    "tail": "patient's lifestyle"
+  }
+]

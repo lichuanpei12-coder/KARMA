@@ -1,0 +1,107 @@
+[
+  {
+    "head": "the method and device",
+    "relation": "makes use of",
+    "tail": "image analysis and statistical algorithms"
+  },
+  {
+    "head": "the method and device making use of image analysis and statistical algorithms",
+    "relation": "is for automatically detecting",
+    "tail": "the image acquisition protocol of a medical image"
+  },
+  {
+    "head": "the salient regions in the volume of the medical image",
+    "relation": "may be determined by applying",
+    "tail": "a blurring filter"
+  },
+  {
+    "head": "the salient regions",
+    "relation": "are in the volume of",
+    "tail": "the medical image"
+  },
+  {
+    "head": "the salient regions in the volume of the medical image",
+    "relation": "may be determined by assigning a saliency value for",
+    "tail": "the pixels above a mean intensity value"
+  },
+  {
+    "head": "the outlier detection",
+    "relation": "is performed using",
+    "tail": "statistical transformation algorithms"
+  },
+  {
+    "head": "another object of the disclosure",
+    "relation": "is to provide a device to automatically detect",
+    "tail": "the image acquisition protocol of a set of medical images"
+  },
+  {
+    "head": "the above mentioned other features of the disclosure",
+    "relation": "will be addressed with reference to",
+    "tail": "the accompanying drawings of the present disclosure"
+  },
+  {
+    "head": "the memory",
+    "relation": "includes",
+    "tail": "an anatomy detection module, a feature extraction module, a statistical classifier module, an outlier protocol detection module and label assignment module"
+  },
+  {
+    "head": "the memory",
+    "relation": "includes",
+    "tail": "an anatomy detection module"
+  },
+  {
+    "head": "the memory",
+    "relation": "includes",
+    "tail": "a feature extraction module"
+  },
+  {
+    "head": "the memory",
+    "relation": "includes",
+    "tail": "a statistical classifier module"
+  },
+  {
+    "head": "the memory",
+    "relation": "includes",
+    "tail": "an outlier protocol detection module"
+  },
+  {
+    "head": "the memory",
+    "relation": "includes",
+    "tail": "label assignment module"
+  },
+  {
+    "head": "the device",
+    "relation": "further includes",
+    "tail": "a communication module"
+  },
+  {
+    "head": "the device further including a communication module",
+    "relation": "is for communicating with",
+    "tail": "other devices via a network connection"
+  },
+  {
+    "head": "the HSWLBP",
+    "relation": "is computed by developing",
+    "tail": "a 256 dimensional histogram of the combined LBP of all the slices of an anatomy"
+  },
+  {
+    "head": "the statistical classifier module",
+    "relation": "may be configured to",
+    "tail": "Support Vector Machine (SVM) algorithm with linear kernel"
+  },
+  {
+    "head": "the statistical classifier module configured to Support Vector Machine (SVM) algorithm with linear kernel",
+    "relation": "is to provide",
+    "tail": "a good classification of the imaging protocols"
+  },
+  {
+    "head": "a plurality of medical images of similar image acquisition protocols",
+    "relation": "is displayed adjacent to",
+    "tail": "sone another"
+  },
+  {
+    "head": "a plurality of medical images",
+    "relation": "are of",
+    "tail": "similar image acquisition protocols"
+  }
+]

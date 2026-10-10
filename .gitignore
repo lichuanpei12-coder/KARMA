@@ -103,6 +103,8 @@ celerybeat.pid
 
 # Environments
 .env
+.env.*
+!.env.example
 .venv
 env/
 venv/
@@ -137,7 +139,8 @@ karma_config.json
 karma_output.json
 
 # IDE
-.vscode/
+.vscode/*
+!.vscode/launch.json
 .idea/
 *.swp
 *.swo
@@ -162,4 +165,8 @@ karma_output/
 
 # Local backup of the previous version
 /旧版/
+
+# Local agent workspace and temporary processing files
+/.codex/
+/tmp/
 

@@ -1,0 +1,127 @@
+[
+  {
+    "head": "world natural gas consumption",
+    "relation": "is rising faster than",
+    "tail": "that of any other fossil fuel"
+  },
+  {
+    "head": "the demand for natural gas",
+    "relation": "can be expected to increase even further with",
+    "tail": "the demand for electricity constantly increasing"
+  },
+  {
+    "head": "liquefaction",
+    "relation": "makes it practical to ship",
+    "tail": "natural gas in large volumes"
+  },
+  {
+    "head": "shipping natural gas in large volumes",
+    "relation": "uses",
+    "tail": "specially designed ships"
+  },
+  {
+    "head": "specially designed ships",
+    "relation": "maintain",
+    "tail": "the cargo's ultra-low temperature"
+  },
+  {
+    "head": "the inner tanks",
+    "relation": "typically are made of",
+    "tail": "9% nickel steel"
+  },
+  {
+    "head": "the inner tanks",
+    "relation": "are built of",
+    "tail": "concrete and steel"
+  },
+  {
+    "head": "the secondary containers",
+    "relation": "are typically made of",
+    "tail": "pre-stressed concrete with a steel liner"
+  },
+  {
+    "head": "public concern about safety",
+    "relation": "has caused the gas industry to look for",
+    "tail": "remote sites for such facilities"
+  },
+  {
+    "head": "both types of tanks",
+    "relation": "have been proposed for",
+    "tail": "use"
+  },
+  {
+    "head": "use",
+    "relation": "is in",
+    "tail": "offshore LNG regasification systems"
+  },
+  {
+    "head": "the flow of gas",
+    "relation": "may be accomplished through",
+    "tail": "a riser"
+  },
+  {
+    "head": "the flow of gas",
+    "relation": "is from the barge to",
+    "tail": "the onshore pipeline system"
+  },
+  {
+    "head": "a riser",
+    "relation": "is connected to",
+    "tail": "the sea bottom"
+  },
+  {
+    "head": "an underwater pipeline receiving end",
+    "relation": "exists at",
+    "tail": "the sea bottom"
+  },
+  {
+    "head": "one aspect of the invention",
+    "relation": "is",
+    "tail": "an offshore liquefied natural gas regasification system"
+  },
+  {
+    "head": "liquefied natural gas",
+    "relation": "is abbreviated as",
+    "tail": "LNG"
+  },
+  {
+    "head": "an offshore liquefied natural gas regasification system",
+    "relation": "includes",
+    "tail": "a mobile floating platform"
+  },
+  {
+    "head": "a mobile floating platform",
+    "relation": "has",
+    "tail": "a regasification unit"
+  },
+  {
+    "head": "a regasification unit",
+    "relation": "is disposed on",
+    "tail": "it"
+  },
+  {
+    "head": "the invention",
+    "relation": "thus avoids the need to provide",
+    "tail": "storage for LNG on the floating platform"
+  },
+  {
+    "head": "the floating platform",
+    "relation": "houses",
+    "tail": "the regasification unit"
+  },
+  {
+    "head": "the invention",
+    "relation": "is typical for",
+    "tail": "prior art offshore regasification systems"
+  },
+  {
+    "head": "the modified VLCC",
+    "relation": "may sail under its own power to",
+    "tail": "the other geographic locations"
+  },
+  {
+    "head": "the modified VLCC may sailing under its own power to the other geographic locations",
+    "relation": "is as required by",
+    "tail": "market conditions"
+  }
+]

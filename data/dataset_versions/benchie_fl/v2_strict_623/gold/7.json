@@ -1,0 +1,228 @@
+{
+  "benchie_105": [
+    {
+      "head": "Bioengineers",
+      "relation": "set out to",
+      "tail": "duplicate that feat"
+    },
+    {
+      "head": "Bioengineers",
+      "relation": "set out to duplicate that feat",
+      "tail": "scientifically"
+    }
+  ],
+  "benchie_106": [
+    {
+      "head": "The company",
+      "relation": "is expected to",
+      "tail": "spend"
+    },
+    {
+      "head": "The company",
+      "relation": "is expected to spend",
+      "tail": "about $ 30 million a year"
+    },
+    {
+      "head": "The company",
+      "relation": "is expected to spend about $ 30 million a year on",
+      "tail": "its two - year corporate campaign"
+    }
+  ],
+  "benchie_110": [
+    {
+      "head": "President Bush",
+      "relation": "said",
+      "tail": "that three members of his cabinet will lead a presidential mission"
+    },
+    {
+      "head": "President Bush",
+      "relation": "said",
+      "tail": "that three members of his cabinet will lead a presidential mission to Poland"
+    },
+    {
+      "head": "President Bush",
+      "relation": "said",
+      "tail": "that three members of his cabinet will lead a presidential mission to Poland to gauge how the U.S. can help the new non - Communist government 's economic changes"
+    }
+  ],
+  "benchie_111": [
+    {
+      "head": "Stephen McCartin",
+      "relation": "said",
+      "tail": "his client welcomed the gamble"
+    }
+  ],
+  "benchie_112": [
+    {
+      "head": "One group of middle - aged manufacturing men from the company 's Zama plant",
+      "relation": "was supposed to",
+      "tail": "check out a trendy restaurant"
+    },
+    {
+      "head": "One group of middle - aged manufacturing men from the company 's Zama plant",
+      "relation": "was supposed to",
+      "tail": "check out a trendy restaurant in the city"
+    }
+  ],
+  "benchie_113": [
+    {
+      "head": "Boyer",
+      "relation": "had to be talked into",
+      "tail": "applying for a patent"
+    },
+    {
+      "head": "Cohen",
+      "relation": "had to be talked into",
+      "tail": "applying for a patent"
+    },
+    {
+      "head": "Boyer",
+      "relation": "had to be talked into applying for",
+      "tail": "a patent on their gene - splicing technique"
+    },
+    {
+      "head": "Cohen",
+      "relation": "had to be talked into applying for",
+      "tail": "a patent on their gene - splicing technique"
+    },
+    {
+      "head": "Boyer",
+      "relation": "applying for",
+      "tail": "a patent"
+    },
+    {
+      "head": "Boyer",
+      "relation": "applying for a patent on",
+      "tail": "their gene - splicing technique"
+    },
+    {
+      "head": "Cohen",
+      "relation": "applying for",
+      "tail": "a patent"
+    },
+    {
+      "head": "Cohen",
+      "relation": "applying for a patent on",
+      "tail": "their gene - splicing technique"
+    }
+  ],
+  "benchie_114": [
+    {
+      "head": "His recent appearance at the Metropolitan Museum",
+      "relation": "dubbed",
+      "tail": "`` A Musical Odyssey"
+    },
+    {
+      "head": "His recent appearance at the Metropolitan Museum",
+      "relation": "was",
+      "tail": "a case in point"
+    }
+  ],
+  "benchie_116": [
+    {
+      "head": "The brokerage firm",
+      "relation": "tracks",
+      "tail": "technology stocks"
+    },
+    {
+      "head": "The brokerage firm",
+      "relation": "tracks technology stocks with",
+      "tail": "its Technology Index"
+    },
+    {
+      "head": "its Technology Index",
+      "relation": "appreciated",
+      "tail": "only 10.59 %"
+    },
+    {
+      "head": "Technology Index",
+      "relation": "appreciated only 10.59 % in",
+      "tail": "the first nine months of this year"
+    }
+  ],
+  "benchie_117": [
+    {
+      "head": "I",
+      "relation": "worry more about",
+      "tail": "things becoming so unraveled"
+    },
+    {
+      "head": "I",
+      "relation": "worry more about things becoming so unraveled on",
+      "tail": "the other side"
+    },
+    {
+      "head": "I",
+      "relation": "worry more about things becoming so unraveled on the other side that",
+      "tail": "they might become unable to negotiate"
+    }
+  ],
+  "benchie_118": [
+    {
+      "head": "We",
+      "relation": "finally rendezvoused with",
+      "tail": "our balloon"
+    },
+    {
+      "head": "our balloon",
+      "relation": "had come to",
+      "tail": "rest"
+    },
+    {
+      "head": "our balloon",
+      "relation": "had come to rest on",
+      "tail": "a dirt road"
+    },
+    {
+      "head": "our balloon",
+      "relation": "had come to rest on a dirt road amid",
+      "tail": "a clutch of Epinalers"
+    },
+    {
+      "head": "a clutch of Epinalers",
+      "relation": "watched us",
+      "tail": "disassemble our craft"
+    },
+    {
+      "head": "a clutch of Epinalers",
+      "relation": "watched",
+      "tail": "us"
+    }
+  ],
+  "benchie_119": [
+    {
+      "head": "A federation official",
+      "relation": "attributed the decline to",
+      "tail": "brisk demand"
+    },
+    {
+      "head": "A federation official",
+      "relation": "attributed the decline to",
+      "tail": "brisk demand from domestic industries"
+    }
+  ],
+  "benchie_120": [
+    {
+      "head": "it",
+      "relation": "could also",
+      "tail": "help"
+    },
+    {
+      "head": "it",
+      "relation": "could also help",
+      "tail": "American companies"
+    },
+    {
+      "head": "American companies",
+      "relation": "also are starting to",
+      "tail": "try to open the market"
+    }
+  ],
+  "benchie_121": [
+    {
+      "head": "A company spokesman",
+      "relation": "did n't know",
+      "tail": "Mr. Wakeman 's age"
+    }
+  ]
+}

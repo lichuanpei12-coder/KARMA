@@ -1,0 +1,127 @@
+[
+  {
+    "head": "the present disclosure",
+    "relation": "describes",
+    "tail": "a method"
+  },
+  {
+    "head": "a method",
+    "relation": "is for providing information to",
+    "tail": "a mobile device"
+  },
+  {
+    "head": "a method for providing information to a mobile device",
+    "relation": "is based on",
+    "tail": "an event at a geographical location"
+  },
+  {
+    "head": "service provider sites",
+    "relation": "forward the alert messages to",
+    "tail": "its mobile devices"
+  },
+  {
+    "head": "mobile devices",
+    "relation": "in turn notify",
+    "tail": "their mobile users"
+  },
+  {
+    "head": "service provider sites",
+    "relation": "are in response to receiving",
+    "tail": "alert messages"
+  },
+  {
+    "head": "alert messages",
+    "relation": "are from",
+    "tail": "the event alert system"
+  },
+  {
+    "head": "the alert",
+    "relation": "is forwarded from",
+    "tail": "the at least one service provider site"
+  },
+  {
+    "head": "the alert",
+    "relation": "is forwarded from the at least one service provider site to",
+    "tail": "at least one mobile device"
+  },
+  {
+    "head": "at least one mobile device",
+    "relation": "is associated with",
+    "tail": "the at least one service provider site"
+  },
+  {
+    "head": "a location of at least one service provider site",
+    "relation": "is identified from",
+    "tail": "a geographical information system"
+  },
+  {
+    "head": "the event alert system",
+    "relation": "may store the information in",
+    "tail": "a repository or database"
+  },
+  {
+    "head": "the event alert system",
+    "relation": "may process the information in",
+    "tail": "a repository or database"
+  },
+  {
+    "head": "the information from the captured image",
+    "relation": "may be compared to",
+    "tail": "information stored within the repository or database"
+  },
+  {
+    "head": "information",
+    "relation": "is stored within",
+    "tail": "the repository or database"
+  },
+  {
+    "head": "additional information about the event",
+    "relation": "may include",
+    "tail": "instructions from government agencies"
+  },
+  {
+    "head": "instructions from government agencies",
+    "relation": "indicate",
+    "tail": "precautions to take against the event"
+  },
+  {
+    "head": "instructions from government agencies",
+    "relation": "indicate precautions to take against",
+    "tail": "the event"
+  },
+  {
+    "head": "alert messages",
+    "relation": "may be sent first to",
+    "tail": "the service provider sites"
+  },
+  {
+    "head": "alert messages",
+    "relation": "may be sent first to",
+    "tail": "other systems"
+  },
+  {
+    "head": "alert messages",
+    "relation": "then forward the messages to",
+    "tail": "associated mobile devices"
+  },
+  {
+    "head": "alert messages",
+    "relation": "may be sent to",
+    "tail": "specific mobile devices"
+  },
+  {
+    "head": "specific mobile devices",
+    "relation": "are at or near",
+    "tail": "the geographical location of the event"
+  },
+  {
+    "head": "one or more types of messages",
+    "relation": "may be sent simultaneously to",
+    "tail": "a mobile device"
+  },
+  {
+    "head": "a mobile device",
+    "relation": "is based on",
+    "tail": "the type of events"
+  }
+]

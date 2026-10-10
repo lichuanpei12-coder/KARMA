@@ -77,7 +77,7 @@ class EvaluatorAgent(BaseAgent):
         self.integrate_threshold = integrate_threshold
 
         # 每次运行一个时间戳文件夹，存放抽取出的三元组 json
-        self._dump_dir = Path("data/result") / datetime.now().strftime("%Y%m%d_%H%M%S")
+        self._dump_dir = Path("data/result") / datetime.now().strftime("%Y%m%d_%H%M%S_%f")
         self._dump_dir.mkdir(parents=True, exist_ok=True)
         self._dump_counter = 0
 

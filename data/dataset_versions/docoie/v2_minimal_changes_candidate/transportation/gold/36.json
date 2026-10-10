@@ -1,0 +1,157 @@
+[
+  {
+    "head": "the present invention",
+    "relation": "relates to",
+    "tail": "a device"
+  },
+  {
+    "head": "a device",
+    "relation": "is for monitoring",
+    "tail": "eye activity"
+  },
+  {
+    "head": "monitoring eye activity",
+    "relation": "is to detect",
+    "tail": "the onset of low alertness levels"
+  },
+  {
+    "head": "monitoring human operators for signs of fatigue",
+    "relation": "is important in",
+    "tail": "transportation"
+  },
+  {
+    "head": "monitoring human operators for signs of fatigue",
+    "relation": "is important in",
+    "tail": "security"
+  },
+  {
+    "head": "monitoring human operators for signs of fatigue",
+    "relation": "is important in",
+    "tail": "process control environments"
+  },
+  {
+    "head": "lapses in attention",
+    "relation": "may be disastrous in",
+    "tail": "process control environments"
+  },
+  {
+    "head": "other recent studies",
+    "relation": "have reported on",
+    "tail": "eye activity"
+  },
+  {
+    "head": "eye activity",
+    "relation": "is relative to",
+    "tail": "performance level in simulated transportation environments"
+  },
+  {
+    "head": "a need",
+    "relation": "therefore exists for",
+    "tail": "a non-obtrusive eye activity monitor"
+  },
+  {
+    "head": "a non-obtrusive eye activity monitor",
+    "relation": "does not require",
+    "tail": "a mechanical or electrical connection to the subject"
+  },
+  {
+    "head": "a non-obtrusive eye activity monitor",
+    "relation": "can estimate",
+    "tail": "drowsiness"
+  },
+  {
+    "head": "a non-obtrusive eye activity monitor",
+    "relation": "can estimate drowsiness in",
+    "tail": "real time"
+  },
+  {
+    "head": "no embodiment of the present invention",
+    "relation": "shall preclude",
+    "tail": "other embodiments"
+  },
+  {
+    "head": "no embodiment of the present invention",
+    "relation": "shall preclude",
+    "tail": "other advantages"
+  },
+  {
+    "head": "other embodiments or advantages",
+    "relation": "may exist or become obvious to",
+    "tail": "those skilled in the art"
+  },
+  {
+    "head": "an eye tracking module",
+    "relation": "accepts",
+    "tail": "an optical input"
+  },
+  {
+    "head": "module",
+    "relation": "measures eye position from",
+    "tail": "an optical input"
+  },
+  {
+    "head": "module",
+    "relation": "measures pupil diameter from",
+    "tail": "an optical input"
+  },
+  {
+    "head": "the sample history",
+    "relation": "is retained for calculating",
+    "tail": "a moving average of the pupil diameter"
+  },
+  {
+    "head": "the sample history",
+    "relation": "preferably contains",
+    "tail": "at least the previous 90 seconds of eye position"
+  },
+  {
+    "head": "the sample history",
+    "relation": "preferably contains",
+    "tail": "at least the previous 90 seconds of pupil diameter data"
+  },
+  {
+    "head": "eyelid droop",
+    "relation": "may nearly cover",
+    "tail": "the entire pupil"
+  },
+  {
+    "head": "eyelid droop may nearly cover the entire pupil",
+    "relation": "is during conditions of",
+    "tail": "extreme drowsiness"
+  },
+  {
+    "head": "extreme drowsiness",
+    "relation": "is without",
+    "tail": "excessive blinking or complete closure of the eye"
+  },
+  {
+    "head": "blink duration",
+    "relation": "is calculated preferably over",
+    "tail": "a 60 second period"
+  },
+  {
+    "head": "blink frequency",
+    "relation": "is calculated preferably over",
+    "tail": "a 60 second period"
+  },
+  {
+    "head": "blink duration",
+    "relation": "is updated at least",
+    "tail": "every 10 seconds"
+  },
+  {
+    "head": "blink duration",
+    "relation": "is updated at least",
+    "tail": "every 10 seconds"
+  },
+  {
+    "head": "alertness estimation module",
+    "relation": "integrates",
+    "tail": "eye activity data"
+  },
+  {
+    "head": "alertness estimation module",
+    "relation": "generates",
+    "tail": "an estimate of drowsiness"
+  }
+]

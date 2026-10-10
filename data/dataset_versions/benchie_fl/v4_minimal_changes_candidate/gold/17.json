@@ -1,0 +1,457 @@
+{
+  "benchie_257": [
+    {
+      "head": "he",
+      "relation": "emphasized that",
+      "tail": "new accounts are up"
+    },
+    {
+      "head": "he",
+      "relation": "emphasized that",
+      "tail": "new sales are up"
+    },
+    {
+      "head": "he",
+      "relation": "emphasized that",
+      "tail": "inquiries are up"
+    },
+    {
+      "head": "he",
+      "relation": "emphasized that",
+      "tail": "subsequent sales of stock funds are up"
+    },
+    {
+      "head": "he",
+      "relation": "emphasized that new accounts are up",
+      "tail": "this month"
+    },
+    {
+      "head": "he",
+      "relation": "emphasized that new sales are up",
+      "tail": "this month"
+    },
+    {
+      "head": "he",
+      "relation": "emphasized that inquiries are up",
+      "tail": "this month"
+    },
+    {
+      "head": "he",
+      "relation": "emphasized that subsequent sales of stock funds are up",
+      "tail": "this month"
+    },
+    {
+      "head": "he",
+      "relation": "emphasized that new accounts are up from",
+      "tail": "September's level"
+    },
+    {
+      "head": "he",
+      "relation": "emphasized that new sales are up from",
+      "tail": "September's level"
+    },
+    {
+      "head": "he",
+      "relation": "emphasized that inquiries are up from",
+      "tail": "September's level"
+    },
+    {
+      "head": "he",
+      "relation": "emphasized that subsequent sales of stock funds are up from",
+      "tail": "September's level"
+    }
+  ],
+  "benchie_258": [
+    {
+      "head": "it",
+      "relation": "does that at",
+      "tail": "cost"
+    },
+    {
+      "head": "it",
+      "relation": "does that at the cost of",
+      "tail": "deepening taxpayer's exposure"
+    },
+    {
+      "head": "it",
+      "relation": "deepens taxpayer's exposure if",
+      "tail": "FHA is forced to pay for more loans going sour"
+    },
+    {
+      "head": "it",
+      "relation": "deepens",
+      "tail": "taxpayer's exposure"
+    },
+    {
+      "head": "taxpayer",
+      "relation": "has",
+      "tail": "exposure"
+    }
+  ],
+  "benchie_259": [
+    {
+      "head": "wire transfers from standing account",
+      "relation": "are not",
+      "tail": "reported"
+    },
+    {
+      "head": "wire transfers bigger than $10,000 from standing account",
+      "relation": "are not",
+      "tail": "reported"
+    }
+  ],
+  "benchie_260": [
+    {
+      "head": "Coca-Cola Co.",
+      "relation": "aims to boost",
+      "tail": "soft-drink volume"
+    },
+    {
+      "head": "Coca-Cola Co.",
+      "relation": "aims to boost soft-drink volume in",
+      "tail": "Singapore"
+    },
+    {
+      "head": "Coca-Cola Co.",
+      "relation": "said",
+      "tail": "it is discussing joint venture"
+    },
+    {
+      "head": "Coca-Cola Co.",
+      "relation": "said it is discussing joint venture with",
+      "tail": "Fraser & Neave Ltd."
+    },
+    {
+      "head": "Coca-Cola Co.",
+      "relation": "said it is discussing joint venture with",
+      "tail": "Coca-Cola Co.'s bottling franchisee in Singapore"
+    },
+    {
+      "head": "Fraser & Neave Ltd.",
+      "relation": "is",
+      "tail": "Coca-Cola Co.'s bottling franchisee"
+    },
+    {
+      "head": "Fraser & Neave Ltd.",
+      "relation": "is Coca-Cola Co.'s bottling franchisee in",
+      "tail": "Singapore"
+    }
+  ],
+  "benchie_261": [
+    {
+      "head": "Mr. Lane",
+      "relation": "said",
+      "tail": "filings required under proposed rules will be at least as effective if not more so for investors following transactions"
+    }
+  ],
+  "benchie_262": [
+    {
+      "head": "Bert Campaneris",
+      "relation": "is",
+      "tail": "crouched"
+    },
+    {
+      "head": "Bert Campaneris",
+      "relation": "is crouched at",
+      "tail": "shortstop"
+    },
+    {
+      "head": "Bert Campaneris",
+      "relation": "was once",
+      "tail": "master thief"
+    },
+    {
+      "head": "Bert Campaneris",
+      "relation": "was once Oakland's",
+      "tail": "master thief"
+    },
+    {
+      "head": "Bert Campaneris",
+      "relation": "effortlessly scoops up",
+      "tail": "groundball"
+    },
+    {
+      "head": "Bert Campaneris",
+      "relation": "flips",
+      "tail": "groundball"
+    },
+    {
+      "head": "Bert Campaneris",
+      "relation": "flips groundball to",
+      "tail": "second"
+    }
+  ],
+  "benchie_263": [
+    {
+      "head": "traders",
+      "relation": "said",
+      "tail": "market remains dull"
+    },
+    {
+      "head": "traders",
+      "relation": "said",
+      "tail": "investors remaining cautiously on sidelines"
+    },
+    {
+      "head": "traders",
+      "relation": "said market remains dull despite",
+      "tail": "modest gains"
+    },
+    {
+      "head": "traders",
+      "relation": "said investors remaining cautiously on sidelines despite",
+      "tail": "modest gains"
+    }
+  ],
+  "benchie_264": [
+    {
+      "head": "Mr. Sider",
+      "relation": "is",
+      "tail": "lawyer"
+    },
+    {
+      "head": "Mr. Sider",
+      "relation": "is",
+      "tail": "estate lawyer"
+    },
+    {
+      "head": "Mr. Sider",
+      "relation": "pores over",
+      "tail": "last wills"
+    },
+    {
+      "head": "Mr. Sider",
+      "relation": "pores over",
+      "tail": "testaments"
+    },
+    {
+      "head": "Mr. Sider",
+      "relation": "pores over last wills",
+      "tail": "early in morning"
+    },
+    {
+      "head": "Mr. Sider",
+      "relation": "pores over testaments",
+      "tail": "early in morning"
+    }
+  ],
+  "benchie_265": [
+    {
+      "head": "Edison Brothers Stores Inc.",
+      "relation": "said",
+      "tail": "it agreed"
+    },
+    {
+      "head": "Edison Brothers Stores Inc.",
+      "relation": "said it agreed to buy",
+      "tail": "229 Foxmoor women's apparel stores"
+    },
+    {
+      "head": "Edison Brothers Stores Inc.",
+      "relation": "said it agreed to buy 229 Foxmoor women's apparel stores from",
+      "tail": "Foxmoor Specialty Stores Corp."
+    },
+    {
+      "head": "Foxmoor Specialty Stores Corp.",
+      "relation": "is unit of",
+      "tail": "Dylex Ltd."
+    },
+    {
+      "head": "Dylex Ltd.",
+      "relation": "is based in",
+      "tail": "Toronto"
+    }
+  ],
+  "benchie_266": [
+    {
+      "head": "Alvin A. Achenbaum",
+      "relation": "has raised",
+      "tail": "hackles"
+    },
+    {
+      "head": "Few people in advertising business",
+      "relation": "have raised as many hackles as",
+      "tail": "Alvin A. Achenbaum"
+    },
+    {
+      "head": "people in advertising business",
+      "relation": "have raised",
+      "tail": "hackles"
+    }
+  ],
+  "benchie_267": [
+    {
+      "head": "passenger",
+      "relation": "can",
+      "tail": "fly"
+    },
+    {
+      "head": "passenger",
+      "relation": "can fly from",
+      "tail": "Chardon"
+    },
+    {
+      "head": "passenger",
+      "relation": "can fly from",
+      "tail": "Neb."
+    },
+    {
+      "head": "passenger",
+      "relation": "can fly to",
+      "tail": "Denver"
+    },
+    {
+      "head": "passenger",
+      "relation": "can fly from Chardon according to prices quoted by company for",
+      "tail": "as little as $89"
+    },
+    {
+      "head": "passenger",
+      "relation": "can fly from Chardon according to prices quoted by company for",
+      "tail": "as little as $109"
+    },
+    {
+      "head": "passenger",
+      "relation": "can fly from Neb. according to prices quoted by company for",
+      "tail": "as little as $89"
+    },
+    {
+      "head": "passenger",
+      "relation": "can fly from Neb. according to prices quoted by company for",
+      "tail": "as little as $109"
+    },
+    {
+      "head": "passenger",
+      "relation": "can fly to Denver according to prices quoted by company for",
+      "tail": "as little as $89"
+    },
+    {
+      "head": "passenger",
+      "relation": "can fly to Denver according to prices quoted by company for",
+      "tail": "as little as $109"
+    },
+    {
+      "head": "company",
+      "relation": "quoted",
+      "tail": "prices"
+    }
+  ],
+  "benchie_268": [
+    {
+      "head": "Hani Zayadi",
+      "relation": "was appointed",
+      "tail": "president"
+    },
+    {
+      "head": "Hani Zayadi",
+      "relation": "was appointed",
+      "tail": "chief executive officer"
+    },
+    {
+      "head": "Hani Zayadi",
+      "relation": "was appointed president of",
+      "tail": "this department store chain"
+    },
+    {
+      "head": "Hani Zayadi",
+      "relation": "was appointed chief executive officer of",
+      "tail": "this department store chain"
+    },
+    {
+      "head": "Hani Zayadi",
+      "relation": "was appointed president effective",
+      "tail": "Nov. 15"
+    },
+    {
+      "head": "Hani Zayadi",
+      "relation": "was appointed chief executive officer effective",
+      "tail": "Nov. 15"
+    },
+    {
+      "head": "Hani Zayadi",
+      "relation": "was succeeding",
+      "tail": "Frank Robertson"
+    },
+    {
+      "head": "Frank Robertson",
+      "relation": "is",
+      "tail": "retiring"
+    },
+    {
+      "head": "Frank Robertson",
+      "relation": "is retiring",
+      "tail": "early"
+    },
+    {
+      "head": "this department store chain",
+      "relation": "is",
+      "tail": "financially troubled"
+    }
+  ],
+  "benchie_269": [
+    {
+      "head": "problem",
+      "relation": "is that",
+      "tail": "once most poison pills are adopted they survive forever"
+    },
+    {
+      "head": "poison pills",
+      "relation": "are",
+      "tail": "adopted"
+    },
+    {
+      "head": "poison pills",
+      "relation": "survive",
+      "tail": "forever"
+    },
+    {
+      "head": "once most poison pills",
+      "relation": "are adopted",
+      "tail": "they survive forever"
+    }
+  ],
+  "benchie_270": [
+    {
+      "head": "Hungary",
+      "relation": "has",
+      "tail": "Parliament"
+    },
+    {
+      "head": "Hungary's Parliament",
+      "relation": "voted to hold",
+      "tail": "national referendum"
+    },
+    {
+      "head": "Hungary's Parliament",
+      "relation": "voted to hold national referendum on",
+      "tail": "election"
+    },
+    {
+      "head": "Hungary's Parliament",
+      "relation": "voted to hold national referendum to",
+      "tail": "fill new post of president"
+    },
+    {
+      "head": "president",
+      "relation": "is",
+      "tail": "new post"
+    },
+    {
+      "head": "president",
+      "relation": "is new post in",
+      "tail": "Hungary's Parliament"
+    }
+  ],
+  "benchie_271": [
+    {
+      "head": "those functions",
+      "relation": "account for",
+      "tail": "only about a third of software market"
+    },
+    {
+      "head": "those functions",
+      "relation": "account for only about a third of software market in",
+      "tail": "Japan"
+    }
+  ]
+}
