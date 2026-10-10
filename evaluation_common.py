@@ -189,6 +189,39 @@ def match_row(doc_id, round_label, mode, gold, pred, gi, pi):
 
 
 CSV_FIELDS = list(match_row("", "R1", "strict", [], [{f: "" for f in FIELDS}], None, 0))
+COMPACT_CSV_FIELDS = [
+    "doc", "round", "metric", "type",
+    "gold_head", "gold_relation", "gold_tail",
+    "pred_head", "pred_relation", "pred_tail",
+    "pair_precision", "pair_recall", "pair_f1",
+]
+
+
+def compact_row(row):
+    return {key: row["status" if key == "type" else key] for key in COMPACT_CSV_FIELDS}
+
+
+def validate_compact_rows(rows, reference_rows, report):
+    """Check the exported projection against originals, then reconstruct scores.
+
+    Original occurrence IDs stay internal; matching raw rows in order preserves
+    their identities even when duplicate triples have identical visible text.
+    """
+    if len(rows) != len(reference_rows):
+        raise ValueError("Compact CSV row count mismatch")
+    restored = []
+    for row, reference in zip(rows, reference_rows):
+        expected = compact_row(reference)
+        if set(row) != set(COMPACT_CSV_FIELDS):
+            raise ValueError("Compact CSV columns mismatch")
+        for key, value in expected.items():
+            if key.startswith("pair_"):
+                _check_number(row[key], value, key)
+            elif row[key] != value:
+                raise ValueError(f"Compact CSV content mismatch: {key}")
+        restored.append({**reference, **{("status" if k == "type" else k): v
+                                         for k, v in row.items()}})
+    validate_rows(restored, report)
 
 
 def summary(p_sum, r_sum, num_pred, num_gold, pairs, mode):
@@ -496,7 +529,7 @@ def validate_rows(rows, report):
         raise ValueError("CSV contains unexpected metric/round/document groups")
 
 
-def save_outputs(report, rows, output_dir, label):
+def save_outputs(report, rows, output_dir, label, detailed_csv=False):
     """Validate memory rows AND reopen the staged CSV before publishing outputs."""
     validate_rows(rows, report)
     output_dir = Path(output_dir)
@@ -508,12 +541,17 @@ def save_outputs(report, rows, output_dir, label):
         with tempfile.NamedTemporaryFile(mode="w", newline="", encoding="utf-8-sig",
                                          dir=output_dir, suffix=".csv.tmp", delete=False) as fp:
             temporary_csv = Path(fp.name)
-            writer = csv.DictWriter(fp, fieldnames=CSV_FIELDS)
+            writer = csv.DictWriter(fp, fieldnames=CSV_FIELDS if detailed_csv else COMPACT_CSV_FIELDS)
             writer.writeheader()
-            writer.writerows(rows)
+            writer.writerows(rows if detailed_csv else (compact_row(row) for row in rows))
         with temporary_csv.open(newline="", encoding="utf-8-sig") as fp:
-            validate_rows(list(csv.DictReader(fp)), report)
+            loaded_rows = list(csv.DictReader(fp))
+            if detailed_csv:
+                validate_rows(loaded_rows, report)
+            else:
+                validate_compact_rows(loaded_rows, rows, report)
         report["csv_verified"] = True
+        report["csv_layout"] = "detailed" if detailed_csv else "compact"
         report["csv_file"] = csv_path.name
         report["csv_sha256"] = hashlib.sha256(temporary_csv.read_bytes()).hexdigest()
         with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", dir=output_dir,
@@ -535,6 +573,8 @@ def run_cli(mode, argv=None):
     parser.add_argument("result_dir", type=Path, help="Run output/details directory or legacy two-round result directory")
     parser.add_argument("gold_source", type=Path, help="Gold directory, document-ID JSON mapping, or one triple-list JSON")
     parser.add_argument("--output-dir", type=Path, help="Defaults to RESULT_DIR/lexical_evaluation")
+    parser.add_argument("--detailed-csv", action="store_true",
+                        help="Export IDs, normalized text and token evidence; default CSV has 13 columns")
     parser.add_argument("--allow-legacy-prefix", action="store_true",
                         help="Explicitly evaluate the first N Gold documents when a legacy run contains only a prefix")
     if mode == "lenient":
@@ -548,7 +588,7 @@ def run_cli(mode, argv=None):
             print("[input] " + warning, file=sys.stderr)
         report, rows = evaluate_samples(samples, modes, info)
         out_dir = args.output_dir or args.result_dir / "lexical_evaluation"
-        json_path, csv_path = save_outputs(report, rows, out_dir, label)
+        json_path, csv_path = save_outputs(report, rows, out_dir, label, args.detailed_csv)
         for metric, results in report["metrics"].items():
             for round_label in ("R1", "R2"):
                 if round_label in results:

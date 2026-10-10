@@ -258,13 +258,38 @@ class InputAndExportTests(unittest.TestCase):
         p = triple('the "car",\n汽车', "have", "10 mW")
         samples = [sample([g, g], [p], "doc /中文", [g, p]), sample([], [], "empty", [])]
         report, rows = ev.evaluate_samples(samples, ["strict", "lenient"], {})
-        json_path, csv_path = ev.save_outputs(report, rows, self.root, "comparison")
-        saved = ev.read_json(json_path)
-        self.assertTrue(saved["csv_verified"])
+        for detailed in (False, True):
+            json_path, csv_path = ev.save_outputs(report, rows, self.root, "comparison", detailed)
+            saved = ev.read_json(json_path)
+            self.assertTrue(saved["csv_verified"])
+            self.assertEqual(saved["csv_layout"], "detailed" if detailed else "compact")
+            with csv_path.open(encoding="utf-8-sig", newline="") as fp:
+                loaded = list(csv.DictReader(fp))
+            self.assertEqual(rows[0]["gold_head"], loaded[0]["gold_head"])
+            if detailed:
+                ev.validate_rows(loaded, saved)
+            else:
+                self.assertEqual(list(loaded[0]), ev.COMPACT_CSV_FIELDS)
+                self.assertEqual(len(loaded[0]), 13)
+                ev.validate_compact_rows(loaded, rows, saved)
+
+    def test_compact_csv_corruption_and_empty_export(self):
+        report, rows = ev.evaluate_samples([sample([triple()] * 2, [triple()])], ["lenient"], {})
+        compact = [ev.compact_row(r) for r in rows]
+        for field, value in (("gold_head", "changed"), ("type", "pred_unmatched"),
+                             ("pair_f1", .5)):
+            bad = copy.deepcopy(compact)
+            bad[0][field] = value
+            with self.assertRaises(ValueError):
+                ev.validate_compact_rows(bad, rows, report)
+        with self.assertRaises(ValueError):
+            ev.validate_compact_rows(compact[:-1], rows, report)
+        report, rows = ev.evaluate_samples([sample([], [])], ["strict"], {})
+        _, csv_path = ev.save_outputs(report, rows, self.root, "strict")
         with csv_path.open(encoding="utf-8-sig", newline="") as fp:
-            loaded = list(csv.DictReader(fp))
-        self.assertEqual(rows[0]["gold_head"], loaded[0]["gold_head"])
-        ev.validate_rows(loaded, saved)
+            reader = csv.DictReader(fp)
+            self.assertEqual(reader.fieldnames, ev.COMPACT_CSV_FIELDS)
+            self.assertEqual(list(reader), [])
 
     def test_csv_corruption_detected(self):
         report, rows = ev.evaluate_samples([sample([triple()] * 2, [triple()])], ["lenient"], {})
@@ -284,12 +309,16 @@ class InputAndExportTests(unittest.TestCase):
         self.manifest("revise")
         for script, flags, label in (("evaluate_strict.py", [], "strict"),
                                      ("evaluate_lenient.py", [], "lenient"),
-                                     ("evaluate_lenient.py", ["--compare-strict"], "comparison")):
+                                     ("evaluate_lenient.py", ["--compare-strict"], "comparison"),
+                                     ("evaluate_lenient.py", ["--compare-strict", "--detailed-csv"], "comparison")):
             out = self.root / label
             process = subprocess.run([sys.executable, str(ROOT / script), str(self.results), str(self.gold),
                                       "--output-dir", str(out), *flags], capture_output=True, text=True)
             self.assertEqual(process.returncode, 0, process.stderr)
             self.assertTrue((out / f"match_{label}.csv").exists())
+            with (out / f"match_{label}.csv").open(encoding="utf-8-sig", newline="") as fp:
+                columns = csv.DictReader(fp).fieldnames
+                self.assertEqual(columns, ev.CSV_FIELDS if "--detailed-csv" in flags else ev.COMPACT_CSV_FIELDS)
         bad = subprocess.run([sys.executable, str(ROOT / "evaluate_strict.py"),
                               str(self.root / "missing"), str(self.gold)], capture_output=True, text=True)
         self.assertEqual(bad.returncode, 1)
