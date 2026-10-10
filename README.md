@@ -2,6 +2,8 @@
 
 > 当前两阶段实验的运行、结果阅读和协作说明，请先看 [同事上手说明](同事上手说明.md)。以下保留原项目介绍。
 
+> 文件用途见 [仓库资料索引](仓库资料索引.md)，其中区分当前运行、示例结果与历史参考；候选数据和旧修改建议不代表当前默认配置。
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![ArXiv](https://img.shields.io/badge/arXiv-2502.06472-b31b1b.svg)](https://arxiv.org/abs/2502.06472)
