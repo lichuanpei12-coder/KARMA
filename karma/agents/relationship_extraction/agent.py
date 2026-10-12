@@ -178,11 +178,25 @@ confidence、clarity、relevance。context 逐字复制源文中的连续片段�
 仅输出需要执行的 add、remove、replace；其余三元组由程序原样保留。
 
 # 审校步骤
-1. 检查已有三元组是否需要拆分。
-   重点检查并列动作、并列对象，以及长 head 或 tail 中嵌入的独立关系。
-   各部分分别有原文依据、主客体明确且集合中尚无等价三元组时，分别表达。
-   保留各自适用的共享成分、条件和情态；不把整体关系或选择关系机械拆开。
-   需要拆分时，用 replace 保留主要事实，其余独立事实用 add 补充。
+1. 逐条检查并列与嵌套关系，拆出尚未独立表达的事实。
+   扫描每条三元组的 head、relation、tail，重点定位：
+   - and、both ... and、as well as、逗号枚举：
+     检查是否连接了分别成立的主体、动作或客体。
+   - and not：检查是否同时表达了肯定关系与另一条否定关系。
+   - comprising、for + 动词-ing、to + 动词：
+     检查字段内部是否还表达了组成、用途或目的关系。
+
+   关键词仅用于定位。对候选结构，回到源文恢复语法明确共享的
+   主体、谓语及限定，判断能否形成分别得到源文支持的完整三元组。
+   应逐一检查当前集合是否已有对应的独立三元组。
+   确需拆分时，用 replace 保留一条，其余未独立表达的事实用 add；
+   已有独立表达的事实不重复添加。拆分结果须保留必要信息。
+
+   拆分示例：
+   源文：The controller may read and store sensor data.
+   当前：The controller → may read and store → sensor data
+   replace：The controller → may read → sensor data
+   add：The controller → may store → sensor data
 
 2. 逐句检查事实覆盖。
    找出每句明确表达的动作、状态、组成、属性、用途和比较关系，
