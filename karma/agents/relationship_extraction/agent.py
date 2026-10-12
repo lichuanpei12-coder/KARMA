@@ -171,145 +171,64 @@ confidence、clarity、relevance。context 逐字复制源文中的连续片段�
             for index, triple in enumerate(previous_relationships)
         ]
         prompt = f"""
-# 任务目标
-依据源文本审校当前三元组集合，并根据审校结果生成最小必要的新增、删除和
-替换操作。当前集合中没有对应修订操作的三元组由程序原样保留。源文本是
-本次事实判断的唯一依据，文本差异只用于帮助定位候选问题。
-“最小必要修订”表示仅输出发生变化的操作，不限制应补充的有效事实数量。
+# 任务
+依据源文本检查当前三元组，纠正错误、补充遗漏，并拆出尚未独立表达的关系。
+源文本是本次事实判断的唯一依据，文本差异只用于帮助定位候选问题。
+没有差异也要检查事实覆盖与必要拆分。
+仅输出需要执行的 add、remove、replace；其余三元组由程序原样保留。
 
-# 输入一：源文本
-该文本是当前抽取流程使用的文本A。
+# 检查顺序
+1. 逐句检查动作、状态、定义、组成、属性和比较关系，核对当前集合是否覆盖。
+2. 重点检查复合三元组：信息嵌在长 head 或 tail 中，不等于关系已独立表达。
+   若其中存在源文支持、主客体明确且集合中没有等价三元组的独立关系，应拆出。
+   仅限定同一事实的修饰语不单独拆分；不因字段长就拆，也不因差异为空就跳过。
+3. 对照原文修正错误，最后检查遗漏、重复、限定丢失和操作冲突。
+
+# 操作
+- add：补充有原文依据、尚未独立表达的事实，不限制有效补充的数量。
+- replace：修正已有事实的边界、关系或方向；拆分时用它保留主要事实，其余用 add。
+- remove：事实无依据或与原文矛盾，且不能通过 replace 修正。
+remove/replace 使用输入中从0开始的固定 index，每个 index 最多操作一次。
+拆分后的事实合起来须保留原三元组中有依据的必要信息。
+
+# 事实与证据
+{FACT_RULES}
+
+# 评分
+{SCORE_RULES}
+
+# 源文本
 <source_text>
 {text}
 </source_text>
 
-# 输入二：当前三元组集合
-每条三元组的 index 是从 0 开始的固定编号，remove 和 replace 通过该编号
-指向需要修订的三元组。
+# 当前三元组
 <current_triples_json>
 {json.dumps(indexed_triples, ensure_ascii=False, indent=2)}
 </current_triples_json>
 
-# 输入三：候选实体集合
-候选集合帮助检查对象和边界，其中的内容仍需结合源文本核实；
-候选新增或移除均不直接决定三元组增删，源文本支持的头尾可以在名单之外。
+# 候选实体
 <candidate_entities_json>
 {json.dumps([{"mention": e.name} for e in (entities or [])], ensure_ascii=False, indent=2)}
 </candidate_entities_json>
 
-# 输入四：文本差异
+# 文本差异
 {difference_context(diff)}
 
-# 修订操作
-- add：源文本明确支持、当前集合尚未独立表达的事实。
-  事实仅嵌在某条三元组的长 head 或 tail 中，不自动视为已独立表达；
-  应结合源文核查是否需要拆出，但不得添加已有的等价三元组。
-- remove：当前三元组的核心事实缺少源文本支持或与源文本矛盾，并且无法
-  通过调整实体边界、关系措辞或方向得到正确事实。
-- replace：核心事实存在，但实体边界、关系措辞或方向需要修正。
-
-# 审校规则
-{FACT_RULES}
-- add 和 replace 的 evidence 使用源文本中逐字复制的连续片段，
-  覆盖支持三元组的完整上下文。
-- 每个 index 最多参与一个 remove 或 replace。一个原三元组需要拆成多条时，
-  用 replace 给出主要修正，其余独立事实放入 add。
-- 差异仅提供候选线索，每项修改以源文本核实结果为准。无法确认的疑点保留原状态。
-{SCORE_RULES}
-
-# 审校顺序
-1. 逐条对照源文本检查当前三元组，特别检查长 head 或 tail 中是否包含
-   尚未独立表达的动作、组成、属性、用途或并列关系。
-2. 对需要拆分的三元组，确认每条拆分结果都有明确的主体、关系和客体，
-   并保留各自适用的否定、情态、条件和目的；不把目的改成已实现的结果。
-   用 replace 保留主要事实，其余尚未独立表达的事实用 add 补充。
-   不因文本差异未报告遗漏而跳过此项检查，也不因字段较长就强制拆分。
-3. 逐句结合候选实体与 unique_to_text_a 检查其他遗漏事实；
-   结合 unique_to_text_b 核查缺少原文支持的三元组。
-4. 检查拆分或其他修改是否丢失必要信息，以及操作冲突、语义重复、
-   实体边界和关系方向；无需修改的三元组保持原样。
-
-# 操作示例
-示例源文本：
-The ECUs may include PUF components. The controller may query the ECU.
-
-示例当前三元组：
-[
-  {{"index": 0, "head": "the controller", "relation": "controls", "tail": "the ECU"}},
-  {{"index": 1, "head": "the ECU", "relation": "stores", "tail": "vehicle identity"}}
-]
-
-示例操作：
+# 操作示例与输出格式
+示例原文：The ECUs may include PUF components. The controller may query the ECU.
+示例当前集合：
+[{{"index": 0, "head": "the controller", "relation": "controls", "tail": "the ECU"}},
+ {{"index": 1, "head": "the ECU", "relation": "stores", "tail": "vehicle identity"}}]
+示例输出：
 {{
-  "add": [
-    {{
-      "head": "The ECUs",
-      "relation": "may include",
-      "tail": "PUF components",
-      "evidence": "The ECUs may include PUF components.",
-      "reason": "源文本中的独立事实尚未包含在当前集合中",
-      "confidence": 0.95,
-      "clarity": 0.95,
-      "relevance": 0.90
-    }}
-  ],
-  "remove": [
-    {{
-      "index": 1,
-      "reason": "源文本没有表达 ECU stores vehicle identity 这一事实"
-    }}
-  ],
-  "replace": [
-    {{
-      "index": 0,
-      "head": "The controller",
-      "relation": "may query",
-      "tail": "the ECU",
-      "evidence": "The controller may query the ECU.",
-      "reason": "源文本表达的是 may query，而不是 controls",
-      "confidence": 0.95,
-      "clarity": 0.95,
-      "relevance": 0.90
-    }}
-  ]
+  "add": [{{"head": "The ECUs", "relation": "may include", "tail": "PUF components", "evidence": "The ECUs may include PUF components.", "reason": "补充遗漏事实", "confidence": 0.95, "clarity": 0.95, "relevance": 0.90}}],
+  "remove": [{{"index": 1, "reason": "原文没有表达该存储关系"}}],
+  "replace": [{{"index": 0, "head": "The controller", "relation": "may query", "tail": "the ECU", "evidence": "The controller may query the ECU.", "reason": "修正关系并保留情态", "confidence": 0.95, "clarity": 0.95, "relevance": 0.90}}]
 }}
-
-# 输出要求
-完整回复采用以下 JSON 对象结构。add、remove、replace 只包含需要执行的
-操作；没有修订操作时，对应数组为空。
-{{
-  "add": [
-    {{
-      "head": "...",
-      "relation": "...",
-      "tail": "...",
-      "evidence": "源文本中的连续片段",
-      "reason": "新增原因",
-      "confidence": 0.90,
-      "clarity": 0.90,
-      "relevance": 0.90
-    }}
-  ],
-  "remove": [
-    {{
-      "index": 1,
-      "reason": "删除原因"
-    }}
-  ],
-  "replace": [
-    {{
-      "index": 0,
-      "head": "...",
-      "relation": "...",
-      "tail": "...",
-      "evidence": "源文本中的连续片段",
-      "reason": "修正原因",
-      "confidence": 0.90,
-      "clarity": 0.90,
-      "relevance": 0.90
-    }}
-  ]
-}}
+仅返回上述结构的JSON对象，三个操作数组都必须存在，无对应操作时填[]。
+add/replace 保留示例中的全部字段；remove 包含 index 和 reason。
+对实际输入执行检查，不复制示例事实。
 """
 
         revision_system_prompt = """你是知识三元组审校专家。依据源文本审校
