@@ -62,6 +62,9 @@ class StagedPipelineTests(unittest.TestCase):
                     return reply({'add': [], 'remove': [], 'replace': [] if empty else [
                         fact('may query', index=0, evidence='Controller may query ECU.', reason='source wording')]})
                 return reply([] if empty else [fact()])
+            if name == 'TripleSplittingAgent':
+                return reply({'add': [], 'remove': [], 'replace': [] if empty else [
+                    fact('may query', index=0, evidence='Controller may query ECU.', reason='source wording')]})
             if name == 'TextGenerationAgent':
                 return 'Controller controls ECU.', 0, 0, 0
             if name == 'TextComparisonAgent':
@@ -94,6 +97,7 @@ class StagedPipelineTests(unittest.TestCase):
         self.assertEqual(package['documents'][1]['baseline_triples'][0]['confidence'], .9)
         self.assertNotIn('TextGenerationAgent', [c[0] for c in self.calls])
         self.assertNotIn('TextComparisonAgent', [c[0] for c in self.calls])
+        self.assertNotIn('TripleSplittingAgent', [c[0] for c in self.calls])
         self.assertEqual(set(pipe.last_run_manifest['documents'][0]['rounds']), {'1'})
 
     def test_split_equals_full_with_fixed_responses_and_replay_is_immutable(self):
@@ -113,11 +117,73 @@ class StagedPipelineTests(unittest.TestCase):
                 self.assertNotIn('ReaderAgent', [c[0] for c in self.calls])
                 entity_calls = [c for c in self.calls if c[0] == 'EntityExtractionAgent']
                 self.assertEqual(len(entity_calls), 3)
-                self.assertTrue(all('# 当前三元组' in c[1] for c in entity_calls))
-                # The existing comparison agent skips the LLM for empty reconstructions.
-                self.assertEqual(len([c for c in self.calls if c[0] == 'TextComparisonAgent']), 2)
+                self.assertEqual(len([c for c in self.calls if c[0] == 'TripleSplittingAgent']), 3)
+                self.assertIn('TextComparisonAgent', [c[0] for c in self.calls])
+                self.assertIn('TextGenerationAgent', [c[0] for c in self.calls])
+                self.assertEqual(len([c for c in self.calls if c[0] == 'RelationshipExtractionAgent']), 3)
                 self.assertEqual(base.last_baseline_path.read_bytes(), baseline_bytes)
             Path('hidden.json').rename(self.source)
+
+    def test_feedback_replay_and_consumer_inputs(self):
+        for mode in ('chat_completions', 'responses'):
+            full = self.pipeline('feedback_full_' + mode, mode)
+            full.process_document(self.source)
+            base = self.pipeline('feedback_base_' + mode, mode)
+            base.process_document(self.source, stage='baseline')
+            original = base.last_baseline_path.read_bytes()
+            self.calls.clear()
+            resumed = self.pipeline('feedback_resume_' + mode, mode)
+            reconstructed = []
+            generation = resumed.text_generation_agent.process
+            def capture(triples):
+                reconstructed.append([x.to_dict() for x in triples])
+                return generation(triples)
+            with patch.object(resumed.text_generation_agent, 'process', side_effect=capture):
+                resumed.process_document('', stage='revise', baseline_path=base.last_baseline_path)
+            self.assertEqual(full.last_run_manifest['documents'], resumed.last_run_manifest['documents'])
+            self.assertEqual(reconstructed, [d['stages']['after_split'] for d in resumed.last_run_manifest['documents']])
+            split_calls = [c for c in self.calls if c[0] == 'TripleSplittingAgent']
+            self.assertEqual(len(split_calls), 3)
+            self.assertTrue(all(c[2]['temperature'] == 0.0 for c in split_calls))
+            for name, prompt, kwargs in self.calls:
+                if name in ('EntityExtractionAgent', 'RelationshipExtractionAgent') and 'EMPTY' not in prompt:
+                    current = json.loads(prompt.split('<current_triples_json>')[1].split('</current_triples_json>')[0])
+                    self.assertEqual(current[0]['relation'], 'may query')
+            self.assertEqual(base.last_baseline_path.read_bytes(), original)
+
+    def test_feedback_replace_index_refers_to_split_set(self):
+        base = self.pipeline('index_base')
+        base.process_document(self.source, stage='baseline', limit=1)
+        pipe = self.pipeline('index_revise')
+        split_reply = {'add': [fact('may store', evidence='Controller may query ECU.', reason='split')],
+                       'remove': [], 'replace': [fact('may query', index=0, evidence='Controller may query ECU.', reason='split')]}
+        feedback_reply = {'add': [], 'remove': [], 'replace': [
+            fact('may read', index=1, evidence='Controller may query ECU.', reason='correct second split triple')]}
+        with patch.object(pipe.triple_splitting_agent, '_make_llm_call', return_value=reply(split_reply)), \
+             patch.object(pipe.relationship_extraction_agent, '_make_llm_call', return_value=reply(feedback_reply)):
+            result = pipe.process_document('', stage='revise', baseline_path=base.last_baseline_path)
+        self.assertEqual([x.relation for x in result.split_triples], ['may query', 'may store'])
+        self.assertEqual([x.relation for x in result.integrated_triples], ['may query', 'may read'])
+        self.assertEqual(pipe.relationship_extraction_agent.last_revision['accepted']['replace'][0]['before']['relation'], 'may store')
+        saved = json.loads((pipe.evaluator_agent._dump_dir / '_dump_doc0_revision_result.json').read_text(encoding='utf-8'))
+        self.assertEqual(saved['revision_agent'], 'RelationshipExtractionAgent')
+        self.assertEqual(saved['revision_input'], [x.to_dict() for x in result.split_triples])
+
+    def test_split_failure_keeps_baseline_and_is_audited(self):
+        base = self.pipeline('fallback_base')
+        base.process_document(self.source, stage='baseline', limit=1)
+        pipe = self.pipeline('fallback_revise')
+        self.calls.clear()
+        with patch.object(pipe.triple_splitting_agent, '_make_llm_call', return_value=('invalid', 0, 0, 0)) as call:
+            pipe.process_document('', stage='revise', baseline_path=base.last_baseline_path)
+        self.assertEqual(call.call_count, 1)
+        doc = pipe.last_run_manifest['documents'][0]
+        self.assertEqual(doc['rounds']['2'][0]['relation'], 'may query')
+        self.assertEqual(doc['stages']['after_split'], doc['rounds']['1'])
+        audit = json.loads((pipe.evaluator_agent._dump_dir / '_dump_doc0_splitting.json').read_text(encoding='utf-8'))
+        self.assertEqual(audit['audit']['mode'], 'baseline_fallback')
+        self.assertEqual(audit['audit']['raw_response'], 'invalid')
+        self.assertIn('RelationshipExtractionAgent', [c[0] for c in self.calls])
 
     def test_saved_graph_context_is_used_even_when_new_graph_differs(self):
         base = self.pipeline('base')

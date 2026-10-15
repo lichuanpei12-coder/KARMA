@@ -179,6 +179,38 @@ class InputAndExportTests(unittest.TestCase):
         self.assertEqual(samples[0]["gold"][0]["head"], "first")
         self.assertEqual(info["unused_gold_ids"], ["other"])
 
+    def test_split_checkpoints_preserve_default_and_label_comparisons(self):
+        base, split, final = [triple('base')], [triple('split')], [triple('final')]
+        doc = dict(doc_id='doc', source_index=0, rounds={'1': base, '2': final},
+                   stages={'after_split': split})
+        self.manifest('revise', [doc])
+        for comparison, expected in [('baseline-final', (base, final)),
+                                     ('baseline-split', (base, split)),
+                                     ('split-final', (split, final))]:
+            samples, info = ev.load_inputs(self.results, self.gold, comparison=comparison)
+            self.assertEqual(samples[0]['rounds'], dict(zip(('R1', 'R2'), expected)))
+            self.assertEqual(info['comparison'], comparison)
+            self.assertEqual(info['round_stages']['R1'], 'after_split' if comparison == 'split-final' else 'baseline')
+        self.manifest('revise')
+        with self.assertRaisesRegex(ValueError, 'Split checkpoint missing'):
+            ev.load_inputs(self.results, self.gold, comparison='baseline-split')
+        with self.assertRaisesRegex(ValueError, 'Unknown checkpoint'):
+            ev.load_inputs(self.results, self.gold, comparison='wrong')
+
+    def test_split_checkpoint_cli_uses_separate_output_directory(self):
+        self.manifest('revise', [dict(doc_id='doc', source_index=0,
+                                     rounds={'1': [], '2': []}, stages={'after_split': [triple()]})])
+        args = [str(self.results), str(self.gold), '--compare-strict']
+        self.assertEqual(ev.run_cli('lenient', args), 0)
+        original_path = self.results / 'lexical_evaluation/eval_comparison.json'
+        original = original_path.read_bytes()
+        self.assertEqual(ev.run_cli('lenient', args + ['--comparison', 'baseline-split']), 0)
+        report = ev.read_json(self.results / 'lexical_evaluation/baseline-split/eval_comparison.json')
+        self.assertTrue(report['csv_verified'])
+        self.assertEqual(report['input']['round_stages']['R2'], 'after_split')
+        self.assertEqual(report['metrics']['strict']['R2']['micro']['f1'], 1)
+        self.assertEqual(original_path.read_bytes(), original)
+
     def test_numeric_gold_directory_fallback_and_details(self):
         gold_dir = self.root / "gold"
         gold_dir.mkdir()

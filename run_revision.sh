@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# 第二部分：复用固定基线，重新执行文本重建、比较和第二轮修订。
+# 第二部分：复用固定基线，先拆分，再执行常规反馈及原有后处理。
 set -euo pipefail
 cd -- "$(dirname -- "${BASH_SOURCE[0]}")"
 

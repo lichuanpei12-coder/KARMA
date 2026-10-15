@@ -1,0 +1,391 @@
+{
+  "description": "Captured from the pre-migration working-tree RelationshipExtractionAgent; no live model calls.",
+  "legacy_source_sha256": "549652bd6a993d9b5ef78a2ae933e32900bf6016e1d608c4cbe63e2358635121",
+  "source": "The controller may read and store sensor data. The sensor has a battery.",
+  "baseline": [
+    {
+      "head": "The controller",
+      "relation": "may read and store",
+      "tail": "sensor data",
+      "confidence": 0.9,
+      "source": "baseline",
+      "relevance": 0.8,
+      "clarity": 0.85
+    },
+    {
+      "head": "The sensor",
+      "relation": "has",
+      "tail": "a battery",
+      "confidence": 0.9,
+      "source": "baseline",
+      "relevance": 0.8,
+      "clarity": 0.9
+    }
+  ],
+  "cases": [
+    {
+      "name": "split_and_deduplicate",
+      "response": "{\"add\": [{\"head\": \"The controller\", \"relation\": \"may store\", \"tail\": \"sensor data\", \"evidence\": \"The controller may read and store sensor data.\", \"reason\": \"split\", \"confidence\": 0.95, \"clarity\": 0.9, \"relevance\": 0.8}, {\"head\": \"The controller\", \"relation\": \"may store\", \"tail\": \"sensor data\", \"evidence\": \"The controller may read and store sensor data.\", \"reason\": \"split\", \"confidence\": 0.7, \"clarity\": 0.9, \"relevance\": 0.8}], \"replace\": [{\"head\": \"The controller\", \"relation\": \"may read\", \"tail\": \"sensor data\", \"evidence\": \"The controller may read and store sensor data.\", \"reason\": \"split\", \"confidence\": 0.95, \"clarity\": 0.9, \"relevance\": 0.8, \"index\": 0}], \"remove\": []}",
+      "expected": [
+        {
+          "head": "The controller",
+          "relation": "may read",
+          "tail": "sensor data",
+          "confidence": 0.95,
+          "source": "relationship_revision",
+          "relevance": 0.8,
+          "clarity": 0.9
+        },
+        {
+          "head": "The sensor",
+          "relation": "has",
+          "tail": "a battery",
+          "confidence": 0.9,
+          "source": "baseline",
+          "relevance": 0.8,
+          "clarity": 0.9
+        },
+        {
+          "head": "The controller",
+          "relation": "may store",
+          "tail": "sensor data",
+          "confidence": 0.95,
+          "source": "relationship_revision",
+          "relevance": 0.8,
+          "clarity": 0.9
+        }
+      ],
+      "audit": {
+        "mode": "incremental_revision",
+        "accepted": {
+          "add": [
+            {
+              "head": "The controller",
+              "relation": "may store",
+              "tail": "sensor data",
+              "evidence": "The controller may read and store sensor data.",
+              "reason": "split",
+              "confidence": 0.95,
+              "clarity": 0.9,
+              "relevance": 0.8,
+              "before": null,
+              "after": {
+                "head": "The controller",
+                "relation": "may store",
+                "tail": "sensor data"
+              }
+            },
+            {
+              "head": "The controller",
+              "relation": "may store",
+              "tail": "sensor data",
+              "evidence": "The controller may read and store sensor data.",
+              "reason": "split",
+              "confidence": 0.7,
+              "clarity": 0.9,
+              "relevance": 0.8,
+              "before": null,
+              "after": {
+                "head": "The controller",
+                "relation": "may store",
+                "tail": "sensor data"
+              }
+            }
+          ],
+          "remove": [],
+          "replace": [
+            {
+              "head": "The controller",
+              "relation": "may read",
+              "tail": "sensor data",
+              "evidence": "The controller may read and store sensor data.",
+              "reason": "split",
+              "confidence": 0.95,
+              "clarity": 0.9,
+              "relevance": 0.8,
+              "index": 0,
+              "before": {
+                "head": "The controller",
+                "relation": "may read and store",
+                "tail": "sensor data"
+              },
+              "after": {
+                "head": "The controller",
+                "relation": "may read",
+                "tail": "sensor data"
+              }
+            }
+          ]
+        },
+        "rejected": [],
+        "baseline_count": 2,
+        "final_count": 3
+      }
+    },
+    {
+      "name": "no_operations",
+      "response": "{\"add\": [], \"remove\": [], \"replace\": []}",
+      "expected": [
+        {
+          "head": "The controller",
+          "relation": "may read and store",
+          "tail": "sensor data",
+          "confidence": 0.9,
+          "source": "baseline",
+          "relevance": 0.8,
+          "clarity": 0.85
+        },
+        {
+          "head": "The sensor",
+          "relation": "has",
+          "tail": "a battery",
+          "confidence": 0.9,
+          "source": "baseline",
+          "relevance": 0.8,
+          "clarity": 0.9
+        }
+      ],
+      "audit": {
+        "mode": "incremental_revision",
+        "accepted": {
+          "add": [],
+          "remove": [],
+          "replace": []
+        },
+        "rejected": [],
+        "baseline_count": 2,
+        "final_count": 2
+      }
+    },
+    {
+      "name": "conflicting_and_invalid_indices",
+      "response": "{\"replace\": [{\"head\": \"The controller\", \"relation\": \"may read\", \"tail\": \"sensor data\", \"evidence\": \"The controller may read and store sensor data.\", \"reason\": \"split\", \"confidence\": 0.95, \"clarity\": 0.9, \"relevance\": 0.8, \"index\": 0}, {\"head\": \"The controller\", \"relation\": \"may store\", \"tail\": \"sensor data\", \"evidence\": \"The controller may read and store sensor data.\", \"reason\": \"split\", \"confidence\": 0.95, \"clarity\": 0.9, \"relevance\": 0.8, \"index\": 0}, {\"head\": \"The controller\", \"relation\": \"may read\", \"tail\": \"sensor data\", \"evidence\": \"The controller may read and store sensor data.\", \"reason\": \"split\", \"confidence\": 0.95, \"clarity\": 0.9, \"relevance\": 0.8, \"index\": true}, {\"head\": \"The controller\", \"relation\": \"may read\", \"tail\": \"sensor data\", \"evidence\": \"The controller may read and store sensor data.\", \"reason\": \"split\", \"confidence\": 0.95, \"clarity\": 0.9, \"relevance\": 0.8, \"index\": 20}], \"add\": [], \"remove\": []}",
+      "expected": [
+        {
+          "head": "The controller",
+          "relation": "may read and store",
+          "tail": "sensor data",
+          "confidence": 0.9,
+          "source": "baseline",
+          "relevance": 0.8,
+          "clarity": 0.85
+        },
+        {
+          "head": "The sensor",
+          "relation": "has",
+          "tail": "a battery",
+          "confidence": 0.9,
+          "source": "baseline",
+          "relevance": 0.8,
+          "clarity": 0.9
+        }
+      ],
+      "audit": {
+        "mode": "incremental_revision",
+        "accepted": {
+          "add": [],
+          "remove": [],
+          "replace": []
+        },
+        "rejected": [
+          {
+            "operation": "replace",
+            "reason": "conflicting operations; original triple retained",
+            "item": {
+              "head": "The controller",
+              "relation": "may read",
+              "tail": "sensor data",
+              "evidence": "The controller may read and store sensor data.",
+              "reason": "split",
+              "confidence": 0.95,
+              "clarity": 0.9,
+              "relevance": 0.8,
+              "index": 0
+            }
+          },
+          {
+            "operation": "replace",
+            "reason": "conflicting operations; original triple retained",
+            "item": {
+              "head": "The controller",
+              "relation": "may store",
+              "tail": "sensor data",
+              "evidence": "The controller may read and store sensor data.",
+              "reason": "split",
+              "confidence": 0.95,
+              "clarity": 0.9,
+              "relevance": 0.8,
+              "index": 0
+            }
+          },
+          {
+            "operation": "replace",
+            "reason": "invalid index",
+            "item": {
+              "head": "The controller",
+              "relation": "may read",
+              "tail": "sensor data",
+              "evidence": "The controller may read and store sensor data.",
+              "reason": "split",
+              "confidence": 0.95,
+              "clarity": 0.9,
+              "relevance": 0.8,
+              "index": true
+            }
+          },
+          {
+            "operation": "replace",
+            "reason": "invalid index",
+            "item": {
+              "head": "The controller",
+              "relation": "may read",
+              "tail": "sensor data",
+              "evidence": "The controller may read and store sensor data.",
+              "reason": "split",
+              "confidence": 0.95,
+              "clarity": 0.9,
+              "relevance": 0.8,
+              "index": 20
+            }
+          }
+        ],
+        "baseline_count": 2,
+        "final_count": 2
+      }
+    },
+    {
+      "name": "invalid_fields_and_scores",
+      "response": "{\"replace\": [{\"head\": \"The controller\", \"relation\": \"may read\", \"tail\": \"sensor data\", \"evidence\": \"The controller may read and store sensor data.\", \"reason\": \"split\", \"confidence\": \"bad\", \"clarity\": 2, \"relevance\": -1, \"index\": \"0\"}], \"add\": [{\"head\": \"The controller\", \"relation\": \"may store\", \"tail\": \"sensor data\", \"evidence\": \"\", \"reason\": \"split\", \"confidence\": 0.95, \"clarity\": 0.9, \"relevance\": 0.8}], \"remove\": []}",
+      "expected": [
+        {
+          "head": "The controller",
+          "relation": "may read",
+          "tail": "sensor data",
+          "confidence": 0.5,
+          "source": "relationship_revision",
+          "relevance": 0.0,
+          "clarity": 1.0
+        },
+        {
+          "head": "The sensor",
+          "relation": "has",
+          "tail": "a battery",
+          "confidence": 0.9,
+          "source": "baseline",
+          "relevance": 0.8,
+          "clarity": 0.9
+        }
+      ],
+      "audit": {
+        "mode": "incremental_revision",
+        "accepted": {
+          "add": [],
+          "remove": [],
+          "replace": [
+            {
+              "head": "The controller",
+              "relation": "may read",
+              "tail": "sensor data",
+              "evidence": "The controller may read and store sensor data.",
+              "reason": "split",
+              "confidence": "bad",
+              "clarity": 2,
+              "relevance": -1,
+              "index": "0",
+              "before": {
+                "head": "The controller",
+                "relation": "may read and store",
+                "tail": "sensor data"
+              },
+              "after": {
+                "head": "The controller",
+                "relation": "may read",
+                "tail": "sensor data"
+              }
+            }
+          ]
+        },
+        "rejected": [
+          {
+            "operation": "add",
+            "reason": "missing evidence",
+            "item": {
+              "head": "The controller",
+              "relation": "may store",
+              "tail": "sensor data",
+              "evidence": "",
+              "reason": "split",
+              "confidence": 0.95,
+              "clarity": 0.9,
+              "relevance": 0.8
+            }
+          }
+        ],
+        "baseline_count": 2,
+        "final_count": 2
+      }
+    },
+    {
+      "name": "invalid_json",
+      "response": "not json",
+      "expected": [
+        {
+          "head": "The controller",
+          "relation": "may read and store",
+          "tail": "sensor data",
+          "confidence": 0.9,
+          "source": "baseline",
+          "relevance": 0.8,
+          "clarity": 0.85
+        },
+        {
+          "head": "The sensor",
+          "relation": "has",
+          "tail": "a battery",
+          "confidence": 0.9,
+          "source": "baseline",
+          "relevance": 0.8,
+          "clarity": 0.9
+        }
+      ],
+      "audit": {
+        "mode": "baseline_fallback",
+        "reason": "model response contains no JSON container",
+        "raw_response": "not json",
+        "final_count": 2
+      }
+    },
+    {
+      "name": "wrong_root",
+      "response": "[]",
+      "expected": [
+        {
+          "head": "The controller",
+          "relation": "may read and store",
+          "tail": "sensor data",
+          "confidence": 0.9,
+          "source": "baseline",
+          "relevance": 0.8,
+          "clarity": 0.85
+        },
+        {
+          "head": "The sensor",
+          "relation": "has",
+          "tail": "a battery",
+          "confidence": 0.9,
+          "source": "baseline",
+          "relevance": 0.8,
+          "clarity": 0.9
+        }
+      ],
+      "audit": {
+        "mode": "baseline_fallback",
+        "reason": "unexpected JSON root type",
+        "raw_response": "[]",
+        "final_count": 2
+      }
+    }
+  ],
+  "prompt_sha256": "1c5b303bfc731d5b33e37c5d905a532e86204f3a7233aa21a36a3b22b4aab922",
+  "system_prompt_sha256": "b4ca8072877a253a710a8e649433f001337d0e31052a81bfcda54cd7d794b615"
+}

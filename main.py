@@ -169,7 +169,7 @@ Examples:
     parser.add_argument('--domain', default='biomedical', help='Domain context (default: biomedical)')
     parser.add_argument('--verbose', '-v', action='store_true', help='Verbose output')
     parser.add_argument('--stage', choices=('full', 'baseline', 'revise'), default='full',
-                        help='full: original two rounds; baseline: round 1 only; revise: feedback and round 2 only')
+                        help='full: two rounds; baseline: round 1 only; revise: split saved baseline and postprocess')
     parser.add_argument('--baseline', help='Baseline JSON path (input for revise; optional output for baseline/full)')
     parser.add_argument('--limit', type=int, help='Run the first N selected documents')
     parser.add_argument('--doc-ids', nargs='+', help='Select document IDs from the source JSON or baseline package')

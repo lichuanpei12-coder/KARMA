@@ -157,6 +157,7 @@ class IntermediateOutput:
     revised_entities: List[KGEntity] = field(default_factory=list)
     initial_relationships: List[KnowledgeTriple] = field(default_factory=list)
     baseline_triples: List[KnowledgeTriple] = field(default_factory=list)
+    split_triples: List[KnowledgeTriple] = field(default_factory=list)
     relationships: List[KnowledgeTriple] = field(default_factory=list)
     aligned_entities: List[KGEntity] = field(default_factory=list)
     aligned_triples: List[KnowledgeTriple] = field(default_factory=list)
@@ -195,7 +196,7 @@ class IntermediateOutput:
         for key, value in data.items():
             if key in ['entities', 'initial_entities', 'revised_entities', 'aligned_entities'] and value:
                 setattr(instance, key, [KGEntity.from_dict(item) for item in value])
-            elif key in ['relationships', 'initial_relationships', 'baseline_triples', 'aligned_triples', 'final_triples', 'integrated_triples'] and value:
+            elif key in ['relationships', 'initial_relationships', 'baseline_triples', 'split_triples', 'aligned_triples', 'final_triples', 'integrated_triples'] and value:
                 setattr(instance, key, [KnowledgeTriple.from_dict(item) for item in value])
             elif key == 'metadata' and value:
                 instance.metadata = DocumentMetadata(**value)

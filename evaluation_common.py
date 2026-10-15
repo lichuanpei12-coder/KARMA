@@ -345,8 +345,10 @@ def load_gold(source):
     return gold
 
 
-def load_inputs(result_dir, gold_source, allow_legacy_prefix=False):
+def load_inputs(result_dir, gold_source, allow_legacy_prefix=False, comparison="baseline-final"):
     """Read manifest by ID or validated legacy 2i/2i+1 files, never silently skip."""
+    if comparison not in ("baseline-final", "baseline-split", "split-final"):
+        raise ValueError("Unknown checkpoint comparison: " + comparison)
     result_dir, gold_source = Path(result_dir).resolve(), Path(gold_source).resolve()
     if not result_dir.is_dir():
         raise ValueError(f"Result directory does not exist: {result_dir}")
@@ -389,13 +391,26 @@ def load_inputs(result_dir, gold_source, allow_legacy_prefix=False):
             rounds = doc.get("rounds")
             if not isinstance(rounds, dict) or set(rounds) != set(round_keys):
                 raise ValueError(f"Missing/extra rounds for document {doc_id}")
+            selected_rounds = {"R" + r: validate_triples(rounds[r], f"{doc_id}:R{r}") for r in round_keys}
+            if comparison != "baseline-final":
+                stages = doc.get("stages", {})
+                if "2" not in rounds or not isinstance(stages, dict) or "after_split" not in stages:
+                    raise ValueError(f"Split checkpoint missing for document {doc_id}")
+                split = validate_triples(stages["after_split"], f"{doc_id}:after_split")
+                # Keep the existing evaluator/CSV schema; input metadata labels the slots.
+                if comparison == "baseline-split":
+                    selected_rounds["R2"] = split
+                else:
+                    selected_rounds["R1"] = split
             samples.append({
                 "doc_id": doc_id, "gold_key": key, "gold": gold_by_id[key],
-                "rounds": {"R" + r: validate_triples(rounds[r], f"{doc_id}:R{r}") for r in round_keys},
+                "rounds": selected_rounds,
             })
         info.update(layout="manifest", stage=manifest["stage"],
                     baseline_sha256=manifest.get("baseline_sha256"), manifest_path=str(manifest_path))
     else:
+        if comparison != "baseline-final":
+            raise ValueError("Split checkpoint comparisons require a run manifest")
         numbered = {}
         for path in result_dir.glob("*.json"):
             match = re.fullmatch(r"(\d+)_.+\.json", path.name)
@@ -428,6 +443,11 @@ def load_inputs(result_dir, gold_source, allow_legacy_prefix=False):
             }})
         info.update(layout="legacy_two_rounds", stage="legacy")
     selected_keys = {s["gold_key"] for s in samples}
+    info["comparison"] = comparison
+    info["round_stages"] = {
+        "R1": "after_split" if comparison == "split-final" else "baseline",
+        "R2": "after_split" if comparison == "baseline-split" else "final",
+    }
     info["unused_gold_ids"] = [key for key in gold_by_id if key not in selected_keys]
     info["warnings"] = warnings
     encoded = json.dumps(samples, ensure_ascii=False, sort_keys=True, allow_nan=False).encode("utf-8")
@@ -577,18 +597,23 @@ def run_cli(mode, argv=None):
                         help="Export IDs, normalized text and token evidence; default CSV has 13 columns")
     parser.add_argument("--allow-legacy-prefix", action="store_true",
                         help="Explicitly evaluate the first N Gold documents when a legacy run contains only a prefix")
+    parser.add_argument("--comparison", choices=("baseline-final", "baseline-split", "split-final"),
+                        default="baseline-final", help="Checkpoints to compare; R1/R2 slots are labelled in report input metadata")
     if mode == "lenient":
         parser.add_argument("--compare-strict", action="store_true", help="Evaluate both modes and save ONE comparison CSV/JSON")
     args = parser.parse_args(argv)
     modes = ["strict", "lenient"] if getattr(args, "compare_strict", False) else [mode]
     label = "comparison" if len(modes) == 2 else mode
     try:
-        samples, info = load_inputs(args.result_dir, args.gold_source, args.allow_legacy_prefix)
+        samples, info = load_inputs(args.result_dir, args.gold_source, args.allow_legacy_prefix, args.comparison)
         for warning in info["warnings"]:
             print("[input] " + warning, file=sys.stderr)
         report, rows = evaluate_samples(samples, modes, info)
         out_dir = args.output_dir or args.result_dir / "lexical_evaluation"
+        if args.output_dir is None and args.comparison != "baseline-final":
+            out_dir = out_dir / args.comparison
         json_path, csv_path = save_outputs(report, rows, out_dir, label, args.detailed_csv)
+        print(f"Checkpoints: {info['round_stages']}")
         for metric, results in report["metrics"].items():
             for round_label in ("R1", "R2"):
                 if round_label in results:

@@ -27,7 +27,7 @@ from .data_structures import (
 
 from ..agents import (
     IngestionAgent, ReaderAgent, SummarizerAgent,
-    EntityExtractionAgent, RelationshipExtractionAgent,
+    EntityExtractionAgent, RelationshipExtractionAgent, TripleSplittingAgent,
     # SchemaAlignmentAgent,
     ConflictResolutionAgent, TextGenerationAgent, EvaluatorAgent, TextComparisonAgent
 )
@@ -125,6 +125,7 @@ class KARMAPipeline:
         # self.entity_counter_agent = EntityCounterAgent(self.client, self.model_name)
         self.entity_extraction_agent = EntityExtractionAgent(self.client, self.model_name)
         self.relationship_extraction_agent = RelationshipExtractionAgent(self.client, self.model_name)
+        self.triple_splitting_agent = TripleSplittingAgent(self.client, self.model_name)
         # Disabled for the current open-relation DocOIE evaluation. Keep the
         # original initialization here so the schema stage can be restored later.
         # self.schema_alignment_agent = SchemaAlignmentAgent(self.client, self.model_name)
@@ -141,6 +142,7 @@ class KARMAPipeline:
             self.summarizer_agent,
             self.entity_extraction_agent,
             self.relationship_extraction_agent,
+            self.triple_splitting_agent,
             # self.schema_alignment_agent,
             self.conflict_resolution_agent,
             self.text_generation_agent,
@@ -223,6 +225,7 @@ class KARMAPipeline:
                     if stage == "revise" else copy.deepcopy(self.knowledge_graph.triples)
                 )
                 run_document = {"doc_id": document["doc_id"], "source_index": i, "rounds": {}}
+                intermediate.split_triples = []
                 manifest["documents"].append(run_document)
                 print('--------------------------------------------------------------------------')
                 print("carrying out knowledge extraction for the article "+str(i))
@@ -331,8 +334,8 @@ class KARMAPipeline:
                         # step_time = time.time() - step_start
                         # intermediate.metrics.add_agent_time("entity_extraction", step_time)
                         # self._log(f"[3.5/8] Entity extraction completed in {step_time:.2f}s. Entities: {len(entities)}")
-                # Round 1 creates the baseline. Round 2 revises that baseline
-                # with explicit add/remove/replace operations grounded in source.
+                # Round 1 is unchanged. Round 2 starts with one split-only call.
+                # General feedback always reviews the split collection.
                 initial_entities = ([KGEntity.from_dict(x) for x in document["initial_entities"]]
                                     if stage == "revise" else [])
                 baseline_triples = ([KnowledgeTriple.from_dict(x) for x in document["baseline_triples"]]
@@ -344,10 +347,27 @@ class KARMAPipeline:
                 rounds = (0,) if stage == "baseline" else (1,) if stage == "revise" else (0, 1)
                 for t in rounds:
                     if t == 1:
+                        self._log("[split] Running Triple Splitting Agent...")
+                        step_start = time.time()
+                        split_triples = self.triple_splitting_agent.process(
+                            extraction_text, copy.deepcopy(baseline_triples)
+                        )
+                        intermediate.split_triples = copy.deepcopy(split_triples)
+                        run_document["stages"] = {
+                            "after_split": [x.to_dict() for x in split_triples]
+                        }
+                        write_json(self.evaluator_agent._dump_dir / f"_dump_doc{i}_splitting.json", {
+                            "agent": "TripleSplittingAgent",
+                            "input": [x.to_dict() for x in baseline_triples],
+                            "audit": self.triple_splitting_agent.last_revision,
+                            "output": [x.to_dict() for x in split_triples],
+                        })
+                        intermediate.metrics.add_agent_time("triple_splitting", time.time() - step_start)
+                    if t == 1:
                         self._log("[7.5/8] Running Text Generation Agent...")
                         step_start = time.time()
                         text_generation = self.text_generation_agent.process(
-                            baseline_triples
+                            copy.deepcopy(split_triples)
                         )
                         print(text_generation)
                         step_time = time.time() - step_start
@@ -368,7 +388,7 @@ class KARMAPipeline:
                         intermediate.metrics.add_agent_time("diff", step_time)
                         self._log(
                             f"[9/8] Comparison completed in {step_time:.2f}s. "
-                            f"Integrated: {len(baseline_triples)}"
+                            f"Split triples: {len(split_triples)}"
                         )
                     # Step 5: Entity Extraction - Identify entities
                     self._log("[4/8] Running Entity Extraction Agent...")
@@ -380,7 +400,7 @@ class KARMAPipeline:
                         intermediate.initial_entities = copy.deepcopy(entities)
                     else:
                         entities = self.entity_extraction_agent.revise_entities(
-                            extraction_text, initial_entities, baseline_triples, diff
+                            extraction_text, initial_entities, split_triples, diff
                         )
                         intermediate.revised_entities = copy.deepcopy(entities)
 
@@ -414,7 +434,7 @@ class KARMAPipeline:
                             json.dump(self.relationship_extraction_agent.last_extraction, _f, ensure_ascii=False, indent=2)
                     else:
                         relationships = self.relationship_extraction_agent.revise_relationships(
-                            extraction_text, baseline_triples, diff, entities=entities
+                            extraction_text, copy.deepcopy(split_triples), diff, entities=entities
                         )
                     intermediate.relationships = relationships
 
@@ -426,6 +446,8 @@ class KARMAPipeline:
                                   _f, ensure_ascii=False, indent=2)
 
                     if t == 1:
+                        # Compatibility audit points to the stage producing after_revision.
+                        revision_agent = self.relationship_extraction_agent
                         _revision_path = (
                             self.evaluator_agent._dump_dir /
                             f"_dump_doc{i}_r{t}_revision.json"
@@ -433,7 +455,7 @@ class KARMAPipeline:
                         with open(_revision_path, "w", encoding="utf-8") as _f:
                             json.dump(
                                 getattr(
-                                    self.relationship_extraction_agent,
+                                    revision_agent,
                                     "last_revision",
                                     {"mode": "revision_audit_unavailable"},
                                 ),
@@ -484,13 +506,20 @@ class KARMAPipeline:
                     run_document["rounds"][str(t + 1)] = [x.to_dict() for x in integrated_triples]
                     if t == 1:
                         revision_result = {
+                            "revision_agent": type(revision_agent).__name__,
                             # 第一轮最终结果：第二轮修改的基础
                             "baseline": [
                                 x.to_dict() for x in baseline_triples
                             ],
+                            "after_split": [x.to_dict() for x in intermediate.split_triples],
+                            "splitting_audit": self.triple_splitting_agent.last_revision,
+                            # Feedback indices refer to this set, not the original baseline.
+                            "revision_input": [x.to_dict() for x in (
+                                intermediate.split_triples
+                            )],
                             # 模型提出的操作，以及程序接受、拒绝的情况
                             "revision_audit": getattr(
-                                self.relationship_extraction_agent,
+                                revision_agent,
                                 "last_revision", {}
                             ),
                             # 应用修改并去重后的结果
@@ -574,12 +603,16 @@ class KARMAPipeline:
     def _run_configuration(self, domain, relevance_threshold):
         # Record reproducibility information only; never serialize API credentials.
         agents = (self.entity_extraction_agent, self.relationship_extraction_agent,
+                  self.triple_splitting_agent,
                   self.text_generation_agent, self.text_comparison_agent,
                   self.conflict_resolution_agent, self.evaluator_agent)
         hashes = {}
         for agent in agents:
             module_path = Path(inspect.getfile(type(agent)))
             hashes[type(agent).__name__] = hashlib.sha256(module_path.read_bytes()).hexdigest()
+        from ..agents.triple_revision import TripleRevisionMixin
+        shared_path = Path(inspect.getfile(TripleRevisionMixin))
+        hashes["TripleRevisionMixin"] = hashlib.sha256(shared_path.read_bytes()).hexdigest()
         return {"model": self.model_name, "api_mode": self.api_mode,
                 "integration_threshold": self.integration_threshold,
                 "relevance_threshold": relevance_threshold, "domain": domain,
@@ -703,6 +736,7 @@ class KARMAPipeline:
             ('summarizer', self.summarizer_agent),
             ('entity_extraction', self.entity_extraction_agent),
             ('relationship_extraction', self.relationship_extraction_agent),
+            ('triple_splitting', self.triple_splitting_agent),
             # ('schema_alignment', self.schema_alignment_agent),
             ('conflict_resolution', self.conflict_resolution_agent),
             ('evaluator', self.evaluator_agent)
