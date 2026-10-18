@@ -170,6 +170,11 @@ confidence、clarity、relevance。context 逐字复制源文中的连续片段�
             }
             for index, triple in enumerate(previous_relationships)
         ]
+        # Remove the abstention rule only for revision; keep the round-one prompt unchanged.
+        revision_fact_rules = FACT_RULES.replace(
+            "   第一轮不新增依赖猜测的事实；第二轮无法确认修订依据时不做对应操作。\n",
+            "",
+        )
         prompt = f"""
 # 任务目标
 依据源文本审校当前三元组集合，并根据审校结果生成最小必要的新增、删除和
@@ -201,25 +206,52 @@ confidence、clarity、relevance。context 逐字复制源文中的连续片段�
 {difference_context(diff)}
 
 # 修订操作
-- add：源文本明确支持，并且当前三元组集合尚未表达的独立事实。
+- add：补充源文明说、但现有结果还没有表达的事实。先检查当前集合和本轮其他操作，
+  不把正在检查的这项 add 自己算进去。原文一句话说了两件事，若两条三元组已经
+  分别说清楚这两件事及其适用条件，就不再添加一条把它们合写的三元组。
+  不能仅因措辞不同或没有保留原句形式就新增。
 - remove：当前三元组的核心事实缺少源文本支持或与源文本矛盾，并且无法
   通过调整实体边界、关系措辞或方向得到正确事实。
-- replace：核心事实存在，但实体边界、关系措辞或方向需要修正。
+- replace：核心事实存在，但实体边界、关系措辞、方向或必要限定范围需要修正。
 
 # 审校规则
-{FACT_RULES}
+{revision_fact_rules}
 - add 和 replace 的 evidence 使用源文本中逐字复制的连续片段，
-  覆盖支持三元组的完整上下文。
+  既包含这项事实，也包含理解它所需的前后文和限制条件。
 - 每个 index 最多参与一个 remove 或 replace。一个原三元组需要拆成多条时，
-  用 replace 给出主要修正，其余独立事实放入 add。
-- 差异仅提供候选线索，每项修改以源文本核实结果为准。无法确认的疑点保留原状态。
+  用 replace 将原条目改为其中一条，其余事实放入 add。
+- 结合源文核实差异提示，补充遗漏事实，修正错误表达。
+- 检查事实是否已经表达时，不只看对象和动作名称是否相同，还要核对“不、可能、
+  仅在某条件下、至少其中一项”等限制，以及数量、时间和是否必须由多个对象一起完成。
+  原文说“至少其中一项”时，分别断言每项都成立会改变原意。
+  可用 replace 把其中一条改回保留“至少其中一项”及完整选项的表达，再 remove
+  其余无原文依据、也无法修正为有依据事实的误拆条目；不能用给每条加 may 来替代。
+- 每项 add 的 reason 说明：现有相关三元组已经说了什么，
+  本条还补充什么。可引用相关条目的输入 index；没有相关条目时直接说明。
+  理由应具体到新增的事实，而不只引用“文本A独有”等差异标签。
 {SCORE_RULES}
 
 # 审校顺序
-1. 逐条核对当前三元组，确定其保持当前状态、remove 或 replace。
-2. 逐句并结合候选实体与 unique_to_text_a 检查遗漏事实，包括同一对象参与的多个关系，形成 add。
-3. 结合源文本与 `unique_to_text_b` 复核可能缺少依据的当前三元组。
-4. 检查操作冲突、语义重复、实体边界和关系方向，形成最终操作集合。
+1. 逐条对照源文检查当前三元组，决定保留、remove 或 replace。
+2. 逐句并结合候选实体与 unique_to_text_a 检查遗漏事实，包括同一对象参与的多个关系。
+   准备新增前，先查是否已有一条或多条三元组把这件事及其限制说清楚，
+   并核对本轮其他操作是否已经补上；仍缺少的事实才放入 add。
+   已有条目只是写错或漏写限制时，优先 replace，不保留错误版本再新增正确版本。
+3. 对 unique_to_text_b 提示的问题，找到相关三元组并核对源文，不能仅凭差异就删除。
+4. 检查所有操作执行后会留下哪些三元组：未修改的原条目、替换后的条目和新增条目。
+   已删除或被替换的旧内容不算在内。如果某项 add 的信息已由其余结果表达完整，
+   就取消这项 add；同时检查是否丢掉了有依据的事实或会改变原意的限制。
+   最后检查有没有对同一 index 重复操作，以及实体边界和关系方向是否正确。
+
+# 判断是否需要修改的示例
+- 源文为 The controller reads and stores sensor data.，当前已有 reads、stores
+  两条独立事实，即使差异列出整句，也不再 add reads and stores 的复合条。
+- 同一句源文若当前只有 reads，仍须 add stores；reason 可写：
+  “当前只表达控制器读取数据，没有表达其存储数据；本条补充源文明说的存储动作。”
+- 源文为 The controller activates at least one of the alarm and the indicator.，
+  若当前误拆成无条件 activates the alarm 和 activates the indicator，需 replace
+  一条，保留 at least one of 并列出 alarm 和 indicator 两个选项，再 remove 另一条错误断言。
+  若当前已正确保留“至少其中一项”，则保持原条目；不要求所有复合表达都拆开。
 
 # 操作示例
 示例源文本：
@@ -239,7 +271,7 @@ The ECUs may include PUF components. The controller may query the ECU.
       "relation": "may include",
       "tail": "PUF components",
       "evidence": "The ECUs may include PUF components.",
-      "reason": "源文本中的独立事实尚未包含在当前集合中",
+      "reason": "当前[0]描述控制关系，[1]描述存储关系，均未表达 ECUs 可能包含 PUF components；本条补充该包含关系",
       "confidence": 0.95,
       "clarity": 0.95,
       "relevance": 0.90
@@ -276,7 +308,7 @@ The ECUs may include PUF components. The controller may query the ECU.
       "relation": "...",
       "tail": "...",
       "evidence": "源文本中的连续片段",
-      "reason": "新增原因",
+      "reason": "现有相关条目说了什么；本条补充了什么",
       "confidence": 0.90,
       "clarity": 0.90,
       "relevance": 0.90
