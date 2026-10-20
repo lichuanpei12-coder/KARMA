@@ -37,7 +37,7 @@
   {
     "head": "the term \"part\" in connection with the term \"network\"",
     "relation": "means that",
-    "tail": "part of the network can be any real or imaginary fraction, portion or component of the network"
+    "tail": "part of the network"
   },
   {
     "head": "part of the network",
@@ -70,6 +70,16 @@
     "tail": "the drawings and foregoing description"
   },
   {
+    "head": "such illustration and description",
+    "relation": "are to be considered",
+    "tail": "illustrative or exemplary"
+  },
+  {
+    "head": "such illustration and description",
+    "relation": "are to be considered not",
+    "tail": "restrictive"
+  },
+  {
     "head": "at least one embodiment",
     "relation": "has the advantage of",
     "tail": "capturing of congestion levels"
@@ -98,6 +108,11 @@
     "head": "they",
     "relation": "are not for purposes of",
     "tail": "limitation"
+  },
+  {
+    "head": "specific terms",
+    "relation": "are employed",
+    "tail": "herein"
   },
   {
     "head": "this",

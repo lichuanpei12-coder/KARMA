@@ -36,11 +36,6 @@
   },
   {
     "head": "the hazards of loose items flying out of the open-top of cargo trailers",
-    "relation": "has led",
-    "tail": "many governing bodies"
-  },
-  {
-    "head": "the hazards of loose items flying out of the open-top of cargo trailers",
     "relation": "has led many governing bodies to enact",
     "tail": "strict laws"
   },
@@ -80,8 +75,8 @@
     "tail": "the following claims"
   },
   {
-    "head": "the actual scope of the protection sought",
-    "relation": "is viewed in",
+    "head": "the following claims",
+    "relation": "are viewed in",
     "tail": "their proper perspective"
   },
   {
