@@ -1,4 +1,4 @@
-"""Dedicated triple splitting with the existing split-only prompt unchanged."""
+"""Dedicated triple splitting with source-grounded rules and a worked example."""
 
 import json
 import logging
@@ -14,8 +14,8 @@ logger = logging.getLogger(__name__)
 class TripleSplittingAgent(TripleRevisionMixin, BaseAgent):
     """Source-grounded splitting; no candidates or text differences are inputs.
 
-    The legacy source tag and operation validation are intentionally retained
-    for output parity. The pipeline records this agent in a separate audit.
+    Operations identify their parent triple and inherit its scores locally.
+    The pipeline records this agent in a separate audit.
     """
 
     def __init__(self, client, model_name: str):
@@ -68,32 +68,21 @@ class TripleSplittingAgent(TripleRevisionMixin, BaseAgent):
    拆出内部关系后，同时检查外层三元组是否需要调整边界；
    仅在拆分结果合起来保留必要信息时调整，不直接截断限定。
 
-   拆分示例：
-   源文：The controller may read and store sensor data.
-   当前：The controller → may read and store → sensor data
-   replace：The controller → may read → sensor data
-   add：The controller → may store → sensor data
-
 # 操作
 - add：补充有原文依据、尚未独立表达的事实，不限制有效补充的数量。
 - replace：修正已有事实的边界、关系或方向；拆分时用它保留主要事实，其余用 add。
-- remove：事实无依据或与原文矛盾，且不能通过 replace 修正。
-remove/replace 使用输入中从0开始的固定 index，每个 index 最多操作一次。
+add/replace 均填写被拆分的原三元组 index，使用输入中从0开始的固定编号。
+同一个 index 可对应多条 add，但最多一条 replace；add 不替换或删除原条目。
 拆分后的事实合起来须保留原三元组中有依据的必要信息。
 以上为操作定义；本次实验仅使用 add/replace 完成拆分，remove 固定返回 []。
 
-# 事实与证据
+# 事实
 - 保持主客体及关系方向。
 - 在三元组字段中保留适用的否定、情态、条件、数量、时间和限定范围；
   不把目的改成已实现的结果、条件改成无条件、选择关系改成各项同时成立。
-- 保留源文语言和措辞，仅补齐语法明确共享的成分，不猜测指代或编造关系。
+- 保留源文语言和措辞，可补齐语法明确共享或省略的成分（如 is），
+  使拆出的关系表达完整，不猜测指代或编造关系。
   无法确认拆分依据时保留原条目。
-- evidence 逐字复制源文连续片段，覆盖完整事实及其必要限定。
-
-# 评分
-每个 add/replace 分别给出 0.0 到 1.0 的 confidence（源文支持度）、
-clarity（表达清晰度）、relevance（主题相关度），不照抄示例分数。
-原文和三元组均保留“可能”等情态时，不因情态本身降低支持度。
 
 # 源文本
 <source_text>
@@ -106,17 +95,58 @@ clarity（表达清晰度）、relevance（主题相关度），不照抄示例�
 </current_triples_json>
 
 # 拆分示例与输出格式
-示例原文：The controller may read and store sensor data.
+示例原文：When the particles are of non-spheroid shape, the term refers to the average equivalent diameter of the particle, namely the diameter of an equivalent spherical particle based on the longest dimension of the particle.
 示例当前集合：
-[{{"index": 0, "head": "The controller", "relation": "may read and store", "tail": "sensor data"}}]
+[
+  {{
+    "index": 0,
+    "head": "the particles",
+    "relation": "are of",
+    "tail": "non-spheroid shape"
+  }},
+  {{
+    "index": 1,
+    "head": "the term",
+    "relation": "refers to",
+    "tail": "the average equivalent diameter of the particle, namely the diameter of an equivalent spherical particle based on the longest dimension of the particle"
+  }}
+]
+拆分说明：
+- index 0 已独立表达颗粒形状，保留原条目，不重复添加。
+- index 1 的长 tail 中，namely 引出对平均等效直径的解释，based on 引出直径的确定依据。
+- 分别使用内部关系自己的主体，补入 is，表达为 is namely 和 is based on。
+- 将两项内部关系另列后，缩短 index 1 的客体；拆分后共四条三元组。
 示例输出：
 {{
-  "add": [{{"head": "The controller", "relation": "may store", "tail": "sensor data", "evidence": "The controller may read and store sensor data.", "reason": "拆出存储动作", "confidence": 0.95, "clarity": 0.95, "relevance": 0.90}}],
+  "add": [
+    {{
+      "index": 1,
+      "head": "the average equivalent diameter of the particle",
+      "relation": "is namely",
+      "tail": "the diameter of an equivalent spherical particle",
+      "reason": "namely 短语中的直径解释尚未独立表达，以平均等效直径为主体，补入 is 形成 is namely 关系"
+    }},
+    {{
+      "index": 1,
+      "head": "the diameter of an equivalent spherical particle",
+      "relation": "is based on",
+      "tail": "the longest dimension of the particle",
+      "reason": "based on 短语中的依据尚未独立表达，以等效球形颗粒的直径为主体，补入 is 形成 is based on 关系"
+    }}
+  ],
   "remove": [],
-  "replace": [{{"index": 0, "head": "The controller", "relation": "may read", "tail": "sensor data", "evidence": "The controller may read and store sensor data.", "reason": "拆分后保留读取动作", "confidence": 0.95, "clarity": 0.95, "relevance": 0.90}}]
+  "replace": [
+    {{
+      "index": 1,
+      "head": "the term",
+      "relation": "refers to",
+      "tail": "the average equivalent diameter of the particle",
+      "reason": "namely 解释和 based on 依据已另列，原条目保留术语指向平均等效直径的关系"
+    }}
+  ]
 }}
 仅返回上述结构的JSON对象，三个操作数组都必须存在，无对应操作时填[]。
-add/replace 保留示例中的全部字段。
+每项 add/replace 只输出 index、head、relation、tail、reason。
 对实际输入执行检查，不复制示例事实。
 """
 
@@ -133,7 +163,7 @@ add/replace 保留示例中的全部字段。
                 system_prompt=revision_system_prompt,
             )
             revision = self._parse_revision_response(response)
-            revised, audit = self._apply_revision(previous_relationships, revision)
+            revised, audit = self._apply_revision(previous_relationships, revision, split_only=True)
             self.last_revision = audit
             return revised
         except Exception as exc:

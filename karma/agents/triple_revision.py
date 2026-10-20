@@ -28,8 +28,10 @@ class TripleRevisionMixin:
         self,
         previous_relationships: List[KnowledgeTriple],
         revision: Dict[str, List[Dict[str, Any]]],
+        *,
+        split_only: bool = False,
     ) -> Tuple[List[KnowledgeTriple], Dict[str, Any]]:
-        """Validate and deterministically apply revision operations."""
+        """Apply feedback normally, or split with parent indices and inherited scores."""
         replacements: Dict[int, KnowledgeTriple] = {}
         removals = set()
         additions: List[KnowledgeTriple] = []
@@ -52,11 +54,13 @@ class TripleRevisionMixin:
                     continue
                 index = None
                 error = ""
-                if operation != "add":
+                if split_only and operation == "remove":
+                    error = "remove is not allowed during splitting"
+                elif operation != "add" or split_only:
                     index = self._valid_revision_index(item.get("index"), previous_relationships)
                     if index is None:
                         error = "invalid index"
-                    elif targets[index] > 1:
+                    elif operation != "add" and targets[index] > 1:
                         error = "conflicting operations; original triple retained"
                 if not error and not clean_string(item.get("reason")):
                     error = "missing reason"
@@ -65,7 +69,7 @@ class TripleRevisionMixin:
                     triple = self._triple_from_revision_item(item, "relationship_revision")
                     if triple is None:
                         error = "incomplete triple"
-                    elif not clean_string(item.get("evidence")):
+                    elif not split_only and not clean_string(item.get("evidence")):
                         error = "missing evidence"
                 if error:
                     rejected.append({"operation": operation, "reason": error, "item": item})
@@ -73,9 +77,23 @@ class TripleRevisionMixin:
                 # Snapshot the applied SPO values for reading the audit without
                 # looking up baseline indices. These describe the accepted
                 # operation, before deduplication and downstream filtering.
-                before = previous_relationships[index] if index is not None else None
+                before = previous_relationships[index] if operation != "add" and index is not None else None
+                audit_item = item
+                if split_only:
+                    # Split children retain their original parent's scores. Do not
+                    # invent quality scores or trust obsolete model score fields.
+                    parent = previous_relationships[index]
+                    scores = {key: getattr(parent, key) for key in ("confidence", "clarity", "relevance")}
+                    for key, value in scores.items():
+                        setattr(triple, key, value)
+                    audit_item = {
+                        **{key: value for key, value in item.items()
+                           if key not in ("evidence", "confidence", "clarity", "relevance")},
+                        "score_source_index": index,
+                        "inherited_scores": scores,
+                    }
                 accepted[operation].append({
-                    **item,
+                    **audit_item,
                     "before": {
                         "head": before.head,
                         "relation": before.relation,
@@ -110,6 +128,8 @@ class TripleRevisionMixin:
             "baseline_count": len(previous_relationships),
             "final_count": len(revised),
         }
+        if split_only:
+            audit["score_policy"] = "inherit_from_source_triple"
         return revised, audit
 
     @staticmethod

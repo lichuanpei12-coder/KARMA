@@ -1,4 +1,4 @@
-"""Offline parity checks against captured pre-migration responses and outputs."""
+"""Compact split protocol, inherited scores, and legacy feedback validation."""
 
 import copy
 import hashlib
@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from karma.agents.triple_splitting import TripleSplittingAgent
+from karma.agents.triple_revision import TripleRevisionMixin
 from karma.core.base_agent import BaseAgent
 from karma.core.data_structures import KnowledgeTriple, IntermediateOutput
 from karma.core.pipeline import KARMAPipeline
@@ -26,22 +27,107 @@ class SplittingParityTests(unittest.TestCase):
     def setUpClass(cls):
         cls.fixture = json.loads((ROOT / 'tests/fixtures/triple_splitting_parity.json').read_text(encoding='utf-8'))
 
-    def test_prompt_operations_scores_and_audit_match_legacy(self):
+    def compact_case(self):
+        parent, other = copy.deepcopy(self.fixture['baseline'])
+        def operation(relation):
+            return dict(index=0, head=parent['head'], relation=relation,
+                        tail=parent['tail'], reason='split coordinated actions')
+        return {
+            'name': 'compact_split',
+            'response': json.dumps({'add': [operation('may store')],
+                                    'remove': [], 'replace': [operation('may read')]}),
+            'expected': [
+                dict(parent, relation='may read', source='relationship_revision'),
+                other,
+                dict(parent, relation='may store', source='relationship_revision'),
+            ],
+        }
+
+    def test_current_prompt_and_legacy_feedback_validation(self):
         for case in self.fixture['cases']:
             with self.subTest(case=case['name']):
                 agent = TripleSplittingAgent(None, 'offline')
                 baseline = [KnowledgeTriple.from_dict(t) for t in self.fixture['baseline']]
-                with patch.object(agent, '_make_llm_call', return_value=(case['response'], 0, 0, 0)) as call:
+                # Keep the historical fixture as a regression for the shared
+                # feedback rules, which still require evidence and model scores.
+                legacy_apply = lambda previous, revision, **_: TripleRevisionMixin._apply_revision(
+                    agent, previous, revision)
+                with patch.object(agent, '_apply_revision', side_effect=legacy_apply), \
+                     patch.object(agent, '_make_llm_call', return_value=(case['response'], 0, 0, 0)) as call:
                     actual = agent.process(self.fixture['source'], baseline)
                 call.assert_called_once()
                 self.assertEqual(call.call_args.kwargs['temperature'], 0.0)
                 prompt = call.call_args.args[0]
                 system = call.call_args.kwargs['system_prompt']
-                self.assertEqual(hashlib.sha256(prompt.encode()).hexdigest(), self.fixture['prompt_sha256'])
+                # Examples may evolve; captured legacy operations and outputs stay fixed.
+                self.assertEqual(hashlib.sha256(prompt.encode()).hexdigest(), self.fixture['current_prompt_sha256'])
                 self.assertEqual(hashlib.sha256(system.encode()).hexdigest(), self.fixture['system_prompt_sha256'])
                 self.assertEqual([t.to_dict() for t in actual], case['expected'])
                 self.assertEqual(agent.last_revision, case['audit'])
                 self.assertEqual([t.to_dict() for t in baseline], self.fixture['baseline'])
+
+    def test_compact_split_inherits_scores_without_evidence(self):
+        agent = TripleSplittingAgent(None, 'offline')
+        baseline = [KnowledgeTriple.from_dict(t) for t in self.fixture['baseline']]
+        case = self.compact_case()
+        with patch.object(agent, '_make_llm_call', return_value=(case['response'], 0, 0, 0)) as call:
+            actual = agent.process(self.fixture['source'], baseline)
+        self.assertEqual([t.to_dict() for t in actual], case['expected'])
+        self.assertEqual(agent.last_revision['rejected'], [])
+        self.assertEqual(agent.last_revision['score_policy'], 'inherit_from_source_triple')
+        for op in ('add', 'replace'):
+            entry = agent.last_revision['accepted'][op][0]
+            self.assertEqual(entry['score_source_index'], 0)
+            self.assertEqual(entry['inherited_scores'], dict(confidence=.9, clarity=.85, relevance=.8))
+            self.assertFalse(set(entry) & {'evidence', 'confidence', 'clarity', 'relevance'})
+        prompt = call.call_args.args[0]
+        for field in ('evidence', 'confidence', 'clarity', 'relevance'):
+            self.assertNotIn(field, prompt)
+        self.assertEqual([t.to_dict() for t in baseline], self.fixture['baseline'])
+
+    def test_split_parent_indices_and_invalid_operations(self):
+        agent = TripleSplittingAgent(None, 'offline')
+        baseline = [KnowledgeTriple.from_dict(t) for t in self.fixture['baseline']]
+        valid = json.loads(self.compact_case()['response'])['add'][0]
+        for index in (None, True, -1, 99):
+            with self.subTest(index=index):
+                actual, audit = agent._apply_revision(baseline, {
+                    'add': [dict(valid, index=index)], 'replace': [], 'remove': [],
+                }, split_only=True)
+                self.assertEqual(actual, baseline)
+                self.assertEqual(audit['rejected'][0]['reason'], 'invalid index')
+        # Multiple children may share a parent; they inherit that parent's
+        # scores even if an old model response still contains score fields.
+        actual, audit = agent._apply_revision(baseline, {
+            'add': [dict(valid, confidence=1, clarity=1, relevance=1),
+                    dict(valid, relation='may archive')],
+            'replace': [], 'remove': [{'index': 1, 'reason': 'unsupported'}],
+        }, split_only=True)
+        self.assertEqual(len(actual), 4)
+        self.assertEqual(len(audit['accepted']['add']), 2)
+        self.assertTrue(all(t.clarity == .85 for t in actual[2:]))
+        self.assertEqual(audit['rejected'][0]['reason'], 'remove is not allowed during splitting')
+        # Distinct source indices must not be confused with output positions.
+        actual, audit = agent._apply_revision(baseline, {
+            'add': [dict(valid, index=1)], 'replace': [], 'remove': [],
+        }, split_only=True)
+        self.assertEqual(actual[-1].clarity, .9)
+        baseline[0].confidence = .2
+        actual, audit = agent._apply_revision(baseline, {
+            'add': [dict(valid, confidence=1)], 'replace': [], 'remove': [],
+        }, split_only=True)
+        self.assertEqual(actual[-1].confidence, .2)
+        actual, audit = agent._apply_revision(baseline, {
+            'add': [], 'replace': [valid, dict(valid, relation='may read')], 'remove': [],
+        }, split_only=True)
+        self.assertEqual(actual, baseline)
+        self.assertEqual(len(audit['rejected']), 2)
+        # Evidence is still required for ordinary relationship feedback.
+        actual, audit = agent._apply_revision(baseline, {
+            'add': [valid], 'replace': [], 'remove': [],
+        })
+        self.assertEqual(actual, baseline)
+        self.assertEqual(audit['rejected'][0]['reason'], 'missing evidence')
 
     def test_call_failure_preserves_input(self):
         baseline = [KnowledgeTriple.from_dict(t) for t in self.fixture['baseline']]
@@ -70,7 +156,7 @@ class SplittingParityTests(unittest.TestCase):
                 original = Path('baseline.json').read_bytes()
                 gold = [dict(head='The controller', relation='may read', tail='sensor data'),
                         dict(head='The controller', relation='may store', tail='sensor data')]
-                for case in self.fixture['cases']:
+                for case in [self.compact_case()]:
                     with self.subTest(case=case['name']):
                         pipe = KARMAPipeline('offline', model_name='offline', integration_threshold=.8)
                         pipe.evaluator_agent._dump_dir = Path(case['name'])

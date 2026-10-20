@@ -64,7 +64,8 @@ class StagedPipelineTests(unittest.TestCase):
                 return reply([] if empty else [fact()])
             if name == 'TripleSplittingAgent':
                 return reply({'add': [], 'remove': [], 'replace': [] if empty else [
-                    fact('may query', index=0, evidence='Controller may query ECU.', reason='source wording')]})
+                    dict(head='Controller', relation='may query', tail='ECU',
+                         index=0, reason='source wording')]})
             if name == 'TextGenerationAgent':
                 return 'Controller controls ECU.', 0, 0, 0
             if name == 'TextComparisonAgent':
@@ -155,8 +156,8 @@ class StagedPipelineTests(unittest.TestCase):
         base = self.pipeline('index_base')
         base.process_document(self.source, stage='baseline', limit=1)
         pipe = self.pipeline('index_revise')
-        split_reply = {'add': [fact('may store', evidence='Controller may query ECU.', reason='split')],
-                       'remove': [], 'replace': [fact('may query', index=0, evidence='Controller may query ECU.', reason='split')]}
+        split_reply = {'add': [dict(head='Controller', relation='may store', tail='ECU', index=0, reason='split')],
+                       'remove': [], 'replace': [dict(head='Controller', relation='may query', tail='ECU', index=0, reason='split')]}
         feedback_reply = {'add': [], 'remove': [], 'replace': [
             fact('may read', index=1, evidence='Controller may query ECU.', reason='correct second split triple')]}
         with patch.object(pipe.triple_splitting_agent, '_make_llm_call', return_value=reply(split_reply)), \
