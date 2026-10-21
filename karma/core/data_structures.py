@@ -34,6 +34,8 @@ class KnowledgeTriple:
     source: str = "unknown"
     relevance: float = 0.0
     clarity: float = 0.0
+    source_sentence_ids: List[str] = field(default_factory=list)
+    evidence: str = ""
 
     def __str__(self) -> str:
         """String representation of the knowledge triple."""
@@ -41,11 +43,21 @@ class KnowledgeTriple:
 
     def to_dict(self) -> Dict:
         """Convert to dictionary for serialization."""
-        return asdict(self)
+        data = asdict(self)
+        # Legacy records remain readable and unchanged when provenance is absent.
+        for key in ("source_sentence_ids", "evidence"):
+            if not data[key]:
+                data.pop(key)
+        return data
 
     @classmethod
     def from_dict(cls, data: Dict) -> 'KnowledgeTriple':
         """Create instance from dictionary."""
+        ids = data.get('source_sentence_ids', [])
+        if not isinstance(ids, list) or not all(isinstance(s, str) for s in ids):
+            raise ValueError('source_sentence_ids must be a string array')
+        if not isinstance(data.get('evidence', ''), str):
+            raise ValueError('evidence must be a string')
         return cls(**data)
 
 

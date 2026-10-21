@@ -17,6 +17,7 @@ import hashlib
 import inspect
 
 from .run_artifacts import load_baseline, save_baseline, select_documents, write_json
+from .sentence_groups import source_sentences, attach_sources, group_triples
 
 from openai import OpenAI
 
@@ -197,11 +198,14 @@ class KARMAPipeline:
                 raw_text = self._load_document(source)
                 texts = raw_text if isinstance(raw_text, list) else [raw_text]
                 ids = [str(i) for i in range(len(texts))]
+                sentence_lists = {}
                 source_path = Path(source)
                 if source_path.is_file() and source_path.suffix.lower() == ".json":
                     source_data = json.loads(source_path.read_text(encoding="utf-8"))
                     ids = [str(k) for k, v in source_data.items() if isinstance(v, list)]
-                documents = [{"doc_id": key, "source_index": i, "raw_text": text}
+                    sentence_lists = {str(k): v for k, v in source_data.items() if isinstance(v, list)}
+                documents = [{"doc_id": key, "source_index": i, "raw_text": text,
+                              "raw_sentences": sentence_lists.get(key)}
                              for i, (key, text) in enumerate(zip(ids, texts))]
             documents = select_documents(documents, doc_ids, limit)
             intermediate.raw_text = raw_text
@@ -334,13 +338,26 @@ class KARMAPipeline:
                         # step_time = time.time() - step_start
                         # intermediate.metrics.add_agent_time("entity_extraction", step_time)
                         # self._log(f"[3.5/8] Entity extraction completed in {step_time:.2f}s. Entities: {len(entities)}")
-                # Round 1 is unchanged. Round 2 starts with one split-only call.
+                saved_sentences = document.get('source_sentences')
+                supplied = ([s['text'] for s in saved_sentences] if saved_sentences is not None
+                            else document.get('raw_sentences'))
+                if supplied is not None and ' '.join(' '.join(supplied).split()) != ' '.join(extraction_text.split()):
+                    if saved_sentences is not None:
+                        raise ValueError('Saved sentence boundaries do not match extraction text')
+                    supplied = None  # Summarization/normalization changed the text.
+                sentences = source_sentences(extraction_text, supplied)
+                if saved_sentences is not None and sentences != saved_sentences:
+                    raise ValueError('Invalid saved source sentence IDs')
+                run_document['source_sentences'] = sentences
+                # Round 2 starts with one split-only call.
                 # General feedback always reviews the split collection.
                 initial_entities = ([KGEntity.from_dict(x) for x in document["initial_entities"]]
                                     if stage == "revise" else [])
                 baseline_triples = ([KnowledgeTriple.from_dict(x) for x in document["baseline_triples"]]
                                     if stage == "revise" else [])
                 if stage == "revise":
+                    for triple in baseline_triples:
+                        attach_sources(triple, sentences)
                     intermediate.initial_entities = copy.deepcopy(initial_entities)
                     intermediate.baseline_triples = copy.deepcopy(baseline_triples)
                     run_document["rounds"]["1"] = [x.to_dict() for x in baseline_triples]
@@ -366,8 +383,9 @@ class KARMAPipeline:
                     if t == 1:
                         self._log("[7.5/8] Running Text Generation Agent...")
                         step_start = time.time()
+                        sentence_groups = group_triples(sentences, split_triples)
                         text_generation = self.text_generation_agent.process(
-                            copy.deepcopy(split_triples)
+                            copy.deepcopy(split_triples), sentence_groups=sentence_groups
                         )
                         print(text_generation)
                         step_time = time.time() - step_start
@@ -379,10 +397,14 @@ class KARMAPipeline:
                         self._log("[9/8] Running Comparison Agent...")
                         step_start = time.time()
                         diff = self.text_comparison_agent.process(
-                            extraction_text, text_generation
+                            extraction_text, text_generation, sentence_groups=sentence_groups,
+                            reconstructions=self.text_generation_agent.last_grouped_generation
                         )
                         with open(self.evaluator_agent._dump_dir / f"_dump_doc{i}_feedback.json", "w", encoding="utf-8") as _f:
-                            json.dump({"text_a": extraction_text, "text_b": text_generation, "diff": diff}, _f, ensure_ascii=False, indent=2)
+                            json.dump({"text_a": extraction_text, "text_b": text_generation, "diff": diff,
+                                       "source_sentences": sentences, "sentence_groups": sentence_groups,
+                                       "reconstructions": self.text_generation_agent.last_grouped_generation},
+                                      _f, ensure_ascii=False, indent=2)
                         print(diff)
                         step_time = time.time() - step_start
                         intermediate.metrics.add_agent_time("diff", step_time)
@@ -427,14 +449,14 @@ class KARMAPipeline:
 
                     if t == 0:
                         relationships = self.relationship_extraction_agent.process(
-                            summaries, entities, diff
+                            summaries, entities, diff, sentences=sentences
                         )
                         intermediate.initial_relationships = copy.deepcopy(relationships)
                         with open(self.evaluator_agent._dump_dir / f"_dump_doc{i}_r{t}_relationship_audit.json", "w", encoding="utf-8") as _f:
                             json.dump(self.relationship_extraction_agent.last_extraction, _f, ensure_ascii=False, indent=2)
                     else:
                         relationships = self.relationship_extraction_agent.revise_relationships(
-                            extraction_text, copy.deepcopy(split_triples), diff, entities=entities
+                            extraction_text, copy.deepcopy(split_triples), diff, entities=entities, sentences=sentences
                         )
                     intermediate.relationships = relationships
 
@@ -506,6 +528,10 @@ class KARMAPipeline:
                     run_document["rounds"][str(t + 1)] = [x.to_dict() for x in integrated_triples]
                     if t == 1:
                         revision_result = {
+                            "source_sentences": sentences,
+                            "sentence_groups_after_split": sentence_groups,
+                            "sentence_groups_after_revision": group_triples(sentences, relationships),
+                            "sentence_groups_final": group_triples(sentences, integrated_triples),
                             "revision_agent": type(revision_agent).__name__,
                             # 第一轮最终结果：第二轮修改的基础
                             "baseline": [
@@ -559,6 +585,7 @@ class KARMAPipeline:
                         baseline_documents.append({
                             "doc_id": document["doc_id"], "source_index": i,
                             "raw_text": document_text, "extraction_text": extraction_text,
+                            "source_sentences": sentences,
                             "initial_entities": [x.to_dict() for x in initial_entities],
                             "initial_relationships": [x.to_dict() for x in intermediate.initial_relationships],
                             "baseline_triples": [x.to_dict() for x in baseline_triples],
@@ -613,10 +640,13 @@ class KARMAPipeline:
         from ..agents.triple_revision import TripleRevisionMixin
         shared_path = Path(inspect.getfile(TripleRevisionMixin))
         hashes["TripleRevisionMixin"] = hashlib.sha256(shared_path.read_bytes()).hexdigest()
+        grouping_path = Path(inspect.getfile(source_sentences))
+        hashes['SentenceGrouping'] = hashlib.sha256(grouping_path.read_bytes()).hexdigest()
         return {"model": self.model_name, "api_mode": self.api_mode,
                 "integration_threshold": self.integration_threshold,
                 "relevance_threshold": relevance_threshold, "domain": domain,
                 "use_summarizer": bool(os.environ.get("KARMA_USE_SUMMARIZER")),
+                "feedback_grouping": "source_sentence_groups_v1",
                 "agent_code_sha256": hashes}
 
     @staticmethod

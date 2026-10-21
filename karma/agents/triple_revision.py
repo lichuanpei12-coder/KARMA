@@ -4,6 +4,7 @@ from collections import Counter
 from typing import Any, Dict, List, Tuple
 
 from karma.core.data_structures import KnowledgeTriple
+from karma.core.sentence_groups import attach_sources
 from karma.agents.extraction_support import parse_json_container, clean_string, safe_score
 
 
@@ -30,6 +31,7 @@ class TripleRevisionMixin:
         revision: Dict[str, List[Dict[str, Any]]],
         *,
         split_only: bool = False,
+        source_sentences=None,
     ) -> Tuple[List[KnowledgeTriple], Dict[str, Any]]:
         """Apply feedback normally, or split with parent indices and inherited scores."""
         replacements: Dict[int, KnowledgeTriple] = {}
@@ -83,6 +85,8 @@ class TripleRevisionMixin:
                     # Split children retain their original parent's scores. Do not
                     # invent quality scores or trust obsolete model score fields.
                     parent = previous_relationships[index]
+                    triple.source_sentence_ids = list(parent.source_sentence_ids)
+                    triple.evidence = parent.evidence
                     scores = {key: getattr(parent, key) for key in ("confidence", "clarity", "relevance")}
                     for key, value in scores.items():
                         setattr(triple, key, value)
@@ -92,6 +96,8 @@ class TripleRevisionMixin:
                         "score_source_index": index,
                         "inherited_scores": scores,
                     }
+                elif triple is not None and source_sentences is not None:
+                    attach_sources(triple, source_sentences, item, parent=before)
                 accepted[operation].append({
                     **audit_item,
                     "before": {
@@ -188,6 +194,12 @@ class TripleRevisionMixin:
 
             # Keep the one with higher confidence if duplicates exist
             if key not in unique_rels or rel.confidence > unique_rels[key].confidence:
+                if key in unique_rels:
+                    rel.source_sentence_ids = list(dict.fromkeys(
+                        unique_rels[key].source_sentence_ids + rel.source_sentence_ids))
                 unique_rels[key] = rel
+            else:
+                unique_rels[key].source_sentence_ids = list(dict.fromkeys(
+                    unique_rels[key].source_sentence_ids + rel.source_sentence_ids))
 
         return list(unique_rels.values())

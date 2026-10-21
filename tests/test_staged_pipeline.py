@@ -67,8 +67,16 @@ class StagedPipelineTests(unittest.TestCase):
                     dict(head='Controller', relation='may query', tail='ECU',
                          index=0, reason='source wording')]})
             if name == 'TextGenerationAgent':
+                if '<triple_groups_json>' in prompt:
+                    groups = json.loads(prompt.split('<triple_groups_json>')[1].split('</triple_groups_json>')[0])
+                    return reply([{'sentence_id': g['sentence_id'],
+                                   'text': 'Controller controls ECU.' if g['triples'] else ''} for g in groups])
                 return 'Controller controls ECU.', 0, 0, 0
             if name == 'TextComparisonAgent':
+                if '<sentence_pairs_json>' in prompt:
+                    pairs = json.loads(prompt.split('<sentence_pairs_json>')[1].split('</sentence_pairs_json>')[0])
+                    return reply([{'sentence_id': p['sentence_id'], 'unique_to_text_a': [],
+                                   'unique_to_text_b': []} for p in pairs])
                 return reply({'unique_to_text_a': [], 'unique_to_text_b': []})
             raise AssertionError(name)
 
@@ -136,9 +144,9 @@ class StagedPipelineTests(unittest.TestCase):
             resumed = self.pipeline('feedback_resume_' + mode, mode)
             reconstructed = []
             generation = resumed.text_generation_agent.process
-            def capture(triples):
+            def capture(triples, **kwargs):
                 reconstructed.append([x.to_dict() for x in triples])
-                return generation(triples)
+                return generation(triples, **kwargs)
             with patch.object(resumed.text_generation_agent, 'process', side_effect=capture):
                 resumed.process_document('', stage='revise', baseline_path=base.last_baseline_path)
             self.assertEqual(full.last_run_manifest['documents'], resumed.last_run_manifest['documents'])

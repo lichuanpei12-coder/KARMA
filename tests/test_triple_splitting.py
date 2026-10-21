@@ -139,6 +139,15 @@ class SplittingParityTests(unittest.TestCase):
         self.assertEqual(agent.last_revision['mode'], 'baseline_fallback')
 
     def test_pipeline_preserves_split_parity_when_feedback_has_no_edits(self):
+        def without_provenance(triples):
+            return [{k: v for k, v in t.items() if k not in ('source_sentence_ids', 'evidence')}
+                    for t in triples]
+
+        def generate(prompt, **kwargs):
+            groups = json.loads(prompt.split('<triple_groups_json>')[1].split('</triple_groups_json>')[0])
+            return json.dumps([{'sentence_id': g['sentence_id'], 'text': ' '.join(
+                ' '.join(t[k] for k in ('head', 'relation', 'tail')) for t in g['triples'])}
+                for g in groups]), 0, 0, 0
         previous_cwd = Path.cwd()
         with tempfile.TemporaryDirectory(dir=ROOT / 'tests') as directory:
             os.chdir(directory)
@@ -165,7 +174,7 @@ class SplittingParityTests(unittest.TestCase):
                             # Isolate split parity with explicit no-op feedback; forbid network.
                             with patch.object(BaseAgent, '_make_llm_call', side_effect=AssertionError('Unexpected LLM stage')), \
                                  patch('httpx.Client.send', side_effect=AssertionError('Network forbidden')), \
-                                 patch.object(pipe.text_generation_agent, 'process', return_value=source), \
+                                 patch.object(pipe.text_generation_agent, '_make_llm_call', side_effect=generate), \
                                  patch.object(pipe.text_comparison_agent, 'process', return_value={}), \
                                  patch.object(pipe.entity_extraction_agent, 'revise_entities', return_value=[]), \
                                  patch.object(pipe.relationship_extraction_agent, '_make_llm_call',
@@ -177,13 +186,13 @@ class SplittingParityTests(unittest.TestCase):
                             feedback.assert_called_once()
                             expected = [t for t in case['expected']
                                         if .5 * t['confidence'] + .25 * t['clarity'] + .25 * t['relevance'] >= .8]
-                            self.assertEqual([t.to_dict() for t in output.split_triples], case['expected'])
-                            actual = [t.to_dict() for t in output.integrated_triples]
+                            self.assertEqual(without_provenance([t.to_dict() for t in output.split_triples]), case['expected'])
+                            actual = without_provenance([t.to_dict() for t in output.integrated_triples])
                             self.assertEqual(actual, expected)
                             doc = pipe.last_run_manifest['documents'][0]
-                            self.assertEqual(doc['rounds']['1'], baseline)
-                            self.assertEqual(doc['rounds']['2'], expected)
-                            self.assertEqual(doc['stages']['after_split'], case['expected'])
+                            self.assertEqual(without_provenance(doc['rounds']['1']), baseline)
+                            self.assertEqual(without_provenance(doc['rounds']['2']), expected)
+                            self.assertEqual(without_provenance(doc['stages']['after_split']), case['expected'])
                             samples = lambda triples: [{'doc_id': 'parity', 'gold_key': 'parity', 'gold': gold,
                                                         'rounds': {'R1': baseline, 'R2': triples}}]
                             old_report, _ = ev.evaluate_samples(samples(expected), ['strict', 'lenient'], {})
@@ -192,7 +201,7 @@ class SplittingParityTests(unittest.TestCase):
                             self.assertEqual(Path('baseline.json').read_bytes(), original)
                             audit = json.loads((pipe.evaluator_agent._dump_dir / '_dump_doc0_revision_result.json').read_text(encoding='utf-8'))
                             self.assertEqual(audit['revision_agent'], 'RelationshipExtractionAgent')
-                            self.assertEqual(audit['revision_input'], case['expected'])
+                            self.assertEqual(without_provenance(audit['revision_input']), case['expected'])
                         finally:
                             pipe.client.close()
             finally:

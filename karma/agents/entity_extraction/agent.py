@@ -36,6 +36,9 @@ ENTITY_RULES = """候选实体用于辅助发现事实中的参与对象。
 
 # 差异说明在两个抽取 Agent 中各保留一份，修改时同步另一份。
 def difference_context(diff):
+    if isinstance(diff, dict) and 'sentence_differences' in diff:
+        from karma.core.sentence_groups import grouped_difference_context
+        return grouped_difference_context(diff)
     """Format the feedback explanation used by this agent's prompts."""
     diff = diff if isinstance(diff, dict) else {}
     data = {key: diff.get(key, []) for key in ('unique_to_text_a', 'unique_to_text_b')}
