@@ -16,7 +16,7 @@ h1{font-size:27px;line-height:1.5;margin:0 0 24px}h2{font-size:23px;margin:38px 
 h3{font-size:19px;line-height:1.6;margin:32px 0 18px;background:#edf4fc;border-left:4px solid #377ab4;padding:12px 15px;border-radius:0 6px 6px 0}
 h4{font-size:17px}p{margin:12px 0}li{margin:6px 0}strong{font-weight:700}blockquote{margin:15px 0;padding:10px 18px;border-left:4px solid #ccd9e7;background:#f7f9fc}
 pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f5f7fa;border:1px solid #e1e7ee;border-radius:7px;padding:15px 18px;font:14px/1.8 Consolas,"Microsoft YaHei",monospace}
-code{font-family:Consolas,"Microsoft YaHei",monospace;font-size:.91em;background:#edf2f7;padding:2px 4px;border-radius:3px}pre code{font-size:inherit;background:transparent;padding:0}
+code{font-family:Consolas,"Microsoft YaHei",monospace;font-size:.91em;background:#edf2f7;padding:2px 4px;border-radius:3px;overflow-wrap:anywhere}pre code{font-size:inherit;background:transparent;padding:0}
 .table-wrap{overflow-x:auto;margin:16px 0;border:1px solid var(--line);border-radius:6px}
 table{width:100%;border-collapse:collapse;font-size:14px;line-height:1.7;table-layout:auto}th,td{padding:10px 12px;text-align:left;vertical-align:top;border-right:1px solid var(--line);border-bottom:1px solid var(--line);overflow-wrap:anywhere}
 th{background:#eaf0f7;font-weight:700}th:last-child,td:last-child{border-right:0}tr:last-child td{border-bottom:0}tbody tr:nth-child(even){background:#f8fafc}
@@ -26,59 +26,152 @@ footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid va
 @media print{body{background:#fff;font-size:11pt}.layout{display:block;padding:0}aside,header,.filelinks,footer{display:none}main{border:0;padding:0}.table-wrap{overflow:visible}pre,table{font-size:9pt}h2,h3{break-after:avoid}tr{break-inside:avoid}a{color:inherit;text-decoration:none}}
 </style></head><body>
 <header><div class="label">反馈效果分析 · 第一阶段</div><p>run1_5doc_1022 · 以 Gold 为评价标准 · 更新日期：2026-10-23</p></header>
-<div class="layout"><aside aria-label="文章目录"><h2>目录</h2><input id="toc-filter" type="search" aria-label="筛选目录" placeholder="查找 doc0 / S7 等内容"><a class="" href="#section-1">本次补充更新与数据范围</a>
-<a class="" href="#section-2">结论与证据范围</a>
-<a class="" href="#section-3">按源句核查</a>
-<a class="sub" href="#section-4">doc4 / S7：一项更接近、一项更远，不能整组判为负面</a>
-<a class="sub" href="#section-5">doc4 / S8：负向：失去一条严格匹配，独立配对数减少</a>
-<a class="sub" href="#section-6">doc4 / S9：负向：撤销 Gold 分开的 equivalents 关系</a>
-<a class="sub" href="#section-7">doc4 / S10：负向：失去第二条严格匹配，重复 S8 的问题</a>
-<a class="sub" href="#section-8">doc1 / S1：正向对照：新增严重程度，已有关系保留</a>
-<a class="sub" href="#section-9">doc0 / S7：内容无变化：三项操作只补来源</a>
-<a class="sub" href="#section-10">doc0 / S9：内容无变化：两项操作只补来源</a>
-<a class="" href="#section-11">附：来源错位与下降的关系</a>
-<a class="" href="#section-12">第二阶段交接</a></aside>
+<div class="layout"><aside aria-label="文章目录"><h2>目录</h2><input id="toc-filter" type="search" aria-label="筛选目录" placeholder="查找 doc0 / S7 等内容"><a class="" href="#section-1">本次修订：以实际反馈输入为准</a>
+<a class="" href="#section-2">完整阶段数据补齐后的核验</a>
+<a class="" href="#section-3">全量重算结果</a>
+<a class="" href="#section-4">结论与证据范围</a>
+<a class="" href="#section-5">按源句核查</a>
+<a class="sub" href="#section-6">doc4 / S7：一项更接近、一项更远，不能整组判为负面</a>
+<a class="sub" href="#section-7">doc4 / S8：负向：失去一条严格匹配，独立配对数减少</a>
+<a class="sub" href="#section-8">doc4 / S9：负向：撤销 Gold 分开的 equivalents 关系</a>
+<a class="sub" href="#section-9">doc4 / S10：负向：失去第二条严格匹配，重复 S8 的问题</a>
+<a class="sub" href="#section-10">doc1 / S1：正向对照：新增严重程度，已有关系保留</a>
+<a class="sub" href="#section-11">doc0 / S7：内容无变化：三项操作只补来源</a>
+<a class="sub" href="#section-12">doc0 / S9：内容无变化：两项操作只补来源</a>
+<a class="" href="#section-13">附：来源错位与下降的关系</a>
+<a class="" href="#section-14">第二阶段交接</a>
+<a class="" href="#section-15">全文一对一匹配实际发生了什么</a>
+<a class="" href="#section-16">逐组反事实：保留这些操作是否帮助全文评分</a>
+<a class="" href="#section-17">第一阶段最终判断</a>
+<a class="" href="#section-18">附录：五篇反馈 agent 输入四完整原文</a>
+<a class="sub" href="#section-19">doc0：输入四原文</a>
+<a class="sub" href="#section-20">doc1：输入四原文</a>
+<a class="sub" href="#section-21">doc2：输入四原文</a>
+<a class="sub" href="#section-22">doc3：输入四原文</a>
+<a class="sub" href="#section-23">doc4：输入四原文</a></aside>
 <main><div class="filelinks"><a href="%E9%98%B6%E6%AE%B5%E4%B8%80_%E5%8F%8D%E9%A6%88%E4%B8%8B%E9%99%8D%E5%8E%9F%E5%9B%A0_%E9%80%90%E5%8F%A5%E5%AE%8C%E6%95%B4%E5%AF%B9%E7%85%A7.md">查看 Markdown 原文</a><a href="%E9%98%B6%E6%AE%B5%E4%BA%8C_%E6%9C%AA%E5%A2%9E%E9%95%BF%E5%8E%9F%E5%9B%A0_%E5%89%A9%E4%BD%99Gold%E5%B7%AE%E8%B7%9D%E4%B8%8E%E4%B8%AD%E9%97%B4%E8%AF%81%E6%8D%AE.html">打开第二阶段报告</a></div><h1 id="section-0">阶段一：反馈下降的逐句证据与原因</h1>
 <p>对象：run1_5doc_1022。日期：2026-10-23。只用当前146条Gold评价效果，源文和中间文本用于解释原因。</p>
 <p>本文将“反馈前后的Gold”理解为：Gold保持固定，展示反馈前后三元组与Gold的对应变化。前=after_split，后=after_revision；text_b 是反馈前从拆分结果重建的文本。</p>
-<h2 id="section-1">本次补充更新与数据范围</h2>
-<p>已同步用户补充的《run1_5doc_1022 重建文本与文本对比中间结果》（附件29112543）。新增流程说明、重建/对比prompt，以及doc4/S8—S10反馈前后重建展示。原始17项反馈操作记录保持作为SPO变化的主要证据。</p>
+<h2 id="section-1">本次修订：以实际反馈输入为准</h2>
+<p>用户补充了附件3bbba618中的<code>grouped_difference_context(diff)</code>输出，即反馈prompt的输入四。此前报告把原始字段转成了逐句说明，并把相关UNASSIGNED差异按内容放到源句下；这种分析排版不等于agent实际收到的结构，容易造成误解，本次已更正。</p>
+<p>核对结果：五篇文档的54个对象（50个源句、4个UNASSIGNED）中，原先引用的text_a、text_b、triple_indices、generation_status及两侧差异内容均与新附件一致；此前主要问题在于重新组织了展示结构，并省略了完整输入的字段和提示语。正文现在使用对象原文摘录，文末保留每篇输入四的完整原文。</p>
+<p><strong>需要区分的四件事</strong></p>
+<ul>
+<li>顶层<code>unique_to_text_a/b</code>是整篇汇总，带<code>[Sx]</code>或<code>[UNASSIGNED]</code>标记；<code>sentence_differences</code>对象内部的差异属于该对象自身。这两层在实际输入中同时存在，汇总不是另一次比较。</li>
+<li>UNASSIGNED是单独对象。本报告可以指出它的内容可能属于哪句，但不把这个人工判断改写成原始输入中的来源归属。</li>
+<li><code>generation_status</code>与<code>comparison_status</code>都保留原值。<code>compared</code>只表示导出的比较状态，不能证明内容比较正确；<code>[]</code>也不能证明没有Gold差距。</li>
+<li>以前补充材料中的“反馈后重建展示”不是本轮输入四的一部分。本次从逐句输入证据区移除这些展示，避免误认为它们触发了本轮反馈；反馈后三元组和Gold对照仍然保留。</li>
+</ul>
+<p><strong>对原因判断的补充</strong></p>
+<p>实际输入前导语已经说明：“差异只帮助定位，须结合全文核实；空差异仍需检查事实覆盖，不能仅凭差异增删。”因此，对比未报错会减少定位线索，但不能把反馈未修复直接解释为没有要求它检查空差异。doc0/S2属于提示已经指出真实问题却未执行修复；doc0/S4等属于比较未指出问题，反馈的额外检查也未修复。为什么没有执行，需要更多调用证据，不能仅凭最终结果推测模型内部过程。</p>
+<p>这份输入四仍保留了相关三元组全局索引和逐句文本，所以“重建文字会掩盖字段边界”不能理解为反馈agent完全看不到三元组结构；它还有其他输入。报告观察的是这一路重建/差异提示没有显示具体SPO差距，而最终反馈也没有利用实际SPO修复。</p>
+<p>doc4/S8、S9、S10实际输入的text_b为空、generation_status为empty_triples，但A/B差异均为空、comparison_status均为compared。不能把这里写成“比较已明确判定内容齐全”，也不能写成“比较已经报告这些句子遗漏全部事实”。相关已有内容在独立UNASSIGNED对象中。</p>
+<p>新增附件只涵盖输入四及它的前导语，不是整份反馈prompt或全部输入，也不包含模型内部判断过程。Gold匹配和PRF1不受此次展示修订影响。</p>
+<p>附件SHA-256：<code>67b52b84be3a9d56bc3bd038865e97c3d0bf508c3767616b2999e8ac6385c4e5</code>。</p>
+<h2 id="section-2">完整阶段数据补齐后的核验</h2>
+<p>本次新增附件951395ee（after_split）和3c261745（after_revision）。逐篇条数为拆分后39/31/21/30/22，反馈后39/32/21/30/19，合计143→141；Gold为31/30/26/37/22，合计146。</p>
+<p>已核对：此前17项操作全部可在完整列表中复现，按原索引应用后与反馈后141条SPO逐条一致；之前重建分组的所有索引与拆分来源编号一致。此前缺少121条反馈后SPO的问题已经解除。</p>
+<p>采用仓库evaluation_common.py的lexical-one-to-one-v1评测，严格和宽松匹配按整篇文章计算；来源编号用于诊断，不限制当前评分配对。重算保存了全部匹配、未匹配、词元证据及反事实结果，未调用模型，也未修改程序或prompt。附件是用户导出的数据，重算核实的是导出内容，不能替代原始调用日志真实性核验。</p>
+<p>逐句证据区现在只展示实际输入四的原始对象。真正触发本轮反馈的是拆分后的重建和对比；反馈后重建展示不属于这次输入。模型内部为什么选择某一操作不能由结果文件直接读取。</p>
+<h2 id="section-3">全量重算结果</h2>
 <div class="table-wrap"><table>
 <thead>
 <tr>
-<th>要分析的问题</th>
-<th>现有数据是否足够</th>
+<th>阶段</th>
+<th align="right">条数</th>
+<th align="right">严格P</th>
+<th align="right">严格R</th>
+<th align="right">严格F1</th>
+<th align="right">严格匹配</th>
+<th align="right">宽松P</th>
+<th align="right">宽松R</th>
+<th align="right">宽松F1</th>
+<th align="right">宽松配对</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>这17项操作做了什么、与对应Gold更近还是更远</td>
-<td>足够逐项核查，附件列明before/after及reason</td>
+<td>拆分后</td>
+<td align="right">143</td>
+<td align="right">0.223776</td>
+<td align="right">0.219178</td>
+<td align="right">0.221453</td>
+<td align="right">32/146</td>
+<td align="right">0.655472</td>
+<td align="right">0.657412</td>
+<td align="right">0.656440</td>
+<td align="right">108/146</td>
 </tr>
 <tr>
-<td>每项操作对全文P/R/F1精确贡献多少</td>
-<td>尚不足，需要完整阶段三元组；可用现有评测代码重算</td>
-</tr>
-<tr>
-<td>未修改的三元组还有哪些错误或漏抽</td>
-<td>能提出逐句候选，不能全部确认；未修改条目没有全部列出SPO</td>
+<td>反馈后</td>
+<td align="right">141</td>
+<td align="right">0.212766</td>
+<td align="right">0.205479</td>
+<td align="right">0.209059</td>
+<td align="right">30/146</td>
+<td align="right">0.646704</td>
+<td align="right">0.649960</td>
+<td align="right">0.648328</td>
+<td align="right">106/146</td>
 </tr>
 </tbody></table></div>
-<p>操作记录足以解释已发生的下降，不等于完整列出了所有未处理问题。这次补充未新增全部143/141条SPO，因此已知反馈后20条、其余121条字段未展示的范围不变。</p>
-<p><strong>执行顺序与文字来源</strong></p>
-<p>拆分后三元组 → 按源句分组重建 → 与源句比较 → 反馈生成增删改。重建只接收各组三元组，比较接收全文和逐句配对；两个阶段都是按句分组、每篇一次模型调用。</p>
-<p>下文“反馈前重建”才是进入比较的text_b。“补充附件展示的反馈后重建”用于看修改结果；补充文件没有给出它单独调用重建模型的记录，因此将其标为结果展示，不能当作当时触发反馈的输入，也不能套用反馈前的empty_triples/compared状态。</p>
-<p>流程说明中的prompt有助于核对程序设计，但不替代本轮实际保存的调用日志。补充文件将全文text_b笼统标为“反馈后”的旧表述，不在本文沿用。</p>
-<p><strong>未定位差异的展示方式</strong>：同篇UNASSIGNED可能混有多个源句的内容。本文按提示内容关联到本句，保留原UNASSIGNED标签；doc0/S7只展示instructions相关三条，S9展示may refer相关两条。原导出标签本身没有说明真实来源。</p>
-<h2 id="section-2">结论与证据范围</h2>
+<p>严格F1下降1.239405个百分点，宽松F1下降0.811233个百分点。四舍五入后与原汇总表完全一致。宽松配对数不等于语义正确条数，配对F1也不能直接加总为总体F1。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>文档</th>
+<th align="right">宽松F1反馈前</th>
+<th align="right">宽松F1反馈后</th>
+<th align="right">变化（百分点）</th>
+<th>宽松配对变化</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>doc0</td>
+<td align="right">0.545706</td>
+<td align="right">0.545706</td>
+<td align="right">+0.000000</td>
+<td>21→21</td>
+</tr>
+<tr>
+<td>doc1</td>
+<td align="right">0.645042</td>
+<td align="right">0.665479</td>
+<td align="right">+2.043760</td>
+<td>23→24</td>
+</tr>
+<tr>
+<td>doc2</td>
+<td align="right">0.628353</td>
+<td align="right">0.628353</td>
+<td align="right">+0.000000</td>
+<td>18→18</td>
+</tr>
+<tr>
+<td>doc3</td>
+<td align="right">0.711320</td>
+<td align="right">0.711320</td>
+<td align="right">+0.000000</td>
+<td>25→25</td>
+</tr>
+<tr>
+<td>doc4</td>
+<td align="right">0.799894</td>
+<td align="right">0.723837</td>
+<td align="right">-7.605686</td>
+<td>21→18</td>
+</tr>
+</tbody></table></div>
+<p>基线没有随本次附件提供，本文不重新计算基线，也不把反馈后相对基线的增益算作反馈增益。</p>
+<h2 id="section-4">结论与证据范围</h2>
 <ul>
 <li>17项操作：1 add、13 replace、3 remove。其中8项replace仅补来源；9项改变SPO。</li>
 <li>严格匹配32→30：doc4 #7和#10原与Gold完全相等，加长主体后失去严格匹配，足以解释净损失2条。</li>
-<li>宽松F1报告值约65.64%→64.83%。doc4三组删除/合并分别减少局部配对机会；严重程度新增形成一个正向配对。未拿到全文匹配，不能精确分摊总体F1变化。</li>
+<li>宽松F1已全量复现为65.644049%→64.832816%。doc1新增严重程度改善，doc4内容修改净损失，doc0/doc2/doc3评分完全不变；下文新增全文配对变化与逐组反事实检验。</li>
 <li>直接退化原因：回填长修饰改变Gold字段边界；合并Gold分开的关系并删除独立条目。来源缺失是另一个定位问题，不能单独解释这些修改。</li>
 <li>下文恢复了原在UNASSIGNED的反馈前条目，避免把空源句分组误写成“事实尚未抽取”。仅恢复附件明示的SPO，未由重建文字猜测三元组。</li>
 </ul>
-<h2 id="section-3">按源句核查</h2>
-<h3 id="section-4">doc4 / S7：一项更接近、一项更远，不能整组判为负面</h3>
+<h2 id="section-5">按源句核查</h2>
+<h3 id="section-6">doc4 / S7：一项更接近、一项更远，不能整组判为负面</h3>
 <p><strong>源句</strong></p>
 <pre><code class="language-text">All of the evaluation items EV of each of the communication paths PH in the third group G3 is worse than the standard thresholds E0.
 </code></pre>
@@ -189,24 +282,26 @@ footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid va
 <li><strong>replace #6（改变内容）</strong>：原三元组缺少限定&#39;of each of the communication paths PH in the third group G3&#39;，修正head以准确反映源句的主语范围。</li>
 <li><strong>replace #16（改变内容）</strong>：原关系&#39;are associated with&#39;不够准确，源句表达的是评估项目属于每个通信路径，改为&#39;are of&#39;。</li>
 </ul>
-<p><strong>对应的重建文本 text_b（反馈前）</strong>
-源句分组状态：generated；原三元组index：[6, 16, 17]。</p>
-<pre><code class="language-text">All of the evaluation items EV is worse than the standard thresholds E0. The evaluation items EV are associated with each of the communication paths PH in the third group G3. Each of the communication paths PH is in the third group G3.
+<p><strong>反馈 agent 实际收到的本句对象（原文摘录）</strong></p>
+<p>位置：doc4 的 <code>&lt;text_difference_json&gt;.sentence_differences</code> 中 <code>sentence_id=&quot;S7&quot;</code> 的对象。下面保留附件中的字段、值和原始数组，不是把源文、重建、差异重新拼成的新输入。完整文档输入见文末附录。</p>
+<pre><code class="language-json">{
+      &quot;sentence_id&quot;: &quot;S7&quot;,
+      &quot;triple_indices&quot;: [
+        6,
+        16,
+        17
+      ],
+      &quot;text_b&quot;: &quot;All of the evaluation items EV is worse than the standard thresholds E0. The evaluation items EV are associated with each of the communication paths PH in the third group G3. Each of the communication paths PH is in the third group G3.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;All of the evaluation items EV of each of the communication paths PH in the third group G3 is worse than the standard thresholds E0.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    }
 </code></pre>
-<p><strong>文本对比结果（按附件原样提取）</strong></p>
-<ul>
-<li>A侧：源文有、重建未体现：<ul>
-<li>本句/相关UNASSIGNED未导出提示。</li>
-</ul>
-</li>
-<li>B侧：重建有、源文未找到：<ul>
-<li>本句/相关UNASSIGNED未导出提示。</li>
-</ul>
-</li>
-</ul>
 <p><strong>效果评判与原因分析</strong></p>
 <p>replace #6 把主体扩成长短语，目标 Gold 使用短主体，直接配对 F1 从 1.0000 降为 0.6842；replace #16 将 are associated with 改成 are of，与 Gold 的 is of 接近，直接配对从 0 提高到 0.8889。两侧差异导出为空，这两项是反馈额外检查后自行作出的修改。负向原因是以单条主语范围完整为目标回填长修饰，偏离了 Gold；正向关系改写与负向回填同时存在。组内或全文净变化需要按一对一配对计算，不能只数正负操作。</p>
-<h3 id="section-5">doc4 / S8：负向：失去一条严格匹配，独立配对数减少</h3>
+<h3 id="section-7">doc4 / S8：负向：失去一条严格匹配，独立配对数减少</h3>
 <p><strong>源句</strong></p>
 <pre><code class="language-text">In the good category of the available bandwidth, the value of the routing path latency is equal to or lower than 500 kbps.
 </code></pre>
@@ -299,34 +394,44 @@ footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid va
 <li><strong>remove #18（改变内容）</strong>：该三元组错误地表达&#39;the value of the routing path latency is in the good category of the available bandwidth&#39;，源句S8中只有&#39;in the good category of the available bandwidth&#39;作为状语，不存在单独的&#39;is in&#39;关系；该信息已通过修正index 7包含在主语中。</li>
 <li><strong>replace #7（改变内容）</strong>：原三元组缺少限定&#39;in the good category of the available bandwidth&#39;，修正head以包含该条件。</li>
 </ul>
-<p><strong>对应的重建文本 text_b（反馈前）</strong>
-源句分组状态：empty_triples；原三元组index：[]。</p>
-<pre><code class="language-text">（空）
+<p><strong>反馈 agent 实际收到的本句对象（原文摘录）</strong></p>
+<p>位置：doc4 的 <code>&lt;text_difference_json&gt;.sentence_differences</code> 中 <code>sentence_id=&quot;S8&quot;</code> 的对象。下面保留附件中的字段、值和原始数组，不是把源文、重建、差异重新拼成的新输入。完整文档输入见文末附录。</p>
+<pre><code class="language-json">{
+      &quot;sentence_id&quot;: &quot;S8&quot;,
+      &quot;triple_indices&quot;: [],
+      &quot;text_b&quot;: &quot;&quot;,
+      &quot;generation_status&quot;: &quot;empty_triples&quot;,
+      &quot;text_a&quot;: &quot;In the good category of the available bandwidth, the value of the routing path latency is equal to or lower than 500 kbps.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    }
 </code></pre>
-<p><strong>同篇 UNASSIGNED 重建全文（原样，可能含其他源句）</strong></p>
-<pre><code class="language-text">The value of the routing path latency is equal to or lower than 500 kbps. The specification is intended to be considered as exemplary only. A true scope of the disclosure is indicated by the following claims. The value of the routing path latency is equal to or lower than 50 ms. The value of the routing path latency is in the good category of the available bandwidth. The examples are intended to be considered as exemplary only. A true scope of the disclosure is indicated by their equivalents. The value of the routing path latency is in the good category of the routing path latency.
+<p><strong>同一次输入中的 UNASSIGNED 对象（完整原文，独立于本句）</strong></p>
+<p>以下对象在实际JSON中是同级的独立分组；把它放在这里便于人工核查，不表示反馈agent输入时已将它归入本句。内容可能涉及其他源句，保留全部差异，不筛选或改挂到本句。</p>
+<pre><code class="language-json">{
+      &quot;sentence_id&quot;: &quot;UNASSIGNED&quot;,
+      &quot;triple_indices&quot;: [
+        7,
+        8,
+        9,
+        10,
+        18,
+        19,
+        20,
+        21
+      ],
+      &quot;text_b&quot;: &quot;The value of the routing path latency is equal to or lower than 500 kbps. The specification is intended to be considered as exemplary only. A true scope of the disclosure is indicated by the following claims. The value of the routing path latency is equal to or lower than 50 ms. The value of the routing path latency is in the good category of the available bandwidth. The examples are intended to be considered as exemplary only. A true scope of the disclosure is indicated by their equivalents. The value of the routing path latency is in the good category of the routing path latency.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    }
 </code></pre>
-<p><strong>补充附件展示的反馈前相关重建片段</strong></p>
-<p>这是从UNASSIGNED中摘出的相关文字，不是该源句分组成功生成的text_b；S8/S10此处只摘阈值条目，完整类别文字仍见上面的UNASSIGNED全文。</p>
-<pre><code class="language-text">The value of the routing path latency is equal to or lower than 500 kbps.
-</code></pre>
-<p><strong>补充附件展示的反馈后重建（修改结果展示，不是比较输入）</strong></p>
-<pre><code class="language-text">The value of the routing path latency in the good category of the available bandwidth is equal to or lower than 500 kbps.
-</code></pre>
-<p><strong>文本对比结果（按附件原样提取）</strong></p>
-<ul>
-<li>A侧：源文有、重建未体现：<ul>
-<li>本句/相关UNASSIGNED未导出提示。</li>
-</ul>
-</li>
-<li>B侧：重建有、源文未找到：<ul>
-<li>本句/相关UNASSIGNED未导出提示。</li>
-</ul>
-</li>
-</ul>
 <p><strong>效果评判与原因分析</strong></p>
 <p>原 #7 与短阈值 Gold 完全相等。反馈将类别放进 head，目标 Gold 将类别放在另一个三元组的 tail，导致严格匹配失去；同时 remove #18，使两条预测变一条，无法分别对应本句两条 Gold。reason 明确是为补条件并认定独立 is in 不成立，并非仅补来源。对应重建为空，但阈值和类别文字在 UNASSIGNED 中存在。来源错位会影响定位，却不能替这两个内容操作解释掉 Gold 损失。</p>
-<h3 id="section-6">doc4 / S9：负向：撤销 Gold 分开的 equivalents 关系</h3>
+<h3 id="section-8">doc4 / S9：负向：撤销 Gold 分开的 equivalents 关系</h3>
 <p><strong>源句</strong></p>
 <pre><code class="language-text">It is intended that the specification and examples be considered as exemplary only, with a true scope of the disclosure being indicated by the following claims and their equivalents.
 </code></pre>
@@ -467,35 +572,44 @@ footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid va
 <li><strong>replace #9（改变内容）</strong>：合并原index 9和20，因为源句使用&#39;and&#39;连接两个客体，应作为一个整体。</li>
 <li><strong>replace #19（仅来源变化）</strong>：将三元组来源关联到S9，并补充证据。</li>
 </ul>
-<p><strong>对应的重建文本 text_b（反馈前）</strong>
-源句分组状态：empty_triples；原三元组index：[]。</p>
-<pre><code class="language-text">（空）
+<p><strong>反馈 agent 实际收到的本句对象（原文摘录）</strong></p>
+<p>位置：doc4 的 <code>&lt;text_difference_json&gt;.sentence_differences</code> 中 <code>sentence_id=&quot;S9&quot;</code> 的对象。下面保留附件中的字段、值和原始数组，不是把源文、重建、差异重新拼成的新输入。完整文档输入见文末附录。</p>
+<pre><code class="language-json">{
+      &quot;sentence_id&quot;: &quot;S9&quot;,
+      &quot;triple_indices&quot;: [],
+      &quot;text_b&quot;: &quot;&quot;,
+      &quot;generation_status&quot;: &quot;empty_triples&quot;,
+      &quot;text_a&quot;: &quot;It is intended that the specification and examples be considered as exemplary only, with a true scope of the disclosure being indicated by the following claims and their equivalents.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    }
 </code></pre>
-<p><strong>同篇 UNASSIGNED 重建全文（原样，可能含其他源句）</strong></p>
-<pre><code class="language-text">The value of the routing path latency is equal to or lower than 500 kbps. The specification is intended to be considered as exemplary only. A true scope of the disclosure is indicated by the following claims. The value of the routing path latency is equal to or lower than 50 ms. The value of the routing path latency is in the good category of the available bandwidth. The examples are intended to be considered as exemplary only. A true scope of the disclosure is indicated by their equivalents. The value of the routing path latency is in the good category of the routing path latency.
+<p><strong>同一次输入中的 UNASSIGNED 对象（完整原文，独立于本句）</strong></p>
+<p>以下对象在实际JSON中是同级的独立分组；把它放在这里便于人工核查，不表示反馈agent输入时已将它归入本句。内容可能涉及其他源句，保留全部差异，不筛选或改挂到本句。</p>
+<pre><code class="language-json">{
+      &quot;sentence_id&quot;: &quot;UNASSIGNED&quot;,
+      &quot;triple_indices&quot;: [
+        7,
+        8,
+        9,
+        10,
+        18,
+        19,
+        20,
+        21
+      ],
+      &quot;text_b&quot;: &quot;The value of the routing path latency is equal to or lower than 500 kbps. The specification is intended to be considered as exemplary only. A true scope of the disclosure is indicated by the following claims. The value of the routing path latency is equal to or lower than 50 ms. The value of the routing path latency is in the good category of the available bandwidth. The examples are intended to be considered as exemplary only. A true scope of the disclosure is indicated by their equivalents. The value of the routing path latency is in the good category of the routing path latency.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    }
 </code></pre>
-<p><strong>补充附件展示的反馈前相关重建片段</strong></p>
-<p>这是从UNASSIGNED中摘出的相关文字，不是该源句分组成功生成的text_b；S8/S10此处只摘阈值条目，完整类别文字仍见上面的UNASSIGNED全文。</p>
-<pre><code class="language-text">The specification is intended to be considered as exemplary only. A true scope of the disclosure is indicated by the following claims. The examples are intended to be considered as exemplary only. A true scope of the disclosure is indicated by their equivalents.
-</code></pre>
-<p><strong>补充附件展示的反馈后重建（修改结果展示，不是比较输入）</strong></p>
-<pre><code class="language-text">The specification is intended to be considered as exemplary only. A true scope of the disclosure is indicated by the following claims and their equivalents. The examples are intended to be considered as exemplary only.
-</code></pre>
-<p>编号说明：补充附件反馈后的#18对应原输入#19；原输入#18是S8被删除的类别条目。下文操作一律沿用原输入编号，避免把两个#18混淆。</p>
-<p><strong>文本对比结果（按附件原样提取）</strong></p>
-<ul>
-<li>A侧：源文有、重建未体现：<ul>
-<li>本句/相关UNASSIGNED未导出提示。</li>
-</ul>
-</li>
-<li>B侧：重建有、源文未找到：<ul>
-<li>本句/相关UNASSIGNED未导出提示。</li>
-</ul>
-</li>
-</ul>
 <p><strong>效果评判与原因分析</strong></p>
 <p>replace #9 将 claims 与 equivalents 并成一个客体，再 remove #20。Gold 分别标注 claims 与 equivalents，合并后的单条预测只能分配给其中一条。局部配对数从 3 降到 2。reason 写“and 连接两个客体，应作为一个整体”，说明直接原因是把可分别表达的客体当作必须合写。#8 与 #19 仅补来源，内容不变；不能算它们补了两条新事实。</p>
-<h3 id="section-7">doc4 / S10：负向：失去第二条严格匹配，重复 S8 的问题</h3>
+<h3 id="section-9">doc4 / S10：负向：失去第二条严格匹配，重复 S8 的问题</h3>
 <p><strong>源句</strong></p>
 <pre><code class="language-text">In the good category of the routing path latency, the value of the routing path latency is equal to or lower than 50 ms.
 </code></pre>
@@ -588,34 +702,44 @@ footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid va
 <li><strong>remove #21（改变内容）</strong>：该三元组错误地表达&#39;the value of the routing path latency is in the good category of the routing path latency&#39;，源句S10中只有状语关系；该信息已通过修正index 10包含在主语中。</li>
 <li><strong>replace #10（改变内容）</strong>：原三元组缺少限定&#39;in the good category of the routing path latency&#39;，修正head以包含该条件。</li>
 </ul>
-<p><strong>对应的重建文本 text_b（反馈前）</strong>
-源句分组状态：empty_triples；原三元组index：[]。</p>
-<pre><code class="language-text">（空）
+<p><strong>反馈 agent 实际收到的本句对象（原文摘录）</strong></p>
+<p>位置：doc4 的 <code>&lt;text_difference_json&gt;.sentence_differences</code> 中 <code>sentence_id=&quot;S10&quot;</code> 的对象。下面保留附件中的字段、值和原始数组，不是把源文、重建、差异重新拼成的新输入。完整文档输入见文末附录。</p>
+<pre><code class="language-json">{
+      &quot;sentence_id&quot;: &quot;S10&quot;,
+      &quot;triple_indices&quot;: [],
+      &quot;text_b&quot;: &quot;&quot;,
+      &quot;generation_status&quot;: &quot;empty_triples&quot;,
+      &quot;text_a&quot;: &quot;In the good category of the routing path latency, the value of the routing path latency is equal to or lower than 50 ms.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    }
 </code></pre>
-<p><strong>同篇 UNASSIGNED 重建全文（原样，可能含其他源句）</strong></p>
-<pre><code class="language-text">The value of the routing path latency is equal to or lower than 500 kbps. The specification is intended to be considered as exemplary only. A true scope of the disclosure is indicated by the following claims. The value of the routing path latency is equal to or lower than 50 ms. The value of the routing path latency is in the good category of the available bandwidth. The examples are intended to be considered as exemplary only. A true scope of the disclosure is indicated by their equivalents. The value of the routing path latency is in the good category of the routing path latency.
+<p><strong>同一次输入中的 UNASSIGNED 对象（完整原文，独立于本句）</strong></p>
+<p>以下对象在实际JSON中是同级的独立分组；把它放在这里便于人工核查，不表示反馈agent输入时已将它归入本句。内容可能涉及其他源句，保留全部差异，不筛选或改挂到本句。</p>
+<pre><code class="language-json">{
+      &quot;sentence_id&quot;: &quot;UNASSIGNED&quot;,
+      &quot;triple_indices&quot;: [
+        7,
+        8,
+        9,
+        10,
+        18,
+        19,
+        20,
+        21
+      ],
+      &quot;text_b&quot;: &quot;The value of the routing path latency is equal to or lower than 500 kbps. The specification is intended to be considered as exemplary only. A true scope of the disclosure is indicated by the following claims. The value of the routing path latency is equal to or lower than 50 ms. The value of the routing path latency is in the good category of the available bandwidth. The examples are intended to be considered as exemplary only. A true scope of the disclosure is indicated by their equivalents. The value of the routing path latency is in the good category of the routing path latency.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    }
 </code></pre>
-<p><strong>补充附件展示的反馈前相关重建片段</strong></p>
-<p>这是从UNASSIGNED中摘出的相关文字，不是该源句分组成功生成的text_b；S8/S10此处只摘阈值条目，完整类别文字仍见上面的UNASSIGNED全文。</p>
-<pre><code class="language-text">The value of the routing path latency is equal to or lower than 50 ms.
-</code></pre>
-<p><strong>补充附件展示的反馈后重建（修改结果展示，不是比较输入）</strong></p>
-<pre><code class="language-text">The value of the routing path latency in the good category of the routing path latency is equal to or lower than 50 ms.
-</code></pre>
-<p><strong>文本对比结果（按附件原样提取）</strong></p>
-<ul>
-<li>A侧：源文有、重建未体现：<ul>
-<li>本句/相关UNASSIGNED未导出提示。</li>
-</ul>
-</li>
-<li>B侧：重建有、源文未找到：<ul>
-<li>本句/相关UNASSIGNED未导出提示。</li>
-</ul>
-</li>
-</ul>
 <p><strong>效果评判与原因分析</strong></p>
 <p>原 #10 的 50 ms 阈值与 Gold 完全相等，补入类别后主语变长，直接配对 F1 从 1.0000 降为 0.7692；remove #21 后局部配对数从 2 降到 1。原因同 S8：把 Gold 分开的短阈值与类别信息并入一条，并删除另一条。这里的独立关系丢失不等于文字完全消失，但按 Gold 标准仍是负收益。</p>
-<h3 id="section-8">doc1 / S1：正向对照：新增严重程度，已有关系保留</h3>
+<h3 id="section-10">doc1 / S1：正向对照：新增严重程度，已有关系保留</h3>
 <p><strong>源句</strong></p>
 <pre><code class="language-text">A further aspect provides a meaningful capture of the congestion level information enabling appropriate congestion mitigation measures, for example according to the severeness of the congestion.
 </code></pre>
@@ -731,27 +855,41 @@ footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid va
 <li><strong>add #新增（改变内容）</strong>：现有索引0表达了A further aspect提供有意义捕获，索引1表达了捕获使能措施，但未表达措施与严重程度之间的依据关系；本条补充该依据关系。</li>
 <li><strong>replace #1（仅来源变化）</strong>：该三元组内容正确，但source_sentence_ids为空；现根据源句S1补全来源并添加证据。</li>
 </ul>
-<p><strong>对应的重建文本 text_b（反馈前）</strong>
-源句分组状态：generated；原三元组index：[0]。</p>
-<pre><code class="language-text">A further aspect provides a meaningful capture of the congestion level information.
+<p><strong>反馈 agent 实际收到的本句对象（原文摘录）</strong></p>
+<p>位置：doc1 的 <code>&lt;text_difference_json&gt;.sentence_differences</code> 中 <code>sentence_id=&quot;S1&quot;</code> 的对象。下面保留附件中的字段、值和原始数组，不是把源文、重建、差异重新拼成的新输入。完整文档输入见文末附录。</p>
+<pre><code class="language-json">{
+      &quot;sentence_id&quot;: &quot;S1&quot;,
+      &quot;triple_indices&quot;: [
+        0
+      ],
+      &quot;text_b&quot;: &quot;A further aspect provides a meaningful capture of the congestion level information.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;A further aspect provides a meaningful capture of the congestion level information enabling appropriate congestion mitigation measures, for example according to the severeness of the congestion.&quot;,
+      &quot;unique_to_text_a&quot;: [
+        &quot;enabling appropriate congestion mitigation measures, for example according to the severeness of the congestion&quot;
+      ],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    }
 </code></pre>
-<p><strong>同篇 UNASSIGNED 重建全文（原样，可能含其他源句）</strong></p>
-<pre><code class="language-text">A meaningful capture of the congestion level information enables appropriate congestion mitigation measures.
+<p><strong>同一次输入中的 UNASSIGNED 对象（完整原文，独立于本句）</strong></p>
+<p>以下对象在实际JSON中是同级的独立分组；把它放在这里便于人工核查，不表示反馈agent输入时已将它归入本句。内容可能涉及其他源句，保留全部差异，不筛选或改挂到本句。</p>
+<pre><code class="language-json">{
+      &quot;sentence_id&quot;: &quot;UNASSIGNED&quot;,
+      &quot;triple_indices&quot;: [
+        1
+      ],
+      &quot;text_b&quot;: &quot;A meaningful capture of the congestion level information enables appropriate congestion mitigation measures.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    }
 </code></pre>
-<p><strong>文本对比结果（按附件原样提取）</strong></p>
-<ul>
-<li>A侧：源文有、重建未体现：<ul>
-<li>[S1] enabling appropriate congestion mitigation measures, for example according to the severeness of the congestion</li>
-</ul>
-</li>
-<li>B侧：重建有、源文未找到：<ul>
-<li>本句/相关UNASSIGNED未导出提示。</li>
-</ul>
-</li>
-</ul>
 <p><strong>效果评判与原因分析</strong></p>
 <p>enables 原在 UNASSIGNED 中，replace #1 仅补来源；真正新增只有严重程度关系。新增条目与目标 Gold 直接配对 P=0.928571、R=1、F1=0.962963，严格因 appropriate 不相等。它证明反馈确实补到了新的 Gold 对应关系，不能把本轮所有操作都判为有害。</p>
-<h3 id="section-9">doc0 / S7：内容无变化：三项操作只补来源</h3>
+<h3 id="section-11">doc0 / S7：内容无变化：三项操作只补来源</h3>
 <p><strong>源句</strong></p>
 <pre><code class="language-text">They may be implemented as instructions stored on a machine-readable medium, which may be read and executed by a computing platform to perform the operations described herein.
 </code></pre>
@@ -909,29 +1047,53 @@ footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid va
 <li><strong>replace #31（仅来源变化）</strong>：该三元组表达的事实来自S7，但当前缺少源句编号和证据；本条补充S7及对应证据</li>
 <li><strong>replace #32（仅来源变化）</strong>：该三元组表达的事实来自S7（目的关系），但当前缺少源句编号和证据；本条补充S7及对应证据</li>
 </ul>
-<p><strong>对应的重建文本 text_b（反馈前）</strong>
-源句分组状态：generated；原三元组index：[10, 30]。</p>
-<pre><code class="language-text">They may be implemented as instructions. Instructions are stored on a machine-readable medium.
+<p><strong>反馈 agent 实际收到的本句对象（原文摘录）</strong></p>
+<p>位置：doc0 的 <code>&lt;text_difference_json&gt;.sentence_differences</code> 中 <code>sentence_id=&quot;S7&quot;</code> 的对象。下面保留附件中的字段、值和原始数组，不是把源文、重建、差异重新拼成的新输入。完整文档输入见文末附录。</p>
+<pre><code class="language-json">{
+      &quot;sentence_id&quot;: &quot;S7&quot;,
+      &quot;triple_indices&quot;: [
+        10,
+        30
+      ],
+      &quot;text_b&quot;: &quot;They may be implemented as instructions. Instructions are stored on a machine-readable medium.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;They may be implemented as instructions stored on a machine-readable medium, which may be read and executed by a computing platform to perform the operations described herein.&quot;,
+      &quot;unique_to_text_a&quot;: [
+        &quot;The original includes that the instructions may be read and executed by a computing platform to perform the operations described herein. The reconstruction omits this information entirely.&quot;
+      ],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    }
 </code></pre>
-<p><strong>同篇 UNASSIGNED 重建全文（原样，可能含其他源句）</strong></p>
-<pre><code class="language-text">The instructions may be read by a computing platform. Repeated use of the phrase &quot;in one embodiment,&quot; may refer to the same embodiment. The instructions may be executed by a computing platform. The instructions perform the operations described herein. Repeated use of the phrase &quot;in an exemplary embodiment,&quot; may refer to the same embodiment.
+<p><strong>同一次输入中的 UNASSIGNED 对象（完整原文，独立于本句）</strong></p>
+<p>以下对象在实际JSON中是同级的独立分组；把它放在这里便于人工核查，不表示反馈agent输入时已将它归入本句。内容可能涉及其他源句，保留全部差异，不筛选或改挂到本句。</p>
+<pre><code class="language-json">{
+      &quot;sentence_id&quot;: &quot;UNASSIGNED&quot;,
+      &quot;triple_indices&quot;: [
+        11,
+        14,
+        31,
+        32,
+        34
+      ],
+      &quot;text_b&quot;: &quot;The instructions may be read by a computing platform. Repeated use of the phrase \&quot;in one embodiment,\&quot; may refer to the same embodiment. The instructions may be executed by a computing platform. The instructions perform the operations described herein. Repeated use of the phrase \&quot;in an exemplary embodiment,\&quot; may refer to the same embodiment.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [
+        &quot;The instructions may be read by a computing platform.&quot;,
+        &quot;The instructions may be executed by a computing platform.&quot;,
+        &quot;The instructions perform the operations described herein.&quot;,
+        &quot;Repeated use of the phrase \&quot;in one embodiment\&quot; may refer to the same embodiment.&quot;,
+        &quot;Repeated use of the phrase \&quot;in an exemplary embodiment\&quot; may refer to the same embodiment.&quot;
+      ],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    }
 </code></pre>
-<p><strong>文本对比结果（按附件原样提取）</strong></p>
-<ul>
-<li>A侧：源文有、重建未体现：<ul>
-<li>[S7] The original includes that the instructions may be read and executed by a computing platform to perform the operations described herein. The reconstruction omits this information entirely.</li>
-</ul>
-</li>
-<li>B侧：重建有、源文未找到：<ul>
-<li>[UNASSIGNED] The instructions may be read by a computing platform.</li>
-<li>[UNASSIGNED] The instructions may be executed by a computing platform.</li>
-<li>[UNASSIGNED] The instructions perform the operations described herein.</li>
-</ul>
-</li>
-</ul>
+<p>doc0/S7和S9对象自身的<code>unique_to_text_b</code>均为<code>[]</code>；五条B侧差异在UNASSIGNED对象内，并同时出现在顶层B侧汇总数组（带<code>[UNASSIGNED]</code>前缀）。其中instructions相关三条与S7有关，may refer相关两条与S9有关；这是本报告的人工解释，不是原始分组。</p>
 <p><strong>效果评判与原因分析</strong></p>
 <p>本句表格 2→5，是三个原在 UNASSIGNED 的条目被定位，不是新增三个事实。三条 SPO 均未修改，因此对当前 SPO 评测无直接增减。读/执行和 perform 条目仍与 Gold 指定的主体、关系不同；这些未处理问题放到第二阶段分析。</p>
-<h3 id="section-10">doc0 / S9：内容无变化：两项操作只补来源</h3>
+<h3 id="section-12">doc0 / S9：内容无变化：两项操作只补来源</h3>
 <p><strong>源句</strong></p>
 <pre><code class="language-text">Further, repeated use of the phrase &quot;in one embodiment,&quot; or &quot;in an exemplary embodiment,&quot; do not necessarily refer to the same embodiment, although they may.
 </code></pre>
@@ -1054,32 +1216,1073 @@ footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid va
 <li><strong>replace #14（仅来源变化）</strong>：该三元组表达的事实来自S9（让步部分），但当前缺少源句编号和证据；本条补充S9及对应证据</li>
 <li><strong>replace #34（仅来源变化）</strong>：该三元组表达的事实来自S9（让步部分），但当前缺少源句编号和证据；本条补充S9及对应证据</li>
 </ul>
-<p><strong>对应的重建文本 text_b（反馈前）</strong>
-源句分组状态：generated；原三元组index：[13, 33]。</p>
-<pre><code class="language-text">Repeated use of the phrase &quot;in one embodiment,&quot; does not necessarily refer to the same embodiment. Repeated use of the phrase &quot;in an exemplary embodiment,&quot; does not necessarily refer to the same embodiment.
+<p><strong>反馈 agent 实际收到的本句对象（原文摘录）</strong></p>
+<p>位置：doc0 的 <code>&lt;text_difference_json&gt;.sentence_differences</code> 中 <code>sentence_id=&quot;S9&quot;</code> 的对象。下面保留附件中的字段、值和原始数组，不是把源文、重建、差异重新拼成的新输入。完整文档输入见文末附录。</p>
+<pre><code class="language-json">{
+      &quot;sentence_id&quot;: &quot;S9&quot;,
+      &quot;triple_indices&quot;: [
+        13,
+        33
+      ],
+      &quot;text_b&quot;: &quot;Repeated use of the phrase \&quot;in one embodiment,\&quot; does not necessarily refer to the same embodiment. Repeated use of the phrase \&quot;in an exemplary embodiment,\&quot; does not necessarily refer to the same embodiment.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;Further, repeated use of the phrase \&quot;in one embodiment,\&quot; or \&quot;in an exemplary embodiment,\&quot; do not necessarily refer to the same embodiment, although they may.&quot;,
+      &quot;unique_to_text_a&quot;: [
+        &quot;The original includes &#39;although they may&#39;, indicating that repeated uses of the phrases may refer to the same embodiment. The reconstruction omits this concession.&quot;
+      ],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    }
 </code></pre>
-<p><strong>同篇 UNASSIGNED 重建全文（原样，可能含其他源句）</strong></p>
-<pre><code class="language-text">The instructions may be read by a computing platform. Repeated use of the phrase &quot;in one embodiment,&quot; may refer to the same embodiment. The instructions may be executed by a computing platform. The instructions perform the operations described herein. Repeated use of the phrase &quot;in an exemplary embodiment,&quot; may refer to the same embodiment.
+<p><strong>同一次输入中的 UNASSIGNED 对象（完整原文，独立于本句）</strong></p>
+<p>以下对象在实际JSON中是同级的独立分组；把它放在这里便于人工核查，不表示反馈agent输入时已将它归入本句。内容可能涉及其他源句，保留全部差异，不筛选或改挂到本句。</p>
+<pre><code class="language-json">{
+      &quot;sentence_id&quot;: &quot;UNASSIGNED&quot;,
+      &quot;triple_indices&quot;: [
+        11,
+        14,
+        31,
+        32,
+        34
+      ],
+      &quot;text_b&quot;: &quot;The instructions may be read by a computing platform. Repeated use of the phrase \&quot;in one embodiment,\&quot; may refer to the same embodiment. The instructions may be executed by a computing platform. The instructions perform the operations described herein. Repeated use of the phrase \&quot;in an exemplary embodiment,\&quot; may refer to the same embodiment.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [
+        &quot;The instructions may be read by a computing platform.&quot;,
+        &quot;The instructions may be executed by a computing platform.&quot;,
+        &quot;The instructions perform the operations described herein.&quot;,
+        &quot;Repeated use of the phrase \&quot;in one embodiment\&quot; may refer to the same embodiment.&quot;,
+        &quot;Repeated use of the phrase \&quot;in an exemplary embodiment\&quot; may refer to the same embodiment.&quot;
+      ],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    }
 </code></pre>
-<p><strong>文本对比结果（按附件原样提取）</strong></p>
-<ul>
-<li>A侧：源文有、重建未体现：<ul>
-<li>[S9] The original includes &#39;although they may&#39;, indicating that repeated uses of the phrases may refer to the same embodiment. The reconstruction omits this concession.</li>
-</ul>
-</li>
-<li>B侧：重建有、源文未找到：<ul>
-<li>[UNASSIGNED] Repeated use of the phrase &quot;in one embodiment&quot; may refer to the same embodiment.</li>
-<li>[UNASSIGNED] Repeated use of the phrase &quot;in an exemplary embodiment&quot; may refer to the same embodiment.</li>
-</ul>
-</li>
-</ul>
+<p>doc0/S7和S9对象自身的<code>unique_to_text_b</code>均为<code>[]</code>；五条B侧差异在UNASSIGNED对象内，并同时出现在顶层B侧汇总数组（带<code>[UNASSIGNED]</code>前缀）。其中instructions相关三条与S7有关，may refer相关两条与S9有关；这是本报告的人工解释，不是原始分组。</p>
 <p><strong>效果评判与原因分析</strong></p>
 <p>两个 may refer 条目本轮已存在，只是原在 UNASSIGNED。它们源于实际运行源文的 although they may，但当前 Gold 只标两条否定关系；补来源不能增加 Gold 匹配。不能把表格 2→4 算成补到两条新事实。</p>
-<h2 id="section-11">附：来源错位与下降的关系</h2>
+<h2 id="section-13">附：来源错位与下降的关系</h2>
 <p>doc4 S8—S10的重建为空，但对应内容在UNASSIGNED。当前拆分应用代码继承父来源；不能仅凭拆分输出为空就判定模型漏标。来源恢复在反馈入口还会执行，但比重建/对比晚；#7、#10当前SPO可用已有规则恢复S8/S10，值得将这一步前移。此处仅记录诊断，没有修改程序。</p>
 <p>即使来源全部正确，仍须防止把Gold分开的关系合并。来源修复本身不改变SPO，不能直接修复本轮三个有害合并/回填组。</p>
-<h2 id="section-12">第二阶段交接</h2>
-<p>接下来检查：反馈后仍与Gold差距较大的关系、可能漏抽的独立关系，以及对应重建和差异为何没有推动修改。将区分“已知SPO确认的问题”和“仅据重建提出的待核查候选”。全文141条中仅20条反馈后SPO可从当前操作附件精确恢复，不能声称已穷尽所有漏抽。</p>
+<h2 id="section-14">第二阶段交接</h2>
+<p>第二阶段已检查反馈后仍与Gold差距较大的关系、未独立抽出的关系，以及对应重建和差异为何没有推动修改。此前仅据重建提出的候选现已与实际SPO逐条核实。本次已拿到完整141条反馈后SPO，第二阶段已升级为50句、146条Gold的全量核查，所有完整字段与全文匹配均可查看。</p>
+<h2 id="section-15">全文一对一匹配实际发生了什么</h2>
+<p>以下列出全部10条发生预测内容或配对有无变化的Gold；G编号在各文档内从0开始，预测#编号分别属于相应阶段。其他136条Gold的配对内容和分数未变。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>文档/Gold源句</th>
+<th>Gold编号</th>
+<th>拆分后对应预测 / 配对F1</th>
+<th>反馈后对应预测 / 配对F1</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>doc1/S1</td>
+<td>G2</td>
+<td>未配对 / 0</td>
+<td>#31 / 0.962963</td>
+<td>真正补到严重程度</td>
+</tr>
+<tr>
+<td>doc4/S3</td>
+<td>G6</td>
+<td>#16 / 0.357143</td>
+<td>未配对 / 0</td>
+<td>原S7条目曾弱配到S3，修复后不再满足这条重复Gold</td>
+</tr>
+<tr>
+<td>doc4/S7</td>
+<td>G12</td>
+<td>#6 / 1.000000</td>
+<td>#6 / 0.684211</td>
+<td>回填长主体降低接近度</td>
+</tr>
+<tr>
+<td>doc4/S7</td>
+<td>G13</td>
+<td>#17 / 0.451613</td>
+<td>#16 / 0.888889</td>
+<td>are of修复了本句关系</td>
+</tr>
+<tr>
+<td>doc4/S8</td>
+<td>G14</td>
+<td>#7 / 1.000000</td>
+<td>#7 / 0.789474</td>
+<td>加长阈值主体，严格匹配丢失</td>
+</tr>
+<tr>
+<td>doc4/S8</td>
+<td>G15</td>
+<td>#18 / 0.820513</td>
+<td>#17 / 0.285714</td>
+<td>类别条目删除后，改配S7无关的路径分组条目</td>
+</tr>
+<tr>
+<td>doc4/S9</td>
+<td>G18</td>
+<td>#9 / 0.761905</td>
+<td>#9 / 0.666667</td>
+<td>claims与equivalents合写，配对下降</td>
+</tr>
+<tr>
+<td>doc4/S9</td>
+<td>G19</td>
+<td>#20 / 0.736842</td>
+<td>未配对 / 0</td>
+<td>独立equivalents删除，未配对</td>
+</tr>
+<tr>
+<td>doc4/S10</td>
+<td>G20</td>
+<td>#10 / 1.000000</td>
+<td>#10 / 0.769231</td>
+<td>加长阈值主体，严格匹配丢失</td>
+</tr>
+<tr>
+<td>doc4/S10</td>
+<td>G21</td>
+<td>#21 / 0.829268</td>
+<td>未配对 / 0</td>
+<td>独立类别删除，未配对</td>
+</tr>
+</tbody></table></div>
+<p><strong>对先前判断的细化</strong>：2项改善、7项负面、8项来源修改，是相对于本句Gold的逐项性质判断，不能用来计算全文净收益。doc4/S7尤其需要区分：#16对目标G13更好，但旧#16原本占据S3的弱配对；修复后全文匹配会重新分配。这里只是评分器跨源句配对，不代表存在跨句事实。</p>
+<p>doc4/G15反馈后仍显示已配对，但配到S7的each of the communication paths PH / is in / the third group G3，F1仅0.285714。它并没有正确表达S8的阈值类别关系。因此“只少两个宽松配对”不能完整反映哪些关系被改坏。</p>
+<h2 id="section-16">逐组反事实：保留这些操作是否帮助全文评分</h2>
+<p>A列：从完整拆分结果出发，只执行该源句的一组实际操作，相对拆分后的变化。B列：从实际反馈结果出发，撤销该组操作，相对实际反馈后的变化。均重新计算全文匹配，操作固定，不重新调用模型。组内replace/remove配套评估；这是两种明确的归因口径，没有唯一的“每组F1贡献”。各行不能相加。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>操作组</th>
+<th align="right">A：只执行本组 Δ严格F1（百分点）</th>
+<th align="right">A：只执行本组 Δ宽松F1（百分点）</th>
+<th align="right">B：撤销本组 Δ宽松F1（百分点）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>doc0/S7</td>
+<td align="right">+0.000000</td>
+<td align="right">+0.000000</td>
+<td align="right">+0.000000</td>
+</tr>
+<tr>
+<td>doc0/S9</td>
+<td align="right">+0.000000</td>
+<td align="right">+0.000000</td>
+<td align="right">+0.000000</td>
+</tr>
+<tr>
+<td>doc1/S1</td>
+<td align="right">-0.076363</td>
+<td align="right">+0.435638</td>
+<td align="right">-0.442821</td>
+</tr>
+<tr>
+<td>doc4/S7</td>
+<td align="right">+0.000000</td>
+<td align="right">-0.149499</td>
+<td align="right">-0.071126</td>
+</tr>
+<tr>
+<td>doc4/S8</td>
+<td align="right">-0.617551</td>
+<td align="right">-0.482042</td>
+<td align="right">+0.482068</td>
+</tr>
+<tr>
+<td>doc4/S9</td>
+<td align="right">+0.076894</td>
+<td align="right">-0.340139</td>
+<td align="right">+0.340678</td>
+</tr>
+<tr>
+<td>doc4/S10</td>
+<td align="right">-0.617551</td>
+<td align="right">-0.495970</td>
+<td align="right">+0.499091</td>
+</tr>
+</tbody></table></div>
+<p>S8/S9/S10三组在两种口径下均显示负面作用；doc1/S1为宽松正向。S7在单独执行时降低全文宽松分数，但在其他修改已发生的最终状态下保留它又比撤销更好，原因是匹配竞争和分母变化。不能把这种相互影响解释成结果不稳定或计算错误。</p>
+<p>新增severity虽然提高宽松匹配，但未形成严格匹配，增加一个预测分母，所以其严格F1略降。这进一步说明“操作正确”必须说明是接近Gold、严格匹配还是宽松整体评分。</p>
+<h2 id="section-17">第一阶段最终判断</h2>
+<p>全量数据支持此前主因：doc4的长主体回填与三组删除/合并造成下降；两条阈值失去严格匹配，解释严格匹配32→30。来源修复没有改变SPO分数。反馈确有严重程度补漏和目标关系修复，但未抵消doc4损失。新增结论是：局部正向修改不一定提升全文一对一评分，必须同时检查重新分配及跨句误配。</p>
+<p>仍不能从这些列表确定源编号最初在哪一步丢失、运行时准确prompt版本及模型未执行某条提示的内部原因；这些需要原始调用记录。完整阶段列表已足够进行本文的结果重算与反事实分析。</p>
+<h2 id="section-18">附录：五篇反馈 agent 输入四完整原文</h2>
+<p>以下逐篇保留附件中代码块内的完整文字：前导语、<code>&lt;text_difference_json&gt;</code>标签、顶层汇总、全部sentence_differences对象及结束标签。正文只是摘录其中相关对象；这里是本次分析采用的完整输入四原文。</p>
+<h3 id="section-19">doc0：输入四原文</h3>
+<pre><code class="language-text">文本A是源文本，文本B由当前三元组重建。源句指带 sentence_id 的原文句子。
+unique_to_text_a 提示可能遗漏的信息，unique_to_text_b 提示可能缺乏源文支持的信息。
+sentence_differences 按源句提供重建、差异及相关三元组的全局 index；重建失败、
+比较失败或来源未定位均不代表没有问题。UNASSIGNED 表示来源尚未确定的条目。
+差异只帮助定位，须结合全文核实；空差异仍需检查事实覆盖，不能仅凭差异增删。
+&lt;text_difference_json&gt;
+{
+  &quot;unique_to_text_a&quot;: [
+    &quot;[S2] The original sentence indicates a purpose chain: query the ECU to identify the compromised PUF component in order to determine where the compromise is located. The reconstruction lists query, identify, and determine as parallel actions, losing the purpose relationship.&quot;,
+    &quot;[S7] The original includes that the instructions may be read and executed by a computing platform to perform the operations described herein. The reconstruction omits this information entirely.&quot;,
+    &quot;[S8] The original includes the concessive clause &#39;While specific exemplary embodiments have been discussed&#39;, which is completely absent in the reconstruction.&quot;,
+    &quot;[S9] The original includes &#39;although they may&#39;, indicating that repeated uses of the phrases may refer to the same embodiment. The reconstruction omits this concession.&quot;
+  ],
+  &quot;unique_to_text_b&quot;: [
+    &quot;[UNASSIGNED] The instructions may be read by a computing platform.&quot;,
+    &quot;[UNASSIGNED] The instructions may be executed by a computing platform.&quot;,
+    &quot;[UNASSIGNED] The instructions perform the operations described herein.&quot;,
+    &quot;[UNASSIGNED] Repeated use of the phrase \&quot;in one embodiment\&quot; may refer to the same embodiment.&quot;,
+    &quot;[UNASSIGNED] Repeated use of the phrase \&quot;in an exemplary embodiment\&quot; may refer to the same embodiment.&quot;
+  ],
+  &quot;sentence_differences&quot;: [
+    {
+      &quot;sentence_id&quot;: &quot;S1&quot;,
+      &quot;triple_indices&quot;: [
+        0,
+        1,
+        2,
+        16,
+        17,
+        18
+      ],
+      &quot;text_b&quot;: &quot;Such elements are well known in the art and do not facilitate a better understanding of the present disclosure, and a discussion of such elements may not be provided herein. Such operations are well known in the art and do not facilitate a better understanding of the present disclosure, and a discussion of such operations may not be provided herein.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;Because such elements and operations are well known in the art, and because they do not facilitate a better understanding of the present disclosure, a discussion of such elements and operations may not be provided herein.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S2&quot;,
+      &quot;triple_indices&quot;: [
+        3,
+        4,
+        19,
+        20
+      ],
+      &quot;text_b&quot;: &quot;The ECUs may include PUF components. The controller may query the ECU, identify which PUF component is compromised, and determine where in the sub-system the compromise is located.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;As the ECUs may include PUF components, the controller may query the ECU to identify which PUF component is compromised, in order to determine where in the sub-system the compromise is located.&quot;,
+      &quot;unique_to_text_a&quot;: [
+        &quot;The original sentence indicates a purpose chain: query the ECU to identify the compromised PUF component in order to determine where the compromise is located. The reconstruction lists query, identify, and determine as parallel actions, losing the purpose relationship.&quot;
+      ],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S3&quot;,
+      &quot;triple_indices&quot;: [
+        5,
+        6,
+        21,
+        22
+      ],
+      &quot;text_b&quot;: &quot;Validation of the vehicle identity ensures the integrity of all of the components and ensures information generated by any of the components. The components make up the vehicle. Any of the components generate information.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;In this manner, validation of the vehicle identity ensures the integrity of all of the components that make up the vehicle as well as information generated by any of the components that make up the vehicle.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S4&quot;,
+      &quot;triple_indices&quot;: [
+        7,
+        23,
+        24
+      ],
+      &quot;text_b&quot;: &quot;The term computer readable medium is meant to refer to any machine-readable medium (automated data medium). Any machine-readable medium (automated data medium) stores data in a format. The format is readable by a mechanical device.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;Further, the term computer readable medium is meant to refer to any machine-readable medium (automated data medium) capable of storing data in a format readable by a mechanical device.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S5&quot;,
+      &quot;triple_indices&quot;: [
+        8,
+        25,
+        26
+      ],
+      &quot;text_b&quot;: &quot;Each specific element includes all technical equivalents. All technical equivalents operate in a similar manner and accomplish a similar purpose.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;It is to be understood that each specific element includes all technical equivalents that operate in a similar manner to accomplish a similar purpose.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S6&quot;,
+      &quot;triple_indices&quot;: [
+        9,
+        27,
+        28,
+        29
+      ],
+      &quot;text_b&quot;: &quot;Embodiments of the invention may also be implemented in hardware, firmware, software, or a combination of hardware, firmware, and software.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;Embodiments of the invention may also be implemented in one or a combination of hardware, firmware, and software.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S7&quot;,
+      &quot;triple_indices&quot;: [
+        10,
+        30
+      ],
+      &quot;text_b&quot;: &quot;They may be implemented as instructions. Instructions are stored on a machine-readable medium.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;They may be implemented as instructions stored on a machine-readable medium, which may be read and executed by a computing platform to perform the operations described herein.&quot;,
+      &quot;unique_to_text_a&quot;: [
+        &quot;The original includes that the instructions may be read and executed by a computing platform to perform the operations described herein. The reconstruction omits this information entirely.&quot;
+      ],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S8&quot;,
+      &quot;triple_indices&quot;: [
+        12
+      ],
+      &quot;text_b&quot;: &quot;This is done for illustration purposes only.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;While specific exemplary embodiments have been discussed, it should be understood that this is done for illustration purposes only.&quot;,
+      &quot;unique_to_text_a&quot;: [
+        &quot;The original includes the concessive clause &#39;While specific exemplary embodiments have been discussed&#39;, which is completely absent in the reconstruction.&quot;
+      ],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S9&quot;,
+      &quot;triple_indices&quot;: [
+        13,
+        33
+      ],
+      &quot;text_b&quot;: &quot;Repeated use of the phrase \&quot;in one embodiment,\&quot; does not necessarily refer to the same embodiment. Repeated use of the phrase \&quot;in an exemplary embodiment,\&quot; does not necessarily refer to the same embodiment.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;Further, repeated use of the phrase \&quot;in one embodiment,\&quot; or \&quot;in an exemplary embodiment,\&quot; do not necessarily refer to the same embodiment, although they may.&quot;,
+      &quot;unique_to_text_a&quot;: [
+        &quot;The original includes &#39;although they may&#39;, indicating that repeated uses of the phrases may refer to the same embodiment. The reconstruction omits this concession.&quot;
+      ],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S10&quot;,
+      &quot;triple_indices&quot;: [
+        15,
+        35,
+        36,
+        37,
+        38
+      ],
+      &quot;text_b&quot;: &quot;This method may be integrated in a variety of systems including connected cars, car sharing, rental car services, maintenance, and factory services.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;This method may be integrated in a variety of systems including connected cars, car sharing, rental car services, maintenance and factory services.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;UNASSIGNED&quot;,
+      &quot;triple_indices&quot;: [
+        11,
+        14,
+        31,
+        32,
+        34
+      ],
+      &quot;text_b&quot;: &quot;The instructions may be read by a computing platform. Repeated use of the phrase \&quot;in one embodiment,\&quot; may refer to the same embodiment. The instructions may be executed by a computing platform. The instructions perform the operations described herein. Repeated use of the phrase \&quot;in an exemplary embodiment,\&quot; may refer to the same embodiment.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [
+        &quot;The instructions may be read by a computing platform.&quot;,
+        &quot;The instructions may be executed by a computing platform.&quot;,
+        &quot;The instructions perform the operations described herein.&quot;,
+        &quot;Repeated use of the phrase \&quot;in one embodiment\&quot; may refer to the same embodiment.&quot;,
+        &quot;Repeated use of the phrase \&quot;in an exemplary embodiment\&quot; may refer to the same embodiment.&quot;
+      ],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    }
+  ]
+}
+&lt;/text_difference_json&gt;
+</code></pre>
+<h3 id="section-20">doc1：输入四原文</h3>
+<pre><code class="language-text">文本A是源文本，文本B由当前三元组重建。源句指带 sentence_id 的原文句子。
+unique_to_text_a 提示可能遗漏的信息，unique_to_text_b 提示可能缺乏源文支持的信息。
+sentence_differences 按源句提供重建、差异及相关三元组的全局 index；重建失败、
+比较失败或来源未定位均不代表没有问题。UNASSIGNED 表示来源尚未确定的条目。
+差异只帮助定位，须结合全文核实；空差异仍需检查事实覆盖，不能仅凭差异增删。
+&lt;text_difference_json&gt;
+{
+  &quot;unique_to_text_a&quot;: [
+    &quot;[S1] enabling appropriate congestion mitigation measures, for example according to the severeness of the congestion&quot;,
+    &quot;[S5] While (expressing contrast)&quot;,
+    &quot;[S8] Although (expressing concession)&quot;,
+    &quot;[S9] since (expressing cause)&quot;,
+    &quot;[S9] such that (expressing result/purpose)&quot;
+  ],
+  &quot;unique_to_text_b&quot;: [],
+  &quot;sentence_differences&quot;: [
+    {
+      &quot;sentence_id&quot;: &quot;S1&quot;,
+      &quot;triple_indices&quot;: [
+        0
+      ],
+      &quot;text_b&quot;: &quot;A further aspect provides a meaningful capture of the congestion level information.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;A further aspect provides a meaningful capture of the congestion level information enabling appropriate congestion mitigation measures, for example according to the severeness of the congestion.&quot;,
+      &quot;unique_to_text_a&quot;: [
+        &quot;enabling appropriate congestion mitigation measures, for example according to the severeness of the congestion&quot;
+      ],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S2&quot;,
+      &quot;triple_indices&quot;: [
+        2
+      ],
+      &quot;text_b&quot;: &quot;A congestion may be detected based on said congestion value when said minimum bandwidth demand exceeds the measured traffic per time over a given time span.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;A congestion may be detected based on said congestion value when said minimum bandwidth demand exceeds the measured traffic per time over a given time span.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S3&quot;,
+      &quot;triple_indices&quot;: [
+        3,
+        4,
+        18,
+        19
+      ],
+      &quot;text_b&quot;: &quot;The term \&quot;part\&quot; in connection with the term \&quot;network\&quot; is to be understood in a broad sense. Part of the network can be any real or imaginary fraction, portion, or component of the network.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;The term \&quot;part\&quot; in connection with the term \&quot;network\&quot; is to be understood in a broad sense, meaning that part of the network can be any real or imaginary fraction, portion or component of the network.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S4&quot;,
+      &quot;triple_indices&quot;: [
+        5,
+        6,
+        20
+      ],
+      &quot;text_b&quot;: &quot;Most eNBs use variants of proportional-fair scheduling. Cell capacity fluctuates depending on time-variant radio conditions and scheduling assignments.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;Most eNBs use variants of proportional-fair scheduling, where cell capacity fluctuates depending on time-variant radio conditions and scheduling assignments.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S5&quot;,
+      &quot;triple_indices&quot;: [
+        7,
+        8,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26
+      ],
+      &quot;text_b&quot;: &quot;The invention has been illustrated and described in detail in the drawings and in the foregoing description. Such illustration is to be considered illustrative or exemplary and not restrictive. Such description is to be considered illustrative or exemplary and not restrictive.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;While the invention has been illustrated and described in detail in the drawings and foregoing description, such illustration and description are to be considered illustrative or exemplary and not restrictive.&quot;,
+      &quot;unique_to_text_a&quot;: [
+        &quot;While (expressing contrast)&quot;
+      ],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S6&quot;,
+      &quot;triple_indices&quot;: [
+        9,
+        27
+      ],
+      &quot;text_b&quot;: &quot;At least one embodiment has the advantage of capturing of congestion levels. The capturing of congestion levels is in such a way that congestion mitigation measures can be reliably performed.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;At least one embodiment has the advantage of capturing of congestion levels in such a way that congestion mitigation measures can be reliably performed.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S7&quot;,
+      &quot;triple_indices&quot;: [
+        10,
+        11
+      ],
+      &quot;text_b&quot;: &quot;Said congestion value may be adapted via a transformation function. Said transformation function amends at least one of the following: a number of congestion levels, a steepness of a congestion level curve, a shape of a congestion level curve.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;Said congestion value may be adapted via a transformation function, wherein said transformation function amends at least one of the following: a number of congestion levels, a steepness of a congestion level curve, a shape of a congestion level curve.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S8&quot;,
+      &quot;triple_indices&quot;: [
+        12,
+        13,
+        28
+      ],
+      &quot;text_b&quot;: &quot;Specific terms are employed herein. They are used in a generic and descriptive sense only and not for purposes of limitation.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;Although specific terms are employed herein, they are used in a generic and descriptive sense only and not for purposes of limitation.&quot;,
+      &quot;unique_to_text_a&quot;: [
+        &quot;Although (expressing concession)&quot;
+      ],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S9&quot;,
+      &quot;triple_indices&quot;: [
+        14,
+        15,
+        16,
+        29
+      ],
+      &quot;text_b&quot;: &quot;This enhances the flexibility of the congestion value. Different operators can use different transformation functions or profiles. The congestion level may be based per cell and per link with different feedback profiles depending on the need of an operator.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;This enhances the flexibility of the congestion value, since different operators can use different transformation functions or profiles such that the congestion level may be based per cell and per link with different feedback profiles depending on the need of an operator.&quot;,
+      &quot;unique_to_text_a&quot;: [
+        &quot;since (expressing cause)&quot;,
+        &quot;such that (expressing result/purpose)&quot;
+      ],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S10&quot;,
+      &quot;triple_indices&quot;: [
+        17,
+        30
+      ],
+      &quot;text_b&quot;: &quot;This may lead to inaccuracy due to the varying nature of instantaneous traffic patterns and due to dependence on medium- to long-term congestion situations for reporting.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;This may lead to inaccuracy due to the varying nature of instantaneous traffic patterns and dependence on medium- to long-term congestion situations for reporting.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;UNASSIGNED&quot;,
+      &quot;triple_indices&quot;: [
+        1
+      ],
+      &quot;text_b&quot;: &quot;A meaningful capture of the congestion level information enables appropriate congestion mitigation measures.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    }
+  ]
+}
+&lt;/text_difference_json&gt;
+</code></pre>
+<h3 id="section-21">doc2：输入四原文</h3>
+<pre><code class="language-text">文本A是源文本，文本B由当前三元组重建。源句指带 sentence_id 的原文句子。
+unique_to_text_a 提示可能遗漏的信息，unique_to_text_b 提示可能缺乏源文支持的信息。
+sentence_differences 按源句提供重建、差异及相关三元组的全局 index；重建失败、
+比较失败或来源未定位均不代表没有问题。UNASSIGNED 表示来源尚未确定的条目。
+差异只帮助定位，须结合全文核实；空差异仍需检查事实覆盖，不能仅凭差异增删。
+&lt;text_difference_json&gt;
+{
+  &quot;unique_to_text_a&quot;: [
+    &quot;[S1] 缺少&#39;Even&#39;，弱化了强调语气&quot;,
+    &quot;[S7] 缺少&#39;Preferably&#39;，弱化了优选条件&quot;,
+    &quot;[S8] 缺少时间状语&#39;Later&#39;&quot;
+  ],
+  &quot;unique_to_text_b&quot;: [],
+  &quot;sentence_differences&quot;: [
+    {
+      &quot;sentence_id&quot;: &quot;S1&quot;,
+      &quot;triple_indices&quot;: [
+        0
+      ],
+      &quot;text_b&quot;: &quot;A small open area can present a danger when loose items are being transported in high-traffic areas.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;Even a small open area can present a danger when loose items are being transported in high-traffic areas.&quot;,
+      &quot;unique_to_text_a&quot;: [
+        &quot;缺少&#39;Even&#39;，弱化了强调语气&quot;
+      ],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S2&quot;,
+      &quot;triple_indices&quot;: [
+        1,
+        11,
+        12,
+        13
+      ],
+      &quot;text_b&quot;: &quot;The application relates to a tarpaulin bracket system that is for mounting to a vehicle and provides a structure for attachment of a tarp.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;Particularly, the application relates to a tarpaulin bracket system for mounting to a vehicle to provide a structure for attachment of a tarp.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S3&quot;,
+      &quot;triple_indices&quot;: [
+        2,
+        14
+      ],
+      &quot;text_b&quot;: &quot;The hazards of loose items flying out of the open-top of cargo trailers has led many governing bodies to enact strict laws against such open transport.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;Further, the hazards of loose items flying out of the open-top of cargo trailers has led many governing bodies to enact strict laws against such open transport.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S4&quot;,
+      &quot;triple_indices&quot;: [
+        3,
+        15
+      ],
+      &quot;text_b&quot;: &quot;The plurality of connectors is detachably connected to one of either the first and second cables and to each end of every bow.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;The plurality of connectors is detachably connected to one of either the first and second cables and to each end of every bow.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S5&quot;,
+      &quot;triple_indices&quot;: [
+        4,
+        16
+      ],
+      &quot;text_b&quot;: &quot;The matter set forth in the foregoing description and accompanying drawings is offered by way of illustration only and not by way of a limitation.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;The matter set forth in the foregoing description and accompanying drawings is offered by way of illustration only and not as a limitation.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S6&quot;,
+      &quot;triple_indices&quot;: [
+        5,
+        17,
+        18
+      ],
+      &quot;text_b&quot;: &quot;The actual scope of the protection sought is intended to be defined in the following claims, which are viewed in their proper perspective based on the prior art.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;The actual scope of the protection sought is intended to be defined in the following claims when viewed in their proper perspective based on the prior art.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S7&quot;,
+      &quot;triple_indices&quot;: [
+        6,
+        19
+      ],
+      &quot;text_b&quot;: &quot;Most of these components are made of strong materials to withstand the conditions of being atop an open cargo area of a vehicle during transportation of goods.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;Preferably, most of these components are made of strong materials to withstand the conditions of being atop an open cargo area of a vehicle during transportation of goods.&quot;,
+      &quot;unique_to_text_a&quot;: [
+        &quot;缺少&#39;Preferably&#39;，弱化了优选条件&quot;
+      ],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S8&quot;,
+      &quot;triple_indices&quot;: [
+        7,
+        20
+      ],
+      &quot;text_b&quot;: &quot;A series of bows was brought into use to keep the tarpaulin from lying in direct contact with goods in the truck trailer and to prevent water accumulation.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;Later, a series of bows was brought into use to keep the tarpaulin from lying in direct contact with goods in the truck trailer and to prevent water accumulation.&quot;,
+      &quot;unique_to_text_a&quot;: [
+        &quot;缺少时间状语&#39;Later&#39;&quot;
+      ],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S9&quot;,
+      &quot;triple_indices&quot;: [
+        8
+      ],
+      &quot;text_b&quot;: &quot;The motorized system doesn&#39;t always extend far enough to cover the entire open-top cargo hold.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;Additionally, the motorized system doesn&#39;t always extend far enough to cover the entire open-top cargo hold.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S10&quot;,
+      &quot;triple_indices&quot;: [
+        9,
+        10
+      ],
+      &quot;text_b&quot;: &quot;A first set of left and right pulleys are attached at the front, and a second set of left and right pulleys are attached at the rear of the cargo hold.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;A first set of left and right pulleys are attached at the front with a second set of left and right pulleys attached at the rear of the cargo hold.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    }
+  ]
+}
+&lt;/text_difference_json&gt;
+</code></pre>
+<h3 id="section-22">doc3：输入四原文</h3>
+<pre><code class="language-text">文本A是源文本，文本B由当前三元组重建。源句指带 sentence_id 的原文句子。
+unique_to_text_a 提示可能遗漏的信息，unique_to_text_b 提示可能缺乏源文支持的信息。
+sentence_differences 按源句提供重建、差异及相关三元组的全局 index；重建失败、
+比较失败或来源未定位均不代表没有问题。UNASSIGNED 表示来源尚未确定的条目。
+差异只帮助定位，须结合全文核实；空差异仍需检查事实覆盖，不能仅凭差异增删。
+&lt;text_difference_json&gt;
+{
+  &quot;unique_to_text_a&quot;: [
+    &quot;[S7] In some embodiments&quot;,
+    &quot;[S7] to reduce the particles to a desired size&quot;
+  ],
+  &quot;unique_to_text_b&quot;: [
+    &quot;[UNASSIGNED] A pre-step of grinding the rubber prior to employing the process of this invention aims to reduce the particles to a desired size.&quot;
+  ],
+  &quot;sentence_differences&quot;: [
+    {
+      &quot;sentence_id&quot;: &quot;S1&quot;,
+      &quot;triple_indices&quot;: [
+        0,
+        1,
+        2,
+        19,
+        20
+      ],
+      &quot;text_b&quot;: &quot;The present invention relates to a rubber composite and a process for manufacturing same. The rubber composite comprises rubber, oil, and a combination of powdered additives.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;The present invention relates to a rubber composite comprising rubber, oil and a combination of powdered additives, as well as a process for manufacturing same.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S2&quot;,
+      &quot;triple_indices&quot;: [
+        3
+      ],
+      &quot;text_b&quot;: &quot;The incorporation of granulated recycled tire rubber into bitumen aimed to improve the mechanical behavior of bituminous mixtures.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;The incorporation of granulated recycled tire rubber into bitumen aimed to improve the mechanical behavior of bituminous mixtures.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S3&quot;,
+      &quot;triple_indices&quot;: [
+        4,
+        21
+      ],
+      &quot;text_b&quot;: &quot;The properties of the asphalt bitumen-based binders in high temperature conditions and in low temperature conditions are of a decisive importance.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;In this connection, the properties of the asphalt bitumen-based binders in high and low temperature conditions are of a decisive importance.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S4&quot;,
+      &quot;triple_indices&quot;: [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        22
+      ],
+      &quot;text_b&quot;: &quot;The rubber has an internal structure and an external surface. The internal structure is characterized by open cellular structure, which contains pores. The pores are connected to one another and form an interconnected network. The external surface is the outmost surface of the rubber particles.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;The rubber has an internal structure, being characterized by open cellular structure containing pores that are connected to one another and form an interconnected network; and an external surface, being the outmost surface of the rubber particles.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S5&quot;,
+      &quot;triple_indices&quot;: [
+        11,
+        23
+      ],
+      &quot;text_b&quot;: &quot;The term oil-dry stands to mean that the external surface is substantially, or completely, free of oil. The external surface is namely the out-most layer of the rubber composite.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;The term oil-dry thus stands to mean that the external surface, namely the out-most layer of the rubber composite, is substantially, or completely, free of oil.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S6&quot;,
+      &quot;triple_indices&quot;: [
+        12,
+        24,
+        25
+      ],
+      &quot;text_b&quot;: &quot;When the particles are of non-spheroid shape, the term refers to the average equivalent diameter of the particle. The average equivalent diameter of the particle is namely the diameter of an equivalent spherical particle. The diameter of an equivalent spherical particle is based on the longest dimension of the particle.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;When the particles are of non-spheroid shape, the term refers to the average equivalent diameter of the particle, namely the diameter of an equivalent spherical particle based on the longest dimension of the particle.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S7&quot;,
+      &quot;triple_indices&quot;: [
+        13
+      ],
+      &quot;text_b&quot;: &quot;The process further comprises a pre-step of grinding the rubber prior to employing the process of this invention.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;In some embodiments, the process further comprises a pre-step of grinding the rubber prior to employing the process of this invention to reduce the particles to a desired size.&quot;,
+      &quot;unique_to_text_a&quot;: [
+        &quot;In some embodiments&quot;,
+        &quot;to reduce the particles to a desired size&quot;
+      ],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S8&quot;,
+      &quot;triple_indices&quot;: [
+        15,
+        26
+      ],
+      &quot;text_b&quot;: &quot;The description of a range should be considered to have specifically disclosed all the possible sub-ranges and individual numerical values within that range.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;Accordingly, the description of a range should be considered to have specifically disclosed all the possible sub-ranges as well as individual numerical values within that range.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S9&quot;,
+      &quot;triple_indices&quot;: [
+        16,
+        27,
+        28
+      ],
+      &quot;text_b&quot;: &quot;It is clearly the lowest value as compared with tradition Asphalt Rubber gap graded mixtures with RAR, tradition Asphalt Rubber gap graded mixtures without RAR, and traditional SMA mixtures with highly modified bitumen and fibres.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;It is clearly the lowest value as compared with tradition Asphalt Rubber gap graded mixtures (with and without RAR) or even compared with traditional SMA mixtures with highly modified bitumen and fibres.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S10&quot;,
+      &quot;triple_indices&quot;: [
+        17,
+        18,
+        29
+      ],
+      &quot;text_b&quot;: &quot;The range is given as such merely for convenience and brevity, and should not be construed as an inflexible limitation on the scope of the invention.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;It should be noted that the range is given as such merely for convenience and brevity and should not be construed as an inflexible limitation on the scope of the invention.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;UNASSIGNED&quot;,
+      &quot;triple_indices&quot;: [
+        14
+      ],
+      &quot;text_b&quot;: &quot;A pre-step of grinding the rubber prior to employing the process of this invention aims to reduce the particles to a desired size.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [
+        &quot;A pre-step of grinding the rubber prior to employing the process of this invention aims to reduce the particles to a desired size.&quot;
+      ],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    }
+  ]
+}
+&lt;/text_difference_json&gt;
+</code></pre>
+<h3 id="section-23">doc4：输入四原文</h3>
+<pre><code class="language-text">文本A是源文本，文本B由当前三元组重建。源句指带 sentence_id 的原文句子。
+unique_to_text_a 提示可能遗漏的信息，unique_to_text_b 提示可能缺乏源文支持的信息。
+sentence_differences 按源句提供重建、差异及相关三元组的全局 index；重建失败、
+比较失败或来源未定位均不代表没有问题。UNASSIGNED 表示来源尚未确定的条目。
+差异只帮助定位，须结合全文核实；空差异仍需检查事实覆盖，不能仅凭差异增删。
+&lt;text_difference_json&gt;
+{
+  &quot;unique_to_text_a&quot;: [],
+  &quot;unique_to_text_b&quot;: [],
+  &quot;sentence_differences&quot;: [
+    {
+      &quot;sentence_id&quot;: &quot;S1&quot;,
+      &quot;triple_indices&quot;: [
+        0,
+        11
+      ],
+      &quot;text_b&quot;: &quot;The disclosure is directed to a communication path managing method and a communication path managing system.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;The disclosure is directed to a communication path managing method and a communication path managing system.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S2&quot;,
+      &quot;triple_indices&quot;: [
+        1,
+        12
+      ],
+      &quot;text_b&quot;: &quot;At least one of the communication paths for the vehicle is selected according to the evaluation items. The evaluation items are based on the item importance information.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;At least one of the communication paths for the vehicle is selected according to the evaluation items based on the item importance information.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S3&quot;,
+      &quot;triple_indices&quot;: [
+        2,
+        12,
+        13
+      ],
+      &quot;text_b&quot;: &quot;The selecting unit is for selecting at least one of the communication paths for the vehicle. The evaluation items are based on the item importance information. The selecting unit selects according to the evaluation items based on the item importance information.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;The selecting unit is for selecting at least one of the communication paths for the vehicle according to the evaluation items based on the item importance information.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S4&quot;,
+      &quot;triple_indices&quot;: [
+        3
+      ],
+      &quot;text_b&quot;: &quot;The performance of some of the communication path PH may be limited to a particular geographical range.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;Besides, the performance of some of the communication path PH may be limited to a particular geographical range.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S5&quot;,
+      &quot;triple_indices&quot;: [
+        4,
+        14
+      ],
+      &quot;text_b&quot;: &quot;The shaded area belongs the good category of the available bandwidth. The shaded area is located at the lower side of the dotted line L2.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;The shaded area located at the lower side of the dotted line L2 belongs the good category of the available bandwidth.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S6&quot;,
+      &quot;triple_indices&quot;: [
+        5,
+        15
+      ],
+      &quot;text_b&quot;: &quot;The routing path latency is taken into consideration to find out the best communication path PH. The connection keeping ability is taken into consideration to find out the best communication path PH.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;Both of the routing path latency and the connection keeping ability are taken into consideration to find out the best communication path PH.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S7&quot;,
+      &quot;triple_indices&quot;: [
+        6,
+        16,
+        17
+      ],
+      &quot;text_b&quot;: &quot;All of the evaluation items EV is worse than the standard thresholds E0. The evaluation items EV are associated with each of the communication paths PH in the third group G3. Each of the communication paths PH is in the third group G3.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;All of the evaluation items EV of each of the communication paths PH in the third group G3 is worse than the standard thresholds E0.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S8&quot;,
+      &quot;triple_indices&quot;: [],
+      &quot;text_b&quot;: &quot;&quot;,
+      &quot;generation_status&quot;: &quot;empty_triples&quot;,
+      &quot;text_a&quot;: &quot;In the good category of the available bandwidth, the value of the routing path latency is equal to or lower than 500 kbps.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S9&quot;,
+      &quot;triple_indices&quot;: [],
+      &quot;text_b&quot;: &quot;&quot;,
+      &quot;generation_status&quot;: &quot;empty_triples&quot;,
+      &quot;text_a&quot;: &quot;It is intended that the specification and examples be considered as exemplary only, with a true scope of the disclosure being indicated by the following claims and their equivalents.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;S10&quot;,
+      &quot;triple_indices&quot;: [],
+      &quot;text_b&quot;: &quot;&quot;,
+      &quot;generation_status&quot;: &quot;empty_triples&quot;,
+      &quot;text_a&quot;: &quot;In the good category of the routing path latency, the value of the routing path latency is equal to or lower than 50 ms.&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    },
+    {
+      &quot;sentence_id&quot;: &quot;UNASSIGNED&quot;,
+      &quot;triple_indices&quot;: [
+        7,
+        8,
+        9,
+        10,
+        18,
+        19,
+        20,
+        21
+      ],
+      &quot;text_b&quot;: &quot;The value of the routing path latency is equal to or lower than 500 kbps. The specification is intended to be considered as exemplary only. A true scope of the disclosure is indicated by the following claims. The value of the routing path latency is equal to or lower than 50 ms. The value of the routing path latency is in the good category of the available bandwidth. The examples are intended to be considered as exemplary only. A true scope of the disclosure is indicated by their equivalents. The value of the routing path latency is in the good category of the routing path latency.&quot;,
+      &quot;generation_status&quot;: &quot;generated&quot;,
+      &quot;text_a&quot;: &quot;&quot;,
+      &quot;unique_to_text_a&quot;: [],
+      &quot;unique_to_text_b&quot;: [],
+      &quot;comparison_status&quot;: &quot;compared&quot;
+    }
+  ]
+}
+&lt;/text_difference_json&gt;
+</code></pre>
 
 <footer>由同目录最新 Markdown 生成。文内“反馈前重建”和“反馈后结果展示”分别标注；具体证据范围以正文为准。</footer></main></div>
 <script>document.getElementById('toc-filter').addEventListener('input',function(){const q=this.value.trim().toLowerCase();document.querySelectorAll('aside a').forEach(a=>{a.hidden=!a.textContent.toLowerCase().includes(q);});});</script>
