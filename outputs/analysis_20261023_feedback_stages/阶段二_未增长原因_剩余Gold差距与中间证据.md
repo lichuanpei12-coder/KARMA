@@ -2,6 +2,28 @@
 
 对象：run1_5doc_1022。日期：2026-10-23。效果判断只以当前146条Gold为准。阶段一已单独展示反馈下降；本文检查反馈之后仍有哪些差距，以及重建和对比为何没有推动修复。
 
+## 本次补充更新与数据范围
+
+已同步用户补充的《run1_5doc_1022 重建文本与文本对比中间结果》（附件29112543）。新增流程说明、重建/对比prompt，以及doc4/S8—S10反馈前后重建展示。原始17项反馈操作记录保持作为SPO变化的主要证据。
+
+| 要分析的问题 | 现有数据是否足够 |
+| --- | --- |
+| 这17项操作做了什么、与对应Gold更近还是更远 | 足够逐项核查，附件列明before/after及reason |
+| 每项操作对全文P/R/F1精确贡献多少 | 尚不足，需要完整阶段三元组；可用现有评测代码重算 |
+| 未修改的三元组还有哪些错误或漏抽 | 能提出逐句候选，不能全部确认；未修改条目没有全部列出SPO |
+
+操作记录足以解释已发生的下降，不等于完整列出了所有未处理问题。这次补充未新增全部143/141条SPO，因此已知反馈后20条、其余121条字段未展示的范围不变。
+
+**执行顺序与文字来源**
+
+拆分后三元组 → 按源句分组重建 → 与源句比较 → 反馈生成增删改。重建只接收各组三元组，比较接收全文和逐句配对；两个阶段都是按句分组、每篇一次模型调用。
+
+下文“反馈前重建”才是进入比较的text_b。“补充附件展示的反馈后重建”用于看修改结果；补充文件没有给出它单独调用重建模型的记录，因此将其标为结果展示，不能当作当时触发反馈的输入，也不能套用反馈前的empty_triples/compared状态。
+
+流程说明中的prompt有助于核对程序设计，但不替代本轮实际保存的调用日志。补充文件将全文text_b笼统标为“反馈后”的旧表述，不在本文沿用。
+
+**未定位差异的展示方式**：同篇UNASSIGNED可能混有多个源句的内容。本文按提示内容关联到本句，保留原UNASSIGNED标签；doc0/S7只展示instructions相关三条，S9展示may refer相关两条。原导出标签本身没有说明真实来源。
+
 ## 结论与范围
 
 - 可从当前附件精确恢复的反馈后SPO为20条，全部141条中的其余121条只提供了自然语言重建。本文不会把重建文字重新抽成三元组并当作本轮实际输出。
@@ -135,8 +157,6 @@ The instructions may be read by a computing platform. Repeated use of the phrase
   - [UNASSIGNED] The instructions may be read by a computing platform.
   - [UNASSIGNED] The instructions may be executed by a computing platform.
   - [UNASSIGNED] The instructions perform the operations described herein.
-  - [UNASSIGNED] Repeated use of the phrase "in one embodiment" may refer to the same embodiment.
-  - [UNASSIGNED] Repeated use of the phrase "in an exemplary embodiment" may refer to the same embodiment.
 
 **本轮反馈动作**：replace #11；replace #31；replace #32。
 
@@ -193,9 +213,6 @@ The instructions may be read by a computing platform. Repeated use of the phrase
 - A侧：
   - [S9] The original includes 'although they may', indicating that repeated uses of the phrases may refer to the same embodiment. The reconstruction omits this concession.
 - B侧：
-  - [UNASSIGNED] The instructions may be read by a computing platform.
-  - [UNASSIGNED] The instructions may be executed by a computing platform.
-  - [UNASSIGNED] The instructions perform the operations described herein.
   - [UNASSIGNED] Repeated use of the phrase "in one embodiment" may refer to the same embodiment.
   - [UNASSIGNED] Repeated use of the phrase "in an exemplary embodiment" may refer to the same embodiment.
 
@@ -1202,6 +1219,20 @@ In the good category of the available bandwidth, the value of the routing path l
 The value of the routing path latency is equal to or lower than 500 kbps. The specification is intended to be considered as exemplary only. A true scope of the disclosure is indicated by the following claims. The value of the routing path latency is equal to or lower than 50 ms. The value of the routing path latency is in the good category of the available bandwidth. The examples are intended to be considered as exemplary only. A true scope of the disclosure is indicated by their equivalents. The value of the routing path latency is in the good category of the routing path latency.
 ```
 
+**补充附件展示的反馈前相关重建片段**
+
+这是从UNASSIGNED中摘出的相关文字，不是该源句分组成功生成的text_b；S8/S10此处只摘阈值条目，完整类别文字仍见上面的UNASSIGNED全文。
+
+```text
+The value of the routing path latency is equal to or lower than 500 kbps.
+```
+
+**补充附件展示的反馈后重建（修改结果展示，不是比较输入）**
+
+```text
+The value of the routing path latency in the good category of the available bandwidth is equal to or lower than 500 kbps.
+```
+
 **导出的文本对比结果**
 
 - A侧：
@@ -1254,6 +1285,22 @@ It is intended that the specification and examples be considered as exemplary on
 The value of the routing path latency is equal to or lower than 500 kbps. The specification is intended to be considered as exemplary only. A true scope of the disclosure is indicated by the following claims. The value of the routing path latency is equal to or lower than 50 ms. The value of the routing path latency is in the good category of the available bandwidth. The examples are intended to be considered as exemplary only. A true scope of the disclosure is indicated by their equivalents. The value of the routing path latency is in the good category of the routing path latency.
 ```
 
+**补充附件展示的反馈前相关重建片段**
+
+这是从UNASSIGNED中摘出的相关文字，不是该源句分组成功生成的text_b；S8/S10此处只摘阈值条目，完整类别文字仍见上面的UNASSIGNED全文。
+
+```text
+The specification is intended to be considered as exemplary only. A true scope of the disclosure is indicated by the following claims. The examples are intended to be considered as exemplary only. A true scope of the disclosure is indicated by their equivalents.
+```
+
+**补充附件展示的反馈后重建（修改结果展示，不是比较输入）**
+
+```text
+The specification is intended to be considered as exemplary only. A true scope of the disclosure is indicated by the following claims and their equivalents. The examples are intended to be considered as exemplary only.
+```
+
+编号说明：补充附件反馈后的#18对应原输入#19；原输入#18是S8被删除的类别条目。下文操作一律沿用原输入编号，避免把两个#18混淆。
+
 **导出的文本对比结果**
 
 - A侧：
@@ -1302,6 +1349,20 @@ In the good category of the routing path latency, the value of the routing path 
 The value of the routing path latency is equal to or lower than 500 kbps. The specification is intended to be considered as exemplary only. A true scope of the disclosure is indicated by the following claims. The value of the routing path latency is equal to or lower than 50 ms. The value of the routing path latency is in the good category of the available bandwidth. The examples are intended to be considered as exemplary only. A true scope of the disclosure is indicated by their equivalents. The value of the routing path latency is in the good category of the routing path latency.
 ```
 
+**补充附件展示的反馈前相关重建片段**
+
+这是从UNASSIGNED中摘出的相关文字，不是该源句分组成功生成的text_b；S8/S10此处只摘阈值条目，完整类别文字仍见上面的UNASSIGNED全文。
+
+```text
+The value of the routing path latency is equal to or lower than 50 ms.
+```
+
+**补充附件展示的反馈后重建（修改结果展示，不是比较输入）**
+
+```text
+The value of the routing path latency in the good category of the routing path latency is equal to or lower than 50 ms.
+```
+
 **导出的文本对比结果**
 
 - A侧：
@@ -1327,7 +1388,7 @@ The value of the routing path latency is equal to or lower than 500 kbps. The sp
 
 ## 下一步需要的原始数据
 
-要将19句数量候选逐条落实为“哪条Gold未匹配、哪条预测差在哪里”，还需本轮各篇完整after_split、after_revision和matches。优先读取运行目录中的run_manifest或revision_result、splitting及feedback JSON；原始输出应保留sentence_differences和实际prompt。
+要将19句数量候选逐条落实为“哪条Gold未匹配、哪条预测差在哪里”，还需本轮各篇完整after_split和after_revision。拿到完整SPO后即可用现有Gold和评测代码重算matches，不必另外手工准备匹配记录。优先读取运行目录中的run_manifest或revision_result、splitting及feedback JSON；已有sentence_differences和实际prompt记录也可用于核验。
 
 这些文件目前未在工作区找到。本报告已经完成现有证据下的逐句筛查和候选原因分析，但没有声称穷尽全文所有漏抽，也没有虚构121条未提供的SPO。
 
