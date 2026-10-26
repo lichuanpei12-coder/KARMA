@@ -118,7 +118,11 @@ confidence、clarity、relevance。context 逐字复制源文中的连续片段�
 
 # 示例
 源文本：The controller reads and stores sensor data. It may query the ECU.
-源句编号：第一句 S1，第二句 S2。
+源句编号：
+[
+  {"sentence_id": "S1"},
+  {"sentence_id": "S2"}
+]
 输出：
 [
   {"head": "The controller", "relation": "reads", "tail": "sensor data",
