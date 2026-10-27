@@ -23,7 +23,7 @@ from datetime import datetime
 API_MODE = 0
 
 # Add the karma package to Python path
-sys.path.insert(0, 'D:/files/rawcode/KARMA')
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from karma import KARMAPipeline
 from karma.config import create_default_config
