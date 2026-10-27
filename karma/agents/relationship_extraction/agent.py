@@ -194,7 +194,9 @@ confidence、clarity、relevance。context 逐字复制源文中的连续片段�
    保持其独立结构；修正集中在已确认的问题上，其余正确表达保留。
 4. 判断两条独立三元组是否重复时，比较主体、关系、客体及必要限定的完整含义。
    主动和被动表达可以等价；条件、情态、数量或时间不同的关系分别核实。
-   长字段中提到相同内容，本身不足以说明独立三元组重复。
+   长字段包含另一条关系的文字时，当重复位于 head、relation 或 tail
+   的局部，使用 replace 精简对应片段，保留该三元组表达的关系；整条事实重复时，
+   保留一条，使用 remove 删除重复条目。
 """
         prompt = f"""
 # 任务目标
@@ -239,7 +241,8 @@ confidence、clarity、relevance。context 逐字复制源文中的连续片段�
 - add：补充源文明说、当前集合尚未表达的独立关系。
   根据这条关系自身的主体、关系和客体生成新三元组，保留已有正确条目。
 - replace：已有关系的主体、关系、客体或必要限定存在错误时，修正对应部分。
-  保留原条目中的正确内容；其他独立关系由相应三元组表达。
+  也用于精简 head、relation 或 tail 中的局部重复内容，保留原条目表达的独立关系。
+  输出修改后的完整三元组，保留其余正确字段和内容。
 - remove：仅用于以下两种情况：
   核心事实缺少源文依据或与源文矛盾，且无法通过修正得到有依据的关系；
   或与另一条最终保留的独立三元组完整重复。
@@ -265,16 +268,16 @@ confidence、clarity、relevance。context 逐字复制源文中的连续片段�
    为每项关系确定主体、关系、客体及必要限定，作为待核对的候选。
    再结合对应重建文本、unique_to_text_a、unique_to_text_b 和候选实体补查问题。
    差异为空的源句也执行上述检查。
-2. 与当前集合逐项对照：在当前源句分组和 UNASSIGNED 中查找每项候选关系的
+2. 与当前集合逐项对照：先逐项核实文本差异，结合源句和实际三元组确认问题来自三元组、
+   重建文本还是差异判断，保留已经正确的条目。在当前源句分组和 UNASSIGNED 中查找每项候选关系的
    对应表达，确认相关条目来自当前源句，区分以下情况：
    - 已有正确的独立关系：保留。
    - 已有对应关系，但主体、关系、客体或必要限定有误：列为修正对象。
    - 内容已在长字段中，仅缺少独立表达：属于拆分问题，按已有内容处理。
    - 当前集合没有表达：列为需要补充的事实。
-   同时逐条检查已有三元组，核实其是否有源文依据以及表达是否正确。
-   空分组先检查未定位条目；已有条目的源句仍逐项检查其余关系。
-   将差异与源句、三元组对照，区分三元组错漏、重建错误和差异误报。
-   只有重建或比较出错时，保留已经正确的三元组。
+   对照源句和重建文本，确认谁执行动作、作用于谁，以及动作之间的关系，再逐条核对
+   当前三元组的主体、客体、关系方向、能力、目的、因果、条件和必要的修饰。
+   将确认的错误定位到具体 index 及 head、relation 或 tail，作为 replace 的修改对象。
 3. 生成操作：优先为确实未覆盖的源句补充事实，再处理其余遗漏与错误。
    新发现的独立关系用 add；原关系缺少情态、条件等必要限定时用 replace。
    根据内容表达的是新关系还是原关系的限定来选择操作，长短只作阅读参考。
@@ -282,10 +285,11 @@ confidence、clarity、relevance。context 逐字复制源文中的连续片段�
    新增前检查保留条目、替换结果和本轮其他 add，已有对应表达时复用该结果。
    add/replace 填写支持该事实的 source_sentence_ids 和原文 evidence。
 4. 检查修改后的结果：汇总实际保留的条目、替换结果和新增条目，
-   对照第1步的关系候选，确认已发现的遗漏和错误得到处理。
+   对照第1步的关系候选。
    逐项检查 add 是否重复、replace 是否损失原有正确关系、remove 是否删掉了
-   仍需保留的独立关系。因重复而删除时，确认对应的独立三元组最终仍然保留。
-   长字段中的文字覆盖与独立三元组之间的重复分别判断。
+   仍需保留的独立关系。
+   对重复删除的 remove或局部精简的 replace，确认删去的片段已有对应关系表达，并确认精简后的主体、关系
+   和客体仍准确表达源句中的事实。
    调整有问题或相互冲突的操作后，仅输出最终 add、remove、replace JSON；
    关系候选用于内部核查。
 
@@ -298,6 +302,28 @@ confidence、clarity、relevance。context 逐字复制源文中的连续片段�
   若当前误拆成无条件 activates the alarm 和 activates the indicator，需 replace
   一条，保留 at least one of 并列出 alarm 和 indicator 两个选项，再 remove 另一条错误断言。
   若当前已正确保留“至少其中一项”，则保持原条目和完整选择范围。
+
+# 修正动作主体和关系的示例
+源句：The controller instructs the sensor to collect data.
+当前三元组：
+[0] (The controller, instructs, the sensor)
+[1] (The controller, collects, data)
+核查：执行 collect 动作的是 sensor实体，该动作属于指令内容。
+处理：保留 [0]，replace [1] 为：
+(the sensor, is instructed to collect, data)
+reason 说明将收集数据的主体改为 sensor，并保留该动作受到指令的含义。
+
+# 局部精简重复字段的示例
+源句：The actual scope of the protection sought is intended to be defined in the following claims when viewed in their proper perspective based on the prior art.
+当前三元组：
+[0] (the following claims, are viewed in, their proper perspective based on the prior art)
+[1] (their proper perspective, is based on, the prior art)
+核查：[0] 表达 claims 与 perspective 的关系，[1] 已独立表达 perspective 与 prior art 的关系。
+重复部分位于 [0] 的 tail，精简后仍保留 claims 与 perspective 的关系。
+处理：保留 [1]，replace [0] 为：
+(the following claims, are viewed in, their proper perspective)
+reason 说明只精简 [0] 尾实体中的 based on the prior art，其含义由保留的 [1] 表达。
+以上两个示例的 replace 均填写支持该事实的 source_sentence_ids 和原文 evidence。
 
 # 发现遗漏并独立补充的示例
 源句：A further aspect provides a meaningful capture of the congestion level information enabling appropriate congestion mitigation measures, for example according to the severeness of the congestion.
