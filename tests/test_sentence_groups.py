@@ -174,6 +174,57 @@ class SentenceGroupsTests(unittest.TestCase):
         self.assertEqual(len(diff['sentence_differences']), 2)
         self.assertTrue(all(r['comparison_status'] == 'failed' for r in diff['sentence_differences']))
 
+    def test_unassigned_note_is_conditional_and_records_survive(self):
+        for has_unknown in (False, True):
+            with self.subTest(has_unknown=has_unknown):
+                triples = [copy.deepcopy(self.triple)]
+                if has_unknown:
+                    triples.append(KnowledgeTriple('Unknown', 'has', 'unlocated evidence'))
+                groups = group_triples(self.sentences, triples)
+                generated = [dict(sentence_id=g['sentence_id'], text='Existing input facts.')
+                             for g in groups]
+                generation = TextGenerationAgent(None, 'offline')
+                with patch.object(generation, '_make_llm_call', return_value=reply(generated)) as call:
+                    generation.process(triples, sentence_groups=groups)
+                generation_prompt = call.call_args.args[0]
+                self.assertEqual('UNASSIGNED' in generation_prompt, has_unknown)
+                self.assertEqual([r['sentence_id'] for r in generation.last_grouped_generation],
+                                 [g['sentence_id'] for g in groups])
+                compared = [dict(sentence_id=g['sentence_id'], unique_to_text_a=[], unique_to_text_b=[])
+                            for g in groups]
+                comparison = TextComparisonAgent(None, 'offline')
+                with patch.object(comparison, '_make_llm_call', return_value=reply(compared)) as call:
+                    diff = comparison.process(self.text, '', sentence_groups=groups,
+                                              reconstructions=generation.last_grouped_generation)
+                self.assertEqual('UNASSIGNED' in call.call_args.args[0], has_unknown)
+                self.assertEqual([r['sentence_id'] for r in diff['sentence_differences']],
+                                 [g['sentence_id'] for g in groups])
+                for formatter in (entity_diff, relation_diff):
+                    self.assertEqual('UNASSIGNED' in formatter(diff), has_unknown)
+                    self.assertEqual(tagged_json(formatter(diff), 'text_difference_json')['sentence_differences'],
+                                     diff['sentence_differences'])
+                feedback = RelationshipExtractionAgent(None, 'offline')
+                with patch.object(feedback, '_make_llm_call',
+                                  return_value=reply(dict(add=[], remove=[], replace=[]))) as call:
+                    result = feedback.revise_relationships(self.text, triples, diff, sentences=self.sentences)
+                prompt = call.call_args.args[0]
+                self.assertEqual('UNASSIGNED' in prompt, has_unknown)
+                self.assertEqual(prompt.count('UNASSIGNED 是来源句尚未确定的条目分组'), int(has_unknown))
+                self.assertEqual([(t.head, t.relation, t.tail) for t in result],
+                                 [(t.head, t.relation, t.tail) for t in triples])
+
+    def test_feedback_explains_unknown_group_from_either_input(self):
+        unknown = KnowledgeTriple('Unknown', 'has', 'unlocated evidence')
+        old_diff = dict(sentence_differences=[dict(sentence_id='UNASSIGNED',
+                                                  unique_to_text_a=[], unique_to_text_b=[])])
+        for triples, diff in (([unknown], {}), ([copy.deepcopy(self.triple)], old_diff)):
+            with self.subTest(current_unknown=triples[0].head == 'Unknown'):
+                agent = RelationshipExtractionAgent(None, 'offline')
+                with patch.object(agent, '_make_llm_call',
+                                  return_value=reply(dict(add=[], remove=[], replace=[]))) as call:
+                    agent.revise_relationships(self.text, triples, diff, sentences=self.sentences)
+                self.assertEqual(call.call_args.args[0].count('UNASSIGNED 是来源句尚未确定的条目分组'), 1)
+
 
 if __name__ == '__main__':
     unittest.main()

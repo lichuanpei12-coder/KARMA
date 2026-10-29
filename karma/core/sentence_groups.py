@@ -79,16 +79,24 @@ def group_triples(sentences, triples):
     return groups
 
 
+def unassigned_group_note(groups):
+    """Explain the fallback label only when it occurs in this prompt's input."""
+    if any(isinstance(g, dict) and g.get('sentence_id') == 'UNASSIGNED'
+           for g in (groups or [])):
+        return "UNASSIGNED 是来源句尚未确定的条目分组；按输入编号处理该组。\n"
+    return ""
+
+
 def grouped_difference_context(diff):
     """Keep sentence identity in both entity and relationship feedback prompts."""
     import json
     diff = diff if isinstance(diff, dict) else {}
     keys = ('unique_to_text_a', 'unique_to_text_b', 'sentence_differences')
     data = {key: diff[key] for key in keys if key in diff}
-    return """文本A是源文本，文本B由当前三元组重建。源句指带 sentence_id 的原文句子。
+    source_group_note = unassigned_group_note(data.get('sentence_differences', []))
+    return """文本A是源文本，文本B是由当前三元组生成的重建文本。源句指带 sentence_id 的原文句子。
 unique_to_text_a 提示可能遗漏的信息，unique_to_text_b 提示可能缺乏源文支持的信息。
-sentence_differences 按源句提供重建、差异及相关三元组的全局 index；重建失败、
-比较失败或来源未定位均不代表没有问题。UNASSIGNED 表示来源尚未确定的条目。
+sentence_differences 按源句提供重建文本、差异及相关三元组的全局 index；重建文本生成失败、
+比较失败或来源未定位均不代表没有问题。
 差异只帮助定位，须结合全文核实；空差异仍需检查事实覆盖，不能仅凭差异增删。
-<text_difference_json>
-""" + json.dumps(data, ensure_ascii=False, indent=2) + "\n</text_difference_json>"
+""" + source_group_note + "<text_difference_json>\n" + json.dumps(data, ensure_ascii=False, indent=2) + "\n</text_difference_json>"

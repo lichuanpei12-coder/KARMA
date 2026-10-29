@@ -14,6 +14,7 @@ from karma.core.base_agent import BaseAgent
 from karma.core.data_structures import KGEntity, KnowledgeTriple
 from karma.core.sentence_groups import (
     source_sentences, attach_sources, group_triples, grouped_difference_context,
+    unassigned_group_note,
 )
 
 from karma.agents.extraction_support import (
@@ -30,11 +31,14 @@ from karma.agents.extraction_support import (
 FACT_RULES = """
 1. 逐句检查源文本支持的动作、状态、定义、组成、属性与比较关系。
    同一对象的多个独立事实分别检查，抽取数量由源文事实决定。
-2. 将 head、relation、tail 作为完整事实判断，依据语法保留主客体及关系方向。
-   三个字段的组合必须表达必要的否定、情态、条件、数量、时间和限定范围，
-   不得只把这些限制放在 context 或 evidence 中；必要时保留较长原文表达。
-3. head、relation、tail 保留源文语言、措辞、大小写与空格；可保留代词或较长宾语。
-   仅可补齐原文语法明确省略的并列共享成分，不补造实体、名称或关系。
+2. 将 head、relation、tail 作为完整事实判断，依据语法确定主客体及关系方向。
+   在对应字段保留决定实体身份或核心关系含义的否定、情态、条件、数量、时间与范围。
+   句首介绍实施例的词语（如 In some embodiments）省略，三元组写实体及其关系。
+   例如 In some embodiments, the process includes a step. 对应 (the process, includes, a step)。
+3. head、relation、tail 的实义词从支持该事实的原文片段选取，保持原词及其词形、大小写。
+   名词沿用原文单复数，动词沿用原文时态、分词和不定式形式；共享成分按原词形补齐。
+   为独立表达可补充必要的系词、助动词和介词，补齐后保持原有主体、方向、情态与目的含义。
+   输出前将各字段的实义词逐一与原文核对；保留原文代词或较长表达以承载明确的事实。
 4. 每条三元组表达一个独立事实，复合动作仅在各自获源文支持时拆分。
    目的不等于结果，条件不等于无条件，可能不等于确定。例如
    "queries the ECU to determine the location" 不支持直接断言已经确定位置。
@@ -75,7 +79,7 @@ def difference_context(diff):
     return """文本A是本次抽取使用的源文本，文本B由当前三元组生成。
 unique_to_text_a 是比较模型认为源文本中有、重建文本中未体现的信息，帮助定位候选遗漏。
 unique_to_text_b 是比较模型认为重建文本中有、源文本中未找到对应依据的信息，帮助定位待复核事实。
-两组差异均可能存在比较或重建误差。对象出现在 B 侧差异中，可能只是其关系有误；
+两组差异均可能存在比较判断误差或重建文本表达错误。对象出现在 B 侧差异中，可能只是其关系有误；
 对象是否有效、事实是否成立均以源文本核实结果为准。空差异仍需检查源文本的事实覆盖。
 <text_difference_json>
 """ + json.dumps(data, ensure_ascii=False, indent=2) + "\n</text_difference_json>"
@@ -184,19 +188,24 @@ confidence、clarity、relevance。context 逐字复制源文中的连续片段�
             }
             for index, triple in enumerate(previous_relationships)
         ]
+        sentence_groups = group_triples(sentences, previous_relationships)
+        difference_text = difference_context(diff)
+        source_group_note = unassigned_group_note(sentence_groups)
+        if source_group_note and source_group_note in difference_text:
+            source_group_note = ""
         # Keep feedback instructions separate so round-one extraction stays unchanged.
         revision_fact_rules = """
-1. 根据源句判断每条关系的主体、关系和客体，沿用原文语言和措辞。
-   可补齐语法明确省略或共享的成分；指代清楚时还原对象，需保留原文代词时保留。
-2. 在三元组字段中保留关系成立所需的否定、情态、条件、数量、时间和范围。
-   目的按目的表达，可能发生的动作保留可能性，选择关系保留原有选项和选择范围。
-3. 每条新补充的独立关系分别表达。已有多条三元组共同表达完整的内容，
-   保持其独立结构；修正集中在已确认的问题上，其余正确表达保留。
-4. 判断两条独立三元组是否重复时，比较主体、关系、客体及必要限定的完整含义。
-   主动和被动表达可以等价；条件、情态、数量或时间不同的关系分别核实。
-   长字段包含另一条关系的文字时，当重复位于 head、relation 或 tail
-   的局部，使用 replace 精简对应片段，保留该三元组表达的关系；整条事实重复时，
-   保留一条，使用 remove 删除重复条目。
+1. 按源句确定动作的执行者、承受对象和关系方向，以及动作之间的目的、原因和条件。
+   指代清楚时使用原文已有的对应实体表达；其余情况保留原文代词。
+2. head、relation、tail 的实义词取自支持该事实的原文片段，保持原词及其词形、大小写。
+   名词沿用原文单复数，动词沿用原文时态、分词和不定式形式；共享成分按原词形补齐。
+   为独立表达可补充必要的系词、助动词和介词，补齐后保持原有主体、方向、情态与目的含义。
+3. 判断修饰是否保留：省略后会改变哪个对象参与、表达什么关系、是否发生、
+   在什么条件下成立、涉及多少或哪些对象时，将该修饰保留在它约束的字段中。
+   句首介绍实施例的词语（如 In some embodiments）省略，三元组写实体及其关系。
+   例如 In some embodiments, the process includes a step. 对应 (the process, includes, a step)。
+   源文表达目的时保留 to 等目的连接及其所连接的动作；表达可能性时保留 may 等情态词。
+   风险、指令或条件中的动作连同其外层限定表达，分别判断源句是否还断言该动作实际发生。
 """
         prompt = f"""
 # 任务目标
@@ -214,10 +223,11 @@ confidence、clarity、relevance。context 逐字复制源文中的连续片段�
 # 源句分组
 源句是带 sentence_id 的原文句子；index 始终是当前集合的全局三元组编号。
 一个源句包含多条事实，并抽取多个三元组；每条三元组只关联支持它的源句编号。
-空组表示尚无已定位条目，UNASSIGNED 表示来源待核实。
+空组表示尚无已定位条目。
+{source_group_note}
 结合全文理解，按 sentence_id 找到对应的完整源句和三元组；重建文本用于辅助核查。
 <sentence_groups_json>
-{json.dumps(group_triples(sentences, previous_relationships), ensure_ascii=False, indent=2)}
+{json.dumps(sentence_groups, ensure_ascii=False, indent=2)}
 </sentence_groups_json>
 
 # 输入二：当前三元组集合
@@ -235,18 +245,23 @@ confidence、clarity、relevance。context 逐字复制源文中的连续片段�
 </candidate_entities_json>
 
 # 输入四：文本差异
-{difference_context(diff)}
+{difference_text}
 
 # 修订操作
-- add：补充源文明说、当前集合尚未表达的独立关系。
+- add：补充源文明说、修改后的集合尚未独立表达的关系。
+  源句明确表达的关系，即使已经包含在某个长字段中，也检查它是否已有独立三元组。
+  已有正确的独立三元组时，保留该条目，不为同一关系生成 add。
+  已有条目需要修正时使用 replace，修改后也不再添加同一关系。
+  尚未独立表达时，补出该关系，并检查外层三元组是否需要调整字段边界。
   根据这条关系自身的主体、关系和客体生成新三元组，保留已有正确条目。
 - replace：已有关系的主体、关系、客体或必要限定存在错误时，修正对应部分。
-  也用于精简 head、relation 或 tail 中的局部重复内容，保留原条目表达的独立关系。
-  输出修改后的完整三元组，保留其余正确字段和内容。
+  局部内容已由另一条正确关系独立表达时，可精简对应字段，并保持实体身份、限定范围与原条目的独立关系。
+  输出修改后的完整三元组；一条需拆为多项事实时，replace 保留其中一条，其余事实使用 add。
 - remove：仅用于以下两种情况：
   核心事实缺少源文依据或与源文矛盾，且无法通过修正得到有依据的关系；
   或与另一条最终保留的独立三元组完整重复。
-  有依据但表达不准确的关系优先使用 replace。
+  完整重复按主体、关系、客体及限定的整体含义判断，保留一条后删除其余重复项。
+  共同主语、相同动词或字段局部重叠分别核实其独立事实；有依据且可修正的关系优先使用 replace。
 
 # 审校规则
 {revision_fact_rules}
@@ -254,8 +269,7 @@ confidence、clarity、relevance。context 逐字复制源文中的连续片段�
   既包含这项事实，也包含理解它所需的前后文和限制条件。
 - add 和 replace 还须输出 source_sentence_ids 数组，其中只填写直接支持该事实的
   一个源句编号，例如 ["S1"]。
-- 每个 index 最多参与一个 remove 或 replace。修正一条错误三元组时，
-  若需要分别表达多项事实，用 replace 保留其中一条，其余事实放入 add。
+- 每个 index 最多参与一个 remove 或 replace。
 - 每项 add 的 reason 说明：现有相关三元组已经说了什么，
   本条还补充什么。可引用相关条目的输入 index；没有相关条目时直接说明。
 - 每项 remove 的 reason 说明：该条目为什么缺少依据且无法修正，
@@ -263,35 +277,60 @@ confidence、clarity、relevance。context 逐字复制源文中的连续片段�
 {SCORE_RULES}
 
 # 执行步骤
-1. 从源句找关系：按源句编号阅读完整源句，结合必要上下文，逐项找出对象参与的
-   动作、状态、属性、定义、组成、比较，以及依据、原因、目的等关系。
-   为每项关系确定主体、关系、客体及必要限定，作为待核对的候选。
-   再结合对应重建文本、unique_to_text_a、unique_to_text_b 和候选实体补查问题。
-   差异为空的源句也执行上述检查。
-2. 与当前集合逐项对照：先逐项核实文本差异，结合源句和实际三元组确认问题来自三元组、
-   重建文本还是差异判断，保留已经正确的条目。在当前源句分组和 UNASSIGNED 中查找每项候选关系的
-   对应表达，确认相关条目来自当前源句，区分以下情况：
-   - 已有正确的独立关系：保留。
-   - 已有对应关系，但主体、关系、客体或必要限定有误：列为修正对象。
-   - 内容已在长字段中，仅缺少独立表达：属于拆分问题，按已有内容处理。
-   - 当前集合没有表达：列为需要补充的事实。
-   对照源句和重建文本，确认谁执行动作、作用于谁，以及动作之间的关系，再逐条核对
-   当前三元组的主体、客体、关系方向、能力、目的、因果、条件和必要的修饰。
-   将确认的错误定位到具体 index 及 head、relation 或 tail，作为 replace 的修改对象。
-3. 生成操作：优先为确实未覆盖的源句补充事实，再处理其余遗漏与错误。
-   新发现的独立关系用 add；原关系缺少情态、条件等必要限定时用 replace。
-   根据内容表达的是新关系还是原关系的限定来选择操作，长短只作阅读参考。
-   有依据且能够修正的条目用 replace，符合 remove 定义的条目才删除。
-   新增前检查保留条目、替换结果和本轮其他 add，已有对应表达时复用该结果。
-   add/replace 填写支持该事实的 source_sentence_ids 和原文 evidence。
-4. 检查修改后的结果：汇总实际保留的条目、替换结果和新增条目，
-   对照第1步的关系候选。
-   逐项检查 add 是否重复、replace 是否损失原有正确关系、remove 是否删掉了
-   仍需保留的独立关系。
-   对重复删除的 remove或局部精简的 replace，确认删去的片段已有对应关系表达，并确认精简后的主体、关系
-   和客体仍准确表达源句中的事实。
-   调整有问题或相互冲突的操作后，仅输出最终 add、remove、replace JSON；
-   关系候选用于内部核查。
+以下步骤对每条源句执行，核查过程用于形成操作，最终只输出规定的 JSON。
+1. 定位源句
+   读取完整源句，找到对应的当前三元组，使用输入 index 标识这些条目。
+   需要上下文解释代词时，再读取相关源句。
+
+2. 找出源句中的关系
+   分别检查动作、状态、属性、定义、组成、比较、依据、原因和目的。
+   定语、分词短语和从句中的关系也列为待核对项；每项记录支持它的源文片段。
+
+3. 确定每项关系的主体和客体
+   对每个动作分别找到执行者和承受对象；内部关系使用它自己的主体。
+   主动和被动表达按各自的语法确定 head、tail，指代按审校规则处理。
+
+4. 确定每项关系的限定
+   按审校规则，将否定、可能性、目的、条件、数量和范围放到它们约束的关系中。
+   区分源句断言的动作与目的、风险、指令中提到的动作，保留相应的外层含义。
+
+5. 查找已有表达
+   在对应分组及完整的当前集合中，为每项关系查找已有条目，记录相关 index 和来源。
+   结合参与对象及源文片段判断是否为同一关系；字段有错的条目也可能是待修正对象。
+   分别标明：已有独立表达、仅包含在长字段中、尚无表达。
+
+6. 定位条目的错误字段
+   检查 head 是否对应源句中这项关系的主体，尤其检查内部关系是否误用了外层关系的主体。
+   主体错误时，记录该条目的 index 和正确的原文主体，在第8步使用 replace 修正。
+   再分别检查 relation 和 tail，记录需要修改的字段及源文依据。
+   表达正确的独立关系列为保留项。
+
+7. 复核文本差异
+   将每条比较提示与源句、当前三元组和重建文本对照。
+   三元组有错时补入待修正项；三元组正确而重建文本有错时，保留三元组。
+   比较提示不符合源句时，采用源句与三元组核查结果；差异为空时仍处理前面发现的问题。
+
+8. 生成 replace
+   已有条目表达的就是这项关系，但字段有错时，修正该条目，输出替换后的完整三元组。
+   一条需要拆成多项关系时，用 replace 保留其中一项，其余关系进入待补充列表。
+   内部关系另列后，检查外层字段能否缩短；缩短后的字段仍须识别同一对象并保留适用限定。
+
+9. 生成 add
+   将待补充关系与保留条目、replace 结果及本轮其他 add 对照，按 add 定义补充。
+   reason 指出已有相关条目表达了什么、本条还补充什么，并引用相关输入 index。
+
+10. 处理重复和无依据条目
+    比较最终各条关系的主体、关系、客体及限定；完整事实相同时保留一条。
+    重复的原条目使用 remove，重复的拟新增项取消；同一主体参与不同关系时分别保留。
+    无依据条目按 remove 定义处理；能够修正的回到第8步，修改操作。
+
+11. 检查用词和事实覆盖
+    对 add/replace 的实义词逐一找到原文对应表达，核对原词和词形；语法补齐按审校规则处理。
+    将最终集合与第2步的关系逐项对照，检查遗漏和修改造成的信息损失，返回对应步骤调整。
+
+12. 输出操作
+    按格式填写 index、source_sentence_ids、evidence、reason 及评分字段。
+    每个 index 最多参与一个 replace 或 remove；合并冲突后输出 add、remove、replace JSON。
 
 # 判断是否需要修改的示例
 - 源文为 The controller reads and stores sensor data.，当前已有 reads、stores
@@ -303,30 +342,43 @@ confidence、clarity、relevance。context 逐字复制源文中的连续片段�
   一条，保留 at least one of 并列出 alarm 和 indicator 两个选项，再 remove 另一条错误断言。
   若当前已正确保留“至少其中一项”，则保持原条目和完整选择范围。
 
-# 修正动作主体和关系的示例
-源句：The controller instructs the sensor to collect data.
+# 内部关系：先修正已有条目，再检查是否需要新增
+源句：The system includes a module that processes data.
 当前三元组：
-[0] (The controller, instructs, the sensor)
-[1] (The controller, collects, data)
-核查：执行 collect 动作的是 sensor实体，该动作属于指令内容。
-处理：保留 [0]，replace [1] 为：
-(the sensor, is instructed to collect, data)
-reason 说明将收集数据的主体改为 sensor，并保留该动作受到指令的含义。
+[0] (The system, includes, a module that processes data)
+[1] (The system, processes, data)
+关系对应：includes 的主体是 The system，客体是 a module；processes 的主体是 a module。
+错误定位：[1] 已表达 processes，但 head 错误；[0] 的 tail 包含该内部关系。
+处理：replace [1] 为 (a module, processes, data)。
+再 replace [0] 为 (The system, includes, a module)。
+最终检查：两项关系均已有独立表达，add 为空。
+若输入只有 [0]，则 replace [0] 保留 includes，并 add (a module, processes, data)。
+若 [1] 原本已经正确，则保留 [1]，只检查 [0] 的字段边界。
+add/replace 按源句填写 source_sentence_ids 和逐字引用的 evidence。
 
-# 局部精简重复字段的示例
-源句：The actual scope of the protection sought is intended to be defined in the following claims when viewed in their proper perspective based on the prior art.
-当前三元组：
-[0] (the following claims, are viewed in, their proper perspective based on the prior art)
-[1] (their proper perspective, is based on, the prior art)
-核查：[0] 表达 claims 与 perspective 的关系，[1] 已独立表达 perspective 与 prior art 的关系。
-重复部分位于 [0] 的 tail，精简后仍保留 claims 与 perspective 的关系。
-处理：保留 [1]，replace [0] 为：
-(the following claims, are viewed in, their proper perspective)
-reason 说明只精简 [0] 尾实体中的 based on the prior art，其含义由保留的 [1] 表达。
-以上两个示例的 replace 均填写支持该事实的 source_sentence_ids 和原文 evidence。
+# 目的和词形：保留动作之间的连接
+源句：The system includes a module to provide data.
+当前三元组：[0] (a module, provides, data)
+核查：to provide 表达模块的用途；[0] 将 provide 改成 provides，并丢失用途含义。
+处理：replace [0] 为 (a module, is to provide, data)，保留 provide，补充必要的 is。
+再检查 includes 是否已有独立表达；若没有，则 add (The system, includes, a module)。
+最终检查：已有用途条目已通过 replace 修正，不再 add 同一用途关系。
+
+# 完整重复与共同主语
+源句：The module receives signals and generates alerts.
+当前 [0] 和 [1] 均为 (The module, receives, signals)，[2] 为 (The module, generates, alerts)。
+处理：保留 [0] 和 [2]，remove [1]，reason 引用重复的 [0]。
+[0] 与 [2] 的主体相同，但分别表达 receives 和 generates，两条都保留。
+
+# 重建文本错误：保留已经正确的三元组
+源句：The module receives signals and generates alerts.
+当前三元组为 (The module, receives, signals) 和 (The module, generates, alerts)。
+重建文本：The module receives signals or generates alerts.
+核查：源句和两条三元组分别表达两个动作，重建文本增加了选择含义。
+处理：保留两条三元组，该差异不产生 add、replace 或 remove。
 
 # 发现遗漏并独立补充的示例
-源句：A further aspect provides a meaningful capture of the congestion level information enabling appropriate congestion mitigation measures, for example according to the severeness of the congestion.
+源句：A further aspect provides a meaningful capture of the congestion level information, which enables appropriate congestion mitigation measures, for example according to the severeness of the congestion.
 当前三元组：
 - (A further aspect, provides, a meaningful capture of the congestion level information)
 - (a meaningful capture of the congestion level information, enables, appropriate congestion mitigation measures)
@@ -336,7 +388,7 @@ reason 说明只精简 [0] 尾实体中的 based on the prior art，其含义由
 (congestion mitigation measures, are for example according to, the severeness of the congestion)
 reason 说明已有 provides 和 enables，新增的是措施与严重程度的关系；
 evidence 复制包含该关系的连续原文，并填写对应源句编号。
-如果当前集合已有这条独立依据关系，则复用已有条目。
+如果当前集合已有正确的这条独立依据关系，则保留该条目，不再 add 同一关系。
 
 # 操作示例
 示例源文本：

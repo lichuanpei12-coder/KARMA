@@ -41,28 +41,45 @@ class TripleSplittingAgent(TripleRevisionMixin, BaseAgent):
 本阶段的调整围绕这些关系的拆分展开，其余三元组由程序原样保留。
 
 # 执行步骤
-1. 逐条阅读当前三元组，回到源句确认其中的事实及其适用限定。
+1. 定位源文依据
+   逐条读取当前三元组，找到支持它的完整源句；后续拆分围绕该条目承载的关系展开。
 
-2. 识别候选关系，以下结构逐项检查。
-   扫描 head、relation、tail 中的 and、both ... and、
-   as well as、逗号枚举，识别分别成立的并列主体、客体或同主体的多个动作。
-   对 and not，检查是否同时表达了肯定关系与另一条否定关系。
-   检查各字段中的定语、分词短语和从句，关注 including、comprising、
-   due to、for、to、which、that 等引出的组成、包含、用途、目的、原因等关系。
-   关键词和字段长度用于定位，源句语义用于判断关系是否成立。
-   为每个候选关系分别确定其自己的主体、关系和客体。
-   独立关系分别表达，固定名称、整体共同关系和选择范围完整保留。
+2. 找出并列部分
+   分别检查 head、relation、tail 中的 and、both ... and、as well as 和逗号枚举。
+   对 and not，分别找出肯定部分和否定部分。
 
-3. 对照当前集合及本轮拟生成的结果，判断候选关系是否已有独立表达。
-   仅包含在长字段或并列表达中的关系，仍需独立列出；已有独立表达的关系直接复用。
-   每个候选关系分别判断：拆出依据明确的部分，完整保留尚不能确定如何拆分的部分。
+3. 判断并列如何参与关系
+   多个对象分别参与同一关系，或同一对象参与多个动作时，分别表达。
+   一套、一组等集合整体参与关系时保留集合主体；选择关系保留选项及选择范围。
 
-4. 拆出一层后，继续检查结果的 head、relation、tail 中的并列及内部关系，
-   重复第2、3步，直到有明确依据且可独立表达的关系均已处理。
-   按各条关系适用的范围保留必要限定，并相应调整外层三元组的边界。
+4. 找出字段内部的关系
+   检查定语、分词短语和从句；including、comprising、due to、for、to、which、that 等帮助定位。
+   为每项候选找到源句支持的关系；仅包含在长字段中时，继续检查是否需要独立表达。
 
-5. 汇总结果，核对原有事实及必要限定是否完整保留、各关系是否已独立表达，
-   合并重复的候选操作后，生成最终 add/replace。
+5. 确定内部关系的主体和客体
+   对每个动作分别找到执行者和承受对象，内部关系使用自己的主体。
+   例如 a module that processes data 中，processes 的主体是 a module。
+
+6. 保留每项关系的限定
+   按事实规则保留否定、可能性、目的、条件、数量和范围，放到它们实际约束的关系中。
+   风险、指令或条件中的动作连同其外层限定表达；拆出的关系保持源句对该动作的断言范围。
+
+7. 查找已有独立表达
+   将候选关系与当前集合及本轮拟生成结果对照。已有正确的独立三元组时保留该条目，不再 add 同一关系。
+   已有条目需要修正时使用 replace，修改后不再 add 同一关系；尚未独立表达时列为待拆出项。
+   依据明确的关系继续拆分；无法确定主体或限定归属的部分保留原表达。
+
+8. 生成操作并调整外层字段
+   按操作定义生成 add/replace。内部关系独立表达后，再检查外层字段是否需要缩短。
+   缩短后的字段仍须识别原来的对象、保留该关系的限定；需要的修饰继续保留。
+
+9. 继续检查拆分结果
+   对拟保留的各条结果再次执行第2至7步，检查是否还有尚未独立表达的并列或内部关系。
+   有明确依据的部分继续处理；本轮已经形成正确独立表达的关系保留该结果，不再生成重复操作。
+
+10. 检查并输出
+    对照源句核对实义词和词形，再检查各条结果合起来是否保留了原有事实与必要限定。
+    取消重复候选、合并针对同一 index 的替换操作，输出最终 add/replace，remove 返回 []。
 
 # 常见关系结构短例
 以下展示常见结构；实际句子可以组合多种结构，也可以包含其他有源文依据的关系。
@@ -79,9 +96,20 @@ class TripleSplittingAgent(TripleRevisionMixin, BaseAgent):
   Sensors and cameras collect data.
   → (Sensors, collect, data)；(cameras, collect, data)。
   主体分别展开，共享关系和客体。
+- 集合实体：A first set of left and right pulleys are attached at the front.
+  → (A first set of left and right pulleys, are attached at, the front)。
+  参与 attached at 关系的是一套滑轮，left and right 描述这一套的组成，集合主体保留整体。
 - 主体内部关系：The sensor installed in the vehicle measures temperature.
   → (The sensor, measures, temperature)；(The sensor, is installed in, the vehicle)。
   从主体的修饰部分抽出另一条关系，并补齐省略的 is。
+
+- 目的关系：The system includes a module to provide data.
+  → (The system, includes, a module)；(a module, is to provide, data)。
+  保留原文 provide 和用途连接 to，补充必要的 is。
+- 风险范围：The hazards of loose items flying out of the trailer concern the operator.
+  → (The hazards of loose items flying out of the trailer, concern, the operator)。
+  flying out 位于 hazards of 的范围内；这个例子保留风险对象的完整表达。
+  若继续抽取内部关系，也需表达同一风险范围；单独断言物品实际飞出会改变源句含义。
 
 # 操作
 - add：补充当前三元组承载且有原文依据、尚未独立表达的关系，数量由有效关系决定。
@@ -93,10 +121,15 @@ add/replace 均填写被拆分的原三元组 index，使用输入中从0开始�
 
 # 事实
 - 保持主客体及关系方向。
-- 在三元组字段中保留适用的否定、情态、条件、数量、时间和限定范围；
+- 判断修饰是否保留：省略后会改变哪个对象参与、表达什么关系、是否发生、
+  在什么条件下成立、涉及多少或哪些对象时，将该修饰保留在它约束的字段中；
   目的按目的关系表达，条件保留在受其约束的关系中，选择关系保留原有选择范围。
-- 沿用源文语言和措辞，允许为独立表达关系进行必要的语法重组，
-  补齐语法明确共享或省略的成分（如 is），指代按源文明确的对应关系还原。
+  句首介绍实施例的词语（如 In some embodiments）省略，三元组写实体及其关系。
+  例如 In some embodiments, the process includes a step. 对应 (the process, includes, a step)。
+- head、relation、tail 的实义词取自支持该事实的原文片段，保持原词及其词形、大小写。
+  名词沿用原文单复数，动词沿用原文时态、分词和不定式形式；共享成分按原词形补齐。
+  为独立表达可补充必要的系词、助动词和介词，补齐后保持原有主体、方向、情态与目的含义。
+  指代按源文明确的对应关系还原；输出前逐项核对各字段实义词的原文依据和词形。
 
 # 源文本
 <source_text>
