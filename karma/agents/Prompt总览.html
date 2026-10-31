@@ -1,0 +1,101 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Agent Prompt总览与当前调用路线</title><style>
+:root{color-scheme:light;--ink:#19283b;--muted:#657489;--line:#dce4ee;--blue:#245f9b;--bg:#f3f6fa}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:26px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.85 "Microsoft YaHei","PingFang SC",system-ui,sans-serif}
+a{color:var(--blue);text-underline-offset:3px}header{padding:22px 32px;background:#16324e;color:#fff}
+header .label{font-size:18px;font-weight:700}header p{margin:4px 0 0;font-size:13px;color:#d0e0f0}
+.layout{display:grid;grid-template-columns:270px minmax(0,1fr);max-width:1550px;margin:auto;gap:24px;padding:24px}
+aside{position:sticky;top:18px;align-self:start;max-height:calc(100vh - 36px);overflow:auto;background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px}
+aside h2{font-size:16px;margin:0 0 12px}aside a{display:block;text-decoration:none;font-size:13px;line-height:1.6;padding:7px 0;border-bottom:1px solid #edf1f6}
+aside a.sub{padding-left:12px;color:#53657b}aside a:hover{color:var(--blue);background:#f4f8fe}
+aside a[hidden]{display:none}aside input{width:100%;padding:8px;border:1px solid #cbd6e3;border-radius:5px;font:inherit;font-size:13px;margin-bottom:10px}
+main{min-width:0;background:#fff;border:1px solid var(--line);border-radius:10px;padding:28px 36px}
+h1{font-size:27px;line-height:1.5;margin:0 0 24px}h2{font-size:23px;margin:38px 0 18px;padding-bottom:8px;border-bottom:2px solid #d5e3f2}
+h3{font-size:19px;line-height:1.6;margin:32px 0 18px;background:#edf4fc;border-left:4px solid #377ab4;padding:12px 15px;border-radius:0 6px 6px 0}
+h4{font-size:17px}p{margin:12px 0}li{margin:6px 0}strong{font-weight:700}blockquote{margin:15px 0;padding:10px 18px;border-left:4px solid #ccd9e7;background:#f7f9fc}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f5f7fa;border:1px solid #e1e7ee;border-radius:7px;padding:15px 18px;font:14px/1.8 Consolas,"Microsoft YaHei",monospace}
+code{font-family:Consolas,"Microsoft YaHei",monospace;font-size:.91em;background:#edf2f7;padding:2px 4px;border-radius:3px;overflow-wrap:anywhere}pre code{font-size:inherit;background:transparent;padding:0}
+.table-wrap{overflow-x:auto;margin:16px 0;border:1px solid var(--line);border-radius:6px}
+table{width:100%;border-collapse:collapse;font-size:14px;line-height:1.7;table-layout:auto}th,td{padding:10px 12px;text-align:left;vertical-align:top;border-right:1px solid var(--line);border-bottom:1px solid var(--line);overflow-wrap:anywhere}
+th{background:#eaf0f7;font-weight:700}th:last-child,td:last-child{border-right:0}tr:last-child td{border-bottom:0}tbody tr:nth-child(even){background:#f8fafc}
+hr{border:0;border-top:1px solid var(--line);margin:30px 0}.filelinks{display:flex;gap:20px;flex-wrap:wrap;font-size:13px;margin:0 0 24px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid var(--line);padding-top:15px}
+@media(max-width:900px){.layout{display:block;padding:12px}aside{position:static;max-height:300px;margin-bottom:16px}main{padding:22px 18px}header{padding:18px}h1{font-size:23px}h2{font-size:21px}th,td{padding:8px}}
+@media print{body{background:#fff;font-size:11pt}.layout{display:block;padding:0}aside,header,.filelinks,footer{display:none}main{border:0;padding:0}.table-wrap{overflow:visible}pre,table{font-size:9pt}h2,h3{break-after:avoid}tr{break-inside:avoid}a{color:inherit;text-decoration:none}}
+</style></head><body><header><div class="label">Agent Prompt总览与当前调用路线</div><p>源码行号与实际调用分支 · 2026-11-01 · 40c4adf</p></header><div class="layout"><aside><h2>目录</h2><input id="toc-filter" type="search" placeholder="搜索轮次、System、User"><a href="Prompt%E6%80%BB%E8%A7%88.html">全部Agent总览</a><a class="" href="#section-1">当前运行的prompt是否唯一</a>
+<a class="" href="#section-2">各Agent文档与当前状态</a>
+<a class="" href="#section-3">当前分组调用的源码证据</a>
+<a class="" href="#section-4">阅读方式</a></aside><main><a href="Prompt%E6%80%BB%E8%A7%88.md">Markdown原文</a><h1 id="section-0">Agent Prompt总览与当前调用路线</h1>
+<p>更新日期：2026-11-01。源码版本：<code>40c4adf1e546bcd149155843f7297d0fc7b64107</code>。</p>
+<h2 id="section-1">当前运行的prompt是否唯一</h2>
+<p>每一次模型调用只采用一套确定的System和User；程序按调用入口选择分支，不会把所有分支prompt一起发给模型。实体与关系抽取有第一轮、第二轮之分，因此不同阶段有不同消息。重建文本与比较当前由pipeline传入sentence_groups，使用分组版本；“非分组User”只是未传该参数时保留的另一条入口。分组是同一请求内按S1、S2等组织材料，不等于每句分别调用一次模型。</p>
+<h2 id="section-2">各Agent文档与当前状态</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Agent</th>
+<th>完整Prompt文档</th>
+<th>运行状态</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ingestion</td>
+<td><a href="ingestion/%E6%91%84%E5%85%A5Agent_%E5%AE%8C%E6%95%B4Prompt.html">摄入Agent_完整Prompt</a></td>
+<td>当前process只做文本规范化，_extract_metadata调用已注释，metadata=None；下面完整prompt属于保留但未由当前process调用的元数据入口。</td>
+</tr>
+<tr>
+<td>reader</td>
+<td><a href="reader/%E9%98%85%E8%AF%BBAgent_%E5%AE%8C%E6%95%B4Prompt.html">阅读Agent_完整Prompt</a></td>
+<td>普通文档准备阶段会分批调用相关性评分，每批最多5段；回放已保存基线时可能跳过准备阶段。每段送给评分的文本目前截取前500字符并加省略号。</td>
+</tr>
+<tr>
+<td>summarizer</td>
+<td><a href="summarizer/%E6%91%98%E8%A6%81Agent_%E5%AE%8C%E6%95%B4Prompt.html">摘要Agent_完整Prompt</a></td>
+<td>当前pipeline默认跳过摘要；仅环境变量KARMA_USE_SUMMARIZER为非空值时启用。直接调用摘要方法且输入长度小于15字符时，也不调用模型。</td>
+</tr>
+<tr>
+<td>entity_extraction</td>
+<td><a href="entity_extraction/%E5%AE%9E%E4%BD%93%E6%8A%BD%E5%8F%96Agent_%E5%AE%8C%E6%95%B4Prompt.html">实体抽取Agent_完整Prompt</a></td>
+<td>当前pipeline第一轮执行实体抽取，第二轮执行实体反馈。两轮共用同一System，但User不同；每次调用只使用对应轮次的一套消息。</td>
+</tr>
+<tr>
+<td>relationship_extraction</td>
+<td><a href="relationship_extraction/%E5%85%B3%E7%B3%BB%E6%8A%BD%E5%8F%96Agent_%E5%AE%8C%E6%95%B4Prompt.html">关系抽取Agent_完整Prompt</a></td>
+<td>当前pipeline第一轮执行关系抽取，第二轮执行关系反馈。两轮System和User分别选择；反馈System覆盖第一轮System，不叠加FACT_RULES。</td>
+</tr>
+<tr>
+<td>triple_splitting</td>
+<td><a href="triple_splitting/%E6%8B%86%E5%88%86Agent_%E5%AE%8C%E6%95%B4Prompt.html">拆分Agent_完整Prompt</a></td>
+<td>拆分阶段通过process调用专用System和User；只生成add/replace，remove固定为空。回放或跳过阶段时是否执行，以实际入口为准。</td>
+</tr>
+<tr>
+<td>text_generation</td>
+<td><a href="text_generation/%E9%87%8D%E5%BB%BA%E6%96%87%E6%9C%ACAgent_%E5%AE%8C%E6%95%B4Prompt.html">重建文本Agent_完整Prompt</a></td>
+<td>当前pipeline明确传入sentence_groups，因此采用generate_grouped的分组System和User。另一条generate_text路径只在不传分组或直接调用时使用，不会同时发送。</td>
+</tr>
+<tr>
+<td>text_comparison</td>
+<td><a href="text_comparison/%E6%96%87%E6%9C%AC%E5%AF%B9%E6%AF%94Agent_%E5%AE%8C%E6%95%B4Prompt.html">文本对比Agent_完整Prompt</a></td>
+<td>当前pipeline明确传入sentence_groups与reconstructions，因此采用compare_grouped。另一条compare路径只在不传分组或直接调用时使用，不会与当前版本叠加。</td>
+</tr>
+<tr>
+<td>conflict_resolution</td>
+<td><a href="conflict_resolution/%E5%86%B2%E7%AA%81%E5%A4%84%E7%90%86Agent_%E5%AE%8C%E6%95%B4Prompt.html">冲突处理Agent_完整Prompt</a></td>
+<td>当前process执行Python矛盾关系和置信度比较规则，不调用模型。源码定义了System字符串，但当前没有实际发送的User或模型请求。</td>
+</tr>
+<tr>
+<td>evaluator</td>
+<td><a href="evaluator/%E8%AF%84%E4%BC%B0Agent_%E5%AE%8C%E6%95%B4Prompt.html">评估Agent_完整Prompt</a></td>
+<td>当前process执行Python加权评分和阈值筛选，不调用模型。源码System字符串不参与运行决策；实际逻辑以finalize_triples和_aggregate_scores为准，不能把字符串里的最低分条件当成已执行检查。</td>
+</tr>
+<tr>
+<td>schema_alignment</td>
+<td><a href="schema_alignment/%E6%A8%A1%E5%BC%8F%E5%AF%B9%E9%BD%90Agent_%E5%AE%8C%E6%95%B4Prompt.html">模式对齐Agent_完整Prompt</a></td>
+<td>当前pipeline中初始化和调用均被注释。即使单独调用该类，现有process也是Python类型/关系映射，没有模型调用；定义的System不代表当前生效。</td>
+</tr>
+</tbody></table></div>
+<h2 id="section-3">当前分组调用的源码证据</h2>
+<p>karma/core/pipeline.py 第385—401行；实体两轮选择：karma/core/pipeline.py 第419—426行；关系两轮选择：karma/core/pipeline.py 第450—460行。</p>
+<h2 id="section-4">阅读方式</h2>
+<p>每个文档按轮次/入口连续展示同一请求的System和User，每部分前仅用一行说明内容、相对文件路径和源码行号。固定内容全部展开，仅运行数据保留变量表达式。各Agent目录的Prompt完整模板.json保存不含阅读标注的角色结构。</p>
+</main></div><script>document.getElementById('toc-filter').addEventListener('input',function(){const q=this.value.toLowerCase();document.querySelectorAll('aside a[href^="#"]').forEach(a=>a.hidden=!a.textContent.toLowerCase().includes(q));});</script></body></html>

@@ -1,0 +1,104 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>阅读Agent_完整Prompt</title><style>
+:root{color-scheme:light;--ink:#19283b;--muted:#657489;--line:#dce4ee;--blue:#245f9b;--bg:#f3f6fa}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:26px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.85 "Microsoft YaHei","PingFang SC",system-ui,sans-serif}
+a{color:var(--blue);text-underline-offset:3px}header{padding:22px 32px;background:#16324e;color:#fff}
+header .label{font-size:18px;font-weight:700}header p{margin:4px 0 0;font-size:13px;color:#d0e0f0}
+.layout{display:grid;grid-template-columns:270px minmax(0,1fr);max-width:1550px;margin:auto;gap:24px;padding:24px}
+aside{position:sticky;top:18px;align-self:start;max-height:calc(100vh - 36px);overflow:auto;background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px}
+aside h2{font-size:16px;margin:0 0 12px}aside a{display:block;text-decoration:none;font-size:13px;line-height:1.6;padding:7px 0;border-bottom:1px solid #edf1f6}
+aside a.sub{padding-left:12px;color:#53657b}aside a:hover{color:var(--blue);background:#f4f8fe}
+aside a[hidden]{display:none}aside input{width:100%;padding:8px;border:1px solid #cbd6e3;border-radius:5px;font:inherit;font-size:13px;margin-bottom:10px}
+main{min-width:0;background:#fff;border:1px solid var(--line);border-radius:10px;padding:28px 36px}
+h1{font-size:27px;line-height:1.5;margin:0 0 24px}h2{font-size:23px;margin:38px 0 18px;padding-bottom:8px;border-bottom:2px solid #d5e3f2}
+h3{font-size:19px;line-height:1.6;margin:32px 0 18px;background:#edf4fc;border-left:4px solid #377ab4;padding:12px 15px;border-radius:0 6px 6px 0}
+h4{font-size:17px}p{margin:12px 0}li{margin:6px 0}strong{font-weight:700}blockquote{margin:15px 0;padding:10px 18px;border-left:4px solid #ccd9e7;background:#f7f9fc}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f5f7fa;border:1px solid #e1e7ee;border-radius:7px;padding:15px 18px;font:14px/1.8 Consolas,"Microsoft YaHei",monospace}
+code{font-family:Consolas,"Microsoft YaHei",monospace;font-size:.91em;background:#edf2f7;padding:2px 4px;border-radius:3px;overflow-wrap:anywhere}pre code{font-size:inherit;background:transparent;padding:0}
+.table-wrap{overflow-x:auto;margin:16px 0;border:1px solid var(--line);border-radius:6px}
+table{width:100%;border-collapse:collapse;font-size:14px;line-height:1.7;table-layout:auto}th,td{padding:10px 12px;text-align:left;vertical-align:top;border-right:1px solid var(--line);border-bottom:1px solid var(--line);overflow-wrap:anywhere}
+th{background:#eaf0f7;font-weight:700}th:last-child,td:last-child{border-right:0}tr:last-child td{border-bottom:0}tbody tr:nth-child(even){background:#f8fafc}
+hr{border:0;border-top:1px solid var(--line);margin:30px 0}.filelinks{display:flex;gap:20px;flex-wrap:wrap;font-size:13px;margin:0 0 24px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid var(--line);padding-top:15px}
+@media(max-width:900px){.layout{display:block;padding:12px}aside{position:static;max-height:300px;margin-bottom:16px}main{padding:22px 18px}header{padding:18px}h1{font-size:23px}h2{font-size:21px}th,td{padding:8px}}
+@media print{body{background:#fff;font-size:11pt}.layout{display:block;padding:0}aside,header,.filelinks,footer{display:none}main{border:0;padding:0}.table-wrap{overflow:visible}pre,table{font-size:9pt}h2,h3{break-after:avoid}tr{break-inside:avoid}a{color:inherit;text-decoration:none}}
+</style></head><body><header><div class="label">阅读Agent_完整Prompt</div><p>源码行号与实际调用分支 · 2026-11-01 · 40c4adf</p></header><div class="layout"><aside><h2>目录</h2><input id="toc-filter" type="search" placeholder="搜索轮次、System、User"><a href="../Prompt%E6%80%BB%E8%A7%88.html">全部Agent总览</a><a class="" href="#section-1">当前运行是否使用这套Prompt</a>
+<a class="" href="#section-2">展示说明</a>
+<a class="" href="#section-3">当前条件下的完整版本</a>
+<a class="" href="#section-4">文档维护</a></aside><main><a href="%E9%98%85%E8%AF%BBAgent_%E5%AE%8C%E6%95%B4Prompt.md">Markdown原文</a><h1 id="section-0">阅读Agent_完整Prompt</h1>
+<p>整理日期：2026-11-01。代码版本：<code>40c4adf1e546bcd149155843f7297d0fc7b64107</code>。行号对应整理时源码；后续修改源码后应重新导出。</p>
+<h2 id="section-1">当前运行是否使用这套Prompt</h2>
+<p>普通文档准备阶段会分批调用相关性评分，每批最多5段；回放已保存基线时可能跳过准备阶段。每段送给评分的文本目前截取前500字符并加省略号。</p>
+<p>源码入口：karma/agents/reader/agent.py 第83—109行。系统提示选择与消息发送见karma/core/base_agent.py 第132—135行；Responses模式同一内容见karma/core/base_agent.py 第263—267行。</p>
+<h2 id="section-2">展示说明</h2>
+<p>固定文本全部展开，仅运行数据用源码变量或表达式表示。每个入口保留一份按顺序排列的System和User；每部分前用一行相对路径链接标注来源，可点击查看源码。来源链接放在代码块外以保持蓝色显示。“【来源：…】”和消息角色标记只用于阅读。同目录<a href="Prompt%E5%AE%8C%E6%95%B4%E6%A8%A1%E6%9D%BF.json">Prompt完整模板.json</a>保存不含阅读标注的角色结构。</p>
+<h2 id="section-3">当前条件下的完整版本</h2>
+<p><strong>System 消息</strong></p>
+<p>【来源：任务说明｜<a href="agent.py#L36">karma/agents/reader/agent.py 第36—79行</a>】</p>
+<pre><code class="language-text">你是一个专门用于生物医学文献分析的阅读代理。你的任务是评估文本段落并为知识提取分配精确的相关性分数。
+
+目标：根据文本段落包含可提取生物医学知识关系的潜力，对其进行评分（0.0-1.0）。
+
+评分标准：
+高相关性（0.8-1.0）：
+- 包含定量发现的结果部分
+- 对机制、通路或相互作用的讨论
+- 新发现或实验结果
+- 特定的药物-疾病关系
+- 定量数据（IC50、p值、浓度）
+
+中等相关性（0.4-0.7）：
+- 包含实体关系的背景信息
+- 临床观察或病例描述
+- 关于生物过程的一般性陈述
+- 研究发现的摘要总结
+- 包含已知事实的引言部分
+
+低相关性（0.1-0.3）：
+- 没有结果的方法描述
+- 致谢、资助信息
+- 没有解释的纯统计分析
+- 设备描述或操作规程
+- 作者所属机构和联系信息
+
+最低相关性（0.0-0.1）：
+- 参考文献和引用
+- 版权声明
+- 没有数据的图表标题
+- 纯行政内容
+
+评分要求：
+- 仅返回一个 0.0 到 1.0 之间的浮点数
+- 考虑生物医学术语密度
+- 优先考虑描述实体之间关系的内容
+- 考虑特定测量或结果的存在
+- 评估实体-关系提取的潜力
+
+示例：
+&quot;IL-6显著减少肿瘤生长（p&lt;0.001）与对照组相比&quot; → 0.95
+&quot;患者根据机构指南入组&quot; → 0.15
+&quot;阿司匹林通过共价结合抑制COX-2&quot; → 0.90
+&quot;使用SPSS软件进行统计分析&quot; → 0.20
+</code></pre>
+<p><strong>User 消息</strong></p>
+<p>【来源：任务说明｜<a href="agent.py#L339">karma/agents/reader/agent.py 第339—354行</a>】</p>
+<pre><code class="language-text">        你是一个生物医学文本相关性评分器。
+        对以下每个段落的相关性进行评分（0.0 到 1.0），评估其对于提取
+        新的生物医学知识（例如疾病、药物、基因、蛋白质之间的关系）的潜力。
+
+        考虑因素：
+        - 结果和讨论部分通常具有更高的相关性（0.7-0.9）
+        - 摘要和引言部分具有中等相关性（0.5-0.7）
+        - 没有发现的方法部分具有较低的相关性（0.2-0.4）
+        - 参考文献、致谢具有很低的相关性（0.0-0.2）
+        - 包含特定生物医学实体、关系或发现的内容得分更高
+
+        对每个段落，仅返回一个 0.0 到 1.0 之间的浮点数，不附加其他文本。
+
+        {chr(10).join(segment_texts)}
+
+        每行返回一个分数，不带标签：
+</code></pre>
+<h2 id="section-4">文档维护</h2>
+<p>固定文本来自程序拼接结果，运行数据按源码变量表示，回填核验通过。生成脚本位于tools/prompt_docs/export_agent_prompts.py，源码修改后需重新导出。</p>
+</main></div><script>document.getElementById('toc-filter').addEventListener('input',function(){const q=this.value.toLowerCase();document.querySelectorAll('aside a[href^="#"]').forEach(a=>a.hidden=!a.textContent.toLowerCase().includes(q));});</script></body></html>

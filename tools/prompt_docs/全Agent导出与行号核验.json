@@ -1,0 +1,1305 @@
+{
+  "git_head": "40c4adf1e546bcd149155843f7297d0fc7b64107",
+  "documents": [
+    "karma/agents/Prompt总览.md",
+    "karma/agents/ingestion/摄入Agent_完整Prompt.md",
+    "karma/agents/reader/阅读Agent_完整Prompt.md",
+    "karma/agents/summarizer/摘要Agent_完整Prompt.md",
+    "karma/agents/entity_extraction/实体抽取Agent_完整Prompt.md",
+    "karma/agents/relationship_extraction/关系抽取Agent_完整Prompt.md",
+    "karma/agents/triple_splitting/拆分Agent_完整Prompt.md",
+    "karma/agents/text_generation/重建文本Agent_完整Prompt.md",
+    "karma/agents/text_comparison/文本对比Agent_完整Prompt.md",
+    "karma/agents/conflict_resolution/冲突处理Agent_完整Prompt.md",
+    "karma/agents/evaluator/评估Agent_完整Prompt.md",
+    "karma/agents/schema_alignment/模式对齐Agent_完整Prompt.md"
+  ],
+  "parts": [
+    {
+      "document": "karma/agents/ingestion/摄入Agent_完整Prompt.md",
+      "label": "System Prompt",
+      "part": 1,
+      "title": "任务说明",
+      "source_spans": [
+        [
+          "karma/agents/ingestion/agent.py",
+          38,
+          73
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/ingestion/摄入Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 1,
+      "title": "任务说明",
+      "source_spans": [
+        [
+          "karma/agents/ingestion/agent.py",
+          112,
+          134
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/reader/阅读Agent_完整Prompt.md",
+      "label": "System Prompt",
+      "part": 1,
+      "title": "任务说明",
+      "source_spans": [
+        [
+          "karma/agents/reader/agent.py",
+          36,
+          79
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/reader/阅读Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 1,
+      "title": "任务说明",
+      "source_spans": [
+        [
+          "karma/agents/reader/agent.py",
+          339,
+          354
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/summarizer/摘要Agent_完整Prompt.md",
+      "label": "System Prompt",
+      "part": 1,
+      "title": "任务说明",
+      "source_spans": [
+        [
+          "karma/agents/summarizer/agent.py",
+          35,
+          77
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/summarizer/摘要Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 1,
+      "title": "任务说明",
+      "source_spans": [
+        [
+          "karma/agents/summarizer/agent.py",
+          128,
+          129
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/summarizer/摘要Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 2,
+      "title": "输入",
+      "source_spans": [
+        [
+          "karma/agents/summarizer/agent.py",
+          131,
+          132
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/summarizer/摘要Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 3,
+      "title": "压缩规则",
+      "source_spans": [
+        [
+          "karma/agents/summarizer/agent.py",
+          134,
+          139
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/summarizer/摘要Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 4,
+      "title": "忠实性规则：",
+      "source_spans": [
+        [
+          "karma/agents/summarizer/agent.py",
+          141,
+          147
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/summarizer/摘要Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 5,
+      "title": "流畅性规则：",
+      "source_spans": [
+        [
+          "karma/agents/summarizer/agent.py",
+          149,
+          153
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/summarizer/摘要Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 6,
+      "title": "专利压缩的特定规则：",
+      "source_spans": [
+        [
+          "karma/agents/summarizer/agent.py",
+          155,
+          167
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/summarizer/摘要Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 7,
+      "title": "输出格式",
+      "source_spans": [
+        [
+          "karma/agents/summarizer/agent.py",
+          169,
+          170
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/summarizer/摘要Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 8,
+      "title": "输入文本",
+      "source_spans": [
+        [
+          "karma/agents/summarizer/agent.py",
+          172,
+          175
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/entity_extraction/实体抽取Agent_完整Prompt.md",
+      "label": "System Prompt",
+      "part": 1,
+      "title": "任务说明",
+      "source_spans": [
+        [
+          "karma/agents/entity_extraction/agent.py",
+          19,
+          34
+        ],
+        [
+          "karma/agents/entity_extraction/agent.py",
+          62,
+          68
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/entity_extraction/实体抽取Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 1,
+      "title": "任务",
+      "source_spans": [
+        [
+          "karma/agents/entity_extraction/agent.py",
+          102,
+          103
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/entity_extraction/实体抽取Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 2,
+      "title": "源文本",
+      "source_spans": [
+        [
+          "karma/agents/entity_extraction/agent.py",
+          105,
+          108
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/entity_extraction/实体抽取Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 3,
+      "title": "输出",
+      "source_spans": [
+        [
+          "karma/agents/entity_extraction/agent.py",
+          77,
+          81
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/entity_extraction/实体抽取Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 4,
+      "title": "示例",
+      "source_spans": [
+        [
+          "karma/agents/entity_extraction/agent.py",
+          83,
+          89
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/entity_extraction/实体抽取Agent_完整Prompt.md",
+      "label": "System Prompt",
+      "part": 1,
+      "title": "任务说明",
+      "source_spans": [
+        [
+          "karma/agents/entity_extraction/agent.py",
+          19,
+          34
+        ],
+        [
+          "karma/agents/entity_extraction/agent.py",
+          62,
+          68
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/entity_extraction/实体抽取Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 1,
+      "title": "任务",
+      "source_spans": [
+        [
+          "karma/agents/entity_extraction/agent.py",
+          131,
+          133
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/entity_extraction/实体抽取Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 2,
+      "title": "源文本",
+      "source_spans": [
+        [
+          "karma/agents/entity_extraction/agent.py",
+          135,
+          138
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/entity_extraction/实体抽取Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 3,
+      "title": "当前候选实体",
+      "source_spans": [
+        [
+          "karma/agents/entity_extraction/agent.py",
+          140,
+          143
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/entity_extraction/实体抽取Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 4,
+      "title": "当前三元组",
+      "source_spans": [
+        [
+          "karma/agents/entity_extraction/agent.py",
+          145,
+          149
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/entity_extraction/实体抽取Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 5,
+      "title": "文本差异",
+      "source_spans": [
+        [
+          "karma/agents/entity_extraction/agent.py",
+          51,
+          52
+        ],
+        [
+          "karma/agents/entity_extraction/agent.py",
+          151,
+          151
+        ],
+        [
+          "karma/core/sentence_groups.py",
+          97,
+          101
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/entity_extraction/实体抽取Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 6,
+      "title": "审校顺序",
+      "source_spans": [
+        [
+          "karma/agents/entity_extraction/agent.py",
+          154,
+          158
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/entity_extraction/实体抽取Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 7,
+      "title": "第二轮审校示例",
+      "source_spans": [
+        [
+          "karma/agents/entity_extraction/agent.py",
+          160,
+          167
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/entity_extraction/实体抽取Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 8,
+      "title": "输出",
+      "source_spans": [
+        [
+          "karma/agents/entity_extraction/agent.py",
+          77,
+          81
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/entity_extraction/实体抽取Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 9,
+      "title": "示例",
+      "source_spans": [
+        [
+          "karma/agents/entity_extraction/agent.py",
+          83,
+          89
+        ],
+        [
+          "karma/agents/entity_extraction/agent.py",
+          161,
+          161
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/entity_extraction/实体抽取Agent_完整Prompt.md",
+      "label": "兼容差异块",
+      "part": 1,
+      "title": "任务说明",
+      "source_spans": [
+        [
+          "karma/agents/entity_extraction/agent.py",
+          46,
+          52
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/relationship_extraction/关系抽取Agent_完整Prompt.md",
+      "label": "System Prompt",
+      "part": 1,
+      "title": "任务说明",
+      "source_spans": [
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          110,
+          112
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/relationship_extraction/关系抽取Agent_完整Prompt.md",
+      "label": "System Prompt",
+      "part": 2,
+      "title": "抽取规则（展开 FACT_RULES）",
+      "source_spans": [
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          32,
+          53
+        ],
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          113,
+          113
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/relationship_extraction/关系抽取Agent_完整Prompt.md",
+      "label": "System Prompt",
+      "part": 3,
+      "title": "评分（展开 SCORE_RULES）",
+      "source_spans": [
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          57,
+          68
+        ],
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          115,
+          115
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/relationship_extraction/关系抽取Agent_完整Prompt.md",
+      "label": "System Prompt",
+      "part": 4,
+      "title": "输出",
+      "source_spans": [
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          117,
+          121
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/relationship_extraction/关系抽取Agent_完整Prompt.md",
+      "label": "System Prompt",
+      "part": 5,
+      "title": "示例",
+      "source_spans": [
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          123,
+          140
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/relationship_extraction/关系抽取Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 1,
+      "title": "任务",
+      "source_spans": [
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          512,
+          513
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/relationship_extraction/关系抽取Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 2,
+      "title": "源文本",
+      "source_spans": [
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          515,
+          518
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/relationship_extraction/关系抽取Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 3,
+      "title": "源句编号",
+      "source_spans": [
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          520,
+          525
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/relationship_extraction/关系抽取Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 4,
+      "title": "候选实体",
+      "source_spans": [
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          527,
+          531
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/relationship_extraction/关系抽取Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 5,
+      "title": "输出",
+      "source_spans": [
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          533,
+          534
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/relationship_extraction/关系抽取Agent_完整Prompt.md",
+      "label": "System Prompt",
+      "part": 1,
+      "title": "任务说明",
+      "source_spans": [
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          481,
+          484
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/relationship_extraction/关系抽取Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 1,
+      "title": "任务目标",
+      "source_spans": [
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          211,
+          215
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/relationship_extraction/关系抽取Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 2,
+      "title": "输入一：源文本",
+      "source_spans": [
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          217,
+          221
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/relationship_extraction/关系抽取Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 3,
+      "title": "源句分组",
+      "source_spans": [
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          223,
+          231
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/relationship_extraction/关系抽取Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 4,
+      "title": "输入二：当前三元组集合",
+      "source_spans": [
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          233,
+          238
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/relationship_extraction/关系抽取Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 5,
+      "title": "输入三：候选实体集合",
+      "source_spans": [
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          240,
+          245
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/relationship_extraction/关系抽取Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 6,
+      "title": "输入四：文本差异",
+      "source_spans": [
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          84,
+          85
+        ],
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          247,
+          247
+        ],
+        [
+          "karma/core/sentence_groups.py",
+          97,
+          101
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/relationship_extraction/关系抽取Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 7,
+      "title": "修订操作",
+      "source_spans": [
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          250,
+          264
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/relationship_extraction/关系抽取Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 8,
+      "title": "审校规则",
+      "source_spans": [
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          57,
+          68
+        ],
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          198,
+          208
+        ],
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          266,
+          276
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/relationship_extraction/关系抽取Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 9,
+      "title": "执行步骤",
+      "source_spans": [
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          279,
+          333
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/relationship_extraction/关系抽取Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 10,
+      "title": "判断是否需要修改的示例",
+      "source_spans": [
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          335,
+          343
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/relationship_extraction/关系抽取Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 11,
+      "title": "内部关系：先修正已有条目，再检查是否需要新增",
+      "source_spans": [
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          345,
+          357
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/relationship_extraction/关系抽取Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 12,
+      "title": "目的和词形：保留动作之间的连接",
+      "source_spans": [
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          359,
+          365
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/relationship_extraction/关系抽取Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 13,
+      "title": "完整重复与共同主语",
+      "source_spans": [
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          367,
+          371
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/relationship_extraction/关系抽取Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 14,
+      "title": "重建文本错误：保留已经正确的三元组",
+      "source_spans": [
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          368,
+          368
+        ],
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          373,
+          378
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/relationship_extraction/关系抽取Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 15,
+      "title": "发现遗漏并独立补充的示例",
+      "source_spans": [
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          347,
+          347
+        ],
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          380,
+          391
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/relationship_extraction/关系抽取Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 16,
+      "title": "操作示例",
+      "source_spans": [
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          393,
+          433
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/relationship_extraction/关系抽取Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 17,
+      "title": "输出要求",
+      "source_spans": [
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          406,
+          406
+        ],
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          412,
+          412
+        ],
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          416,
+          421
+        ],
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          425,
+          427
+        ],
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          441,
+          443
+        ],
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          447,
+          454
+        ],
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          461,
+          461
+        ],
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          472,
+          472
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/relationship_extraction/关系抽取Agent_完整Prompt.md",
+      "label": "兼容差异块",
+      "part": 1,
+      "title": "任务说明",
+      "source_spans": [
+        [
+          "karma/agents/relationship_extraction/agent.py",
+          79,
+          85
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/triple_splitting/拆分Agent_完整Prompt.md",
+      "label": "System Prompt",
+      "part": 1,
+      "title": "任务说明",
+      "source_spans": [
+        [
+          "karma/agents/triple_splitting/agent.py",
+          196,
+          199
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/triple_splitting/拆分Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 1,
+      "title": "任务",
+      "source_spans": [
+        [
+          "karma/agents/triple_splitting/agent.py",
+          39,
+          41
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/triple_splitting/拆分Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 2,
+      "title": "执行步骤",
+      "source_spans": [
+        [
+          "karma/agents/triple_splitting/agent.py",
+          43,
+          82
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/triple_splitting/拆分Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 3,
+      "title": "常见关系结构短例",
+      "source_spans": [
+        [
+          "karma/agents/triple_splitting/agent.py",
+          84,
+          112
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/triple_splitting/拆分Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 4,
+      "title": "操作",
+      "source_spans": [
+        [
+          "karma/agents/triple_splitting/agent.py",
+          114,
+          120
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/triple_splitting/拆分Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 5,
+      "title": "事实",
+      "source_spans": [
+        [
+          "karma/agents/triple_splitting/agent.py",
+          122,
+          132
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/triple_splitting/拆分Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 6,
+      "title": "源文本",
+      "source_spans": [
+        [
+          "karma/agents/triple_splitting/agent.py",
+          134,
+          137
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/triple_splitting/拆分Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 7,
+      "title": "当前三元组",
+      "source_spans": [
+        [
+          "karma/agents/triple_splitting/agent.py",
+          139,
+          142
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/triple_splitting/拆分Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 8,
+      "title": "复杂复合示例与输出格式",
+      "source_spans": [
+        [
+          "karma/agents/triple_splitting/agent.py",
+          144,
+          170
+        ],
+        [
+          "karma/agents/triple_splitting/agent.py",
+          174,
+          181
+        ],
+        [
+          "karma/agents/triple_splitting/agent.py",
+          186,
+          187
+        ],
+        [
+          "karma/agents/triple_splitting/agent.py",
+          191,
+          193
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/text_generation/重建文本Agent_完整Prompt.md",
+      "label": "System Prompt",
+      "part": 1,
+      "title": "任务说明",
+      "source_spans": [
+        [
+          "karma/agents/text_generation/agent.py",
+          169,
+          169
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/text_generation/重建文本Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 1,
+      "title": "任务说明",
+      "source_spans": [
+        [
+          "karma/agents/text_generation/agent.py",
+          143,
+          144
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/text_generation/重建文本Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 2,
+      "title": "执行步骤",
+      "source_spans": [
+        [
+          "karma/agents/text_generation/agent.py",
+          145,
+          165
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/text_generation/重建文本Agent_完整Prompt.md",
+      "label": "System Prompt",
+      "part": 1,
+      "title": "任务说明",
+      "source_spans": [
+        [
+          "karma/agents/text_generation/agent.py",
+          38,
+          112
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/text_generation/重建文本Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 1,
+      "title": "任务说明",
+      "source_spans": [
+        [
+          "karma/agents/text_generation/agent.py",
+          278,
+          309
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/text_comparison/文本对比Agent_完整Prompt.md",
+      "label": "System Prompt",
+      "part": 1,
+      "title": "任务说明",
+      "source_spans": [
+        [
+          "karma/agents/text_comparison/agent.py",
+          150,
+          150
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/text_comparison/文本对比Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 1,
+      "title": "任务说明",
+      "source_spans": [
+        [
+          "karma/agents/text_comparison/agent.py",
+          91,
+          92
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/text_comparison/文本对比Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 2,
+      "title": "执行步骤",
+      "source_spans": [
+        [
+          "karma/agents/text_comparison/agent.py",
+          93,
+          125
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/text_comparison/文本对比Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 3,
+      "title": "差异说明示例",
+      "source_spans": [
+        [
+          "karma/agents/text_comparison/agent.py",
+          127,
+          138
+        ],
+        [
+          "karma/agents/text_comparison/agent.py",
+          143,
+          143
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/text_comparison/文本对比Agent_完整Prompt.md",
+      "label": "System Prompt",
+      "part": 1,
+      "title": "任务说明",
+      "source_spans": [
+        [
+          "karma/agents/text_comparison/agent.py",
+          37,
+          62
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/text_comparison/文本对比Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 1,
+      "title": "任务说明",
+      "source_spans": [
+        [
+          "karma/agents/text_comparison/agent.py",
+          274,
+          274
+        ],
+        [
+          "karma/agents/text_comparison/agent.py",
+          278,
+          319
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/conflict_resolution/冲突处理Agent_完整Prompt.md",
+      "label": "System Prompt",
+      "part": 1,
+      "title": "任务说明",
+      "source_spans": [
+        [
+          "karma/agents/conflict_resolution/agent.py",
+          15,
+          56
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/evaluator/评估Agent_完整Prompt.md",
+      "label": "System Prompt",
+      "part": 1,
+      "title": "任务说明",
+      "source_spans": [
+        [
+          "karma/agents/evaluator/agent.py",
+          23,
+          75
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/schema_alignment/模式对齐Agent_完整Prompt.md",
+      "label": "System Prompt",
+      "part": 1,
+      "title": "任务说明",
+      "source_spans": [
+        [
+          "karma/agents/schema_alignment/agent.py",
+          15,
+          53
+        ]
+      ],
+      "assembly_range": false
+    }
+  ],
+  "source_files": {
+    "karma/agents/conflict_resolution/agent.py": "bda5d1a67b6b7470b62f69c3c92f81c48bf85ea87ca397f97e73171b27f129f3",
+    "karma/agents/entity_extraction/agent.py": "e119bbeb72cbf1331a023d1ab0b7f380f0c3d25b651e41f0e94da099296b7325",
+    "karma/agents/evaluator/agent.py": "a53ac58714879b59425efaa36648faf2a7890539522cefe8690fcb70098d8916",
+    "karma/agents/ingestion/agent.py": "6d9824495b2fe29bbf3f2b889794d0df766a0c85028698fcf92b7da2a6c699e0",
+    "karma/agents/reader/agent.py": "4f484a75f9a6ef1303a3f9184008ac507da4a94724271e184b881016dca81513",
+    "karma/agents/relationship_extraction/agent.py": "10b67bd2b4275a398017db0bc88d564eb26b2457f7e6abe45c2b2dd455692250",
+    "karma/agents/schema_alignment/agent.py": "663df494e41ae54189211e9b3173f9a9a91fbfc10ed91a2adb14dbafdf956a4d",
+    "karma/agents/summarizer/agent.py": "ef38d04dab8380c0d65a2fb1e000c955d50440b04a6edc114a2816940b6c2bac",
+    "karma/agents/text_comparison/agent.py": "79d34af069d6733e1732d66cb9fbc9c79501db39880d9f067b4d553c23f23960",
+    "karma/agents/text_generation/agent.py": "7ea9bb45225695cd67626cbdb04ff7e5fe90440affc4d8057672640d1386b299",
+    "karma/agents/triple_splitting/agent.py": "606cafced84e48bddbab048b7c0424d76fe28a8678b9b8850188506971514cd2",
+    "karma/core/sentence_groups.py": "8cfc3eac4f4787df519b73f121a8df45ecfe85b29664385492809e9d0afde5fe"
+  },
+  "message_examples": [
+    "karma/agents/ingestion/Prompt完整模板.json",
+    "karma/agents/reader/Prompt完整模板.json",
+    "karma/agents/summarizer/Prompt完整模板.json",
+    "karma/agents/entity_extraction/Prompt完整模板.json",
+    "karma/agents/relationship_extraction/Prompt完整模板.json",
+    "karma/agents/triple_splitting/Prompt完整模板.json",
+    "karma/agents/text_generation/Prompt完整模板.json",
+    "karma/agents/text_comparison/Prompt完整模板.json",
+    "karma/agents/conflict_resolution/Prompt完整模板.json",
+    "karma/agents/evaluator/Prompt完整模板.json",
+    "karma/agents/schema_alignment/Prompt完整模板.json"
+  ]
+}
