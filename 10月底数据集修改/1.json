@@ -1,0 +1,187 @@
+[
+  {
+    "head": "a further aspect",
+    "relation": "provides",
+    "tail": "a meaningful capture of the congestion level information"
+  },
+  {
+    "head": "a meaningful capture of the congestion level information",
+    "relation": "enables",
+    "tail": "appropriate congestion mitigation measures"
+  },
+  {
+    "head": "congestion mitigation measures",
+    "relation": "are for example according to",
+    "tail": "the severeness of the congestion"
+  },
+  {
+    "head": "a congestion",
+    "relation": "may be detected based on",
+    "tail": "said congestion value"
+  },
+  {
+    "head": "said minimum bandwidth demand",
+    "relation": "exceeds",
+    "tail": "the measured traffic per time"
+  },
+  {
+    "head": "the measured traffic per time",
+    "relation": "is over",
+    "tail": "a given time span"
+  },
+  {
+    "head": "the term \"part\" in connection with the term \"network\"",
+    "relation": "is to be understood in",
+    "tail": "a broad sense"
+  },
+  {
+    "head": "the term \"part\" in connection with the term \"network\"",
+    "relation": "means that",
+    "tail": "part of the network"
+  },
+  {
+    "head": "part of the network",
+    "relation": "can be",
+    "tail": "any real or imaginary fraction of the network"
+  },
+  {
+    "head": "part of the network",
+    "relation": "can be",
+    "tail": "any real or imaginary portion of the network"
+  },
+  {
+    "head": "part of the network",
+    "relation": "can be",
+    "tail": "any real or imaginary component of the network"
+  },
+  {
+    "head": "most eNBs",
+    "relation": "use",
+    "tail": "variants of proportional-fair scheduling"
+  },
+  {
+    "head": "cell capacity",
+    "relation": "fluctuates depending on",
+    "tail": "time-variant radio conditions"
+  },
+  {
+    "head": "cell capacity",
+    "relation": "fluctuates depending on",
+    "tail": "scheduling assignments"
+  },
+  {
+    "head": "the invention",
+    "relation": "has been illustrated in detail in",
+    "tail": "the drawings"
+  },
+  {
+    "head": "the invention",
+    "relation": "has been illustrated in detail in",
+    "tail": "the foregoing description"
+  },
+  {
+    "head": "the invention",
+    "relation": "has been described in detail in",
+    "tail": "the drawings"
+  },
+  {
+    "head": "the invention",
+    "relation": "has been described in detail in",
+    "tail": "the foregoing description"
+  },
+  {
+    "head": "such illustration",
+    "relation": "are to be considered",
+    "tail": "illustrative or exemplary"
+  },
+  {
+    "head": "such description",
+    "relation": "are to be considered",
+    "tail": "illustrative or exemplary"
+  },
+  {
+    "head": "such illustration",
+    "relation": "are to be considered not",
+    "tail": "restrictive"
+  },
+  {
+    "head": "such description",
+    "relation": "are to be considered not",
+    "tail": "restrictive"
+  },
+  {
+    "head": "at least one embodiment",
+    "relation": "has the advantage of",
+    "tail": "capturing of congestion levels"
+  },
+  {
+    "head": "capturing of congestion levels",
+    "relation": "is in such a way that",
+    "tail": "congestion mitigation measures can be reliably performed"
+  },
+  {
+    "head": "said congestion value",
+    "relation": "may be adapted via",
+    "tail": "a transformation function"
+  },
+  {
+    "head": "said transformation function",
+    "relation": "amends",
+    "tail": "at least one of the following: a number of congestion levels, a steepness of a congestion level curve, a shape of a congestion level curve"
+  },
+  {
+    "head": "they",
+    "relation": "are used in",
+    "tail": "a generic and descriptive sense"
+  },
+  {
+    "head": "they",
+    "relation": "are not for purposes of",
+    "tail": "limitation"
+  },
+  {
+    "head": "specific terms",
+    "relation": "are employed",
+    "tail": "herein"
+  },
+  {
+    "head": "this",
+    "relation": "enhances",
+    "tail": "the flexibility of the congestion value"
+  },
+  {
+    "head": "different operators",
+    "relation": "can use",
+    "tail": "different transformation functions or profiles"
+  },
+  {
+    "head": "the congestion level",
+    "relation": "may be based",
+    "tail": "per cell with different feedback profiles"
+  },
+  {
+    "head": "the congestion level",
+    "relation": "may be based",
+    "tail": "per link with different feedback profiles"
+  },
+  {
+    "head": "different feedback profiles",
+    "relation": "depending on",
+    "tail": "the need of an operator"
+  },
+  {
+    "head": "this",
+    "relation": "may lead to",
+    "tail": "inaccuracy"
+  },
+  {
+    "head": "inaccuracy",
+    "relation": "is due to",
+    "tail": "the varying nature of instantaneous traffic patterns"
+  },
+  {
+    "head": "inaccuracy",
+    "relation": "is due to",
+    "tail": "dependence on medium- to long-term congestion situations"
+  }
+]

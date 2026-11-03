@@ -1,0 +1,187 @@
+[
+  {
+    "head": "the present invention",
+    "relation": "relates to",
+    "tail": "a rubber composite"
+  },
+  {
+    "head": "a rubber composite",
+    "relation": "comprises",
+    "tail": "rubber"
+  },
+  {
+    "head": "a rubber composite",
+    "relation": "comprises",
+    "tail": "oil"
+  },
+  {
+    "head": "a rubber composite",
+    "relation": "comprises",
+    "tail": "a combination of powdered additives"
+  },
+  {
+    "head": "the present invention",
+    "relation": "relates to",
+    "tail": "a process for manufacturing same"
+  },
+  {
+    "head": "the incorporation of granulated recycled tire rubber into bitumen",
+    "relation": "aimed to improve",
+    "tail": "the mechanical behavior of bituminous mixtures"
+  },
+  {
+    "head": "granulated recycled tire rubber",
+    "relation": "is incorporated into",
+    "tail": "bitumen"
+  },
+  {
+    "head": "the properties of the asphalt bitumen-based binders in high and low temperature conditions",
+    "relation": "are of",
+    "tail": "a decisive importance"
+  },
+  {
+    "head": "the asphalt bitumen-based binders",
+    "relation": "are in",
+    "tail": "high temperature conditions"
+  },
+  {
+    "head": "the asphalt bitumen-based binders",
+    "relation": "are in",
+    "tail": "low temperature conditions"
+  },
+  {
+    "head": "the rubber",
+    "relation": "has",
+    "tail": "an internal structure"
+  },
+  {
+    "head": "an internal structure",
+    "relation": "is characterized by",
+    "tail": "open cellular structure"
+  },
+  {
+    "head": "open cellular structure",
+    "relation": "contains",
+    "tail": "pores"
+  },
+  {
+    "head": "pores",
+    "relation": "are connected to",
+    "tail": "one another"
+  },
+  {
+    "head": "pores",
+    "relation": "form",
+    "tail": "an interconnected network"
+  },
+  {
+    "head": "the rubber",
+    "relation": "has",
+    "tail": "an external surface"
+  },
+  {
+    "head": "external surface",
+    "relation": "is the outmost surface of",
+    "tail": "the rubber particles"
+  },
+  {
+    "head": "the term oil-dry",
+    "relation": "stands to mean that",
+    "tail": "the external surface is substantially, or completely, free of oil."
+  },
+  {
+    "head": "the external surface",
+    "relation": "is namely",
+    "tail": "the out-most layer of the rubber composite"
+  },
+  {
+    "head": "the external surface",
+    "relation": "is substantially, or completely, free of",
+    "tail": "oil"
+  },
+  {
+    "head": "the particles",
+    "relation": "are of",
+    "tail": "non-spheroid shape"
+  },
+  {
+    "head": "the term",
+    "relation": "refers to",
+    "tail": "the average equivalent diameter of the particle"
+  },
+  {
+    "head": "the average equivalent diameter of the particle",
+    "relation": "is namely",
+    "tail": "the diameter of an equivalent spherical particle"
+  },
+  {
+    "head": "the diameter of an equivalent spherical particle",
+    "relation": "is based on",
+    "tail": "the longest dimension of the particle"
+  },
+  {
+    "head": "the process",
+    "relation": "comprises",
+    "tail": "a pre-step of grinding the rubber"
+  },
+  {
+    "head": "a pre-step of grinding the rubber",
+    "relation": "is prior to",
+    "tail": "employing the process of this invention"
+  },
+  {
+    "head": "a pre-step of grinding the rubber",
+    "relation": "is to reduce the particles to",
+    "tail": "a desired size"
+  },
+  {
+    "head": "the description of a range",
+    "relation": "should be considered to have specifically disclosed",
+    "tail": "all the possible sub-ranges"
+  },
+  {
+    "head": "the description of a range",
+    "relation": "should be considered to have specifically disclosed",
+    "tail": "all the possible individual numerical values within that range"
+  },
+  {
+    "head": "it",
+    "relation": "is clearly",
+    "tail": "the lowest value"
+  },
+  {
+    "head": "the lowest value",
+    "relation": "is compared with",
+    "tail": "tradition Asphalt Rubber gap graded mixtures (with and without RAR)"
+  },
+  {
+    "head": "the lowest value",
+    "relation": "is even compared with",
+    "tail": "traditional SMA mixtures with highly modified bitumen and fibres"
+  },
+  {
+    "head": "traditional SMA mixtures",
+    "relation": "are with highly modified",
+    "tail": "bitumen and fibres"
+  },
+  {
+    "head": "the range",
+    "relation": "is given as such merely for",
+    "tail": "convenience"
+  },
+  {
+    "head": "the range",
+    "relation": "is given as such merely for",
+    "tail": "brevity"
+  },
+  {
+    "head": "the range",
+    "relation": "should not be construed as",
+    "tail": "an inflexible limitation on the scope of the invention"
+  },
+  {
+    "head": "the range",
+    "relation": "should not be construed as an inflexible limitation on",
+    "tail": "the scope of the invention"
+  }
+]

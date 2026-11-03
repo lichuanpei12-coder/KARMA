@@ -1,0 +1,132 @@
+[
+  {
+    "head": "even a small open area",
+    "relation": "can present",
+    "tail": "a danger"
+  },
+  {
+    "head": "a danger",
+    "relation": "is when",
+    "tail": "loose items are being transported in high-traffic areas"
+  },
+  {
+    "head": "loose items",
+    "relation": "are being transported in",
+    "tail": "high-traffic areas"
+  },
+  {
+    "head": "the application",
+    "relation": "relates to",
+    "tail": "a tarpaulin bracket system"
+  },
+  {
+    "head": "a tarpaulin bracket system",
+    "relation": "is for mounting to",
+    "tail": "a vehicle"
+  },
+  {
+    "head": "a tarpaulin bracket system",
+    "relation": "is to provide",
+    "tail": "a structure for attachment of a tarp"
+  },
+  {
+    "head": "the hazards",
+    "relation": "is of loose items flying out of",
+    "tail": "the open-top of cargo trailers"
+  },
+  {
+    "head": "the hazards",
+    "relation": "has led many governing bodies to enact",
+    "tail": "strict laws"
+  },
+  {
+    "head": "strict laws",
+    "relation": "is against",
+    "tail": "such open transport"
+  },
+  {
+    "head": "the plurality of connectors",
+    "relation": "is detachably connected to",
+    "tail": "one of either the first and second cables"
+  },
+  {
+    "head": "the plurality of connectors",
+    "relation": "is detachably connected to",
+    "tail": "each end of every bow"
+  },
+  {
+    "head": "the matter set forth",
+    "relation": "is in",
+    "tail": "the foregoing description and accompanying drawings"
+  },
+  {
+    "head": "the matter set forth",
+    "relation": "is offered by",
+    "tail": "way of illustration"
+  },
+  {
+    "head": "the matter set forth",
+    "relation": "is offered not as",
+    "tail": "a limitation"
+  },
+  {
+    "head": "the actual scope of the protection sought",
+    "relation": "is intended to be defined in",
+    "tail": "the following claims"
+  },
+  {
+    "head": "the following claims",
+    "relation": "are viewed in",
+    "tail": "their proper perspective"
+  },
+  {
+    "head": "their proper perspective",
+    "relation": "is based on",
+    "tail": "the prior art"
+  },
+  {
+    "head": "most of these components",
+    "relation": "are made of",
+    "tail": "strong materials"
+  },
+  {
+    "head": "most of these components made of strong materials",
+    "relation": "is to withstand",
+    "tail": "the conditions"
+  },
+  {
+    "head": "the conditions",
+    "relation": "are of being atop",
+    "tail": "an open cargo area of a vehicle during transportation of goods"
+  },
+  {
+    "head": "a series of bows",
+    "relation": "was brought into",
+    "tail": "use"
+  },
+  {
+    "head": "a series of bows brought into use",
+    "relation": "is to keep the tarpaulin from lying in",
+    "tail": "direct contact with goods in the truck trailer"
+  },
+  {
+    "head": "a series of bows brought into use",
+    "relation": "is to prevent",
+    "tail": "water accumulation"
+  },
+  {
+    "head": "the motorized system",
+    "relation": "doesn't always extend far enough to cover",
+    "tail": "the entire open-top cargo hold"
+  },
+  {
+    "head": "a first set of left and right pulleys",
+    "relation": "are attached at",
+    "tail": "the front"
+  },
+  {
+    "head": "a second set of left and right pulleys",
+    "relation": "are attached at",
+    "tail": "the rear of the cargo hold"
+  }
+]
