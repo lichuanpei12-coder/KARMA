@@ -1,0 +1,45 @@
+{
+  "scope": "draft_completeness_and_links_only",
+  "agents": {
+    "Add": {
+      "blocks": 7,
+      "role_content_equal": true
+    },
+    "Replace": {
+      "blocks": 7,
+      "role_content_equal": true
+    },
+    "Remove": {
+      "blocks": 6,
+      "role_content_equal": true
+    }
+  },
+  "links": 78,
+  "html": {
+    "AddAgent_Prompt草案.html": {
+      "headings": 8,
+      "valid_toc": true
+    },
+    "RemoveAgent_Prompt草案.html": {
+      "headings": 7,
+      "valid_toc": true
+    },
+    "ReplaceAgent_Prompt草案.html": {
+      "headings": 8,
+      "valid_toc": true
+    },
+    "反馈Prompt分配与案例核查.html": {
+      "headings": 10,
+      "valid_toc": true
+    },
+    "反馈分步实施计划.html": {
+      "headings": 9,
+      "valid_toc": true
+    }
+  },
+  "fewshots": {
+    "Add": 4,
+    "Replace": 6,
+    "Remove": 3
+  }
+}

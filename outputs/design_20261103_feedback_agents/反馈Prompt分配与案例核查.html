@@ -1,0 +1,353 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>反馈 Prompt 分配与案例核查</title><style>
+:root{color-scheme:light;--ink:#19283b;--muted:#657489;--line:#dce4ee;--blue:#245f9b;--bg:#f3f6fa}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:26px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.85 "Microsoft YaHei","PingFang SC",system-ui,sans-serif}
+a{color:var(--blue);text-underline-offset:3px}header{padding:22px 32px;background:#16324e;color:#fff}
+header .label{font-size:18px;font-weight:700}header p{margin:4px 0 0;font-size:13px;color:#d0e0f0}
+.layout{display:grid;grid-template-columns:270px minmax(0,1fr);max-width:1550px;margin:auto;gap:24px;padding:24px}
+aside{position:sticky;top:18px;align-self:start;max-height:calc(100vh - 36px);overflow:auto;background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px}
+aside h2{font-size:16px;margin:0 0 12px}aside a{display:block;text-decoration:none;font-size:13px;line-height:1.6;padding:7px 0;border-bottom:1px solid #edf1f6}
+aside a.sub{padding-left:12px;color:#53657b}aside a:hover{color:var(--blue);background:#f4f8fe}
+aside a[hidden]{display:none}aside input{width:100%;padding:8px;border:1px solid #cbd6e3;border-radius:5px;font:inherit;font-size:13px;margin-bottom:10px}
+main{min-width:0;background:#fff;border:1px solid var(--line);border-radius:10px;padding:28px 36px}
+h1{font-size:27px;line-height:1.5;margin:0 0 24px}h2{font-size:23px;margin:38px 0 18px;padding-bottom:8px;border-bottom:2px solid #d5e3f2}
+h3{font-size:19px;line-height:1.6;margin:32px 0 18px;background:#edf4fc;border-left:4px solid #377ab4;padding:12px 15px;border-radius:0 6px 6px 0}
+h4{font-size:17px}p{margin:12px 0}li{margin:6px 0}strong{font-weight:700}blockquote{margin:15px 0;padding:10px 18px;border-left:4px solid #ccd9e7;background:#f7f9fc}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f5f7fa;border:1px solid #e1e7ee;border-radius:7px;padding:15px 18px;font:14px/1.8 Consolas,"Microsoft YaHei",monospace}
+code{font-family:Consolas,"Microsoft YaHei",monospace;font-size:.91em;background:#edf2f7;padding:2px 4px;border-radius:3px;overflow-wrap:anywhere}pre code{font-size:inherit;background:transparent;padding:0}
+.table-wrap{overflow-x:auto;margin:16px 0;border:1px solid var(--line);border-radius:6px}
+table{width:100%;border-collapse:collapse;font-size:14px;line-height:1.7;table-layout:auto}th,td{padding:10px 12px;text-align:left;vertical-align:top;border-right:1px solid var(--line);border-bottom:1px solid var(--line);overflow-wrap:anywhere}
+th{background:#eaf0f7;font-weight:700}th:last-child,td:last-child{border-right:0}tr:last-child td{border-bottom:0}tbody tr:nth-child(even){background:#f8fafc}
+hr{border:0;border-top:1px solid var(--line);margin:30px 0}.filelinks{display:flex;gap:20px;flex-wrap:wrap;font-size:13px;margin:0 0 24px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid var(--line);padding-top:15px}
+@media(max-width:900px){.layout{display:block;padding:12px}aside{position:static;max-height:300px;margin-bottom:16px}main{padding:22px 18px}header{padding:18px}h1{font-size:23px}h2{font-size:21px}th,td{padding:8px}}
+@media print{body{background:#fff;font-size:11pt}.layout{display:block;padding:0}aside,header,.filelinks,footer{display:none}main{border:0;padding:0}.table-wrap{overflow:visible}pre,table{font-size:9pt}h2,h3{break-after:avoid}tr{break-inside:avoid}a{color:inherit;text-decoration:none}}
+</style></head><body><header><div class="label">反馈 Prompt 分配与案例核查</div><p>2026-11-03 · 设计草案，尚未接入运行</p></header><div class="layout"><aside><h2>目录</h2><input id="toc-filter" type="search" placeholder="搜索规则、案例、Agent"><a href="反馈Prompt分配与案例核查.html">分配与案例核查</a><a href="#section-1">1. 确定的职责</a>
+<a href="#section-2">2. 原有 Prompt 如何分配</a>
+<a href="#section-3">3. 具体案例：已有什么，缺什么，归谁</a>
+<a href="#section-4">4. 需要新增的通用文字</a>
+<a href="#section-5">5. 输入、输出及程序交接</a>
+<a href="#section-6">6. 连续示例（演示数据，不是历史请求）</a>
+<a href="#section-7">7. 当前缺口与实施边界</a>
+<a href="#section-8">8. 验证记录</a>
+<a href="#section-9">9. 第 2 版：用词和 few-shot 的具体调整</a></aside><main><a href="%E5%8F%8D%E9%A6%88Prompt%E5%88%86%E9%85%8D%E4%B8%8E%E6%A1%88%E4%BE%8B%E6%A0%B8%E6%9F%A5.md">Markdown 原文</a><h1 id="section-0">反馈 Prompt 分配与案例核查</h1>
+<p>状态：2026-11-03 第 2 版设计稿。Replace 直接将一条旧三元组换成一条或多条，新三元组写在 new_triples 数组中。现有运行代码仍是单次反馈调用；本稿分配现有规则并给出拟新增文本，不代表已实现三个 Agent，不代表历史运行实际请求。Gold、运行三元组和正式 Prompt 文档均未修改。</p>
+<h2 id="section-1">1. 确定的职责</h2>
+<p>顺序：Add 遗漏补充 → Replace 已有表达修正与拆分（一条可直接换成多条）→ Remove 重复清理。
+每个 Agent 先核实交接事项，再独立检查其职责范围内的完整源句或集合，输出自己的问题清单和操作。前序清单不构成检查范围上限，判断可被后续依据源句更正。没有单独的问题核对 Agent。</p>
+<ul>
+<li><a href="AddAgent_Prompt%E8%8D%89%E6%A1%88.html">Add 完整草案</a></li>
+<li><a href="ReplaceAgent_Prompt%E8%8D%89%E6%A1%88.html">Replace 完整草案</a></li>
+<li><a href="RemoveAgent_Prompt%E8%8D%89%E6%A1%88.html">Remove 完整草案</a></li>
+<li><a href="Prompt%E8%8D%89%E6%A1%88%E6%A8%A1%E6%9D%BF.json">三份拟发送消息 JSON</a></li>
+</ul>
+<h2 id="section-2">2. 原有 Prompt 如何分配</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>原有内容</th>
+<th>当前来源</th>
+<th>分配方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>源句、对象、方向、词形、限定、目的和风险</td>
+<td><a href="../../karma/agents/relationship_extraction/agent.py#L197">karma/agents/relationship_extraction/agent.py 第197—208行</a></td>
+<td>三者共享判断标准；Add 核实新增事实，Replace 修正表达，Remove 判断是否等价</td>
+</tr>
+<tr>
+<td>源文、分组、当前集合、候选实体、差异</td>
+<td><a href="../../karma/agents/relationship_extraction/agent.py#L217">karma/agents/relationship_extraction/agent.py 第217—248行</a></td>
+<td>每阶段更新当前集合；源文不变；差异标明对应反馈前 V0</td>
+</tr>
+<tr>
+<td>add 定义与内部关系</td>
+<td><a href="../../karma/agents/relationship_extraction/agent.py#L251">karma/agents/relationship_extraction/agent.py 第251—256行</a></td>
+<td>完全遗漏交 Add；已有长字段的拆分交 Replace，由其将原条目换成多条</td>
+</tr>
+<tr>
+<td>replace 定义</td>
+<td><a href="../../karma/agents/relationship_extraction/agent.py#L257">karma/agents/relationship_extraction/agent.py 第257—259行</a></td>
+<td>Replace，保留拆分能力，但输出改成 replace 的 new_triples 数组，不再单独输出 add</td>
+</tr>
+<tr>
+<td>remove 的完整重复与局部重叠</td>
+<td><a href="../../karma/agents/relationship_extraction/agent.py#L262">karma/agents/relationship_extraction/agent.py 第262—264行</a></td>
+<td>Remove 自主搜索、判断并选择保留项</td>
+</tr>
+<tr>
+<td>无依据且无法修正的删除</td>
+<td><a href="../../karma/agents/relationship_extraction/agent.py#L260">karma/agents/relationship_extraction/agent.py 第260—261行</a></td>
+<td>当前草案先列 review，保留原有能力缺口的显式记录；正式实现前需决定由谁执行，不能静默忽略</td>
+</tr>
+<tr>
+<td>原文证据、来源、编号和 reason</td>
+<td><a href="../../karma/agents/relationship_extraction/agent.py#L268">karma/agents/relationship_extraction/agent.py 第268—276行</a></td>
+<td>所有操作沿用；增加问题 ID、前序事项状态、替换结果数组及 keep_index</td>
+</tr>
+<tr>
+<td>confidence/clarity/relevance</td>
+<td><a href="../../karma/agents/relationship_extraction/agent.py#L57">karma/agents/relationship_extraction/agent.py 第57—68行</a></td>
+<td>Add、Replace 生成新表达时沿用；Remove 不用分数替代重复判断</td>
+</tr>
+<tr>
+<td>定位源句、找到关系和主体、限定</td>
+<td><a href="../../karma/agents/relationship_extraction/agent.py#L281">karma/agents/relationship_extraction/agent.py 第281—295行</a></td>
+<td>Add 从源句查覆盖；Replace 从已有表达查错误；Remove 回查候选是否等价</td>
+</tr>
+<tr>
+<td>查找已有表达</td>
+<td><a href="../../karma/agents/relationship_extraction/agent.py#L297">karma/agents/relationship_extraction/agent.py 第297—300行</a></td>
+<td>Add 分流已有错误或长字段内容；Replace 查找内部关系已有条目；Remove 查找保留项</td>
+</tr>
+<tr>
+<td>定位字段错误</td>
+<td><a href="../../karma/agents/relationship_extraction/agent.py#L302">karma/agents/relationship_extraction/agent.py 第302—306行</a></td>
+<td>Replace；Add/Remove 也能发现并交接</td>
+</tr>
+<tr>
+<td>差异核实与自主检查</td>
+<td><a href="../../karma/agents/relationship_extraction/agent.py#L308">karma/agents/relationship_extraction/agent.py 第308—311行</a></td>
+<td>三者共享；Add 重点查遗漏，Replace 查已有表达，Remove 不依赖差异发起检查</td>
+</tr>
+<tr>
+<td>修正和拆分</td>
+<td><a href="../../karma/agents/relationship_extraction/agent.py#L313">karma/agents/relationship_extraction/agent.py 第313—316行</a></td>
+<td>Replace；拆分结果全部放入同一 replace 的 new_triples</td>
+</tr>
+<tr>
+<td>生成 add</td>
+<td><a href="../../karma/agents/relationship_extraction/agent.py#L318">karma/agents/relationship_extraction/agent.py 第318—320行</a></td>
+<td>Add 补遗漏；Replace 在替换结果数组中完成拆分，两者都检查是否重复</td>
+</tr>
+<tr>
+<td>去重</td>
+<td><a href="../../karma/agents/relationship_extraction/agent.py#L322">karma/agents/relationship_extraction/agent.py 第322—325行</a></td>
+<td>Remove 对完整候选集合独立检查；自身不能处理的字段错误返修</td>
+</tr>
+<tr>
+<td>词形、覆盖与输出</td>
+<td><a href="../../karma/agents/relationship_extraction/agent.py#L327">karma/agents/relationship_extraction/agent.py 第327—333行</a></td>
+<td>Add/Replace 核对生成项；各阶段输出检查范围、问题与操作</td>
+</tr>
+<tr>
+<td>读取/存储缺失示例</td>
+<td><a href="../../karma/agents/relationship_extraction/agent.py#L335">karma/agents/relationship_extraction/agent.py 第335—339行</a></td>
+<td>Add</td>
+</tr>
+<tr>
+<td>选择范围错误示例</td>
+<td><a href="../../karma/agents/relationship_extraction/agent.py#L340">karma/agents/relationship_extraction/agent.py 第340—343行</a></td>
+<td>Replace 修复选择范围；冗余条目交 Remove；两步关联需要程序记录</td>
+</tr>
+<tr>
+<td>内部关系及错误主体示例</td>
+<td><a href="../../karma/agents/relationship_extraction/agent.py#L345">karma/agents/relationship_extraction/agent.py 第345—357行</a></td>
+<td>Replace，草案保留已有正确/已有错误/没有独立条目三种分支</td>
+</tr>
+<tr>
+<td>用途与词形示例</td>
+<td><a href="../../karma/agents/relationship_extraction/agent.py#L359">karma/agents/relationship_extraction/agent.py 第359—365行</a></td>
+<td>Replace；完全缺失的 includes 属 Add 检查责任，Replace 自主发现时仍可交接</td>
+</tr>
+<tr>
+<td>重复与共同主语示例</td>
+<td><a href="../../karma/agents/relationship_extraction/agent.py#L367">karma/agents/relationship_extraction/agent.py 第367—371行</a></td>
+<td>Remove，补充保留项判断和局部重叠分支</td>
+</tr>
+<tr>
+<td>重建文本错误示例</td>
+<td><a href="../../karma/agents/relationship_extraction/agent.py#L373">karma/agents/relationship_extraction/agent.py 第373—378行</a></td>
+<td>Add、Replace 明确使用；公共规则供 Remove 核查</td>
+</tr>
+<tr>
+<td>根据严重程度的缺失关系示例</td>
+<td><a href="../../karma/agents/relationship_extraction/agent.py#L380">karma/agents/relationship_extraction/agent.py 第380—391行</a></td>
+<td>若当前字段完全没有该关系由 Add 补；若嵌入长字段则由 Replace 拆分</td>
+</tr>
+<tr>
+<td>混合操作 JSON 示例、输出与调用</td>
+<td><a href="../../karma/agents/relationship_extraction/agent.py#L393">karma/agents/relationship_extraction/agent.py 第393—505行</a></td>
+<td>重新按职责组织输出。新问题清单协议尚未被当前调用流程实现，不能直接把模板替换进去就当成完成重构</td>
+</tr>
+</tbody></table></div>
+<h2 id="section-3">3. 具体案例：已有什么，缺什么，归谁</h2>
+<p>以下依据已提供的 10301 汇总及当前源码。当前规则存在不等于能证明远端某次实际请求完整加载了它，也不足以证明失败发生在解析或应用代码。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>案例</th>
+<th>已有要求</th>
+<th>本次缺口和拟补内容</th>
+<th>负责者</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>doc0/S2 盲目补目的关系</td>
+<td><a href="../../karma/agents/relationship_extraction/agent.py#L254">karma/agents/relationship_extraction/agent.py 第254—259行</a> 优先修正已有条目；<a href="../../karma/agents/relationship_extraction/agent.py#L359">karma/agents/relationship_extraction/agent.py 第359—365行</a> 用途例子</td>
+<td>Add 明确把已有动作缺少目的连接交 Replace；Replace 用现有 index 补全 query→identify 等连接，再检查是否仍缺独立关系</td>
+<td>Add 分流；Replace 修正</td>
+</tr>
+<tr>
+<td>doc0/S3 两条 make up</td>
+<td><a href="../../karma/agents/relationship_extraction/agent.py#L263">karma/agents/relationship_extraction/agent.py 第263—264行</a> 按完整含义判断重复</td>
+<td>Remove 自主搜索，并说明 all/any 是不同限定还是在具体上下文中重复表达；不能形成“all/any 一律合并”的规则。当前 Gold 取一条，仍须源句依据</td>
+<td>Remove，主体边界需改则返修 Replace</td>
+</tr>
+<tr>
+<td>doc0/S3 长字段再次扩长</td>
+<td><a href="../../karma/agents/relationship_extraction/agent.py#L258">karma/agents/relationship_extraction/agent.py 第258—259行</a> 与 <a href="../../karma/agents/relationship_extraction/agent.py#L315">karma/agents/relationship_extraction/agent.py 第315—316行</a> 可收短外层字段</td>
+<td>Replace 明确原文词形一致不要求把整个从句写回字段；独立关系另列后逐项判断实体身份和必要限定。Gold 的 #19 仍保留从句，不能统一删除</td>
+<td>Replace</td>
+</tr>
+<tr>
+<td>doc1/S9 and/or</td>
+<td><a href="../../karma/agents/relationship_extraction/agent.py#L373">karma/agents/relationship_extraction/agent.py 第373—378行</a> 已有非常接近的重建错误示例</td>
+<td>Add/Replace 自主核实错误阶段；重建 Agent 另需细化“无明确连接用短句”。原 functions/profiles 输入已经丢失 or，Replace 合回；cell/link 输入并非因重建 or 而需合并</td>
+<td>上游重建＋Replace；Add 不补重建错误</td>
+</tr>
+<tr>
+<td>doc1/S9 since 与排他解释</td>
+<td><a href="../../karma/agents/relationship_extraction/agent.py#L308">karma/agents/relationship_extraction/agent.py 第308—311行</a> 核实差异；源文确有 since</td>
+<td>比较指出 since 丢失有依据；把 or 一律解释排他过强，属上游比较问题。当前 Gold 未单列因果，不将这一事实写成运行 prompt 的特例</td>
+<td>对比 Agent 改进；反馈各阶段核实</td>
+</tr>
+<tr>
+<td>doc1/S9 depending on 未拆</td>
+<td><a href="../../karma/agents/relationship_extraction/agent.py#L252">karma/agents/relationship_extraction/agent.py 第252—255行</a> 与 <a href="../../karma/agents/relationship_extraction/agent.py#L315">karma/agents/relationship_extraction/agent.py 第315—316行</a> 已覆盖</td>
+<td>Replace 独立查长字段，拆分时将原条目换成多条，检查主体和边界；Add 从全文覆盖检查发现后交接，不忽略。源文 depending on 与 Gold depend on 的词形冲突单列</td>
+<td>Replace 主责，Add 补查</td>
+</tr>
+<tr>
+<td>doc2/S2 mounting 主体错误</td>
+<td><a href="../../karma/agents/relationship_extraction/agent.py#L303">karma/agents/relationship_extraction/agent.py 第303—305行</a> 主体检查；<a href="../../karma/agents/relationship_extraction/agent.py#L359">karma/agents/relationship_extraction/agent.py 第359—365行</a> 用途词形</td>
+<td>新例子同时展示系统主体、安装修饰与 to provide，修复主体和关系两字段</td>
+<td>Replace</td>
+</tr>
+<tr>
+<td>doc2/S3 风险内动作脱离联系</td>
+<td><a href="../../karma/agents/relationship_extraction/agent.py#L207">karma/agents/relationship_extraction/agent.py 第207—208行</a> 已要求风险联系</td>
+<td>先确认 loose items 是内部动作主体，再检查 hazards 外层联系；不能简化为主体一律错误，或只将 fly 改回 flying</td>
+<td>Replace</td>
+</tr>
+<tr>
+<td>doc2/S3 法律关系遗漏与长字段</td>
+<td><a href="../../karma/agents/relationship_extraction/agent.py#L285">karma/agents/relationship_extraction/agent.py 第285—300行</a> 内部关系和覆盖检查</td>
+<td>检查长 head 和 tail，将法律针对运输等关系写入拆分后的三元组数组</td>
+<td>Replace，Add 独立发现并交接</td>
+</tr>
+<tr>
+<td>doc3/S7 目的重建错误、主体扩展</td>
+<td><a href="../../karma/agents/relationship_extraction/agent.py#L310">karma/agents/relationship_extraction/agent.py 第310—311行</a> 和 <a href="../../karma/agents/relationship_extraction/agent.py#L373">karma/agents/relationship_extraction/agent.py 第373—378行</a> 保留正确三元组</td>
+<td>新例子明确输入 is to reduce、重建 reduces，不据此改动正确条目。a pre-step of 有原文语义依据但不因重建错误强制补长</td>
+<td>Add/Replace</td>
+</tr>
+<tr>
+<td>doc3/S7 Gold 主体</td>
+<td>不属于运行 prompt 规则缺失</td>
+<td>上下文支持研磨预处理作为目的主体；建议 Gold 使用 a pre-step of grinding the rubber，需由用户决定；本稿不修改 Gold，不把 Gold 当 Agent 输入</td>
+<td>标注核查</td>
+</tr>
+</tbody></table></div>
+<h2 id="section-4">4. 需要新增的通用文字</h2>
+<p>三份草案已分别展开以下内容，不只是列建议：</p>
+<ol>
+<li>自主性：核实前序事项后，独立扫描本阶段职责范围；空清单和空差异同样检查；前序错误可依据源句更正。</li>
+<li>问题清单：先列 issue_id、相关 index、源句证据、具体问题和处理结论，操作关联到问题。</li>
+<li>Add 边界：完全遗漏可新增；已有错误表达与嵌套未拆交 Replace。发现问题后必须交接，不能只因不属本职跳过。</li>
+<li>Replace 拆出的新条目：先查内部关系是否已有独立条目；没有时，一项 replace 的 new_triples 写入多条；已有时只修正需要修改的条目。</li>
+<li>Remove 自主保留选择：完整扫描候选集合，按原文正确性和限定完整性选保留项，每项删除写 keep_index。</li>
+<li>历史差异：差异属于 V0，结合实际变更判定当前是否仍存在；前序计划不等于已执行结果。</li>
+<li>上游错误：三元组正确而重建或比较出错时保留，记录到对应环节。</li>
+</ol>
+<h2 id="section-5">5. 输入、输出及程序交接</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>输入</th>
+<th>Agent 处理</th>
+<th>输出给下一步</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>程序准备</td>
+<td>带来源三元组、源句、重建/差异、实体</td>
+<td>固定输入版本 V0；生成现有 index 和分组引用</td>
+<td>源句全文、完整 V0、版本化重建/差异、空交接</td>
+</tr>
+<tr>
+<td>Add</td>
+<td>上述数据</td>
+<td>逐句独立查遗漏＋核对差异，形成清单；新增完全遗漏；交接已有错误和嵌套</td>
+<td>add、issues、handoff、checked 范围</td>
+</tr>
+<tr>
+<td>程序应用 Add</td>
+<td>V0＋Add 回复</td>
+<td>校验格式/来源/证据引用、应用有效项、保存失败，形成 V1；维护编号映射</td>
+<td>完整 V1、实际变更摘要、未解决事项</td>
+</tr>
+<tr>
+<td>Replace</td>
+<td>原文、完整 V1、历史差异及实际变更、前序问题</td>
+<td>自己检查所有条目，修正主体、词形、修饰和拆分问题</td>
+<td>replace（每项包含 new_triples）、问题清单、前序问题处理结果</td>
+</tr>
+<tr>
+<td>程序应用 Replace</td>
+<td>V1＋替换结果</td>
+<td>检查全部替换结果后在临时副本上应用；同一批替换全部有效才确认，失败则保留该批输入并记录原因，形成 V2</td>
+<td>完整 V2、实际变更或失败、待处理事项</td>
+</tr>
+<tr>
+<td>Remove</td>
+<td>原文、完整 V2、变更及依赖、前序提示</td>
+<td>独立查重复，判断保留哪条；检查局部重叠与必要限定</td>
+<td>remove＋keep_index、问题清单、返修及未决事项</td>
+</tr>
+<tr>
+<td>程序确认</td>
+<td>V2＋删除输出</td>
+<td>校验目标与保留项、依赖，候选应用；具体问题可有一轮定向返修并重查受影响集合</td>
+<td>最终集合、全部实际操作、问题生命周期与未解决事项</td>
+</tr>
+</tbody></table></div>
+<p>输入变量具体内容：</p>
+<ul>
+<li>source_sentences_json：原文顺序的 sentence_id＋text，一篇完整传入；无需再重复一份 source_text。</li>
+<li>current_collection_json：version、triples；每项 index、SPO、source_sentence_ids。版本内 index 唯一。</li>
+<li>sentence_index_json：sentence_id 到 index 的引用表，不重复整条 SPO。</li>
+<li>comparison_bundle_json：basis_version、每句 text_a/text_b、A/B 差异及状态。第一次为 V0；后续传原始完整差异并明确历史版本。</li>
+<li>candidate_entities_json：候选 mention；为空也直接依据源文。</li>
+<li>applied_change_log_json：已实际应用的修改前后对照、失败和版本/编号映射，保留相关记录即可。</li>
+<li>handoff_json：尚未解决的问题、前序处理结果、替换前后关系保留情况。每项有来源阶段、问题 ID、相关版本和编号、证据。</li>
+</ul>
+<p>当前每篇十句、几十条三元组，三者都接收完整当前集合；不只看前序点名的几条。后序不必再接收完整 V0 三元组，但历史差异所引用且发生变化的旧条目在变更摘要中保留。完整原始回复和历史快照保存日志，不全部重复塞进 prompt。</p>
+<h2 id="section-6">6. 连续示例（演示数据，不是历史请求）</h2>
+<p>源句 S1：The system includes a module that processes data. S2：The module stores records.
+输入 T0=(The system, includes, a module that processes data)，T1/T2 均为 (The module, stores, records)。</p>
+<ol>
+<li>Add 自主扫描：processes 已在长字段中，交 Replace；records 已覆盖；发现重复可提示 Remove，但不代其决策。add 为空。</li>
+<li>Replace 自主扫描：将 T0 替换为两条：(The system, includes, a module) 和 (a module, processes, data)；都放在同一 new_triples 数组中。</li>
+<li>Remove 自主扫描：确认 T1/T2 完整重复，按同样正确时保留较早项的规则保留 T1、删除 T2。即使没有前序提示也须发现。</li>
+<li>最终三项：system includes module；module processes data；module stores records。</li>
+</ol>
+<h2 id="section-7">7. 当前缺口与实施边界</h2>
+<p>本次只交付 Prompt 分配及完整草案。新 Agent 类、编排入口、一条换多条的解析和应用、状态交接和测试尚未实现；当前 exporter 也不认识这些拟新增消息。正式接入时需要一起实现并同步各 Agent 的正式 *_完整Prompt.md、HTML、Prompt完整模板.json 与总览。</p>
+<p>拟新增 issues、handoff、replace.new_triples 等字段不是当前 _apply_revision 自动提供的能力。程序检查格式、ID、引用与替换数组完整性；语义是否成立仍由 Agent 判断和外部评估核验。失败不等于没有问题，必须记录；同一批替换中有条目失败时保留该批输入并记录原因，避免只收短外层字段却没有保留内部关系。</p>
+<p>Remove 的用户指定核心职责是重复清理；旧代码还允许删除无依据且无法修复的事实。本草案将它显式交给 review，不静默删除、不冒称已完全迁移该能力；接入前需确定责任出口。最后阶段发现需要 Replace/Add 的新问题可定向返修一次，之后检查被影响的重复和依赖；仍不确定则记录，避免无限循环。</p>
+<p>运行外验证：固定 10301 反馈前集合，对比旧流程与新流程的错误修复、误改、P/R/F1 增量和调用成本。先处理 Gold 歧义，不用当前有争议的匹配结果迫使模型采用错误主体。当前拆分输入是旧结果，反馈实验不证明新版拆分 Agent 的效果。</p>
+<h2 id="section-8">8. 验证记录</h2>
+<p>本版根据源码重新表述规则，源码位置表示原规则来源，不表示草案逐字复制原文。模板 JSON 与各 Markdown 的代码块逐段拼合核对，并检查所有 few-shot 的 JSON、编号、证据和一条换多条结构。源码链接及行号、HTML 目录与锚点检查记录在同目录验证文件。这些检查只验证草案完整和格式可用，未调用模型，未证明语义效果提升。</p>
+<h2 id="section-9">9. 第 2 版：用词和 few-shot 的具体调整</h2>
+<ul>
+<li>“核实前序待处理事项，再独立扫描”改成“先看前一步发现的问题，再自己检查全部源句或三元组”。</li>
+<li>“原子操作组”从 Agent 输出中移除。一条 replace 自带 new_triples 数组；程序检查后用整个数组替换旧条目。多项替换相互依赖时，程序先检查整批结果，再一起确认。</li>
+<li>“完整重复与局部重叠”在示例里具体展示为：相同事实删一条；includes 和 processes 两项关系都保留。</li>
+<li>三份草案共有 13 个 few-shot：Add 4 个、Replace 6 个、Remove 3 个。每个示例都有源句、当前三元组、核查结论及完整 JSON 回复。</li>
+<li>few-shot 紧接输出格式，均属于拟发送给 LLM 的 User 消息。实际数据仍用变量表示；示例明确为演示数据。</li>
+<li>Replace 例子覆盖一条换多条、已有内部关系、主体和用途、目的连接、危险联系、重建文本错误。</li>
+<li>本次修改只是让规则和输出更具体，是否提高模型表现仍需真实运行验证。</li>
+</ul>
+</main></div><script>document.getElementById('toc-filter').addEventListener('input',function(){const q=this.value.toLowerCase();document.querySelectorAll('aside a[href^="#"]').forEach(a=>a.hidden=!a.textContent.toLowerCase().includes(q));});</script></body></html>

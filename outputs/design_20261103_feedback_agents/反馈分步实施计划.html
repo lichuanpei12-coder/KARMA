@@ -1,0 +1,135 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>11.3 反馈分步前：后续实施计划</title><style>
+:root{color-scheme:light;--ink:#19283b;--muted:#657489;--line:#dce4ee;--blue:#245f9b;--bg:#f3f6fa}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:26px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.85 "Microsoft YaHei","PingFang SC",system-ui,sans-serif}
+a{color:var(--blue);text-underline-offset:3px}header{padding:22px 32px;background:#16324e;color:#fff}
+header .label{font-size:18px;font-weight:700}header p{margin:4px 0 0;font-size:13px;color:#d0e0f0}
+.layout{display:grid;grid-template-columns:270px minmax(0,1fr);max-width:1550px;margin:auto;gap:24px;padding:24px}
+aside{position:sticky;top:18px;align-self:start;max-height:calc(100vh - 36px);overflow:auto;background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px}
+aside h2{font-size:16px;margin:0 0 12px}aside a{display:block;text-decoration:none;font-size:13px;line-height:1.6;padding:7px 0;border-bottom:1px solid #edf1f6}
+aside a.sub{padding-left:12px;color:#53657b}aside a:hover{color:var(--blue);background:#f4f8fe}
+aside a[hidden]{display:none}aside input{width:100%;padding:8px;border:1px solid #cbd6e3;border-radius:5px;font:inherit;font-size:13px;margin-bottom:10px}
+main{min-width:0;background:#fff;border:1px solid var(--line);border-radius:10px;padding:28px 36px}
+h1{font-size:27px;line-height:1.5;margin:0 0 24px}h2{font-size:23px;margin:38px 0 18px;padding-bottom:8px;border-bottom:2px solid #d5e3f2}
+h3{font-size:19px;line-height:1.6;margin:32px 0 18px;background:#edf4fc;border-left:4px solid #377ab4;padding:12px 15px;border-radius:0 6px 6px 0}
+h4{font-size:17px}p{margin:12px 0}li{margin:6px 0}strong{font-weight:700}blockquote{margin:15px 0;padding:10px 18px;border-left:4px solid #ccd9e7;background:#f7f9fc}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f5f7fa;border:1px solid #e1e7ee;border-radius:7px;padding:15px 18px;font:14px/1.8 Consolas,"Microsoft YaHei",monospace}
+code{font-family:Consolas,"Microsoft YaHei",monospace;font-size:.91em;background:#edf2f7;padding:2px 4px;border-radius:3px;overflow-wrap:anywhere}pre code{font-size:inherit;background:transparent;padding:0}
+.table-wrap{overflow-x:auto;margin:16px 0;border:1px solid var(--line);border-radius:6px}
+table{width:100%;border-collapse:collapse;font-size:14px;line-height:1.7;table-layout:auto}th,td{padding:10px 12px;text-align:left;vertical-align:top;border-right:1px solid var(--line);border-bottom:1px solid var(--line);overflow-wrap:anywhere}
+th{background:#eaf0f7;font-weight:700}th:last-child,td:last-child{border-right:0}tr:last-child td{border-bottom:0}tbody tr:nth-child(even){background:#f8fafc}
+hr{border:0;border-top:1px solid var(--line);margin:30px 0}.filelinks{display:flex;gap:20px;flex-wrap:wrap;font-size:13px;margin:0 0 24px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid var(--line);padding-top:15px}
+@media(max-width:900px){.layout{display:block;padding:12px}aside{position:static;max-height:300px;margin-bottom:16px}main{padding:22px 18px}header{padding:18px}h1{font-size:23px}h2{font-size:21px}th,td{padding:8px}}
+@media print{body{background:#fff;font-size:11pt}.layout{display:block;padding:0}aside,header,.filelinks,footer{display:none}main{border:0;padding:0}.table-wrap{overflow:visible}pre,table{font-size:9pt}h2,h3{break-after:avoid}tr{break-inside:avoid}a{color:inherit;text-decoration:none}}
+</style></head><body><header><div class="label">11.3 反馈分步前：后续实施计划</div><p>2026-11-03 · 设计草案，尚未接入运行</p></header><div class="layout"><aside><h2>目录</h2><input id="toc-filter" type="search" placeholder="搜索规则、案例、Agent"><a href="反馈Prompt分配与案例核查.html">分配与案例核查</a><a href="#section-1">1. 三个新 Agent</a>
+<a href="#section-2">2. 前后怎样连接</a>
+<a href="#section-3">3. 程序怎样调用三个 Agent</a>
+<a href="#section-4">4. 替换操作和编号</a>
+<a href="#section-5">5. relationship Agent 中保留和迁出什么</a>
+<a href="#section-6">6. 输出文件与兼容</a>
+<a href="#section-7">7. 接入前补齐的规则</a>
+<a href="#section-8">8. 验证与文档同步</a></aside><main><a href="%E5%8F%8D%E9%A6%88%E5%88%86%E6%AD%A5%E5%AE%9E%E6%96%BD%E8%AE%A1%E5%88%92.md">Markdown 原文</a><h1 id="section-0">11.3 反馈分步前：后续实施计划</h1>
+<p>2026-11-03。此文件记录计划，本次提交不接入新反馈流程。当前运行代码仍调用 RelationshipExtractionAgent.revise_relationships；三个 Prompt 草案用于后续实现和检查。</p>
+<h2 id="section-1">1. 三个新 Agent</h2>
+<p>拟新建以下目录，每个包含 agent.py、<strong>init</strong>.py、完整 Prompt Markdown、HTML 和 Prompt完整模板.json：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>目录</th>
+<th>类</th>
+<th>任务</th>
+<th>输出操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>karma/agents/feedback_add/</td>
+<td>FeedbackAddAgent</td>
+<td>逐句检查完全遗漏的关系，结合对比线索，但自行回查源句和完整集合</td>
+<td>add</td>
+</tr>
+<tr>
+<td>karma/agents/feedback_replace/</td>
+<td>FeedbackReplaceAgent</td>
+<td>修正主体、词形、必要修饰、目的及风险联系和嵌套结构</td>
+<td>replace；每项 new_triples 可以有一条或多条</td>
+</tr>
+<tr>
+<td>karma/agents/feedback_remove/</td>
+<td>FeedbackRemoveAgent</td>
+<td>自行发现重复，选择正确保留项，检查删除是否丢信息</td>
+<td>remove＋keep_index</td>
+</tr>
+</tbody></table></div>
+<p>每个 Agent 先核实前序问题，再独立检查本阶段全部材料，输出自己的问题清单。前序结论可依据源句更正。发现其他阶段负责的问题时，交接或请求返修。</p>
+<h2 id="section-2">2. 前后怎样连接</h2>
+<p>完整流程：</p>
+<pre><code class="language-text">原有第一轮实体抽取和关系抽取 → 基线三元组
+→ 原有拆分 Agent → after_split
+→ 原有重建文本 Agent
+→ 原有文本对比 Agent
+→ 原有实体修订（提供候选实体）
+→ 新 Add Agent → 程序应用 → after_add
+→ 新 Replace Agent → 程序应用一条换一条或多条 → after_replace
+→ 新 Remove Agent → 程序应用删除 → after_revision
+→ 原有冲突处理 → 原有评估与集成
+</code></pre>
+<p>修改入口是 <a href="../../karma/core/pipeline.py#L458">karma/core/pipeline.py 第458行</a>。目前此处调用关系 Agent 的第二轮反馈，改为调用反馈顺序控制器。第一轮关系抽取入口在 <a href="../../karma/core/pipeline.py#L450">第450行</a>，继续调用关系抽取 Agent。</p>
+<p>实体修订目前在 <a href="../../karma/core/pipeline.py#L424">第424行</a>，位于三元组反馈之前；冲突处理和评估在 <a href="../../karma/core/pipeline.py#L513">第513行</a> 和 <a href="../../karma/core/pipeline.py#L526">第526行</a>。新 Remove 不代替这两个原有环节。</p>
+<h2 id="section-3">3. 程序怎样调用三个 Agent</h2>
+<p>拟新增 karma/core/feedback_pipeline.py，只负责数据整理、顺序调用、操作应用、日志和有限返修，不包含新的 LLM 角色。</p>
+<ol>
+<li>保存反馈前源句、完整三元组和重建/差异，标记为 V0。</li>
+<li>Add 接收完整源句、V0、候选实体、对应 V0 的重建/差异，独立查遗漏并输出问题与 add。</li>
+<li>程序检查并应用有效新增，记录失败，形成 V1。Add 不因前序差异为空跳过扫描。</li>
+<li>Replace 接收源句、完整 V1、实际新增记录、历史重建/差异、前序问题。它检查全部条目，包括 Add 新增项。</li>
+<li>Replace 每项写原 index 和 new_triples 数组。程序检查整批替换，在临时副本完成后确认，形成 V2；检查失败时保留该批输入并记录原因，避免只完成依赖修改的一半。</li>
+<li>Remove 接收源句、完整 V2、修改记录及前序问题，自主判断全部重复。程序校验被删项、保留项及编号，形成最终反馈集合。</li>
+<li>后序发现明确的上游错误时，可进行一轮定向返修；返修后重查受影响的重复和关系保留情况。仍无法判断的内容记录为未解决，避免无限调用。</li>
+</ol>
+<p>每次传当前完整集合及发生变化条目的前后对照，不重复传所有历史快照。全文源句保持完整，历史快照和原始回复全部保存日志。</p>
+<h2 id="section-4">4. 替换操作和编号</h2>
+<p>当前 <a href="../../karma/agents/triple_revision.py#L37">karma/agents/triple_revision.py 第37行</a> 每个 index 只保存一条 KnowledgeTriple，尚不支持 new_triples。</p>
+<p>拟新增专供分步反馈的操作解析与应用代码（例如 karma/agents/feedback_operations.py），复用已有字段清理、评分及证据检查函数。保持原拆分阶段的旧操作协议可用，避免为新反馈改变原拆分行为。</p>
+<pre><code class="language-json">{
+  &quot;replace&quot;: [
+    {
+      &quot;index&quot;: 0,
+      &quot;new_triples&quot;: [
+        {&quot;head&quot;: &quot;The system&quot;, &quot;relation&quot;: &quot;includes&quot;, &quot;tail&quot;: &quot;a module&quot;},
+        {&quot;head&quot;: &quot;a module&quot;, &quot;relation&quot;: &quot;processes&quot;, &quot;tail&quot;: &quot;data&quot;}
+      ]
+    }
+  ]
+}
+</code></pre>
+<p>上面只演示一条换多条的结构；正式输出另包含问题 ID、原因，每条新三元组还需来源、原文证据及评分。旧条目由整个数组替换，拆分出的内容不另外放入 add。</p>
+<p>现有 index 是单次输入列表位置；新流程每次调用提供明确的集合版本和 index，由程序保存前后编号映射。历史问题先映射到当前条目再传入下一阶段。一条拆成多条时保留一对多来源记录，删除后也保留审计记录。</p>
+<p>Remove 的 keep_index 必须存在且不在本批删除集合中。程序能检查格式、编号和引用；语义正确性由 Agent 核实，并用评估与人工案例检查验证。</p>
+<h2 id="section-5">5. relationship Agent 中保留和迁出什么</h2>
+<p>保留第一轮关系抽取：源文与候选实体输入、基线抽取 System/User、抽取规则、评分和输出解析。</p>
+<p>迁出第二轮 revise_relationships 中的反馈 System/User、审校规则、操作规则、步骤、示例、反馈调用与审计。删除原第二轮大段 Prompt，反馈入口改由新控制器承担。若仍有旧调用者，逐一更新，不保留另一套暗中调用的旧反馈流程。</p>
+<p>三个新 Agent 共用的规则放在专门的反馈公共模块（拟 karma/agents/feedback_common.py），每个实际请求都展开相应规则；具体职责、步骤和 few-shot 放在各自目录。共用规则不是第四个 Agent。</p>
+<p>relationship 中若有仅供第二轮使用的差异拼接或导入，一并迁出。仍服务于第一轮的公共解析/评分函数可以保留或放入通用模块。实体 Agent 自己的修订功能属于独立流程，不因迁移关系反馈而移除。</p>
+<h2 id="section-6">6. 输出文件与兼容</h2>
+<p>保留 baseline、after_split、after_revision、final 等既有结果含义。after_revision 指新三步反馈全部完成、但还没进入后续冲突处理和评估的集合。</p>
+<p>增加 after_add、after_replace，以及每阶段输入快照、实际 System/User、原始回复、问题清单、交接结果、接受/拒绝操作、输出快照、耗时和编号映射。revision_agent/revision_audit 改为明确记录三步流程，不继续冒用 RelationshipExtractionAgent。</p>
+<p>失败要显示为失败或保留输入，不能写成“检查后无问题”。进入反馈的是实际 after_split；固定旧拆分数据的对照实验应明确记录来源，不能拿它证明新版拆分的效果。</p>
+<h2 id="section-7">7. 接入前补齐的规则</h2>
+<ul>
+<li>or 表达选择时保留选择含义，给出不能拆成两个无条件断言的例子。</li>
+<li>and 连接一套设备的组成时保留集合主体，使用新的同类示例，单独记录已进 prompt 的滑轮样例不属于未见样例验证。</li>
+<li>对比步骤名称 a pre-step of 与 In some embodiments，说明有意义的步骤名称和句首背景的差别。</li>
+<li>depending/depend 的 Gold 词形冲突与 doc3/S7 的 Gold 主体问题单独处理，不将 Gold 输入反馈 Agent。</li>
+<li>原反馈还允许删除无依据且无法修复的事实。当前 Remove 草案聚焦重复，正式接入前需明确此类条目的责任出口；暂记 review 不等于问题已解决。</li>
+</ul>
+<h2 id="section-8">8. 验证与文档同步</h2>
+<ol>
+<li>验证一条换多条、失败时保留原输入、来源继承/新证据、编号映射、删除保留项和完整问题交接。</li>
+<li>验证 Add 结果实际进入 Replace，Replace 结果实际进入 Remove；原始差异始终标明对应 V0。</li>
+<li>验证新反馈结果正确接回冲突处理和评估，并保留旧结果字段。</li>
+<li>更新现有单反馈测试与调用者，增加有意义的三步流程测试。</li>
+<li>扩展 tools/prompt_docs/export_agent_prompts.py 与渲染入口，生成三个新 Agent 的完整 Markdown、HTML、消息 JSON，并更新 relationship 文档和 Prompt 总览。源码行号随迁移重新生成。</li>
+<li>固定相同的 10301 反馈前集合，对比操作正确率、案例修复与误改、宽松匹配 P/R/F1 增量及调用成本。模拟测试通过不等于真实模型会遵守语义规则。</li>
+</ol>
+</main></div><script>document.getElementById('toc-filter').addEventListener('input',function(){const q=this.value.toLowerCase();document.querySelectorAll('aside a[href^="#"]').forEach(a=>a.hidden=!a.textContent.toLowerCase().includes(q));});</script></body></html>
