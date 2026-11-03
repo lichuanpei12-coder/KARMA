@@ -16,7 +16,12 @@ from karma.agents.relationship_extraction.agent import RelationshipExtractionAge
 from karma.agents.text_generation.agent import TextGenerationAgent
 from karma.agents.text_comparison.agent import TextComparisonAgent
 from karma.agents.entity_extraction.agent import difference_context as entity_diff
-from karma.agents.relationship_extraction.agent import difference_context as relation_diff
+from karma.agents.feedback_add.agent import FeedbackAddAgent
+from karma.agents.feedback_replace.agent import FeedbackReplaceAgent
+from karma.agents.feedback_remove.agent import FeedbackRemoveAgent
+from karma.core.feedback_pipeline import FeedbackPipeline
+from karma.core.base_agent import BaseAgent
+from feedback_fixtures import no_changes_call
 
 
 def reply(value):
@@ -107,11 +112,10 @@ class SentenceGroupsTests(unittest.TestCase):
         replace = dict(index=0, head='Controller', relation='reads', tail='data',
                        evidence='Controller reads data.', reason='wording', source_sentence_ids=['S1'])
         changes = dict(add=[missing], replace=[replace], remove=[])
-        with patch.object(agent, '_make_llm_call', return_value=reply(changes)) as call:
-            result = agent.revise_relationships(self.text, [self.triple], {}, sentences=self.sentences)
-        groups = tagged_json(call.call_args.args[0], 'sentence_groups_json')
+        result, audit = agent._apply_revision([self.triple], changes, source_sentences=self.sentences)
+        groups = group_triples(self.sentences, result)
         self.assertEqual(groups[0]['triples'][0]['index'], 0)
-        self.assertEqual(groups[1]['triples'], [])
+        self.assertEqual(groups[1]['triples'][0]['index'], 1)
         self.assertEqual([t.source_sentence_ids for t in result], [['S1'], ['S2']])
         # Old revisions omitting provenance recover it from exact source evidence.
         missing.pop('source_sentence_ids')
@@ -162,7 +166,7 @@ class SentenceGroupsTests(unittest.TestCase):
         self.assertEqual(pairs[1]['text_a'], 'Sensor measures temperature.')
         self.assertEqual(pairs[1]['text_b'], '')
         self.assertEqual(diff['unique_to_text_a'], ['[S2] Sensor measures temperature.'])
-        for formatter in (entity_diff, relation_diff):
+        for formatter in (entity_diff,):
             self.assertEqual(tagged_json(formatter(diff), 'text_difference_json')['sentence_differences'][1]['sentence_id'], 'S2')
 
     def test_failed_comparison_is_not_reported_as_successful_no_difference(self):
@@ -199,19 +203,18 @@ class SentenceGroupsTests(unittest.TestCase):
                 self.assertEqual('UNASSIGNED' in call.call_args.args[0], has_unknown)
                 self.assertEqual([r['sentence_id'] for r in diff['sentence_differences']],
                                  [g['sentence_id'] for g in groups])
-                for formatter in (entity_diff, relation_diff):
+                for formatter in (entity_diff,):
                     self.assertEqual('UNASSIGNED' in formatter(diff), has_unknown)
                     self.assertEqual(tagged_json(formatter(diff), 'text_difference_json')['sentence_differences'],
                                      diff['sentence_differences'])
-                feedback = RelationshipExtractionAgent(None, 'offline')
-                with patch.object(feedback, '_make_llm_call',
-                                  return_value=reply(dict(add=[], remove=[], replace=[]))) as call:
-                    result = feedback.revise_relationships(self.text, triples, diff, sentences=self.sentences)
-                prompt = call.call_args.args[0]
-                self.assertEqual('UNASSIGNED' in prompt, has_unknown)
-                self.assertEqual(prompt.count('UNASSIGNED 是来源句尚未确定的条目分组'), int(has_unknown))
+                feedback = FeedbackPipeline(FeedbackAddAgent(None,'offline'), FeedbackReplaceAgent(None,'offline'), FeedbackRemoveAgent(None,'offline'))
+                with patch.object(BaseAgent, '_make_llm_call', side_effect=no_changes_call):
+                    result = feedback.process(self.text, triples, diff, sentences=self.sentences)
+                context = feedback.last_revision['stages'][0]['context']
+                self.assertEqual(bool(context['unassigned_indices']), has_unknown)
                 self.assertEqual([(t.head, t.relation, t.tail) for t in result],
                                  [(t.head, t.relation, t.tail) for t in triples])
+
 
     def test_feedback_explains_unknown_group_from_either_input(self):
         unknown = KnowledgeTriple('Unknown', 'has', 'unlocated evidence')
@@ -219,11 +222,13 @@ class SentenceGroupsTests(unittest.TestCase):
                                                   unique_to_text_a=[], unique_to_text_b=[])])
         for triples, diff in (([unknown], {}), ([copy.deepcopy(self.triple)], old_diff)):
             with self.subTest(current_unknown=triples[0].head == 'Unknown'):
-                agent = RelationshipExtractionAgent(None, 'offline')
-                with patch.object(agent, '_make_llm_call',
-                                  return_value=reply(dict(add=[], remove=[], replace=[]))) as call:
-                    agent.revise_relationships(self.text, triples, diff, sentences=self.sentences)
-                self.assertEqual(call.call_args.args[0].count('UNASSIGNED 是来源句尚未确定的条目分组'), 1)
+                pipeline = FeedbackPipeline(FeedbackAddAgent(None,'offline'), FeedbackReplaceAgent(None,'offline'), FeedbackRemoveAgent(None,'offline'))
+                with patch.object(BaseAgent, '_make_llm_call', side_effect=no_changes_call):
+                    pipeline.process(self.text, triples, diff, sentences=self.sentences)
+                context = pipeline.last_revision['stages'][0]['context']
+                self.assertEqual(context['comparison_bundle']['diff'], diff)
+                self.assertEqual(context['unassigned_indices'], [0] if triples[0].head == 'Unknown' else [])
+
 
 
 if __name__ == '__main__':

@@ -1,6 +1,6 @@
 # 模式对齐Agent_完整Prompt
 
-整理日期：2026-11-01。代码版本：`40c4adf1e546bcd149155843f7297d0fc7b64107`。行号对应整理时源码；后续修改源码后应重新导出。
+整理日期：2026-11-03。代码版本：`45908cb21c7fd291f04b7380568e641d6461b332`。行号对应整理时源码；后续修改源码后应重新导出。
 
 ## 当前运行是否使用这套Prompt
 
@@ -8,7 +8,7 @@
 
 源码入口：karma/agents/schema_alignment/agent.py 第56—60行。系统提示选择与消息发送见karma/core/base_agent.py 第132—135行；Responses模式同一内容见karma/core/base_agent.py 第263—267行。
 
-未启用位置：karma/core/pipeline.py 第131—133行；karma/core/pipeline.py 第500—503行。
+未启用位置：karma/core/pipeline.py 第141行；karma/core/pipeline.py 第525行。
 
 ## 展示说明
 

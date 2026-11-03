@@ -170,6 +170,8 @@ class IntermediateOutput:
     initial_relationships: List[KnowledgeTriple] = field(default_factory=list)
     baseline_triples: List[KnowledgeTriple] = field(default_factory=list)
     split_triples: List[KnowledgeTriple] = field(default_factory=list)
+    after_add: List[KnowledgeTriple] = field(default_factory=list)
+    after_replace: List[KnowledgeTriple] = field(default_factory=list)
     relationships: List[KnowledgeTriple] = field(default_factory=list)
     aligned_entities: List[KGEntity] = field(default_factory=list)
     aligned_triples: List[KnowledgeTriple] = field(default_factory=list)

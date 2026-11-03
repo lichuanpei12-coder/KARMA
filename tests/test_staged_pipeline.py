@@ -19,6 +19,7 @@ from karma.core.data_structures import KnowledgeTriple
 from karma.core.run_artifacts import load_baseline, fingerprint
 import main
 import evaluate
+from feedback_fixtures import context_from_prompt, no_changes, issue
 
 logging.disable(logging.CRITICAL)
 
@@ -58,10 +59,15 @@ class StagedPipelineTests(unittest.TestCase):
             if name == 'EntityExtractionAgent':
                 return reply([] if empty else [{'mention': 'Controller'}, {'mention': 'ECU'}])
             if name == 'RelationshipExtractionAgent':
-                if kwargs.get('system_prompt'):
-                    return reply({'add': [], 'remove': [], 'replace': [] if empty else [
-                        fact('may query', index=0, evidence='Controller may query ECU.', reason='source wording')]})
                 return reply([] if empty else [fact()])
+            if name in ('FeedbackAddAgent', 'FeedbackReplaceAgent', 'FeedbackRemoveAgent'):
+                context = context_from_prompt(prompt)
+                value = no_changes(context)
+                if name == 'FeedbackReplaceAgent' and context['current_collection']['triples']:
+                    value['issues'] = [issue('I1', [0], 'Controller may query ECU.')]
+                    value['replace'] = [dict(index=0, issue_id='I1', reason='source wording', new_triples=[
+                        fact('may query', evidence='Controller may query ECU.', source_sentence_ids=['S1'])])]
+                return reply(value)
             if name == 'TripleSplittingAgent':
                 return reply({'add': [], 'remove': [], 'replace': [] if empty else [
                     dict(head='Controller', relation='may query', tail='ECU',
@@ -129,7 +135,9 @@ class StagedPipelineTests(unittest.TestCase):
                 self.assertEqual(len([c for c in self.calls if c[0] == 'TripleSplittingAgent']), 3)
                 self.assertIn('TextComparisonAgent', [c[0] for c in self.calls])
                 self.assertIn('TextGenerationAgent', [c[0] for c in self.calls])
-                self.assertEqual(len([c for c in self.calls if c[0] == 'RelationshipExtractionAgent']), 3)
+                self.assertNotIn('RelationshipExtractionAgent', [c[0] for c in self.calls])
+                for name in ('FeedbackAddAgent', 'FeedbackReplaceAgent', 'FeedbackRemoveAgent'):
+                    self.assertEqual(len([c for c in self.calls if c[0] == name]), 3)
                 self.assertEqual(base.last_baseline_path.read_bytes(), baseline_bytes)
             Path('hidden.json').rename(self.source)
 
@@ -155,7 +163,7 @@ class StagedPipelineTests(unittest.TestCase):
             self.assertEqual(len(split_calls), 3)
             self.assertTrue(all(c[2]['temperature'] == 0.0 for c in split_calls))
             for name, prompt, kwargs in self.calls:
-                if name in ('EntityExtractionAgent', 'RelationshipExtractionAgent') and 'EMPTY' not in prompt:
+                if name == 'EntityExtractionAgent' and 'EMPTY' not in prompt:
                     current = json.loads(prompt.split('<current_triples_json>')[1].split('</current_triples_json>')[0])
                     self.assertEqual(current[0]['relation'], 'may query')
             self.assertEqual(base.last_baseline_path.read_bytes(), original)
@@ -166,16 +174,23 @@ class StagedPipelineTests(unittest.TestCase):
         pipe = self.pipeline('index_revise')
         split_reply = {'add': [dict(head='Controller', relation='may store', tail='ECU', index=0, reason='split')],
                        'remove': [], 'replace': [dict(head='Controller', relation='may query', tail='ECU', index=0, reason='split')]}
-        feedback_reply = {'add': [], 'remove': [], 'replace': [
-            fact('may read', index=1, evidence='Controller may query ECU.', reason='correct second split triple')]}
+        def feedback_reply(prompt, **kwargs):
+            value = no_changes(context_from_prompt(prompt))
+            value['issues'] = [issue('I1', [1], 'Controller may query ECU.')]
+            value['replace'] = [dict(index=1, issue_id='I1', reason='correct second split triple', new_triples=[
+                fact('may read', evidence='Controller may query ECU.', source_sentence_ids=['S1'])])]
+            return reply(value)
         with patch.object(pipe.triple_splitting_agent, '_make_llm_call', return_value=reply(split_reply)), \
-             patch.object(pipe.relationship_extraction_agent, '_make_llm_call', return_value=reply(feedback_reply)):
+             patch.object(pipe.feedback_replace_agent, '_make_llm_call', side_effect=feedback_reply):
             result = pipe.process_document('', stage='revise', baseline_path=base.last_baseline_path)
         self.assertEqual([x.relation for x in result.split_triples], ['may query', 'may store'])
         self.assertEqual([x.relation for x in result.integrated_triples], ['may query', 'may read'])
-        self.assertEqual(pipe.relationship_extraction_agent.last_revision['accepted']['replace'][0]['before']['relation'], 'may store')
+        self.assertEqual(pipe.feedback_pipeline.last_revision['stages'][1]['application']['accepted'][0]['before']['relation'], 'may store')
         saved = json.loads((pipe.evaluator_agent._dump_dir / '_dump_doc0_revision_result.json').read_text(encoding='utf-8'))
-        self.assertEqual(saved['revision_agent'], 'RelationshipExtractionAgent')
+        self.assertEqual(saved['revision_agent'], 'FeedbackPipeline')
+        self.assertIn('after_add', saved)
+        self.assertIn('after_replace', saved)
+        self.assertEqual([s['stage'] for s in saved['revision_audit']['stages']], ['add', 'replace', 'remove'])
         self.assertEqual(saved['revision_input'], [x.to_dict() for x in result.split_triples])
 
     def test_split_failure_keeps_baseline_and_is_audited(self):
@@ -192,7 +207,7 @@ class StagedPipelineTests(unittest.TestCase):
         audit = json.loads((pipe.evaluator_agent._dump_dir / '_dump_doc0_splitting.json').read_text(encoding='utf-8'))
         self.assertEqual(audit['audit']['mode'], 'baseline_fallback')
         self.assertEqual(audit['audit']['raw_response'], 'invalid')
-        self.assertIn('RelationshipExtractionAgent', [c[0] for c in self.calls])
+        self.assertIn('FeedbackReplaceAgent', [c[0] for c in self.calls])
 
     def test_saved_graph_context_is_used_even_when_new_graph_differs(self):
         base = self.pipeline('base')

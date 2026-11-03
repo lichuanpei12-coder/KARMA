@@ -1,10 +1,10 @@
 # Agent Prompt总览与当前调用路线
 
-更新日期：2026-11-01。源码版本：`40c4adf1e546bcd149155843f7297d0fc7b64107`。
+更新日期：2026-11-03。导出时 Git HEAD：`45908cb21c7fd291f04b7380568e641d6461b332`；文档内容取自当前工作区源码，包含本次未提交修改，精确文件哈希见导出核验 JSON。
 
 ## 当前运行的prompt是否唯一
 
-每一次模型调用只采用一套确定的System和User；程序按调用入口选择分支，不会把所有分支prompt一起发给模型。实体与关系抽取有第一轮、第二轮之分，因此不同阶段有不同消息。重建文本与比较当前由pipeline传入sentence_groups，使用分组版本；“非分组User”只是未传该参数时保留的另一条入口。分组是同一请求内按S1、S2等组织材料，不等于每句分别调用一次模型。
+每一次模型调用只采用一套确定的System和User；程序按调用入口选择分支，不会把所有分支prompt一起发给模型。实体抽取仍分两轮；关系抽取只负责基线，反馈由 Add → Replace → Remove 三个 Agent 执行。每个阶段独立核查并接收前一步实际输出。重建文本与比较当前由pipeline传入sentence_groups，使用分组版本；“非分组User”只是未传该参数时保留的另一条入口。分组是同一请求内按S1、S2等组织材料，不等于每句分别调用一次模型。
 
 ## 各Agent文档与当前状态
 
@@ -14,17 +14,20 @@
 | reader | [阅读Agent_完整Prompt](<reader/阅读Agent_完整Prompt.md>) | 普通文档准备阶段会分批调用相关性评分，每批最多5段；回放已保存基线时可能跳过准备阶段。每段送给评分的文本目前截取前500字符并加省略号。 |
 | summarizer | [摘要Agent_完整Prompt](<summarizer/摘要Agent_完整Prompt.md>) | 当前pipeline默认跳过摘要；仅环境变量KARMA_USE_SUMMARIZER为非空值时启用。直接调用摘要方法且输入长度小于15字符时，也不调用模型。 |
 | entity_extraction | [实体抽取Agent_完整Prompt](<entity_extraction/实体抽取Agent_完整Prompt.md>) | 当前pipeline第一轮执行实体抽取，第二轮执行实体反馈。两轮共用同一System，但User不同；每次调用只使用对应轮次的一套消息。 |
-| relationship_extraction | [关系抽取Agent_完整Prompt](<relationship_extraction/关系抽取Agent_完整Prompt.md>) | 当前pipeline第一轮执行关系抽取，第二轮执行关系反馈。两轮System和User分别选择；反馈System覆盖第一轮System，不叠加FACT_RULES。 |
+| relationship_extraction | [关系抽取Agent_完整Prompt](<relationship_extraction/关系抽取Agent_完整Prompt.md>) | 当前仅执行第一轮基线关系抽取。第二轮关系反馈已移到 feedback_add、feedback_replace、feedback_remove，由 FeedbackPipeline 依次调用。 |
 | triple_splitting | [拆分Agent_完整Prompt](<triple_splitting/拆分Agent_完整Prompt.md>) | 拆分阶段通过process调用专用System和User；只生成add/replace，remove固定为空。回放或跳过阶段时是否执行，以实际入口为准。 |
 | text_generation | [重建文本Agent_完整Prompt](<text_generation/重建文本Agent_完整Prompt.md>) | 当前pipeline明确传入sentence_groups，因此采用generate_grouped的分组System和User。另一条generate_text路径只在不传分组或直接调用时使用，不会同时发送。 |
 | text_comparison | [文本对比Agent_完整Prompt](<text_comparison/文本对比Agent_完整Prompt.md>) | 当前pipeline明确传入sentence_groups与reconstructions，因此采用compare_grouped。另一条compare路径只在不传分组或直接调用时使用，不会与当前版本叠加。 |
 | conflict_resolution | [冲突处理Agent_完整Prompt](<conflict_resolution/冲突处理Agent_完整Prompt.md>) | 当前process执行Python矛盾关系和置信度比较规则，不调用模型。源码定义了System字符串，但当前没有实际发送的User或模型请求。 |
 | evaluator | [评估Agent_完整Prompt](<evaluator/评估Agent_完整Prompt.md>) | 当前process执行Python加权评分和阈值筛选，不调用模型。源码System字符串不参与运行决策；实际逻辑以finalize_triples和_aggregate_scores为准，不能把字符串里的最低分条件当成已执行检查。 |
 | schema_alignment | [模式对齐Agent_完整Prompt](<schema_alignment/模式对齐Agent_完整Prompt.md>) | 当前pipeline中初始化和调用均被注释。即使单独调用该类，现有process也是Python类型/关系映射，没有模型调用；定义的System不代表当前生效。 |
+| feedback_add | [AddAgent_完整Prompt](<feedback_add/AddAgent_完整Prompt.md>) | 当前反馈阶段调用：遗漏补充。顺序为 Add → Replace → Remove。存在明确返修事项时最多再执行一轮相关阶段。 |
+| feedback_replace | [ReplaceAgent_完整Prompt](<feedback_replace/ReplaceAgent_完整Prompt.md>) | 当前反馈阶段调用：已有表达修正与拆分。顺序为 Add → Replace → Remove。存在明确返修事项时最多再执行一轮相关阶段。 |
+| feedback_remove | [RemoveAgent_完整Prompt](<feedback_remove/RemoveAgent_完整Prompt.md>) | 当前反馈阶段调用：重复清理。顺序为 Add → Replace → Remove。存在明确返修事项时最多再执行一轮相关阶段。 |
 
 ## 当前分组调用的源码证据
 
-karma/core/pipeline.py 第385—401行；实体两轮选择：karma/core/pipeline.py 第419—426行；关系两轮选择：karma/core/pipeline.py 第450—460行。
+karma/core/pipeline.py 第399—401行；文本对比：karma/core/pipeline.py 第411—414行；实体：karma/core/pipeline.py 第432行；基线关系：karma/core/pipeline.py 第464—466行；三步反馈：karma/core/pipeline.py 第471—474行。
 
 ## 阅读方式
 

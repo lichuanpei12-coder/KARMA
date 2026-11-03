@@ -22,17 +22,17 @@ hr{border:0;border-top:1px solid var(--line);margin:30px 0}.filelinks{display:fl
 footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid var(--line);padding-top:15px}
 @media(max-width:900px){.layout{display:block;padding:12px}aside{position:static;max-height:300px;margin-bottom:16px}main{padding:22px 18px}header{padding:18px}h1{font-size:23px}h2{font-size:21px}th,td{padding:8px}}
 @media print{body{background:#fff;font-size:11pt}.layout{display:block;padding:0}aside,header,.filelinks,footer{display:none}main{border:0;padding:0}.table-wrap{overflow:visible}pre,table{font-size:9pt}h2,h3{break-after:avoid}tr{break-inside:avoid}a{color:inherit;text-decoration:none}}
-</style></head><body><header><div class="label">重建文本Agent_完整Prompt</div><p>源码行号与实际调用分支 · 2026-11-01 · 40c4adf</p></header><div class="layout"><aside><h2>目录</h2><input id="toc-filter" type="search" placeholder="搜索轮次、System、User"><a href="../Prompt%E6%80%BB%E8%A7%88.html">全部Agent总览</a><a class="" href="#section-1">当前运行是否使用这套Prompt</a>
+</style></head><body><header><div class="label">重建文本Agent_完整Prompt</div><p>源码行号与实际调用分支 · 2026-11-03 · 45908cb</p></header><div class="layout"><aside><h2>目录</h2><input id="toc-filter" type="search" placeholder="搜索轮次、System、User"><a href="../Prompt%E6%80%BB%E8%A7%88.html">全部Agent总览</a><a class="" href="#section-1">当前运行是否使用这套Prompt</a>
 <a class="" href="#section-2">展示说明</a>
 <a class="" href="#section-3">当前pipeline使用：按源句分组版本</a>
 <a class="" href="#section-4">附录：当前pipeline不使用的非分组入口</a>
 <a class="" href="#section-5">条件说明：UNASSIGNED出现时才添加</a>
 <a class="" href="#section-6">文档维护</a></aside><main><a href="%E9%87%8D%E5%BB%BA%E6%96%87%E6%9C%ACAgent_%E5%AE%8C%E6%95%B4Prompt.md">Markdown原文</a><h1 id="section-0">重建文本Agent_完整Prompt</h1>
-<p>整理日期：2026-11-01。代码版本：<code>40c4adf1e546bcd149155843f7297d0fc7b64107</code>。行号对应整理时源码；后续修改源码后应重新导出。</p>
+<p>整理日期：2026-11-03。代码版本：<code>45908cb21c7fd291f04b7380568e641d6461b332</code>。行号对应整理时源码；后续修改源码后应重新导出。</p>
 <h2 id="section-1">当前运行是否使用这套Prompt</h2>
 <p>当前pipeline明确传入sentence_groups，因此采用generate_grouped的分组System和User。另一条generate_text路径只在不传分组或直接调用时使用，不会同时发送。</p>
 <p>源码入口：karma/agents/text_generation/agent.py 第119—131行。系统提示选择与消息发送见karma/core/base_agent.py 第132—135行；Responses模式同一内容见karma/core/base_agent.py 第263—267行。</p>
-<p>当前流水线传参位置：karma/core/pipeline.py 第387—390行。<strong>当前流程只选择分组版本；附录中的非分组版本不会一起执行。</strong></p>
+<p>当前流水线传参位置：karma/core/pipeline.py 第399—401行。<strong>当前流程只选择分组版本；附录中的非分组版本不会一起执行。</strong></p>
 <h2 id="section-2">展示说明</h2>
 <p>固定文本全部展开，仅运行数据用源码变量或表达式表示。每个入口保留一份按顺序排列的System和User；每部分前用一行相对路径链接标注来源，可点击查看源码。来源链接放在代码块外以保持蓝色显示。“【来源：…】”和消息角色标记只用于阅读。同目录<a href="Prompt%E5%AE%8C%E6%95%B4%E6%A8%A1%E6%9D%BF.json">Prompt完整模板.json</a>保存不含阅读标注的角色结构。</p>
 <h2 id="section-3">当前pipeline使用：按源句分组版本</h2>

@@ -18,6 +18,10 @@ import inspect
 
 from .run_artifacts import load_baseline, save_baseline, select_documents, write_json
 from .sentence_groups import source_sentences, attach_sources, group_triples
+from .feedback_pipeline import FeedbackPipeline
+from ..agents.feedback_add.agent import FeedbackAddAgent
+from ..agents.feedback_replace.agent import FeedbackReplaceAgent
+from ..agents.feedback_remove.agent import FeedbackRemoveAgent
 
 from openai import OpenAI
 
@@ -127,6 +131,11 @@ class KARMAPipeline:
         self.entity_extraction_agent = EntityExtractionAgent(self.client, self.model_name)
         self.relationship_extraction_agent = RelationshipExtractionAgent(self.client, self.model_name)
         self.triple_splitting_agent = TripleSplittingAgent(self.client, self.model_name)
+        self.feedback_add_agent = FeedbackAddAgent(self.client, self.model_name)
+        self.feedback_replace_agent = FeedbackReplaceAgent(self.client, self.model_name)
+        self.feedback_remove_agent = FeedbackRemoveAgent(self.client, self.model_name)
+        self.feedback_pipeline = FeedbackPipeline(
+            self.feedback_add_agent, self.feedback_replace_agent, self.feedback_remove_agent)
         # Disabled for the current open-relation DocOIE evaluation. Keep the
         # original initialization here so the schema stage can be restored later.
         # self.schema_alignment_agent = SchemaAlignmentAgent(self.client, self.model_name)
@@ -144,6 +153,9 @@ class KARMAPipeline:
             self.entity_extraction_agent,
             self.relationship_extraction_agent,
             self.triple_splitting_agent,
+            self.feedback_add_agent,
+            self.feedback_replace_agent,
+            self.feedback_remove_agent,
             # self.schema_alignment_agent,
             self.conflict_resolution_agent,
             self.text_generation_agent,
@@ -444,7 +456,8 @@ class KARMAPipeline:
                     self._log(f"[4/8] Entity extraction completed in {step_time:.2f}s. Entities: {len(entities)}")
 
                     # Step 6: Relationship Extraction - Find relationships
-                    self._log("[5/8] Running Relationship Extraction Agent...")
+                    self._log("[5/8] Running Relationship Extraction Agent..." if t == 0
+                              else "[feedback] Running Add -> Replace -> Remove...")
                     step_start = time.time()
 
                     if t == 0:
@@ -455,9 +468,16 @@ class KARMAPipeline:
                         with open(self.evaluator_agent._dump_dir / f"_dump_doc{i}_r{t}_relationship_audit.json", "w", encoding="utf-8") as _f:
                             json.dump(self.relationship_extraction_agent.last_extraction, _f, ensure_ascii=False, indent=2)
                     else:
-                        relationships = self.relationship_extraction_agent.revise_relationships(
-                            extraction_text, copy.deepcopy(split_triples), diff, entities=entities, sentences=sentences
+                        relationships = self.feedback_pipeline.process(
+                            extraction_text, copy.deepcopy(split_triples), diff, entities=entities, sentences=sentences,
+                            reconstructions=self.text_generation_agent.last_grouped_generation,
                         )
+                        intermediate.after_add = copy.deepcopy(self.feedback_pipeline.snapshots['after_add'])
+                        intermediate.after_replace = copy.deepcopy(self.feedback_pipeline.snapshots['after_replace'])
+                        for stage_name in ('after_add', 'after_replace'):
+                            run_document['stages'][stage_name] = [t.to_dict() for t in getattr(intermediate, stage_name)]
+                        for feedback_stage in self.feedback_pipeline.last_revision['stages']:
+                            write_json(self.evaluator_agent._dump_dir / f"_dump_doc{i}_feedback_{feedback_stage['pass_id']}.json", feedback_stage)
                     intermediate.relationships = relationships
 
                     # dump 中间结果：关系列表
@@ -469,7 +489,7 @@ class KARMAPipeline:
 
                     if t == 1:
                         # Compatibility audit points to the stage producing after_revision.
-                        revision_agent = self.relationship_extraction_agent
+                        revision_agent = self.feedback_pipeline
                         _revision_path = (
                             self.evaluator_agent._dump_dir /
                             f"_dump_doc{i}_r{t}_revision.json"
@@ -487,7 +507,12 @@ class KARMAPipeline:
                             )
 
                     step_time = time.time() - step_start
-                    intermediate.metrics.add_agent_time("relationship_extraction", step_time)
+                    if t == 0:
+                        intermediate.metrics.add_agent_time("relationship_extraction", step_time)
+                    else:
+                        for name in ('add', 'replace', 'remove'):
+                            elapsed = sum(s['elapsed'] for s in self.feedback_pipeline.last_revision['stages'] if s['stage'] == name)
+                            intermediate.metrics.add_agent_time('feedback_' + name, elapsed)
                     self._log(f"[5/8] Relationship extraction completed in {step_time:.2f}s. Relationships: {len(relationships)}")
 
                     # Step 7: Schema Alignment - Align to standard schema
@@ -538,6 +563,8 @@ class KARMAPipeline:
                                 x.to_dict() for x in baseline_triples
                             ],
                             "after_split": [x.to_dict() for x in intermediate.split_triples],
+                            "after_add": [x.to_dict() for x in intermediate.after_add],
+                            "after_replace": [x.to_dict() for x in intermediate.after_replace],
                             "splitting_audit": self.triple_splitting_agent.last_revision,
                             # Feedback indices refer to this set, not the original baseline.
                             "revision_input": [x.to_dict() for x in (
@@ -631,6 +658,7 @@ class KARMAPipeline:
         # Record reproducibility information only; never serialize API credentials.
         agents = (self.entity_extraction_agent, self.relationship_extraction_agent,
                   self.triple_splitting_agent,
+                  self.feedback_add_agent, self.feedback_replace_agent, self.feedback_remove_agent,
                   self.text_generation_agent, self.text_comparison_agent,
                   self.conflict_resolution_agent, self.evaluator_agent)
         hashes = {}
@@ -642,11 +670,16 @@ class KARMAPipeline:
         hashes["TripleRevisionMixin"] = hashlib.sha256(shared_path.read_bytes()).hexdigest()
         grouping_path = Path(inspect.getfile(source_sentences))
         hashes['SentenceGrouping'] = hashlib.sha256(grouping_path.read_bytes()).hexdigest()
+        from ..agents import feedback_common, feedback_operations
+        for name, module in (('FeedbackCommon', feedback_common), ('FeedbackOperations', feedback_operations)):
+            hashes[name] = hashlib.sha256(Path(module.__file__).read_bytes()).hexdigest()
+        hashes['FeedbackPipeline'] = hashlib.sha256(Path(inspect.getfile(FeedbackPipeline)).read_bytes()).hexdigest()
         return {"model": self.model_name, "api_mode": self.api_mode,
                 "integration_threshold": self.integration_threshold,
                 "relevance_threshold": relevance_threshold, "domain": domain,
                 "use_summarizer": bool(os.environ.get("KARMA_USE_SUMMARIZER")),
                 "feedback_grouping": "source_sentence_groups_v1",
+                "feedback_flow": "add_replace_remove_v1",
                 "agent_code_sha256": hashes}
 
     @staticmethod

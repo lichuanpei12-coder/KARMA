@@ -17,6 +17,9 @@ from .conflict_resolution.agent import ConflictResolutionAgent
 from .text_generation.agent import TextGenerationAgent
 from .evaluator.agent import EvaluatorAgent
 from .text_comparison.agent import TextComparisonAgent
+from .feedback_add.agent import FeedbackAddAgent
+from .feedback_replace.agent import FeedbackReplaceAgent
+from .feedback_remove.agent import FeedbackRemoveAgent
 
 
 __all__ = [
@@ -30,5 +33,6 @@ __all__ = [
     'ConflictResolutionAgent',
     'TextGenerationAgent',
     'EvaluatorAgent',
-    'TextComparisonAgent'
+    'TextComparisonAgent',
+    'FeedbackAddAgent', 'FeedbackReplaceAgent', 'FeedbackRemoveAgent'
 ]

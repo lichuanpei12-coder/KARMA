@@ -49,8 +49,6 @@ for variant in ['normal','legacy_difference']:
     calls['comparison']=cap(a,lambda:a.process(SOURCE,SOURCE,sentence_groups=groups,reconstructions=recon),'[{"sentence_id":"S1","unique_to_text_a":[],"unique_to_text_b":[]}]')
     a=EntityExtractionAgent(None,'offline')
     calls['entity_feedback']=cap(a,lambda:a.revise_entities(SOURCE,entities,copy.deepcopy(triples),diff),'[]')
-    a=RelationshipExtractionAgent(None,'offline')
-    calls['relationship_feedback']=cap(a,lambda:a.revise_relationships(SOURCE,copy.deepcopy(triples),diff,entities=entities,sentences=sentences),'{"add":[],"remove":[],"replace":[]}')
     captured['grouped'][variant]=calls
 a=TextGenerationAgent(None,'offline')
 captured['non_grouped']['generation']=cap(a,lambda:a.process(copy.deepcopy(triples)),SOURCE)
@@ -67,7 +65,8 @@ a=TripleSplittingAgent(None,'offline');new['splitting']=cap(a,lambda:a.process(S
 
 def path(agent):return f'karma/agents/{agent}/agent.py'
 sources={p.as_posix():p.read_text(encoding='utf-8-sig').splitlines() for p in (ROOT/'karma/agents').glob('*/agent.py')}
-sources[(ROOT/'karma/core/sentence_groups.py').as_posix()]=(ROOT/'karma/core/sentence_groups.py').read_text(encoding='utf-8').splitlines()
+for extra in ['karma/core/sentence_groups.py','karma/core/pipeline.py','karma/agents/feedback_common.py']:
+    sources[(ROOT/extra).as_posix()]=(ROOT/extra).read_text(encoding='utf-8').splitlines()
 trees={p:ast.parse('\n'.join(lines)) for p,lines in sources.items()}
 def scope(filename,name):
     tree=trees[(ROOT/filename).as_posix()]
@@ -75,6 +74,20 @@ def scope(filename,name):
         if isinstance(n,(ast.FunctionDef,ast.AsyncFunctionDef)) and n.name==name:return (filename,n.lineno,n.end_lineno)
         if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id==name for t in n.targets):return (filename,n.lineno,n.end_lineno)
     raise ValueError((filename,name))
+def pipeline_call(attribute):
+    tree=trees[(ROOT/'karma/core/pipeline.py').as_posix()]
+    for n in ast.walk(tree):
+        if isinstance(n,ast.Call) and isinstance(n.func,ast.Attribute):
+            obj=n.func.value
+            if isinstance(obj,ast.Attribute) and obj.attr==attribute:
+                return ('karma/core/pipeline.py',n.lineno,n.end_lineno)
+    raise ValueError(attribute)
+
+def pipeline_line(fragment):
+    lines=sources[(ROOT/'karma/core/pipeline.py').as_posix()]
+    n=next(i for i,l in enumerate(lines,1) if fragment in l)
+    return ('karma/core/pipeline.py',n,n)
+
 def ref(loc):
     f,a,b=loc
     return f'{f} 第{a}'+(f'—{b}行' if b!=a else '行')
@@ -259,7 +272,7 @@ def pools(agent,method,system=False):
     f=path(agent)
     out=[scope(f,method)]
     if agent=='entity_extraction':out += [scope(f,'ENTITY_RULES'),scope(f,'_output_instructions'),scope(f,'difference_context')]+GROUPHELP
-    if agent=='relationship_extraction':out += [scope(f,'FACT_RULES'),scope(f,'SCORE_RULES'),scope(f,'difference_context')]+GROUPHELP
+    if agent=='relationship_extraction':out += [scope(f,'FACT_RULES'),scope(f,'SCORE_RULES')]
     return out
 
 STATUS={
@@ -267,7 +280,7 @@ STATUS={
 'reader':'普通文档准备阶段会分批调用相关性评分，每批最多5段；回放已保存基线时可能跳过准备阶段。每段送给评分的文本目前截取前500字符并加省略号。',
 'summarizer':'当前pipeline默认跳过摘要；仅环境变量KARMA_USE_SUMMARIZER为非空值时启用。直接调用摘要方法且输入长度小于15字符时，也不调用模型。',
 'entity_extraction':'当前pipeline第一轮执行实体抽取，第二轮执行实体反馈。两轮共用同一System，但User不同；每次调用只使用对应轮次的一套消息。',
-'relationship_extraction':'当前pipeline第一轮执行关系抽取，第二轮执行关系反馈。两轮System和User分别选择；反馈System覆盖第一轮System，不叠加FACT_RULES。',
+'relationship_extraction':'当前仅执行第一轮基线关系抽取。第二轮关系反馈已移到 feedback_add、feedback_replace、feedback_remove，由 FeedbackPipeline 依次调用。',
 'triple_splitting':'拆分阶段通过process调用专用System和User；只生成add/replace，remove固定为空。回放或跳过阶段时是否执行，以实际入口为准。',
 'text_generation':'当前pipeline明确传入sentence_groups，因此采用generate_grouped的分组System和User。另一条generate_text路径只在不传分组或直接调用时使用，不会同时发送。',
 'text_comparison':'当前pipeline明确传入sentence_groups与reconstructions，因此采用compare_grouped。另一条compare路径只在不传分组或直接调用时使用，不会与当前版本叠加。',
@@ -281,15 +294,14 @@ for agent,filename in NAMES.items():
     target=ROOT/'karma/agents'/agent/filename
     f=path(agent)
     doc=target.relative_to(ROOT).as_posix()
-    t=f'# {filename[:-3]}\n\n整理日期：2026-11-01。代码版本：`{head}`。行号对应整理时源码；后续修改源码后应重新导出。\n\n'
+    t=f'# {filename[:-3]}\n\n整理日期：2026-11-03。代码版本：`{head}`。行号对应整理时源码；后续修改源码后应重新导出。\n\n'
     t+='## 当前运行是否使用这套Prompt\n\n'+STATUS[agent]+'\n\n'
     t+='源码入口：'+ref(scope(f,'process'))+'。系统提示选择与消息发送见'+ref(('karma/core/base_agent.py',132,135))+'；Responses模式同一内容见'+ref(('karma/core/base_agent.py',263,267))+'。\n\n'
     if agent in ['text_generation','text_comparison']:
-        start=387 if agent=='text_generation' else 399
-        t+='当前流水线传参位置：'+ref(('karma/core/pipeline.py',start,start+3))+'。**当前流程只选择分组版本；附录中的非分组版本不会一起执行。**\n\n'
+        t+='当前流水线传参位置：'+ref(pipeline_call('text_generation_agent' if agent=='text_generation' else 'text_comparison_agent'))+'。**当前流程只选择分组版本；附录中的非分组版本不会一起执行。**\n\n'
     if agent=='ingestion':t+='元数据调用被注释的位置：'+ref((f,91,93))+'。\n\n'
-    if agent=='summarizer':t+='摘要开关：'+ref(('karma/core/pipeline.py',315,322))+'。\n\n'
-    if agent=='schema_alignment':t+='未启用位置：'+ref(('karma/core/pipeline.py',131,133))+'；'+ref(('karma/core/pipeline.py',500,503))+'。\n\n'
+    if agent=='summarizer':t+='摘要开关：'+ref(pipeline_line('KARMA_USE_SUMMARIZER'))+'。\n\n'
+    if agent=='schema_alignment':t+='未启用位置：'+ref(pipeline_line('# self.schema_alignment_agent ='))+'；'+ref(pipeline_line('# aligned_entities, aligned_relationships ='))+'。\n\n'
     t+='## 展示说明\n\n固定文本全部展开，仅运行数据用源码变量或表达式表示。每个入口保留一份按顺序排列的System和User；每部分前用一行相对路径链接标注来源，可点击查看源码。来源链接放在代码块外以保持蓝色显示。“【来源：…】”和消息角色标记只用于阅读。同目录[Prompt完整模板.json](Prompt完整模板.json)保存不含阅读标注的角色结构。\n\n'
     message_examples=[]
     variants=[]
@@ -304,8 +316,9 @@ for agent,filename in NAMES.items():
         entity=agent=='entity_extraction'
         key='entity' if entity else 'relationship'
         variants.append(('第一轮：基线抽取',new[key+'_first'],pools(agent,'__init__'),pools(agent,'_extract_entities_from_text' if entity else '_extract_relationships_from_text')))
-        method='revise_entities' if entity else 'revise_relationships'
-        variants.append(('第二轮：反馈修订',captured['grouped']['normal'][key+'_feedback'],pools(agent,'__init__' if entity else method),pools(agent,method)))
+        if entity:
+            method='revise_entities'
+            variants.append(('第二轮：反馈修订',captured['grouped']['normal'][key+'_feedback'],pools(agent,'__init__'),pools(agent,method)))
     elif agent=='triple_splitting':variants.append(('拆分阶段完整版本',new['splitting'],pools(agent,'process'),pools(agent,'process')))
     elif agent in ['text_generation','text_comparison']:
         key='generation' if agent=='text_generation' else 'comparison'
@@ -333,16 +346,15 @@ for agent,filename in NAMES.items():
             if bindings:t+='动态数据位置：\n\n'+table(['源码变量/表达式','输入位置'],[(item['expression'],item['tag']) for item in bindings.values()])
             assert not re.search(r'\{\{[A-Z_]+\}\}',c['user'])
         else:t+=prompt_markdown('【源码保留的 System】\n'+system_display)+'当前没有User Prompt，也没有_make_llm_call调用。该类实际行为由'+ref(scope(f,'process'))+'及其调用的Python方法决定。\n\n'
-    if agent in ['text_generation','text_comparison','entity_extraction','relationship_extraction']:
+    if agent in ['text_generation','text_comparison','entity_extraction']:
         t+='## 条件说明：UNASSIGNED出现时才添加\n\n此句由'+ref(scope('karma/core/sentence_groups.py','unassigned_group_note'))+'返回：\n\n'+code(unassigned_group_note([dict(sentence_id='UNASSIGNED')]).rstrip('\n'))
-        if agent in ['entity_extraction','relationship_extraction']:
+        if agent=='entity_extraction':
             t+='差异块的插入位置见'+ref(scope('karma/core/sentence_groups.py','grouped_difference_context'))+'。'
-            if agent=='relationship_extraction':t+='当前分组或差异任一侧包含该组时予以说明；重复说明抑制见'+ref((f,191,195))+'。'
             t+='\n\n'
         else:t+='插入到当前分组User的业务输入标签之前，拼接位置见'+ref(scope(f,'generate_grouped' if agent=='text_generation' else 'compare_grouped'))+'。\n\n'
-    if agent in ['entity_extraction','relationship_extraction']:
-        key='entity_feedback' if agent=='entity_extraction' else 'relationship_feedback'
-        u,_=variable_template(captured['grouped']['legacy_difference'][key]['user'],[scope(f,'difference_context')]+GROUPHELP+[scope(f,'revise_entities' if agent=='entity_extraction' else 'revise_relationships')])
+    if agent=='entity_extraction':
+        key='entity_feedback'
+        u,_=variable_template(captured['grouped']['legacy_difference'][key]['user'],[scope(f,'difference_context')]+GROUPHELP+[scope(f,'revise_entities')])
         label='# 文本差异\n' if agent=='entity_extraction' else '# 输入四：文本差异\n'
         a=u.index(label)+len(label);b=u.index('</text_difference_json>',a)+len('</text_difference_json>')
         t+='## 附录：差异数据没有sentence_differences时\n\n只有该键不存在时，才用下列兼容差异说明替换正文对应块；不与分组差异说明重复发送。第一轮抽取的diff参数为真时，也会在User输出要求附近追加相应差异块；一般初始抽取没有diff。\n\n'
@@ -360,10 +372,15 @@ for agent,filename in NAMES.items():
     manifest['message_examples'].append(example_path.relative_to(ROOT).as_posix())
     manifest['documents'].append(doc)
 
-index='# Agent Prompt总览与当前调用路线\n\n更新日期：2026-11-01。源码版本：`'+head+'`。\n\n'
-index+='## 当前运行的prompt是否唯一\n\n每一次模型调用只采用一套确定的System和User；程序按调用入口选择分支，不会把所有分支prompt一起发给模型。实体与关系抽取有第一轮、第二轮之分，因此不同阶段有不同消息。重建文本与比较当前由pipeline传入sentence_groups，使用分组版本；“非分组User”只是未传该参数时保留的另一条入口。分组是同一请求内按S1、S2等组织材料，不等于每句分别调用一次模型。\n\n'
+from export_feedback_prompts import export_feedback
+feedback_names, feedback_status = export_feedback(ROOT, manifest)
+NAMES.update(feedback_names)
+STATUS.update(feedback_status)
+
+index='# Agent Prompt总览与当前调用路线\n\n更新日期：2026-11-03。导出时 Git HEAD：`'+head+'`；文档内容取自当前工作区源码，包含本次未提交修改，精确文件哈希见导出核验 JSON。\n\n'
+index+='## 当前运行的prompt是否唯一\n\n每一次模型调用只采用一套确定的System和User；程序按调用入口选择分支，不会把所有分支prompt一起发给模型。实体抽取仍分两轮；关系抽取只负责基线，反馈由 Add → Replace → Remove 三个 Agent 执行。每个阶段独立核查并接收前一步实际输出。重建文本与比较当前由pipeline传入sentence_groups，使用分组版本；“非分组User”只是未传该参数时保留的另一条入口。分组是同一请求内按S1、S2等组织材料，不等于每句分别调用一次模型。\n\n'
 index+='## 各Agent文档与当前状态\n\n'+table(['Agent','完整Prompt文档','运行状态'],[(a,f'[{NAMES[a][:-3]}](<{a}/{NAMES[a]}>)',STATUS[a]) for a in NAMES])
-index+='## 当前分组调用的源码证据\n\n'+ref(('karma/core/pipeline.py',385,401))+'；实体两轮选择：'+ref(('karma/core/pipeline.py',419,426))+'；关系两轮选择：'+ref(('karma/core/pipeline.py',450,460))+'。\n\n'
+index+='## 当前分组调用的源码证据\n\n'+ref(pipeline_call('text_generation_agent'))+'；文本对比：'+ref(pipeline_call('text_comparison_agent'))+'；实体：'+ref(pipeline_call('entity_extraction_agent'))+'；基线关系：'+ref(pipeline_call('relationship_extraction_agent'))+'；三步反馈：'+ref(pipeline_call('feedback_pipeline'))+'。\n\n'
 index+='## 阅读方式\n\n每个文档按轮次/入口连续展示同一请求的System和User，每部分前仅用一行说明内容、相对文件路径和源码行号。固定内容全部展开，仅运行数据保留变量表达式。各Agent目录的Prompt完整模板.json保存不含阅读标注的角色结构。\n'
 indexpath=ROOT/'karma/agents/Prompt总览.md';indexpath.write_text(index,encoding='utf-8')
 manifest['documents'].insert(0,indexpath.relative_to(ROOT).as_posix())

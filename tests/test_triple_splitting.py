@@ -1,3 +1,4 @@
+from feedback_fixtures import no_changes_call
 """Compact split protocol, inherited scores, and legacy feedback validation."""
 
 import copy
@@ -177,8 +178,9 @@ class SplittingParityTests(unittest.TestCase):
                                  patch.object(pipe.text_generation_agent, '_make_llm_call', side_effect=generate), \
                                  patch.object(pipe.text_comparison_agent, 'process', return_value={}), \
                                  patch.object(pipe.entity_extraction_agent, 'revise_entities', return_value=[]), \
-                                 patch.object(pipe.relationship_extraction_agent, '_make_llm_call',
-                                              return_value=('{"add": [], "remove": [], "replace": []}', 0, 0, 0)) as feedback, \
+                                 patch.object(pipe.feedback_add_agent, '_make_llm_call', side_effect=no_changes_call) as feedback, \
+                                 patch.object(pipe.feedback_replace_agent, '_make_llm_call', side_effect=no_changes_call), \
+                                 patch.object(pipe.feedback_remove_agent, '_make_llm_call', side_effect=no_changes_call), \
                                  patch.object(pipe.triple_splitting_agent, '_make_llm_call',
                                               return_value=(case['response'], 0, 0, 0)) as call:
                                 output = pipe.process_document('', stage='revise', baseline_path='baseline.json')
@@ -200,7 +202,7 @@ class SplittingParityTests(unittest.TestCase):
                             self.assertEqual(old_report['metrics'], new_report['metrics'])
                             self.assertEqual(Path('baseline.json').read_bytes(), original)
                             audit = json.loads((pipe.evaluator_agent._dump_dir / '_dump_doc0_revision_result.json').read_text(encoding='utf-8'))
-                            self.assertEqual(audit['revision_agent'], 'RelationshipExtractionAgent')
+                            self.assertEqual(audit['revision_agent'], 'FeedbackPipeline')
                             self.assertEqual(without_provenance(audit['revision_input']), case['expected'])
                         finally:
                             pipe.client.close()
