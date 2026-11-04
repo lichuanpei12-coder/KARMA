@@ -1,10 +1,10 @@
 # Agent Prompt总览与当前调用路线
 
-更新日期：2026-11-04。导出时 Git HEAD：`cf704320cce3c94963a580263a706400cea55dab`；文档内容取自当前工作区源码，包含本次未提交修改，精确文件哈希见导出核验 JSON。
+更新日期：2026-11-04。导出时 Git HEAD：`4aa87308e976fd4290b2cb372eacdccf47e1af37`；文档内容取自当前工作区源码，包含本次未提交修改，精确文件哈希见导出核验 JSON。
 
 ## 当前运行的prompt是否唯一
 
-每一次模型调用只采用一套确定的System和User；程序按调用入口选择分支，不会把所有分支prompt一起发给模型。实体抽取仍分两轮；关系抽取只负责基线，反馈由 Add → Replace → Remove 三个 Agent 执行。每个阶段独立核查并接收前一步实际输出。重建文本与比较当前由pipeline传入sentence_groups，使用分组版本；“非分组User”只是未传该参数时保留的另一条入口。分组是同一请求内按S1、S2等组织材料，不等于每句分别调用一次模型。
+每一次模型调用只采用一套确定的System和User；程序按调用入口选择分支，不会把所有分支prompt一起发给模型。实体抽取仍分两轮；关系抽取只负责基线，反馈由 Add → Replace → Remove 三个 Agent 执行。每个阶段独立核查并接收前一步实际输出；各 Agent 内部采用核对问题、生成操作、复核输出三个阶段。问题由程序传递，模型只输出本阶段操作与 handoff。新事实按单句依据抽取。重建文本与比较当前由pipeline传入sentence_groups，使用分组版本；“非分组User”只是未传该参数时保留的另一条入口。分组是同一请求内按S1、S2等组织材料，不等于每句分别调用一次模型。
 
 ## 各Agent文档与当前状态
 
@@ -21,9 +21,9 @@
 | conflict_resolution | [冲突处理Agent_完整Prompt](<conflict_resolution/冲突处理Agent_完整Prompt.md>) | 当前process执行Python矛盾关系和置信度比较规则，不调用模型。源码定义了System字符串，但当前没有实际发送的User或模型请求。 |
 | evaluator | [评估Agent_完整Prompt](<evaluator/评估Agent_完整Prompt.md>) | 当前process执行Python加权评分和阈值筛选，不调用模型。源码System字符串不参与运行决策；实际逻辑以finalize_triples和_aggregate_scores为准，不能把字符串里的最低分条件当成已执行检查。 |
 | schema_alignment | [模式对齐Agent_完整Prompt](<schema_alignment/模式对齐Agent_完整Prompt.md>) | 当前pipeline中初始化和调用均被注释。即使单独调用该类，现有process也是Python类型/关系映射，没有模型调用；定义的System不代表当前生效。 |
-| feedback_add | [AddAgent_完整Prompt](<feedback_add/AddAgent_完整Prompt.md>) | 当前反馈阶段调用：遗漏补充。顺序为 Add → Replace → Remove。存在明确返修事项时最多再执行一轮相关阶段。 |
-| feedback_replace | [ReplaceAgent_完整Prompt](<feedback_replace/ReplaceAgent_完整Prompt.md>) | 当前反馈阶段调用：已有表达修正与拆分。顺序为 Add → Replace → Remove。存在明确返修事项时最多再执行一轮相关阶段。 |
-| feedback_remove | [RemoveAgent_完整Prompt](<feedback_remove/RemoveAgent_完整Prompt.md>) | 当前反馈阶段调用：重复清理。顺序为 Add → Replace → Remove。存在明确返修事项时最多再执行一轮相关阶段。 |
+| feedback_add | [AddAgent_完整Prompt](<feedback_add/AddAgent_完整Prompt.md>) | 当前反馈阶段调用：遗漏补充。顺序为 Add → Replace → Remove。有尚未投递到 Add/Replace 的问题时最多再执行一轮相关阶段。投递成功不代表语义问题已解决。 |
+| feedback_replace | [ReplaceAgent_完整Prompt](<feedback_replace/ReplaceAgent_完整Prompt.md>) | 当前反馈阶段调用：已有表达修正与拆分。顺序为 Add → Replace → Remove。有尚未投递到 Add/Replace 的问题时最多再执行一轮相关阶段。投递成功不代表语义问题已解决。 |
+| feedback_remove | [RemoveAgent_完整Prompt](<feedback_remove/RemoveAgent_完整Prompt.md>) | 当前反馈阶段调用：重复清理。顺序为 Add → Replace → Remove。有尚未投递到 Add/Replace 的问题时最多再执行一轮相关阶段。投递成功不代表语义问题已解决。 |
 
 ## 当前分组调用的源码证据
 

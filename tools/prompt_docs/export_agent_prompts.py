@@ -377,7 +377,7 @@ NAMES.update(feedback_names)
 STATUS.update(feedback_status)
 
 index='# Agent Prompt总览与当前调用路线\n\n更新日期：2026-11-04。导出时 Git HEAD：`'+head+'`；文档内容取自当前工作区源码，包含本次未提交修改，精确文件哈希见导出核验 JSON。\n\n'
-index+='## 当前运行的prompt是否唯一\n\n每一次模型调用只采用一套确定的System和User；程序按调用入口选择分支，不会把所有分支prompt一起发给模型。实体抽取仍分两轮；关系抽取只负责基线，反馈由 Add → Replace → Remove 三个 Agent 执行。每个阶段独立核查并接收前一步实际输出。重建文本与比较当前由pipeline传入sentence_groups，使用分组版本；“非分组User”只是未传该参数时保留的另一条入口。分组是同一请求内按S1、S2等组织材料，不等于每句分别调用一次模型。\n\n'
+index+='## 当前运行的prompt是否唯一\n\n每一次模型调用只采用一套确定的System和User；程序按调用入口选择分支，不会把所有分支prompt一起发给模型。实体抽取仍分两轮；关系抽取只负责基线，反馈由 Add → Replace → Remove 三个 Agent 执行。每个阶段独立核查并接收前一步实际输出；各 Agent 内部采用核对问题、生成操作、复核输出三个阶段。问题由程序传递，模型只输出本阶段操作与 handoff。新事实按单句依据抽取。重建文本与比较当前由pipeline传入sentence_groups，使用分组版本；“非分组User”只是未传该参数时保留的另一条入口。分组是同一请求内按S1、S2等组织材料，不等于每句分别调用一次模型。\n\n'
 index+='## 各Agent文档与当前状态\n\n'+table(['Agent','完整Prompt文档','运行状态'],[(a,f'[{NAMES[a][:-3]}](<{a}/{NAMES[a]}>)',STATUS[a]) for a in NAMES])
 index+='## 当前分组调用的源码证据\n\n'+ref(pipeline_call('text_generation_agent'))+'；文本对比：'+ref(pipeline_call('text_comparison_agent'))+'；实体：'+ref(pipeline_call('entity_extraction_agent'))+'；基线关系：'+ref(pipeline_call('relationship_extraction_agent'))+'；三步反馈：'+ref(pipeline_call('feedback_pipeline'))+'。\n\n'
 index+='## 阅读方式\n\n每个文档按轮次/入口连续展示同一请求的System和User，每部分前仅用一行说明内容、相对文件路径和源码行号。固定内容全部展开，仅运行数据保留变量表达式。各Agent目录的Prompt完整模板.json保存不含阅读标注的角色结构。\n'

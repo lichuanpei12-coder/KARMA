@@ -22,12 +22,12 @@ hr{border:0;border-top:1px solid var(--line);margin:30px 0}.filelinks{display:fl
 footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid var(--line);padding-top:15px}
 @media(max-width:900px){.layout{display:block;padding:12px}aside{position:static;max-height:300px;margin-bottom:16px}main{padding:22px 18px}header{padding:18px}h1{font-size:23px}h2{font-size:21px}th,td{padding:8px}}
 @media print{body{background:#fff;font-size:11pt}.layout{display:block;padding:0}aside,header,.filelinks,footer{display:none}main{border:0;padding:0}.table-wrap{overflow:visible}pre,table{font-size:9pt}h2,h3{break-after:avoid}tr{break-inside:avoid}a{color:inherit;text-decoration:none}}
-</style></head><body><header><div class="label">评估Agent_完整Prompt</div><p>源码行号与实际调用分支 · 2026-11-04 · cf70432</p></header><div class="layout"><aside><h2>目录</h2><input id="toc-filter" type="search" placeholder="搜索轮次、System、User"><a href="../Prompt%E6%80%BB%E8%A7%88.html">全部Agent总览</a><a class="" href="#section-1">当前运行是否使用这套Prompt</a>
+</style></head><body><header><div class="label">评估Agent_完整Prompt</div><p>源码行号与实际调用分支 · 2026-11-04 · 4aa8730</p></header><div class="layout"><aside><h2>目录</h2><input id="toc-filter" type="search" placeholder="搜索轮次、System、User"><a href="../Prompt%E6%80%BB%E8%A7%88.html">全部Agent总览</a><a class="" href="#section-1">当前运行是否使用这套Prompt</a>
 <a class="" href="#section-2">展示说明</a>
 <a class="" href="#section-3">源码保留的System（当前不会发送给模型）</a>
 <a class="" href="#section-4">实际评估逻辑的源码</a>
 <a class="" href="#section-5">文档维护</a></aside><main><a href="%E8%AF%84%E4%BC%B0Agent_%E5%AE%8C%E6%95%B4Prompt.md">Markdown原文</a><h1 id="section-0">评估Agent_完整Prompt</h1>
-<p>整理日期：2026-11-04。代码版本：<code>cf704320cce3c94963a580263a706400cea55dab</code>。行号对应整理时源码；后续修改源码后应重新导出。</p>
+<p>整理日期：2026-11-04。代码版本：<code>4aa87308e976fd4290b2cb372eacdccf47e1af37</code>。行号对应整理时源码；后续修改源码后应重新导出。</p>
 <h2 id="section-1">当前运行是否使用这套Prompt</h2>
 <p>当前process执行Python加权评分和阈值筛选，不调用模型。源码System字符串不参与运行决策；实际逻辑以finalize_triples和_aggregate_scores为准，不能把字符串里的最低分条件当成已执行检查。</p>
 <p>源码入口：karma/agents/evaluator/agent.py 第84—125行。系统提示选择与消息发送见karma/core/base_agent.py 第132—135行；Responses模式同一内容见karma/core/base_agent.py 第263—267行。</p>

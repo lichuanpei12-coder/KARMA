@@ -22,14 +22,14 @@ hr{border:0;border-top:1px solid var(--line);margin:30px 0}.filelinks{display:fl
 footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid var(--line);padding-top:15px}
 @media(max-width:900px){.layout{display:block;padding:12px}aside{position:static;max-height:300px;margin-bottom:16px}main{padding:22px 18px}header{padding:18px}h1{font-size:23px}h2{font-size:21px}th,td{padding:8px}}
 @media print{body{background:#fff;font-size:11pt}.layout{display:block;padding:0}aside,header,.filelinks,footer{display:none}main{border:0;padding:0}.table-wrap{overflow:visible}pre,table{font-size:9pt}h2,h3{break-after:avoid}tr{break-inside:avoid}a{color:inherit;text-decoration:none}}
-</style></head><body><header><div class="label">文本对比Agent_完整Prompt</div><p>源码行号与实际调用分支 · 2026-11-04 · cf70432</p></header><div class="layout"><aside><h2>目录</h2><input id="toc-filter" type="search" placeholder="搜索轮次、System、User"><a href="../Prompt%E6%80%BB%E8%A7%88.html">全部Agent总览</a><a class="" href="#section-1">当前运行是否使用这套Prompt</a>
+</style></head><body><header><div class="label">文本对比Agent_完整Prompt</div><p>源码行号与实际调用分支 · 2026-11-04 · 4aa8730</p></header><div class="layout"><aside><h2>目录</h2><input id="toc-filter" type="search" placeholder="搜索轮次、System、User"><a href="../Prompt%E6%80%BB%E8%A7%88.html">全部Agent总览</a><a class="" href="#section-1">当前运行是否使用这套Prompt</a>
 <a class="" href="#section-2">展示说明</a>
 <a class="" href="#section-3">当前pipeline使用：按源句分组版本</a>
 <a class="" href="#section-4">附录：当前pipeline不使用的非分组入口</a>
 <a class="" href="#section-5">条件说明：UNASSIGNED出现时才添加</a>
 <a class="" href="#section-6">附录：非分组比较焦点</a>
 <a class="" href="#section-7">文档维护</a></aside><main><a href="%E6%96%87%E6%9C%AC%E5%AF%B9%E6%AF%94Agent_%E5%AE%8C%E6%95%B4Prompt.md">Markdown原文</a><h1 id="section-0">文本对比Agent_完整Prompt</h1>
-<p>整理日期：2026-11-04。代码版本：<code>cf704320cce3c94963a580263a706400cea55dab</code>。行号对应整理时源码；后续修改源码后应重新导出。</p>
+<p>整理日期：2026-11-04。代码版本：<code>4aa87308e976fd4290b2cb372eacdccf47e1af37</code>。行号对应整理时源码；后续修改源码后应重新导出。</p>
 <h2 id="section-1">当前运行是否使用这套Prompt</h2>
 <p>当前pipeline明确传入sentence_groups与reconstructions，因此采用compare_grouped。另一条compare路径只在不传分组或直接调用时使用，不会与当前版本叠加。</p>
 <p>源码入口：karma/agents/text_comparison/agent.py 第67—81行。系统提示选择与消息发送见karma/core/base_agent.py 第132—135行；Responses模式同一内容见karma/core/base_agent.py 第263—267行。</p>
@@ -44,12 +44,12 @@ footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid va
 <p><strong>User 消息</strong></p>
 <p>【来源：任务说明｜<a href="agent.py#L91">karma/agents/text_comparison/agent.py 第91—92行</a>】</p>
 <pre><code class="language-text">比较各源句及其对应的重建文本。源句指带 sentence_id 的原文句子。
-全文用于辅助理解上下文，差异按源句编号输出；每项事实按支持它的源句核对。
+全文用于定位源句，差异按源句编号输出；每项事实仅依据对应源句核对。
 </code></pre>
 <p>【来源：执行步骤｜<a href="agent.py#L93">karma/agents/text_comparison/agent.py 第93—125行</a>】</p>
 <pre><code class="language-text"># 执行步骤
 1. 对齐文本
-   读取同一 sentence_id 的完整源句 text_a 和重建文本 text_b，全文用于解释必要上下文。
+   读取同一 sentence_id 的完整源句 text_a 和重建文本 text_b，按该源句表达的事实比较。
    重建文本为空时仍检查源句关系；其他输入分组已有表达时说明其位置和来源是否待定位。
 2. 比较实体角色
    对每个动作分别检查谁执行、作用于谁，记录实体缺失、替换或角色混淆。

@@ -22,11 +22,11 @@ hr{border:0;border-top:1px solid var(--line);margin:30px 0}.filelinks{display:fl
 footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid var(--line);padding-top:15px}
 @media(max-width:900px){.layout{display:block;padding:12px}aside{position:static;max-height:300px;margin-bottom:16px}main{padding:22px 18px}header{padding:18px}h1{font-size:23px}h2{font-size:21px}th,td{padding:8px}}
 @media print{body{background:#fff;font-size:11pt}.layout{display:block;padding:0}aside,header,.filelinks,footer{display:none}main{border:0;padding:0}.table-wrap{overflow:visible}pre,table{font-size:9pt}h2,h3{break-after:avoid}tr{break-inside:avoid}a{color:inherit;text-decoration:none}}
-</style></head><body><header><div class="label">关系抽取Agent_完整Prompt</div><p>源码行号与实际调用分支 · 2026-11-04 · cf70432</p></header><div class="layout"><aside><h2>目录</h2><input id="toc-filter" type="search" placeholder="搜索轮次、System、User"><a href="../Prompt%E6%80%BB%E8%A7%88.html">全部Agent总览</a><a class="" href="#section-1">当前运行是否使用这套Prompt</a>
+</style></head><body><header><div class="label">关系抽取Agent_完整Prompt</div><p>源码行号与实际调用分支 · 2026-11-04 · 4aa8730</p></header><div class="layout"><aside><h2>目录</h2><input id="toc-filter" type="search" placeholder="搜索轮次、System、User"><a href="../Prompt%E6%80%BB%E8%A7%88.html">全部Agent总览</a><a class="" href="#section-1">当前运行是否使用这套Prompt</a>
 <a class="" href="#section-2">展示说明</a>
 <a class="" href="#section-3">第一轮：基线抽取</a>
 <a class="" href="#section-4">文档维护</a></aside><main><a href="%E5%85%B3%E7%B3%BB%E6%8A%BD%E5%8F%96Agent_%E5%AE%8C%E6%95%B4Prompt.md">Markdown原文</a><h1 id="section-0">关系抽取Agent_完整Prompt</h1>
-<p>整理日期：2026-11-04。代码版本：<code>cf704320cce3c94963a580263a706400cea55dab</code>。行号对应整理时源码；后续修改源码后应重新导出。</p>
+<p>整理日期：2026-11-04。代码版本：<code>4aa87308e976fd4290b2cb372eacdccf47e1af37</code>。行号对应整理时源码；后续修改源码后应重新导出。</p>
 <h2 id="section-1">当前运行是否使用这套Prompt</h2>
 <p>当前仅执行第一轮基线关系抽取。第二轮关系反馈已移到 feedback_add、feedback_replace、feedback_remove，由 FeedbackPipeline 依次调用。三元组分数由程序固定填入0.8，模型只输出事实和证据。</p>
 <p>源码入口：karma/agents/relationship_extraction/agent.py 第104—121行。系统提示选择与消息发送见karma/core/base_agent.py 第132—135行；Responses模式同一内容见karma/core/base_agent.py 第263—267行。</p>
@@ -41,7 +41,7 @@ footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid va
 <p>【来源：执行步骤｜<a href="agent.py#L27">karma/agents/relationship_extraction/agent.py 第27—47、74行</a>】</p>
 <pre><code class="language-text"># 执行步骤
 
-1. 逐句检查源文本支持的动作、状态、定义、组成、属性与比较关系。
+1. 逐句检查源文本支持的动作、状态、定义、组成、属性与比较关系，每条事实依据一个源句。
    同一对象的多个独立事实分别检查，抽取数量由源文事实决定。
 2. 将 head、relation、tail 作为完整事实判断，依据语法确定主客体及关系方向。
    在对应字段保留决定实体身份或核心关系含义的否定、情态、条件、数量、时间与范围。
@@ -58,15 +58,15 @@ footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid va
 5. 候选名单可能遗漏源句中的对象。依据源句确定关系的主体和对象，抽取源文支持的事实。
 6. 仅在完整事实含义相同时去重；主动被动改写可等价，但否定、情态、条件、
    数量或时间不同的陈述分别核实并保留各自的事实含义。
-7. 根据源文明确的对应关系理解指代、角色、方向和限定范围；对应关系不明确时保留原文代词。
+7. 根据同一源句内明确的对应关系理解指代、角色、方向和限定范围；对应关系不明确时保留原文代词。
    输出具有完整原文依据的事实。
-8. context 逐字复制源文连续上下文，
-   覆盖完整事实及其必要限定；跨句指代包含必要前文。
+8. source_sentence_ids 只填写支持本条事实的一个源句编号；context 逐字复制该句中的连续片段，
+   覆盖完整事实及其必要限定。
 </code></pre>
 <p>【来源：输出｜<a href="agent.py#L76">karma/agents/relationship_extraction/agent.py 第76—79行</a>】</p>
 <pre><code class="language-text"># 输出
-完整回复采用合法 JSON 数组，每项包含 head、relation、tail、context、source_sentence_ids。context 逐字复制源文中的连续片段，覆盖支持
-完整事实及其限定的上下文；涉及跨句指代时包含必要前文，不用改写代替证据。
+完整回复采用合法 JSON 数组，每项包含 head、relation、tail、context、source_sentence_ids。
+source_sentence_ids 只填一个有效源句编号，例如 [&quot;S1&quot;]。context 逐字复制该句中支持完整事实及必要限定的连续片段。
 无可抽取事实时返回 []。
 </code></pre>
 <p>【来源：示例｜<a href="agent.py#L81">karma/agents/relationship_extraction/agent.py 第81—98行</a>】</p>
@@ -104,7 +104,7 @@ footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid va
 <p>【来源：源句编号｜<a href="agent.py#L135">karma/agents/relationship_extraction/agent.py 第135—140行</a>】</p>
 <pre><code class="language-text"># 源句编号
 源句是下列带 sentence_id 的原文句子。每条三元组须额外输出 source_sentence_ids
-数组，关联直接支持该事实的源句；跨句事实可以关联多句。全文仅用于理解上下文。
+数组，只填写直接支持该事实的一个源句编号。每条事实与证据均在该源句内核对。
 &lt;source_sentences_json&gt;
 {json.dumps(sentences, ensure_ascii=False, indent=2)}
 &lt;/source_sentences_json&gt;

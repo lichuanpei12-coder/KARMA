@@ -7,9 +7,6 @@ def context_from_prompt(prompt):
 
 def no_changes(context):
     result = {context['stage']: [], 'handoff': []}
-    if context['handoff']:
-        result['handoff_results'] = [dict(id=h['id'], status='still_open', reason='retained for review')
-                                     for h in context['handoff']]
     return result
 
 

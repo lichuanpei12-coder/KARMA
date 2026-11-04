@@ -89,10 +89,10 @@ class TextComparisonAgent(BaseAgent):
                       text_a=g['text'], text_b=recon.get(g['sentence_id'], {}).get('text_b', ''),
                       triple_indices=[t['index'] for t in g['triples']]) for g in groups]
         prompt = """比较各源句及其对应的重建文本。源句指带 sentence_id 的原文句子。
-全文用于辅助理解上下文，差异按源句编号输出；每项事实按支持它的源句核对。
+全文用于定位源句，差异按源句编号输出；每项事实仅依据对应源句核对。
 # 执行步骤
 1. 对齐文本
-   读取同一 sentence_id 的完整源句 text_a 和重建文本 text_b，全文用于解释必要上下文。
+   读取同一 sentence_id 的完整源句 text_a 和重建文本 text_b，按该源句表达的事实比较。
    重建文本为空时仍检查源句关系；其他输入分组已有表达时说明其位置和来源是否待定位。
 2. 比较实体角色
    对每个动作分别检查谁执行、作用于谁，记录实体缺失、替换或角色混淆。

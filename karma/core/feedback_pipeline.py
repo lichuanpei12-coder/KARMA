@@ -32,9 +32,9 @@ class FeedbackPipeline:
             input_version = version
             indexed = [dict(index=i, **prompt_triple(t)) for i, t in enumerate(current)]
             received = [p for p in pending if p['target'] == stage
-                        and p['status'] in ('still_open', 'uncertain')]
+                        and p['delivery_status'] in ('queued', 'delivery_failed')]
             # Historical IDs and complete execution records stay in the audit.
-            hints = [{k: copy.deepcopy(p[k]) for k in ('id', 'indices', 'source_sentence_ids', 'problem')}
+            hints = [{k: copy.deepcopy(p[k]) for k in ('indices', 'source_sentence_ids', 'problem')}
                      for p in received]
             changes = [{'stage': h['stage'], 'changes': [
                 {'operation': a['operation'], 'before': _fact(a['before']),
@@ -62,10 +62,6 @@ class FeedbackPipeline:
             try:
                 reply = agent.process(context)
                 validate_reply(reply, stage, current, sentences)
-                known = {p['id'] for p in received}
-                reported = [r.get('id') for r in reply.get('handoff_results', [])]
-                if len(reported) != len(set(reported)) or set(reported) != known:
-                    raise ValueError('handoff_results must address every received issue exactly once')
                 revised, application = apply_operations(stage, current, reply, sentences)
             except Exception as exc:
                 revised = copy.deepcopy(current)
@@ -74,6 +70,7 @@ class FeedbackPipeline:
             version = f'V{len(stages) + 1}'
             record = {'pass_id': pass_id, 'stage': stage, 'repair_pass': repair,
                       'input_version': input_version, 'output_version': version,
+                      'received_handoff_ids': [p['id'] for p in received],
                       'input': before, 'context': copy.deepcopy(context),
                       **copy.deepcopy(getattr(agent, 'last_call', {})),
                       'reply': copy.deepcopy(reply), 'application': application,
@@ -81,21 +78,25 @@ class FeedbackPipeline:
                       'elapsed': time.perf_counter() - started}
             stages.append(record)
             valid = application['status'] not in ('failed', 'rejected_batch')
+            for item in received:
+                # This records delivery/execution, never semantic resolution.
+                item['delivery_status'] = 'delivered' if valid else 'delivery_failed'
+                item['delivery_attempts'].append({'pass_id': pass_id, 'application_status': application['status']})
             if valid:
-                for answer in reply.get('handoff_results', []):
-                    item = next(p for p in received if p['id'] == answer['id'])
-                    item['last_assessment'] = copy.deepcopy(answer)
-                    item['status'] = answer['status'] if not application['rejected'] else 'still_open'
                 for issue in reply['handoff']:
-                    pending.append({**copy.deepcopy(issue), 'id': f'{pass_id}:H{len(pending)}',
+                    pending.append({**{k: copy.deepcopy(issue[k]) for k in
+                                       ('target', 'source_sentence_ids', 'indices', 'problem')},
+                                    'id': f'{pass_id}:H{len(pending)}',
                                     'origin_version': input_version,
-                                    'origin_indices': list(issue['indices']), 'status': 'still_open'})
+                                    'origin_indices': list(issue['indices']),
+                                    'delivery_status': 'queued' if issue['target'] in self.agents else 'needs_review',
+                                    'semantic_status': 'unverified', 'delivery_attempts': []})
             if not valid or application['rejected']:
                 pending.append({'id': f'{pass_id}:failure', 'target': 'review',
                                 'indices': [], 'origin_indices': [], 'origin_version': input_version,
                                 'source_sentence_ids': [],
                                 'problem': f'{stage} has unapplied operations: {application.get("reason", application["rejected"])}',
-                                'status': 'still_open'})
+                                'delivery_status': 'needs_review', 'semantic_status': 'unverified', 'delivery_attempts': []})
             for item in pending:
                 refs = item.get('indices', [])
                 item['indices'] = sorted({j for i in refs for j in application['index_map'].get(i, [])})
@@ -110,16 +111,19 @@ class FeedbackPipeline:
 
         for stage in ('add', 'replace', 'remove'):
             run(stage)
-        # At most one repair sweep, only for explicitly unresolved Add/Replace work.
-        repair_targets = {p['target'] for p in pending if p['status'] in ('still_open', 'uncertain')}
+        # At most one repair sweep, for Add/Replace hints not yet delivered successfully.
+        repair_targets = {p['target'] for p in pending if p['delivery_status'] in ('queued', 'delivery_failed')}
         if repair_targets & {'add', 'replace'}:
             if 'add' in repair_targets:
                 run('add', True)
             run('replace', True)
             run('remove', True)
-        self.last_revision = {'mode': 'three_step_feedback', 'protocol': 'task_outputs_v2', 'score_policy': 'fixed_0.8', 'stages': stages,
-                              'pending_issues': pending,
-                              'unresolved_issues': [p for p in pending if p['status'] not in ('resolved', 'disagreed')],
+        self.last_revision = {'mode': 'three_step_feedback', 'protocol': 'task_outputs_v3', 'score_policy': 'fixed_0.8', 'stages': stages,
+                              'handoff_log': pending,
+                              'undelivered_issues': [p for p in pending if p['delivery_status'] in ('queued', 'delivery_failed')],
+                              'review_issues': [p for p in pending if p['delivery_status'] == 'needs_review'],
+                              'unverified_issues': copy.deepcopy(pending),
+                              'resolution_policy': 'delivery_does_not_confirm_semantic_resolution',
                               'baseline_count': len(triples), 'final_count': len(current),
                               'status': 'completed_with_errors' if any(s['application']['status'] in
                                   ('failed', 'rejected_batch', 'partial') for s in stages) else 'completed'}

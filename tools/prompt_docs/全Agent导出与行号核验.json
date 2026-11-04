@@ -1,5 +1,5 @@
 {
-  "git_head": "cf704320cce3c94963a580263a706400cea55dab",
+  "git_head": "4aa87308e976fd4290b2cb372eacdccf47e1af37",
   "documents": [
     "karma/agents/Prompt总览.md",
     "karma/agents/ingestion/摄入Agent_完整Prompt.md",
@@ -973,7 +973,7 @@
         [
           "karma/agents/feedback_add/agent.py",
           6,
-          14
+          19
         ]
       ]
     },
@@ -984,7 +984,7 @@
         [
           "karma/agents/feedback_common.py",
           6,
-          18
+          19
         ]
       ]
     },
@@ -994,19 +994,8 @@
       "source_spans": [
         [
           "karma/agents/feedback_add/agent.py",
-          16,
-          20
-        ]
-      ]
-    },
-    {
-      "document": "karma/agents/feedback_add/AddAgent_完整Prompt.md",
-      "label": "User 消息：收到的问题（有问题时添加）",
-      "source_spans": [
-        [
-          "karma/agents/feedback_common.py",
-          20,
-          26
+          21,
+          25
         ]
       ]
     },
@@ -1016,8 +1005,8 @@
       "source_spans": [
         [
           "karma/agents/feedback_add/agent.py",
-          22,
-          39
+          27,
+          44
         ]
       ]
     },
@@ -1027,8 +1016,8 @@
       "source_spans": [
         [
           "karma/agents/feedback_common.py",
-          42,
-          45
+          33,
+          36
         ]
       ]
     },
@@ -1050,7 +1039,7 @@
         [
           "karma/agents/feedback_replace/agent.py",
           6,
-          18
+          23
         ]
       ]
     },
@@ -1061,7 +1050,7 @@
         [
           "karma/agents/feedback_common.py",
           6,
-          18
+          19
         ]
       ]
     },
@@ -1071,19 +1060,8 @@
       "source_spans": [
         [
           "karma/agents/feedback_replace/agent.py",
-          20,
-          26
-        ]
-      ]
-    },
-    {
-      "document": "karma/agents/feedback_replace/ReplaceAgent_完整Prompt.md",
-      "label": "User 消息：收到的问题（有问题时添加）",
-      "source_spans": [
-        [
-          "karma/agents/feedback_common.py",
-          20,
-          26
+          25,
+          31
         ]
       ]
     },
@@ -1093,8 +1071,8 @@
       "source_spans": [
         [
           "karma/agents/feedback_replace/agent.py",
-          28,
-          65
+          33,
+          70
         ]
       ]
     },
@@ -1104,8 +1082,8 @@
       "source_spans": [
         [
           "karma/agents/feedback_common.py",
-          42,
-          45
+          33,
+          36
         ]
       ]
     },
@@ -1127,40 +1105,29 @@
         [
           "karma/agents/feedback_remove/agent.py",
           6,
-          13
-        ]
-      ]
-    },
-    {
-      "document": "karma/agents/feedback_remove/RemoveAgent_完整Prompt.md",
-      "label": "User 消息：表达要求",
-      "source_spans": [
-        [
-          "karma/agents/feedback_common.py",
-          6,
-          18
-        ]
-      ]
-    },
-    {
-      "document": "karma/agents/feedback_remove/RemoveAgent_完整Prompt.md",
-      "label": "User 消息：本阶段输出",
-      "source_spans": [
-        [
-          "karma/agents/feedback_remove/agent.py",
-          15,
           19
         ]
       ]
     },
     {
       "document": "karma/agents/feedback_remove/RemoveAgent_完整Prompt.md",
-      "label": "User 消息：收到的问题（有问题时添加）",
+      "label": "User 消息：表达要求",
       "source_spans": [
         [
           "karma/agents/feedback_common.py",
-          20,
-          26
+          6,
+          19
+        ]
+      ]
+    },
+    {
+      "document": "karma/agents/feedback_remove/RemoveAgent_完整Prompt.md",
+      "label": "User 消息：本阶段输出",
+      "source_spans": [
+        [
+          "karma/agents/feedback_remove/agent.py",
+          21,
+          25
         ]
       ]
     },
@@ -1170,8 +1137,8 @@
       "source_spans": [
         [
           "karma/agents/feedback_remove/agent.py",
-          21,
-          34
+          27,
+          40
         ]
       ]
     },
@@ -1181,30 +1148,30 @@
       "source_spans": [
         [
           "karma/agents/feedback_common.py",
-          42,
-          45
+          33,
+          36
         ]
       ]
     }
   ],
   "source_files": {
     "karma/agents/conflict_resolution/agent.py": "bda5d1a67b6b7470b62f69c3c92f81c48bf85ea87ca397f97e73171b27f129f3",
-    "karma/agents/entity_extraction/agent.py": "8358c33987bb90adab8a15c9704603babe53048621dcba9b74061cd710076b1d",
+    "karma/agents/entity_extraction/agent.py": "f13ff650b8a7c6ee0f1fbfddfb956065df40ddc3518b668fc481643dabcf5309",
     "karma/agents/evaluator/agent.py": "a53ac58714879b59425efaa36648faf2a7890539522cefe8690fcb70098d8916",
-    "karma/agents/feedback_add/agent.py": "2506413136c6f67befe1df34f590495074ba1ecaffbf8f37a599a4efc4a58ed3",
-    "karma/agents/feedback_remove/agent.py": "1b12b74d78098c791eb7b3c4566c8c28a55ff97f53687037dbd0ebb35e75bd03",
-    "karma/agents/feedback_replace/agent.py": "e9ecabf9b1c215a0380bae2b97720c954cd4a6f512a1ed9da481dc7996b78835",
+    "karma/agents/feedback_add/agent.py": "0d1b209024f2782bbbdf182617b43f49ccd5ff2fadaaeac887f45c4affd50d00",
+    "karma/agents/feedback_remove/agent.py": "be4c8595a24aa11ef7328be43d3f17236f0efae1ede1488db72f31c3ef360127",
+    "karma/agents/feedback_replace/agent.py": "00de2d0947083720f069008080b130c1858c0c06ed4869dc4ba725aedeaf545b",
     "karma/agents/ingestion/agent.py": "6d9824495b2fe29bbf3f2b889794d0df766a0c85028698fcf92b7da2a6c699e0",
     "karma/agents/reader/agent.py": "4f484a75f9a6ef1303a3f9184008ac507da4a94724271e184b881016dca81513",
-    "karma/agents/relationship_extraction/agent.py": "5fdd059d170d2047c4fcec4f3fca4318f5932eb1166c3c4b690a7ea59b38fc04",
+    "karma/agents/relationship_extraction/agent.py": "8e0139a3c67a8eb4238d74b0e9a28957d3c50388ea8e90e1688adea9f4a81699",
     "karma/agents/schema_alignment/agent.py": "663df494e41ae54189211e9b3173f9a9a91fbfc10ed91a2adb14dbafdf956a4d",
     "karma/agents/summarizer/agent.py": "ef38d04dab8380c0d65a2fb1e000c955d50440b04a6edc114a2816940b6c2bac",
-    "karma/agents/text_comparison/agent.py": "59c2b809338aac87c19c51b5e3b6f750d96e76a98e8cff410c548264abeaf4bf",
+    "karma/agents/text_comparison/agent.py": "1382217f1f2e8c8bcea4314ac313ed02ea2cac311690023b7ad3d17497c07765",
     "karma/agents/text_generation/agent.py": "aee6cb17b123563148b7385f6d737407c1e0f67243e6527a27e91bf44cacee93",
-    "karma/agents/triple_splitting/agent.py": "c257f9967576d18be0b651452e2cd7fa6faae9cb4dc62550bc4b7651dde63750",
+    "karma/agents/triple_splitting/agent.py": "377f6778d1bf099e5bfb259d5ebca116fdbdf616e8d1f859f6effdd46258d319",
     "karma/core/sentence_groups.py": "8cfc3eac4f4787df519b73f121a8df45ecfe85b29664385492809e9d0afde5fe",
-    "karma/core/pipeline.py": "35f50272d771337fbf34b3bbbc5ec9b7bba47af18498c297f9def47730b6ee03",
-    "karma/agents/feedback_common.py": "8b4848fc334b7d9f28fcc8965ed317d01d7e332b435d96de6df99e3a8b15ca9f"
+    "karma/core/pipeline.py": "1d8223f58ebb4e7bcebce75b1e826118be17cbeaa3a87bc616bc700ac8459c96",
+    "karma/agents/feedback_common.py": "ff52e45099a57cfd901d1832f1328c2035d96b5ef24bc35a0a4367037efa4b45"
   },
   "message_examples": [
     "karma/agents/ingestion/Prompt完整模板.json",

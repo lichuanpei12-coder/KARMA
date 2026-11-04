@@ -59,7 +59,7 @@ class StagedPipelineTests(unittest.TestCase):
             if name == 'EntityExtractionAgent':
                 return reply([] if empty else [{'mention': 'Controller'}, {'mention': 'ECU'}])
             if name == 'RelationshipExtractionAgent':
-                return reply([] if empty else [fact()])
+                return reply([] if empty else [fact(context='Controller may query ECU.', source_sentence_ids=['S1'])])
             if name in ('FeedbackAddAgent', 'FeedbackReplaceAgent', 'FeedbackRemoveAgent'):
                 context = context_from_prompt(prompt)
                 value = no_changes(context)

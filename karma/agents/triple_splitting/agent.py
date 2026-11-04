@@ -45,7 +45,7 @@ class TripleSplittingAgent(TripleRevisionMixin, BaseAgent):
 
 # 执行步骤
 1. 定位源文依据
-   逐条读取当前三元组，找到支持它的完整源句；后续拆分围绕该条目承载的关系展开。
+   逐条读取当前三元组，找到支持它的完整源句；每条拆分结果依据该句，拆分围绕该条目承载的关系展开。
 
 2. 找出并列部分
    分别检查 head、relation、tail 中的 and、both ... and、as well as 和逗号枚举。

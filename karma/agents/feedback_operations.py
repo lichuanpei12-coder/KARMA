@@ -6,17 +6,12 @@ from karma.core.triple_scores import FIXED_TRIPLE_SCORE
 
 def validate_reply(reply, stage, triples, sentences):
     required = {stage, 'handoff'}
-    allowed = required | {'handoff_results'}
+    allowed = required
     if not isinstance(reply, dict) or not required <= reply.keys() or reply.keys() - allowed:
-        raise ValueError('Reply must contain only this stage operations, handoff and optional handoff_results')
+        raise ValueError('Reply must contain only this stage operations and handoff')
     for key in reply:
         if not isinstance(reply[key], list) or any(not isinstance(x, dict) for x in reply[key]):
             raise ValueError(f'{key} must be an array of objects')
-    for item in reply.get('handoff_results', []):
-        if item.get('status') not in ('resolved', 'still_open', 'disagreed', 'uncertain'):
-            raise ValueError('Invalid handoff result status')
-        _text(item, 'id')
-        _text(item, 'reason')
     known = {s['sentence_id'] for s in sentences}
     for item in reply['handoff']:
         _text(item, 'problem')
@@ -50,10 +45,9 @@ def _triple(item, stage, sentences):
     evidence = _text(item, 'evidence')
     ids = item.get('source_sentence_ids')
     known = {s['sentence_id']: s['text'] for s in sentences}
-    if (not isinstance(ids, list) or not ids or any(not isinstance(s, str) or s not in known for s in ids)
-            or len(ids) != len(set(ids))):
-        raise ValueError('New triple must reference valid source sentence IDs')
-    source = ' '.join(s['text'] for s in sentences if s['sentence_id'] in ids)
+    if (not isinstance(ids, list) or len(ids) != 1 or any(not isinstance(s, str) or s not in known for s in ids)):
+        raise ValueError('New triple must reference exactly one valid source sentence ID')
+    source = known[ids[0]]
     if evidence not in source:
         raise ValueError('Evidence must quote the referenced source sentences verbatim')
     return KnowledgeTriple(**spo, confidence=FIXED_TRIPLE_SCORE, clarity=FIXED_TRIPLE_SCORE,
@@ -87,7 +81,7 @@ def apply_operations(stage, triples, reply, sentences):
                     if keep == index:
                         raise ValueError('Cannot keep the deleted triple itself')
                     evidence = _text(op, 'evidence')
-                    if evidence not in ' '.join(s['text'] for s in sentences):
+                    if not any(evidence in s['text'] for s in sentences):
                         raise ValueError('Deletion evidence must quote the source')
                     prepared.append((op, index, keep))
         except (ValueError, TypeError) as exc:

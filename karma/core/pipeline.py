@@ -684,7 +684,7 @@ class KARMAPipeline:
                 "relevance_threshold": relevance_threshold, "domain": domain,
                 "use_summarizer": bool(os.environ.get("KARMA_USE_SUMMARIZER")),
                 "feedback_grouping": "source_sentence_groups_v1",
-                "feedback_flow": "add_replace_remove_v2",
+                "feedback_flow": "add_replace_remove_v3",
                 "triple_score_policy": "fixed_0.8",
                 "agent_code_sha256": hashes}
 

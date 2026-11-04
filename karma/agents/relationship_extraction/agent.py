@@ -24,7 +24,7 @@ from karma.agents.extraction_support import (
 
 # 第一轮关系抽取。第二轮由 feedback_add/feedback_replace/feedback_remove 处理。
 FACT_RULES = """
-1. 逐句检查源文本支持的动作、状态、定义、组成、属性与比较关系。
+1. 逐句检查源文本支持的动作、状态、定义、组成、属性与比较关系，每条事实依据一个源句。
    同一对象的多个独立事实分别检查，抽取数量由源文事实决定。
 2. 将 head、relation、tail 作为完整事实判断，依据语法确定主客体及关系方向。
    在对应字段保留决定实体身份或核心关系含义的否定、情态、条件、数量、时间与范围。
@@ -41,10 +41,10 @@ FACT_RULES = """
 5. 候选名单可能遗漏源句中的对象。依据源句确定关系的主体和对象，抽取源文支持的事实。
 6. 仅在完整事实含义相同时去重；主动被动改写可等价，但否定、情态、条件、
    数量或时间不同的陈述分别核实并保留各自的事实含义。
-7. 根据源文明确的对应关系理解指代、角色、方向和限定范围；对应关系不明确时保留原文代词。
+7. 根据同一源句内明确的对应关系理解指代、角色、方向和限定范围；对应关系不明确时保留原文代词。
    输出具有完整原文依据的事实。
-8. context 逐字复制源文连续上下文，
-   覆盖完整事实及其必要限定；跨句指代包含必要前文。
+8. source_sentence_ids 只填写支持本条事实的一个源句编号；context 逐字复制该句中的连续片段，
+   覆盖完整事实及其必要限定。
 """
 
 logger = logging.getLogger(__name__)
@@ -74,8 +74,8 @@ class RelationshipExtractionAgent(TripleRevisionMixin, BaseAgent):
 # 执行步骤
 """ + FACT_RULES + """
 # 输出
-完整回复采用合法 JSON 数组，每项包含 head、relation、tail、context、source_sentence_ids。context 逐字复制源文中的连续片段，覆盖支持
-完整事实及其限定的上下文；涉及跨句指代时包含必要前文，不用改写代替证据。
+完整回复采用合法 JSON 数组，每项包含 head、relation、tail、context、source_sentence_ids。
+source_sentence_ids 只填一个有效源句编号，例如 ["S1"]。context 逐字复制该句中支持完整事实及必要限定的连续片段。
 无可抽取事实时返回 []。
 
 # 示例
@@ -134,7 +134,7 @@ class RelationshipExtractionAgent(TripleRevisionMixin, BaseAgent):
 
 # 源句编号
 源句是下列带 sentence_id 的原文句子。每条三元组须额外输出 source_sentence_ids
-数组，关联直接支持该事实的源句；跨句事实可以关联多句。全文仅用于理解上下文。
+数组，只填写直接支持该事实的一个源句编号。每条事实与证据均在该源句内核对。
 <source_sentences_json>
 {json.dumps(sentences, ensure_ascii=False, indent=2)}
 </source_sentences_json>
@@ -160,7 +160,19 @@ class RelationshipExtractionAgent(TripleRevisionMixin, BaseAgent):
                 if triple is None:
                     rejected.append({"index": index, "reason": "invalid triple", "item": item})
                     continue
+                raw_ids = item.get('source_sentence_ids')
+                known = {s['sentence_id']: s['text'] for s in sentences}
+                if raw_ids is not None and (not isinstance(raw_ids, list) or len(raw_ids) != 1
+                        or not isinstance(raw_ids[0], str) or raw_ids[0] not in known):
+                    rejected.append({'index': index, 'reason': 'expected one valid source sentence ID', 'item': item})
+                    continue
                 attach_sources(triple, sentences, item)
+                if len(triple.source_sentence_ids) != 1:
+                    rejected.append({'index': index, 'reason': 'source must resolve to one sentence', 'item': item})
+                    continue
+                if not triple.evidence or triple.evidence not in known[triple.source_sentence_ids[0]]:
+                    rejected.append({'index': index, 'reason': 'context must quote the single source sentence', 'item': item})
+                    continue
                 for key in SCORE_FIELDS:
                     setattr(triple, key, FIXED_TRIPLE_SCORE)
                 triples.append(triple)

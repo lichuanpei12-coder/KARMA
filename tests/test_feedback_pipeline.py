@@ -61,7 +61,6 @@ class FeedbackTests(unittest.TestCase):
             elif ctx['stage'] == 'replace':
                 self.assertEqual(len(ctx['current_collection']['triples']),4)
                 self.assertEqual(ctx['current_collection']['triples'][3]['relation'],'reports')
-                r['handoff_results'] = [dict(id=h['id'],status='resolved',reason='corrected') for h in ctx['handoff']]
                 r['replace'] = [dict(index=0,issue_id='R1',reason='split',new_triples=[
                     self.fact('The system','includes','a module','S1'), self.fact('a module','processes','data','S1')]),
                     dict(index=1,issue_id='R1',reason='correct object',new_triples=[self.fact('The module','stores','records','S2')])]
@@ -72,14 +71,15 @@ class FeedbackTests(unittest.TestCase):
                 self.assertEqual(note['indices'],[2,3])
                 self.assertNotIn('origin_indices',note)
                 self.assertEqual(len(ctx['handoff']), 1)
-                r['handoff_results']=[dict(id=h['id'],status='resolved',reason='handled') for h in ctx['handoff']]
                 r['remove']=[dict(issue_id='D1',index=3,keep_index=2,reason='same fact',evidence=self.sentences[1]['text'])]
             return r
         final, contexts=self.run_flow(respond)
         self.assertEqual([c['stage'] for c in contexts],['add','replace','remove'])
         self.assertEqual([t.relation for t in final],['includes','processes','stores','reports'])
         self.assertEqual([t.source_sentence_ids for t in final],[['S1'],['S1'],['S2'],['S3']])
-        self.assertEqual(self.pipe.last_revision['unresolved_issues'],[])
+        self.assertEqual(self.pipe.last_revision['undelivered_issues'],[])
+        self.assertTrue(self.pipe.last_revision['unverified_issues'])
+        self.assertTrue(all(h['delivery_status']=='delivered' for h in self.pipe.last_revision['handoff_log']))
         for c in contexts:self.assertEqual(c['comparison_bundle']['basis_version'],'V0')
         audit=self.pipe.last_revision['stages'][1]
         self.assertEqual(audit['application']['index_map'][0],[0,1])
@@ -112,11 +112,13 @@ class FeedbackTests(unittest.TestCase):
         def respond(c):
             r=no_changes(c)
             if c['stage']=='remove':
-                r['remove']=[dict(index=i,keep_index=j,issue_id='D',reason='duplicate',evidence=self.text) for i,j in [(1,2),(2,1)]]
+                r['remove']=[dict(index=i,keep_index=j,reason='duplicate',evidence=self.sentences[1]['text']) for i,j in [(1,2),(2,1)]]
             return r
         final,_=self.run_flow(respond)
         self.assertEqual(final,fixed_score_copy(self.initial))
         self.assertEqual(self.pipe.last_revision['stages'][2]['application']['status'],'rejected_batch')
+        self.assertTrue(any(r['reason']=='keep_index is also deleted'
+                            for r in self.pipe.last_revision['stages'][2]['application']['rejected']))
 
     def test_late_replace_request_runs_only_one_bounded_repair_sweep(self):
         def respond(c):
@@ -125,15 +127,14 @@ class FeedbackTests(unittest.TestCase):
                 r['handoff']=[dict(target='replace',indices=[1],problem='object wrong',source_sentence_ids=['S2'])]
             if c['stage']=='replace' and c['repair_pass']:
                 r['replace']=[dict(index=1,issue_id='R',reason='fix object',new_triples=[self.fact('The module','stores','records','S2')])]
-                r['handoff_results']=[dict(id=h['id'],status='resolved',reason='fixed') for h in c['handoff']]
-            if c['stage']=='remove' and c['repair_pass']:
-                r['handoff_results']=[dict(id=h['id'],status='resolved',reason='fixed') for h in c['handoff']]
             return r
         final,contexts=self.run_flow(respond)
         self.assertEqual([c['stage'] for c in contexts],['add','replace','remove','replace','remove'])
         self.assertEqual(final[1].tail,'records')
         self.assertEqual(self.pipe.snapshots['after_replace'][1].tail,'files')
-        self.assertEqual(self.pipe.last_revision['unresolved_issues'],[])
+        self.assertEqual(self.pipe.last_revision['undelivered_issues'],[])
+        self.assertTrue(self.pipe.last_revision['unverified_issues'])
+        self.assertTrue(all(h['delivery_status']=='delivered' for h in self.pipe.last_revision['handoff_log']))
 
     def test_unresolved_request_does_not_loop(self):
         def respond(c):
@@ -143,7 +144,7 @@ class FeedbackTests(unittest.TestCase):
             return r
         _,contexts=self.run_flow(respond)
         self.assertEqual(len(contexts),5)
-        self.assertTrue(self.pipe.last_revision['unresolved_issues'])
+        self.assertTrue(self.pipe.last_revision['undelivered_issues'])
 
     def test_wrong_stage_operation_is_rejected(self):
         def respond(c):
@@ -163,16 +164,19 @@ class FeedbackTests(unittest.TestCase):
                 self.assertEqual(result,self.initial)
                 self.assertEqual(audit['status'],'partial')
 
-    def test_received_handoff_must_be_answered(self):
+    def test_received_handoff_requires_no_reply_and_is_not_semantically_closed(self):
         def respond(c):
             r=no_changes(c)
             if c['stage']=='add':
                 r['handoff']=[dict(target='replace',indices=[0],source_sentence_ids=['S1'],problem='check nested relation')]
-            if c['stage']=='replace':r.pop('handoff_results',None)
             return r
         final,_=self.run_flow(respond)
         self.assertEqual(final,fixed_score_copy(self.initial))
-        self.assertEqual(self.pipe.last_revision['stages'][1]['application']['status'],'failed')
+        self.assertEqual(self.pipe.last_revision['stages'][1]['application']['status'],'no_changes')
+        note=self.pipe.last_revision['handoff_log'][0]
+        self.assertEqual(note['delivery_status'],'delivered')
+        self.assertEqual(note['semantic_status'],'unverified')
+        self.assertEqual(len(self.pipe.last_revision['stages']),3)
 
     def test_each_new_replacement_keeps_evidence_and_gets_fixed_score(self):
         children=[self.fact('The system','includes','a module','S1'),self.fact('a module','processes','data','S1')]
@@ -225,18 +229,71 @@ class FeedbackTests(unittest.TestCase):
         self.assertEqual(final, fixed_score_copy(self.initial))
         self.assertEqual(self.pipe.last_revision['stages'][0]['application']['status'], 'failed')
 
-    def test_conditional_handoff_instructions_only_for_receiving_stage(self):
+    def test_only_target_stage_receives_hints_without_tracking_fields(self):
         def respond(c):
             r = no_changes(c)
             if c['stage'] == 'add':
                 r['handoff'] = [dict(target='replace', indices=[0], source_sentence_ids=['S1'], problem='nested relation')]
-            if c['stage'] == 'replace':
-                r['handoff_results'] = [dict(id=h['id'], status='disagreed', reason='source checked') for h in c['handoff']]
             return r
         _, contexts = self.run_flow(respond)
         self.assertEqual([bool(c['handoff']) for c in contexts], [False, True, False])
         messages = [s['messages'][1]['content'] for s in self.pipe.last_revision['stages']]
-        self.assertEqual(['# 收到的问题' in m for m in messages], [False, True, False])
+        self.assertTrue(all('handoff_results' not in m and '# 收到的问题' not in m for m in messages))
+        self.assertEqual(set(contexts[1]['handoff'][0]), {'indices','source_sentence_ids','problem'})
+
+    def test_failed_delivery_is_retried_once_and_never_claims_resolution(self):
+        def respond(c):
+            r = no_changes(c)
+            if c['stage'] == 'add':
+                r['handoff'] = [dict(target='replace', indices=[0], source_sentence_ids=['S1'], problem='nested relation')]
+            if c['stage'] == 'replace' and not c['repair_pass']:
+                return ('invalid response', 0, 0, 0)
+            return r
+        _, contexts = self.run_flow(respond)
+        self.assertEqual([c['stage'] for c in contexts], ['add','replace','remove','replace','remove'])
+        note = self.pipe.last_revision['handoff_log'][0]
+        self.assertEqual([a['application_status'] for a in note['delivery_attempts']], ['failed','no_changes'])
+        self.assertEqual(note['delivery_status'], 'delivered')
+        self.assertEqual(note['semantic_status'], 'unverified')
+        self.assertTrue(self.pipe.last_revision['review_issues'])
+
+    def test_backward_add_handoff_has_at_most_six_calls(self):
+        def respond(c):
+            r = no_changes(c)
+            if c['stage'] == 'remove':
+                r['handoff'] = [dict(target='add', indices=[], source_sentence_ids=['S3'], problem='reports missing')]
+            return r
+        _, contexts = self.run_flow(respond)
+        self.assertEqual([c['stage'] for c in contexts], ['add','replace','remove','add','replace','remove'])
+        self.assertEqual(len(self.pipe.last_revision['undelivered_issues']), 1)
+        self.assertEqual(self.pipe.last_revision['undelivered_issues'][0]['target'], 'add')
+
+    def test_new_fact_requires_one_sentence_and_evidence_inside_it(self):
+        valid = self.fact('The module','reports','status','S3')
+        variants = [dict(valid, source_sentence_ids=['S2','S3']),
+                    dict(valid, evidence=self.text),
+                    dict(valid, evidence=self.sentences[0]['text'])]
+        for item in variants:
+            with self.subTest(item=item):
+                result, audit = apply_operations('add', self.initial, {'add':[dict(item,reason='missing')]}, self.sentences)
+                self.assertEqual(result,self.initial)
+                self.assertEqual(audit['status'],'partial')
+
+    def test_baseline_rejects_combined_sentences_and_recovers_one_exact_source(self):
+        agent = RelationshipExtractionAgent(None,'offline')
+        base = dict(head='The module',relation='stores',tail='records',context=self.sentences[1]['text'])
+        invalid = [dict(base, source_sentence_ids=['S1','S2']),
+                   dict(base, source_sentence_ids=['S2'], context=self.text)]
+        with patch.object(agent,'_make_llm_call', return_value=(json.dumps(invalid+[base]),0,0,0)):
+            result = agent.process([self.text],[],sentences=self.sentences)
+        self.assertEqual(len(result),1)
+        self.assertEqual(result[0].source_sentence_ids,['S2'])
+        self.assertEqual(len(agent.last_extraction[0]['rejected']),2)
+
+    def test_existing_multiple_sources_are_preserved(self):
+        self.initial[0].source_sentence_ids = ['S1','S2']
+        final, _ = self.run_flow(no_changes)
+        self.assertEqual(final[0].source_sentence_ids,['S1','S2'])
 
 
 if __name__ == '__main__':
