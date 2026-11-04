@@ -2,7 +2,7 @@
 
 2026-11-04。当前运行版本；固定提示全部展开，只有业务输入使用源码表达式表示。示例是固定 few-shot，不是历史运行日志。
 
-当前反馈阶段调用：遗漏补充。顺序为 Add → Replace → Remove。有尚未投递到 Add/Replace 的问题时最多再执行一轮相关阶段。投递成功不代表语义问题已解决。
+当前反馈阶段调用：遗漏补充。默认每句独立执行 Add → Replace → Remove，再汇总整篇；feedback_scope=document 为整篇调用，固定提示相同。历史共享来源条目无法安全分组时显式回退整篇。每句有尚未投递到 Add/Replace 的问题时最多再执行一轮相关阶段。投递成功不代表语义问题已解决。
 
 ## System 消息
 
@@ -38,10 +38,11 @@
 
 ## User 消息：表达要求
 
-【来源：User 消息：表达要求｜[karma/agents/feedback_common.py 第6—19行](<../feedback_common.py#L6>)】
+【来源：User 消息：表达要求｜[karma/agents/feedback_common.py 第6—20行](<../feedback_common.py#L6>)】
 
 ```text
 # 表达要求
+当前完整集合指本次输入范围内的全部三元组。feedback_scope 为 sentence 时只处理给定的一个源句，为 document 时处理给定的整篇源句。
 源句是事实依据。实义词保持原文用词、词形和大小写；独立表达时可以补充必要的系词、助动词和介词。
 例如原文是 to provide，可以表达为 is to provide，保留 provide 的词形。
 保留关系的主体、对象、方向，以及否定、可能性、目的、风险、条件、数量、时间和范围。
@@ -91,7 +92,7 @@ target 使用 add、replace、remove、text_generation、text_comparison 或 rev
 
 ## User 消息：本次数据
 
-【来源：User 消息：本次数据｜[karma/agents/feedback_common.py 第33—36行](<../feedback_common.py#L33>)】
+【来源：User 消息：本次数据｜[karma/agents/feedback_common.py 第34—37行](<../feedback_common.py#L34>)】
 
 ```text
 # 本次输入
@@ -102,6 +103,6 @@ target 使用 add、replace、remove、text_generation、text_comparison 或 rev
 
 ## 输入字段及来源
 
-输入由 [karma/core/feedback_pipeline.py](../../core/feedback_pipeline.py) 的 process/run 构造。source_sentences 是完整原文；current_collection 是前一步实际输出；sentence_index 是源句到当前 index 的对应表；unassigned_indices 列出未定位来源的旧条目；comparison_bundle 始终标明原始差异来自 V0；applied_change_log 是实际修改与失败记录的精简版，不含评分或完整历史操作协议；handoff 仅包含交给本阶段且尚未成功投递的问题，indices 已对应当前集合；内部 id、投递状态和历史编号留在程序审计记录中。收到的问题在阶段一核对，模型仅输出本阶段操作及新的转交问题。candidate_entities 仅辅助定位。repair_pass 标记是否为有限返修。
+输入由 [karma/core/feedback_pipeline.py](../../core/feedback_pipeline.py) 的 process/run 构造。逐句调度见 [sentence_feedback_pipeline.py](../../core/sentence_feedback_pipeline.py)。feedback_scope 标明范围；sentence 模式的 source_sentences 仅含当前原句，index 是本句当前编号；document 模式为整篇。current_collection 是前一步实际输出；sentence_index 是源句到当前 index 的对应表；unassigned_indices 列出未定位来源的旧条目；comparison_bundle 始终标明原始差异来自 V0；applied_change_log 是实际修改与失败记录的精简版，不含评分或完整历史操作协议；handoff 仅包含交给本阶段且尚未成功投递的问题，indices 已对应当前集合；内部 id、投递状态和历史编号留在程序审计记录中。收到的问题在阶段一核对，模型仅输出本阶段操作及新的转交问题。candidate_entities 仅辅助定位。repair_pass 标记是否为有限返修。
 
 每项 replace 的 new_triples 可以包含多条；替换批次失败时保留该步输入。Remove 对完整集合自主判断重复与保留项。无法修复或有歧义的条目记录 review，保持可追查。

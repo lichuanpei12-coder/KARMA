@@ -163,7 +163,7 @@ class SplittingParityTests(unittest.TestCase):
                         dict(head='The controller', relation='may store', tail='sensor data')]
                 for case in [self.compact_case()]:
                     with self.subTest(case=case['name']):
-                        pipe = KARMAPipeline('offline', model_name='offline', integration_threshold=.8)
+                        pipe = KARMAPipeline('offline', model_name='offline', integration_threshold=.8, feedback_scope='document', text_scope='document')
                         pipe.evaluator_agent._dump_dir = Path(case['name'])
                         pipe.evaluator_agent._dump_dir.mkdir()
                         try:

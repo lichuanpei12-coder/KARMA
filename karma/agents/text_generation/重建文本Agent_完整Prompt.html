@@ -22,30 +22,32 @@ hr{border:0;border-top:1px solid var(--line);margin:30px 0}.filelinks{display:fl
 footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid var(--line);padding-top:15px}
 @media(max-width:900px){.layout{display:block;padding:12px}aside{position:static;max-height:300px;margin-bottom:16px}main{padding:22px 18px}header{padding:18px}h1{font-size:23px}h2{font-size:21px}th,td{padding:8px}}
 @media print{body{background:#fff;font-size:11pt}.layout{display:block;padding:0}aside,header,.filelinks,footer{display:none}main{border:0;padding:0}.table-wrap{overflow:visible}pre,table{font-size:9pt}h2,h3{break-after:avoid}tr{break-inside:avoid}a{color:inherit;text-decoration:none}}
-</style></head><body><header><div class="label">重建文本Agent_完整Prompt</div><p>源码行号与实际调用分支 · 2026-11-04 · 0c04ac6</p></header><div class="layout"><aside><h2>目录</h2><input id="toc-filter" type="search" placeholder="搜索轮次、System、User"><a href="../Prompt%E6%80%BB%E8%A7%88.html">全部Agent总览</a><a class="" href="#section-1">当前运行是否使用这套Prompt</a>
+</style></head><body><header><div class="label">重建文本Agent_完整Prompt</div><p>源码行号与实际调用分支 · 2026-11-04 · d401c9c</p></header><div class="layout"><aside><h2>目录</h2><input id="toc-filter" type="search" placeholder="搜索轮次、System、User"><a href="../Prompt%E6%80%BB%E8%A7%88.html">全部Agent总览</a><a class="" href="#section-1">当前运行是否使用这套Prompt</a>
 <a class="" href="#section-2">展示说明</a>
-<a class="" href="#section-3">当前pipeline使用：按源句分组版本</a>
+<a class="" href="#section-3">当前默认：逐句调用（整篇模式复用相同固定提示）</a>
 <a class="" href="#section-4">附录：当前pipeline不使用的非分组入口</a>
 <a class="" href="#section-5">条件说明：UNASSIGNED出现时才添加</a>
 <a class="" href="#section-6">文档维护</a></aside><main><a href="%E9%87%8D%E5%BB%BA%E6%96%87%E6%9C%ACAgent_%E5%AE%8C%E6%95%B4Prompt.md">Markdown原文</a><h1 id="section-0">重建文本Agent_完整Prompt</h1>
-<p>整理日期：2026-11-04。代码版本：<code>0c04ac635ccb3f739dd8769913d2ea65ef6c1b01</code>。行号对应整理时源码；后续修改源码后应重新导出。</p>
+<p>整理日期：2026-11-04。代码版本：<code>d401c9c6f4454e39d46f1c8bbff04925128cbfed</code>。行号对应整理时源码；后续修改源码后应重新导出。</p>
 <h2 id="section-1">当前运行是否使用这套Prompt</h2>
-<p>当前pipeline明确传入sentence_groups，因此采用generate_grouped的分组System和User。另一条generate_text路径只在不传分组或直接调用时使用，不会同时发送。</p>
-<p>源码入口：karma/agents/text_generation/agent.py 第119—131行。系统提示选择与消息发送见karma/core/base_agent.py 第132—135行；Responses模式同一内容见karma/core/base_agent.py 第263—267行。</p>
-<p>当前流水线传参位置：karma/core/pipeline.py 第402—404行。<strong>当前流程只选择分组版本；附录中的非分组版本不会一起执行。</strong></p>
+<p>当前pipeline默认text_scope=sentence，由generate_sentences逐句调用generate_grouped，每次只传一个分组。text_scope=document时一次传入全部分组；两种模式固定System和User相同，仅输入范围不同。另一条generate_text路径只在不传分组或直接调用时使用，不会同时发送。</p>
+<p>【来源：调用入口与System/User发送｜<a href="agent.py#L120">karma/agents/text_generation/agent.py 第120—132行</a>；<a href="../../core/base_agent.py#L99">karma/core/base_agent.py 第99—158行</a>】</p>
+<p>Chat Completions 与 Responses 使用同一套 System/User 内容，底层调用共用持续重试机制。</p>
+<p>当前流水线传参位置：karma/core/pipeline.py 第419—421行。<strong>当前流程只选择分组版本；附录中的非分组版本不会一起执行。</strong></p>
 <h2 id="section-2">展示说明</h2>
 <p>固定文本全部展开，仅运行数据用源码变量或表达式表示。每个入口保留一份按顺序排列的System和User；每部分前用一行相对路径链接标注来源，可点击查看源码。来源链接放在代码块外以保持蓝色显示。“【来源：…】”和消息角色标记只用于阅读。同目录<a href="Prompt%E5%AE%8C%E6%95%B4%E6%A8%A1%E6%9D%BF.json">Prompt完整模板.json</a>保存不含阅读标注的角色结构。</p>
-<h2 id="section-3">当前pipeline使用：按源句分组版本</h2>
+<p>【来源：逐句入口与调度｜<a href="agent.py#L134">karma/agents/text_generation/agent.py 第134—145行</a>；<a href="../../core/pipeline.py#L419">karma/core/pipeline.py 第419—421行</a>】</p>
+<h2 id="section-3">当前默认：逐句调用（整篇模式复用相同固定提示）</h2>
 <p><strong>System 消息</strong></p>
-<p>【来源：任务说明｜<a href="agent.py#L169">karma/agents/text_generation/agent.py 第169行</a>】</p>
+<p>【来源：任务说明｜<a href="agent.py#L183">karma/agents/text_generation/agent.py 第183行</a>】</p>
 <pre><code class="language-text">你根据给定三元组逐组生成重建文本，完整回复为 JSON 数组。
 </code></pre>
 <p><strong>User 消息</strong></p>
-<p>【来源：任务说明｜<a href="agent.py#L143">karma/agents/text_generation/agent.py 第143—144行</a>】</p>
+<p>【来源：任务说明｜<a href="agent.py#L157">karma/agents/text_generation/agent.py 第157—158行</a>】</p>
 <pre><code class="language-text">依据按源句编号分组的三元组，逐组生成对应的重建文本。
 编号仅用于定位，不包含原文信息；本任务的事实依据是输入三元组。
 </code></pre>
-<p>【来源：执行步骤｜<a href="agent.py#L145">karma/agents/text_generation/agent.py 第145—165行</a>】</p>
+<p>【来源：执行步骤｜<a href="agent.py#L159">karma/agents/text_generation/agent.py 第159—179行</a>】</p>
 <pre><code class="language-text"># 执行步骤
 1. 读取一组全部三元组
    事实依据为该组的 head、relation、tail；空组的 text 返回空字符串。
@@ -85,7 +87,7 @@ footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid va
 </tbody></table></div>
 <h2 id="section-4">附录：当前pipeline不使用的非分组入口</h2>
 <p><strong>System 消息</strong></p>
-<p>【来源：任务说明｜<a href="agent.py#L38">karma/agents/text_generation/agent.py 第38—112行</a>】</p>
+<p>【来源：任务说明｜<a href="agent.py#L39">karma/agents/text_generation/agent.py 第39—113行</a>】</p>
 <pre><code class="language-text">你是一个专门用于将结构化三元组转换为流畅自然语言句子的文本生成代理。
 
 目标：将结构化三元组（头实体、关系、尾实体）转换为连贯、自然的句子。
@@ -163,7 +165,7 @@ footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid va
 - 不附加解释或格式
 </code></pre>
 <p><strong>User 消息</strong></p>
-<p>【来源：任务说明｜<a href="agent.py#L278">karma/agents/text_generation/agent.py 第278—309行</a>】</p>
+<p>【来源：任务说明｜<a href="agent.py#L296">karma/agents/text_generation/agent.py 第296—327行</a>】</p>
 <pre><code class="language-text">                生成指令：
 
         将以下结构化三元组转换为流畅的自然语言句子。
@@ -201,7 +203,7 @@ footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid va
 <p>此句由karma/core/sentence_groups.py 第82—87行返回：</p>
 <pre><code class="language-text">UNASSIGNED 是来源句尚未确定的条目分组；按输入编号处理该组。
 </code></pre>
-<p>插入到当前分组User的业务输入标签之前，拼接位置见karma/agents/text_generation/agent.py 第133—198行。</p>
+<p>插入到当前分组User的业务输入标签之前，拼接位置见karma/agents/text_generation/agent.py 第147—214行。</p>
 <h2 id="section-6">文档维护</h2>
 <p>固定文本来自程序拼接结果，运行数据按源码变量表示，回填核验通过。生成脚本位于tools/prompt_docs/export_agent_prompts.py，源码修改后需重新导出。</p>
 </main></div><script>document.getElementById('toc-filter').addEventListener('input',function(){const q=this.value.toLowerCase();document.querySelectorAll('aside a[href^="#"]').forEach(a=>a.hidden=!a.textContent.toLowerCase().includes(q));});</script></body></html>

@@ -44,12 +44,21 @@ for variant in ['normal','legacy_difference']:
     if variant=='legacy_difference':diff.pop('sentence_differences')
     calls={}
     a=TextGenerationAgent(None,'offline')
-    calls['generation']=cap(a,lambda:a.process(copy.deepcopy(triples),sentence_groups=groups),'[{"sentence_id":"S1","text":"The module processes data."}]')
+    calls['generation']=cap(a,lambda:a.process(copy.deepcopy(triples),sentence_groups=groups,scope='sentence'),'[{"sentence_id":"S1","text":"The module processes data."}]')
     a=TextComparisonAgent(None,'offline')
-    calls['comparison']=cap(a,lambda:a.process(SOURCE,SOURCE,sentence_groups=groups,reconstructions=recon),'[{"sentence_id":"S1","unique_to_text_a":[],"unique_to_text_b":[]}]')
+    calls['comparison']=cap(a,lambda:a.process(SOURCE,SOURCE,sentence_groups=groups,reconstructions=recon,scope='sentence'),'[{"sentence_id":"S1","unique_to_text_a":[],"unique_to_text_b":[]}]')
     a=EntityExtractionAgent(None,'offline')
     calls['entity_feedback']=cap(a,lambda:a.revise_entities(SOURCE,entities,copy.deepcopy(triples),diff),'[]')
     captured['grouped'][variant]=calls
+
+for agent_class, key in ((TextGenerationAgent,'generation'),(TextComparisonAgent,'comparison')):
+    a=agent_class(None,'offline')
+    if key=='generation':
+        document_call=cap(a,lambda:a.process(triples,sentence_groups=groups,scope='document'),'[{"sentence_id":"S1","text":"The module processes data."}]')
+    else:
+        document_call=cap(a,lambda:a.process(SOURCE,SOURCE,sentence_groups=groups,reconstructions=recon,scope='document'),'[{"sentence_id":"S1","unique_to_text_a":[],"unique_to_text_b":[]}]')
+    assert document_call==captured['grouped']['normal'][key]
+
 a=TextGenerationAgent(None,'offline')
 captured['non_grouped']['generation']=cap(a,lambda:a.process(copy.deepcopy(triples)),SOURCE)
 a=TextComparisonAgent(None,'offline')
@@ -65,7 +74,7 @@ a=TripleSplittingAgent(None,'offline');new['splitting']=cap(a,lambda:a.process(S
 
 def path(agent):return f'karma/agents/{agent}/agent.py'
 sources={p.as_posix():p.read_text(encoding='utf-8-sig').splitlines() for p in (ROOT/'karma/agents').glob('*/agent.py')}
-for extra in ['karma/core/sentence_groups.py','karma/core/pipeline.py','karma/agents/feedback_common.py']:
+for extra in ['karma/core/sentence_groups.py','karma/core/pipeline.py','karma/agents/feedback_common.py','karma/core/sentence_feedback_pipeline.py','karma/core/feedback_pipeline.py','karma/core/base_agent.py','karma/core/api_retry.py']:
     sources[(ROOT/extra).as_posix()]=(ROOT/extra).read_text(encoding='utf-8').splitlines()
 trees={p:ast.parse('\n'.join(lines)) for p,lines in sources.items()}
 def scope(filename,name):
@@ -281,8 +290,8 @@ STATUS={
 'entity_extraction':'当前pipeline第一轮执行实体抽取，第二轮执行实体反馈。两轮共用同一System，但User不同；每次调用只使用对应轮次的一套消息。',
 'relationship_extraction':'当前仅执行第一轮基线关系抽取。第二轮关系反馈已移到 feedback_add、feedback_replace、feedback_remove，由 FeedbackPipeline 依次调用。三元组分数由程序固定填入0.8，模型只输出事实和证据。',
 'triple_splitting':'拆分阶段通过process调用专用System和User；只生成add/replace；程序兼容旧响应中的空remove。回放或跳过阶段时是否执行，以实际入口为准。',
-'text_generation':'当前pipeline明确传入sentence_groups，因此采用generate_grouped的分组System和User。另一条generate_text路径只在不传分组或直接调用时使用，不会同时发送。',
-'text_comparison':'当前pipeline明确传入sentence_groups与reconstructions，因此采用compare_grouped。另一条compare路径只在不传分组或直接调用时使用，不会与当前版本叠加。',
+'text_generation':'当前pipeline默认text_scope=sentence，由generate_sentences逐句调用generate_grouped，每次只传一个分组。text_scope=document时一次传入全部分组；两种模式固定System和User相同，仅输入范围不同。另一条generate_text路径只在不传分组或直接调用时使用，不会同时发送。',
+'text_comparison':'当前pipeline默认text_scope=sentence，由compare_sentences逐句调用compare_grouped，每次只传对应源句及重建文本；全文标签也仅包含本句。text_scope=document时一次传入全部分组。两种模式固定提示相同，仅输入范围不同。另一条compare路径只在不传分组或直接调用时使用，不会与当前版本叠加。',
 'conflict_resolution':'当前process执行Python矛盾关系和置信度比较规则，不调用模型。源码定义了System字符串，但当前没有实际发送的User或模型请求。',
 'evaluator':'当前process执行Python加权评分和阈值筛选，不调用模型。源码System字符串不参与运行决策；实际逻辑以finalize_triples和_aggregate_scores为准，不能把字符串里的最低分条件当成已执行检查。',
 'schema_alignment':'当前pipeline中初始化和调用均被注释。即使单独调用该类，现有process也是Python类型/关系映射，没有模型调用；定义的System不代表当前生效。',
@@ -295,10 +304,11 @@ for agent,filename in NAMES.items():
     doc=target.relative_to(ROOT).as_posix()
     t=f'# {filename[:-3]}\n\n整理日期：2026-11-04。代码版本：`{head}`。行号对应整理时源码；后续修改源码后应重新导出。\n\n'
     t+='## 当前运行是否使用这套Prompt\n\n'+STATUS[agent]+'\n\n'
-    t+='源码入口：'+ref(scope(f,'process'))+'。系统提示选择与消息发送见'+ref(('karma/core/base_agent.py',132,135))+'；Responses模式同一内容见'+ref(('karma/core/base_agent.py',263,267))+'。\n\n'
+    t+=source_line('调用入口与System/User发送',[scope(f,'process'),scope('karma/core/base_agent.py','_make_llm_call')],doc)+'\n\n'
+    t+='Chat Completions 与 Responses 使用同一套 System/User 内容，底层调用共用持续重试机制。\n\n'
     if agent in ['text_generation','text_comparison']:
         t+='当前流水线传参位置：'+ref(pipeline_call('text_generation_agent' if agent=='text_generation' else 'text_comparison_agent'))+'。**当前流程只选择分组版本；附录中的非分组版本不会一起执行。**\n\n'
-    if agent=='ingestion':t+='元数据调用被注释的位置：'+ref((f,91,93))+'。\n\n'
+    if agent=='ingestion':t+='元数据调用被注释的位置：'+ref(scope(f,'process'))+'。\n\n'
     if agent=='summarizer':t+='摘要开关：'+ref(pipeline_line('KARMA_USE_SUMMARIZER'))+'。\n\n'
     if agent=='schema_alignment':t+='未启用位置：'+ref(pipeline_line('# self.schema_alignment_agent ='))+'；'+ref(pipeline_line('# aligned_entities, aligned_relationships ='))+'。\n\n'
     t+='## 展示说明\n\n固定文本全部展开，仅运行数据用源码变量或表达式表示。每个入口保留一份按顺序排列的System和User；每部分前用一行相对路径链接标注来源，可点击查看源码。来源链接放在代码块外以保持蓝色显示。“【来源：…】”和消息角色标记只用于阅读。同目录[Prompt完整模板.json](Prompt完整模板.json)保存不含阅读标注的角色结构。\n\n'
@@ -322,7 +332,9 @@ for agent,filename in NAMES.items():
     elif agent in ['text_generation','text_comparison']:
         key='generation' if agent=='text_generation' else 'comparison'
         method='generate_grouped' if key=='generation' else 'compare_grouped'
-        variants.append(('当前pipeline使用：按源句分组版本',captured['grouped']['normal'][key],pools(agent,method),pools(agent,method)))
+        wrapper='generate_sentences' if key=='generation' else 'compare_sentences'
+        t+=source_line('逐句入口与调度', [scope(f,wrapper),pipeline_call(agent+'_agent')],doc)+'\n\n'
+        variants.append(('当前默认：逐句调用（整篇模式复用相同固定提示）',captured['grouped']['normal'][key],pools(agent,method),pools(agent,method)))
         c=copy.deepcopy(captured['non_grouped'][key])
         if key=='generation':c['user']=c['user'].replace('The module : processes : data','{linearized_triples}')
         else:c['user']=c['user'].replace('文本A：\n'+SOURCE,'文本A：\n{text_a}').replace('文本B：\n'+SOURCE,'文本B：\n{text_b}')
@@ -359,7 +371,7 @@ for agent,filename in NAMES.items():
         t+='## 附录：差异数据没有sentence_differences时\n\n只有该键不存在时，才用下列兼容差异说明替换正文对应块；不与分组差异说明重复发送。第一轮抽取的diff参数为真时，也会在User输出要求附近追加相应差异块；一般初始抽取没有diff。\n\n'
         t+=prompt_markdown(annotated('兼容差异块',u[a:b],[scope(f,'difference_context')],doc))
     if agent=='text_comparison':
-        t+='## 附录：非分组比较焦点\n\n仅非分组入口的focus非空时插入，当前分组版本不使用。位置：'+ref((f,270,272))+'。\n\n'+code('比较焦点：{focus}')
+        t+='## 附录：非分组比较焦点\n\n仅非分组入口的focus非空时插入，当前分组版本不使用。位置：'+ref(scope(f,'_build_comparison_prompt'))+'。\n\n'+code('比较焦点：{focus}')
     if agent=='evaluator':t+='## 实际评估逻辑的源码\n\n阈值筛选：'+ref(scope(f,'finalize_triples'))+'；加权公式：'+ref(scope(f,'_aggregate_scores'))+'。这是运行时的Python逻辑，不是向LLM发送的另一段prompt。\n\n'
     if agent=='conflict_resolution':t+='## 实际冲突处理逻辑的源码\n\n'+ref(scope(f,'resolve_conflicts'))+'；'+ref(scope(f,'_find_contradiction'))+'。\n\n'
     t+='## 文档维护\n\n固定文本来自程序拼接结果，运行数据按源码变量表示，回填核验通过。生成脚本位于tools/prompt_docs/export_agent_prompts.py，源码修改后需重新导出。\n'
@@ -377,7 +389,8 @@ NAMES.update(feedback_names)
 STATUS.update(feedback_status)
 
 index='# Agent Prompt总览与当前调用路线\n\n更新日期：2026-11-04。导出时 Git HEAD：`'+head+'`；文档内容取自当前工作区源码，包含本次未提交修改，精确文件哈希见导出核验 JSON。\n\n'
-index+='## 当前运行的prompt是否唯一\n\n每一次模型调用只采用一套确定的System和User；程序按调用入口选择分支，不会把所有分支prompt一起发给模型。实体抽取仍分两轮；关系抽取只负责基线，反馈由 Add → Replace → Remove 三个 Agent 执行。每个阶段独立核查并接收前一步实际输出；各 Agent 内部采用核对问题、生成操作、复核输出三个阶段。问题由程序传递，模型只输出本阶段操作与 handoff。新事实按单句依据抽取。重建文本与比较当前由pipeline传入sentence_groups，使用分组版本；“非分组User”只是未传该参数时保留的另一条入口。分组是同一请求内按S1、S2等组织材料，不等于每句分别调用一次模型。\n\n'
+index+='## 当前运行的prompt是否唯一\n\n每一次模型调用只采用一套确定的System和User；程序按调用入口选择分支，不会把所有分支prompt一起发给模型。实体抽取仍分两轮；关系抽取只负责基线，反馈由 Add → Replace → Remove 三个 Agent 执行。每个阶段独立核查并接收前一步实际输出；各 Agent 内部采用核对问题、生成操作、复核输出三个阶段。问题由程序传递，模型只输出本阶段操作与 handoff。新事实按单句依据抽取。重建文本与比较当前由pipeline传入sentence_groups，使用分组版本；“非分组User”只是未传该参数时保留的另一条入口。默认 text_scope=sentence，每个分组单独调用重建和对比；feedback_scope=sentence，每句独立完成 Add→Replace→Remove。两个配置均可选 document，恢复整篇调用。逐句反馈遇到历史多来源或无法分组的条目时显式回退整篇并记录。所有请求顺序执行，共享最小请求间隔；可恢复 API 错误持续退避重试。\n\n'
+index+='运行范围、限流重试及回放命令见 [逐句运行与API重试说明](逐句运行与API重试说明.md)。\n\n'
 index+='## 各Agent文档与当前状态\n\n'+table(['Agent','完整Prompt文档','运行状态'],[(a,f'[{NAMES[a][:-3]}](<{a}/{NAMES[a]}>)',STATUS[a]) for a in NAMES])
 index+='## 当前分组调用的源码证据\n\n'+ref(pipeline_call('text_generation_agent'))+'；文本对比：'+ref(pipeline_call('text_comparison_agent'))+'；实体：'+ref(pipeline_call('entity_extraction_agent'))+'；基线关系：'+ref(pipeline_call('relationship_extraction_agent'))+'；三步反馈：'+ref(pipeline_call('feedback_pipeline'))+'。\n\n'
 index+='## 阅读方式\n\n每个文档按轮次/入口连续展示同一请求的System和User，每部分前仅用一行说明内容、相对文件路径和源码行号。固定内容全部展开，仅运行数据保留变量表达式。各Agent目录的Prompt完整模板.json保存不含阅读标注的角色结构。\n'

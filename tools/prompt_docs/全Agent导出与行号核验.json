@@ -1,5 +1,5 @@
 {
-  "git_head": "0c04ac635ccb3f739dd8769913d2ea65ef6c1b01",
+  "git_head": "d401c9c6f4454e39d46f1c8bbff04925128cbfed",
   "documents": [
     "karma/agents/Prompt总览.md",
     "karma/agents/ingestion/摄入Agent_完整Prompt.md",
@@ -26,8 +26,8 @@
       "source_spans": [
         [
           "karma/agents/ingestion/agent.py",
-          38,
-          73
+          39,
+          74
         ]
       ],
       "assembly_range": false
@@ -40,8 +40,8 @@
       "source_spans": [
         [
           "karma/agents/ingestion/agent.py",
-          112,
-          134
+          113,
+          135
         ]
       ],
       "assembly_range": false
@@ -54,36 +54,36 @@
       "source_spans": [
         [
           "karma/agents/reader/agent.py",
+          37,
+          80
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/reader/阅读Agent_完整Prompt.md",
+      "label": "User Prompt",
+      "part": 1,
+      "title": "任务说明",
+      "source_spans": [
+        [
+          "karma/agents/reader/agent.py",
+          340,
+          355
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/summarizer/摘要Agent_完整Prompt.md",
+      "label": "System Prompt",
+      "part": 1,
+      "title": "任务说明",
+      "source_spans": [
+        [
+          "karma/agents/summarizer/agent.py",
           36,
-          79
-        ]
-      ],
-      "assembly_range": false
-    },
-    {
-      "document": "karma/agents/reader/阅读Agent_完整Prompt.md",
-      "label": "User Prompt",
-      "part": 1,
-      "title": "任务说明",
-      "source_spans": [
-        [
-          "karma/agents/reader/agent.py",
-          339,
-          354
-        ]
-      ],
-      "assembly_range": false
-    },
-    {
-      "document": "karma/agents/summarizer/摘要Agent_完整Prompt.md",
-      "label": "System Prompt",
-      "part": 1,
-      "title": "任务说明",
-      "source_spans": [
-        [
-          "karma/agents/summarizer/agent.py",
-          35,
-          77
+          78
         ]
       ],
       "assembly_range": false
@@ -96,8 +96,8 @@
       "source_spans": [
         [
           "karma/agents/summarizer/agent.py",
-          128,
-          129
+          129,
+          130
         ]
       ],
       "assembly_range": false
@@ -110,8 +110,8 @@
       "source_spans": [
         [
           "karma/agents/summarizer/agent.py",
-          131,
-          132
+          132,
+          133
         ]
       ],
       "assembly_range": false
@@ -124,8 +124,8 @@
       "source_spans": [
         [
           "karma/agents/summarizer/agent.py",
-          134,
-          139
+          135,
+          140
         ]
       ],
       "assembly_range": false
@@ -138,8 +138,8 @@
       "source_spans": [
         [
           "karma/agents/summarizer/agent.py",
-          141,
-          147
+          142,
+          148
         ]
       ],
       "assembly_range": false
@@ -152,8 +152,8 @@
       "source_spans": [
         [
           "karma/agents/summarizer/agent.py",
-          149,
-          153
+          150,
+          154
         ]
       ],
       "assembly_range": false
@@ -166,8 +166,8 @@
       "source_spans": [
         [
           "karma/agents/summarizer/agent.py",
-          155,
-          167
+          156,
+          168
         ]
       ],
       "assembly_range": false
@@ -180,8 +180,8 @@
       "source_spans": [
         [
           "karma/agents/summarizer/agent.py",
-          169,
-          170
+          170,
+          171
         ]
       ],
       "assembly_range": false
@@ -194,8 +194,8 @@
       "source_spans": [
         [
           "karma/agents/summarizer/agent.py",
-          172,
-          175
+          173,
+          176
         ]
       ],
       "assembly_range": false
@@ -208,8 +208,8 @@
       "source_spans": [
         [
           "karma/agents/entity_extraction/agent.py",
-          62,
-          64
+          63,
+          65
         ]
       ],
       "assembly_range": false
@@ -222,13 +222,13 @@
       "source_spans": [
         [
           "karma/agents/entity_extraction/agent.py",
-          19,
-          34
+          20,
+          35
         ],
         [
           "karma/agents/entity_extraction/agent.py",
-          66,
-          68
+          67,
+          69
         ]
       ],
       "assembly_range": false
@@ -241,8 +241,8 @@
       "source_spans": [
         [
           "karma/agents/entity_extraction/agent.py",
-          102,
-          103
+          103,
+          104
         ]
       ],
       "assembly_range": false
@@ -255,8 +255,8 @@
       "source_spans": [
         [
           "karma/agents/entity_extraction/agent.py",
-          105,
-          108
+          106,
+          109
         ]
       ],
       "assembly_range": false
@@ -269,8 +269,8 @@
       "source_spans": [
         [
           "karma/agents/entity_extraction/agent.py",
-          77,
-          81
+          78,
+          82
         ]
       ],
       "assembly_range": false
@@ -283,8 +283,8 @@
       "source_spans": [
         [
           "karma/agents/entity_extraction/agent.py",
-          83,
-          89
+          84,
+          90
         ]
       ],
       "assembly_range": false
@@ -297,8 +297,8 @@
       "source_spans": [
         [
           "karma/agents/entity_extraction/agent.py",
-          62,
-          64
+          63,
+          65
         ]
       ],
       "assembly_range": false
@@ -311,13 +311,13 @@
       "source_spans": [
         [
           "karma/agents/entity_extraction/agent.py",
-          19,
-          34
+          20,
+          35
         ],
         [
           "karma/agents/entity_extraction/agent.py",
-          66,
-          68
+          67,
+          69
         ]
       ],
       "assembly_range": false
@@ -330,8 +330,8 @@
       "source_spans": [
         [
           "karma/agents/entity_extraction/agent.py",
-          131,
-          133
+          134,
+          136
         ]
       ],
       "assembly_range": false
@@ -344,8 +344,8 @@
       "source_spans": [
         [
           "karma/agents/entity_extraction/agent.py",
-          135,
-          138
+          138,
+          141
         ]
       ],
       "assembly_range": false
@@ -358,8 +358,8 @@
       "source_spans": [
         [
           "karma/agents/entity_extraction/agent.py",
-          140,
-          143
+          143,
+          146
         ]
       ],
       "assembly_range": false
@@ -372,8 +372,8 @@
       "source_spans": [
         [
           "karma/agents/entity_extraction/agent.py",
-          145,
-          149
+          148,
+          152
         ]
       ],
       "assembly_range": false
@@ -386,13 +386,13 @@
       "source_spans": [
         [
           "karma/agents/entity_extraction/agent.py",
-          51,
-          52
+          52,
+          53
         ],
         [
           "karma/agents/entity_extraction/agent.py",
-          151,
-          151
+          154,
+          154
         ],
         [
           "karma/core/sentence_groups.py",
@@ -410,8 +410,8 @@
       "source_spans": [
         [
           "karma/agents/entity_extraction/agent.py",
-          154,
-          158
+          157,
+          161
         ]
       ],
       "assembly_range": false
@@ -424,8 +424,8 @@
       "source_spans": [
         [
           "karma/agents/entity_extraction/agent.py",
-          160,
-          167
+          163,
+          170
         ]
       ],
       "assembly_range": false
@@ -438,8 +438,8 @@
       "source_spans": [
         [
           "karma/agents/entity_extraction/agent.py",
-          77,
-          81
+          78,
+          82
         ]
       ],
       "assembly_range": false
@@ -452,13 +452,13 @@
       "source_spans": [
         [
           "karma/agents/entity_extraction/agent.py",
-          83,
-          89
+          84,
+          90
         ],
         [
           "karma/agents/entity_extraction/agent.py",
-          161,
-          161
+          164,
+          164
         ]
       ],
       "assembly_range": false
@@ -471,8 +471,8 @@
       "source_spans": [
         [
           "karma/agents/entity_extraction/agent.py",
-          46,
-          52
+          47,
+          53
         ]
       ],
       "assembly_range": false
@@ -485,8 +485,8 @@
       "source_spans": [
         [
           "karma/agents/relationship_extraction/agent.py",
-          72,
-          73
+          73,
+          74
         ]
       ],
       "assembly_range": false
@@ -499,13 +499,13 @@
       "source_spans": [
         [
           "karma/agents/relationship_extraction/agent.py",
-          27,
-          47
+          28,
+          48
         ],
         [
           "karma/agents/relationship_extraction/agent.py",
-          74,
-          74
+          75,
+          75
         ]
       ],
       "assembly_range": false
@@ -518,8 +518,8 @@
       "source_spans": [
         [
           "karma/agents/relationship_extraction/agent.py",
-          76,
-          79
+          77,
+          80
         ]
       ],
       "assembly_range": false
@@ -532,8 +532,8 @@
       "source_spans": [
         [
           "karma/agents/relationship_extraction/agent.py",
-          81,
-          98
+          82,
+          99
         ]
       ],
       "assembly_range": false
@@ -546,8 +546,8 @@
       "source_spans": [
         [
           "karma/agents/relationship_extraction/agent.py",
-          127,
-          128
+          128,
+          129
         ]
       ],
       "assembly_range": false
@@ -560,8 +560,8 @@
       "source_spans": [
         [
           "karma/agents/relationship_extraction/agent.py",
-          130,
-          133
+          131,
+          134
         ]
       ],
       "assembly_range": false
@@ -574,8 +574,8 @@
       "source_spans": [
         [
           "karma/agents/relationship_extraction/agent.py",
-          135,
-          140
+          136,
+          141
         ]
       ],
       "assembly_range": false
@@ -588,8 +588,8 @@
       "source_spans": [
         [
           "karma/agents/relationship_extraction/agent.py",
-          142,
-          146
+          143,
+          147
         ]
       ],
       "assembly_range": false
@@ -602,8 +602,8 @@
       "source_spans": [
         [
           "karma/agents/relationship_extraction/agent.py",
-          148,
-          149
+          149,
+          150
         ]
       ],
       "assembly_range": false
@@ -616,8 +616,8 @@
       "source_spans": [
         [
           "karma/agents/triple_splitting/agent.py",
-          198,
-          201
+          199,
+          202
         ]
       ],
       "assembly_range": false
@@ -630,8 +630,8 @@
       "source_spans": [
         [
           "karma/agents/triple_splitting/agent.py",
-          42,
-          44
+          43,
+          45
         ]
       ],
       "assembly_range": false
@@ -644,8 +644,8 @@
       "source_spans": [
         [
           "karma/agents/triple_splitting/agent.py",
-          46,
-          85
+          47,
+          86
         ]
       ],
       "assembly_range": false
@@ -658,8 +658,8 @@
       "source_spans": [
         [
           "karma/agents/triple_splitting/agent.py",
-          87,
-          115
+          88,
+          116
         ]
       ],
       "assembly_range": false
@@ -672,8 +672,8 @@
       "source_spans": [
         [
           "karma/agents/triple_splitting/agent.py",
-          117,
-          123
+          118,
+          124
         ]
       ],
       "assembly_range": false
@@ -686,8 +686,8 @@
       "source_spans": [
         [
           "karma/agents/triple_splitting/agent.py",
-          125,
-          135
+          126,
+          136
         ]
       ],
       "assembly_range": false
@@ -700,8 +700,8 @@
       "source_spans": [
         [
           "karma/agents/triple_splitting/agent.py",
-          137,
-          140
+          138,
+          141
         ]
       ],
       "assembly_range": false
@@ -714,8 +714,8 @@
       "source_spans": [
         [
           "karma/agents/triple_splitting/agent.py",
-          142,
-          145
+          143,
+          146
         ]
       ],
       "assembly_range": false
@@ -728,37 +728,37 @@
       "source_spans": [
         [
           "karma/agents/triple_splitting/agent.py",
-          147,
-          173
+          148,
+          174
         ],
         [
           "karma/agents/triple_splitting/agent.py",
-          177,
+          178,
+          184
+        ],
+        [
+          "karma/agents/triple_splitting/agent.py",
+          189,
+          190
+        ],
+        [
+          "karma/agents/triple_splitting/agent.py",
+          194,
+          196
+        ]
+      ],
+      "assembly_range": false
+    },
+    {
+      "document": "karma/agents/text_generation/重建文本Agent_完整Prompt.md",
+      "label": "System Prompt",
+      "part": 1,
+      "title": "任务说明",
+      "source_spans": [
+        [
+          "karma/agents/text_generation/agent.py",
+          183,
           183
-        ],
-        [
-          "karma/agents/triple_splitting/agent.py",
-          188,
-          189
-        ],
-        [
-          "karma/agents/triple_splitting/agent.py",
-          193,
-          195
-        ]
-      ],
-      "assembly_range": false
-    },
-    {
-      "document": "karma/agents/text_generation/重建文本Agent_完整Prompt.md",
-      "label": "System Prompt",
-      "part": 1,
-      "title": "任务说明",
-      "source_spans": [
-        [
-          "karma/agents/text_generation/agent.py",
-          169,
-          169
         ]
       ],
       "assembly_range": false
@@ -771,8 +771,8 @@
       "source_spans": [
         [
           "karma/agents/text_generation/agent.py",
-          143,
-          144
+          157,
+          158
         ]
       ],
       "assembly_range": false
@@ -785,8 +785,8 @@
       "source_spans": [
         [
           "karma/agents/text_generation/agent.py",
-          145,
-          165
+          159,
+          179
         ]
       ],
       "assembly_range": false
@@ -799,8 +799,8 @@
       "source_spans": [
         [
           "karma/agents/text_generation/agent.py",
-          38,
-          112
+          39,
+          113
         ]
       ],
       "assembly_range": false
@@ -813,8 +813,8 @@
       "source_spans": [
         [
           "karma/agents/text_generation/agent.py",
-          278,
-          309
+          296,
+          327
         ]
       ],
       "assembly_range": false
@@ -827,8 +827,8 @@
       "source_spans": [
         [
           "karma/agents/text_comparison/agent.py",
-          150,
-          150
+          174,
+          174
         ]
       ],
       "assembly_range": false
@@ -841,8 +841,8 @@
       "source_spans": [
         [
           "karma/agents/text_comparison/agent.py",
-          91,
-          92
+          115,
+          116
         ]
       ],
       "assembly_range": false
@@ -855,8 +855,8 @@
       "source_spans": [
         [
           "karma/agents/text_comparison/agent.py",
-          93,
-          125
+          117,
+          149
         ]
       ],
       "assembly_range": false
@@ -869,13 +869,13 @@
       "source_spans": [
         [
           "karma/agents/text_comparison/agent.py",
-          127,
-          138
+          151,
+          162
         ],
         [
           "karma/agents/text_comparison/agent.py",
-          143,
-          143
+          167,
+          167
         ]
       ],
       "assembly_range": false
@@ -888,8 +888,8 @@
       "source_spans": [
         [
           "karma/agents/text_comparison/agent.py",
-          37,
-          62
+          38,
+          63
         ]
       ],
       "assembly_range": false
@@ -902,13 +902,13 @@
       "source_spans": [
         [
           "karma/agents/text_comparison/agent.py",
-          274,
-          274
+          302,
+          302
         ],
         [
           "karma/agents/text_comparison/agent.py",
-          278,
-          319
+          306,
+          347
         ]
       ],
       "assembly_range": false
@@ -984,7 +984,7 @@
         [
           "karma/agents/feedback_common.py",
           6,
-          19
+          20
         ]
       ]
     },
@@ -1016,8 +1016,8 @@
       "source_spans": [
         [
           "karma/agents/feedback_common.py",
-          33,
-          36
+          34,
+          37
         ]
       ]
     },
@@ -1050,7 +1050,7 @@
         [
           "karma/agents/feedback_common.py",
           6,
-          19
+          20
         ]
       ]
     },
@@ -1082,8 +1082,8 @@
       "source_spans": [
         [
           "karma/agents/feedback_common.py",
-          33,
-          36
+          34,
+          37
         ]
       ]
     },
@@ -1116,7 +1116,7 @@
         [
           "karma/agents/feedback_common.py",
           6,
-          19
+          20
         ]
       ]
     },
@@ -1148,30 +1148,34 @@
       "source_spans": [
         [
           "karma/agents/feedback_common.py",
-          33,
-          36
+          34,
+          37
         ]
       ]
     }
   ],
   "source_files": {
     "karma/agents/conflict_resolution/agent.py": "bda5d1a67b6b7470b62f69c3c92f81c48bf85ea87ca397f97e73171b27f129f3",
-    "karma/agents/entity_extraction/agent.py": "f13ff650b8a7c6ee0f1fbfddfb956065df40ddc3518b668fc481643dabcf5309",
+    "karma/agents/entity_extraction/agent.py": "188aa0b6ec6ca462c8a23d033dc5f6b385eb0d4988adac13d5ec24e6e78778bf",
     "karma/agents/evaluator/agent.py": "a53ac58714879b59425efaa36648faf2a7890539522cefe8690fcb70098d8916",
     "karma/agents/feedback_add/agent.py": "291260e06a8d0bc322272746f11f1427eb71438939bb21bd785adb1288e93faa",
     "karma/agents/feedback_remove/agent.py": "1902ef1ad850b62cdb9a651c758733b3ff792928b696720767ca070ff7ff0ce1",
     "karma/agents/feedback_replace/agent.py": "954928eb5cd975df55b0995e7c6f4880ade0c62120e13cde3f7708d1a185c9c4",
-    "karma/agents/ingestion/agent.py": "6d9824495b2fe29bbf3f2b889794d0df766a0c85028698fcf92b7da2a6c699e0",
-    "karma/agents/reader/agent.py": "4f484a75f9a6ef1303a3f9184008ac507da4a94724271e184b881016dca81513",
-    "karma/agents/relationship_extraction/agent.py": "8e0139a3c67a8eb4238d74b0e9a28957d3c50388ea8e90e1688adea9f4a81699",
+    "karma/agents/ingestion/agent.py": "6d7ebbeeb5a8b0fe96a39a2fdce8dd43030fd3ac920b8a5d86200487702cdb94",
+    "karma/agents/reader/agent.py": "db5baf50d60e0ad57f31dd2217e686d382a825f43d55b46088739f6a271d6c01",
+    "karma/agents/relationship_extraction/agent.py": "76afec80a65352e1292888d428327876d058b8017e8430de9032a24fd2319f98",
     "karma/agents/schema_alignment/agent.py": "663df494e41ae54189211e9b3173f9a9a91fbfc10ed91a2adb14dbafdf956a4d",
-    "karma/agents/summarizer/agent.py": "ef38d04dab8380c0d65a2fb1e000c955d50440b04a6edc114a2816940b6c2bac",
-    "karma/agents/text_comparison/agent.py": "1382217f1f2e8c8bcea4314ac313ed02ea2cac311690023b7ad3d17497c07765",
-    "karma/agents/text_generation/agent.py": "aee6cb17b123563148b7385f6d737407c1e0f67243e6527a27e91bf44cacee93",
-    "karma/agents/triple_splitting/agent.py": "377f6778d1bf099e5bfb259d5ebca116fdbdf616e8d1f859f6effdd46258d319",
+    "karma/agents/summarizer/agent.py": "9a1a638b14f9af00abe31e764fcc79fce670f0a0002689ab9cb807a2b9c285a5",
+    "karma/agents/text_comparison/agent.py": "48b65574a83abdb055a4bb46b015681b1df25ad4059d63d875541c89adb838f5",
+    "karma/agents/text_generation/agent.py": "496377477e4cf40f89cb9a1c21a7e62386c7d406280ad541746d9786d9d376eb",
+    "karma/agents/triple_splitting/agent.py": "636f6a855dc9322e69f1d615239470a38b6fd47c27a75889422aefa4289e745d",
     "karma/core/sentence_groups.py": "8cfc3eac4f4787df519b73f121a8df45ecfe85b29664385492809e9d0afde5fe",
-    "karma/core/pipeline.py": "1d8223f58ebb4e7bcebce75b1e826118be17cbeaa3a87bc616bc700ac8459c96",
-    "karma/agents/feedback_common.py": "ff52e45099a57cfd901d1832f1328c2035d96b5ef24bc35a0a4367037efa4b45"
+    "karma/core/pipeline.py": "c49ba32bd560670be3b0d27857a67ce9699515814fe47f955826a43f4af50d8f",
+    "karma/agents/feedback_common.py": "b5f64f0d20148e140c1f0732f3e22046f42d36d91443435fbaadeaa8b8c55d65",
+    "karma/core/sentence_feedback_pipeline.py": "bf9fecc3cf8a63cb5c3b9d252f9cff0d4c664937cbbe24e5a529b9ff85ee5232",
+    "karma/core/feedback_pipeline.py": "beb5d010b76a0b0ffb9bc3629374c6f023abf95ffe0704dfcc246ea333dce0c5",
+    "karma/core/base_agent.py": "ae0121fe26b51b9b29c3a75745c151554519b113988e7f61457768bb6c09ce91",
+    "karma/core/api_retry.py": "193af5bd29202e00a70d5d2aeabb096906a0d042963d399fe25ef5c876040c48"
   },
   "message_examples": [
     "karma/agents/ingestion/Prompt完整模板.json",

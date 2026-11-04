@@ -1,14 +1,16 @@
 # 摘要Agent_完整Prompt
 
-整理日期：2026-11-04。代码版本：`0c04ac635ccb3f739dd8769913d2ea65ef6c1b01`。行号对应整理时源码；后续修改源码后应重新导出。
+整理日期：2026-11-04。代码版本：`d401c9c6f4454e39d46f1c8bbff04925128cbfed`。行号对应整理时源码；后续修改源码后应重新导出。
 
 ## 当前运行是否使用这套Prompt
 
 当前pipeline默认跳过摘要；仅环境变量KARMA_USE_SUMMARIZER为非空值时启用。直接调用摘要方法且输入长度小于15字符时，也不调用模型。
 
-源码入口：karma/agents/summarizer/agent.py 第81—111行。系统提示选择与消息发送见karma/core/base_agent.py 第132—135行；Responses模式同一内容见karma/core/base_agent.py 第263—267行。
+【来源：调用入口与System/User发送｜[karma/agents/summarizer/agent.py 第82—112行](<agent.py#L82>)；[karma/core/base_agent.py 第99—158行](<../../core/base_agent.py#L99>)】
 
-摘要开关：karma/core/pipeline.py 第329行。
+Chat Completions 与 Responses 使用同一套 System/User 内容，底层调用共用持续重试机制。
+
+摘要开关：karma/core/pipeline.py 第346行。
 
 ## 展示说明
 
@@ -18,7 +20,7 @@
 
 **System 消息**
 
-【来源：任务说明｜[karma/agents/summarizer/agent.py 第35—77行](<agent.py#L35>)】
+【来源：任务说明｜[karma/agents/summarizer/agent.py 第36—78行](<agent.py#L36>)】
 
 ```text
 你是一个专门用于生物医学文献处理的摘要代理。你的任务是创建简洁、信息密集的摘要，保留所有与知识相关的内容。
@@ -68,21 +70,21 @@
 
 **User 消息**
 
-【来源：任务说明｜[karma/agents/summarizer/agent.py 第128—129行](<agent.py#L128>)】
+【来源：任务说明｜[karma/agents/summarizer/agent.py 第129—130行](<agent.py#L129>)】
 
 ```text
             你是一个文档压缩代理。你的任务是将文档压缩为简洁、信息密集的摘要，同时保留所有关键技术信息。
             生成的摘要理想长度应在 400 到 600 词之间。
 ```
 
-【来源：输入｜[karma/agents/summarizer/agent.py 第131—132行](<agent.py#L131>)】
+【来源：输入｜[karma/agents/summarizer/agent.py 第132—133行](<agent.py#L132>)】
 
 ```text
             ## 输入
             包含技术描述、系统架构、组件和实施例的文档。
 ```
 
-【来源：压缩规则｜[karma/agents/summarizer/agent.py 第134—139行](<agent.py#L134>)】
+【来源：压缩规则｜[karma/agents/summarizer/agent.py 第135—140行](<agent.py#L135>)】
 
 ```text
             ## 压缩规则
@@ -93,7 +95,7 @@
             - 完整性：不应遗漏任何信息
 ```
 
-【来源：忠实性规则：｜[karma/agents/summarizer/agent.py 第141—147行](<agent.py#L141>)】
+【来源：忠实性规则：｜[karma/agents/summarizer/agent.py 第142—148行](<agent.py#L142>)】
 
 ```text
             ### 忠实性规则：
@@ -105,7 +107,7 @@
             6. 保留所有描述系统架构的附图引用
 ```
 
-【来源：流畅性规则：｜[karma/agents/summarizer/agent.py 第149—153行](<agent.py#L149>)】
+【来源：流畅性规则：｜[karma/agents/summarizer/agent.py 第150—154行](<agent.py#L150>)】
 
 ```text
             ### 流畅性规则：
@@ -115,7 +117,7 @@
             10. 保持原始文档的技术语调和精确性
 ```
 
-【来源：专利压缩的特定规则：｜[karma/agents/summarizer/agent.py 第155—167行](<agent.py#L155>)】
+【来源：专利压缩的特定规则：｜[karma/agents/summarizer/agent.py 第156—168行](<agent.py#L156>)】
 
 ```text
             ### 专利压缩的特定规则：
@@ -133,14 +135,14 @@
                 - 对基本概念的冗余解释
 ```
 
-【来源：输出格式｜[karma/agents/summarizer/agent.py 第169—170行](<agent.py#L169>)】
+【来源：输出格式｜[karma/agents/summarizer/agent.py 第170—171行](<agent.py#L170>)】
 
 ```text
             ## 输出格式
             仅返回压缩后的文本。不附加评论、解释或 JSON 格式。
 ```
 
-【来源：输入文本｜[karma/agents/summarizer/agent.py 第172—175行](<agent.py#L172>)】
+【来源：输入文本｜[karma/agents/summarizer/agent.py 第173—176行](<agent.py#L173>)】
 
 ```text
             ## 输入文本

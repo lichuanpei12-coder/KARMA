@@ -1,12 +1,14 @@
 # 评估Agent_完整Prompt
 
-整理日期：2026-11-04。代码版本：`0c04ac635ccb3f739dd8769913d2ea65ef6c1b01`。行号对应整理时源码；后续修改源码后应重新导出。
+整理日期：2026-11-04。代码版本：`d401c9c6f4454e39d46f1c8bbff04925128cbfed`。行号对应整理时源码；后续修改源码后应重新导出。
 
 ## 当前运行是否使用这套Prompt
 
 当前process执行Python加权评分和阈值筛选，不调用模型。源码System字符串不参与运行决策；实际逻辑以finalize_triples和_aggregate_scores为准，不能把字符串里的最低分条件当成已执行检查。
 
-源码入口：karma/agents/evaluator/agent.py 第84—125行。系统提示选择与消息发送见karma/core/base_agent.py 第132—135行；Responses模式同一内容见karma/core/base_agent.py 第263—267行。
+【来源：调用入口与System/User发送｜[karma/agents/evaluator/agent.py 第84—125行](<agent.py#L84>)；[karma/core/base_agent.py 第99—158行](<../../core/base_agent.py#L99>)】
+
+Chat Completions 与 Responses 使用同一套 System/User 内容，底层调用共用持续重试机制。
 
 ## 展示说明
 

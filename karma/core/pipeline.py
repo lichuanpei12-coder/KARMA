@@ -4,6 +4,7 @@ KARMA Main Pipeline Implementation
 This module contains the main KARMA pipeline that orchestrates all agents
 to process documents and extract knowledge.
 """
+from karma.core.api_retry import FatalLLMError
 
 import logging
 import copy
@@ -19,6 +20,8 @@ import inspect
 from .run_artifacts import load_baseline, save_baseline, select_documents, write_json
 from .sentence_groups import source_sentences, attach_sources, group_triples
 from .feedback_pipeline import FeedbackPipeline
+from .sentence_feedback_pipeline import SentenceFeedbackPipeline
+from .api_retry import RequestPacer
 from .triple_scores import fixed_score_copy
 from ..agents.feedback_add.agent import FeedbackAddAgent
 from ..agents.feedback_replace.agent import FeedbackReplaceAgent
@@ -59,7 +62,10 @@ class KARMAPipeline:
         base_url: Optional[str] = None,
         model_name: str = "gpt-4o",
         integration_threshold: float = 0.0,
-        api_mode: str = "chat_completions"
+        api_mode: str = "chat_completions",
+        feedback_scope: str = "sentence",
+        text_scope: str = "sentence",
+        api_min_interval: float = 1.0
     ):
         """
         Initialize KARMA pipeline with API credentials.
@@ -75,8 +81,14 @@ class KARMAPipeline:
         if api_mode not in {"chat_completions", "responses"}:
             raise ValueError("api_mode must be 'chat_completions' or 'responses'")
 
+        if feedback_scope not in ("sentence", "document") or text_scope not in ("sentence", "document"):
+            raise ValueError("feedback_scope and text_scope must be sentence or document")
+        self.feedback_scope = feedback_scope
+        self.text_scope = text_scope
+        self.request_pacer = RequestPacer(api_min_interval)
+
         # Initialize OpenAI client
-        client_kwargs = {"api_key": api_key}
+        client_kwargs = {"api_key": api_key, "max_retries": 0, "timeout": 600.0}
         if base_url:
             client_kwargs["base_url"] = base_url
 
@@ -118,7 +130,10 @@ class KARMAPipeline:
             base_url=config.model.base_url,
             model_name=config.model.name,
             integration_threshold=config.pipeline.integration_threshold,
-            api_mode=api_mode
+            api_mode=api_mode,
+            feedback_scope=config.pipeline.feedback_scope,
+            text_scope=config.pipeline.text_scope,
+            api_min_interval=config.pipeline.api_min_interval
         )
 
         return pipeline
@@ -135,7 +150,8 @@ class KARMAPipeline:
         self.feedback_add_agent = FeedbackAddAgent(self.client, self.model_name)
         self.feedback_replace_agent = FeedbackReplaceAgent(self.client, self.model_name)
         self.feedback_remove_agent = FeedbackRemoveAgent(self.client, self.model_name)
-        self.feedback_pipeline = FeedbackPipeline(
+        feedback_class = SentenceFeedbackPipeline if self.feedback_scope == "sentence" else FeedbackPipeline
+        self.feedback_pipeline = feedback_class(
             self.feedback_add_agent, self.feedback_replace_agent, self.feedback_remove_agent)
         # Disabled for the current open-relation DocOIE evaluation. Keep the
         # original initialization here so the schema stage can be restored later.
@@ -164,6 +180,7 @@ class KARMAPipeline:
             self.evaluator_agent,
         ):
             agent.api_mode = self.api_mode
+            agent.request_pacer = self.request_pacer
 
     def process_document(
         self,
@@ -400,8 +417,11 @@ class KARMAPipeline:
                         step_start = time.time()
                         sentence_groups = group_triples(sentences, split_triples)
                         text_generation = self.text_generation_agent.process(
-                            copy.deepcopy(split_triples), sentence_groups=sentence_groups
+                            copy.deepcopy(split_triples), sentence_groups=sentence_groups, scope=self.text_scope
                         )
+                        if self.text_scope == 'sentence':
+                            for record in self.text_generation_agent.last_sentence_calls:
+                                write_json(self.evaluator_agent._dump_dir / f"_dump_doc{i}_generation_{record['sentence_id']}.json", record)
                         print(text_generation)
                         step_time = time.time() - step_start
                         intermediate.metrics.add_agent_time("text_generation", step_time)
@@ -413,8 +433,11 @@ class KARMAPipeline:
                         step_start = time.time()
                         diff = self.text_comparison_agent.process(
                             extraction_text, text_generation, sentence_groups=sentence_groups,
-                            reconstructions=self.text_generation_agent.last_grouped_generation
+                            reconstructions=self.text_generation_agent.last_grouped_generation, scope=self.text_scope
                         )
+                        if self.text_scope == 'sentence':
+                            for record in self.text_comparison_agent.last_sentence_calls:
+                                write_json(self.evaluator_agent._dump_dir / f"_dump_doc{i}_comparison_{record['sentence_id']}.json", record)
                         with open(self.evaluator_agent._dump_dir / f"_dump_doc{i}_feedback.json", "w", encoding="utf-8") as _f:
                             json.dump({"text_a": extraction_text, "text_b": text_generation, "diff": diff,
                                        "source_sentences": sentences, "sentence_groups": sentence_groups,
@@ -653,6 +676,8 @@ class KARMAPipeline:
             self.last_baseline_path = package_path
             return intermediate
 
+        except FatalLLMError:
+            raise
         except Exception as e:
             intermediate.metrics.error_count += 1
             logger.error(f"Pipeline failed: {str(e)}")
@@ -679,7 +704,12 @@ class KARMAPipeline:
         for name, module in (('FeedbackCommon', feedback_common), ('FeedbackOperations', feedback_operations), ('TripleScores', triple_scores)):
             hashes[name] = hashlib.sha256(Path(module.__file__).read_bytes()).hexdigest()
         hashes['FeedbackPipeline'] = hashlib.sha256(Path(inspect.getfile(FeedbackPipeline)).read_bytes()).hexdigest()
+        from . import api_retry, base_agent, sentence_feedback_pipeline
+        for name, module in [('APIRetry', api_retry), ('BaseAgent', base_agent), ('SentenceFeedbackPipeline', sentence_feedback_pipeline)]:
+            hashes[name] = hashlib.sha256(Path(module.__file__).read_bytes()).hexdigest()
         return {"model": self.model_name, "api_mode": self.api_mode,
+                "feedback_scope": self.feedback_scope, "text_scope": self.text_scope,
+                "api_min_interval": self.request_pacer.min_interval, "api_retry_policy": "unlimited_transient_v1",
                 "integration_threshold": self.integration_threshold,
                 "relevance_threshold": relevance_threshold, "domain": domain,
                 "use_summarizer": bool(os.environ.get("KARMA_USE_SUMMARIZER")),
@@ -840,6 +870,8 @@ class KARMAPipeline:
             try:
                 result = self.process_document(source, domain, relevance_threshold)
                 results.append(result)
+            except FatalLLMError:
+                raise
             except Exception as e:
                 logger.error(f"Failed to process {source}: {str(e)}")
                 # Create empty result for failed processing

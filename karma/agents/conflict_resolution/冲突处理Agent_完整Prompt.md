@@ -1,12 +1,14 @@
 # 冲突处理Agent_完整Prompt
 
-整理日期：2026-11-04。代码版本：`0c04ac635ccb3f739dd8769913d2ea65ef6c1b01`。行号对应整理时源码；后续修改源码后应重新导出。
+整理日期：2026-11-04。代码版本：`d401c9c6f4454e39d46f1c8bbff04925128cbfed`。行号对应整理时源码；后续修改源码后应重新导出。
 
 ## 当前运行是否使用这套Prompt
 
 当前process执行Python矛盾关系和置信度比较规则，不调用模型。源码定义了System字符串，但当前没有实际发送的User或模型请求。
 
-源码入口：karma/agents/conflict_resolution/agent.py 第59—61行。系统提示选择与消息发送见karma/core/base_agent.py 第132—135行；Responses模式同一内容见karma/core/base_agent.py 第263—267行。
+【来源：调用入口与System/User发送｜[karma/agents/conflict_resolution/agent.py 第59—61行](<agent.py#L59>)；[karma/core/base_agent.py 第99—158行](<../../core/base_agent.py#L99>)】
+
+Chat Completions 与 Responses 使用同一套 System/User 内容，底层调用共用持续重试机制。
 
 ## 展示说明
 

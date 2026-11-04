@@ -1,14 +1,16 @@
 # 模式对齐Agent_完整Prompt
 
-整理日期：2026-11-04。代码版本：`0c04ac635ccb3f739dd8769913d2ea65ef6c1b01`。行号对应整理时源码；后续修改源码后应重新导出。
+整理日期：2026-11-04。代码版本：`d401c9c6f4454e39d46f1c8bbff04925128cbfed`。行号对应整理时源码；后续修改源码后应重新导出。
 
 ## 当前运行是否使用这套Prompt
 
 当前pipeline中初始化和调用均被注释。即使单独调用该类，现有process也是Python类型/关系映射，没有模型调用；定义的System不代表当前生效。
 
-源码入口：karma/agents/schema_alignment/agent.py 第56—60行。系统提示选择与消息发送见karma/core/base_agent.py 第132—135行；Responses模式同一内容见karma/core/base_agent.py 第263—267行。
+【来源：调用入口与System/User发送｜[karma/agents/schema_alignment/agent.py 第56—60行](<agent.py#L56>)；[karma/core/base_agent.py 第99—158行](<../../core/base_agent.py#L99>)】
 
-未启用位置：karma/core/pipeline.py 第142行；karma/core/pipeline.py 第529行。
+Chat Completions 与 Responses 使用同一套 System/User 内容，底层调用共用持续重试机制。
+
+未启用位置：karma/core/pipeline.py 第158行；karma/core/pipeline.py 第552行。
 
 ## 展示说明
 

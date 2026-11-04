@@ -4,6 +4,7 @@ from karma.core.base_agent import BaseAgent
 from karma.agents.extraction_support import parse_json_container
 
 COMMON_RULES = """# 表达要求
+当前完整集合指本次输入范围内的全部三元组。feedback_scope 为 sentence 时只处理给定的一个源句，为 document 时处理给定的整篇源句。
 源句是事实依据。实义词保持原文用词、词形和大小写；独立表达时可以补充必要的系词、助动词和介词。
 例如原文是 to provide，可以表达为 is to provide，保留 provide 的词形。
 保留关系的主体、对象、方向，以及否定、可能性、目的、风险、条件、数量、时间和范围。
@@ -37,9 +38,10 @@ class FeedbackAgent(BaseAgent):
 
     def process(self, context):
         messages = self.build_messages(context)
+        self.last_llm_call = {}
         self.last_call = {'messages': messages, 'raw_response': None}
         response, prompt_tokens, completion_tokens, elapsed = self._make_llm_call(
             messages[1]['content'], temperature=0.0, system_prompt=messages[0]['content'])
-        self.last_call.update(raw_response=response, prompt_tokens=prompt_tokens,
+        self.last_call.update(retries=self.last_llm_call.get('retries', []), raw_response=response, prompt_tokens=prompt_tokens,
                               completion_tokens=completion_tokens, elapsed=elapsed)
         return parse_json_container(response, dict)

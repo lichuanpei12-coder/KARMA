@@ -1,24 +1,28 @@
 # 重建文本Agent_完整Prompt
 
-整理日期：2026-11-04。代码版本：`0c04ac635ccb3f739dd8769913d2ea65ef6c1b01`。行号对应整理时源码；后续修改源码后应重新导出。
+整理日期：2026-11-04。代码版本：`d401c9c6f4454e39d46f1c8bbff04925128cbfed`。行号对应整理时源码；后续修改源码后应重新导出。
 
 ## 当前运行是否使用这套Prompt
 
-当前pipeline明确传入sentence_groups，因此采用generate_grouped的分组System和User。另一条generate_text路径只在不传分组或直接调用时使用，不会同时发送。
+当前pipeline默认text_scope=sentence，由generate_sentences逐句调用generate_grouped，每次只传一个分组。text_scope=document时一次传入全部分组；两种模式固定System和User相同，仅输入范围不同。另一条generate_text路径只在不传分组或直接调用时使用，不会同时发送。
 
-源码入口：karma/agents/text_generation/agent.py 第119—131行。系统提示选择与消息发送见karma/core/base_agent.py 第132—135行；Responses模式同一内容见karma/core/base_agent.py 第263—267行。
+【来源：调用入口与System/User发送｜[karma/agents/text_generation/agent.py 第120—132行](<agent.py#L120>)；[karma/core/base_agent.py 第99—158行](<../../core/base_agent.py#L99>)】
 
-当前流水线传参位置：karma/core/pipeline.py 第402—404行。**当前流程只选择分组版本；附录中的非分组版本不会一起执行。**
+Chat Completions 与 Responses 使用同一套 System/User 内容，底层调用共用持续重试机制。
+
+当前流水线传参位置：karma/core/pipeline.py 第419—421行。**当前流程只选择分组版本；附录中的非分组版本不会一起执行。**
 
 ## 展示说明
 
 固定文本全部展开，仅运行数据用源码变量或表达式表示。每个入口保留一份按顺序排列的System和User；每部分前用一行相对路径链接标注来源，可点击查看源码。来源链接放在代码块外以保持蓝色显示。“【来源：…】”和消息角色标记只用于阅读。同目录[Prompt完整模板.json](Prompt完整模板.json)保存不含阅读标注的角色结构。
 
-## 当前pipeline使用：按源句分组版本
+【来源：逐句入口与调度｜[karma/agents/text_generation/agent.py 第134—145行](<agent.py#L134>)；[karma/core/pipeline.py 第419—421行](<../../core/pipeline.py#L419>)】
+
+## 当前默认：逐句调用（整篇模式复用相同固定提示）
 
 **System 消息**
 
-【来源：任务说明｜[karma/agents/text_generation/agent.py 第169行](<agent.py#L169>)】
+【来源：任务说明｜[karma/agents/text_generation/agent.py 第183行](<agent.py#L183>)】
 
 ```text
 你根据给定三元组逐组生成重建文本，完整回复为 JSON 数组。
@@ -26,14 +30,14 @@
 
 **User 消息**
 
-【来源：任务说明｜[karma/agents/text_generation/agent.py 第143—144行](<agent.py#L143>)】
+【来源：任务说明｜[karma/agents/text_generation/agent.py 第157—158行](<agent.py#L157>)】
 
 ```text
 依据按源句编号分组的三元组，逐组生成对应的重建文本。
 编号仅用于定位，不包含原文信息；本任务的事实依据是输入三元组。
 ```
 
-【来源：执行步骤｜[karma/agents/text_generation/agent.py 第145—165行](<agent.py#L145>)】
+【来源：执行步骤｜[karma/agents/text_generation/agent.py 第159—179行](<agent.py#L159>)】
 
 ```text
 # 执行步骤
@@ -71,7 +75,7 @@
 
 **System 消息**
 
-【来源：任务说明｜[karma/agents/text_generation/agent.py 第38—112行](<agent.py#L38>)】
+【来源：任务说明｜[karma/agents/text_generation/agent.py 第39—113行](<agent.py#L39>)】
 
 ```text
 你是一个专门用于将结构化三元组转换为流畅自然语言句子的文本生成代理。
@@ -153,7 +157,7 @@
 
 **User 消息**
 
-【来源：任务说明｜[karma/agents/text_generation/agent.py 第278—309行](<agent.py#L278>)】
+【来源：任务说明｜[karma/agents/text_generation/agent.py 第296—327行](<agent.py#L296>)】
 
 ```text
                 生成指令：
@@ -198,7 +202,7 @@
 UNASSIGNED 是来源句尚未确定的条目分组；按输入编号处理该组。
 ```
 
-插入到当前分组User的业务输入标签之前，拼接位置见karma/agents/text_generation/agent.py 第133—198行。
+插入到当前分组User的业务输入标签之前，拼接位置见karma/agents/text_generation/agent.py 第147—214行。
 
 ## 文档维护
 

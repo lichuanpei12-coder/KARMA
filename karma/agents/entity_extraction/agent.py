@@ -1,4 +1,5 @@
 """Candidate entity discovery and source-grounded revision."""
+from karma.core.api_retry import FatalLLMError
 
 import copy
 import logging
@@ -119,6 +120,8 @@ context 逐字复制支持该候选的源句中的连续片段。
                 "final_count": len(entities),
             })
             return entities
+        except FatalLLMError:
+            raise
         except Exception as exc:
             logger.warning("Entity extraction failed; relationship extraction can continue: %s", exc)
             self.last_extraction.append({"mode": "extraction_failure", "reason": str(exc), "raw_response": response})
@@ -184,6 +187,8 @@ context 逐字复制支持该候选的源句中的连续片段。
                 "final_count": len(entities), "entities": records,
             }
             return entities
+        except FatalLLMError:
+            raise
         except Exception as exc:
             logger.warning("Entity revision failed; keeping previous candidates: %s", exc)
             self.last_revision = {

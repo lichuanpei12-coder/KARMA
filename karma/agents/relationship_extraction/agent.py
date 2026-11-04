@@ -4,6 +4,7 @@ Relationship Extraction Agent Implementation
 The Relationship Extraction Agent identifies relationships between entities
 using contextual analysis and domain knowledge.
 """
+from karma.core.api_retry import FatalLLMError
 
 import logging
 from typing import Any, Dict, List, Tuple, Optional
@@ -181,6 +182,8 @@ source_sentence_ids 只填一个有效源句编号，例如 ["S1"]。context 逐
                 "rejected": rejected, "score_policy": "fixed_0.8", "response_items": items,
             })
             return triples
+        except FatalLLMError:
+            raise
         except Exception as exc:
             logger.warning("Relationship extraction failed: %s", exc)
             self.last_extraction.append({"mode": "extraction_failure", "reason": str(exc), "raw_response": response})

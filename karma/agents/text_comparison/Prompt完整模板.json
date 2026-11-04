@@ -1,9 +1,9 @@
 {
-  "git_head": "0c04ac635ccb3f739dd8769913d2ea65ef6c1b01",
+  "git_head": "d401c9c6f4454e39d46f1c8bbff04925128cbfed",
   "historical_run": false,
   "examples": [
     {
-      "section": "当前pipeline使用：按源句分组版本",
+      "section": "当前默认：逐句调用（整篇模式复用相同固定提示）",
       "data_origin": "固定文本完整展开，仅运行数据保留源码变量表达式",
       "messages": [
         {

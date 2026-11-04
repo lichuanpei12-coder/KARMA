@@ -1,4 +1,5 @@
 """Dedicated triple splitting with source-grounded rules and a worked example."""
+from karma.core.api_retry import FatalLLMError
 
 import json
 import logging
@@ -216,6 +217,8 @@ add/replace 均填写被拆分的原三元组 index，使用输入中从0开始�
             revised, audit = self._apply_revision(previous_relationships, revision, split_only=True)
             self.last_revision = audit
             return revised
+        except FatalLLMError:
+            raise
         except Exception as exc:
             logger.warning("Triple splitting failed; keeping input triples: %s", exc)
             self.last_revision = {

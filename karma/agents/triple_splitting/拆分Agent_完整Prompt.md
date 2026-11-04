@@ -1,12 +1,14 @@
 # 拆分Agent_完整Prompt
 
-整理日期：2026-11-04。代码版本：`0c04ac635ccb3f739dd8769913d2ea65ef6c1b01`。行号对应整理时源码；后续修改源码后应重新导出。
+整理日期：2026-11-04。代码版本：`d401c9c6f4454e39d46f1c8bbff04925128cbfed`。行号对应整理时源码；后续修改源码后应重新导出。
 
 ## 当前运行是否使用这套Prompt
 
 拆分阶段通过process调用专用System和User；只生成add/replace；程序兼容旧响应中的空remove。回放或跳过阶段时是否执行，以实际入口为准。
 
-源码入口：karma/agents/triple_splitting/agent.py 第27—227行。系统提示选择与消息发送见karma/core/base_agent.py 第132—135行；Responses模式同一内容见karma/core/base_agent.py 第263—267行。
+【来源：调用入口与System/User发送｜[karma/agents/triple_splitting/agent.py 第28—230行](<agent.py#L28>)；[karma/core/base_agent.py 第99—158行](<../../core/base_agent.py#L99>)】
+
+Chat Completions 与 Responses 使用同一套 System/User 内容，底层调用共用持续重试机制。
 
 ## 展示说明
 
@@ -16,7 +18,7 @@
 
 **System 消息**
 
-【来源：任务说明｜[karma/agents/triple_splitting/agent.py 第198—201行](<agent.py#L198>)】
+【来源：任务说明｜[karma/agents/triple_splitting/agent.py 第199—202行](<agent.py#L199>)】
 
 ```text
 你是知识三元组拆分助手，仅依据源文本拆分当前
@@ -27,7 +29,7 @@
 
 **User 消息**
 
-【来源：任务｜[karma/agents/triple_splitting/agent.py 第42—44行](<agent.py#L42>)】
+【来源：任务｜[karma/agents/triple_splitting/agent.py 第43—45行](<agent.py#L43>)】
 
 ```text
 # 任务
@@ -35,7 +37,7 @@
 本阶段的调整围绕这些关系的拆分展开，其余三元组由程序原样保留。
 ```
 
-【来源：执行步骤｜[karma/agents/triple_splitting/agent.py 第46—85行](<agent.py#L46>)】
+【来源：执行步骤｜[karma/agents/triple_splitting/agent.py 第47—86行](<agent.py#L47>)】
 
 ```text
 # 执行步骤
@@ -80,7 +82,7 @@
     取消重复候选，合并针对同一 index 的替换操作，输出 add、replace 两个数组。
 ```
 
-【来源：常见关系结构短例｜[karma/agents/triple_splitting/agent.py 第87—115行](<agent.py#L87>)】
+【来源：常见关系结构短例｜[karma/agents/triple_splitting/agent.py 第88—116行](<agent.py#L88>)】
 
 ```text
 # 常见关系结构短例
@@ -114,7 +116,7 @@
   若继续抽取内部关系，也需表达同一风险范围；单独断言物品实际飞出会改变源句含义。
 ```
 
-【来源：操作｜[karma/agents/triple_splitting/agent.py 第117—123行](<agent.py#L117>)】
+【来源：操作｜[karma/agents/triple_splitting/agent.py 第118—124行](<agent.py#L118>)】
 
 ```text
 # 操作
@@ -126,7 +128,7 @@ add/replace 均填写被拆分的原三元组 index，使用输入中从0开始�
 根据上述定义生成 add、replace 操作。
 ```
 
-【来源：事实｜[karma/agents/triple_splitting/agent.py 第125—135行](<agent.py#L125>)】
+【来源：事实｜[karma/agents/triple_splitting/agent.py 第126—136行](<agent.py#L126>)】
 
 ```text
 # 事实
@@ -142,7 +144,7 @@ add/replace 均填写被拆分的原三元组 index，使用输入中从0开始�
   指代按源文明确的对应关系还原；输出前逐项核对各字段实义词的原文依据和词形。
 ```
 
-【来源：源文本｜[karma/agents/triple_splitting/agent.py 第137—140行](<agent.py#L137>)】
+【来源：源文本｜[karma/agents/triple_splitting/agent.py 第138—141行](<agent.py#L138>)】
 
 ```text
 # 源文本
@@ -151,7 +153,7 @@ add/replace 均填写被拆分的原三元组 index，使用输入中从0开始�
 </source_text>
 ```
 
-【来源：当前三元组｜[karma/agents/triple_splitting/agent.py 第142—145行](<agent.py#L142>)】
+【来源：当前三元组｜[karma/agents/triple_splitting/agent.py 第143—146行](<agent.py#L143>)】
 
 ```text
 # 当前三元组
@@ -160,7 +162,7 @@ add/replace 均填写被拆分的原三元组 index，使用输入中从0开始�
 </current_triples_json>
 ```
 
-【来源：复杂复合示例与输出格式｜[karma/agents/triple_splitting/agent.py 第147—173、177—183、188—189、193—195行](<agent.py#L147>)】
+【来源：复杂复合示例与输出格式｜[karma/agents/triple_splitting/agent.py 第148—174、178—184、189—190、194—196行](<agent.py#L148>)】
 
 ```text
 # 复杂复合示例与输出格式

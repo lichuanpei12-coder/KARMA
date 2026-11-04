@@ -1,14 +1,16 @@
 # 摄入Agent_完整Prompt
 
-整理日期：2026-11-04。代码版本：`0c04ac635ccb3f739dd8769913d2ea65ef6c1b01`。行号对应整理时源码；后续修改源码后应重新导出。
+整理日期：2026-11-04。代码版本：`d401c9c6f4454e39d46f1c8bbff04925128cbfed`。行号对应整理时源码；后续修改源码后应重新导出。
 
 ## 当前运行是否使用这套Prompt
 
 当前process只做文本规范化，_extract_metadata调用已注释，metadata=None；下面完整prompt属于保留但未由当前process调用的元数据入口。
 
-源码入口：karma/agents/ingestion/agent.py 第77—95行。系统提示选择与消息发送见karma/core/base_agent.py 第132—135行；Responses模式同一内容见karma/core/base_agent.py 第263—267行。
+【来源：调用入口与System/User发送｜[karma/agents/ingestion/agent.py 第78—96行](<agent.py#L78>)；[karma/core/base_agent.py 第99—158行](<../../core/base_agent.py#L99>)】
 
-元数据调用被注释的位置：karma/agents/ingestion/agent.py 第91—93行。
+Chat Completions 与 Responses 使用同一套 System/User 内容，底层调用共用持续重试机制。
+
+元数据调用被注释的位置：karma/agents/ingestion/agent.py 第78—96行。
 
 ## 展示说明
 
@@ -18,7 +20,7 @@
 
 **System 消息**
 
-【来源：任务说明｜[karma/agents/ingestion/agent.py 第38—73行](<agent.py#L38>)】
+【来源：任务说明｜[karma/agents/ingestion/agent.py 第39—74行](<agent.py#L39>)】
 
 ```text
 你是一个专门用于科学文献处理的摄入代理。你的任务是从学术文档中高精度、高可靠性地提取结构化元数据。
@@ -61,7 +63,7 @@
 
 **User 消息**
 
-【来源：任务说明｜[karma/agents/ingestion/agent.py 第112—134行](<agent.py#L112>)】
+【来源：任务说明｜[karma/agents/ingestion/agent.py 第113—135行](<agent.py#L113>)】
 
 ```text
         Please analyze this document and extract the following metadata if available:

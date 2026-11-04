@@ -1,4 +1,5 @@
 """Sequential Add -> Replace -> Remove feedback with explicit stage snapshots."""
+from karma.core.api_retry import FatalLLMError
 import copy
 import time
 from karma.agents.feedback_operations import apply_operations, validate_reply
@@ -18,7 +19,7 @@ class FeedbackPipeline:
         self.last_revision = {}
         self.snapshots = {}
 
-    def process(self, text, triples, diff, entities=None, *, sentences, reconstructions=None):
+    def process(self, text, triples, diff, entities=None, *, sentences, reconstructions=None, scope='document'):
         current = fixed_score_copy(triples)
         self.snapshots = {}
         history, pending, stages = [], [], []
@@ -43,7 +44,7 @@ class FeedbackPipeline:
                 'failures': [r['reason'] for r in h['rejected']], 'status': h['status']}
                 for h in history]
             context = {
-                'stage': stage, 'repair_pass': repair,
+                'stage': stage, 'repair_pass': repair, 'feedback_scope': scope,
                 'source_sentences': copy.deepcopy(sentences),
                 'current_collection': {'version': version, 'triples': indexed},
                 'sentence_index': {s['sentence_id']: [i for i, t in enumerate(current)
@@ -63,6 +64,8 @@ class FeedbackPipeline:
                 reply = agent.process(context)
                 validate_reply(reply, stage, current, sentences)
                 revised, application = apply_operations(stage, current, reply, sentences)
+            except FatalLLMError:
+                raise
             except Exception as exc:
                 revised = copy.deepcopy(current)
                 application = {'status': 'failed', 'reason': str(exc), 'accepted': [], 'rejected': [],
@@ -118,7 +121,7 @@ class FeedbackPipeline:
                 run('add', True)
             run('replace', True)
             run('remove', True)
-        self.last_revision = {'mode': 'three_step_feedback', 'protocol': 'task_outputs_v3', 'score_policy': 'fixed_0.8', 'stages': stages,
+        self.last_revision = {'mode': 'three_step_feedback', 'protocol': 'task_outputs_v3', 'scope': scope, 'score_policy': 'fixed_0.8', 'stages': stages,
                               'handoff_log': pending,
                               'undelivered_issues': [p for p in pending if p['delivery_status'] in ('queued', 'delivery_failed')],
                               'review_issues': [p for p in pending if p['delivery_status'] == 'needs_review'],

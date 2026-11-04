@@ -4,6 +4,7 @@ Text Comparison Agent Implementation
 The Text Comparison Agent analyzes and compares two text passages,
 identifying similarities, differences, and key distinctions between them.
 """
+from karma.core.api_retry import FatalLLMError
 
 import json
 import logging
@@ -64,7 +65,7 @@ class TextComparisonAgent(BaseAgent):
         super().__init__(client, model_name, system_prompt)
         self.max_tokens = max_tokens
 
-    def process(self, text_a: str, text_b: str, comparison_focus: str = "", *, sentence_groups=None, reconstructions=None) -> Dict[str, Any]:
+    def process(self, text_a: str, text_b: str, comparison_focus: str = "", *, sentence_groups=None, reconstructions=None, scope='document') -> Dict[str, Any]:
         """
         Process method required by BaseAgent interface.
 
@@ -77,8 +78,31 @@ class TextComparisonAgent(BaseAgent):
             Dictionary containing comparison results
         """
         if sentence_groups is not None:
-            return self.compare_grouped(text_a, sentence_groups, reconstructions or [])
+            return (self.compare_sentences(sentence_groups, reconstructions or []) if scope == 'sentence'
+                    else self.compare_grouped(text_a, sentence_groups, reconstructions or []))
         return self.compare(text_a, text_b, comparison_focus)
+
+    def compare_sentences(self, groups, reconstructions):
+        """Compare each source only to its own reconstruction; isolate failures."""
+        import copy
+        rows, calls = [], []
+        prompt_tokens = completion_tokens = 0
+        for group in groups:
+            recs = [r for r in reconstructions if r['sentence_id'] == group['sentence_id']]
+            self.last_llm_call = {}
+            result = self.compare_grouped(group['text'], [group], recs)
+            rows.extend(result['sentence_differences'])
+            prompt_tokens += result['_metadata']['prompt_tokens']
+            completion_tokens += result['_metadata']['completion_tokens']
+            calls.append({'sentence_id': group['sentence_id'], **copy.deepcopy(self.last_llm_call)})
+        self.last_sentence_calls = calls
+        result = {key: [f"[{r['sentence_id']}] {v}" for r in rows for v in r[key]]
+                  for key in ('unique_to_text_a', 'unique_to_text_b')}
+        result['sentence_differences'] = rows
+        result['_metadata'] = dict(comparison_mode='source_sentence_calls_v1',
+                                   status='failed' if any(r['comparison_status'] == 'failed' for r in rows) else 'compared',
+                                   prompt_tokens=prompt_tokens, completion_tokens=completion_tokens)
+        return result
 
     def compare_grouped(self, text_a, groups, reconstructions):
         """Compare aligned groups with full source context, in one model call."""
@@ -160,6 +184,8 @@ class TextComparisonAgent(BaseAgent):
                     by_id[item['sentence_id']] = item
                 if set(by_id) != allowed:
                     raise ValueError('Missing comparison sentence IDs')
+            except FatalLLMError:
+                raise
             except Exception as exc:
                 error, by_id = str(exc), {}
         rows = []
@@ -215,6 +241,8 @@ class TextComparisonAgent(BaseAgent):
 
             return result
 
+        except FatalLLMError:
+            raise
         except Exception as e:
             logger.warning(f"Text comparison failed: {str(e)}")
             return self._fallback_comparison(text_a, text_b)

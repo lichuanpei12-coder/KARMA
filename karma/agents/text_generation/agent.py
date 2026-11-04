@@ -4,6 +4,7 @@ Text Generation Agent Implementation
 The Text Generation Agent converts structured triples (head, relation, tail)
 into natural language sentences using LLM-based generation.
 """
+from karma.core.api_retry import FatalLLMError
 
 import json
 import logging
@@ -116,7 +117,7 @@ class TextGenerationAgent(BaseAgent):
         super().__init__(client, model_name, system_prompt)
         self.max_tokens = max_tokens
 
-    def process(self, triples: List[Dict[str, str]], *, sentence_groups=None) -> str:
+    def process(self, triples: List[Dict[str, str]], *, sentence_groups=None, scope='document') -> str:
         """
         Process method required by BaseAgent interface.
 
@@ -127,8 +128,21 @@ class TextGenerationAgent(BaseAgent):
             Generated natural language sentence
         """
         if sentence_groups is not None:
-            return self.generate_grouped(sentence_groups)
+            return self.generate_sentences(sentence_groups) if scope == 'sentence' else self.generate_grouped(sentence_groups)
         return self.generate_text(triples)
+
+    def generate_sentences(self, groups):
+        """One request per sentence; empty groups need no generation request."""
+        import copy
+        records, calls = [], []
+        for group in groups:
+            self.last_llm_call = {}
+            self.generate_grouped([group])
+            records.extend(copy.deepcopy(self.last_grouped_generation))
+            calls.append({'sentence_id': group['sentence_id'], **copy.deepcopy(self.last_llm_call)})
+        self.last_grouped_generation = records
+        self.last_sentence_calls = calls
+        return '\n'.join(r['text_b'] for r in records if r['text_b'])
 
     def generate_grouped(self, groups):
         """One document call, separate outputs; never send source text/evidence."""
@@ -176,6 +190,8 @@ class TextGenerationAgent(BaseAgent):
                     by_id[item['sentence_id']] = item['text'].strip()
                 if set(by_id) != allowed:
                     raise ValueError('Missing reconstruction sentence IDs')
+            except FatalLLMError:
+                raise
             except Exception as exc:
                 error = str(exc)
                 by_id = {}
@@ -221,6 +237,8 @@ class TextGenerationAgent(BaseAgent):
 
             return generated_text
 
+        except FatalLLMError:
+            raise
         except Exception as e:
             logger.warning(f"Text generation failed: {str(e)}")
             return self._fallback_generate(linearized)

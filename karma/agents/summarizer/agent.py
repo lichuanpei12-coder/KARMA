@@ -4,6 +4,7 @@ Summarizer Agent Implementation
 The Summarizer Agent converts high-relevance text segments into concise summaries
 while preserving technical details crucial for knowledge extraction.
 """
+from karma.core.api_retry import FatalLLMError
 
 import logging
 from typing import List, Tuple
@@ -205,6 +206,8 @@ class SummarizerAgent(BaseAgent):
 
             return summary
 
+        except FatalLLMError:
+            raise
         except Exception as e:
             logger.warning(f"Summarization failed for segment: {str(e)}")
             return self._extract_key_sentences(text)

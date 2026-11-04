@@ -174,6 +174,9 @@ Examples:
     parser.add_argument('--limit', type=int, help='Run the first N selected documents')
     parser.add_argument('--doc-ids', nargs='+', help='Select document IDs from the source JSON or baseline package')
 
+    parser.add_argument('--feedback-scope', choices=('sentence', 'document'), default='sentence', help='Feedback request scope')
+    parser.add_argument('--text-scope', choices=('sentence', 'document'), default='sentence', help='Reconstruction/comparison request scope')
+    parser.add_argument('--api-min-interval', type=float, default=1.0, help='Minimum seconds between API requests; transient errors retry indefinitely')
     args = parser.parse_args()
 
     # Validate input file
@@ -230,6 +233,9 @@ Examples:
         config = create_default_config(api_key=args.api_key)
         config.model.base_url = active_api['base_url']
         config.model.name = args.model
+        config.pipeline.feedback_scope = args.feedback_scope
+        config.pipeline.text_scope = args.text_scope
+        config.pipeline.api_min_interval = args.api_min_interval
         config.pipeline.relevance_threshold = args.relevance_threshold
         config.pipeline.integration_threshold = args.integration_threshold
 

@@ -95,7 +95,7 @@ class StagedPipelineTests(unittest.TestCase):
         self.tmp.cleanup()
 
     def pipeline(self, name, mode='chat_completions'):
-        pipe = KARMAPipeline('offline', model_name='offline', integration_threshold=.6, api_mode=mode)
+        pipe = KARMAPipeline('offline', model_name='offline', integration_threshold=.6, api_mode=mode, feedback_scope='document', text_scope='document')
         pipe.evaluator_agent._dump_dir = Path(name)
         Path(name).mkdir()
         self.pipes.append(pipe)
@@ -113,6 +113,46 @@ class StagedPipelineTests(unittest.TestCase):
         self.assertNotIn('TextComparisonAgent', [c[0] for c in self.calls])
         self.assertNotIn('TripleSplittingAgent', [c[0] for c in self.calls])
         self.assertEqual(set(pipe.last_run_manifest['documents'][0]['rounds']), {'1'})
+
+    def test_default_sentence_pipeline_writes_all_sentence_audits(self):
+        self.source.write_text(json.dumps({'omega': ['Controller may query ECU.', 'Again.']}), encoding='utf-8')
+        pipe = KARMAPipeline('offline', model_name='offline', integration_threshold=.6)
+        self.pipes.append(pipe)
+        pipe.evaluator_agent._dump_dir = Path('sentence_default')
+        pipe.evaluator_agent._dump_dir.mkdir()
+        pipe.process_document(self.source, doc_ids=['omega'])
+        stages = pipe.feedback_pipeline.last_revision['stages']
+        self.assertEqual([s['sentence_id'] for s in stages], ['S1'] * 3 + ['S2'] * 3)
+        self.assertEqual(pipe.feedback_pipeline.last_revision['scope'], 'sentence')
+        saved = json.loads(next(Path('sentence_default').glob('*revision_result.json')).read_text(encoding='utf-8'))
+        self.assertEqual(saved['revision_agent'], 'SentenceFeedbackPipeline')
+        self.assertEqual(len(list(Path('sentence_default').glob('*feedback_S*_*.json'))), 6)
+        self.assertEqual(len(list(Path('sentence_default').glob('*comparison_S*.json'))), 2)
+        self.assertEqual(len(list(Path('sentence_default').glob('*generation_S*.json'))), 2)
+        self.assertEqual(saved['after_revision'][0]['source_sentence_ids'], ['S1'])
+        self.assertEqual(len(saved['revision_audit']['sentence_runs']), 2)
+
+    def test_feedback_scope_replay_uses_saved_inputs_and_lenient_gold(self):
+        from tools.evaluation.compare_feedback_scopes import main as replay_main
+        sentences = [dict(sentence_id='S1', text='Controller may query ECU.')]
+        triples = [fact(source_sentence_ids=['S1'], evidence=sentences[0]['text'])]
+        Path('saved_revision.json').write_text(json.dumps(dict(source_sentences=sentences, after_split=triples)), encoding='utf-8')
+        Path('saved_feedback.json').write_text(json.dumps(dict(text_a=sentences[0]['text'],
+            diff={'sentence_differences': [dict(sentence_id='S1', unique_to_text_a=[], unique_to_text_b=[])]},
+            reconstructions=[dict(sentence_id='S1', text_b='Controller controls ECU.')])), encoding='utf-8')
+        Path('entities.json').write_text('[]', encoding='utf-8')
+        Path('gold.json').write_text(json.dumps({'sample': [fact('may query')]}), encoding='utf-8')
+        self.calls.clear()
+        with patch.dict(os.environ, {'KARMA_API_KEY':'offline'}):
+            result = replay_main(['--revision-result','saved_revision.json','--feedback-input','saved_feedback.json',
+                '--entities','entities.json','--output-dir','replay_output','--base-url','https://offline.invalid',
+                '--model','offline','--gold','gold.json','--gold-key','sample'])
+        self.assertEqual(result, 0)
+        self.assertEqual(len(self.calls), 6)
+        self.assertTrue(all(c[0].startswith('Feedback') for c in self.calls))
+        metrics = json.loads(Path('replay_output/lenient_metrics.json').read_text(encoding='utf-8'))
+        self.assertEqual(metrics['sentence']['after_revision']['micro']['f1'], 1)
+        self.assertGreater(metrics['sentence']['feedback_delta']['f1'], 0)
 
     def test_split_equals_full_with_fixed_responses_and_replay_is_immutable(self):
         for mode in ('chat_completions', 'responses'):
