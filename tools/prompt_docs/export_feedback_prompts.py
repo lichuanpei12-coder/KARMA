@@ -36,7 +36,7 @@ def export_feedback(root, manifest):
         file = f'karma/agents/{name}/agent.py'
         filename = cls.__name__.replace('Feedback','') + '_完整Prompt.md'
         doc = f'karma/agents/{name}/{filename}'
-        context = {'stage': agent.stage, 'feedback_scope':'sentence', 'source_sentences':[{'sentence_id':'S1','text':'The module processes data.'}],
+        context = {'stage': agent.stage, 'source_sentences':[{'sentence_id':'S1','text':'The module processes data.'}],
                    'current_collection':{'version':'V0','triples':[]},
                    'handoff':[{'indices':[],'source_sentence_ids':['S1'],'problem':'检查源句中的关系'}]}
         with patch.object(agent, '_make_llm_call', return_value=('{}',0,0,0)) as call:
@@ -65,12 +65,12 @@ def export_feedback(root, manifest):
         input_part = '# 本次输入\n<feedback_input_json>\n'+marker+'\n</feedback_input_json>'
         text += section('User 消息：本次数据',input_part,location(shared,'build_messages'),doc)
         text += '\n## 输入字段及来源\n\n'
-        text += '输入由 [karma/core/feedback_pipeline.py](../../core/feedback_pipeline.py) 的 process/run 构造。逐句调度见 [sentence_feedback_pipeline.py](../../core/sentence_feedback_pipeline.py)。feedback_scope 标明范围；sentence 模式的 source_sentences 仅含当前原句，index 是本句当前编号；document 模式为整篇。current_collection 是前一步实际输出；sentence_index 是源句到当前 index 的对应表；unassigned_indices 列出未定位来源的旧条目；comparison_bundle 始终标明原始差异来自 V0；applied_change_log 是实际修改与失败记录的精简版，不含评分或完整历史操作协议；handoff 仅包含交给本阶段且尚未成功投递的问题，indices 已对应当前集合；内部 id、投递状态和历史编号留在程序审计记录中。收到的问题在阶段一核对，模型仅输出本阶段操作及新的转交问题。candidate_entities 仅辅助定位。repair_pass 标记是否为有限返修。\n'
+        text += '输入由 [karma/core/feedback_pipeline.py](../../core/feedback_pipeline.py) 的 process/run 构造。逐句调度见 [sentence_feedback_pipeline.py](../../core/sentence_feedback_pipeline.py)。范围由程序筛选输入，模型不接收 feedback_scope 字段或模式说明；逐句模式的 source_sentences 仅含当前原句，index 是本句当前编号；整篇模式输入整篇材料。current_collection 是前一步实际输出；sentence_index 是源句到当前 index 的对应表；unassigned_indices 列出未定位来源的旧条目；comparison_bundle 始终标明原始差异来自 V0；applied_change_log 是实际修改与失败记录的精简版，不含评分或完整历史操作协议；handoff 仅包含交给本阶段且尚未成功投递的问题，indices 已对应当前集合；内部 id、投递状态和历史编号留在程序审计记录中。收到的问题在阶段一核对，模型仅输出本阶段操作及新的转交问题。candidate_entities 仅辅助定位。repair_pass 标记是否为有限返修。\n'
         text += '\n每项 replace 的 new_triples 可以包含多条；替换批次失败时保留该步输入。Remove 对完整集合自主判断重复与保留项。无法修复或有歧义的条目记录 review，保持可追查。\n'
         (root/doc).write_text(text,encoding='utf-8')
         out = (root/doc).parent/'Prompt完整模板.json'
         messages=[captured[0],{'role':'user','content':template}]
-        document_context = dict(context, feedback_scope='document')
+        document_context = dict(context, source_sentences=[*context['source_sentences'], {'sentence_id':'S2','text':'The sensor stores records.'}])
         with patch.object(agent, '_make_llm_call', return_value=('{}',0,0,0)) as doc_call:
             agent.process(document_context)
         assert template.replace(marker,json.dumps(document_context,ensure_ascii=False,indent=2)) == doc_call.call_args.args[0]

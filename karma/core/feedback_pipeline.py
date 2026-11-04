@@ -43,7 +43,7 @@ class FeedbackPipeline:
                 'failures': [r['reason'] for r in h['rejected']], 'status': h['status']}
                 for h in history]
             context = {
-                'stage': stage, 'repair_pass': repair, 'feedback_scope': scope,
+                'stage': stage, 'repair_pass': repair,
                 'source_sentences': copy.deepcopy(sentences),
                 'current_collection': {'version': version, 'triples': indexed},
                 'sentence_index': {s['sentence_id']: [i for i, t in enumerate(current)

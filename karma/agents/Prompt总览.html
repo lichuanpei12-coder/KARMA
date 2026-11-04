@@ -22,11 +22,11 @@ hr{border:0;border-top:1px solid var(--line);margin:30px 0}.filelinks{display:fl
 footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid var(--line);padding-top:15px}
 @media(max-width:900px){.layout{display:block;padding:12px}aside{position:static;max-height:300px;margin-bottom:16px}main{padding:22px 18px}header{padding:18px}h1{font-size:23px}h2{font-size:21px}th,td{padding:8px}}
 @media print{body{background:#fff;font-size:11pt}.layout{display:block;padding:0}aside,header,.filelinks,footer{display:none}main{border:0;padding:0}.table-wrap{overflow:visible}pre,table{font-size:9pt}h2,h3{break-after:avoid}tr{break-inside:avoid}a{color:inherit;text-decoration:none}}
-</style></head><body><header><div class="label">Agent Prompt总览与当前调用路线</div><p>源码行号与实际调用分支 · 2026-11-04 · c3aa354</p></header><div class="layout"><aside><h2>目录</h2><input id="toc-filter" type="search" placeholder="搜索轮次、System、User"><a href="Prompt%E6%80%BB%E8%A7%88.html">全部Agent总览</a><a class="" href="#section-1">当前运行的prompt是否唯一</a>
+</style></head><body><header><div class="label">Agent Prompt总览与当前调用路线</div><p>源码行号与实际调用分支 · 2026-11-04 · fccd78c</p></header><div class="layout"><aside><h2>目录</h2><input id="toc-filter" type="search" placeholder="搜索轮次、System、User"><a href="Prompt%E6%80%BB%E8%A7%88.html">全部Agent总览</a><a class="" href="#section-1">当前运行的prompt是否唯一</a>
 <a class="" href="#section-2">各Agent文档与当前状态</a>
 <a class="" href="#section-3">当前分组调用的源码证据</a>
 <a class="" href="#section-4">阅读方式</a></aside><main><a href="Prompt%E6%80%BB%E8%A7%88.md">Markdown原文</a><h1 id="section-0">Agent Prompt总览与当前调用路线</h1>
-<p>更新日期：2026-11-04。导出时 Git HEAD：<code>c3aa35473680505bd66fab4694eb73630ddb8cb9</code>；文档内容取自当前工作区源码，包含本次未提交修改，精确文件哈希见导出核验 JSON。</p>
+<p>更新日期：2026-11-04。导出时 Git HEAD：<code>fccd78c69c6d099365ed2497568a5d7a15a59c29</code>；文档内容取自当前工作区源码，包含本次未提交修改，精确文件哈希见导出核验 JSON。</p>
 <h2 id="section-1">当前运行的prompt是否唯一</h2>
 <p>每一次模型调用只采用一套确定的System和User；程序按调用入口选择分支，不会把所有分支prompt一起发给模型。实体抽取仍分两轮；关系抽取只负责基线，反馈由 Add → Replace → Remove 三个 Agent 执行。每个阶段独立核查并接收前一步实际输出；各 Agent 内部采用核对问题、生成操作、复核输出三个阶段。问题由程序传递，模型只输出本阶段操作与 handoff。新事实按单句依据抽取。重建文本与比较当前由pipeline传入sentence_groups，使用分组版本；“非分组User”只是未传该参数时保留的另一条入口。默认 text_scope=sentence，每个分组单独调用重建和对比；feedback_scope=sentence，每句独立完成 Add→Replace→Remove。两个配置均可选 document，恢复整篇调用。逐句反馈遇到历史多来源或无法分组的条目时显式回退整篇并记录。所有请求顺序执行；原 Chat Completions 的 429/5xx/网络重试取消次数上限，等待最多30秒；Responses 保持原接口处理。</p>
 <p>运行范围、限流重试及回放命令见 <a href="%E9%80%90%E5%8F%A5%E8%BF%90%E8%A1%8C%E4%B8%8EAPI%E9%87%8D%E8%AF%95%E8%AF%B4%E6%98%8E.html">逐句运行与API重试说明</a>。</p>

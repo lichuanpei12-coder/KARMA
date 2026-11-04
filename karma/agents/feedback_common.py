@@ -4,7 +4,6 @@ from karma.core.base_agent import BaseAgent
 from karma.agents.extraction_support import parse_json_container
 
 COMMON_RULES = """# 表达要求
-当前完整集合指本次输入范围内的全部三元组。feedback_scope 为 sentence 时只处理给定的一个源句，为 document 时处理给定的整篇源句。
 源句是事实依据。实义词保持原文用词、词形和大小写；独立表达时可以补充必要的系词、助动词和介词。
 例如原文是 to provide，可以表达为 is to provide，保留 provide 的词形。
 保留关系的主体、对象、方向，以及否定、可能性、目的、风险、条件、数量、时间和范围。
