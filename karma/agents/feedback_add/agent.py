@@ -1,316 +1,47 @@
-"""Add stage of source-grounded feedback."""
+"""Task-focused add feedback."""
 from karma.agents.feedback_common import FeedbackAgent
 
-SYSTEM_PROMPT = """你负责检查源句中哪些关系还没有抽取出来。先看前一步的结果，再自己逐句检查。输出问题清单、新增三元组和需要其他阶段处理的问题。 完整回复采用 User 指定的 JSON 结构。"""
+SYSTEM_PROMPT = """依据源句补充当前集合完全遗漏的关系。完整回复采用本阶段指定的 JSON 格式。"""
 
-TASK_PROMPT = """# 任务：补充源句中完全没有抽取出来的关系
-先列出遗漏问题，再生成新增三元组。
+TASK_PROMPT = """# 执行步骤
+1. 逐句找出源句明确表达的关系，确定每项关系的主体、动作或状态、对象及必要限定。
+2. 在当前完整集合中查找这些关系，同时检查长字段包含的内容。
+3. 回查文本差异指出的具体关系，根据源句和当前集合确定实际遗漏。
+4. 已有正确独立表达时保留现有条目；已有表达需要修正时，记录对应编号和具体问题，交给 replace。
+5. 关系包含在长字段中、尚无独立表达时，将该条目交给 replace 拆分。
+6. 关系在整个集合中都没有表达时，生成新增三元组，使用源句中的主体、词形及必要限定。
+7. 将拟新增关系与当前集合及本轮新增项逐一比较，同一事实只保留一份表达。
+8. 输出新增项及转交问题。即使文本差异和前序提示为空，也完成上述逐句检查。"""
 
-# 步骤
-1. 阅读源句，找出它表达的各项关系。
-2. 在当前完整集合中查找这些关系，包括长字段中的内容。
-3. 对照文本差异，检查它指出的问题是否真的存在。
-4. 已有正确表达时，保留现有条目。
-5. 已有条目表达不对时，把具体问题交给 Replace。
-6. 关系已包含在长字段中、但还没有拆成独立三元组时，交给 Replace 拆分。
-7. 关系在整个集合中都没有表达时，列入新增问题清单。
-8. 为每个遗漏生成三元组，保留源句中的主体、词形和必要限定。
-9. 与现有条目及本轮其他新增项比较，取消重复的新增建议。
-10. 输出问题清单、新增项和交给其他阶段的问题。
-"""
+OUTPUT_RULES = """# 输出格式
+返回 JSON 对象，包含 add、handoff 两个数组；无内容的数组写 []。
+add 每项写 head、relation、tail、source_sentence_ids、evidence、reason；reason 简述哪项关系完全遗漏。
+handoff 每项写 target、source_sentence_ids、indices、problem：target 指处理阶段；indices 填当前相关条目编号，缺少条目时填 []；problem 简述具体位置与问题。
+target 使用 add、replace、remove、text_generation、text_comparison 或 review；源句与三元组正确而重建文本或对比判断有误时，分别记录 text_generation 或 text_comparison。"""
 
-EXAMPLES = """# 示例：源句有关系完全没有抽取
-输入：
-{
-  "source_sentences": [
-    {
-      "sentence_id": "S1",
-      "text": "The controller reads and stores sensor data."
-    }
-  ],
-  "current_collection": {
-    "version": "V0",
-    "triples": [
-      {
-        "index": 0,
-        "head": "The controller",
-        "relation": "reads",
-        "tail": "sensor data",
-        "source_sentence_ids": [
-          "S1"
-        ]
-      }
-    ]
-  },
-  "handoff": []
-}
-核查结论：stores 没有出现在任何现有条目中。
-完整回复：
-{
-  "reviewed_sentence_ids": [
-    "S1"
-  ],
-  "reviewed_indices": [
-    0
-  ],
-  "issues": [
-    {
-      "issue_id": "I1",
-      "sentence_ids": [
-        "S1"
-      ],
-      "related_indices": [
-        0
-      ],
-      "finding": "stores 没有出现在任何现有条目中。",
-      "evidence": "The controller reads and stores sensor data.",
-      "result": "新增 stores 关系。"
-    }
-  ],
-  "handoff": [],
-  "handoff_results": [],
-  "add": [
-    {
-      "head": "The controller",
-      "relation": "stores",
-      "tail": "sensor data",
-      "source_sentence_ids": [
-        "S1"
-      ],
-      "evidence": "The controller reads and stores sensor data.",
-      "confidence": 0.95,
-      "clarity": 0.95,
-      "relevance": 0.9,
-      "issue_id": "I1",
-      "reason": "当前只表达 reads，源句还表达 stores。"
-    }
-  ],
-  "replace": [],
-  "remove": []
-}
+EXAMPLES = """# 示例
+示例仅列判断所需的输入字段，输出展示本阶段完整格式。
 
-# 示例：已有动作需要修改，不另加一份
-输入：
-{
-  "source_sentences": [
-    {
-      "sentence_id": "S1",
-      "text": "The controller may query the ECU to identify the fault."
-    }
-  ],
-  "current_collection": {
-    "version": "V0",
-    "triples": [
-      {
-        "index": 0,
-        "head": "The controller",
-        "relation": "may query",
-        "tail": "the ECU",
-        "source_sentence_ids": [
-          "S1"
-        ]
-      },
-      {
-        "index": 1,
-        "head": "The controller",
-        "relation": "may identify",
-        "tail": "the fault",
-        "source_sentence_ids": [
-          "S1"
-        ]
-      }
-    ]
-  },
-  "handoff": []
-}
-核查结论：identify 已有对应条目，但没有保留与 query 的目的联系。
-完整回复：
-{
-  "reviewed_sentence_ids": [
-    "S1"
-  ],
-  "reviewed_indices": [
-    0,
-    1
-  ],
-  "issues": [
-    {
-      "issue_id": "I1",
-      "sentence_ids": [
-        "S1"
-      ],
-      "related_indices": [
-        0,
-        1
-      ],
-      "finding": "identify 已有对应条目，但没有保留与 query 的目的联系。",
-      "evidence": "The controller may query the ECU to identify the fault.",
-      "result": "交给 Replace 修改第 1 条。"
-    }
-  ],
-  "handoff": [
-    {
-      "issue_id": "I1",
-      "target": "replace",
-      "related_indices": [
-        0,
-        1
-      ],
-      "finding": "identify 已有对应条目，但没有保留与 query 的目的联系。",
-      "evidence": "The controller may query the ECU to identify the fault."
-    }
-  ],
-  "handoff_results": [],
-  "add": [],
-  "replace": [],
-  "remove": []
-}
+源句有关系完全没有抽取
+输入：{"source_sentences":[{"sentence_id":"S1","text":"The controller reads and stores sensor data."}],"current_collection":{"triples":[{"index":0,"head":"The controller","relation":"reads","tail":"sensor data","source_sentence_ids":["S1"]}]}}
+输出：{"add":[{"head":"The controller","relation":"stores","tail":"sensor data","source_sentence_ids":["S1"],"evidence":"The controller reads and stores sensor data.","reason":"当前只表达 reads，源句还表达 stores。"}],"handoff":[]}
 
-# 示例：内容已在长字段中，交给 Replace 拆分
-输入：
-{
-  "source_sentences": [
-    {
-      "sentence_id": "S1",
-      "text": "The system includes a module that processes data."
-    }
-  ],
-  "current_collection": {
-    "version": "V0",
-    "triples": [
-      {
-        "index": 0,
-        "head": "The system",
-        "relation": "includes",
-        "tail": "a module that processes data",
-        "source_sentence_ids": [
-          "S1"
-        ]
-      }
-    ]
-  },
-  "handoff": []
-}
-核查结论：processes data 已在 tail 中，但尚未独立表达。
-完整回复：
-{
-  "reviewed_sentence_ids": [
-    "S1"
-  ],
-  "reviewed_indices": [
-    0
-  ],
-  "issues": [
-    {
-      "issue_id": "I1",
-      "sentence_ids": [
-        "S1"
-      ],
-      "related_indices": [
-        0
-      ],
-      "finding": "processes data 已在 tail 中，但尚未独立表达。",
-      "evidence": "The system includes a module that processes data.",
-      "result": "交给 Replace 将第 0 条替换为所需的多条三元组。"
-    }
-  ],
-  "handoff": [
-    {
-      "issue_id": "I1",
-      "target": "replace",
-      "related_indices": [
-        0
-      ],
-      "finding": "processes data 已在 tail 中，但尚未独立表达。",
-      "evidence": "The system includes a module that processes data."
-    }
-  ],
-  "handoff_results": [],
-  "add": [],
-  "replace": [],
-  "remove": []
-}
+已有动作需要修改，不另加一份
+输入：{"source_sentences":[{"sentence_id":"S1","text":"The controller may query the ECU to identify the fault."}],"current_collection":{"triples":[{"index":0,"head":"The controller","relation":"may query","tail":"the ECU","source_sentence_ids":["S1"]},{"index":1,"head":"The controller","relation":"may identify","tail":"the fault","source_sentence_ids":["S1"]}]}}
+输出：{"add":[],"handoff":[{"target":"replace","source_sentence_ids":["S1"],"indices":[0,1],"problem":"identify 已有对应条目，但没有保留与 query 的目的联系。"}]}
 
-# 示例：重建文本改错连接词
-输入：
-{
-  "source_sentences": [
-    {
-      "sentence_id": "S1",
-      "text": "The module receives signals and generates alerts."
-    }
-  ],
-  "current_collection": {
-    "version": "V0",
-    "triples": [
-      {
-        "index": 0,
-        "head": "The module",
-        "relation": "receives",
-        "tail": "signals",
-        "source_sentence_ids": [
-          "S1"
-        ]
-      },
-      {
-        "index": 1,
-        "head": "The module",
-        "relation": "generates",
-        "tail": "alerts",
-        "source_sentence_ids": [
-          "S1"
-        ]
-      }
-    ]
-  },
-  "handoff": []
-}
-核查结论：重建文本写成 receives signals or generates alerts，但当前两条正确表达了源句的两个动作。
-完整回复：
-{
-  "reviewed_sentence_ids": [
-    "S1"
-  ],
-  "reviewed_indices": [
-    0,
-    1
-  ],
-  "issues": [
-    {
-      "issue_id": "I1",
-      "sentence_ids": [
-        "S1"
-      ],
-      "related_indices": [
-        0,
-        1
-      ],
-      "finding": "重建文本写成 receives signals or generates alerts，但当前两条正确表达了源句的两个动作。",
-      "evidence": "The module receives signals and generates alerts.",
-      "result": "保留三元组，记录重建文本错误。"
-    }
-  ],
-  "handoff": [
-    {
-      "issue_id": "I1",
-      "target": "text_generation",
-      "related_indices": [
-        0,
-        1
-      ],
-      "finding": "重建文本写成 receives signals or generates alerts，但当前两条正确表达了源句的两个动作。",
-      "evidence": "The module receives signals and generates alerts."
-    }
-  ],
-  "handoff_results": [],
-  "add": [],
-  "replace": [],
-  "remove": []
-}"""
+内容已在长字段中，交给 Replace 拆分
+输入：{"source_sentences":[{"sentence_id":"S1","text":"The system includes a module that processes data."}],"current_collection":{"triples":[{"index":0,"head":"The system","relation":"includes","tail":"a module that processes data","source_sentence_ids":["S1"]}]}}
+输出：{"add":[],"handoff":[{"target":"replace","source_sentence_ids":["S1"],"indices":[0],"problem":"processes data 已在 tail 中，但尚未独立表达。"}]}
+
+重建文本改错连接词
+输入：{"source_sentences":[{"sentence_id":"S1","text":"The module receives signals and generates alerts."}],"current_collection":{"triples":[{"index":0,"head":"The module","relation":"receives","tail":"signals","source_sentence_ids":["S1"]},{"index":1,"head":"The module","relation":"generates","tail":"alerts","source_sentence_ids":["S1"]}]},"comparison_bundle":{"basis_version":"V0","reconstructions":[{"sentence_id":"S1","text_b":"The module receives signals or generates alerts."}]}}
+输出：{"add":[],"handoff":[{"target":"text_generation","source_sentence_ids":["S1"],"indices":[0,1],"problem":"重建文本写成 receives signals or generates alerts，但当前两条正确表达了源句的两个动作。"}]}"""
 
 class FeedbackAddAgent(FeedbackAgent):
     stage = 'add'
     task_prompt = TASK_PROMPT
+    output_prompt = OUTPUT_RULES
     examples_prompt = EXAMPLES
 
     def __init__(self, client, model_name):

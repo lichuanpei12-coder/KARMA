@@ -64,7 +64,6 @@ class StagedPipelineTests(unittest.TestCase):
                 context = context_from_prompt(prompt)
                 value = no_changes(context)
                 if name == 'FeedbackReplaceAgent' and context['current_collection']['triples']:
-                    value['issues'] = [issue('I1', [0], 'Controller may query ECU.')]
                     value['replace'] = [dict(index=0, issue_id='I1', reason='source wording', new_triples=[
                         fact('may query', evidence='Controller may query ECU.', source_sentence_ids=['S1'])])]
                 return reply(value)
@@ -109,7 +108,7 @@ class StagedPipelineTests(unittest.TestCase):
         self.assertEqual([d['doc_id'] for d in package['documents']], ['empty', 'omega'])
         self.assertEqual([d['source_index'] for d in package['documents']], [1, 2])
         self.assertEqual(package['documents'][0]['baseline_triples'], [])
-        self.assertEqual(package['documents'][1]['baseline_triples'][0]['confidence'], .9)
+        self.assertEqual(package['documents'][1]['baseline_triples'][0]['confidence'], .8)
         self.assertNotIn('TextGenerationAgent', [c[0] for c in self.calls])
         self.assertNotIn('TextComparisonAgent', [c[0] for c in self.calls])
         self.assertNotIn('TripleSplittingAgent', [c[0] for c in self.calls])
@@ -176,7 +175,6 @@ class StagedPipelineTests(unittest.TestCase):
                        'remove': [], 'replace': [dict(head='Controller', relation='may query', tail='ECU', index=0, reason='split')]}
         def feedback_reply(prompt, **kwargs):
             value = no_changes(context_from_prompt(prompt))
-            value['issues'] = [issue('I1', [1], 'Controller may query ECU.')]
             value['replace'] = [dict(index=1, issue_id='I1', reason='correct second split triple', new_triples=[
                 fact('may read', evidence='Controller may query ECU.', source_sentence_ids=['S1'])])]
             return reply(value)

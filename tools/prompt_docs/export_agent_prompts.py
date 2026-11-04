@@ -258,7 +258,6 @@ def annotated(label,text,pools,doc):
         first=next(line.strip() for line in c.splitlines() if line.strip())
         part_title=re.sub(r'^#{1,3}\s*','',first) if first.startswith('#') else '任务说明'
         if label=='System Prompt' and part_title=='抽取规则':part_title+='（展开 FACT_RULES）'
-        if label=='System Prompt' and part_title=='评分':part_title+='（展开 SCORE_RULES）'
         locs,fallback=locations(c,pools)
         output+=source_line(part_title,locs,doc)+'\n'+display_text(c)+'\n\n'
         manifest['parts'].append(dict(document=doc,label=label,part=i,title=part_title,source_spans=locs,assembly_range=fallback))
@@ -272,7 +271,7 @@ def pools(agent,method,system=False):
     f=path(agent)
     out=[scope(f,method)]
     if agent=='entity_extraction':out += [scope(f,'ENTITY_RULES'),scope(f,'_output_instructions'),scope(f,'difference_context')]+GROUPHELP
-    if agent=='relationship_extraction':out += [scope(f,'FACT_RULES'),scope(f,'SCORE_RULES')]
+    if agent=='relationship_extraction':out += [scope(f,'FACT_RULES')]
     return out
 
 STATUS={
@@ -280,8 +279,8 @@ STATUS={
 'reader':'普通文档准备阶段会分批调用相关性评分，每批最多5段；回放已保存基线时可能跳过准备阶段。每段送给评分的文本目前截取前500字符并加省略号。',
 'summarizer':'当前pipeline默认跳过摘要；仅环境变量KARMA_USE_SUMMARIZER为非空值时启用。直接调用摘要方法且输入长度小于15字符时，也不调用模型。',
 'entity_extraction':'当前pipeline第一轮执行实体抽取，第二轮执行实体反馈。两轮共用同一System，但User不同；每次调用只使用对应轮次的一套消息。',
-'relationship_extraction':'当前仅执行第一轮基线关系抽取。第二轮关系反馈已移到 feedback_add、feedback_replace、feedback_remove，由 FeedbackPipeline 依次调用。',
-'triple_splitting':'拆分阶段通过process调用专用System和User；只生成add/replace，remove固定为空。回放或跳过阶段时是否执行，以实际入口为准。',
+'relationship_extraction':'当前仅执行第一轮基线关系抽取。第二轮关系反馈已移到 feedback_add、feedback_replace、feedback_remove，由 FeedbackPipeline 依次调用。三元组分数由程序固定填入0.8，模型只输出事实和证据。',
+'triple_splitting':'拆分阶段通过process调用专用System和User；只生成add/replace；程序兼容旧响应中的空remove。回放或跳过阶段时是否执行，以实际入口为准。',
 'text_generation':'当前pipeline明确传入sentence_groups，因此采用generate_grouped的分组System和User。另一条generate_text路径只在不传分组或直接调用时使用，不会同时发送。',
 'text_comparison':'当前pipeline明确传入sentence_groups与reconstructions，因此采用compare_grouped。另一条compare路径只在不传分组或直接调用时使用，不会与当前版本叠加。',
 'conflict_resolution':'当前process执行Python矛盾关系和置信度比较规则，不调用模型。源码定义了System字符串，但当前没有实际发送的User或模型请求。',
@@ -294,7 +293,7 @@ for agent,filename in NAMES.items():
     target=ROOT/'karma/agents'/agent/filename
     f=path(agent)
     doc=target.relative_to(ROOT).as_posix()
-    t=f'# {filename[:-3]}\n\n整理日期：2026-11-03。代码版本：`{head}`。行号对应整理时源码；后续修改源码后应重新导出。\n\n'
+    t=f'# {filename[:-3]}\n\n整理日期：2026-11-04。代码版本：`{head}`。行号对应整理时源码；后续修改源码后应重新导出。\n\n'
     t+='## 当前运行是否使用这套Prompt\n\n'+STATUS[agent]+'\n\n'
     t+='源码入口：'+ref(scope(f,'process'))+'。系统提示选择与消息发送见'+ref(('karma/core/base_agent.py',132,135))+'；Responses模式同一内容见'+ref(('karma/core/base_agent.py',263,267))+'。\n\n'
     if agent in ['text_generation','text_comparison']:
@@ -377,7 +376,7 @@ feedback_names, feedback_status = export_feedback(ROOT, manifest)
 NAMES.update(feedback_names)
 STATUS.update(feedback_status)
 
-index='# Agent Prompt总览与当前调用路线\n\n更新日期：2026-11-03。导出时 Git HEAD：`'+head+'`；文档内容取自当前工作区源码，包含本次未提交修改，精确文件哈希见导出核验 JSON。\n\n'
+index='# Agent Prompt总览与当前调用路线\n\n更新日期：2026-11-04。导出时 Git HEAD：`'+head+'`；文档内容取自当前工作区源码，包含本次未提交修改，精确文件哈希见导出核验 JSON。\n\n'
 index+='## 当前运行的prompt是否唯一\n\n每一次模型调用只采用一套确定的System和User；程序按调用入口选择分支，不会把所有分支prompt一起发给模型。实体抽取仍分两轮；关系抽取只负责基线，反馈由 Add → Replace → Remove 三个 Agent 执行。每个阶段独立核查并接收前一步实际输出。重建文本与比较当前由pipeline传入sentence_groups，使用分组版本；“非分组User”只是未传该参数时保留的另一条入口。分组是同一请求内按S1、S2等组织材料，不等于每句分别调用一次模型。\n\n'
 index+='## 各Agent文档与当前状态\n\n'+table(['Agent','完整Prompt文档','运行状态'],[(a,f'[{NAMES[a][:-3]}](<{a}/{NAMES[a]}>)',STATUS[a]) for a in NAMES])
 index+='## 当前分组调用的源码证据\n\n'+ref(pipeline_call('text_generation_agent'))+'；文本对比：'+ref(pipeline_call('text_comparison_agent'))+'；实体：'+ref(pipeline_call('entity_extraction_agent'))+'；基线关系：'+ref(pipeline_call('relationship_extraction_agent'))+'；三步反馈：'+ref(pipeline_call('feedback_pipeline'))+'。\n\n'

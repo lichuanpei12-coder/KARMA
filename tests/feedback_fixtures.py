@@ -6,11 +6,11 @@ def context_from_prompt(prompt):
 
 
 def no_changes(context):
-    return dict(reviewed_sentence_ids=[s['sentence_id'] for s in context['source_sentences']],
-                reviewed_indices=[t['index'] for t in context['current_collection']['triples']],
-                issues=[], handoff=[], handoff_results=[dict(issue_id=h['id'], status='still_open', reason='retained for review')
-                                                       for h in context['handoff']],
-                add=[], replace=[], remove=[])
+    result = {context['stage']: [], 'handoff': []}
+    if context['handoff']:
+        result['handoff_results'] = [dict(id=h['id'], status='still_open', reason='retained for review')
+                                     for h in context['handoff']]
+    return result
 
 
 def no_changes_call(prompt, **kwargs):

@@ -1,6 +1,6 @@
 # Agent Prompt总览与当前调用路线
 
-更新日期：2026-11-03。导出时 Git HEAD：`45908cb21c7fd291f04b7380568e641d6461b332`；文档内容取自当前工作区源码，包含本次未提交修改，精确文件哈希见导出核验 JSON。
+更新日期：2026-11-04。导出时 Git HEAD：`cf704320cce3c94963a580263a706400cea55dab`；文档内容取自当前工作区源码，包含本次未提交修改，精确文件哈希见导出核验 JSON。
 
 ## 当前运行的prompt是否唯一
 
@@ -14,8 +14,8 @@
 | reader | [阅读Agent_完整Prompt](<reader/阅读Agent_完整Prompt.md>) | 普通文档准备阶段会分批调用相关性评分，每批最多5段；回放已保存基线时可能跳过准备阶段。每段送给评分的文本目前截取前500字符并加省略号。 |
 | summarizer | [摘要Agent_完整Prompt](<summarizer/摘要Agent_完整Prompt.md>) | 当前pipeline默认跳过摘要；仅环境变量KARMA_USE_SUMMARIZER为非空值时启用。直接调用摘要方法且输入长度小于15字符时，也不调用模型。 |
 | entity_extraction | [实体抽取Agent_完整Prompt](<entity_extraction/实体抽取Agent_完整Prompt.md>) | 当前pipeline第一轮执行实体抽取，第二轮执行实体反馈。两轮共用同一System，但User不同；每次调用只使用对应轮次的一套消息。 |
-| relationship_extraction | [关系抽取Agent_完整Prompt](<relationship_extraction/关系抽取Agent_完整Prompt.md>) | 当前仅执行第一轮基线关系抽取。第二轮关系反馈已移到 feedback_add、feedback_replace、feedback_remove，由 FeedbackPipeline 依次调用。 |
-| triple_splitting | [拆分Agent_完整Prompt](<triple_splitting/拆分Agent_完整Prompt.md>) | 拆分阶段通过process调用专用System和User；只生成add/replace，remove固定为空。回放或跳过阶段时是否执行，以实际入口为准。 |
+| relationship_extraction | [关系抽取Agent_完整Prompt](<relationship_extraction/关系抽取Agent_完整Prompt.md>) | 当前仅执行第一轮基线关系抽取。第二轮关系反馈已移到 feedback_add、feedback_replace、feedback_remove，由 FeedbackPipeline 依次调用。三元组分数由程序固定填入0.8，模型只输出事实和证据。 |
+| triple_splitting | [拆分Agent_完整Prompt](<triple_splitting/拆分Agent_完整Prompt.md>) | 拆分阶段通过process调用专用System和User；只生成add/replace；程序兼容旧响应中的空remove。回放或跳过阶段时是否执行，以实际入口为准。 |
 | text_generation | [重建文本Agent_完整Prompt](<text_generation/重建文本Agent_完整Prompt.md>) | 当前pipeline明确传入sentence_groups，因此采用generate_grouped的分组System和User。另一条generate_text路径只在不传分组或直接调用时使用，不会同时发送。 |
 | text_comparison | [文本对比Agent_完整Prompt](<text_comparison/文本对比Agent_完整Prompt.md>) | 当前pipeline明确传入sentence_groups与reconstructions，因此采用compare_grouped。另一条compare路径只在不传分组或直接调用时使用，不会与当前版本叠加。 |
 | conflict_resolution | [冲突处理Agent_完整Prompt](<conflict_resolution/冲突处理Agent_完整Prompt.md>) | 当前process执行Python矛盾关系和置信度比较规则，不调用模型。源码定义了System字符串，但当前没有实际发送的User或模型请求。 |
@@ -27,7 +27,7 @@
 
 ## 当前分组调用的源码证据
 
-karma/core/pipeline.py 第399—401行；文本对比：karma/core/pipeline.py 第411—414行；实体：karma/core/pipeline.py 第432行；基线关系：karma/core/pipeline.py 第464—466行；三步反馈：karma/core/pipeline.py 第471—474行。
+karma/core/pipeline.py 第402—404行；文本对比：karma/core/pipeline.py 第414—417行；实体：karma/core/pipeline.py 第435行；基线关系：karma/core/pipeline.py 第467—469行；三步反馈：karma/core/pipeline.py 第474—477行。
 
 ## 阅读方式
 

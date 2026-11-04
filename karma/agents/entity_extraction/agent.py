@@ -16,26 +16,26 @@ from karma.agents.extraction_support import (
 # ENTITY_RULES / difference_context → __init__（两轮共用的系统 Prompt）
 # → _output_instructions（两轮输出与示例）
 # → _extract_entities_from_text（第一轮）/ revise_entities（第二轮）。
-ENTITY_RULES = """候选实体用于辅助发现事实中的参与对象。
+ENTITY_RULES = """# 执行步骤
 1. 根据源文本识别可能作为 head 或 tail 的完整表达，包括技术对象、普通名词短语、
    代词以及充当宾语的较长短语或从句。
 2. 保留决定实体身份的限定词、修饰语、数值和编号，保持原文语言、词形、大小写与空格。
    名词沿用原文单复数；句首介绍实施例的词语（如 In some embodiments）省略，候选写实体本身。
    例如 "a variety of systems" 和 "the measured traffic per time" 保留整体。
 3. 原文出现的全称、简称、缩写和其他称谓分别保留；只根据原文明示的对应关系理解，
-   不从外部知识补造名称、缩写展开式或别名，不擅自统一为一个名称。
-4. 代词保留原文提及。指代不明确时不替换成猜测的对象，也不据此推断身份。
+   名称、缩写展开式和别名均使用原文明确给出的表达，保留各自的提及。
+4. 代词保留原文提及，依据原文明示的对应关系理解指代。
 5. 并列的独立对象分别识别，如 "sensors and cameras" 分别提取 "sensors" 和 "cameras"。
    由集合词统领的实体保留整体，如 "a first set of left and right pulleys" 表示一套左右滑轮，作为一个实体。
    补齐原文明确共享的成分时保留原词形；context 逐字引用支持这些对象的原句。
 6. 数值、条件、日期和图号在充当事实参与对象或限定其含义时保留。
-   候选可以暂未参与三元组，是否有效由源文本决定。
+   根据源文本判断候选的有效性，保留源文支持但尚未参与三元组的候选。
 7. type 根据当前语境判断，同一文档中同类对象使用一致的类别名称，
-   已有候选类型仅供参考，不沿用明显错误的分类；无法确定时使用 Unknown。
+   根据源文修正已有候选的错误分类；无法确定时使用 Unknown。
 """
 
 
-# 差异说明在两个抽取 Agent 中各保留一份，修改时同步另一份。
+# 实体反馈的差异说明；三元组反馈使用 feedback_common.py。
 def difference_context(diff):
     if isinstance(diff, dict) and 'sentence_differences' in diff:
         from karma.core.sentence_groups import grouped_difference_context
@@ -78,7 +78,7 @@ mention 是候选表达，context 是源文本中支持该候选的上下文片�
 仅返回完整候选实体集合的合法 JSON 数组，相同提及保留一次；无候选时返回 []。
 每项格式为 {"mention": "原文提及", "type": "类别或 Unknown", "context": "原文上下文"}。
 mention 保留源文语言、大小写和格式，不因指令为中文而翻译英文名称或展开缩写。
-context 逐字复制源文中支持该候选的连续上下文；必要时包含相邻前文，不使用解释或改写代替。
+context 逐字复制源文中支持该候选的连续上下文；必要时包含相邻前文。
 
 # 示例
 源文本：控制器可以查询ECU。ECU存储读数。
@@ -151,10 +151,10 @@ context 逐字复制源文中支持该候选的连续上下文；必要时包含
 # 文本差异
 {difference_context(diff)}
 
-# 审校顺序
+# 执行步骤
 1. 对照源文本逐项核对当前候选，保留有效提及并修正边界。
 2. 结合三元组头尾和差异线索，检查源文本中遗漏的对象。
-3. 候选是否有效取决于源文本；没有参与当前三元组的有效候选仍然保留。
+3. 依据源文本确认候选有效性，保留源文支持但尚未参与当前三元组的候选。
 4. 核对完整集合包含所有保留、修正和新增的候选，最后按输出格式生成数组。
 
 # 第二轮审校示例

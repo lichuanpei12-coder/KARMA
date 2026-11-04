@@ -2,6 +2,14 @@
 import copy
 import time
 from karma.agents.feedback_operations import apply_operations, validate_reply
+from karma.core.triple_scores import fixed_score_copy, prompt_triple
+
+
+def _fact(data):
+    if data is None:
+        return None
+    return {k: v for k, v in data.items() if k in
+            ('head', 'relation', 'tail', 'source_sentence_ids', 'evidence')}
 
 
 class FeedbackPipeline:
@@ -11,7 +19,7 @@ class FeedbackPipeline:
         self.snapshots = {}
 
     def process(self, text, triples, diff, entities=None, *, sentences, reconstructions=None):
-        current = copy.deepcopy(triples)
+        current = fixed_score_copy(triples)
         self.snapshots = {}
         history, pending, stages = [], [], []
         comparison = {'basis_version': 'V0', 'source_text': text,
@@ -22,7 +30,18 @@ class FeedbackPipeline:
             nonlocal current, version, pending
             pass_id = f'{len(stages) + 1}_{stage}'
             input_version = version
-            indexed = [dict(index=i, **t.to_dict()) for i, t in enumerate(current)]
+            indexed = [dict(index=i, **prompt_triple(t)) for i, t in enumerate(current)]
+            received = [p for p in pending if p['target'] == stage
+                        and p['status'] in ('still_open', 'uncertain')]
+            # Historical IDs and complete execution records stay in the audit.
+            hints = [{k: copy.deepcopy(p[k]) for k in ('id', 'indices', 'source_sentence_ids', 'problem')}
+                     for p in received]
+            changes = [{'stage': h['stage'], 'changes': [
+                {'operation': a['operation'], 'before': _fact(a['before']),
+                 'after': [_fact(t) for t in a['after']]}
+                for a in h['accepted']],
+                'failures': [r['reason'] for r in h['rejected']], 'status': h['status']}
+                for h in history]
             context = {
                 'stage': stage, 'repair_pass': repair,
                 'source_sentences': copy.deepcopy(sentences),
@@ -32,8 +51,8 @@ class FeedbackPipeline:
                 'unassigned_indices': [i for i, t in enumerate(current) if not t.source_sentence_ids],
                 'comparison_bundle': comparison,
                 'candidate_entities': [{'mention': e.name} for e in (entities or [])],
-                'applied_change_log': copy.deepcopy(history),
-                'handoff': copy.deepcopy(pending),
+                'applied_change_log': changes,
+                'handoff': hints,
             }
             agent = self.agents[stage]
             agent.last_call = {}
@@ -43,8 +62,8 @@ class FeedbackPipeline:
             try:
                 reply = agent.process(context)
                 validate_reply(reply, stage, current, sentences)
-                known = {p['id'] for p in pending}
-                reported = [r.get('issue_id') for r in reply['handoff_results']]
+                known = {p['id'] for p in received}
+                reported = [r.get('id') for r in reply.get('handoff_results', [])]
                 if len(reported) != len(set(reported)) or set(reported) != known:
                     raise ValueError('handoff_results must address every received issue exactly once')
                 revised, application = apply_operations(stage, current, reply, sentences)
@@ -63,37 +82,28 @@ class FeedbackPipeline:
             stages.append(record)
             valid = application['status'] not in ('failed', 'rejected_batch')
             if valid:
-                rejected_issues = {r['item'].get('issue_id') for r in application['rejected']}
-                accepted_issues = {a['item'].get('issue_id') for a in application['accepted']}
-                for answer in reply['handoff_results']:
-                    item = next(p for p in pending if p['id'] == answer['issue_id'])
+                for answer in reply.get('handoff_results', []):
+                    item = next(p for p in received if p['id'] == answer['id'])
                     item['last_assessment'] = copy.deepcopy(answer)
-                    # Rejected operations must not silently close an upstream issue.
                     item['status'] = answer['status'] if not application['rejected'] else 'still_open'
                 for issue in reply['handoff']:
-                    pending.append({**copy.deepcopy(issue), 'id': f'{pass_id}:{issue["issue_id"]}:{len(pending)}',
+                    pending.append({**copy.deepcopy(issue), 'id': f'{pass_id}:H{len(pending)}',
                                     'origin_version': input_version,
-                                    'origin_indices': list(issue['related_indices']), 'status': 'still_open'})
-                # Keep unapplied operation problems visible even if the model forgot to hand them off.
-                for issue in reply['issues']:
-                    if issue['issue_id'] in rejected_issues - accepted_issues:
-                        pending.append({'id': f'{pass_id}:rejected:{issue["issue_id"]}', 'target': stage,
-                                        'finding': issue['finding'], 'evidence': issue.get('evidence', ''),
-                                        'related_indices': issue['related_indices'], 'origin_indices': issue['related_indices'],
-                                        'origin_version': input_version, 'status': 'still_open'})
-            else:
+                                    'origin_indices': list(issue['indices']), 'status': 'still_open'})
+            if not valid or application['rejected']:
                 pending.append({'id': f'{pass_id}:failure', 'target': 'review',
-                                'related_indices': [], 'origin_indices': [], 'origin_version': input_version,
-                                'finding': f'{stage} did not apply: {application.get("reason", "invalid batch")}',
-                                'status': 'still_open', 'evidence': ''})
+                                'indices': [], 'origin_indices': [], 'origin_version': input_version,
+                                'source_sentence_ids': [],
+                                'problem': f'{stage} has unapplied operations: {application.get("reason", application["rejected"])}',
+                                'status': 'still_open'})
             for item in pending:
-                refs = item.get('related_indices', [])
-                item['related_indices'] = sorted({j for i in refs for j in application['index_map'].get(i, [])})
+                refs = item.get('indices', [])
+                item['indices'] = sorted({j for i in refs for j in application['index_map'].get(i, [])})
                 item['current_version'] = version
-                if refs and not item['related_indices']:
+                if refs and not item['indices']:
                     item['referenced_items_removed'] = True
             current = revised
-            history.append({'pass_id': pass_id, 'input_version': input_version, 'output_version': version,
+            history.append({'stage': stage, 'pass_id': pass_id, 'input_version': input_version, 'output_version': version,
                             **copy.deepcopy(application)})
             if not repair:
                 self.snapshots[f'after_{stage}'] = copy.deepcopy(current)
@@ -107,7 +117,7 @@ class FeedbackPipeline:
                 run('add', True)
             run('replace', True)
             run('remove', True)
-        self.last_revision = {'mode': 'three_step_feedback', 'stages': stages,
+        self.last_revision = {'mode': 'three_step_feedback', 'protocol': 'task_outputs_v2', 'score_policy': 'fixed_0.8', 'stages': stages,
                               'pending_issues': pending,
                               'unresolved_issues': [p for p in pending if p['status'] not in ('resolved', 'disagreed')],
                               'baseline_count': len(triples), 'final_count': len(current),

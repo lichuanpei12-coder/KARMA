@@ -1,6 +1,6 @@
 # 摘要Agent_完整Prompt
 
-整理日期：2026-11-03。代码版本：`45908cb21c7fd291f04b7380568e641d6461b332`。行号对应整理时源码；后续修改源码后应重新导出。
+整理日期：2026-11-04。代码版本：`cf704320cce3c94963a580263a706400cea55dab`。行号对应整理时源码；后续修改源码后应重新导出。
 
 ## 当前运行是否使用这套Prompt
 
@@ -8,7 +8,7 @@
 
 源码入口：karma/agents/summarizer/agent.py 第81—111行。系统提示选择与消息发送见karma/core/base_agent.py 第132—135行；Responses模式同一内容见karma/core/base_agent.py 第263—267行。
 
-摘要开关：karma/core/pipeline.py 第327行。
+摘要开关：karma/core/pipeline.py 第329行。
 
 ## 展示说明
 

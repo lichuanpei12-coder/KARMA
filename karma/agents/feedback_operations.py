@@ -1,50 +1,33 @@
 """Validate and apply three-step feedback without changing legacy split operations."""
 import copy
-import math
 from karma.core.data_structures import KnowledgeTriple
-
-
-FIELDS = ('reviewed_sentence_ids', 'reviewed_indices', 'issues', 'handoff',
-          'handoff_results', 'add', 'replace', 'remove')
+from karma.core.triple_scores import FIXED_TRIPLE_SCORE
 
 
 def validate_reply(reply, stage, triples, sentences):
-    if not isinstance(reply, dict) or any(not isinstance(reply.get(k), list) for k in FIELDS):
-        raise ValueError('Feedback reply must provide all declared arrays')
-    for key in ('issues', 'handoff', 'handoff_results', 'add', 'replace', 'remove'):
-        if any(not isinstance(x, dict) for x in reply[key]):
-            raise ValueError(f'{key} items must be objects')
-    if any(reply[k] for k in ('add', 'replace', 'remove') if k != stage):
-        raise ValueError(f'{stage} agent emitted an operation belonging to another stage')
-    indices = reply['reviewed_indices']
-    if any(type(i) is not int for i in indices) or sorted(indices) != list(range(len(triples))):
-        raise ValueError('reviewed_indices must cover the current collection exactly once')
-    ids = reply['reviewed_sentence_ids']
-    if any(not isinstance(s, str) for s in ids) or sorted(ids) != sorted(s['sentence_id'] for s in sentences):
-        raise ValueError('reviewed_sentence_ids must cover all source sentences exactly once')
-    issue_ids = [x.get('issue_id') for x in reply['issues']]
-    if any(not isinstance(x, str) or not x for x in issue_ids) or len(set(issue_ids)) != len(issue_ids):
-        raise ValueError('Issue IDs must be nonempty and unique within the reply')
-    for issue in reply['issues']:
-        if not isinstance(issue.get('finding'), str) or not issue['finding'].strip():
-            raise ValueError('Issue finding is required')
-        refs = issue.get('related_indices')
-        if not isinstance(refs, list) or any(type(i) is not int or i not in range(len(triples)) for i in refs):
-            raise ValueError('Issue references invalid current indices')
-    for item in reply['handoff_results']:
+    required = {stage, 'handoff'}
+    allowed = required | {'handoff_results'}
+    if not isinstance(reply, dict) or not required <= reply.keys() or reply.keys() - allowed:
+        raise ValueError('Reply must contain only this stage operations, handoff and optional handoff_results')
+    for key in reply:
+        if not isinstance(reply[key], list) or any(not isinstance(x, dict) for x in reply[key]):
+            raise ValueError(f'{key} must be an array of objects')
+    for item in reply.get('handoff_results', []):
         if item.get('status') not in ('resolved', 'still_open', 'disagreed', 'uncertain'):
             raise ValueError('Invalid handoff result status')
-        _text(item, 'issue_id')
+        _text(item, 'id')
         _text(item, 'reason')
+    known = {s['sentence_id'] for s in sentences}
     for item in reply['handoff']:
-        _text(item, 'finding')
-        _text(item, 'evidence')
-        if item.get('issue_id') not in issue_ids or item.get('target') not in (
-                'add', 'replace', 'remove', 'text_generation', 'text_comparison', 'review'):
-            raise ValueError('Invalid handoff issue or target')
-        refs = item.get('related_indices')
+        _text(item, 'problem')
+        if item.get('target') not in ('add', 'replace', 'remove', 'text_generation', 'text_comparison', 'review'):
+            raise ValueError('Invalid handoff target')
+        refs = item.get('indices')
         if not isinstance(refs, list) or any(type(i) is not int or i not in range(len(triples)) for i in refs):
             raise ValueError('Handoff references invalid current indices')
+        ids = item.get('source_sentence_ids')
+        if not isinstance(ids, list) or not ids or any(not isinstance(s, str) or s not in known for s in ids):
+            raise ValueError('Handoff must identify valid source sentences')
 
 
 def _text(item, key):
@@ -73,13 +56,8 @@ def _triple(item, stage, sentences):
     source = ' '.join(s['text'] for s in sentences if s['sentence_id'] in ids)
     if evidence not in source:
         raise ValueError('Evidence must quote the referenced source sentences verbatim')
-    scores = {}
-    for key in ('confidence', 'clarity', 'relevance'):
-        value = item.get(key)
-        if type(value) not in (int, float) or not math.isfinite(value) or not 0 <= value <= 1:
-            raise ValueError(f'Invalid or missing {key}')
-        scores[key] = float(value)
-    return KnowledgeTriple(**spo, **scores, source=f'feedback_{stage}',
+    return KnowledgeTriple(**spo, confidence=FIXED_TRIPLE_SCORE, clarity=FIXED_TRIPLE_SCORE,
+                           relevance=FIXED_TRIPLE_SCORE, source=f'feedback_{stage}',
                            source_sentence_ids=list(ids), evidence=evidence)
 
 
@@ -87,13 +65,10 @@ def apply_operations(stage, triples, reply, sentences):
     """No silent deduplication. Replace/remove batches are all-or-nothing."""
     current = copy.deepcopy(triples)
     operations = reply[stage]
-    known_issues = {i['issue_id'] for i in reply['issues']}
     accepted, rejected, prepared = [], [], []
     targets = set()
     for op in operations:
         try:
-            if op.get('issue_id') not in known_issues:
-                raise ValueError('Operation must reference a declared issue')
             _text(op, 'reason')
             if stage == 'add':
                 prepared.append((op, None, [_triple(op, stage, sentences)]))

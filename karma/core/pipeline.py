@@ -19,6 +19,7 @@ import inspect
 from .run_artifacts import load_baseline, save_baseline, select_documents, write_json
 from .sentence_groups import source_sentences, attach_sources, group_triples
 from .feedback_pipeline import FeedbackPipeline
+from .triple_scores import fixed_score_copy
 from ..agents.feedback_add.agent import FeedbackAddAgent
 from ..agents.feedback_replace.agent import FeedbackReplaceAgent
 from ..agents.feedback_remove.agent import FeedbackRemoveAgent
@@ -240,6 +241,7 @@ class KARMAPipeline:
                     [KnowledgeTriple.from_dict(x) for x in document["conflict_context"]]
                     if stage == "revise" else copy.deepcopy(self.knowledge_graph.triples)
                 )
+                conflict_context = fixed_score_copy(conflict_context)
                 run_document = {"doc_id": document["doc_id"], "source_index": i, "rounds": {}}
                 intermediate.split_triples = []
                 manifest["documents"].append(run_document)
@@ -368,6 +370,7 @@ class KARMAPipeline:
                 baseline_triples = ([KnowledgeTriple.from_dict(x) for x in document["baseline_triples"]]
                                     if stage == "revise" else [])
                 if stage == "revise":
+                    baseline_triples = fixed_score_copy(baseline_triples)
                     for triple in baseline_triples:
                         attach_sources(triple, sentences)
                     intermediate.initial_entities = copy.deepcopy(initial_entities)
@@ -478,6 +481,7 @@ class KARMAPipeline:
                             run_document['stages'][stage_name] = [t.to_dict() for t in getattr(intermediate, stage_name)]
                         for feedback_stage in self.feedback_pipeline.last_revision['stages']:
                             write_json(self.evaluator_agent._dump_dir / f"_dump_doc{i}_feedback_{feedback_stage['pass_id']}.json", feedback_stage)
+                    relationships = fixed_score_copy(relationships)
                     intermediate.relationships = relationships
 
                     # dump 中间结果：关系列表
@@ -671,7 +675,8 @@ class KARMAPipeline:
         grouping_path = Path(inspect.getfile(source_sentences))
         hashes['SentenceGrouping'] = hashlib.sha256(grouping_path.read_bytes()).hexdigest()
         from ..agents import feedback_common, feedback_operations
-        for name, module in (('FeedbackCommon', feedback_common), ('FeedbackOperations', feedback_operations)):
+        from . import triple_scores
+        for name, module in (('FeedbackCommon', feedback_common), ('FeedbackOperations', feedback_operations), ('TripleScores', triple_scores)):
             hashes[name] = hashlib.sha256(Path(module.__file__).read_bytes()).hexdigest()
         hashes['FeedbackPipeline'] = hashlib.sha256(Path(inspect.getfile(FeedbackPipeline)).read_bytes()).hexdigest()
         return {"model": self.model_name, "api_mode": self.api_mode,
@@ -679,7 +684,8 @@ class KARMAPipeline:
                 "relevance_threshold": relevance_threshold, "domain": domain,
                 "use_summarizer": bool(os.environ.get("KARMA_USE_SUMMARIZER")),
                 "feedback_grouping": "source_sentence_groups_v1",
-                "feedback_flow": "add_replace_remove_v1",
+                "feedback_flow": "add_replace_remove_v2",
+                "triple_score_policy": "fixed_0.8",
                 "agent_code_sha256": hashes}
 
     @staticmethod

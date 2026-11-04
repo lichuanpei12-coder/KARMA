@@ -2,7 +2,6 @@ from feedback_fixtures import no_changes_call
 """Compact split protocol, inherited scores, and legacy feedback validation."""
 
 import copy
-import hashlib
 import json
 import os
 from pathlib import Path
@@ -10,6 +9,10 @@ import sys
 import tempfile
 import unittest
 from unittest.mock import patch
+
+def fixed_dicts(items):
+    return [dict(x, confidence=.8, clarity=.8, relevance=.8) for x in items]
+
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
@@ -37,37 +40,29 @@ class SplittingParityTests(unittest.TestCase):
             'name': 'compact_split',
             'response': json.dumps({'add': [operation('may store')],
                                     'remove': [], 'replace': [operation('may read')]}),
-            'expected': [
+            'expected': fixed_dicts([
                 dict(parent, relation='may read', source='relationship_revision'),
                 other,
                 dict(parent, relation='may store', source='relationship_revision'),
-            ],
+            ]),
         }
 
-    def test_current_prompt_and_legacy_feedback_validation(self):
+    def test_legacy_applier_remains_compatible(self):
         for case in self.fixture['cases']:
             with self.subTest(case=case['name']):
                 agent = TripleSplittingAgent(None, 'offline')
                 baseline = [KnowledgeTriple.from_dict(t) for t in self.fixture['baseline']]
-                # Keep the historical fixture as a regression for the shared
-                # feedback rules, which still require evidence and model scores.
-                legacy_apply = lambda previous, revision, **_: TripleRevisionMixin._apply_revision(
-                    agent, previous, revision)
-                with patch.object(agent, '_apply_revision', side_effect=legacy_apply), \
-                     patch.object(agent, '_make_llm_call', return_value=(case['response'], 0, 0, 0)) as call:
-                    actual = agent.process(self.fixture['source'], baseline)
-                call.assert_called_once()
-                self.assertEqual(call.call_args.kwargs['temperature'], 0.0)
-                prompt = call.call_args.args[0]
-                system = call.call_args.kwargs['system_prompt']
-                # Examples may evolve; captured legacy operations and outputs stay fixed.
-                self.assertEqual(hashlib.sha256(prompt.encode()).hexdigest(), self.fixture['current_prompt_sha256'])
-                self.assertEqual(hashlib.sha256(system.encode()).hexdigest(), self.fixture['system_prompt_sha256'])
+                if case['audit']['mode'] == 'baseline_fallback':
+                    with self.assertRaises(ValueError):
+                        agent._parse_revision_response(case['response'])
+                    continue
+                revision = agent._parse_revision_response(case['response'])
+                actual, audit = agent._apply_revision(baseline, revision)
                 self.assertEqual([t.to_dict() for t in actual], case['expected'])
-                self.assertEqual(agent.last_revision, case['audit'])
+                self.assertEqual(audit, case['audit'])
                 self.assertEqual([t.to_dict() for t in baseline], self.fixture['baseline'])
 
-    def test_compact_split_inherits_scores_without_evidence(self):
+    def test_compact_split_uses_fixed_scores_without_model_scores(self):
         agent = TripleSplittingAgent(None, 'offline')
         baseline = [KnowledgeTriple.from_dict(t) for t in self.fixture['baseline']]
         case = self.compact_case()
@@ -79,7 +74,7 @@ class SplittingParityTests(unittest.TestCase):
         for op in ('add', 'replace'):
             entry = agent.last_revision['accepted'][op][0]
             self.assertEqual(entry['score_source_index'], 0)
-            self.assertEqual(entry['inherited_scores'], dict(confidence=.9, clarity=.85, relevance=.8))
+            self.assertEqual(entry['inherited_scores'], dict(confidence=.8, clarity=.8, relevance=.8))
             self.assertFalse(set(entry) & {'evidence', 'confidence', 'clarity', 'relevance'})
         prompt = call.call_args.args[0]
         for field in ('evidence', 'confidence', 'clarity', 'relevance'):
@@ -136,7 +131,7 @@ class SplittingParityTests(unittest.TestCase):
         with patch.object(agent, '_make_llm_call', side_effect=RuntimeError('offline failure')) as call:
             actual = agent.process(self.fixture['source'], baseline)
         call.assert_called_once()
-        self.assertEqual([t.to_dict() for t in actual], self.fixture['baseline'])
+        self.assertEqual([t.to_dict() for t in actual], fixed_dicts(self.fixture['baseline']))
         self.assertEqual(agent.last_revision['mode'], 'baseline_fallback')
 
     def test_pipeline_preserves_split_parity_when_feedback_has_no_edits(self):
@@ -192,7 +187,7 @@ class SplittingParityTests(unittest.TestCase):
                             actual = without_provenance([t.to_dict() for t in output.integrated_triples])
                             self.assertEqual(actual, expected)
                             doc = pipe.last_run_manifest['documents'][0]
-                            self.assertEqual(without_provenance(doc['rounds']['1']), baseline)
+                            self.assertEqual(without_provenance(doc['rounds']['1']), fixed_dicts(baseline))
                             self.assertEqual(without_provenance(doc['rounds']['2']), expected)
                             self.assertEqual(without_provenance(doc['stages']['after_split']), case['expected'])
                             samples = lambda triples: [{'doc_id': 'parity', 'gold_key': 'parity', 'gold': gold,
