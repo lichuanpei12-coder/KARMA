@@ -4,7 +4,6 @@ Ingestion Agent Implementation
 The Ingestion Agent handles document retrieval, format normalization,
 and metadata extraction for various input types.
 """
-from karma.core.api_retry import FatalLLMError
 
 import logging
 from typing import Dict, Tuple
@@ -151,8 +150,6 @@ class IngestionAgent(BaseAgent):
                     document_type=metadata_dict.get("document_type", "article")
                 )
 
-        except FatalLLMError:
-            raise
         except Exception as e:
             logger.warning(f"Metadata extraction failed: {str(e)}")
 

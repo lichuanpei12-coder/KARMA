@@ -4,7 +4,6 @@ KARMA Main Pipeline Implementation
 This module contains the main KARMA pipeline that orchestrates all agents
 to process documents and extract knowledge.
 """
-from karma.core.api_retry import FatalLLMError
 
 import logging
 import copy
@@ -676,8 +675,6 @@ class KARMAPipeline:
             self.last_baseline_path = package_path
             return intermediate
 
-        except FatalLLMError:
-            raise
         except Exception as e:
             intermediate.metrics.error_count += 1
             logger.error(f"Pipeline failed: {str(e)}")
@@ -870,8 +867,6 @@ class KARMAPipeline:
             try:
                 result = self.process_document(source, domain, relevance_threshold)
                 results.append(result)
-            except FatalLLMError:
-                raise
             except Exception as e:
                 logger.error(f"Failed to process {source}: {str(e)}")
                 # Create empty result for failed processing

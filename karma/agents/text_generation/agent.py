@@ -4,7 +4,6 @@ Text Generation Agent Implementation
 The Text Generation Agent converts structured triples (head, relation, tail)
 into natural language sentences using LLM-based generation.
 """
-from karma.core.api_retry import FatalLLMError
 
 import json
 import logging
@@ -190,8 +189,6 @@ class TextGenerationAgent(BaseAgent):
                     by_id[item['sentence_id']] = item['text'].strip()
                 if set(by_id) != allowed:
                     raise ValueError('Missing reconstruction sentence IDs')
-            except FatalLLMError:
-                raise
             except Exception as exc:
                 error = str(exc)
                 by_id = {}
@@ -237,8 +234,6 @@ class TextGenerationAgent(BaseAgent):
 
             return generated_text
 
-        except FatalLLMError:
-            raise
         except Exception as e:
             logger.warning(f"Text generation failed: {str(e)}")
             return self._fallback_generate(linearized)

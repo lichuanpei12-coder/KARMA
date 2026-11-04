@@ -12,10 +12,6 @@ from openai import APIConnectionError, APIStatusError
 logger = logging.getLogger(__name__)
 
 
-class FatalLLMError(RuntimeError):
-    """Permanent API failure: stop the run instead of silently skipping an agent."""
-
-
 def wait_interruptibly(seconds):
     # KeyboardInterrupt propagates; long server delays still leave periodic logs.
     remaining = seconds
@@ -73,16 +69,7 @@ def call_with_retry(call, pacer, retry_events, agent_name):
             response = getattr(exc, 'response', None)
             status = getattr(response, 'status_code', None)
             if status is not None and status not in (408, 409, 429) and not 500 <= status < 600:
-                raise FatalLLMError(f'{agent_name}: non-retryable API status {status}; run stopped') from exc
-            # An exhausted account quota is not a requests-per-minute limit.
-            if status == 429:
-                try:
-                    error = response.json().get('error', {})
-                    code = error.get('code') if isinstance(error, dict) else None
-                except (ValueError, AttributeError):
-                    code = None
-                if code in ('insufficient_quota', 'billing_hard_limit_reached'):
-                    raise FatalLLMError(f'{agent_name}: account quota exhausted ({code}); run stopped') from exc
+                raise  # Preserve the existing agent-level error/fallback policy.
             wait = retry_delay(response, attempt)
             attempt += 1
             retry_events.append(dict(attempt=attempt, status=status, wait_seconds=wait,

@@ -5,7 +5,7 @@ from datetime import datetime, timedelta, timezone
 from email.utils import format_datetime
 import httpx
 from openai import RateLimitError
-from karma.core.api_retry import FatalLLMError, RequestPacer, retry_delay
+from karma.core.api_retry import RequestPacer, retry_delay
 from karma.agents.feedback_add.agent import FeedbackAddAgent
 from karma.agents.text_generation.agent import TextGenerationAgent
 
@@ -55,15 +55,28 @@ class RetryTests(unittest.TestCase):
             with self.assertRaises(KeyboardInterrupt):
                 agent._make_llm_call('test')
 
-    def test_permanent_api_errors_stop_without_fallback(self):
-        for status, body in [(401, {}), (400, {}), (429, {'error': {'code': 'insufficient_quota'}})]:
+    def test_non_retryable_errors_keep_original_agent_fallback(self):
+        for status in (400, 401, 403):
             with self.subTest(status=status):
                 a = self.agent('chat_completions')
                 g = TextGenerationAgent(a.client, 'offline')
-                with patch('httpx.Client.post', return_value=self.response(status, body)) as post:
-                    with self.assertRaises(FatalLLMError):
-                        g.generate_grouped([dict(sentence_id='S1', triples=[dict(index=0, head='a', relation='b', tail='c')])])
+                with patch('httpx.Client.post', return_value=self.response(status)) as post, \
+                        patch('karma.core.api_retry.time.sleep') as sleep:
+                    text = g.generate_grouped([dict(sentence_id='S1', triples=[dict(index=0, head='a', relation='b', tail='c')])])
+                self.assertEqual(text, 'a : b : c')
+                self.assertEqual(g.last_grouped_generation[0]['generation_status'], 'literal_fallback')
                 self.assertEqual(post.call_count, 1)
+                sleep.assert_not_called()
+
+    def test_quota_error_429_uses_same_unlimited_retry(self):
+        for code in ('insufficient_quota', 'billing_hard_limit_reached'):
+            with self.subTest(code=code):
+                agent = self.agent('chat_completions')
+                responses = [self.response(429, {'error': {'code': code}})] * 7
+                responses.append(self.response(200, {'choices': [{'message': {'content': 'ok'}}]}))
+                with patch('httpx.Client.post', side_effect=responses) as post, patch('karma.core.api_retry.time.sleep'):
+                    self.assertEqual(agent._make_llm_call('test')[0], 'ok')
+                self.assertEqual(post.call_count, 8)
 
     def test_retry_after_date_and_ms_and_bounded_backoff(self):
         date = format_datetime(datetime.now(timezone.utc) + timedelta(seconds=120))

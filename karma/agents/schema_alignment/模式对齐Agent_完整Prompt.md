@@ -1,6 +1,6 @@
 # 模式对齐Agent_完整Prompt
 
-整理日期：2026-11-04。代码版本：`d401c9c6f4454e39d46f1c8bbff04925128cbfed`。行号对应整理时源码；后续修改源码后应重新导出。
+整理日期：2026-11-04。代码版本：`fa083fed01a868a10a8b4493c6da15548c8d9913`。行号对应整理时源码；后续修改源码后应重新导出。
 
 ## 当前运行是否使用这套Prompt
 
@@ -10,7 +10,7 @@
 
 Chat Completions 与 Responses 使用同一套 System/User 内容，底层调用共用持续重试机制。
 
-未启用位置：karma/core/pipeline.py 第158行；karma/core/pipeline.py 第552行。
+未启用位置：karma/core/pipeline.py 第157行；karma/core/pipeline.py 第551行。
 
 ## 展示说明
 

@@ -1,5 +1,4 @@
 """Sequential Add -> Replace -> Remove feedback with explicit stage snapshots."""
-from karma.core.api_retry import FatalLLMError
 import copy
 import time
 from karma.agents.feedback_operations import apply_operations, validate_reply
@@ -64,8 +63,6 @@ class FeedbackPipeline:
                 reply = agent.process(context)
                 validate_reply(reply, stage, current, sentences)
                 revised, application = apply_operations(stage, current, reply, sentences)
-            except FatalLLMError:
-                raise
             except Exception as exc:
                 revised = copy.deepcopy(current)
                 application = {'status': 'failed', 'reason': str(exc), 'accepted': [], 'rejected': [],

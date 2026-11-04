@@ -22,20 +22,20 @@ hr{border:0;border-top:1px solid var(--line);margin:30px 0}.filelinks{display:fl
 footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid var(--line);padding-top:15px}
 @media(max-width:900px){.layout{display:block;padding:12px}aside{position:static;max-height:300px;margin-bottom:16px}main{padding:22px 18px}header{padding:18px}h1{font-size:23px}h2{font-size:21px}th,td{padding:8px}}
 @media print{body{background:#fff;font-size:11pt}.layout{display:block;padding:0}aside,header,.filelinks,footer{display:none}main{border:0;padding:0}.table-wrap{overflow:visible}pre,table{font-size:9pt}h2,h3{break-after:avoid}tr{break-inside:avoid}a{color:inherit;text-decoration:none}}
-</style></head><body><header><div class="label">阅读Agent_完整Prompt</div><p>源码行号与实际调用分支 · 2026-11-04 · d401c9c</p></header><div class="layout"><aside><h2>目录</h2><input id="toc-filter" type="search" placeholder="搜索轮次、System、User"><a href="../Prompt%E6%80%BB%E8%A7%88.html">全部Agent总览</a><a class="" href="#section-1">当前运行是否使用这套Prompt</a>
+</style></head><body><header><div class="label">阅读Agent_完整Prompt</div><p>源码行号与实际调用分支 · 2026-11-04 · fa083fe</p></header><div class="layout"><aside><h2>目录</h2><input id="toc-filter" type="search" placeholder="搜索轮次、System、User"><a href="../Prompt%E6%80%BB%E8%A7%88.html">全部Agent总览</a><a class="" href="#section-1">当前运行是否使用这套Prompt</a>
 <a class="" href="#section-2">展示说明</a>
 <a class="" href="#section-3">当前条件下的完整版本</a>
 <a class="" href="#section-4">文档维护</a></aside><main><a href="%E9%98%85%E8%AF%BBAgent_%E5%AE%8C%E6%95%B4Prompt.md">Markdown原文</a><h1 id="section-0">阅读Agent_完整Prompt</h1>
-<p>整理日期：2026-11-04。代码版本：<code>d401c9c6f4454e39d46f1c8bbff04925128cbfed</code>。行号对应整理时源码；后续修改源码后应重新导出。</p>
+<p>整理日期：2026-11-04。代码版本：<code>fa083fed01a868a10a8b4493c6da15548c8d9913</code>。行号对应整理时源码；后续修改源码后应重新导出。</p>
 <h2 id="section-1">当前运行是否使用这套Prompt</h2>
 <p>普通文档准备阶段会分批调用相关性评分，每批最多5段；回放已保存基线时可能跳过准备阶段。每段送给评分的文本目前截取前500字符并加省略号。</p>
-<p>【来源：调用入口与System/User发送｜<a href="agent.py#L84">karma/agents/reader/agent.py 第84—110行</a>；<a href="../../core/base_agent.py#L99">karma/core/base_agent.py 第99—158行</a>】</p>
+<p>【来源：调用入口与System/User发送｜<a href="agent.py#L83">karma/agents/reader/agent.py 第83—109行</a>；<a href="../../core/base_agent.py#L99">karma/core/base_agent.py 第99—158行</a>】</p>
 <p>Chat Completions 与 Responses 使用同一套 System/User 内容，底层调用共用持续重试机制。</p>
 <h2 id="section-2">展示说明</h2>
 <p>固定文本全部展开，仅运行数据用源码变量或表达式表示。每个入口保留一份按顺序排列的System和User；每部分前用一行相对路径链接标注来源，可点击查看源码。来源链接放在代码块外以保持蓝色显示。“【来源：…】”和消息角色标记只用于阅读。同目录<a href="Prompt%E5%AE%8C%E6%95%B4%E6%A8%A1%E6%9D%BF.json">Prompt完整模板.json</a>保存不含阅读标注的角色结构。</p>
 <h2 id="section-3">当前条件下的完整版本</h2>
 <p><strong>System 消息</strong></p>
-<p>【来源：任务说明｜<a href="agent.py#L37">karma/agents/reader/agent.py 第37—80行</a>】</p>
+<p>【来源：任务说明｜<a href="agent.py#L36">karma/agents/reader/agent.py 第36—79行</a>】</p>
 <pre><code class="language-text">你是一个专门用于生物医学文献分析的阅读代理。你的任务是评估文本段落并为知识提取分配精确的相关性分数。
 
 目标：根据文本段落包含可提取生物医学知识关系的潜力，对其进行评分（0.0-1.0）。
@@ -82,7 +82,7 @@ footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid va
 &quot;使用SPSS软件进行统计分析&quot; → 0.20
 </code></pre>
 <p><strong>User 消息</strong></p>
-<p>【来源：任务说明｜<a href="agent.py#L340">karma/agents/reader/agent.py 第340—355行</a>】</p>
+<p>【来源：任务说明｜<a href="agent.py#L339">karma/agents/reader/agent.py 第339—354行</a>】</p>
 <pre><code class="language-text">        你是一个生物医学文本相关性评分器。
         对以下每个段落的相关性进行评分（0.0 到 1.0），评估其对于提取
         新的生物医学知识（例如疾病、药物、基因、蛋白质之间的关系）的潜力。

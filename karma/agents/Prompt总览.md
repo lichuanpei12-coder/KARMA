@@ -1,6 +1,6 @@
 # Agent Prompt总览与当前调用路线
 
-更新日期：2026-11-04。导出时 Git HEAD：`d401c9c6f4454e39d46f1c8bbff04925128cbfed`；文档内容取自当前工作区源码，包含本次未提交修改，精确文件哈希见导出核验 JSON。
+更新日期：2026-11-04。导出时 Git HEAD：`fa083fed01a868a10a8b4493c6da15548c8d9913`；文档内容取自当前工作区源码，包含本次未提交修改，精确文件哈希见导出核验 JSON。
 
 ## 当前运行的prompt是否唯一
 
@@ -29,7 +29,7 @@
 
 ## 当前分组调用的源码证据
 
-karma/core/pipeline.py 第419—421行；文本对比：karma/core/pipeline.py 第434—437行；实体：karma/core/pipeline.py 第458行；基线关系：karma/core/pipeline.py 第490—492行；三步反馈：karma/core/pipeline.py 第497—500行。
+karma/core/pipeline.py 第418—420行；文本对比：karma/core/pipeline.py 第433—436行；实体：karma/core/pipeline.py 第457行；基线关系：karma/core/pipeline.py 第489—491行；三步反馈：karma/core/pipeline.py 第496—499行。
 
 ## 阅读方式
 

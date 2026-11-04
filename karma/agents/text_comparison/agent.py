@@ -4,7 +4,6 @@ Text Comparison Agent Implementation
 The Text Comparison Agent analyzes and compares two text passages,
 identifying similarities, differences, and key distinctions between them.
 """
-from karma.core.api_retry import FatalLLMError
 
 import json
 import logging
@@ -184,8 +183,6 @@ class TextComparisonAgent(BaseAgent):
                     by_id[item['sentence_id']] = item
                 if set(by_id) != allowed:
                     raise ValueError('Missing comparison sentence IDs')
-            except FatalLLMError:
-                raise
             except Exception as exc:
                 error, by_id = str(exc), {}
         rows = []
@@ -241,8 +238,6 @@ class TextComparisonAgent(BaseAgent):
 
             return result
 
-        except FatalLLMError:
-            raise
         except Exception as e:
             logger.warning(f"Text comparison failed: {str(e)}")
             return self._fallback_comparison(text_a, text_b)

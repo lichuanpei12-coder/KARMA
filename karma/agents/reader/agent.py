@@ -4,7 +4,6 @@ Reader Agent Implementation
 The Reader Agent handles document segmentation and relevance scoring
 for efficient downstream processing.
 """
-from karma.core.api_retry import FatalLLMError
 
 import logging
 from typing import List, Dict, Tuple, Optional
@@ -371,8 +370,6 @@ class ReaderAgent(BaseAgent):
 
             return scores[:len(segments)]
 
-        except FatalLLMError:
-            raise
         except Exception as e:
             logger.warning(f"Batch scoring failed: {str(e)}")
             return [self._get_default_score(seg) for seg in segments]

@@ -1,12 +1,12 @@
 # 阅读Agent_完整Prompt
 
-整理日期：2026-11-04。代码版本：`d401c9c6f4454e39d46f1c8bbff04925128cbfed`。行号对应整理时源码；后续修改源码后应重新导出。
+整理日期：2026-11-04。代码版本：`fa083fed01a868a10a8b4493c6da15548c8d9913`。行号对应整理时源码；后续修改源码后应重新导出。
 
 ## 当前运行是否使用这套Prompt
 
 普通文档准备阶段会分批调用相关性评分，每批最多5段；回放已保存基线时可能跳过准备阶段。每段送给评分的文本目前截取前500字符并加省略号。
 
-【来源：调用入口与System/User发送｜[karma/agents/reader/agent.py 第84—110行](<agent.py#L84>)；[karma/core/base_agent.py 第99—158行](<../../core/base_agent.py#L99>)】
+【来源：调用入口与System/User发送｜[karma/agents/reader/agent.py 第83—109行](<agent.py#L83>)；[karma/core/base_agent.py 第99—158行](<../../core/base_agent.py#L99>)】
 
 Chat Completions 与 Responses 使用同一套 System/User 内容，底层调用共用持续重试机制。
 
@@ -18,7 +18,7 @@ Chat Completions 与 Responses 使用同一套 System/User 内容，底层调用
 
 **System 消息**
 
-【来源：任务说明｜[karma/agents/reader/agent.py 第37—80行](<agent.py#L37>)】
+【来源：任务说明｜[karma/agents/reader/agent.py 第36—79行](<agent.py#L36>)】
 
 ```text
 你是一个专门用于生物医学文献分析的阅读代理。你的任务是评估文本段落并为知识提取分配精确的相关性分数。
@@ -69,7 +69,7 @@ Chat Completions 与 Responses 使用同一套 System/User 内容，底层调用
 
 **User 消息**
 
-【来源：任务说明｜[karma/agents/reader/agent.py 第340—355行](<agent.py#L340>)】
+【来源：任务说明｜[karma/agents/reader/agent.py 第339—354行](<agent.py#L339>)】
 
 ```text
         你是一个生物医学文本相关性评分器。
