@@ -12,7 +12,6 @@ import logging
 from urllib.parse import urlparse
 from openai import OpenAI
 import httpx
-from .api_retry import RequestPacer, call_with_retry
 
 logger = logging.getLogger(__name__)
 
@@ -77,8 +76,6 @@ class BaseAgent(ABC):
         # The pipeline sets this for all agents.  Keep the current implementation
         # as the default for direct use of an individual agent.
         self.api_mode = "chat_completions"
-        self.request_pacer = RequestPacer()
-        self.last_llm_call = {}
         self.metrics = {
             'total_calls': 0,
             'total_prompt_tokens': 0,
@@ -96,65 +93,162 @@ class BaseAgent(ABC):
         """
         pass
 
-    def _make_llm_call(self, prompt: str, temperature: float = 0.1,
-                       max_tokens: Optional[int] = None,
-                       system_prompt: Optional[str] = None) -> Tuple[str, int, int, float]:
-        """Both API modes retry transient failures indefinitely, with paced backoff."""
-        start = time.monotonic()
-        system = system_prompt or self.system_prompt
-        messages = [{'role': 'system', 'content': system}, {'role': 'user', 'content': prompt}]
-        audit = {'messages': messages, 'api_mode': self.api_mode, 'retries': [], 'raw_response': None}
-        self.last_llm_call = audit
+    # 429/5xx 重试配置
+    LLM_BACKOFF_MAX = 30.0
+    LLM_BACKOFF_BASE = 2.0  # 首次退避秒数，每次 ×2：2,4,8,16,30,30…
 
-        def request():
-            if self.api_mode == 'responses':
-                kwargs = dict(model=self.model_name, instructions=system, input=prompt,
-                              temperature=temperature, store=False)
-                if max_tokens:
-                    kwargs['max_output_tokens'] = max_tokens
-                # Pipeline SDK client has max_retries=0: one common retry policy.
-                return self.client.responses.create(**kwargs)
-            if self.api_mode != 'chat_completions':
-                raise ValueError(f'Unsupported API mode: {self.api_mode}')
-            kwargs = dict(model=self.model_name, messages=messages, temperature=temperature)
-            if max_tokens:
-                kwargs['max_tokens'] = max_tokens
-            url = str(self.client.base_url).rstrip('/') + '/chat/completions'
-            config = dict(timeout=600.0, verify=_ssl_verify())
-            proxy = _proxy_for_url(url)
-            if proxy:
-                config['proxy'] = proxy
-            with httpx.Client(**config) as client:
-                response = client.post(url, json=kwargs, headers={
-                    'Authorization': f'Bearer {self.client.api_key}', 'Content-Type': 'application/json'})
-                response.raise_for_status()
-                return response.json()
+    def _make_llm_call(
+        self,
+        prompt: str,
+        temperature: float = 0.1,
+        max_tokens: Optional[int] = None,
+        system_prompt: Optional[str] = None
+    ) -> Tuple[str, int, int, float]:
+        """
+        Make a call to the LLM with error handling and metrics tracking.
+        对 429（限流）和 5xx（服务端错误）自动重试 + 指数退避；
+        尊重 Retry-After 响应头。其他 4xx（404/401/403）不重试直接抛出。
+
+        Args:
+            prompt: User prompt
+            temperature: Sampling temperature
+            max_tokens: Maximum tokens to generate
+            system_prompt: Override system prompt for this call
+
+        Returns:
+            Tuple of (response_content, prompt_tokens, completion_tokens, processing_time)
+
+        Raises:
+            Exception: Immediately for non-retryable errors; retryable errors have no attempt limit
+        """
+        start_time = time.time()
+        self.last_llm_call = {'messages': [
+            {'role': 'system', 'content': system_prompt or self.system_prompt},
+            {'role': 'user', 'content': prompt}], 'raw_response': None, 'retries': []}
+
+        if self.api_mode == "responses":
+            return self._make_responses_call(prompt, temperature, max_tokens, system_prompt, start_time)
+        if self.api_mode != "chat_completions":
+            raise ValueError(f"Unsupported API mode: {self.api_mode}")
+
+        messages = [
+            {"role": "system", "content": system_prompt or self.system_prompt},
+            {"role": "user", "content": prompt}
+        ]
+
+        call_kwargs = {
+            "model": self.model_name,
+            "messages": messages,
+            "temperature": temperature
+        }
+
+        if max_tokens:
+            call_kwargs["max_tokens"] = max_tokens
+
+        base_url = str(self.client.base_url).rstrip('/')
+        url = f"{base_url}/chat/completions"
+
+        api_key = self.client.api_key if hasattr(self.client, 'api_key') else None
+
+        headers = {
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json"
+        }
+
+        attempt = 0
+        while True:
+            try:
+                # 代理按 NO_PROXY 条件判断；SSL 校验按 SSL_VERIFY 环境变量
+                proxy = _proxy_for_url(url)
+                client_kwargs = dict(timeout=600.0, verify=_ssl_verify())
+                if proxy:
+                    client_kwargs["proxy"] = proxy
+                with httpx.Client(**client_kwargs) as http_client:
+                    response = http_client.post(url, json=call_kwargs, headers=headers)
+
+                    # 其他 4xx（404/401/403）不重试
+                    response.raise_for_status()
+                    result = response.json()
+
+                content = result["choices"][0]["message"]["content"].strip()
+                prompt_tokens = result.get("usage", {}).get("prompt_tokens", 0)
+                completion_tokens = result.get("usage", {}).get("completion_tokens", 0)
+                processing_time = time.time() - start_time
+
+                # Update metrics
+                self.metrics['total_calls'] += 1
+                self.metrics['total_prompt_tokens'] += prompt_tokens
+                self.metrics['total_completion_tokens'] += completion_tokens
+                self.metrics['total_time'] += processing_time
+
+                self.last_llm_call.update(raw_response=content, prompt_tokens=prompt_tokens,
+                                          completion_tokens=completion_tokens, elapsed=processing_time)
+                return content, prompt_tokens, completion_tokens, processing_time
+
+            except (httpx.HTTPStatusError, httpx.RequestError) as exc:
+                response = getattr(exc, 'response', None)
+                status = getattr(response, 'status_code', None)
+                # Keep the original 429/5xx/network retry conditions.
+                if status is not None and status != 429 and status < 500:
+                    self.metrics['error_count'] += 1
+                    self.metrics['total_time'] += time.time() - start_time
+                    raise
+                wait = min(self.LLM_BACKOFF_MAX, self.LLM_BACKOFF_BASE * 2 ** min(attempt, 4))
+                retry_after = response.headers.get('Retry-After') if response is not None else None
+                if retry_after:
+                    try:
+                        requested = float(retry_after)
+                        if 0 <= requested < float('inf'):
+                            wait = min(self.LLM_BACKOFF_MAX, requested)
+                    except ValueError:
+                        pass
+                attempt += 1
+                self.last_llm_call['retries'].append(dict(attempt=attempt, status=status, wait_seconds=wait))
+                logger.warning('%s LLM %s, retry %d; waiting %.1fs',
+                               type(self).__name__, status or type(exc).__name__, attempt, wait)
+                time.sleep(wait)
+
+    def _make_responses_call(
+        self,
+        prompt: str,
+        temperature: float,
+        max_tokens: Optional[int],
+        system_prompt: Optional[str],
+        start_time: float,
+    ) -> Tuple[str, int, int, float]:
+        """Call an OpenAI-compatible Responses endpoint for API mode 1."""
         try:
-            result = call_with_retry(request, self.request_pacer, audit['retries'], type(self).__name__)
-            if self.api_mode == 'responses':
-                content = (getattr(result, 'output_text', '') or '').strip()
-                usage = getattr(result, 'usage', None)
-                prompt_tokens = getattr(usage, 'input_tokens', 0) or 0
-                completion_tokens = getattr(usage, 'output_tokens', 0) or 0
-            else:
-                content = result['choices'][0]['message']['content'].strip()
-                prompt_tokens = result.get('usage', {}).get('prompt_tokens', 0)
-                completion_tokens = result.get('usage', {}).get('completion_tokens', 0)
+            call_kwargs = {
+                "model": self.model_name,
+                "instructions": system_prompt or self.system_prompt,
+                "input": prompt,
+                "temperature": temperature,
+                "store": False,
+            }
+            if max_tokens:
+                call_kwargs["max_output_tokens"] = max_tokens
+
+            response = self.client.responses.create(**call_kwargs)
+            content = (getattr(response, "output_text", "") or "").strip()
             if not content:
-                raise ValueError('LLM returned no text output')
-            elapsed = time.monotonic() - start
-            audit.update(raw_response=content, prompt_tokens=prompt_tokens,
-                         completion_tokens=completion_tokens, elapsed=elapsed)
+                raise ValueError("Responses API returned no text output")
+
+            usage = getattr(response, "usage", None)
+            prompt_tokens = getattr(usage, "input_tokens", 0) or 0
+            completion_tokens = getattr(usage, "output_tokens", 0) or 0
+            processing_time = time.time() - start_time
             self.metrics['total_calls'] += 1
             self.metrics['total_prompt_tokens'] += prompt_tokens
             self.metrics['total_completion_tokens'] += completion_tokens
-            self.metrics['total_time'] += elapsed
-            return content, prompt_tokens, completion_tokens, elapsed
-        except Exception as exc:
-            elapsed = time.monotonic() - start
-            audit.update(error_type=type(exc).__name__, elapsed=elapsed)
+            self.metrics['total_time'] += processing_time
+            self.last_llm_call.update(raw_response=content, prompt_tokens=prompt_tokens,
+                                      completion_tokens=completion_tokens, elapsed=processing_time)
+            return content, prompt_tokens, completion_tokens, processing_time
+        except Exception as error:
+            processing_time = time.time() - start_time
             self.metrics['error_count'] += 1
-            self.metrics['total_time'] += elapsed
+            self.metrics['total_time'] += processing_time
+            logger.error(f"{self.__class__.__name__} Responses API call failed: {error}")
             raise
 
     def _extract_float_from_text(self, text: str, default: float = 0.5) -> float:

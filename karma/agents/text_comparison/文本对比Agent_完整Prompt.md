@@ -1,22 +1,22 @@
 # 文本对比Agent_完整Prompt
 
-整理日期：2026-11-04。代码版本：`fa083fed01a868a10a8b4493c6da15548c8d9913`。行号对应整理时源码；后续修改源码后应重新导出。
+整理日期：2026-11-04。代码版本：`c3aa35473680505bd66fab4694eb73630ddb8cb9`。行号对应整理时源码；后续修改源码后应重新导出。
 
 ## 当前运行是否使用这套Prompt
 
 当前pipeline默认text_scope=sentence，由compare_sentences逐句调用compare_grouped，每次只传对应源句及重建文本；全文标签也仅包含本句。text_scope=document时一次传入全部分组。两种模式固定提示相同，仅输入范围不同。另一条compare路径只在不传分组或直接调用时使用，不会与当前版本叠加。
 
-【来源：调用入口与System/User发送｜[karma/agents/text_comparison/agent.py 第67—82行](<agent.py#L67>)；[karma/core/base_agent.py 第99—158行](<../../core/base_agent.py#L99>)】
+【来源：调用入口与System/User发送｜[karma/agents/text_comparison/agent.py 第67—82行](<agent.py#L67>)；[karma/core/base_agent.py 第100—209、211—252行](<../../core/base_agent.py#L100>)】
 
-Chat Completions 与 Responses 使用同一套 System/User 内容，底层调用共用持续重试机制。
+Chat Completions 与 Responses 使用同一套 System/User 内容。Chat Completions 的原有重试改为无限次数、等待最多30秒；Responses 保持原处理。
 
-当前流水线传参位置：karma/core/pipeline.py 第433—436行。**当前流程只选择分组版本；附录中的非分组版本不会一起执行。**
+当前流水线传参位置：karma/core/pipeline.py 第428—431行。**当前流程只选择分组版本；附录中的非分组版本不会一起执行。**
 
 ## 展示说明
 
 固定文本全部展开，仅运行数据用源码变量或表达式表示。每个入口保留一份按顺序排列的System和User；每部分前用一行相对路径链接标注来源，可点击查看源码。来源链接放在代码块外以保持蓝色显示。“【来源：…】”和消息角色标记只用于阅读。同目录[Prompt完整模板.json](Prompt完整模板.json)保存不含阅读标注的角色结构。
 
-【来源：逐句入口与调度｜[karma/agents/text_comparison/agent.py 第84—104行](<agent.py#L84>)；[karma/core/pipeline.py 第433—436行](<../../core/pipeline.py#L433>)】
+【来源：逐句入口与调度｜[karma/agents/text_comparison/agent.py 第84—104行](<agent.py#L84>)；[karma/core/pipeline.py 第428—431行](<../../core/pipeline.py#L428>)】
 
 ## 当前默认：逐句调用（整篇模式复用相同固定提示）
 

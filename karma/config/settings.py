@@ -38,7 +38,6 @@ class PipelineConfig:
     parallel_processing: bool = False
     feedback_scope: str = "sentence"
     text_scope: str = "sentence"
-    api_min_interval: float = 1.0
 
 
 @dataclass
@@ -136,8 +135,6 @@ class KARMAConfig:
 
         if self.pipeline.feedback_scope not in ("sentence", "document") or self.pipeline.text_scope not in ("sentence", "document"):
             raise ValueError("feedback_scope and text_scope must be sentence or document")
-        from karma.core.api_retry import RequestPacer
-        RequestPacer(self.pipeline.api_min_interval)
         # Validate pipeline settings
         if not (0.0 <= self.pipeline.relevance_threshold <= 1.0):
             raise ValueError("Relevance threshold must be between 0.0 and 1.0")

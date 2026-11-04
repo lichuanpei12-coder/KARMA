@@ -1,14 +1,14 @@
 # 拆分Agent_完整Prompt
 
-整理日期：2026-11-04。代码版本：`fa083fed01a868a10a8b4493c6da15548c8d9913`。行号对应整理时源码；后续修改源码后应重新导出。
+整理日期：2026-11-04。代码版本：`c3aa35473680505bd66fab4694eb73630ddb8cb9`。行号对应整理时源码；后续修改源码后应重新导出。
 
 ## 当前运行是否使用这套Prompt
 
 拆分阶段通过process调用专用System和User；只生成add/replace；程序兼容旧响应中的空remove。回放或跳过阶段时是否执行，以实际入口为准。
 
-【来源：调用入口与System/User发送｜[karma/agents/triple_splitting/agent.py 第27—227行](<agent.py#L27>)；[karma/core/base_agent.py 第99—158行](<../../core/base_agent.py#L99>)】
+【来源：调用入口与System/User发送｜[karma/agents/triple_splitting/agent.py 第27—227行](<agent.py#L27>)；[karma/core/base_agent.py 第100—209、211—252行](<../../core/base_agent.py#L100>)】
 
-Chat Completions 与 Responses 使用同一套 System/User 内容，底层调用共用持续重试机制。
+Chat Completions 与 Responses 使用同一套 System/User 内容。Chat Completions 的原有重试改为无限次数、等待最多30秒；Responses 保持原处理。
 
 ## 展示说明
 

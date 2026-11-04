@@ -20,7 +20,6 @@ from .run_artifacts import load_baseline, save_baseline, select_documents, write
 from .sentence_groups import source_sentences, attach_sources, group_triples
 from .feedback_pipeline import FeedbackPipeline
 from .sentence_feedback_pipeline import SentenceFeedbackPipeline
-from .api_retry import RequestPacer
 from .triple_scores import fixed_score_copy
 from ..agents.feedback_add.agent import FeedbackAddAgent
 from ..agents.feedback_replace.agent import FeedbackReplaceAgent
@@ -63,8 +62,7 @@ class KARMAPipeline:
         integration_threshold: float = 0.0,
         api_mode: str = "chat_completions",
         feedback_scope: str = "sentence",
-        text_scope: str = "sentence",
-        api_min_interval: float = 1.0
+        text_scope: str = "sentence"
     ):
         """
         Initialize KARMA pipeline with API credentials.
@@ -84,10 +82,9 @@ class KARMAPipeline:
             raise ValueError("feedback_scope and text_scope must be sentence or document")
         self.feedback_scope = feedback_scope
         self.text_scope = text_scope
-        self.request_pacer = RequestPacer(api_min_interval)
 
         # Initialize OpenAI client
-        client_kwargs = {"api_key": api_key, "max_retries": 0, "timeout": 600.0}
+        client_kwargs = {"api_key": api_key}
         if base_url:
             client_kwargs["base_url"] = base_url
 
@@ -131,8 +128,7 @@ class KARMAPipeline:
             integration_threshold=config.pipeline.integration_threshold,
             api_mode=api_mode,
             feedback_scope=config.pipeline.feedback_scope,
-            text_scope=config.pipeline.text_scope,
-            api_min_interval=config.pipeline.api_min_interval
+            text_scope=config.pipeline.text_scope
         )
 
         return pipeline
@@ -179,7 +175,6 @@ class KARMAPipeline:
             self.evaluator_agent,
         ):
             agent.api_mode = self.api_mode
-            agent.request_pacer = self.request_pacer
 
     def process_document(
         self,
@@ -701,12 +696,12 @@ class KARMAPipeline:
         for name, module in (('FeedbackCommon', feedback_common), ('FeedbackOperations', feedback_operations), ('TripleScores', triple_scores)):
             hashes[name] = hashlib.sha256(Path(module.__file__).read_bytes()).hexdigest()
         hashes['FeedbackPipeline'] = hashlib.sha256(Path(inspect.getfile(FeedbackPipeline)).read_bytes()).hexdigest()
-        from . import api_retry, base_agent, sentence_feedback_pipeline
-        for name, module in [('APIRetry', api_retry), ('BaseAgent', base_agent), ('SentenceFeedbackPipeline', sentence_feedback_pipeline)]:
+        from . import base_agent, sentence_feedback_pipeline
+        for name, module in [('BaseAgent', base_agent), ('SentenceFeedbackPipeline', sentence_feedback_pipeline)]:
             hashes[name] = hashlib.sha256(Path(module.__file__).read_bytes()).hexdigest()
         return {"model": self.model_name, "api_mode": self.api_mode,
                 "feedback_scope": self.feedback_scope, "text_scope": self.text_scope,
-                "api_min_interval": self.request_pacer.min_interval, "api_retry_policy": "unlimited_transient_v1",
+                "api_retry_policy": "original_chat_retry_unlimited_cap30",
                 "integration_threshold": self.integration_threshold,
                 "relevance_threshold": relevance_threshold, "domain": domain,
                 "use_summarizer": bool(os.environ.get("KARMA_USE_SUMMARIZER")),

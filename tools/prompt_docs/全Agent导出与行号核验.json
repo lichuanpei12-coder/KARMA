@@ -1,5 +1,5 @@
 {
-  "git_head": "fa083fed01a868a10a8b4493c6da15548c8d9913",
+  "git_head": "c3aa35473680505bd66fab4694eb73630ddb8cb9",
   "documents": [
     "karma/agents/Prompt总览.md",
     "karma/agents/ingestion/摄入Agent_完整Prompt.md",
@@ -1170,12 +1170,11 @@
     "karma/agents/text_generation/agent.py": "d666a343dacd0fd478ad5f91b67fadc23e96fe879ccca99571880e67e07d14ea",
     "karma/agents/triple_splitting/agent.py": "377f6778d1bf099e5bfb259d5ebca116fdbdf616e8d1f859f6effdd46258d319",
     "karma/core/sentence_groups.py": "8cfc3eac4f4787df519b73f121a8df45ecfe85b29664385492809e9d0afde5fe",
-    "karma/core/pipeline.py": "3d4e28d44a146c6c5d2aeaec264f4558cdb2fc2992b965287f4d5eca285264be",
+    "karma/core/pipeline.py": "08850de40f37f9916ace0b903118efebbf610d1d764af8eca9bd974ec90e7386",
     "karma/agents/feedback_common.py": "b5f64f0d20148e140c1f0732f3e22046f42d36d91443435fbaadeaa8b8c55d65",
     "karma/core/sentence_feedback_pipeline.py": "bf9fecc3cf8a63cb5c3b9d252f9cff0d4c664937cbbe24e5a529b9ff85ee5232",
     "karma/core/feedback_pipeline.py": "665e334316c2b6fad1bb11af6c429ab342f97d11e1e47ec9d4640d3a181af667",
-    "karma/core/base_agent.py": "ae0121fe26b51b9b29c3a75745c151554519b113988e7f61457768bb6c09ce91",
-    "karma/core/api_retry.py": "c97e23fc12629d06e6119f0686634e60a49e3757c54e7202eb74775db58f27e3"
+    "karma/core/base_agent.py": "76131c07bb2dcadb11c6910fab92ab97bb20f45ed80b228554975cd8a29bffc6"
   },
   "message_examples": [
     "karma/agents/ingestion/Prompt完整模板.json",

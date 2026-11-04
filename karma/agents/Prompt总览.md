@@ -1,10 +1,10 @@
 # Agent Prompt总览与当前调用路线
 
-更新日期：2026-11-04。导出时 Git HEAD：`fa083fed01a868a10a8b4493c6da15548c8d9913`；文档内容取自当前工作区源码，包含本次未提交修改，精确文件哈希见导出核验 JSON。
+更新日期：2026-11-04。导出时 Git HEAD：`c3aa35473680505bd66fab4694eb73630ddb8cb9`；文档内容取自当前工作区源码，包含本次未提交修改，精确文件哈希见导出核验 JSON。
 
 ## 当前运行的prompt是否唯一
 
-每一次模型调用只采用一套确定的System和User；程序按调用入口选择分支，不会把所有分支prompt一起发给模型。实体抽取仍分两轮；关系抽取只负责基线，反馈由 Add → Replace → Remove 三个 Agent 执行。每个阶段独立核查并接收前一步实际输出；各 Agent 内部采用核对问题、生成操作、复核输出三个阶段。问题由程序传递，模型只输出本阶段操作与 handoff。新事实按单句依据抽取。重建文本与比较当前由pipeline传入sentence_groups，使用分组版本；“非分组User”只是未传该参数时保留的另一条入口。默认 text_scope=sentence，每个分组单独调用重建和对比；feedback_scope=sentence，每句独立完成 Add→Replace→Remove。两个配置均可选 document，恢复整篇调用。逐句反馈遇到历史多来源或无法分组的条目时显式回退整篇并记录。所有请求顺序执行，共享最小请求间隔；可恢复 API 错误持续退避重试。
+每一次模型调用只采用一套确定的System和User；程序按调用入口选择分支，不会把所有分支prompt一起发给模型。实体抽取仍分两轮；关系抽取只负责基线，反馈由 Add → Replace → Remove 三个 Agent 执行。每个阶段独立核查并接收前一步实际输出；各 Agent 内部采用核对问题、生成操作、复核输出三个阶段。问题由程序传递，模型只输出本阶段操作与 handoff。新事实按单句依据抽取。重建文本与比较当前由pipeline传入sentence_groups，使用分组版本；“非分组User”只是未传该参数时保留的另一条入口。默认 text_scope=sentence，每个分组单独调用重建和对比；feedback_scope=sentence，每句独立完成 Add→Replace→Remove。两个配置均可选 document，恢复整篇调用。逐句反馈遇到历史多来源或无法分组的条目时显式回退整篇并记录。所有请求顺序执行；原 Chat Completions 的 429/5xx/网络重试取消次数上限，等待最多30秒；Responses 保持原接口处理。
 
 运行范围、限流重试及回放命令见 [逐句运行与API重试说明](逐句运行与API重试说明.md)。
 
@@ -29,7 +29,7 @@
 
 ## 当前分组调用的源码证据
 
-karma/core/pipeline.py 第418—420行；文本对比：karma/core/pipeline.py 第433—436行；实体：karma/core/pipeline.py 第457行；基线关系：karma/core/pipeline.py 第489—491行；三步反馈：karma/core/pipeline.py 第496—499行。
+karma/core/pipeline.py 第413—415行；文本对比：karma/core/pipeline.py 第428—431行；实体：karma/core/pipeline.py 第452行；基线关系：karma/core/pipeline.py 第484—486行；三步反馈：karma/core/pipeline.py 第491—494行。
 
 ## 阅读方式
 

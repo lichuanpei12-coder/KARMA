@@ -58,7 +58,6 @@ def main(argv=None):
     parser.add_argument('--base-url', default=os.getenv('KARMA_BASE_URL'))
     parser.add_argument('--model', default=os.getenv('KARMA_MODEL'))
     parser.add_argument('--api-mode', choices=('chat_completions','responses'), default='chat_completions')
-    parser.add_argument('--api-min-interval', type=float, default=1.0)
     parser.add_argument('--gold')
     parser.add_argument('--gold-key')
     args = parser.parse_args(argv)
@@ -74,7 +73,7 @@ def main(argv=None):
     outputs = {}
     for scope in ('document', 'sentence'):
         pipeline = KARMAPipeline(os.environ['KARMA_API_KEY'], base_url=args.base_url, model_name=args.model,
-                                 api_mode=args.api_mode, feedback_scope=scope, api_min_interval=args.api_min_interval)
+                                 api_mode=args.api_mode, feedback_scope=scope)
         try:
             outputs[scope] = replay(inputs, pipeline)
             write_json(out / (scope + '.json'), dict(outputs[scope], input_sha256=fingerprint(inputs),
