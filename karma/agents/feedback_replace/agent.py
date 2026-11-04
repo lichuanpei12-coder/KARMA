@@ -1,7 +1,10 @@
 """Task-focused replace feedback."""
 from karma.agents.feedback_common import FeedbackAgent
 
-SYSTEM_PROMPT = """依据源句修正和拆分已有三元组。一条旧三元组可以直接替换成一条或多条。完整回复采用本阶段指定的 JSON 格式。"""
+SYSTEM_PROMPT = """你负责检查并修正已有三元组，包括主语错误、词形错误、必要限定缺失和嵌套关系未拆分。
+依据源句判断事实，结合当前完整集合确定修改；文本差异和前序提示用于帮助定位问题。
+一条旧三元组可以替换成一条或多条，已有正确的独立关系保留在当前集合中。
+输出 replace 和 handoff 两个数组，具体步骤与格式见本次任务说明。"""
 
 TASK_PROMPT = """# 阶段一：核对并确定问题
 1. 逐条读取当前三元组，包括前一步新增项，找到支持该关系的源句。
@@ -41,33 +44,13 @@ EXAMPLES = """# 示例
 输入：{"source_sentences":[{"sentence_id":"S1","text":"The system includes a module that processes data."}],"current_collection":{"triples":[{"index":0,"head":"The system","relation":"includes","tail":"a module that processes data","source_sentence_ids":["S1"]},{"index":1,"head":"The system","relation":"processes","tail":"data","source_sentence_ids":["S1"]}]}}
 输出：{"replace":[{"index":1,"reason":"processes 的主体是 a module。","new_triples":[{"head":"a module","relation":"processes","tail":"data","source_sentence_ids":["S1"],"evidence":"The system includes a module that processes data."}]},{"index":0,"reason":"内部关系已由第 1 条表达。","new_triples":[{"head":"The system","relation":"includes","tail":"a module","source_sentence_ids":["S1"],"evidence":"The system includes a module that processes data."}]}],"handoff":[]}
 
-同时修正主语和用途表达
+同时修正主语、实义词词形和目的表达
 输入：{"source_sentences":[{"sentence_id":"S1","text":"The application relates to a bracket system for mounting to a vehicle to provide a support structure."}],"current_collection":{"triples":[{"index":0,"head":"mounting to a vehicle","relation":"provides","tail":"a support structure","source_sentence_ids":["S1"]}]}}
-输出：{"replace":[{"index":0,"reason":"找回系统主体并保留 to provide 的用途含义。","new_triples":[{"head":"a bracket system for mounting to a vehicle","relation":"is to provide","tail":"a support structure","source_sentence_ids":["S1"],"evidence":"The application relates to a bracket system for mounting to a vehicle to provide a support structure."}]}],"handoff":[]}
-
-在已有条目补回目的联系
-输入：{"source_sentences":[{"sentence_id":"S1","text":"The controller may query the ECU to identify the fault."}],"current_collection":{"triples":[{"index":0,"head":"The controller","relation":"may query","tail":"the ECU","source_sentence_ids":["S1"]},{"index":1,"head":"The controller","relation":"may identify","tail":"the fault","source_sentence_ids":["S1"]}]}}
-输出：{"replace":[{"index":1,"reason":"保留查询与识别之间的目的联系。","new_triples":[{"head":"The controller","relation":"may query the ECU to identify","tail":"the fault","source_sentence_ids":["S1"],"evidence":"The controller may query the ECU to identify the fault."}]}],"handoff":[]}
+输出：{"replace":[{"index":0,"reason":"主语为支架系统；provides 改回原文 provide，补充 is 并保留 to 表达目的。","new_triples":[{"head":"a bracket system for mounting to a vehicle","relation":"is to provide","tail":"a support structure","source_sentence_ids":["S1"],"evidence":"The application relates to a bracket system for mounting to a vehicle to provide a support structure."}]}],"handoff":[]}
 
 内部动作要保留与危险的联系
 输入：{"source_sentences":[{"sentence_id":"S1","text":"The risk of cargo falling from the deck causes concern."}],"current_collection":{"triples":[{"index":0,"head":"cargo","relation":"falls from","tail":"the deck","source_sentence_ids":["S1"]},{"index":1,"head":"The risk of cargo falling from the deck","relation":"causes","tail":"concern","source_sentence_ids":["S1"]}]}}
-输出：{"replace":[{"index":0,"reason":"保留风险与内部动作之间的联系及 falling 词形。","new_triples":[{"head":"The risk","relation":"is of cargo falling from","tail":"the deck","source_sentence_ids":["S1"],"evidence":"The risk of cargo falling from the deck causes concern."}]}],"handoff":[]}
-
-原三元组正确，重建文本错误
-输入：{"source_sentences":[{"sentence_id":"S1","text":"The process includes a grinding step to reduce particle size."}],"current_collection":{"triples":[{"index":0,"head":"The process","relation":"includes","tail":"a grinding step","source_sentence_ids":["S1"]},{"index":1,"head":"a grinding step","relation":"is to reduce","tail":"particle size","source_sentence_ids":["S1"]}]},"comparison_bundle":{"basis_version":"V0","reconstructions":[{"sentence_id":"S1","text_b":"The process includes a grinding step. A grinding step reduces particle size."}]}}
-输出：{"replace":[],"handoff":[{"target":"text_generation","source_sentence_ids":["S1"],"indices":[0,1],"problem":"重建文本写成 A grinding step reduces particle size；第 1 条原本已保留目的表达。"}]}
-
-保留 or 的选择含义
-输入：{"source_sentences":[{"sentence_id":"S1","text":"The operator can use a standard mode or an emergency mode."}],"current_collection":{"triples":[{"index":0,"head":"The operator","relation":"can use","tail":"a standard mode or an emergency mode","source_sentence_ids":["S1"]}]}}
-输出：{"replace":[],"handoff":[]}
-
-and 描述一套设备的组成
-输入：{"source_sentences":[{"sentence_id":"S1","text":"A pair of upper and lower rollers supports the sheet."}],"current_collection":{"triples":[{"index":0,"head":"A pair of upper and lower rollers","relation":"supports","tail":"the sheet","source_sentence_ids":["S1"]}]}}
-输出：{"replace":[],"handoff":[]}
-
-保留步骤名称，省略句首背景
-输入：{"source_sentences":[{"sentence_id":"S1","text":"In some embodiments, the process includes a pre-step of washing the parts."}],"current_collection":{"triples":[{"index":0,"head":"the process","relation":"includes","tail":"a pre-step of washing the parts","source_sentence_ids":["S1"]}]}}
-输出：{"replace":[],"handoff":[]}"""
+输出：{"replace":[{"index":0,"reason":"保留风险与内部动作之间的联系及 falling 词形。","new_triples":[{"head":"The risk","relation":"is of cargo falling from","tail":"the deck","source_sentence_ids":["S1"],"evidence":"The risk of cargo falling from the deck causes concern."}]}],"handoff":[]}"""
 
 class FeedbackReplaceAgent(FeedbackAgent):
     stage = 'replace'

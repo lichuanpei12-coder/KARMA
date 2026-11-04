@@ -1,7 +1,10 @@
 """Task-focused add feedback."""
 from karma.agents.feedback_common import FeedbackAgent
 
-SYSTEM_PROMPT = """依据源句补充当前集合完全遗漏的关系。完整回复采用本阶段指定的 JSON 格式。"""
+SYSTEM_PROMPT = """你负责依据源句补充当前集合完全遗漏的关系，并自主检查源句中的遗漏。
+结合当前完整集合判断是否需要新增；文本差异和前序提示用于帮助定位问题。
+已有表达需要修正或拆分时，将对应条目和具体问题交给 replace；已有正确独立表达时保留现有条目。
+输出 add 和 handoff 两个数组，具体步骤与格式见本次任务说明。"""
 
 TASK_PROMPT = """# 阶段一：核对并确定问题
 1. 逐句找出源句明确表达的关系，确定主体、动作或状态、对象及必要限定。
@@ -31,13 +34,9 @@ EXAMPLES = """# 示例
 输入：{"source_sentences":[{"sentence_id":"S1","text":"The controller reads and stores sensor data."}],"current_collection":{"triples":[{"index":0,"head":"The controller","relation":"reads","tail":"sensor data","source_sentence_ids":["S1"]}]}}
 输出：{"add":[{"head":"The controller","relation":"stores","tail":"sensor data","source_sentence_ids":["S1"],"evidence":"The controller reads and stores sensor data.","reason":"当前只表达 reads，源句还表达 stores。"}],"handoff":[]}
 
-已有动作需要修改，不另加一份
-输入：{"source_sentences":[{"sentence_id":"S1","text":"The controller may query the ECU to identify the fault."}],"current_collection":{"triples":[{"index":0,"head":"The controller","relation":"may query","tail":"the ECU","source_sentence_ids":["S1"]},{"index":1,"head":"The controller","relation":"may identify","tail":"the fault","source_sentence_ids":["S1"]}]}}
-输出：{"add":[],"handoff":[{"target":"replace","source_sentence_ids":["S1"],"indices":[0,1],"problem":"identify 已有对应条目，但没有保留与 query 的目的联系。"}]}
-
-内容已在长字段中，交给 Replace 拆分
-输入：{"source_sentences":[{"sentence_id":"S1","text":"The system includes a module that processes data."}],"current_collection":{"triples":[{"index":0,"head":"The system","relation":"includes","tail":"a module that processes data","source_sentence_ids":["S1"]}]}}
-输出：{"add":[],"handoff":[{"target":"replace","source_sentence_ids":["S1"],"indices":[0],"problem":"processes data 已在 tail 中，但尚未独立表达。"}]}
+长字段与独立条目已有表达，交给 Replace 修正主语和字段边界
+输入：{"source_sentences":[{"sentence_id":"S1","text":"The system includes a module that processes data."}],"current_collection":{"triples":[{"index":0,"head":"The system","relation":"includes","tail":"a module that processes data","source_sentence_ids":["S1"]},{"index":1,"head":"The system","relation":"processes","tail":"data","source_sentence_ids":["S1"]}]}}
+输出：{"add":[],"handoff":[{"target":"replace","source_sentence_ids":["S1"],"indices":[0,1],"problem":"processes 已包含在第 0 条的 tail 中，第 1 条也已表达该动作但主语应为 a module。修正第 1 条主语，并缩短第 0 条的 tail。"}]}
 
 重建文本改错连接词
 输入：{"source_sentences":[{"sentence_id":"S1","text":"The module receives signals and generates alerts."}],"current_collection":{"triples":[{"index":0,"head":"The module","relation":"receives","tail":"signals","source_sentence_ids":["S1"]},{"index":1,"head":"The module","relation":"generates","tail":"alerts","source_sentence_ids":["S1"]}]},"comparison_bundle":{"basis_version":"V0","reconstructions":[{"sentence_id":"S1","text_b":"The module receives signals or generates alerts."}]}}

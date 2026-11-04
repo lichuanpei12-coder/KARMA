@@ -1,7 +1,10 @@
 """Task-focused remove feedback."""
 from karma.agents.feedback_common import FeedbackAgent
 
-SYSTEM_PROMPT = """依据源句自主识别重复三元组，选择保留项并删除完整重复项。完整回复采用本阶段指定的 JSON 格式。"""
+SYSTEM_PROMPT = """你负责依据源句自主查找重复三元组，选择保留项并删除完整重复项。
+结合当前完整集合比较事实及必要限定；文本差异和前序提示用于帮助定位问题。
+删除后，原条目的全部事实与必要限定应由保留项表达；不同事实保留，部分重叠交给 replace 调整。
+输出 remove 和 handoff 两个数组，具体步骤与格式见本次任务说明。"""
 
 TASK_PROMPT = """# 阶段一：核对并确定问题
 1. 阅读源句与当前完整集合，自主查找表达同一事实的条目。
@@ -27,17 +30,13 @@ target 使用 add、replace、remove、text_generation、text_comparison 或 rev
 EXAMPLES = """# 示例
 示例仅列判断所需的输入字段，输出展示本阶段完整格式。
 
-自主找重复，并说明保留谁
-输入：{"source_sentences":[{"sentence_id":"S1","text":"The module receives signals and generates alerts."}],"current_collection":{"triples":[{"index":0,"head":"The module","relation":"receives","tail":"signals","source_sentence_ids":["S1"]},{"index":1,"head":"The module","relation":"receives","tail":"signals","source_sentence_ids":["S1"]},{"index":2,"head":"The module","relation":"generates","tail":"alerts","source_sentence_ids":["S1"]}]}}
-输出：{"remove":[{"index":1,"keep_index":0,"reason":"两条完整表达相同的 receives 关系。","evidence":"The module receives signals and generates alerts."}],"handoff":[]}
+删除完整重复，保留情态和条件不同的关系
+输入：{"source_sentences":[{"sentence_id":"S1","text":"The module may send a warning in test mode and must send a warning in normal mode."}],"current_collection":{"triples":[{"index":0,"head":"The module","relation":"may send","tail":"a warning in test mode","source_sentence_ids":["S1"]},{"index":1,"head":"The module","relation":"may send","tail":"a warning in test mode","source_sentence_ids":["S1"]},{"index":2,"head":"The module","relation":"must send","tail":"a warning in normal mode","source_sentence_ids":["S1"]}]}}
+输出：{"remove":[{"index":1,"keep_index":0,"reason":"第 0、1 条完整等价，保留编号较小的第 0 条；第 2 条的 must 和 normal mode 表达不同要求与条件，保留。","evidence":"The module may send a warning in test mode and must send a warning in normal mode."}],"handoff":[]}
 
 字段部分重叠，不删除整条
 输入：{"source_sentences":[{"sentence_id":"S1","text":"The system includes a module that processes data."}],"current_collection":{"triples":[{"index":0,"head":"The system","relation":"includes","tail":"a module that processes data","source_sentence_ids":["S1"]},{"index":1,"head":"a module","relation":"processes","tail":"data","source_sentence_ids":["S1"]}]}}
-输出：{"remove":[],"handoff":[{"target":"replace","source_sentence_ids":["S1"],"indices":[0,1],"problem":"两条分别表达 includes 和 processes；只是第 0 条的 tail 包含了内部关系。"}]}
-
-同一主体、同一动作词也不一定重复
-输入：{"source_sentences":[{"sentence_id":"S1","text":"The module may send a warning and must send a report."}],"current_collection":{"triples":[{"index":0,"head":"The module","relation":"may send","tail":"a warning","source_sentence_ids":["S1"]},{"index":1,"head":"The module","relation":"must send","tail":"a report","source_sentence_ids":["S1"]}]}}
-输出：{"remove":[],"handoff":[]}"""
+输出：{"remove":[],"handoff":[{"target":"replace","source_sentence_ids":["S1"],"indices":[0,1],"problem":"两条分别表达 includes 和 processes；只是第 0 条的 tail 包含了内部关系。"}]}"""
 
 class FeedbackRemoveAgent(FeedbackAgent):
     stage = 'remove'

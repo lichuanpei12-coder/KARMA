@@ -1,5 +1,5 @@
 {
-  "git_head": "4aa87308e976fd4290b2cb372eacdccf47e1af37",
+  "git_head": "0c04ac635ccb3f739dd8769913d2ea65ef6c1b01",
   "documents": [
     "karma/agents/Prompt总览.md",
     "karma/agents/ingestion/摄入Agent_完整Prompt.md",
@@ -962,7 +962,7 @@
         [
           "karma/agents/feedback_add/agent.py",
           4,
-          4
+          7
         ]
       ]
     },
@@ -972,8 +972,8 @@
       "source_spans": [
         [
           "karma/agents/feedback_add/agent.py",
-          6,
-          19
+          9,
+          22
         ]
       ]
     },
@@ -994,8 +994,8 @@
       "source_spans": [
         [
           "karma/agents/feedback_add/agent.py",
-          21,
-          25
+          24,
+          28
         ]
       ]
     },
@@ -1005,8 +1005,8 @@
       "source_spans": [
         [
           "karma/agents/feedback_add/agent.py",
-          27,
-          44
+          30,
+          43
         ]
       ]
     },
@@ -1028,7 +1028,7 @@
         [
           "karma/agents/feedback_replace/agent.py",
           4,
-          4
+          7
         ]
       ]
     },
@@ -1038,8 +1038,8 @@
       "source_spans": [
         [
           "karma/agents/feedback_replace/agent.py",
-          6,
-          23
+          9,
+          26
         ]
       ]
     },
@@ -1060,8 +1060,8 @@
       "source_spans": [
         [
           "karma/agents/feedback_replace/agent.py",
-          25,
-          31
+          28,
+          34
         ]
       ]
     },
@@ -1071,8 +1071,8 @@
       "source_spans": [
         [
           "karma/agents/feedback_replace/agent.py",
-          33,
-          70
+          36,
+          53
         ]
       ]
     },
@@ -1094,7 +1094,7 @@
         [
           "karma/agents/feedback_remove/agent.py",
           4,
-          4
+          7
         ]
       ]
     },
@@ -1104,8 +1104,8 @@
       "source_spans": [
         [
           "karma/agents/feedback_remove/agent.py",
-          6,
-          19
+          9,
+          22
         ]
       ]
     },
@@ -1126,8 +1126,8 @@
       "source_spans": [
         [
           "karma/agents/feedback_remove/agent.py",
-          21,
-          25
+          24,
+          28
         ]
       ]
     },
@@ -1137,8 +1137,8 @@
       "source_spans": [
         [
           "karma/agents/feedback_remove/agent.py",
-          27,
-          40
+          30,
+          39
         ]
       ]
     },
@@ -1158,9 +1158,9 @@
     "karma/agents/conflict_resolution/agent.py": "bda5d1a67b6b7470b62f69c3c92f81c48bf85ea87ca397f97e73171b27f129f3",
     "karma/agents/entity_extraction/agent.py": "f13ff650b8a7c6ee0f1fbfddfb956065df40ddc3518b668fc481643dabcf5309",
     "karma/agents/evaluator/agent.py": "a53ac58714879b59425efaa36648faf2a7890539522cefe8690fcb70098d8916",
-    "karma/agents/feedback_add/agent.py": "0d1b209024f2782bbbdf182617b43f49ccd5ff2fadaaeac887f45c4affd50d00",
-    "karma/agents/feedback_remove/agent.py": "be4c8595a24aa11ef7328be43d3f17236f0efae1ede1488db72f31c3ef360127",
-    "karma/agents/feedback_replace/agent.py": "00de2d0947083720f069008080b130c1858c0c06ed4869dc4ba725aedeaf545b",
+    "karma/agents/feedback_add/agent.py": "291260e06a8d0bc322272746f11f1427eb71438939bb21bd785adb1288e93faa",
+    "karma/agents/feedback_remove/agent.py": "1902ef1ad850b62cdb9a651c758733b3ff792928b696720767ca070ff7ff0ce1",
+    "karma/agents/feedback_replace/agent.py": "954928eb5cd975df55b0995e7c6f4880ade0c62120e13cde3f7708d1a185c9c4",
     "karma/agents/ingestion/agent.py": "6d9824495b2fe29bbf3f2b889794d0df766a0c85028698fcf92b7da2a6c699e0",
     "karma/agents/reader/agent.py": "4f484a75f9a6ef1303a3f9184008ac507da4a94724271e184b881016dca81513",
     "karma/agents/relationship_extraction/agent.py": "8e0139a3c67a8eb4238d74b0e9a28957d3c50388ea8e90e1688adea9f4a81699",
