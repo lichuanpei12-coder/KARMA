@@ -1,6 +1,6 @@
 # 重建文本Agent_完整Prompt
 
-整理日期：2026-11-04。代码版本：`ab03a6e003b474742f64da0e15283775fedfbddd`。行号对应整理时源码；后续修改源码后应重新导出。
+整理日期：2026-11-04。代码版本：`0ef4dc4d1dca56bac8e9db2a4c4fd5c629535611`。行号对应整理时源码；后续修改源码后应重新导出。
 
 ## 当前运行是否使用这套Prompt
 
@@ -22,7 +22,7 @@ Chat Completions 与 Responses 使用同一套 System/User 内容。Chat Complet
 
 **System 消息**
 
-【来源：任务说明｜[karma/agents/text_generation/agent.py 第182行](<agent.py#L182>)】
+【来源：任务说明｜[karma/agents/text_generation/agent.py 第183行](<agent.py#L183>)】
 
 ```text
 你根据给定三元组逐组生成重建文本，完整回复为 JSON 数组。
@@ -37,7 +37,7 @@ Chat Completions 与 Responses 使用同一套 System/User 内容。Chat Complet
 编号仅用于定位，不包含原文信息；本任务的事实依据是输入三元组。
 ```
 
-【来源：执行步骤｜[karma/agents/text_generation/agent.py 第158—178行](<agent.py#L158>)】
+【来源：执行步骤｜[karma/agents/text_generation/agent.py 第158—179行](<agent.py#L158>)】
 
 ```text
 # 执行步骤
@@ -49,10 +49,11 @@ Chat Completions 与 Responses 使用同一套 System/User 内容。Chat Complet
    对照原三元组保留主体、对象、方向，以及否定、情态、条件、目的、因果、数量、时间和范围。
    指代未知时保留原代词；字段含义不完整时保留现有表达。
 4. 组织本组重建文本
-   多条关系分别用短句表达；共享主体时可以合并，但合并后各项关系及限定仍分别成立。
+   多条关系分别用短句表达；含义相同的重复条目可以共用表达，含义或限定不同的条目分别表达。
    原条目包含选择、目的或因果连接时保留相应连接，其余关系按各自的断言分别表达。
 5. 检查遗漏
-   从每条输入三元组出发，在重建文本中找到对应表达；补回遗漏的关系或限定。
+   依次读取每条输入三元组，在重建文本中找到它对应的表达。
+   逐条核对该条目自身的主体、动作、对象和限定，补回遗漏或被其他条目掩盖的表达。
 6. 检查增加和改变
    从重建文本中的每项关系出发，找到对应输入条目，将词形、角色和连接修正为输入表达的含义。
    将缺乏输入依据的表达还原为三元组实际提供的内容。
@@ -157,7 +158,7 @@ Chat Completions 与 Responses 使用同一套 System/User 内容。Chat Complet
 
 **User 消息**
 
-【来源：任务说明｜[karma/agents/text_generation/agent.py 第291—322行](<agent.py#L291>)】
+【来源：任务说明｜[karma/agents/text_generation/agent.py 第292—323行](<agent.py#L292>)】
 
 ```text
                 生成指令：
@@ -202,7 +203,7 @@ Chat Completions 与 Responses 使用同一套 System/User 内容。Chat Complet
 UNASSIGNED 是来源句尚未确定的条目分组；按输入编号处理该组。
 ```
 
-插入到当前分组User的业务输入标签之前，拼接位置见karma/agents/text_generation/agent.py 第146—211行。
+插入到当前分组User的业务输入标签之前，拼接位置见karma/agents/text_generation/agent.py 第146—212行。
 
 ## 文档维护
 
