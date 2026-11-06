@@ -1,0 +1,3806 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>阶段二：未增长原因——剩余Gold差距与中间证据</title><style>
+:root{color-scheme:light;--ink:#19283b;--muted:#657489;--line:#dce4ee;--blue:#245f9b;--bg:#f3f6fa}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:26px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.85 "Microsoft YaHei","PingFang SC",system-ui,sans-serif}
+a{color:var(--blue);text-underline-offset:3px}header{padding:22px 32px;background:#16324e;color:#fff}
+header .label{font-size:18px;font-weight:700}header p{margin:4px 0 0;font-size:13px;color:#d0e0f0}
+.layout{display:grid;grid-template-columns:270px minmax(0,1fr);max-width:1550px;margin:auto;gap:24px;padding:24px}
+aside{position:sticky;top:18px;align-self:start;max-height:calc(100vh - 36px);overflow:auto;background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px}
+aside h2{font-size:16px;margin:0 0 12px}aside a{display:block;text-decoration:none;font-size:13px;line-height:1.6;padding:7px 0;border-bottom:1px solid #edf1f6}
+aside a.sub{padding-left:12px;color:#53657b}aside a:hover{color:var(--blue);background:#f4f8fe}
+aside a[hidden]{display:none}aside input{width:100%;padding:8px;border:1px solid #cbd6e3;border-radius:5px;font:inherit;font-size:13px;margin-bottom:10px}
+main{min-width:0;background:#fff;border:1px solid var(--line);border-radius:10px;padding:28px 36px}
+h1{font-size:27px;line-height:1.5;margin:0 0 24px}h2{font-size:23px;margin:38px 0 18px;padding-bottom:8px;border-bottom:2px solid #d5e3f2}
+h3{font-size:19px;line-height:1.6;margin:32px 0 18px;background:#edf4fc;border-left:4px solid #377ab4;padding:12px 15px;border-radius:0 6px 6px 0}
+h4{font-size:17px}p{margin:12px 0}li{margin:6px 0}strong{font-weight:700}blockquote{margin:15px 0;padding:10px 18px;border-left:4px solid #ccd9e7;background:#f7f9fc}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f5f7fa;border:1px solid #e1e7ee;border-radius:7px;padding:15px 18px;font:14px/1.8 Consolas,"Microsoft YaHei",monospace}
+code{font-family:Consolas,"Microsoft YaHei",monospace;font-size:.91em;background:#edf2f7;padding:2px 4px;border-radius:3px;overflow-wrap:anywhere}pre code{font-size:inherit;background:transparent;padding:0}
+.table-wrap{overflow-x:auto;margin:16px 0;border:1px solid var(--line);border-radius:6px}
+table{width:100%;border-collapse:collapse;font-size:14px;line-height:1.7;table-layout:auto}th,td{padding:10px 12px;text-align:left;vertical-align:top;border-right:1px solid var(--line);border-bottom:1px solid var(--line);overflow-wrap:anywhere}
+th{background:#eaf0f7;font-weight:700}th:last-child,td:last-child{border-right:0}tr:last-child td{border-bottom:0}tbody tr:nth-child(even){background:#f8fafc}
+hr{border:0;border-top:1px solid var(--line);margin:30px 0}.filelinks{display:flex;gap:20px;flex-wrap:wrap;font-size:13px;margin:0 0 24px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid var(--line);padding-top:15px}
+@media(max-width:900px){.layout{display:block;padding:12px}aside{position:static;max-height:300px;margin-bottom:16px}main{padding:22px 18px}header{padding:18px}h1{font-size:23px}h2{font-size:21px}th,td{padding:8px}}
+@media print{body{background:#fff;font-size:11pt}.layout{display:block;padding:0}aside,header,.filelinks,footer{display:none}main{border:0;padding:0}.table-wrap{overflow:visible}pre,table{font-size:9pt}h2,h3{break-after:avoid}tr{break-inside:avoid}a{color:inherit;text-decoration:none}}
+</style></head><body>
+<header><div class="label">反馈效果分析 · 阶段二：剩余差距</div><p>run1_5doc_1104_1 / 1104_3 · 修改后Gold · 宽松匹配 · 2026-11-05</p></header>
+<div class="layout"><aside aria-label="文章目录"><h2>目录</h2><input id="toc-filter" type="search" aria-label="筛选目录" placeholder="查找 doc0 / S7 等内容"><a class="" href="#section-1">证据范围与评价口径</a>
+<a class="" href="#section-2">未配对数量与原因分类</a>
+<a class="" href="#section-3">解释宽松分数时必须区分的现象</a>
+<a class="" href="#section-4">1104_1：全部未配Gold逐项解释</a>
+<a class="sub" href="#section-5">1104_1 doc0/S1：1条未配Gold</a>
+<a class="sub" href="#section-6">1104_1 doc0/S2：1条未配Gold</a>
+<a class="sub" href="#section-7">1104_1 doc0/S7：4条未配Gold</a>
+<a class="sub" href="#section-8">1104_1 doc0/S8：1条未配Gold</a>
+<a class="sub" href="#section-9">1104_1 doc0/S9：1条未配Gold</a>
+<a class="sub" href="#section-10">1104_1 doc0/S10：6条未配Gold</a>
+<a class="sub" href="#section-11">1104_1 doc1/S1：1条未配Gold</a>
+<a class="sub" href="#section-12">1104_1 doc1/S2：2条未配Gold</a>
+<a class="sub" href="#section-13">1104_1 doc1/S3：1条未配Gold</a>
+<a class="sub" href="#section-14">1104_1 doc1/S4：1条未配Gold</a>
+<a class="sub" href="#section-15">1104_1 doc1/S5：8条未配Gold</a>
+<a class="sub" href="#section-16">1104_1 doc1/S8：3条未配Gold</a>
+<a class="sub" href="#section-17">1104_1 doc1/S9：3条未配Gold</a>
+<a class="sub" href="#section-18">1104_1 doc1/S10：2条未配Gold</a>
+<a class="sub" href="#section-19">1104_1 doc2/S1：2条未配Gold</a>
+<a class="sub" href="#section-20">1104_1 doc2/S3：1条未配Gold</a>
+<a class="sub" href="#section-21">1104_1 doc2/S5：1条未配Gold</a>
+<a class="sub" href="#section-22">1104_1 doc2/S6：2条未配Gold</a>
+<a class="sub" href="#section-23">1104_1 doc2/S7：1条未配Gold</a>
+<a class="sub" href="#section-24">1104_1 doc2/S8：1条未配Gold</a>
+<a class="sub" href="#section-25">1104_1 doc3/S1：3条未配Gold</a>
+<a class="sub" href="#section-26">1104_1 doc3/S2：1条未配Gold</a>
+<a class="sub" href="#section-27">1104_1 doc3/S3：2条未配Gold</a>
+<a class="sub" href="#section-28">1104_1 doc3/S5：1条未配Gold</a>
+<a class="sub" href="#section-29">1104_1 doc3/S6：1条未配Gold</a>
+<a class="sub" href="#section-30">1104_1 doc3/S9：4条未配Gold</a>
+<a class="sub" href="#section-31">1104_1 doc3/S10：2条未配Gold</a>
+<a class="sub" href="#section-32">1104_1 doc4/S3：2条未配Gold</a>
+<a class="sub" href="#section-33">1104_1 doc4/S7：1条未配Gold</a>
+<a class="sub" href="#section-34">1104_1 doc4/S8：1条未配Gold</a>
+<a class="sub" href="#section-35">1104_1 doc4/S9：2条未配Gold</a>
+<a class="sub" href="#section-36">1104_1 doc4/S10：1条未配Gold</a>
+<a class="" href="#section-37">1104_3：全部未配Gold逐项解释</a>
+<a class="sub" href="#section-38">1104_3 doc0/S1：1条未配Gold</a>
+<a class="sub" href="#section-39">1104_3 doc0/S7：3条未配Gold</a>
+<a class="sub" href="#section-40">1104_3 doc0/S10：6条未配Gold</a>
+<a class="sub" href="#section-41">1104_3 doc1/S1：1条未配Gold</a>
+<a class="sub" href="#section-42">1104_3 doc1/S2：2条未配Gold</a>
+<a class="sub" href="#section-43">1104_3 doc1/S3：1条未配Gold</a>
+<a class="sub" href="#section-44">1104_3 doc1/S4：1条未配Gold</a>
+<a class="sub" href="#section-45">1104_3 doc1/S5：2条未配Gold</a>
+<a class="sub" href="#section-46">1104_3 doc1/S9：1条未配Gold</a>
+<a class="sub" href="#section-47">1104_3 doc1/S10：2条未配Gold</a>
+<a class="sub" href="#section-48">1104_3 doc2/S1：2条未配Gold</a>
+<a class="sub" href="#section-49">1104_3 doc2/S3：1条未配Gold</a>
+<a class="sub" href="#section-50">1104_3 doc2/S5：1条未配Gold</a>
+<a class="sub" href="#section-51">1104_3 doc2/S6：2条未配Gold</a>
+<a class="sub" href="#section-52">1104_3 doc2/S7：1条未配Gold</a>
+<a class="sub" href="#section-53">1104_3 doc2/S8：1条未配Gold</a>
+<a class="sub" href="#section-54">1104_3 doc3/S1：3条未配Gold</a>
+<a class="sub" href="#section-55">1104_3 doc3/S2：1条未配Gold</a>
+<a class="sub" href="#section-56">1104_3 doc3/S3：2条未配Gold</a>
+<a class="sub" href="#section-57">1104_3 doc3/S5：1条未配Gold</a>
+<a class="sub" href="#section-58">1104_3 doc3/S6：1条未配Gold</a>
+<a class="sub" href="#section-59">1104_3 doc3/S9：4条未配Gold</a>
+<a class="sub" href="#section-60">1104_3 doc3/S10：2条未配Gold</a>
+<a class="sub" href="#section-61">1104_3 doc4/S3：2条未配Gold</a>
+<a class="sub" href="#section-62">1104_3 doc4/S7：1条未配Gold</a>
+<a class="sub" href="#section-63">1104_3 doc4/S8：1条未配Gold</a>
+<a class="sub" href="#section-64">1104_3 doc4/S9：2条未配Gold</a>
+<a class="sub" href="#section-65">1104_3 doc4/S10：1条未配Gold</a>
+<a class="" href="#section-66">两次都已配对、但仍明显偏离Gold的重点</a>
+<a class="" href="#section-67">全部最终未配预测条目</a>
+<a class="sub" href="#section-68">1104_1 未配预测</a>
+<a class="sub" href="#section-69">1104_3 未配预测</a></aside>
+<main><div class="filelinks"><a href="%E9%98%B6%E6%AE%B5%E4%BA%8C_%E5%89%A9%E4%BD%99Gold%E5%B7%AE%E8%B7%9D%E4%B8%8E%E4%B8%AD%E9%97%B4%E8%AF%81%E6%8D%AE.md">查看 Markdown 原文</a><a href="%E9%98%B6%E6%AE%B5%E4%B8%80_%E4%B8%A4%E6%AC%A1%E5%8F%8D%E9%A6%88%E5%8F%98%E5%8C%96_%E9%80%90%E5%8F%A5%E5%AE%8C%E6%95%B4%E5%AF%B9%E7%85%A7.html">打开阶段一：反馈变化</a><a href="%E5%8F%8D%E9%A6%88%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93%E4%B8%8E%E4%BF%AE%E6%94%B9%E5%BB%BA%E8%AE%AE_%E5%90%AB%E4%B8%89%E5%85%83%E7%BB%84%E8%AF%81%E6%8D%AE.html">打开问题总结与建议</a></div><h1 id="section-0">阶段二：未增长原因——剩余Gold差距与中间证据</h1>
+<p>分析日期：2026-11-05。运行：run1_5doc_1104_1 与 run1_5doc_1104_3。以用户确认的修改后 Gold 为准，全文采用宽松匹配。本文仅分析结果，不修改程序、Prompt 或 Gold。</p>
+<p>关联报告：<a href="%E9%98%B6%E6%AE%B5%E4%B8%80_%E4%B8%A4%E6%AC%A1%E5%8F%8D%E9%A6%88%E5%8F%98%E5%8C%96_%E9%80%90%E5%8F%A5%E5%AE%8C%E6%95%B4%E5%AF%B9%E7%85%A7.md">阶段一_两次反馈变化_逐句完整对照</a> · <a href="%E9%98%B6%E6%AE%B5%E4%BA%8C_%E5%89%A9%E4%BD%99Gold%E5%B7%AE%E8%B7%9D%E4%B8%8E%E4%B8%AD%E9%97%B4%E8%AF%81%E6%8D%AE.md">阶段二_剩余Gold差距与中间证据</a> · <a href="%E5%8F%8D%E9%A6%88%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93%E4%B8%8E%E4%BF%AE%E6%94%B9%E5%BB%BA%E8%AE%AE_%E5%90%AB%E4%B8%89%E5%85%83%E7%BB%84%E8%AF%81%E6%8D%AE.md">反馈问题总结与修改建议_含三元组证据</a>。同名 HTML 提供固定侧边目录与目录搜索。</p>
+<h2 id="section-1">证据范围与评价口径</h2>
+<p>用户提供每次运行的拆分后三元组、流程最终三元组、文档差异各一份，共六份文本。Gold 为 <code>10月底数据集修改/DocOIE_transportation_eval_gold.json</code>，5篇共153条；50个源句均与运行文本对齐。完整输入路径、SHA256、匹配明细、逐句指标与检查结果见 <a href="%E6%A0%B8%E5%AF%B9%E4%B8%8E%E5%AE%BD%E6%9D%BE%E8%AF%84%E4%BC%B0%E8%AF%81%E6%8D%AE.json">核对与宽松评估证据.json</a>。</p>
+<p>“反馈后”附件实际来源是 <code>_run_manifest.json</code> 的 <code>rounds.2</code>。按用户指定的 d401c9c（11.4 简化prompt）代码，该字段在冲突处理、评分筛选后保存；本文称“最终结果”。因此拆分→最终的变化可评价整个反馈流程的净效果，但不能仅据最终条目反推真实 add/replace/remove 操作，或确定具体由哪个 Agent/后处理删除。缺少实际阶段回复、操作接受/拒绝记录、after_add、after_replace、after_revision（后处理前）和冲突审计。</p>
+<p>宽松匹配沿用仓库 <code>lexical-one-to-one-v1</code>：各字段小写化后按空白切词，多重集词元重合；三个对应字段均须有交集，才可配对。按配对F1最大化选一对一匹配，P、R分别累计配对P、R后除以预测数、Gold数，最后算F1。它不做词形还原，不以源句编号限制配对；不是“配上即正确”，配对数也不是软指标的TP。指标按整篇匹配、五篇微平均为主，逐句指标只用于定位。</p>
+<p>编号说明：B#是附件拆分列表原编号，F#是对应运行最终列表编号，G#是该篇修改Gold从0起的编号。句子之间可能共享来源条目，分句展示会重复出现，整篇评价只计一次。S6/S7等共享条目不能按单句条数相加算贡献。所有指标差值以百分点（pp）表示。</p>
+<h2 id="section-2">未配对数量与原因分类</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>主要诊断</th>
+<th>1104_1 未配Gold</th>
+<th>1104_3 未配Gold</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Gold重复或边界变体</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr>
+<td>一对一容量或目标粒度</td>
+<td>4</td>
+<td>2</td>
+</tr>
+<tr>
+<td>主体层级及字段边界</td>
+<td>11</td>
+<td>11</td>
+</tr>
+<tr>
+<td>主体或指代不对齐</td>
+<td>3</td>
+<td>3</td>
+</tr>
+<tr>
+<td>字段内部关系未独立</td>
+<td>22</td>
+<td>22</td>
+</tr>
+<tr>
+<td>定义边界或Gold待裁决</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>并列主体未按Gold分别表达</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>独立事实被合并或污染</td>
+<td>13</td>
+<td>0</td>
+</tr>
+<tr>
+<td>词形与Gold规则冲突</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr>
+<td>合计</td>
+<td>64</td>
+<td>49</td>
+</tr>
+</tbody></table></div>
+<p>分类是逐条人工核对后的主要原因，每条只归一类用于计数；主体错误、词形政策和Gold粒度可能同时存在，具体解释保留次要因素。此表不是模型执行日志推断。64/49条未配Gold不等于64/49条完全缺失的源文事实。</p>
+<h2 id="section-3">解释宽松分数时必须区分的现象</h2>
+<ol>
+<li><strong>未配对</strong>：全篇最优一对一分配没有选中某Gold。可能没有对应事实，也可能候选被另一Gold占用。</li>
+<li><strong>已配但不满分</strong>：不在64/49条中，仍有词形、主体、边界或多余限定差距，例如doc3/S7。</li>
+<li><strong>弱配对</strong>：词面够配不等于事实正确；源句编号不限制本评估。两次输入doc2/G6与S5/B17得到F1约0.2069的跨句配对；1104_1最终G6仍与S5/F5弱配对（约0.1882），并非风险关系已补齐。1104_3的G6才与本句F15满分配对。</li>
+<li><strong>预测更少而P提高</strong>：删除不配对项可改善P，即使该句Gold仍全未覆盖，doc0/S10、doc3/S9都是例子。</li>
+<li><strong>目标重复或等价边界</strong>：Gold同一事实多次标注时，预测只出现一次会有未配Gold；是否改目标由用户决定。</li>
+</ol>
+<h2 id="section-4">1104_1：全部未配Gold逐项解释</h2>
+<h3 id="section-5">1104_1 doc0/S1：1条未配Gold</h3>
+<blockquote>
+<p>Because such elements and operations are well known in the art, and because they do not facilitate a better understanding of the present disclosure.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F0</td>
+<td>such elements</td>
+<td>are well known in</td>
+<td>the art</td>
+<td>S1</td>
+<td>G0，配对F1=1.0000</td>
+</tr>
+<tr>
+<td>F1</td>
+<td>such elements</td>
+<td>do not facilitate</td>
+<td>a better understanding of the present disclosure</td>
+<td>S1</td>
+<td>未配对</td>
+</tr>
+<tr>
+<td>F13</td>
+<td>such operations</td>
+<td>are well known in</td>
+<td>the art</td>
+<td>S1</td>
+<td>G1，配对F1=1.0000</td>
+</tr>
+<tr>
+<td>F14</td>
+<td>such operations</td>
+<td>do not facilitate</td>
+<td>a better understanding of the present disclosure</td>
+<td>S1</td>
+<td>未配对</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>Such elements and such operations are well known in the art and do not facilitate a better understanding of the present disclosure.</p>
+</blockquote>
+<p>对比提示：完整A/B差异见阶段一同句；下列为该句诊断。</p>
+<p><strong>G2：they / do not facilitate / a better understanding of the present disclosure</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：主体或指代不对齐。Gold以they为主语，当前否定条目以elements/operations为主语，head词元无交集。</li>
+<li>现有证据：仅作定位的相似片段F1：such elements / do not facilitate / a better understanding of the present disclosure；无法配对的零交集字段：head。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：两次均保留4条。Gold对否定关系只用 they 作主语，当前分成 elements/operations 后没有词面重合，G2不配对。语义能否接受指代展开与评分是否配对是两件事。源句只剩 Because 从句，没有给出结果对象，不能按比较中的“隐含结果”补造因果三元组。</p>
+<h3 id="section-6">1104_1 doc0/S2：1条未配Gold</h3>
+<blockquote>
+<p>As the ECUs may include PUF components, the controller may query the ECU to identify which PUF component is compromised, in order to determine where in the sub-system the compromise is located.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F2</td>
+<td>the ECUs</td>
+<td>may include</td>
+<td>PUF components</td>
+<td>S2</td>
+<td>G3，配对F1=1.0000</td>
+</tr>
+<tr>
+<td>F3</td>
+<td>the controller</td>
+<td>may query the ECU to identify</td>
+<td>which PUF component is compromised</td>
+<td>S2</td>
+<td>G5，配对F1=1.0000</td>
+</tr>
+<tr>
+<td>F4</td>
+<td>the controller</td>
+<td>may identify which PUF component is compromised in order to determine</td>
+<td>where in the sub-system the compromise is located</td>
+<td>S2</td>
+<td>G6，配对F1=0.7692</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>The ECUs may include PUF components. The controller may query the ECU, may identify which PUF component is compromised, and may determine where in the sub-system the compromise is located.</p>
+</blockquote>
+<p>对比提示：完整A/B差异见阶段一同句；下列为该句诊断。</p>
+<p><strong>G4：the controller / may query / the ECU</strong></p>
+<ul>
+<li>匹配状态：输入配B3，配对F1=1.0000；最终丢配。</li>
+<li>主要原因：独立事实被合并或污染。1104_1将独立query并入长目的关系；query的独立对象the ECU不再有单独条目。</li>
+<li>现有证据：本句最接近的可配候选F4：the controller / may identify which PUF component is compromised in order to determine / where in the sub-system the compromise is located；候选配对F1=0.2963。全篇已配给G6。</li>
+</ul>
+<p>反馈环节与对比的关系：1104_1把4条变3条：得到 query→identify 的目的表达，却丢失独立 query 条目；末条又以 identify 为目的链起点，与修改Gold要求 query→determine 不同。独立 query 对应G4失配。</p>
+<h3 id="section-7">1104_1 doc0/S7：4条未配Gold</h3>
+<blockquote>
+<p>They may be implemented as instructions stored on a machine-readable medium, which may be read and executed by a computing platform to perform the operations described herein.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F9</td>
+<td>They</td>
+<td>may be implemented as</td>
+<td>instructions stored on a machine-readable medium</td>
+<td>S7</td>
+<td>G17，配对F1=0.7059</td>
+</tr>
+<tr>
+<td>F25</td>
+<td>instructions</td>
+<td>may be read and executed by a computing platform to perform</td>
+<td>the operations described herein</td>
+<td>S7</td>
+<td>未配对</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>They may be implemented as instructions stored on a machine-readable medium. Instructions may be read by a computing platform and executed by a computing platform. A computing platform performs the operations described herein.</p>
+</blockquote>
+<p>对比提示：完整A/B差异见阶段一同句；下列为该句诊断。</p>
+<p><strong>G18：instructions / are stored on / a machine-readable medium</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。instructions stored on...仍在实现条目的tail里，缺独立存储关系。</li>
+<li>现有证据：仅作定位的相似片段F25：instructions / may be read and executed by a computing platform to perform / the operations described herein；无法配对的零交集字段：relation, tail。这不是有效配对。</li>
+</ul>
+<p><strong>G19：a machine-readable medium / may be read by / a computing platform</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：主体或指代不对齐。预测以instructions为读取/执行主体，Gold以machine-readable medium为主语；1104_1又将两动作并入长relation。which指代另待裁决。</li>
+<li>现有证据：仅作定位的相似片段F9：They / may be implemented as / instructions stored on a machine-readable medium；无法配对的零交集字段：head。这不是有效配对。</li>
+</ul>
+<p><strong>G20：a machine-readable medium / may be executed by / a computing platform</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：主体或指代不对齐。预测以instructions为读取/执行主体，Gold以machine-readable medium为主语；1104_1又将两动作并入长relation。which指代另待裁决。</li>
+<li>现有证据：仅作定位的相似片段F9：They / may be implemented as / instructions stored on a machine-readable medium；无法配对的零交集字段：head。这不是有效配对。</li>
+</ul>
+<p><strong>G21：a computing platform / is to perform / the operations</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：独立事实被合并或污染。1104_1将平台目的并入instructions长relation，缺以a computing platform为head的独立目的条目。</li>
+<li>现有证据：仅作定位的相似片段F25：instructions / may be read and executed by a computing platform to perform / the operations described herein；无法配对的零交集字段：head。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：1104_1把读取、执行、平台目的3条压成 instructions / may be read and executed by a computing platform to perform / operations，一条同时承担多个关系，Gold的三个相应主客体不再对齐，独立stored仍埋在tail。</p>
+<h3 id="section-8">1104_1 doc0/S8：1条未配Gold</h3>
+<blockquote>
+<p>While specific exemplary embodiments have been discussed, it should be understood that this is done for illustration purposes only.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F10</td>
+<td>this, while specific exemplary embodiments have been discussed</td>
+<td>is done for</td>
+<td>illustration purposes only</td>
+<td>S8</td>
+<td>未配对</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>This is done for illustration purposes only.</p>
+</blockquote>
+<p>对比提示：完整A/B差异见阶段一同句；下列为该句诊断。</p>
+<p><strong>G22：this / is done for / illustration purposes</strong></p>
+<ul>
+<li>匹配状态：输入配B9，配对F1=0.9231；最终丢配。</li>
+<li>主要原因：独立事实被合并或污染。1104_1把让步从句并入this主语，原核心条目被背景污染。</li>
+<li>现有证据：仅作定位的相似片段F10：this, while specific exemplary embodiments have been discussed / is done for / illustration purposes only；无法配对的零交集字段：head。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：1104_1将 this 改为 this, while specific exemplary embodiments have been discussed，核心主语附加了整段背景，原本较好的G22配对丢失。这个句首背景不构成要塞入head的实体身份限定。</p>
+<h3 id="section-9">1104_1 doc0/S9：1条未配Gold</h3>
+<blockquote>
+<p>Further, repeated use of the phrase &quot;in one embodiment,&quot; or &quot;in an exemplary embodiment,&quot; do not necessarily refer to the same embodiment.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F11</td>
+<td>repeated use of the phrase &quot;in one embodiment,&quot; or &quot;in an exemplary embodiment,&quot;</td>
+<td>do not necessarily refer to</td>
+<td>the same embodiment</td>
+<td>S9</td>
+<td>G24，配对F1=0.8947</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>Repeated use of the phrase &quot;in one embodiment,&quot; and &quot;in an exemplary embodiment,&quot; do not necessarily refer to the same embodiment.</p>
+</blockquote>
+<p>对比提示：完整A/B差异见阶段一同句；下列为该句诊断。</p>
+<p><strong>G23：repeated use of the phrase &quot;in one embodiment,&quot; / do not necessarily refer to / the same embodiment</strong></p>
+<ul>
+<li>匹配状态：输入配B10，配对F1=1.0000；最终丢配。</li>
+<li>主要原因：一对一容量或目标粒度。两个短语原有独立预测合成一个or主语，一个预测最多配一个Gold。</li>
+<li>现有证据：本句最接近的可配候选F11：repeated use of the phrase &quot;in one embodiment,&quot; or &quot;in an exemplary embodiment,&quot; / do not necessarily refer to / the same embodiment；候选配对F1=0.8649。全篇已配给G24。</li>
+</ul>
+<p>反馈环节与对比的关系：1104_1的重建确实把or写成and；最终将两个原本各配一条Gold的三元组合成一个or长主语，一对一匹配只能覆盖其中一个Gold，G23丢配。</p>
+<h3 id="section-10">1104_1 doc0/S10：6条未配Gold</h3>
+<blockquote>
+<p>This method may be integrated in a variety of systems including connected cars, car sharing, rental car services, maintenance and factory services.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F12</td>
+<td>This method</td>
+<td>may be integrated in a variety of systems including</td>
+<td>connected cars, car sharing, rental car services, maintenance and factory services</td>
+<td>S10</td>
+<td>未配对</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>This method may be integrated in connected cars, car sharing, rental car services, maintenance, and factory services.</p>
+</blockquote>
+<p>对比提示：完整A/B差异见阶段一同句；下列为该句诊断。</p>
+<p><strong>G25：this method / may be integrated in / a variety of systems</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：主体层级及字段边界。缺method→a variety of systems的中间层及systems→成员的5条；已有method→成员不具备对应head/relation/tail。include/including政策待决。</li>
+<li>现有证据：仅作定位的相似片段F12：This method / may be integrated in a variety of systems including / connected cars, car sharing, rental car services, maintenance and factory services；无法配对的零交集字段：tail。这不是有效配对。</li>
+</ul>
+<p><strong>G26：a variety of systems / include / connected cars</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：主体层级及字段边界。缺method→a variety of systems的中间层及systems→成员的5条；已有method→成员不具备对应head/relation/tail。include/including政策待决。</li>
+<li>现有证据：仅作定位的相似片段F12：This method / may be integrated in a variety of systems including / connected cars, car sharing, rental car services, maintenance and factory services；无法配对的零交集字段：head, relation。这不是有效配对。</li>
+</ul>
+<p><strong>G27：a variety of systems / include / car sharing</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：主体层级及字段边界。缺method→a variety of systems的中间层及systems→成员的5条；已有method→成员不具备对应head/relation/tail。include/including政策待决。</li>
+<li>现有证据：仅作定位的相似片段F12：This method / may be integrated in a variety of systems including / connected cars, car sharing, rental car services, maintenance and factory services；无法配对的零交集字段：head, relation。这不是有效配对。</li>
+</ul>
+<p><strong>G28：a variety of systems / include / rental car services</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：主体层级及字段边界。缺method→a variety of systems的中间层及systems→成员的5条；已有method→成员不具备对应head/relation/tail。include/including政策待决。</li>
+<li>现有证据：仅作定位的相似片段F12：This method / may be integrated in a variety of systems including / connected cars, car sharing, rental car services, maintenance and factory services；无法配对的零交集字段：head, relation。这不是有效配对。</li>
+</ul>
+<p><strong>G29：a variety of systems / include / maintenance</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：主体层级及字段边界。缺method→a variety of systems的中间层及systems→成员的5条；已有method→成员不具备对应head/relation/tail。include/including政策待决。</li>
+<li>现有证据：仅作定位的相似片段F12：This method / may be integrated in a variety of systems including / connected cars, car sharing, rental car services, maintenance and factory services；无法配对的零交集字段：head, relation。这不是有效配对。</li>
+</ul>
+<p><strong>G30：a variety of systems / include / factory services</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：主体层级及字段边界。缺method→a variety of systems的中间层及systems→成员的5条；已有method→成员不具备对应head/relation/tail。include/including政策待决。</li>
+<li>现有证据：仅作定位的相似片段F12：This method / may be integrated in a variety of systems including / connected cars, car sharing, rental car services, maintenance and factory services；无法配对的零交集字段：head, relation。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：1104_1把5条合成一条长relation和列表tail，虽恢复 a variety of systems including 的文字，6条Gold仍全未配对。条数减少可提高全篇P，不能称为本句Gold补齐。</p>
+<h3 id="section-11">1104_1 doc1/S1：1条未配Gold</h3>
+<blockquote>
+<p>A further aspect provides a meaningful capture of the congestion level information enabling appropriate congestion mitigation measures, for example according to the severeness of the congestion.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F0</td>
+<td>A further aspect</td>
+<td>provides</td>
+<td>a meaningful capture of the congestion level information</td>
+<td>S1</td>
+<td>G0，配对F1=1.0000</td>
+</tr>
+<tr>
+<td>F12</td>
+<td>a meaningful capture of the congestion level information</td>
+<td>enables</td>
+<td>appropriate congestion mitigation measures, for example according to the severeness of the congestion</td>
+<td>S1</td>
+<td>G1，配对F1=0.6857</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>A further aspect provides a meaningful capture of the congestion level information, which enables appropriate congestion mitigation measures, for example according to the severeness of the congestion.</p>
+</blockquote>
+<p>对比提示：两侧均为 <code>[]</code>，文本层面没有报告差异。</p>
+<p><strong>G2：congestion mitigation measures / are for example according to / the severeness of the congestion</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。目标关系仍包含在长tail中，没有对应的独立主体和关系字段。</li>
+<li>现有证据：仅作定位的相似片段F12：a meaningful capture of the congestion level information / enables / appropriate congestion mitigation measures, for example according to the severeness of the congestion；无法配对的零交集字段：relation。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：两次保留 capture / enables / measures, for example according to severeness 的长tail，G2的措施→严重程度仍未独立。</p>
+<h3 id="section-12">1104_1 doc1/S2：2条未配Gold</h3>
+<blockquote>
+<p>A congestion may be detected based on said congestion value when said minimum bandwidth demand exceeds the measured traffic per time over a given time span.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F1</td>
+<td>A congestion</td>
+<td>may be detected based on said congestion value when</td>
+<td>said minimum bandwidth demand exceeds the measured traffic per time over a given time span</td>
+<td>S2</td>
+<td>G3，配对F1=0.4444</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>A congestion may be detected based on said congestion value. A congestion may be detected when said minimum bandwidth demand exceeds the measured traffic per time over a given time span.</p>
+</blockquote>
+<p>对比提示：完整A/B差异见阶段一同句；下列为该句诊断。</p>
+<p><strong>G4：said minimum bandwidth demand / exceeds / the measured traffic per time</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。目标关系仍包含在长tail中，没有对应的独立主体和关系字段。</li>
+<li>现有证据：仅作定位的相似片段F1：A congestion / may be detected based on said congestion value when / said minimum bandwidth demand exceeds the measured traffic per time over a given time span；无法配对的零交集字段：head, relation。这不是有效配对。</li>
+</ul>
+<p><strong>G5：the measured traffic per time / is over / a given time span</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。目标关系仍包含在长tail中，没有对应的独立主体和关系字段。</li>
+<li>现有证据：仅作定位的相似片段F1：A congestion / may be detected based on said congestion value when / said minimum bandwidth demand exceeds the measured traffic per time over a given time span；无法配对的零交集字段：head, relation。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：两次把两条检测关系压成一条，只是“based on”在relation或tail中的分配不同。Gold的 demand / exceeds / traffic 和 traffic / is over / time span 依然埋在长字段中。</p>
+<h3 id="section-13">1104_1 doc1/S3：1条未配Gold</h3>
+<blockquote>
+<p>The term &quot;part&quot; in connection with the term &quot;network&quot; is to be understood in a broad sense, meaning that part of the network can be any real or imaginary fraction, portion or component of the network.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F2</td>
+<td>The term &quot;part&quot; in connection with the term &quot;network&quot;</td>
+<td>is to be understood</td>
+<td>in a broad sense</td>
+<td>S3</td>
+<td>G6，配对F1=0.9412</td>
+</tr>
+<tr>
+<td>F13</td>
+<td>part of the network</td>
+<td>can be</td>
+<td>any real or imaginary fraction of the network</td>
+<td>S3</td>
+<td>G8，配对F1=1.0000</td>
+</tr>
+<tr>
+<td>F14</td>
+<td>part of the network</td>
+<td>can be</td>
+<td>any real or imaginary portion of the network</td>
+<td>S3</td>
+<td>G9，配对F1=1.0000</td>
+</tr>
+<tr>
+<td>F15</td>
+<td>part of the network</td>
+<td>can be</td>
+<td>any real or imaginary component of the network</td>
+<td>S3</td>
+<td>G10，配对F1=1.0000</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>The term &quot;part&quot; in connection with the term &quot;network&quot; is to be understood in a broad sense. Part of the network can be any real or imaginary fraction, portion, or component of the network.</p>
+</blockquote>
+<p>对比提示：两侧均为 <code>[]</code>，文本层面没有报告差异。</p>
+<p><strong>G7：the term &quot;part&quot; in connection with the term &quot;network&quot; / means that / part of the network</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：定义边界或Gold待裁决。Gold将meaning that切出一条并截短对象；当前没有独立定义连接，且means/meaning词形口径需确认。</li>
+<li>现有证据：仅作定位的相似片段F2：The term &quot;part&quot; in connection with the term &quot;network&quot; / is to be understood / in a broad sense；无法配对的零交集字段：relation, tail。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：两次4条均保持，三个 fraction/portion/component 对象已按修改Gold拆开；G7 means that / part of the network 没有独立表达。</p>
+<h3 id="section-14">1104_1 doc1/S4：1条未配Gold</h3>
+<blockquote>
+<p>Most eNBs use variants of proportional-fair scheduling, where cell capacity fluctuates depending on time-variant radio conditions and scheduling assignments.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F3</td>
+<td>Most eNBs</td>
+<td>use</td>
+<td>variants of proportional-fair scheduling</td>
+<td>S4</td>
+<td>G11，配对F1=1.0000</td>
+</tr>
+<tr>
+<td>F4</td>
+<td>cell capacity</td>
+<td>fluctuates depending on</td>
+<td>time-variant radio conditions and scheduling assignments</td>
+<td>S4</td>
+<td>G12，配对F1=0.8421</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>Most eNBs use variants of proportional-fair scheduling. Cell capacity fluctuates depending on time-variant radio conditions and scheduling assignments.</p>
+</blockquote>
+<p>对比提示：两侧均为 <code>[]</code>，文本层面没有报告差异。</p>
+<p><strong>G13：cell capacity / fluctuates depending on / scheduling assignments</strong></p>
+<ul>
+<li>匹配状态：输入配B21，配对F1=0.7143；最终丢配。</li>
+<li>主要原因：一对一容量或目标粒度。原两个因素/分类条目被合成一条，已配给另一条Gold，无法再覆盖此Gold。</li>
+<li>现有证据：本句最接近的可配候选F4：cell capacity / fluctuates depending on / time-variant radio conditions and scheduling assignments；候选配对F1=0.7778。全篇已配给G12。</li>
+</ul>
+<p>反馈环节与对比的关系：两个最终结果一致：原两条 cell capacity / fluctuates / depending on具体因素 变为一条 cell capacity / fluctuates depending on / 两个因素and。relation边界更接近Gold，但独立预测数量从2变1，G13失去配对。</p>
+<h3 id="section-15">1104_1 doc1/S5：8条未配Gold</h3>
+<blockquote>
+<p>While the invention has been illustrated and described in detail in the drawings and foregoing description, such illustration and description are to be considered illustrative or exemplary and not restrictive.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F19</td>
+<td>such illustration and description</td>
+<td>are to be considered illustrative or exemplary and not restrictive, while</td>
+<td>the invention has been illustrated and described in detail in the drawings and foregoing description</td>
+<td>S5</td>
+<td>未配对</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>Such illustration and description are to be considered illustrative or exemplary and not restrictive. The invention has been illustrated and described in detail in the drawings and the foregoing description.</p>
+</blockquote>
+<p>对比提示：完整A/B差异见阶段一同句；下列为该句诊断。</p>
+<p><strong>G14：the invention / has been illustrated in detail in / the drawings</strong></p>
+<ul>
+<li>匹配状态：输入配B6，配对F1=0.7000；最终丢配。</li>
+<li>主要原因：独立事实被合并或污染。1104_1将原可配对的独立主体/动作/客体并入让步、原因或条件长条目，字段无法再对齐。</li>
+<li>现有证据：仅作定位的相似片段F19：such illustration and description / are to be considered illustrative or exemplary and not restrictive, while / the invention has been illustrated and described in detail in the drawings and foregoing description；无法配对的零交集字段：head, relation。这不是有效配对。</li>
+</ul>
+<p><strong>G15：the invention / has been illustrated in detail in / the foregoing description</strong></p>
+<ul>
+<li>匹配状态：输入配B23，配对F1=0.7273；最终丢配。</li>
+<li>主要原因：独立事实被合并或污染。1104_1将原可配对的独立主体/动作/客体并入让步、原因或条件长条目，字段无法再对齐。</li>
+<li>现有证据：仅作定位的相似片段F19：such illustration and description / are to be considered illustrative or exemplary and not restrictive, while / the invention has been illustrated and described in detail in the drawings and foregoing description；无法配对的零交集字段：head, relation。这不是有效配对。</li>
+</ul>
+<p><strong>G16：the invention / has been described in detail in / the drawings</strong></p>
+<ul>
+<li>匹配状态：输入配B24，配对F1=0.7000；最终丢配。</li>
+<li>主要原因：独立事实被合并或污染。1104_1将原可配对的独立主体/动作/客体并入让步、原因或条件长条目，字段无法再对齐。</li>
+<li>现有证据：仅作定位的相似片段F19：such illustration and description / are to be considered illustrative or exemplary and not restrictive, while / the invention has been illustrated and described in detail in the drawings and foregoing description；无法配对的零交集字段：head, relation。这不是有效配对。</li>
+</ul>
+<p><strong>G17：the invention / has been described in detail in / the foregoing description</strong></p>
+<ul>
+<li>匹配状态：输入配B25，配对F1=0.7273；最终丢配。</li>
+<li>主要原因：独立事实被合并或污染。1104_1将原可配对的独立主体/动作/客体并入让步、原因或条件长条目，字段无法再对齐。</li>
+<li>现有证据：仅作定位的相似片段F19：such illustration and description / are to be considered illustrative or exemplary and not restrictive, while / the invention has been illustrated and described in detail in the drawings and foregoing description；无法配对的零交集字段：head, relation。这不是有效配对。</li>
+</ul>
+<p><strong>G18：such illustration / are to be considered / illustrative or exemplary</strong></p>
+<ul>
+<li>匹配状态：输入配B5，配对F1=0.9000；最终丢配。</li>
+<li>主要原因：独立事实被合并或污染。1104_1将原可配对的独立主体/动作/客体并入让步、原因或条件长条目，字段无法再对齐。</li>
+<li>现有证据：仅作定位的相似片段F19：such illustration and description / are to be considered illustrative or exemplary and not restrictive, while / the invention has been illustrated and described in detail in the drawings and foregoing description；无法配对的零交集字段：tail。这不是有效配对。</li>
+</ul>
+<p><strong>G19：such description / are to be considered / illustrative or exemplary</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：并列主体未按Gold分别表达。illustration and description仍用集合主语；Gold分别给两主体相同评价，一个预测不能覆盖两个Gold。1104_1还整体重合并。</li>
+<li>现有证据：仅作定位的相似片段F19：such illustration and description / are to be considered illustrative or exemplary and not restrictive, while / the invention has been illustrated and described in detail in the drawings and foregoing description；无法配对的零交集字段：tail。这不是有效配对。</li>
+</ul>
+<p><strong>G20：such illustration / are to be considered not / restrictive</strong></p>
+<ul>
+<li>匹配状态：输入配B22，配对F1=0.7778；最终丢配。</li>
+<li>主要原因：独立事实被合并或污染。1104_1将原可配对的独立主体/动作/客体并入让步、原因或条件长条目，字段无法再对齐。</li>
+<li>现有证据：仅作定位的相似片段F19：such illustration and description / are to be considered illustrative or exemplary and not restrictive, while / the invention has been illustrated and described in detail in the drawings and foregoing description；无法配对的零交集字段：tail。这不是有效配对。</li>
+</ul>
+<p><strong>G21：such description / are to be considered not / restrictive</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：并列主体未按Gold分别表达。illustration and description仍用集合主语；Gold分别给两主体相同评价，一个预测不能覆盖两个Gold。1104_1还整体重合并。</li>
+<li>现有证据：仅作定位的相似片段F19：such illustration and description / are to be considered illustrative or exemplary and not restrictive, while / the invention has been illustrated and described in detail in the drawings and foregoing description；无法配对的零交集字段：tail。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：1104_1把6条压成一个超长条目，头尾分别装入整段描述；8条Gold全未配对。原来 illustrated/described×drawings/description 的4条可用关系均消失，是主要下降来源。</p>
+<h3 id="section-16">1104_1 doc1/S8：3条未配Gold</h3>
+<blockquote>
+<p>Although specific terms are employed herein, they are used in a generic and descriptive sense only and not for purposes of limitation.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F20</td>
+<td>they</td>
+<td>are used in a generic and descriptive sense only and not for purposes of limitation, although</td>
+<td>specific terms are employed herein</td>
+<td>S8</td>
+<td>未配对</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>Specific terms are employed herein; they are used in a generic and descriptive sense only and not for purposes of limitation.</p>
+</blockquote>
+<p>对比提示：完整A/B差异见阶段一同句；下列为该句诊断。</p>
+<p><strong>G26：they / are used in / a generic and descriptive sense</strong></p>
+<ul>
+<li>匹配状态：输入配B11，配对F1=0.8421；最终丢配。</li>
+<li>主要原因：独立事实被合并或污染。1104_1将原可配对的独立主体/动作/客体并入让步、原因或条件长条目，字段无法再对齐。</li>
+<li>现有证据：仅作定位的相似片段F20：they / are used in a generic and descriptive sense only and not for purposes of limitation, although / specific terms are employed herein；无法配对的零交集字段：tail。这不是有效配对。</li>
+</ul>
+<p><strong>G27：they / are not for purposes of / limitation</strong></p>
+<ul>
+<li>匹配状态：输入配B29，配对F1=0.6667；最终丢配。</li>
+<li>主要原因：独立事实被合并或污染。1104_1将原可配对的独立主体/动作/客体并入让步、原因或条件长条目，字段无法再对齐。</li>
+<li>现有证据：仅作定位的相似片段F20：they / are used in a generic and descriptive sense only and not for purposes of limitation, although / specific terms are employed herein；无法配对的零交集字段：tail。这不是有效配对。</li>
+</ul>
+<p><strong>G28：specific terms / are employed / herein</strong></p>
+<ul>
+<li>匹配状态：输入配B10，配对F1=1.0000；最终丢配。</li>
+<li>主要原因：独立事实被合并或污染。1104_1将原可配对的独立主体/动作/客体并入让步、原因或条件长条目，字段无法再对齐。</li>
+<li>现有证据：仅作定位的相似片段F20：they / are used in a generic and descriptive sense only and not for purposes of limitation, although / specific terms are employed herein；无法配对的零交集字段：head。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：1104_1将 specific terms→employed、they→generic descriptive、they→not limitation 三条合为“they | ...although | specific terms are employed herein”，3条Gold全部失配。</p>
+<h3 id="section-17">1104_1 doc1/S9：3条未配Gold</h3>
+<blockquote>
+<p>This enhances the flexibility of the congestion value, since different operators can use different transformation functions or profiles such that the congestion level may be based per cell and per link with different feedback profiles depending on the need of an operator.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F8</td>
+<td>This</td>
+<td>enhances the flexibility of the congestion value because</td>
+<td>different operators can use different transformation functions or profiles</td>
+<td>S9</td>
+<td>未配对</td>
+</tr>
+<tr>
+<td>F9</td>
+<td>different operators</td>
+<td>can use</td>
+<td>different transformation functions or profiles</td>
+<td>S9</td>
+<td>G30，配对F1=1.0000</td>
+</tr>
+<tr>
+<td>F10</td>
+<td>the congestion level</td>
+<td>may be based</td>
+<td>per cell and per link with different feedback profiles depending on the need of an operator</td>
+<td>S9</td>
+<td>G31，配对F1=0.7059</td>
+</tr>
+<tr>
+<td>F21</td>
+<td>different operators can use different transformation functions or profiles</td>
+<td>is such that</td>
+<td>the congestion level may be based per cell and per link with different feedback profiles depending on the need of an operator</td>
+<td>S9</td>
+<td>未配对</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>This enhances the flexibility of the congestion value. Different operators can use different transformation functions and different profiles. The congestion level may be based per cell or per link with different feedback profiles depending on the need of an operator.</p>
+</blockquote>
+<p>对比提示：完整A/B差异见阶段一同句；下列为该句诊断。</p>
+<p><strong>G29：this / enhances / the flexibility of the congestion value</strong></p>
+<ul>
+<li>匹配状态：输入配B12，配对F1=1.0000；最终丢配。</li>
+<li>主要原因：独立事实被合并或污染。1104_1将原可配对的独立主体/动作/客体并入让步、原因或条件长条目，字段无法再对齐。</li>
+<li>现有证据：仅作定位的相似片段F8：This / enhances the flexibility of the congestion value because / different operators can use different transformation functions or profiles；无法配对的零交集字段：tail。这不是有效配对。</li>
+</ul>
+<p><strong>G32：the congestion level / may be based / per link with different feedback profiles</strong></p>
+<ul>
+<li>匹配状态：输入配B31，配对F1=0.7742；最终丢配。</li>
+<li>主要原因：一对一容量或目标粒度。原两个因素/分类条目被合成一条，已配给另一条Gold，无法再覆盖此Gold。</li>
+<li>现有证据：本句最接近的可配候选F10：the congestion level / may be based / per cell and per link with different feedback profiles depending on the need of an operator；候选配对F1=0.7059。全篇已配给G31。</li>
+</ul>
+<p><strong>G33：different feedback profiles / depending on / the need of an operator</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。目标关系仍包含在长tail中，没有对应的独立主体和关系字段。</li>
+<li>现有证据：仅作定位的相似片段F21：different operators can use different transformation functions or profiles / is such that / the congestion level may be based per cell and per link with different feedback profiles depending on the need of an operator；无法配对的零交集字段：relation。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：1104_1用原文没有的because替换since，并把 This / enhances / flexibility 塞进长relation；cell/link两条也合一，G29与G32丢配。新增such that长条目，depending on仍没独立。</p>
+<h3 id="section-18">1104_1 doc1/S10：2条未配Gold</h3>
+<blockquote>
+<p>This may lead to inaccuracy due to the varying nature of instantaneous traffic patterns and dependence on medium- to long-term congestion situations for reporting.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F11</td>
+<td>This</td>
+<td>may lead to</td>
+<td>inaccuracy due to the varying nature of instantaneous traffic patterns and dependence on medium- to long-term congestion situations for reporting</td>
+<td>S10</td>
+<td>G34，配对F1=0.3448</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>This may lead to inaccuracy due to the varying nature of instantaneous traffic patterns and due to the dependence on medium- to long-term congestion situations for reporting.</p>
+</blockquote>
+<p>对比提示：两侧均为 <code>[]</code>，文本层面没有报告差异。</p>
+<p><strong>G35：inaccuracy / is due to / the varying nature of instantaneous traffic patterns</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。目标关系仍包含在长tail中，没有对应的独立主体和关系字段。</li>
+<li>现有证据：仅作定位的相似片段F11：This / may lead to / inaccuracy due to the varying nature of instantaneous traffic patterns and dependence on medium- to long-term congestion situations for reporting；无法配对的零交集字段：head。这不是有效配对。</li>
+</ul>
+<p><strong>G36：inaccuracy / is due to / dependence on medium- to long-term congestion situations</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。目标关系仍包含在长tail中，没有对应的独立主体和关系字段。</li>
+<li>现有证据：仅作定位的相似片段F11：This / may lead to / inaccuracy due to the varying nature of instantaneous traffic patterns and dependence on medium- to long-term congestion situations for reporting；无法配对的零交集字段：head。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：1104_1将两个长tail条目合成一条and长tail，1104_3保持原两条。G35、G36两条inaccuracy / is due to / 原因都未独立。</p>
+<h3 id="section-19">1104_1 doc2/S1：2条未配Gold</h3>
+<blockquote>
+<p>Even a small open area can present a danger when loose items are being transported in high-traffic areas.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F0</td>
+<td>a small open area</td>
+<td>can present</td>
+<td>a danger when loose items are being transported in high-traffic areas</td>
+<td>S1</td>
+<td>G0，配对F1=0.6154</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>A small open area can present a danger when loose items are being transported in high-traffic areas.</p>
+</blockquote>
+<p>对比提示：完整A/B差异见阶段一同句；下列为该句诊断。</p>
+<p><strong>G1：a danger / is when / loose items are being transported in high-traffic areas</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。when条件、运输、法规against、matter位置、viewed/based、conditions归属等仍在长字段，没有独立条目。</li>
+<li>现有证据：仅作定位的相似片段F0：a small open area / can present / a danger when loose items are being transported in high-traffic areas；无法配对的零交集字段：relation。这不是有效配对。</li>
+</ul>
+<p><strong>G2：loose items / are being transported in / high-traffic areas</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。when条件、运输、法规against、matter位置、viewed/based、conditions归属等仍在长字段，没有独立条目。</li>
+<li>现有证据：仅作定位的相似片段F0：a small open area / can present / a danger when loose items are being transported in high-traffic areas；无法配对的零交集字段：head, relation。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：两次都只有 small open area / can present / danger when...。Gold的 danger→when条件和 loose items→are being transported in 均未配对。</p>
+<h3 id="section-20">1104_1 doc2/S3：1条未配Gold</h3>
+<blockquote>
+<p>Further, the hazards of loose items flying out of the open-top of cargo trailers has led many governing bodies to enact strict laws against such open transport.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F2</td>
+<td>the hazards of loose items flying out of the open-top of cargo trailers</td>
+<td>has led</td>
+<td>many governing bodies to enact strict laws against such open transport</td>
+<td>S3</td>
+<td>G7，配对F1=0.3243</td>
+</tr>
+<tr>
+<td>F16</td>
+<td>loose items</td>
+<td>fly out of</td>
+<td>the open-top of cargo trailers</td>
+<td>S3</td>
+<td>未配对</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>Loose items fly out of the open-top of cargo trailers. The hazards of loose items flying out of the open-top of cargo trailers has led many governing bodies to enact strict laws against such open transport.</p>
+</blockquote>
+<p>对比提示：完整A/B差异见阶段一同句；下列为该句诊断。</p>
+<p><strong>G8：strict laws / is against / such open transport</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。when条件、运输、法规against、matter位置、viewed/based、conditions归属等仍在长字段，没有独立条目。</li>
+<li>现有证据：仅作定位的相似片段F2：the hazards of loose items flying out of the open-top of cargo trailers / has led / many governing bodies to enact strict laws against such open transport；无法配对的零交集字段：head, relation。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：1104_1保持 hazards长主语/has led长tail与 loose items/fly out of，既丢风险层级，又把flying改成fly。比较1其实指出了“独立飞出断言”问题，结果没有体现修正。</p>
+<h3 id="section-21">1104_1 doc2/S5：1条未配Gold</h3>
+<blockquote>
+<p>The matter set forth in the foregoing description and accompanying drawings is offered by way of illustration only and not as a limitation.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F5</td>
+<td>The matter set forth in the foregoing description and accompanying drawings</td>
+<td>is offered</td>
+<td>by way of illustration only</td>
+<td>S5</td>
+<td>G6，配对F1=0.1875</td>
+</tr>
+<tr>
+<td>F6</td>
+<td>The matter set forth in the foregoing description and accompanying drawings</td>
+<td>is not offered</td>
+<td>as a limitation</td>
+<td>S5</td>
+<td>未配对</td>
+</tr>
+<tr>
+<td>F17</td>
+<td>The matter set forth in the foregoing description</td>
+<td>is not offered</td>
+<td>as a limitation</td>
+<td>S5</td>
+<td>G13，配对F1=0.7500</td>
+</tr>
+<tr>
+<td>F18</td>
+<td>The matter set forth in the accompanying drawings</td>
+<td>is offered</td>
+<td>by way of illustration only</td>
+<td>S5</td>
+<td>G12，配对F1=0.7200</td>
+</tr>
+<tr>
+<td>F19</td>
+<td>The matter set forth in the accompanying drawings</td>
+<td>is not offered</td>
+<td>as a limitation</td>
+<td>S5</td>
+<td>未配对</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>The matter set forth in the foregoing description is offered by way of illustration only and is not offered as a limitation. The matter set forth in the accompanying drawings is offered by way of illustration only and is not offered as a limitation.</p>
+</blockquote>
+<p>对比提示：两侧均为 <code>[]</code>，文本层面没有报告差异。</p>
+<p><strong>G11：the matter set forth / is in / the foregoing description and accompanying drawings</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。when条件、运输、法规against、matter位置、viewed/based、conditions归属等仍在长字段，没有独立条目。</li>
+<li>现有证据：仅作定位的相似片段F18：The matter set forth in the accompanying drawings / is offered / by way of illustration only；无法配对的零交集字段：tail。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：1104_1新增合并description and drawings的两个head表达，却只替换掉一个旧条目，最终5条，同时保留集合作用与部分作用，存在明显重叠。不是完整清理。</p>
+<h3 id="section-22">1104_1 doc2/S6：2条未配Gold</h3>
+<blockquote>
+<p>The actual scope of the protection sought is intended to be defined in the following claims when viewed in their proper perspective based on the prior art.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F7</td>
+<td>The actual scope of the protection sought</td>
+<td>is intended to be defined</td>
+<td>in the following claims when viewed in their proper perspective based on the prior art</td>
+<td>S6</td>
+<td>G14，配对F1=0.6977</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>The actual scope of the protection sought is intended to be defined in the following claims when viewed in their proper perspective based on the prior art.</p>
+</blockquote>
+<p>对比提示：两侧均为 <code>[]</code>，文本层面没有报告差异。</p>
+<p><strong>G15：the following claims / are viewed in / their proper perspective</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。when条件、运输、法规against、matter位置、viewed/based、conditions归属等仍在长字段，没有独立条目。</li>
+<li>现有证据：仅作定位的相似片段F7：The actual scope of the protection sought / is intended to be defined / in the following claims when viewed in their proper perspective based on the prior art；无法配对的零交集字段：relation。这不是有效配对。</li>
+</ul>
+<p><strong>G16：their proper perspective / is based on / the prior art</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。when条件、运输、法规against、matter位置、viewed/based、conditions归属等仍在长字段，没有独立条目。</li>
+<li>现有证据：仅作定位的相似片段F7：The actual scope of the protection sought / is intended to be defined / in the following claims when viewed in their proper perspective based on the prior art；无法配对的零交集字段：head。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：两次各保留一条 scope / intended to be defined / claims when viewed...based on...。</p>
+<h3 id="section-23">1104_1 doc2/S7：1条未配Gold</h3>
+<blockquote>
+<p>Preferably, most of these components are made of strong materials to withstand the conditions of being atop an open cargo area of a vehicle during transportation of goods.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F8</td>
+<td>most of these components</td>
+<td>are made of</td>
+<td>strong materials</td>
+<td>S7</td>
+<td>G17，配对F1=1.0000</td>
+</tr>
+<tr>
+<td>F20</td>
+<td>most of these components</td>
+<td>are to withstand</td>
+<td>the conditions of being atop an open cargo area of a vehicle during transportation of goods</td>
+<td>S7</td>
+<td>G18，配对F1=0.4444</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>Most of these components are made of strong materials and are intended to withstand the conditions of being atop an open cargo area of a vehicle during transportation of goods.</p>
+</blockquote>
+<p>对比提示：完整A/B差异见阶段一同句；下列为该句诊断。</p>
+<p><strong>G19：the conditions / are of being atop / an open cargo area of a vehicle during transportation of goods</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。when条件、运输、法规against、matter位置、viewed/based、conditions归属等仍在长字段，没有独立条目。</li>
+<li>现有证据：仅作定位的相似片段F20：most of these components / are to withstand / the conditions of being atop an open cargo area of a vehicle during transportation of goods；无法配对的零交集字段：head。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：1104_1将 are intended to withstand 改为 are to withstand；1104_3改为 to withstand，均去掉原文没有的intended。</p>
+<h3 id="section-24">1104_1 doc2/S8：1条未配Gold</h3>
+<blockquote>
+<p>Later, a series of bows was brought into use to keep the tarpaulin from lying in direct contact with goods in the truck trailer and to prevent water accumulation.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F9</td>
+<td>a series of bows</td>
+<td>was brought into use to keep</td>
+<td>the tarpaulin from lying in direct contact with goods in the truck trailer</td>
+<td>S8</td>
+<td>G21，配对F1=0.6087</td>
+</tr>
+<tr>
+<td>F10</td>
+<td>a series of bows</td>
+<td>was brought into use to prevent</td>
+<td>water accumulation</td>
+<td>S8</td>
+<td>G22，配对F1=0.6667</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>A series of bows was brought into use to keep the tarpaulin from lying in direct contact with goods in the truck trailer and to prevent water accumulation.</p>
+</blockquote>
+<p>对比提示：完整A/B差异见阶段一同句；下列为该句诊断。</p>
+<p><strong>G20：a series of bows / was brought into / use</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：主体层级及字段边界。brought into use被包含在目的relation中，Gold要求独立brought into/use以及不同目的主体边界。</li>
+<li>现有证据：仅作定位的相似片段F9：a series of bows / was brought into use to keep / the tarpaulin from lying in direct contact with goods in the truck trailer；无法配对的零交集字段：tail。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：两次保持两个 bows / was brought into use to keep或prevent 条目，均没有独立 bows / was brought into / use。</p>
+<h3 id="section-25">1104_1 doc3/S1：3条未配Gold</h3>
+<blockquote>
+<p>The present invention relates to a rubber composite comprising rubber, oil and a combination of powdered additives, as well as a process for manufacturing same.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F0</td>
+<td>The present invention</td>
+<td>relates to</td>
+<td>a rubber composite</td>
+<td>S1</td>
+<td>G0，配对F1=1.0000</td>
+</tr>
+<tr>
+<td>F1</td>
+<td>The present invention</td>
+<td>relates to</td>
+<td>a process for manufacturing same</td>
+<td>S1</td>
+<td>G4，配对F1=1.0000</td>
+</tr>
+<tr>
+<td>F14</td>
+<td>a rubber composite</td>
+<td>comprising</td>
+<td>rubber</td>
+<td>S1</td>
+<td>未配对</td>
+</tr>
+<tr>
+<td>F15</td>
+<td>a rubber composite</td>
+<td>comprising</td>
+<td>oil</td>
+<td>S1</td>
+<td>未配对</td>
+</tr>
+<tr>
+<td>F16</td>
+<td>a rubber composite</td>
+<td>comprising</td>
+<td>a combination of powdered additives</td>
+<td>S1</td>
+<td>未配对</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>The present invention relates to a rubber composite and a process for manufacturing same. The rubber composite comprises rubber, oil, and a combination of powdered additives.</p>
+</blockquote>
+<p>对比提示：两侧均为 <code>[]</code>，文本层面没有报告差异。</p>
+<p><strong>G1：a rubber composite / comprises / rubber</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：词形与Gold规则冲突。已抽出的组成关系用源句comprising，Gold为comprises；宽松匹配不词形还原，relation零交集。</li>
+<li>现有证据：仅作定位的相似片段F14：a rubber composite / comprising / rubber；无法配对的零交集字段：relation。这不是有效配对。</li>
+</ul>
+<p><strong>G2：a rubber composite / comprises / oil</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：词形与Gold规则冲突。已抽出的组成关系用源句comprising，Gold为comprises；宽松匹配不词形还原，relation零交集。</li>
+<li>现有证据：仅作定位的相似片段F15：a rubber composite / comprising / oil；无法配对的零交集字段：relation。这不是有效配对。</li>
+</ul>
+<p><strong>G3：a rubber composite / comprises / a combination of powdered additives</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：词形与Gold规则冲突。已抽出的组成关系用源句comprising，Gold为comprises；宽松匹配不词形还原，relation零交集。</li>
+<li>现有证据：仅作定位的相似片段F16：a rubber composite / comprising / a combination of powdered additives；无法配对的零交集字段：relation。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：两次5条原样保留，rubber/oil/additives三条已独立抽出，不能再说缺少组成关系。</p>
+<h3 id="section-26">1104_1 doc3/S2：1条未配Gold</h3>
+<blockquote>
+<p>The incorporation of granulated recycled tire rubber into bitumen aimed to improve the mechanical behavior of bituminous mixtures.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F2</td>
+<td>The incorporation of granulated recycled tire rubber into bitumen</td>
+<td>aimed to improve</td>
+<td>the mechanical behavior of bituminous mixtures</td>
+<td>S2</td>
+<td>G5，配对F1=1.0000</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>The incorporation of granulated recycled tire rubber into bitumen aimed to improve the mechanical behavior of bituminous mixtures.</p>
+</blockquote>
+<p>对比提示：两侧均为 <code>[]</code>，文本层面没有报告差异。</p>
+<p><strong>G6：granulated recycled tire rubber / is incorporated into / bitumen</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：词形与Gold规则冲突。incorporation名词化内部事实未独立；Gold要求incorporated，按实义词原词形政策能否生成需用户裁决。</li>
+<li>现有证据：仅作定位的相似片段F2：The incorporation of granulated recycled tire rubber into bitumen / aimed to improve / the mechanical behavior of bituminous mixtures；无法配对的零交集字段：relation, tail。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：两次仅保留 incorporation... / aimed to improve / behavior。</p>
+<h3 id="section-27">1104_1 doc3/S3：2条未配Gold</h3>
+<blockquote>
+<p>In this connection, the properties of the asphalt bitumen-based binders in high and low temperature conditions are of a decisive importance.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F3</td>
+<td>the properties of the asphalt bitumen-based binders in high and low temperature conditions</td>
+<td>are of</td>
+<td>a decisive importance</td>
+<td>S3</td>
+<td>G7，配对F1=1.0000</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>The properties of the asphalt bitumen-based binders in high and low temperature conditions are of a decisive importance.</p>
+</blockquote>
+<p>对比提示：两侧均为 <code>[]</code>，文本层面没有报告差异。</p>
+<p><strong>G8：the asphalt bitumen-based binders / are in / high temperature conditions</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。位置条件、free of、when条件或SMA修饰关系未形成独立三元组。</li>
+<li>现有证据：仅作定位的相似片段F3：the properties of the asphalt bitumen-based binders in high and low temperature conditions / are of / a decisive importance；无法配对的零交集字段：tail。这不是有效配对。</li>
+</ul>
+<p><strong>G9：the asphalt bitumen-based binders / are in / low temperature conditions</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。位置条件、free of、when条件或SMA修饰关系未形成独立三元组。</li>
+<li>现有证据：仅作定位的相似片段F3：the properties of the asphalt bitumen-based binders in high and low temperature conditions / are of / a decisive importance；无法配对的零交集字段：tail。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：两次都只保留 properties of binders in high and low... / are of / decisive importance，主关系与Gold一致。</p>
+<h3 id="section-28">1104_1 doc3/S5：1条未配Gold</h3>
+<blockquote>
+<p>The term oil-dry thus stands to mean that the external surface, namely the out-most layer of the rubber composite, is substantially, or completely, free of oil.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F8</td>
+<td>The term oil-dry</td>
+<td>stands to mean that</td>
+<td>the external surface is substantially, or completely, free of oil</td>
+<td>S5</td>
+<td>G17，配对F1=0.9412</td>
+</tr>
+<tr>
+<td>F20</td>
+<td>the external surface</td>
+<td>is namely</td>
+<td>the out-most layer of the rubber composite</td>
+<td>S5</td>
+<td>G18，配对F1=1.0000</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>The term oil-dry stands to mean that the external surface is substantially, or completely, free of oil. The external surface is namely the out-most layer of the rubber composite.</p>
+</blockquote>
+<p>对比提示：两侧均为 <code>[]</code>，文本层面没有报告差异。</p>
+<p><strong>G19：the external surface / is substantially, or completely, free of / oil</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。位置条件、free of、when条件或SMA修饰关系未形成独立三元组。</li>
+<li>现有证据：仅作定位的相似片段F20：the external surface / is namely / the out-most layer of the rubber composite；无法配对的零交集字段：tail。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：两次均只有 oil-dry定义与外表面别名两条。</p>
+<h3 id="section-29">1104_1 doc3/S6：1条未配Gold</h3>
+<blockquote>
+<p>When the particles are of non-spheroid shape, the term refers to the average equivalent diameter of the particle, namely the diameter of an equivalent spherical particle based on the longest dimension of the particle.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F9</td>
+<td>When the particles are of non-spheroid shape, the term</td>
+<td>refers to</td>
+<td>the average equivalent diameter of the particle</td>
+<td>S6</td>
+<td>G21，配对F1=0.7586</td>
+</tr>
+<tr>
+<td>F21</td>
+<td>When the particles are of non-spheroid shape, the average equivalent diameter of the particle</td>
+<td>is namely</td>
+<td>the diameter of an equivalent spherical particle</td>
+<td>S6</td>
+<td>G22，配对F1=0.8205</td>
+</tr>
+<tr>
+<td>F22</td>
+<td>When the particles are of non-spheroid shape, the diameter of an equivalent spherical particle</td>
+<td>is based on</td>
+<td>the longest dimension of the particle</td>
+<td>S6</td>
+<td>G23，配对F1=0.8205</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>When the particles are of non-spheroid shape, the term refers to the average equivalent diameter of the particle. The average equivalent diameter of the particle is namely the diameter of an equivalent spherical particle, which is based on the longest dimension of the particle.</p>
+</blockquote>
+<p>对比提示：两侧均为 <code>[]</code>，文本层面没有报告差异。</p>
+<p><strong>G20：the particles / are of / non-spheroid shape</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。位置条件、free of、when条件或SMA修饰关系未形成独立三元组。</li>
+<li>现有证据：仅作定位的相似片段F9：When the particles are of non-spheroid shape, the term / refers to / the average equivalent diameter of the particle；无法配对的零交集字段：relation, tail。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：两次均将 When particles... 前缀复制到3个head。Gold三条主体无前缀，另外有 particles / are of / non-spheroid shape。</p>
+<h3 id="section-30">1104_1 doc3/S9：4条未配Gold</h3>
+<blockquote>
+<p>It is clearly the lowest value as compared with tradition Asphalt Rubber gap graded mixtures (with and without RAR) or even compared with traditional SMA mixtures with highly modified bitumen and fibres.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F12</td>
+<td>It</td>
+<td>is clearly the lowest value as compared with</td>
+<td>tradition Asphalt Rubber gap graded mixtures (with and without RAR) or even traditional SMA mixtures with highly modified bitumen and fibres</td>
+<td>S9</td>
+<td>未配对</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>It is clearly the lowest value as compared with tradition Asphalt Rubber gap graded mixtures (with and without RAR) and traditional SMA mixtures with highly modified bitumen and fibres.</p>
+</blockquote>
+<p>对比提示：完整A/B差异见阶段一同句；下列为该句诊断。</p>
+<p><strong>G29：it / is clearly / the lowest value</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：主体层级及字段边界。lowest value留在relation中、比较对象留在长tail，Gold要求lowest value核心断言及以它为主体的比较关系。</li>
+<li>现有证据：仅作定位的相似片段F12：It / is clearly the lowest value as compared with / tradition Asphalt Rubber gap graded mixtures (with and without RAR) or even traditional SMA mixtures with highly modified bitumen and fibres；无法配对的零交集字段：tail。这不是有效配对。</li>
+</ul>
+<p><strong>G30：the lowest value / is compared with / tradition Asphalt Rubber gap graded mixtures (with and without RAR)</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：主体层级及字段边界。lowest value留在relation中、比较对象留在长tail，Gold要求lowest value核心断言及以它为主体的比较关系。</li>
+<li>现有证据：仅作定位的相似片段F12：It / is clearly the lowest value as compared with / tradition Asphalt Rubber gap graded mixtures (with and without RAR) or even traditional SMA mixtures with highly modified bitumen and fibres；无法配对的零交集字段：head。这不是有效配对。</li>
+</ul>
+<p><strong>G31：the lowest value / is even compared with / traditional SMA mixtures with highly modified bitumen and fibres</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：主体层级及字段边界。lowest value留在relation中、比较对象留在长tail，Gold要求lowest value核心断言及以它为主体的比较关系。</li>
+<li>现有证据：仅作定位的相似片段F12：It / is clearly the lowest value as compared with / tradition Asphalt Rubber gap graded mixtures (with and without RAR) or even traditional SMA mixtures with highly modified bitumen and fibres；无法配对的零交集字段：head。这不是有效配对。</li>
+</ul>
+<p><strong>G32：traditional SMA mixtures / are with highly modified / bitumen and fibres</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。位置条件、free of、when条件或SMA修饰关系未形成独立三元组。</li>
+<li>现有证据：仅作定位的相似片段F12：It / is clearly the lowest value as compared with / tradition Asphalt Rubber gap graded mixtures (with and without RAR) or even traditional SMA mixtures with highly modified bitumen and fibres；无法配对的零交集字段：head。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：两次最终都把2条比较合成1条or even长tail。恢复了源句or，却没有抽 lowest value核心断言、以lowest value为主语的两条比较，以及SMA的修饰关系；4条Gold全部未配对。</p>
+<h3 id="section-31">1104_1 doc3/S10：2条未配Gold</h3>
+<blockquote>
+<p>It should be noted that the range is given as such merely for convenience and brevity and should not be construed as an inflexible limitation on the scope of the invention.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F13</td>
+<td>the range</td>
+<td>is given as such merely for</td>
+<td>convenience and brevity</td>
+<td>S10</td>
+<td>G33，配对F1=0.9000</td>
+</tr>
+<tr>
+<td>F26</td>
+<td>the range</td>
+<td>should not be construed as</td>
+<td>an inflexible limitation on the scope of the invention</td>
+<td>S10</td>
+<td>G35，配对F1=1.0000</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>The range is given as such merely for convenience and brevity and should not be construed as an inflexible limitation on the scope of the invention.</p>
+</blockquote>
+<p>对比提示：两侧均为 <code>[]</code>，文本层面没有报告差异。</p>
+<p><strong>G34：the range / is given as such merely for / brevity</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：一对一容量或目标粒度。convenience and brevity共一个预测，已配给convenience，无法再次配brevity。</li>
+<li>现有证据：本句最接近的可配候选F13：the range / is given as such merely for / convenience and brevity；候选配对F1=0.9000。全篇已配给G33。</li>
+</ul>
+<p><strong>G36：the range / should not be construed as an inflexible limitation on / the scope of the invention</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：Gold重复或边界变体。Gold还以另一字段切法再标一次not limitation；一条预测已配G35，不能重复使用。</li>
+<li>现有证据：本句最接近的可配候选F26：the range / should not be construed as / an inflexible limitation on the scope of the invention；候选配对F1=0.7500。全篇已配给G35。</li>
+</ul>
+<p>反馈环节与对比的关系：两次均保留 convenience and brevity 一条，以及 not limitation 一条，未作修改。</p>
+<h3 id="section-32">1104_1 doc4/S3：2条未配Gold</h3>
+<blockquote>
+<p>The selecting unit is for selecting at least one of the communication paths for the vehicle according to the evaluation items based on the item importance information.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F3</td>
+<td>The selecting unit</td>
+<td>is for selecting</td>
+<td>at least one of the communication paths for the vehicle according to the evaluation items</td>
+<td>S3</td>
+<td>G4，配对F1=0.8649</td>
+</tr>
+<tr>
+<td>F12</td>
+<td>the evaluation items</td>
+<td>are based on</td>
+<td>the item importance information</td>
+<td>S2,S3</td>
+<td>G3，配对F1=1.0000</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>The selecting unit is for selecting at least one of the communication paths for the vehicle according to the evaluation items, which are based on the item importance information.</p>
+</blockquote>
+<p>对比提示：两侧均为 <code>[]</code>，文本层面没有报告差异。</p>
+<p><strong>G5：selecting at least one of the communication paths for the vehicle / is according to / the evaluation items</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。according to、of或with连接未独立；其中with目标是否合理需单列Gold审查。</li>
+<li>现有证据：本句最接近的可配候选F3：The selecting unit / is for selecting / at least one of the communication paths for the vehicle according to the evaluation items；候选配对F1=0.3158。全篇已配给G4。</li>
+</ul>
+<p><strong>G6：the evaluation items / are based on / the item importance information</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：Gold重复或边界变体。与S2/G3完全相同的based-on事实，当前一个共享来源预测已配G3；非完全没有抽取。</li>
+<li>现有证据：本句最接近的可配候选F12：the evaluation items / are based on / the item importance information；候选配对F1=1.0000。全篇已配给G3。</li>
+</ul>
+<p>反馈环节与对比的关系：两次 selecting unit / is for selecting / paths according to items 的长tail都未缩短，Gold要求 selecting paths / is according to / items 未独立。</p>
+<h3 id="section-33">1104_1 doc4/S7：1条未配Gold</h3>
+<blockquote>
+<p>All of the evaluation items EV of each of the communication paths PH in the third group G3 is worse than the standard thresholds E0.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F7</td>
+<td>All of the evaluation items EV of each of the communication paths PH in the third group G3</td>
+<td>is worse than</td>
+<td>the standard thresholds E0</td>
+<td>S7</td>
+<td>G12，配对F1=0.6842</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>All of the evaluation items EV of each of the communication paths PH in the third group G3 is worse than the standard thresholds E0.</p>
+</blockquote>
+<p>对比提示：两侧均为 <code>[]</code>，文本层面没有报告差异。</p>
+<p><strong>G13：all of the evaluation items EV / is of / each of the communication paths PH in the third group G3</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。according to、of或with连接未独立；其中with目标是否合理需单列Gold审查。</li>
+<li>现有证据：本句最接近的可配候选F7：All of the evaluation items EV of each of the communication paths PH in the third group G3 / is worse than / the standard thresholds E0；候选配对F1=0.3636。全篇已配给G12。</li>
+</ul>
+<p>反馈环节与对比的关系：两次都保留 All evaluation items of paths in G3 / is worse than / thresholds。</p>
+<h3 id="section-34">1104_1 doc4/S8：1条未配Gold</h3>
+<blockquote>
+<p>In the good category of the available bandwidth, the value of the routing path latency is equal to or lower than 500 kbps.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F8</td>
+<td>the value of the routing path latency</td>
+<td>in the good category of the available bandwidth, is equal to or lower than</td>
+<td>500 kbps</td>
+<td>S8</td>
+<td>G14，配对F1=0.7895</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>The value of the routing path latency in the good category of the available bandwidth is equal to or lower than 500 kbps.</p>
+</blockquote>
+<p>对比提示：两侧均为 <code>[]</code>，文本层面没有报告差异。</p>
+<p><strong>G15：the value of the routing path latency / is equal to or lower than 500 kbps in / the good category of the available bandwidth</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：Gold重复或边界变体。同一阈值在Gold中分别以数值和分类两种边界给出，单条预测只可配一次。</li>
+<li>现有证据：仅作定位的相似片段F8：the value of the routing path latency / in the good category of the available bandwidth, is equal to or lower than / 500 kbps；无法配对的零交集字段：tail。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：两次同一条阈值条目保留，限定放在relation前部，与Gold第一条有配对。</p>
+<h3 id="section-35">1104_1 doc4/S9：2条未配Gold</h3>
+<blockquote>
+<p>It is intended that the specification and examples be considered as exemplary only, with a true scope of the disclosure being indicated by the following claims and their equivalents.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F9</td>
+<td>the specification</td>
+<td>is intended to be considered as</td>
+<td>exemplary only</td>
+<td>S9</td>
+<td>未配对</td>
+</tr>
+<tr>
+<td>F10</td>
+<td>a true scope of the disclosure</td>
+<td>is indicated by</td>
+<td>the following claims and their equivalents</td>
+<td>S9</td>
+<td>G18，配对F1=0.6667</td>
+</tr>
+<tr>
+<td>F15</td>
+<td>examples</td>
+<td>are intended to be considered as</td>
+<td>exemplary only</td>
+<td>S9</td>
+<td>G16，配对F1=0.5882</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>The specification and examples are intended to be considered as exemplary only. A true scope of the disclosure is indicated by the following claims and their equivalents.</p>
+</blockquote>
+<p>对比提示：完整A/B差异见阶段一同句；下列为该句诊断。</p>
+<p><strong>G17：the specification and examples / are considered as exemplary only with / a true scope of the disclosure</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。according to、of或with连接未独立；其中with目标是否合理需单列Gold审查。</li>
+<li>现有证据：仅作定位的相似片段F9：the specification / is intended to be considered as / exemplary only；无法配对的零交集字段：tail。这不是有效配对。</li>
+</ul>
+<p><strong>G19：the disclosure / is being indicated by / their equivalents</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：主体层级及字段边界。预测主体scope且claims/equivalents同放tail；Gold主体disclosure并拆对象，属于主体、粒度及Gold指代争议。</li>
+<li>现有证据：本句最接近的可配候选F10：a true scope of the disclosure / is indicated by / the following claims and their equivalents；候选配对F1=0.6087。全篇已配给G18。</li>
+</ul>
+<p>反馈环节与对比的关系：两次均保留specification、examples分别表达的两条及scope→claims/equivalents条目，没有重演旧运行把它们全部合成一条的现象。</p>
+<h3 id="section-36">1104_1 doc4/S10：1条未配Gold</h3>
+<blockquote>
+<p>In the good category of the routing path latency, the value of the routing path latency is equal to or lower than 50 ms.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F11</td>
+<td>the value of the routing path latency</td>
+<td>in the good category of the routing path latency, is equal to or lower than</td>
+<td>50 ms</td>
+<td>S10</td>
+<td>G20，配对F1=0.7692</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>The value of the routing path latency in the good category of the routing path latency is equal to or lower than 50 ms.</p>
+</blockquote>
+<p>对比提示：两侧均为 <code>[]</code>，文本层面没有报告差异。</p>
+<p><strong>G21：the value of the routing path latency / is equal to or lower than 50 ms in / the good category of the routing path latency</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：Gold重复或边界变体。同一阈值在Gold中分别以数值和分类两种边界给出，单条预测只可配一次。</li>
+<li>现有证据：仅作定位的相似片段F11：the value of the routing path latency / in the good category of the routing path latency, is equal to or lower than / 50 ms；无法配对的零交集字段：tail。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：两次都保留50 ms且分类仍在relation，主阈值事实没有被破坏。</p>
+<h2 id="section-37">1104_3：全部未配Gold逐项解释</h2>
+<h3 id="section-38">1104_3 doc0/S1：1条未配Gold</h3>
+<blockquote>
+<p>Because such elements and operations are well known in the art, and because they do not facilitate a better understanding of the present disclosure.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F0</td>
+<td>such elements</td>
+<td>are well known in</td>
+<td>the art</td>
+<td>S1</td>
+<td>G0，配对F1=1.0000</td>
+</tr>
+<tr>
+<td>F1</td>
+<td>such elements</td>
+<td>do not facilitate</td>
+<td>a better understanding of the present disclosure</td>
+<td>S1</td>
+<td>未配对</td>
+</tr>
+<tr>
+<td>F12</td>
+<td>such operations</td>
+<td>are well known in</td>
+<td>the art</td>
+<td>S1</td>
+<td>G1，配对F1=1.0000</td>
+</tr>
+<tr>
+<td>F13</td>
+<td>such operations</td>
+<td>do not facilitate</td>
+<td>a better understanding of the present disclosure</td>
+<td>S1</td>
+<td>未配对</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>Such elements and such operations are well known in the art and do not facilitate a better understanding of the present disclosure.</p>
+</blockquote>
+<p>对比提示：完整A/B差异见阶段一同句；下列为该句诊断。</p>
+<p><strong>G2：they / do not facilitate / a better understanding of the present disclosure</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：主体或指代不对齐。Gold以they为主语，当前否定条目以elements/operations为主语，head词元无交集。</li>
+<li>现有证据：仅作定位的相似片段F1：such elements / do not facilitate / a better understanding of the present disclosure；无法配对的零交集字段：head。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：比较两次都强调 Because 丢失；这没有指出 Gold 的 they 主语口径，也不能提供一个源文未出现的因果结果。此处没有发生可见的负面改动。</p>
+<h3 id="section-39">1104_3 doc0/S7：3条未配Gold</h3>
+<blockquote>
+<p>They may be implemented as instructions stored on a machine-readable medium, which may be read and executed by a computing platform to perform the operations described herein.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F8</td>
+<td>They</td>
+<td>may be implemented as</td>
+<td>instructions stored on a machine-readable medium</td>
+<td>S7</td>
+<td>G17，配对F1=0.7059</td>
+</tr>
+<tr>
+<td>F27</td>
+<td>instructions</td>
+<td>may be read by</td>
+<td>a computing platform</td>
+<td>S6,S7</td>
+<td>未配对</td>
+</tr>
+<tr>
+<td>F28</td>
+<td>instructions</td>
+<td>may be executed by</td>
+<td>a computing platform</td>
+<td>S6,S7</td>
+<td>未配对</td>
+</tr>
+<tr>
+<td>F29</td>
+<td>a computing platform</td>
+<td>may read and execute the instructions to perform</td>
+<td>the operations described herein</td>
+<td>S7</td>
+<td>G21，配对F1=0.6087</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>They may be implemented as instructions stored on a machine-readable medium. Instructions may be read and executed by a computing platform. A computing platform performs the operations described herein.</p>
+</blockquote>
+<p>对比提示：完整A/B差异见阶段一同句；下列为该句诊断。</p>
+<p><strong>G18：instructions / are stored on / a machine-readable medium</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。instructions stored on...仍在实现条目的tail里，缺独立存储关系。</li>
+<li>现有证据：仅作定位的相似片段F27：instructions / may be read by / a computing platform；无法配对的零交集字段：relation。这不是有效配对。</li>
+</ul>
+<p><strong>G19：a machine-readable medium / may be read by / a computing platform</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：主体或指代不对齐。预测以instructions为读取/执行主体，Gold以machine-readable medium为主语；1104_1又将两动作并入长relation。which指代另待裁决。</li>
+<li>现有证据：仅作定位的相似片段F27：instructions / may be read by / a computing platform；无法配对的零交集字段：head。这不是有效配对。</li>
+</ul>
+<p><strong>G20：a machine-readable medium / may be executed by / a computing platform</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：主体或指代不对齐。预测以instructions为读取/执行主体，Gold以machine-readable medium为主语；1104_1又将两动作并入长relation。which指代另待裁决。</li>
+<li>现有证据：仅作定位的相似片段F28：instructions / may be executed by / a computing platform；无法配对的零交集字段：head。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：1104_3保留读取/执行两条，并将平台条目改为 platform / may read and execute the instructions to perform / operations；恢复目的后G21得到配对，但may/read/execute与instructions再度塞进relation，仍非Gold的 is to perform。两个读取条目的主体instructions与Gold的machine-readable medium不同，需用户裁决which指代，不能自动认定模型或Gold正确。</p>
+<h3 id="section-40">1104_3 doc0/S10：6条未配Gold</h3>
+<blockquote>
+<p>This method may be integrated in a variety of systems including connected cars, car sharing, rental car services, maintenance and factory services.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F11</td>
+<td>This method</td>
+<td>may be integrated in</td>
+<td>connected cars</td>
+<td>S10</td>
+<td>未配对</td>
+</tr>
+<tr>
+<td>F31</td>
+<td>This method</td>
+<td>may be integrated in</td>
+<td>car sharing</td>
+<td>S10</td>
+<td>未配对</td>
+</tr>
+<tr>
+<td>F32</td>
+<td>This method</td>
+<td>may be integrated in</td>
+<td>rental car services</td>
+<td>S10</td>
+<td>未配对</td>
+</tr>
+<tr>
+<td>F33</td>
+<td>This method</td>
+<td>may be integrated in</td>
+<td>maintenance</td>
+<td>S10</td>
+<td>未配对</td>
+</tr>
+<tr>
+<td>F34</td>
+<td>This method</td>
+<td>may be integrated in</td>
+<td>factory services</td>
+<td>S10</td>
+<td>未配对</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>This method may be integrated in connected cars, car sharing, rental car services, maintenance, and factory services.</p>
+</blockquote>
+<p>对比提示：完整A/B差异见阶段一同句；下列为该句诊断。</p>
+<p><strong>G25：this method / may be integrated in / a variety of systems</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：主体层级及字段边界。缺method→a variety of systems的中间层及systems→成员的5条；已有method→成员不具备对应head/relation/tail。include/including政策待决。</li>
+<li>现有证据：仅作定位的相似片段F11：This method / may be integrated in / connected cars；无法配对的零交集字段：tail。这不是有效配对。</li>
+</ul>
+<p><strong>G26：a variety of systems / include / connected cars</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：主体层级及字段边界。缺method→a variety of systems的中间层及systems→成员的5条；已有method→成员不具备对应head/relation/tail。include/including政策待决。</li>
+<li>现有证据：仅作定位的相似片段F11：This method / may be integrated in / connected cars；无法配对的零交集字段：head, relation。这不是有效配对。</li>
+</ul>
+<p><strong>G27：a variety of systems / include / car sharing</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：主体层级及字段边界。缺method→a variety of systems的中间层及systems→成员的5条；已有method→成员不具备对应head/relation/tail。include/including政策待决。</li>
+<li>现有证据：仅作定位的相似片段F31：This method / may be integrated in / car sharing；无法配对的零交集字段：head, relation。这不是有效配对。</li>
+</ul>
+<p><strong>G28：a variety of systems / include / rental car services</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：主体层级及字段边界。缺method→a variety of systems的中间层及systems→成员的5条；已有method→成员不具备对应head/relation/tail。include/including政策待决。</li>
+<li>现有证据：仅作定位的相似片段F32：This method / may be integrated in / rental car services；无法配对的零交集字段：head, relation。这不是有效配对。</li>
+</ul>
+<p><strong>G29：a variety of systems / include / maintenance</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：主体层级及字段边界。缺method→a variety of systems的中间层及systems→成员的5条；已有method→成员不具备对应head/relation/tail。include/including政策待决。</li>
+<li>现有证据：仅作定位的相似片段F33：This method / may be integrated in / maintenance；无法配对的零交集字段：head, relation。这不是有效配对。</li>
+</ul>
+<p><strong>G30：a variety of systems / include / factory services</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：主体层级及字段边界。缺method→a variety of systems的中间层及systems→成员的5条；已有method→成员不具备对应head/relation/tail。include/including政策待决。</li>
+<li>现有证据：仅作定位的相似片段F34：This method / may be integrated in / factory services；无法配对的零交集字段：head, relation。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：1104_3保留原5条 method→具体系统，也仍全未配对。两次比较都发现中间层systems缺失，但结果没有重建 Gold 的 method→a variety of systems 以及 systems→五个成员。including与Gold include存在词形规则冲突，列入待决。</p>
+<h3 id="section-41">1104_3 doc1/S1：1条未配Gold</h3>
+<blockquote>
+<p>A further aspect provides a meaningful capture of the congestion level information enabling appropriate congestion mitigation measures, for example according to the severeness of the congestion.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F0</td>
+<td>A further aspect</td>
+<td>provides</td>
+<td>a meaningful capture of the congestion level information</td>
+<td>S1</td>
+<td>G0，配对F1=1.0000</td>
+</tr>
+<tr>
+<td>F16</td>
+<td>a meaningful capture of the congestion level information</td>
+<td>enables</td>
+<td>appropriate congestion mitigation measures, for example according to the severeness of the congestion</td>
+<td>S1</td>
+<td>G1，配对F1=0.6857</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>A further aspect provides a meaningful capture of the congestion level information. A meaningful capture of the congestion level information enables appropriate congestion mitigation measures, for example according to the severeness of the congestion.</p>
+</blockquote>
+<p>对比提示：两侧均为 <code>[]</code>，文本层面没有报告差异。</p>
+<p><strong>G2：congestion mitigation measures / are for example according to / the severeness of the congestion</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。目标关系仍包含在长tail中，没有对应的独立主体和关系字段。</li>
+<li>现有证据：仅作定位的相似片段F16：a meaningful capture of the congestion level information / enables / appropriate congestion mitigation measures, for example according to the severeness of the congestion；无法配对的零交集字段：relation。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：重建文本完整覆盖原句，因此两次差异都为空。这种空差异是文本层面的结果，Replace仍应从长字段识别关系，不能由Add按完全遗漏补一份又让长字段保持不变。</p>
+<h3 id="section-42">1104_3 doc1/S2：2条未配Gold</h3>
+<blockquote>
+<p>A congestion may be detected based on said congestion value when said minimum bandwidth demand exceeds the measured traffic per time over a given time span.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F1</td>
+<td>A congestion</td>
+<td>may be detected</td>
+<td>based on said congestion value when said minimum bandwidth demand exceeds the measured traffic per time over a given time span</td>
+<td>S2</td>
+<td>G3，配对F1=0.4444</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>A congestion may be detected based on said congestion value, and may be detected when said minimum bandwidth demand exceeds the measured traffic per time over a given time span.</p>
+</blockquote>
+<p>对比提示：完整A/B差异见阶段一同句；下列为该句诊断。</p>
+<p><strong>G4：said minimum bandwidth demand / exceeds / the measured traffic per time</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。目标关系仍包含在长tail中，没有对应的独立主体和关系字段。</li>
+<li>现有证据：仅作定位的相似片段F1：A congestion / may be detected / based on said congestion value when said minimum bandwidth demand exceeds the measured traffic per time over a given time span；无法配对的零交集字段：head, relation。这不是有效配对。</li>
+</ul>
+<p><strong>G5：the measured traffic per time / is over / a given time span</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。目标关系仍包含在长tail中，没有对应的独立主体和关系字段。</li>
+<li>现有证据：仅作定位的相似片段F1：A congestion / may be detected / based on said congestion value when said minimum bandwidth demand exceeds the measured traffic per time over a given time span；无法配对的零交集字段：head, relation。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：比较认为两条表达将联合条件变成两个独立条件，提示有语义依据，但不能推导成只保留一个长三元组。字段边界和条件语义需同时处理；本句全篇指标可能因条数减少而微升，不等于遗漏已修复。</p>
+<h3 id="section-43">1104_3 doc1/S3：1条未配Gold</h3>
+<blockquote>
+<p>The term &quot;part&quot; in connection with the term &quot;network&quot; is to be understood in a broad sense, meaning that part of the network can be any real or imaginary fraction, portion or component of the network.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F2</td>
+<td>The term &quot;part&quot; in connection with the term &quot;network&quot;</td>
+<td>is to be understood</td>
+<td>in a broad sense</td>
+<td>S3</td>
+<td>G6，配对F1=0.9412</td>
+</tr>
+<tr>
+<td>F17</td>
+<td>part of the network</td>
+<td>can be</td>
+<td>any real or imaginary fraction of the network</td>
+<td>S3</td>
+<td>G8，配对F1=1.0000</td>
+</tr>
+<tr>
+<td>F18</td>
+<td>part of the network</td>
+<td>can be</td>
+<td>any real or imaginary portion of the network</td>
+<td>S3</td>
+<td>G9，配对F1=1.0000</td>
+</tr>
+<tr>
+<td>F19</td>
+<td>part of the network</td>
+<td>can be</td>
+<td>any real or imaginary component of the network</td>
+<td>S3</td>
+<td>G10，配对F1=1.0000</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>The term &quot;part&quot; in connection with the term &quot;network&quot; is to be understood in a broad sense. Part of the network can be any real or imaginary fraction of the network, any real or imaginary portion of the network, or any real or imaginary component of the network.</p>
+</blockquote>
+<p>对比提示：两侧均为 <code>[]</code>，文本层面没有报告差异。</p>
+<p><strong>G7：the term &quot;part&quot; in connection with the term &quot;network&quot; / means that / part of the network</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：定义边界或Gold待裁决。Gold将meaning that切出一条并截短对象；当前没有独立定义连接，且means/meaning词形口径需确认。</li>
+<li>现有证据：仅作定位的相似片段F2：The term &quot;part&quot; in connection with the term &quot;network&quot; / is to be understood / in a broad sense；无法配对的零交集字段：relation, tail。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：两次比较为空，因为文字已足够重建。Gold将meaning that单独切出且对象截在 part of the network，是否是可接受独立事实需用户确认；同时meaning→means与实义词原形要求相冲突，不能盲目照搬至Prompt。</p>
+<h3 id="section-44">1104_3 doc1/S4：1条未配Gold</h3>
+<blockquote>
+<p>Most eNBs use variants of proportional-fair scheduling, where cell capacity fluctuates depending on time-variant radio conditions and scheduling assignments.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F3</td>
+<td>Most eNBs</td>
+<td>use</td>
+<td>variants of proportional-fair scheduling</td>
+<td>S4</td>
+<td>G11，配对F1=1.0000</td>
+</tr>
+<tr>
+<td>F4</td>
+<td>cell capacity</td>
+<td>fluctuates depending on</td>
+<td>time-variant radio conditions and scheduling assignments</td>
+<td>S4</td>
+<td>G12，配对F1=0.8421</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>Most eNBs use variants of proportional-fair scheduling. Cell capacity fluctuates depending on time-variant radio conditions and depending on scheduling assignments.</p>
+</blockquote>
+<p>对比提示：两侧均为 <code>[]</code>，文本层面没有报告差异。</p>
+<p><strong>G13：cell capacity / fluctuates depending on / scheduling assignments</strong></p>
+<ul>
+<li>匹配状态：输入配B21，配对F1=0.7143；最终丢配。</li>
+<li>主要原因：一对一容量或目标粒度。原两个因素/分类条目被合成一条，已配给另一条Gold，无法再覆盖此Gold。</li>
+<li>现有证据：本句最接近的可配候选F4：cell capacity / fluctuates depending on / time-variant radio conditions and scheduling assignments；候选配对F1=0.7778。全篇已配给G12。</li>
+</ul>
+<p>反馈环节与对比的关系：两次比较都为空，可见问题不只由错误差异驱动：反馈或后续处理也会自主过度合并。应同时保留两个独立因素条目，只修relation/tail边界。</p>
+<h3 id="section-45">1104_3 doc1/S5：2条未配Gold</h3>
+<blockquote>
+<p>While the invention has been illustrated and described in detail in the drawings and foregoing description, such illustration and description are to be considered illustrative or exemplary and not restrictive.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F5</td>
+<td>such illustration and description</td>
+<td>are to be considered</td>
+<td>illustrative or exemplary</td>
+<td>S5</td>
+<td>G18，配对F1=0.9000</td>
+</tr>
+<tr>
+<td>F6</td>
+<td>the invention</td>
+<td>has been illustrated</td>
+<td>in detail in the drawings</td>
+<td>S5</td>
+<td>G14，配对F1=0.7000</td>
+</tr>
+<tr>
+<td>F20</td>
+<td>such illustration and description</td>
+<td>are to be considered</td>
+<td>not restrictive</td>
+<td>S5</td>
+<td>G20，配对F1=0.7778</td>
+</tr>
+<tr>
+<td>F21</td>
+<td>the invention</td>
+<td>has been illustrated</td>
+<td>in detail in the foregoing description</td>
+<td>S5</td>
+<td>G15，配对F1=0.7273</td>
+</tr>
+<tr>
+<td>F22</td>
+<td>the invention</td>
+<td>has been described</td>
+<td>in detail in the drawings</td>
+<td>S5</td>
+<td>G16，配对F1=0.7000</td>
+</tr>
+<tr>
+<td>F23</td>
+<td>the invention</td>
+<td>has been described</td>
+<td>in detail in the foregoing description</td>
+<td>S5</td>
+<td>G17，配对F1=0.7273</td>
+</tr>
+<tr>
+<td>F32</td>
+<td>the invention has been illustrated and described in detail in the drawings and foregoing description</td>
+<td>while</td>
+<td>such illustration and description are to be considered illustrative or exemplary and not restrictive</td>
+<td>S5</td>
+<td>未配对</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>Such illustration and description are to be considered illustrative or exemplary and not restrictive. The invention has been illustrated in detail in the drawings and in the foregoing description, and has been described in detail in the drawings and in the foregoing description.</p>
+</blockquote>
+<p>对比提示：完整A/B差异见阶段一同句；下列为该句诊断。</p>
+<p><strong>G19：such description / are to be considered / illustrative or exemplary</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：并列主体未按Gold分别表达。illustration and description仍用集合主语；Gold分别给两主体相同评价，一个预测不能覆盖两个Gold。1104_1还整体重合并。</li>
+<li>现有证据：本句最接近的可配候选F5：such illustration and description / are to be considered / illustrative or exemplary；候选配对F1=0.9000。全篇已配给G18。</li>
+</ul>
+<p><strong>G21：such description / are to be considered not / restrictive</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：并列主体未按Gold分别表达。illustration and description仍用集合主语；Gold分别给两主体相同评价，一个预测不能覆盖两个Gold。1104_1还整体重合并。</li>
+<li>现有证据：本句最接近的可配候选F20：such illustration and description / are to be considered / not restrictive；候选配对F1=0.7778。全篇已配给G20。</li>
+</ul>
+<p>反馈环节与对比的关系：1104_3保留原6条又加“整句 | while | 整句”，原illustration/description未按Gold拆成两个主语，新增让步条目也不属于Gold目标。两次比较都报告While丢失；这种话语连接被当作目标关系，比独立主体/动作覆盖得到更多关注。</p>
+<h3 id="section-46">1104_3 doc1/S9：1条未配Gold</h3>
+<blockquote>
+<p>This enhances the flexibility of the congestion value, since different operators can use different transformation functions or profiles such that the congestion level may be based per cell and per link with different feedback profiles depending on the need of an operator.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F12</td>
+<td>This</td>
+<td>enhances</td>
+<td>the flexibility of the congestion value</td>
+<td>S9</td>
+<td>G29，配对F1=1.0000</td>
+</tr>
+<tr>
+<td>F13</td>
+<td>different operators</td>
+<td>can use</td>
+<td>different transformation functions or profiles</td>
+<td>S9</td>
+<td>G30，配对F1=1.0000</td>
+</tr>
+<tr>
+<td>F14</td>
+<td>the congestion level</td>
+<td>may be based</td>
+<td>per cell with different feedback profiles depending on the need of an operator</td>
+<td>S9</td>
+<td>G31，配对F1=0.7742</td>
+</tr>
+<tr>
+<td>F28</td>
+<td>the congestion level</td>
+<td>may be based</td>
+<td>per link with different feedback profiles depending on the need of an operator</td>
+<td>S9</td>
+<td>G32，配对F1=0.7742</td>
+</tr>
+<tr>
+<td>F30</td>
+<td>the flexibility of the congestion value</td>
+<td>is enhanced because</td>
+<td>different operators can use different transformation functions or profiles</td>
+<td>S9</td>
+<td>未配对</td>
+</tr>
+<tr>
+<td>F31</td>
+<td>different operators can use different transformation functions or profiles</td>
+<td>such that</td>
+<td>the congestion level may be based per cell and per link with different feedback profiles depending on the need of an operator</td>
+<td>S9</td>
+<td>未配对</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>This enhances the flexibility of the congestion value. Different operators can use different transformation functions and different profiles. The congestion level may be based per cell and per link with different feedback profiles depending on the need of an operator.</p>
+</blockquote>
+<p>对比提示：完整A/B差异见阶段一同句；下列为该句诊断。</p>
+<p><strong>G33：different feedback profiles / depending on / the need of an operator</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。目标关系仍包含在长tail中，没有对应的独立主体和关系字段。</li>
+<li>现有证据：仅作定位的相似片段F31：different operators can use different transformation functions or profiles / such that / the congestion level may be based per cell and per link with different feedback profiles depending on the need of an operator；无法配对的零交集字段：relation。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：1104_3保留 This→enhances，functions/profiles合成or，修复了选择范围；但又新增 is enhanced because（enhanced词形和because均非原文）及整句such that连接。没有出现causes不代表实义词和核心连接词约束已满足。源句确有since因果，比较此处不是凭空发明因果；问题在反馈的用词和目标关系选择。</p>
+<h3 id="section-47">1104_3 doc1/S10：2条未配Gold</h3>
+<blockquote>
+<p>This may lead to inaccuracy due to the varying nature of instantaneous traffic patterns and dependence on medium- to long-term congestion situations for reporting.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F15</td>
+<td>This</td>
+<td>may lead to</td>
+<td>inaccuracy due to the varying nature of instantaneous traffic patterns</td>
+<td>S10</td>
+<td>G34，配对F1=0.5263</td>
+</tr>
+<tr>
+<td>F29</td>
+<td>This</td>
+<td>may lead to</td>
+<td>inaccuracy due to the dependence on medium- to long-term congestion situations for reporting</td>
+<td>S10</td>
+<td>未配对</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>This may lead to inaccuracy due to the varying nature of instantaneous traffic patterns and due to the dependence on medium- to long-term congestion situations for reporting.</p>
+</blockquote>
+<p>对比提示：两侧均为 <code>[]</code>，文本层面没有报告差异。</p>
+<p><strong>G35：inaccuracy / is due to / the varying nature of instantaneous traffic patterns</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。目标关系仍包含在长tail中，没有对应的独立主体和关系字段。</li>
+<li>现有证据：仅作定位的相似片段F15：This / may lead to / inaccuracy due to the varying nature of instantaneous traffic patterns；无法配对的零交集字段：head。这不是有效配对。</li>
+</ul>
+<p><strong>G36：inaccuracy / is due to / dependence on medium- to long-term congestion situations</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。目标关系仍包含在长tail中，没有对应的独立主体和关系字段。</li>
+<li>现有证据：仅作定位的相似片段F29：This / may lead to / inaccuracy due to the dependence on medium- to long-term congestion situations for reporting；无法配对的零交集字段：head。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：两次重建完整复述句子且差异为空，Replace未体现逐字段关系检查。第一种合并可能减少冗余条数但仍未补Gold关系；第二种保留也不是已解决。</p>
+<h3 id="section-48">1104_3 doc2/S1：2条未配Gold</h3>
+<blockquote>
+<p>Even a small open area can present a danger when loose items are being transported in high-traffic areas.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F0</td>
+<td>a small open area</td>
+<td>can present</td>
+<td>a danger when loose items are being transported in high-traffic areas</td>
+<td>S1</td>
+<td>G0，配对F1=0.6154</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>A small open area can present a danger when loose items are being transported in high-traffic areas.</p>
+</blockquote>
+<p>对比提示：两侧均为 <code>[]</code>，文本层面没有报告差异。</p>
+<p><strong>G1：a danger / is when / loose items are being transported in high-traffic areas</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。when条件、运输、法规against、matter位置、viewed/based、conditions归属等仍在长字段，没有独立条目。</li>
+<li>现有证据：仅作定位的相似片段F0：a small open area / can present / a danger when loose items are being transported in high-traffic areas；无法配对的零交集字段：relation。这不是有效配对。</li>
+</ul>
+<p><strong>G2：loose items / are being transported in / high-traffic areas</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。when条件、运输、法规against、matter位置、viewed/based、conditions归属等仍在长字段，没有独立条目。</li>
+<li>现有证据：仅作定位的相似片段F0：a small open area / can present / a danger when loose items are being transported in high-traffic areas；无法配对的零交集字段：head, relation。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：比较1只指出Even省略；比较3为空。应从源句中的when和被动动作识别内部关系，同时保留其处于危险条件的语义，不把运输条件错误扩成无条件事实。</p>
+<h3 id="section-49">1104_3 doc2/S3：1条未配Gold</h3>
+<blockquote>
+<p>Further, the hazards of loose items flying out of the open-top of cargo trailers has led many governing bodies to enact strict laws against such open transport.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F2</td>
+<td>the hazards</td>
+<td>has led</td>
+<td>many governing bodies to enact strict laws against such open transport</td>
+<td>S3</td>
+<td>G7，配对F1=0.4615</td>
+</tr>
+<tr>
+<td>F15</td>
+<td>the hazards</td>
+<td>is of loose items flying out of</td>
+<td>the open-top of cargo trailers</td>
+<td>S3</td>
+<td>G6，配对F1=1.0000</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>The hazards of loose items flying out of the open-top of cargo trailers has led many governing bodies to enact strict laws against such open transport. Loose items fly out of the open-top of cargo trailers.</p>
+</blockquote>
+<p>对比提示：两侧均为 <code>[]</code>，文本层面没有报告差异。</p>
+<p><strong>G8：strict laws / is against / such open transport</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。when条件、运输、法规against、matter位置、viewed/based、conditions归属等仍在长字段，没有独立条目。</li>
+<li>现有证据：仅作定位的相似片段F2：the hazards / has led / many governing bodies to enact strict laws against such open transport；无法配对的零交集字段：head, relation。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：1104_3将错误飞出条目改为 hazards / is of loose items flying out of / open-top...，与G6完全一致；外层head也缩为hazards。G7的 has led many governing bodies to enact 与G8的 laws→against 仍在长tail中。比较3反而为空，说明空差异不等于反馈没有自主修正能力。</p>
+<h3 id="section-50">1104_3 doc2/S5：1条未配Gold</h3>
+<blockquote>
+<p>The matter set forth in the foregoing description and accompanying drawings is offered by way of illustration only and not as a limitation.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F5</td>
+<td>The matter set forth in the foregoing description</td>
+<td>is offered</td>
+<td>by way of illustration only</td>
+<td>S5</td>
+<td>G12，配对F1=0.7200</td>
+</tr>
+<tr>
+<td>F16</td>
+<td>The matter set forth in the foregoing description</td>
+<td>is not offered</td>
+<td>as a limitation</td>
+<td>S5</td>
+<td>G13，配对F1=0.7500</td>
+</tr>
+<tr>
+<td>F17</td>
+<td>The matter set forth in the accompanying drawings</td>
+<td>is offered</td>
+<td>by way of illustration only</td>
+<td>S5</td>
+<td>未配对</td>
+</tr>
+<tr>
+<td>F18</td>
+<td>The matter set forth in the accompanying drawings</td>
+<td>is not offered</td>
+<td>as a limitation</td>
+<td>S5</td>
+<td>未配对</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>The matter set forth in the foregoing description is offered by way of illustration only and is not offered as a limitation. The matter set forth in the accompanying drawings is offered by way of illustration only and is not offered as a limitation.</p>
+</blockquote>
+<p>对比提示：两侧均为 <code>[]</code>，文本层面没有报告差异。</p>
+<p><strong>G11：the matter set forth / is in / the foregoing description and accompanying drawings</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。when条件、运输、法规against、matter位置、viewed/based、conditions归属等仍在长字段，没有独立条目。</li>
+<li>现有证据：仅作定位的相似片段F5：The matter set forth in the foregoing description / is offered / by way of illustration only；无法配对的零交集字段：tail。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：1104_3原4条不变。两次都未补 the matter set forth / is in / description and drawings，也没统一Gold的核心主体边界。对比都为空，需Replace处理长head，Remove只能在独有事实已保住时删。</p>
+<h3 id="section-51">1104_3 doc2/S6：2条未配Gold</h3>
+<blockquote>
+<p>The actual scope of the protection sought is intended to be defined in the following claims when viewed in their proper perspective based on the prior art.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F6</td>
+<td>The actual scope of the protection sought</td>
+<td>is intended to be defined</td>
+<td>in the following claims when viewed in their proper perspective based on the prior art</td>
+<td>S6</td>
+<td>G14，配对F1=0.6977</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>The actual scope of the protection sought is intended to be defined in the following claims when viewed in their proper perspective based on the prior art.</p>
+</blockquote>
+<p>对比提示：两侧均为 <code>[]</code>，文本层面没有报告差异。</p>
+<p><strong>G15：the following claims / are viewed in / their proper perspective</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。when条件、运输、法规against、matter位置、viewed/based、conditions归属等仍在长字段，没有独立条目。</li>
+<li>现有证据：仅作定位的相似片段F6：The actual scope of the protection sought / is intended to be defined / in the following claims when viewed in their proper perspective based on the prior art；无法配对的零交集字段：relation。这不是有效配对。</li>
+</ul>
+<p><strong>G16：their proper perspective / is based on / the prior art</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。when条件、运输、法规against、matter位置、viewed/based、conditions归属等仍在长字段，没有独立条目。</li>
+<li>现有证据：仅作定位的相似片段F6：The actual scope of the protection sought / is intended to be defined / in the following claims when viewed in their proper perspective based on the prior art；无法配对的零交集字段：head。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：G15 claims→viewed in→perspective、G16 perspective→based on→prior art 均未配对；重建直接复现整句，对比为空。当前样本没有多条重复scope条目，之前“doc2/S6重复”的现象不适用于这份输入。</p>
+<h3 id="section-52">1104_3 doc2/S7：1条未配Gold</h3>
+<blockquote>
+<p>Preferably, most of these components are made of strong materials to withstand the conditions of being atop an open cargo area of a vehicle during transportation of goods.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F7</td>
+<td>most of these components</td>
+<td>are made of</td>
+<td>strong materials</td>
+<td>S7</td>
+<td>G17，配对F1=1.0000</td>
+</tr>
+<tr>
+<td>F19</td>
+<td>most of these components</td>
+<td>to withstand</td>
+<td>the conditions of being atop an open cargo area of a vehicle during transportation of goods</td>
+<td>S7</td>
+<td>G18，配对F1=0.4571</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>Most of these components are made of strong materials and are intended to withstand the conditions of being atop an open cargo area of a vehicle during transportation of goods.</p>
+</blockquote>
+<p>对比提示：完整A/B差异见阶段一同句；下列为该句诊断。</p>
+<p><strong>G19：the conditions / are of being atop / an open cargo area of a vehicle during transportation of goods</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。when条件、运输、法规against、matter位置、viewed/based、conditions归属等仍在长字段，没有独立条目。</li>
+<li>现有证据：仅作定位的相似片段F19：most of these components / to withstand / the conditions of being atop an open cargo area of a vehicle during transportation of goods；无法配对的零交集字段：head, relation。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：Gold主体含 most of these components made of strong materials，现主体仍过短；conditions→are of being atop 未独立。比较对intended的新增意图定位有效；Preferably省略不应抢占主要修改目标。</p>
+<h3 id="section-53">1104_3 doc2/S8：1条未配Gold</h3>
+<blockquote>
+<p>Later, a series of bows was brought into use to keep the tarpaulin from lying in direct contact with goods in the truck trailer and to prevent water accumulation.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F8</td>
+<td>a series of bows</td>
+<td>was brought into use to keep</td>
+<td>the tarpaulin from lying in direct contact with goods in the truck trailer</td>
+<td>S8</td>
+<td>G21，配对F1=0.6087</td>
+</tr>
+<tr>
+<td>F9</td>
+<td>a series of bows</td>
+<td>was brought into use to prevent</td>
+<td>water accumulation</td>
+<td>S8</td>
+<td>G22，配对F1=0.6667</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>A series of bows was brought into use to keep the tarpaulin from lying in direct contact with goods in the truck trailer and to prevent water accumulation.</p>
+</blockquote>
+<p>对比提示：两侧均为 <code>[]</code>，文本层面没有报告差异。</p>
+<p><strong>G20：a series of bows / was brought into / use</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：主体层级及字段边界。brought into use被包含在目的relation中，Gold要求独立brought into/use以及不同目的主体边界。</li>
+<li>现有证据：仅作定位的相似片段F8：a series of bows / was brought into use to keep / the tarpaulin from lying in direct contact with goods in the truck trailer；无法配对的零交集字段：tail。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：Gold将 brought into use 放在两个目的关系的主体中，当前放在relation里，导致边界差异和预测数不足。比较1关注Later省略，比较3为空，均没提示Gold独立层级。Later可能有时间语义，是否保留需有明确上下文依据，不应一概删全部背景词。</p>
+<h3 id="section-54">1104_3 doc3/S1：3条未配Gold</h3>
+<blockquote>
+<p>The present invention relates to a rubber composite comprising rubber, oil and a combination of powdered additives, as well as a process for manufacturing same.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F0</td>
+<td>The present invention</td>
+<td>relates to</td>
+<td>a rubber composite</td>
+<td>S1</td>
+<td>G0，配对F1=1.0000</td>
+</tr>
+<tr>
+<td>F1</td>
+<td>The present invention</td>
+<td>relates to</td>
+<td>a process for manufacturing same</td>
+<td>S1</td>
+<td>G4，配对F1=1.0000</td>
+</tr>
+<tr>
+<td>F14</td>
+<td>a rubber composite</td>
+<td>comprising</td>
+<td>rubber</td>
+<td>S1</td>
+<td>未配对</td>
+</tr>
+<tr>
+<td>F15</td>
+<td>a rubber composite</td>
+<td>comprising</td>
+<td>oil</td>
+<td>S1</td>
+<td>未配对</td>
+</tr>
+<tr>
+<td>F16</td>
+<td>a rubber composite</td>
+<td>comprising</td>
+<td>a combination of powdered additives</td>
+<td>S1</td>
+<td>未配对</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>The present invention relates to a rubber composite and a process for manufacturing same. The rubber composite comprises rubber, oil, and a combination of powdered additives.</p>
+</blockquote>
+<p>对比提示：两侧均为 <code>[]</code>，文本层面没有报告差异。</p>
+<p><strong>G1：a rubber composite / comprises / rubber</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：词形与Gold规则冲突。已抽出的组成关系用源句comprising，Gold为comprises；宽松匹配不词形还原，relation零交集。</li>
+<li>现有证据：仅作定位的相似片段F14：a rubber composite / comprising / rubber；无法配对的零交集字段：relation。这不是有效配对。</li>
+</ul>
+<p><strong>G2：a rubber composite / comprises / oil</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：词形与Gold规则冲突。已抽出的组成关系用源句comprising，Gold为comprises；宽松匹配不词形还原，relation零交集。</li>
+<li>现有证据：仅作定位的相似片段F15：a rubber composite / comprising / oil；无法配对的零交集字段：relation。这不是有效配对。</li>
+</ul>
+<p><strong>G3：a rubber composite / comprises / a combination of powdered additives</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：词形与Gold规则冲突。已抽出的组成关系用源句comprising，Gold为comprises；宽松匹配不词形还原，relation零交集。</li>
+<li>现有证据：仅作定位的相似片段F16：a rubber composite / comprising / a combination of powdered additives；无法配对的零交集字段：relation。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：源句comprising、预测comprising，Gold为comprises；现宽松匹配只按空白词元重合，不做词形还原，三个relation零交集，所以均未配对。需用户决定Gold或词形政策，不应为得分擅自要求改词。</p>
+<h3 id="section-55">1104_3 doc3/S2：1条未配Gold</h3>
+<blockquote>
+<p>The incorporation of granulated recycled tire rubber into bitumen aimed to improve the mechanical behavior of bituminous mixtures.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F2</td>
+<td>The incorporation of granulated recycled tire rubber into bitumen</td>
+<td>aimed to improve</td>
+<td>the mechanical behavior of bituminous mixtures</td>
+<td>S2</td>
+<td>G5，配对F1=1.0000</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>The incorporation of granulated recycled tire rubber into bitumen aimed to improve the mechanical behavior of bituminous mixtures.</p>
+</blockquote>
+<p>对比提示：两侧均为 <code>[]</code>，文本层面没有报告差异。</p>
+<p><strong>G6：granulated recycled tire rubber / is incorporated into / bitumen</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：词形与Gold规则冲突。incorporation名词化内部事实未独立；Gold要求incorporated，按实义词原词形政策能否生成需用户裁决。</li>
+<li>现有证据：仅作定位的相似片段F2：The incorporation of granulated recycled tire rubber into bitumen / aimed to improve / the mechanical behavior of bituminous mixtures；无法配对的零交集字段：relation, tail。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：Gold要求 granulated recycled tire rubber / is incorporated into / bitumen，内部事实仍藏在名词化head；但原句只有incorporation，没有incorporated，直接补Gold会触及原词形政策，作为待决项单列。对比为空只能说明复述文字足够。</p>
+<h3 id="section-56">1104_3 doc3/S3：2条未配Gold</h3>
+<blockquote>
+<p>In this connection, the properties of the asphalt bitumen-based binders in high and low temperature conditions are of a decisive importance.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F3</td>
+<td>the properties of the asphalt bitumen-based binders in high and low temperature conditions</td>
+<td>are of</td>
+<td>a decisive importance</td>
+<td>S3</td>
+<td>G7，配对F1=1.0000</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>The properties of the asphalt bitumen-based binders in high and low temperature conditions are of a decisive importance.</p>
+</blockquote>
+<p>对比提示：两侧均为 <code>[]</code>，文本层面没有报告差异。</p>
+<p><strong>G8：the asphalt bitumen-based binders / are in / high temperature conditions</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。位置条件、free of、when条件或SMA修饰关系未形成独立三元组。</li>
+<li>现有证据：仅作定位的相似片段F3：the properties of the asphalt bitumen-based binders in high and low temperature conditions / are of / a decisive importance；无法配对的零交集字段：tail。这不是有效配对。</li>
+</ul>
+<p><strong>G9：the asphalt bitumen-based binders / are in / low temperature conditions</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。位置条件、free of、when条件或SMA修饰关系未形成独立三元组。</li>
+<li>现有证据：仅作定位的相似片段F3：the properties of the asphalt bitumen-based binders in high and low temperature conditions / are of / a decisive importance；无法配对的零交集字段：tail。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：Gold另外要求 binders→are in→high/low conditions 两条，当前没有独立条目。对比为空。是否将条件独立后仍完整限定主关系，需在Replace中同时检查。</p>
+<h3 id="section-57">1104_3 doc3/S5：1条未配Gold</h3>
+<blockquote>
+<p>The term oil-dry thus stands to mean that the external surface, namely the out-most layer of the rubber composite, is substantially, or completely, free of oil.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F8</td>
+<td>The term oil-dry</td>
+<td>stands to mean that</td>
+<td>the external surface is substantially, or completely, free of oil</td>
+<td>S5</td>
+<td>G17，配对F1=0.9412</td>
+</tr>
+<tr>
+<td>F20</td>
+<td>the external surface</td>
+<td>is namely</td>
+<td>the out-most layer of the rubber composite</td>
+<td>S5</td>
+<td>G18，配对F1=1.0000</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>The term oil-dry stands to mean that the external surface, which is namely the out-most layer of the rubber composite, is substantially, or completely, free of oil.</p>
+</blockquote>
+<p>对比提示：两侧均为 <code>[]</code>，文本层面没有报告差异。</p>
+<p><strong>G19：the external surface / is substantially, or completely, free of / oil</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。位置条件、free of、when条件或SMA修饰关系未形成独立三元组。</li>
+<li>现有证据：仅作定位的相似片段F20：the external surface / is namely / the out-most layer of the rubber composite；无法配对的零交集字段：tail。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：Gold的 external surface / is substantially, or completely, free of / oil 未独立，是典型定义tail中关系漏拆；对比为空不能当作结构完成。</p>
+<h3 id="section-58">1104_3 doc3/S6：1条未配Gold</h3>
+<blockquote>
+<p>When the particles are of non-spheroid shape, the term refers to the average equivalent diameter of the particle, namely the diameter of an equivalent spherical particle based on the longest dimension of the particle.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F9</td>
+<td>When the particles are of non-spheroid shape, the term</td>
+<td>refers to</td>
+<td>the average equivalent diameter of the particle</td>
+<td>S6</td>
+<td>G21，配对F1=0.7586</td>
+</tr>
+<tr>
+<td>F21</td>
+<td>When the particles are of non-spheroid shape, the average equivalent diameter of the particle</td>
+<td>is namely</td>
+<td>the diameter of an equivalent spherical particle</td>
+<td>S6</td>
+<td>G22，配对F1=0.8205</td>
+</tr>
+<tr>
+<td>F22</td>
+<td>When the particles are of non-spheroid shape, the diameter of an equivalent spherical particle</td>
+<td>is based on</td>
+<td>the longest dimension of the particle</td>
+<td>S6</td>
+<td>G23，配对F1=0.8205</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>When the particles are of non-spheroid shape, the term refers to the average equivalent diameter of the particle. The average equivalent diameter is namely the diameter of an equivalent spherical particle, and the diameter of an equivalent spherical particle is based on the longest dimension of the particle.</p>
+</blockquote>
+<p>对比提示：两侧均为 <code>[]</code>，文本层面没有报告差异。</p>
+<p><strong>G20：the particles / are of / non-spheroid shape</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。位置条件、free of、when条件或SMA修饰关系未形成独立三元组。</li>
+<li>现有证据：仅作定位的相似片段F9：When the particles are of non-spheroid shape, the term / refers to / the average equivalent diameter of the particle；无法配对的零交集字段：relation, tail。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：当前既没有独立条件事实，又有主语冗长导致的宽松折损。把条件从head拿走后仍要保留其限定范围，不能为了Gold丢掉when的成立条件。对比为空。</p>
+<h3 id="section-59">1104_3 doc3/S9：4条未配Gold</h3>
+<blockquote>
+<p>It is clearly the lowest value as compared with tradition Asphalt Rubber gap graded mixtures (with and without RAR) or even compared with traditional SMA mixtures with highly modified bitumen and fibres.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F12</td>
+<td>It</td>
+<td>is clearly the lowest value as compared with</td>
+<td>tradition Asphalt Rubber gap graded mixtures (with and without RAR) or even traditional SMA mixtures with highly modified bitumen and fibres</td>
+<td>S9</td>
+<td>未配对</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>It is clearly the lowest value as compared with tradition Asphalt Rubber gap graded mixtures (with and without RAR) and traditional SMA mixtures with highly modified bitumen and fibres.</p>
+</blockquote>
+<p>对比提示：完整A/B差异见阶段一同句；下列为该句诊断。</p>
+<p><strong>G29：it / is clearly / the lowest value</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：主体层级及字段边界。lowest value留在relation中、比较对象留在长tail，Gold要求lowest value核心断言及以它为主体的比较关系。</li>
+<li>现有证据：仅作定位的相似片段F12：It / is clearly the lowest value as compared with / tradition Asphalt Rubber gap graded mixtures (with and without RAR) or even traditional SMA mixtures with highly modified bitumen and fibres；无法配对的零交集字段：tail。这不是有效配对。</li>
+</ul>
+<p><strong>G30：the lowest value / is compared with / tradition Asphalt Rubber gap graded mixtures (with and without RAR)</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：主体层级及字段边界。lowest value留在relation中、比较对象留在长tail，Gold要求lowest value核心断言及以它为主体的比较关系。</li>
+<li>现有证据：仅作定位的相似片段F12：It / is clearly the lowest value as compared with / tradition Asphalt Rubber gap graded mixtures (with and without RAR) or even traditional SMA mixtures with highly modified bitumen and fibres；无法配对的零交集字段：head。这不是有效配对。</li>
+</ul>
+<p><strong>G31：the lowest value / is even compared with / traditional SMA mixtures with highly modified bitumen and fibres</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：主体层级及字段边界。lowest value留在relation中、比较对象留在长tail，Gold要求lowest value核心断言及以它为主体的比较关系。</li>
+<li>现有证据：仅作定位的相似片段F12：It / is clearly the lowest value as compared with / tradition Asphalt Rubber gap graded mixtures (with and without RAR) or even traditional SMA mixtures with highly modified bitumen and fibres；无法配对的零交集字段：head。这不是有效配对。</li>
+</ul>
+<p><strong>G32：traditional SMA mixtures / are with highly modified / bitumen and fibres</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。位置条件、free of、when条件或SMA修饰关系未形成独立三元组。</li>
+<li>现有证据：仅作定位的相似片段F12：It / is clearly the lowest value as compared with / tradition Asphalt Rubber gap graded mixtures (with and without RAR) or even traditional SMA mixtures with highly modified bitumen and fibres；无法配对的零交集字段：head。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：宽松全篇P可能仅因删除一条不配对预测而升高，属于条数效应，不是Gold覆盖改善。对比两次都发现and替代or，是重建错误与三元组结构问题并存的例子。</p>
+<h3 id="section-60">1104_3 doc3/S10：2条未配Gold</h3>
+<blockquote>
+<p>It should be noted that the range is given as such merely for convenience and brevity and should not be construed as an inflexible limitation on the scope of the invention.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F13</td>
+<td>the range</td>
+<td>is given as such merely for</td>
+<td>convenience and brevity</td>
+<td>S10</td>
+<td>G33，配对F1=0.9000</td>
+</tr>
+<tr>
+<td>F26</td>
+<td>the range</td>
+<td>should not be construed as</td>
+<td>an inflexible limitation on the scope of the invention</td>
+<td>S10</td>
+<td>G35，配对F1=1.0000</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>The range is given as such merely for convenience and brevity, and should not be construed as an inflexible limitation on the scope of the invention.</p>
+</blockquote>
+<p>对比提示：两侧均为 <code>[]</code>，文本层面没有报告差异。</p>
+<p><strong>G34：the range / is given as such merely for / brevity</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：一对一容量或目标粒度。convenience and brevity共一个预测，已配给convenience，无法再次配brevity。</li>
+<li>现有证据：本句最接近的可配候选F13：the range / is given as such merely for / convenience and brevity；候选配对F1=0.9000。全篇已配给G33。</li>
+</ul>
+<p><strong>G36：the range / should not be construed as an inflexible limitation on / the scope of the invention</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：Gold重复或边界变体。Gold还以另一字段切法再标一次not limitation；一条预测已配G35，不能重复使用。</li>
+<li>现有证据：本句最接近的可配候选F26：the range / should not be construed as / an inflexible limitation on the scope of the invention；候选配对F1=0.7500。全篇已配给G35。</li>
+</ul>
+<p>反馈环节与对比的关系：Gold将convenience/brevity拆成两条，且又用两种边界写出not limitation，4条Gold竞争2条预测，G34与G36未配对。第一个是并列粒度差异，第二个更像Gold重复/边界口径，需用户决定是否保留两种目标，不能统一称为新增两个源文事实。</p>
+<h3 id="section-61">1104_3 doc4/S3：2条未配Gold</h3>
+<blockquote>
+<p>The selecting unit is for selecting at least one of the communication paths for the vehicle according to the evaluation items based on the item importance information.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F3</td>
+<td>The selecting unit</td>
+<td>is for selecting</td>
+<td>at least one of the communication paths for the vehicle according to the evaluation items</td>
+<td>S3</td>
+<td>G4，配对F1=0.8649</td>
+</tr>
+<tr>
+<td>F12</td>
+<td>the evaluation items</td>
+<td>are based on</td>
+<td>the item importance information</td>
+<td>S2,S3</td>
+<td>G3，配对F1=1.0000</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>The selecting unit is for selecting at least one of the communication paths for the vehicle according to the evaluation items, which are based on the item importance information.</p>
+</blockquote>
+<p>对比提示：完整A/B差异见阶段一同句；下列为该句诊断。</p>
+<p><strong>G5：selecting at least one of the communication paths for the vehicle / is according to / the evaluation items</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。according to、of或with连接未独立；其中with目标是否合理需单列Gold审查。</li>
+<li>现有证据：本句最接近的可配候选F3：The selecting unit / is for selecting / at least one of the communication paths for the vehicle according to the evaluation items；候选配对F1=0.3158。全篇已配给G4。</li>
+</ul>
+<p><strong>G6：the evaluation items / are based on / the item importance information</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：Gold重复或边界变体。与S2/G3完全相同的based-on事实，当前一个共享来源预测已配G3；非完全没有抽取。</li>
+<li>现有证据：本句最接近的可配候选F12：the evaluation items / are based on / the item importance information；候选配对F1=1.0000。全篇已配给G3。</li>
+</ul>
+<p>反馈环节与对比的关系：另一个未配对G6与S2的G3完全相同，当前共享条目已配给G3，不能说模型完全没抽based-on。按句单独评分会让同一预测重复计分，因此主报告保持全篇评价。</p>
+<h3 id="section-62">1104_3 doc4/S7：1条未配Gold</h3>
+<blockquote>
+<p>All of the evaluation items EV of each of the communication paths PH in the third group G3 is worse than the standard thresholds E0.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F7</td>
+<td>All of the evaluation items EV of each of the communication paths PH in the third group G3</td>
+<td>is worse than</td>
+<td>the standard thresholds E0</td>
+<td>S7</td>
+<td>G12，配对F1=0.6842</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>All of the evaluation items EV of each of the communication paths PH in the third group G3 is worse than the standard thresholds E0.</p>
+</blockquote>
+<p>对比提示：两侧均为 <code>[]</code>，文本层面没有报告差异。</p>
+<p><strong>G13：all of the evaluation items EV / is of / each of the communication paths PH in the third group G3</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。according to、of或with连接未独立；其中with目标是否合理需单列Gold审查。</li>
+<li>现有证据：本句最接近的可配候选F7：All of the evaluation items EV of each of the communication paths PH in the third group G3 / is worse than / the standard thresholds E0；候选配对F1=0.3636。全篇已配给G12。</li>
+</ul>
+<p>反馈环节与对比的关系：Gold另有 evaluation items / is of / paths in G3，当前未独立；对比为空，因为整句可直接重建。主语缩短与内部归属同时处理，不能只新增再让长主语保持原样。</p>
+<h3 id="section-63">1104_3 doc4/S8：1条未配Gold</h3>
+<blockquote>
+<p>In the good category of the available bandwidth, the value of the routing path latency is equal to or lower than 500 kbps.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F8</td>
+<td>the value of the routing path latency</td>
+<td>in the good category of the available bandwidth, is equal to or lower than</td>
+<td>500 kbps</td>
+<td>S8</td>
+<td>G14，配对F1=0.7895</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>The value of the routing path latency in the good category of the available bandwidth is equal to or lower than 500 kbps.</p>
+</blockquote>
+<p>对比提示：完整A/B差异见阶段一同句；下列为该句诊断。</p>
+<p><strong>G15：the value of the routing path latency / is equal to or lower than 500 kbps in / the good category of the available bandwidth</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：Gold重复或边界变体。同一阈值在Gold中分别以数值和分类两种边界给出，单条预测只可配一次。</li>
+<li>现有证据：仅作定位的相似片段F8：the value of the routing path latency / in the good category of the available bandwidth, is equal to or lower than / 500 kbps；无法配对的零交集字段：tail。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：Gold还要求阈值/分类关系的另一种切法，单条预测不能同时配两条，因此G15未配对。源文kbps与latency组合虽可疑，Gold同样如此；应由用户决定是否纠正数据，模型不能凭领域常识改数字或单位。比较3列纯语序变化而自认无事实差异。</p>
+<h3 id="section-64">1104_3 doc4/S9：2条未配Gold</h3>
+<blockquote>
+<p>It is intended that the specification and examples be considered as exemplary only, with a true scope of the disclosure being indicated by the following claims and their equivalents.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F9</td>
+<td>the specification</td>
+<td>is intended to be considered as</td>
+<td>exemplary only</td>
+<td>S9</td>
+<td>未配对</td>
+</tr>
+<tr>
+<td>F10</td>
+<td>a true scope of the disclosure</td>
+<td>is indicated by</td>
+<td>the following claims and their equivalents</td>
+<td>S9</td>
+<td>G18，配对F1=0.6667</td>
+</tr>
+<tr>
+<td>F15</td>
+<td>examples</td>
+<td>are intended to be considered as</td>
+<td>exemplary only</td>
+<td>S9</td>
+<td>G16，配对F1=0.5882</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>The specification and examples are intended to be considered as exemplary only. A true scope of the disclosure is indicated by the following claims and their equivalents.</p>
+</blockquote>
+<p>对比提示：完整A/B差异见阶段一同句；下列为该句诊断。</p>
+<p><strong>G17：the specification and examples / are considered as exemplary only with / a true scope of the disclosure</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：字段内部关系未独立。according to、of或with连接未独立；其中with目标是否合理需单列Gold审查。</li>
+<li>现有证据：仅作定位的相似片段F9：the specification / is intended to be considered as / exemplary only；无法配对的零交集字段：tail。这不是有效配对。</li>
+</ul>
+<p><strong>G19：the disclosure / is being indicated by / their equivalents</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：主体层级及字段边界。预测主体scope且claims/equivalents同放tail；Gold主体disclosure并拆对象，属于主体、粒度及Gold指代争议。</li>
+<li>现有证据：本句最接近的可配候选F10：a true scope of the disclosure / is indicated by / the following claims and their equivalents；候选配对F1=0.6087。全篇已配给G18。</li>
+</ul>
+<p>反馈环节与对比的关系：当前Gold包含集合主语、with范围连接、以disclosure为主语的indicated by及拆分claims/equivalents。模型结果与其不完全一致；源句直接被指明的是a true scope，Gold却用disclosure，单列待用户决策。比较把intended that改成 intended to也说成丢语气，部分是等价改写噪声。</p>
+<h3 id="section-65">1104_3 doc4/S10：1条未配Gold</h3>
+<blockquote>
+<p>In the good category of the routing path latency, the value of the routing path latency is equal to or lower than 50 ms.</p>
+</blockquote>
+<p>当前本句预测：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+<th>来源</th>
+<th>整篇配对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F11</td>
+<td>the value of the routing path latency</td>
+<td>in the good category of the routing path latency, is equal to or lower than</td>
+<td>50 ms</td>
+<td>S10</td>
+<td>G20，配对F1=0.7692</td>
+</tr>
+</tbody></table></div>
+<p>重建文本：</p>
+<blockquote>
+<p>The value of the routing path latency in the good category of the routing path latency is equal to or lower than 50 ms.</p>
+</blockquote>
+<p>对比提示：完整A/B差异见阶段一同句；下列为该句诊断。</p>
+<p><strong>G21：the value of the routing path latency / is equal to or lower than 50 ms in / the good category of the routing path latency</strong></p>
+<ul>
+<li>匹配状态：输入也未配对。</li>
+<li>主要原因：Gold重复或边界变体。同一阈值在Gold中分别以数值和分类两种边界给出，单条预测只可配一次。</li>
+<li>现有证据：仅作定位的相似片段F11：the value of the routing path latency / in the good category of the routing path latency, is equal to or lower than / 50 ms；无法配对的零交集字段：tail。这不是有效配对。</li>
+</ul>
+<p>反馈环节与对比的关系：Gold另一条将分类放到tail的表达没有独立预测，G21未配对。比较1为空，比较3仅报告语序变化；两者均不能直接指导是否需要双重Gold条目。</p>
+<h2 id="section-66">两次都已配对、但仍明显偏离Gold的重点</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>位置</th>
+<th>问题</th>
+<th>为何未出现在未配Gold列表</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>doc0/S3</td>
+<td>长head/tail反复包含make up，两个components条目重叠，Gold还有vlidation拼写</td>
+<td>有词元重合可软配，不代表层级清楚</td>
+</tr>
+<tr>
+<td>doc0/S4</td>
+<td>能力恢复但定义tail继续扩长；data in字段边界不一致</td>
+<td>各项仍可软配</td>
+</tr>
+<tr>
+<td>doc1/S7</td>
+<td>at least one of选择列表拆3条，Gold只1条</td>
+<td>一条可配，其他预测损P</td>
+</tr>
+<tr>
+<td>doc2/S7</td>
+<td>withstand主体缺made of strong materials，conditions未独立</td>
+<td>目的条目仍可软配，条件条目另属未配</td>
+</tr>
+<tr>
+<td>doc3/S4</td>
+<td>external surface / is / outmost surface of particles的边界</td>
+<td>仍有三个字段交集</td>
+</tr>
+<tr>
+<td>doc3/S7</td>
+<td>grinding the rubber与Gold的a pre-step of grinding the rubber；to a desired size边界</td>
+<td>目标有配对但非满分</td>
+</tr>
+<tr>
+<td>doc3/S8</td>
+<td>Gold为all the possible individual numerical values，预测没有all the possible</td>
+<td>软配可选但R折损</td>
+</tr>
+<tr>
+<td>doc4/S5</td>
+<td>Gold belongs外层head包含located短语，预测为shaded area</td>
+<td>软配但head覆盖下降</td>
+</tr>
+<tr>
+<td>doc4/S9</td>
+<td>scope与disclosure、集合主体与单体、claims与equivalents粒度</td>
+<td>部分可配不等于全部目标满足</td>
+</tr>
+</tbody></table></div>
+<h2 id="section-67">全部最终未配预测条目</h2>
+<p>这些条目在主评价中未被选中；不能一律称为错误或重复。可能是Gold未标、粒度不同、词形冲突或词面错位。</p>
+<h3 id="section-68">1104_1 未配预测</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>位置</th>
+<th>来源</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>doc0/F1</td>
+<td>S1</td>
+<td>such elements</td>
+<td>do not facilitate</td>
+<td>a better understanding of the present disclosure</td>
+</tr>
+<tr>
+<td>doc0/F8</td>
+<td>S6</td>
+<td>Embodiments of the invention</td>
+<td>may also be implemented in</td>
+<td>hardware</td>
+</tr>
+<tr>
+<td>doc0/F10</td>
+<td>S8</td>
+<td>this, while specific exemplary embodiments have been discussed</td>
+<td>is done for</td>
+<td>illustration purposes only</td>
+</tr>
+<tr>
+<td>doc0/F12</td>
+<td>S10</td>
+<td>This method</td>
+<td>may be integrated in a variety of systems including</td>
+<td>connected cars, car sharing, rental car services, maintenance and factory services</td>
+</tr>
+<tr>
+<td>doc0/F14</td>
+<td>S1</td>
+<td>such operations</td>
+<td>do not facilitate</td>
+<td>a better understanding of the present disclosure</td>
+</tr>
+<tr>
+<td>doc0/F17</td>
+<td>S3</td>
+<td>any of the components of the vehicle</td>
+<td>make up</td>
+<td>the vehicle</td>
+</tr>
+<tr>
+<td>doc0/F22</td>
+<td>S6</td>
+<td>Embodiments of the invention</td>
+<td>may also be implemented in</td>
+<td>firmware</td>
+</tr>
+<tr>
+<td>doc0/F23</td>
+<td>S6</td>
+<td>Embodiments of the invention</td>
+<td>may also be implemented in</td>
+<td>software</td>
+</tr>
+<tr>
+<td>doc0/F25</td>
+<td>S7</td>
+<td>instructions</td>
+<td>may be read and executed by a computing platform to perform</td>
+<td>the operations described herein</td>
+</tr>
+<tr>
+<td>doc1/F7</td>
+<td>S7</td>
+<td>said transformation function</td>
+<td>amends at least one of</td>
+<td>a number of congestion levels</td>
+</tr>
+<tr>
+<td>doc1/F8</td>
+<td>S9</td>
+<td>This</td>
+<td>enhances the flexibility of the congestion value because</td>
+<td>different operators can use different transformation functions or profiles</td>
+</tr>
+<tr>
+<td>doc1/F18</td>
+<td>S7</td>
+<td>said transformation function</td>
+<td>amends at least one of</td>
+<td>a shape of a congestion level curve</td>
+</tr>
+<tr>
+<td>doc1/F19</td>
+<td>S5</td>
+<td>such illustration and description</td>
+<td>are to be considered illustrative or exemplary and not restrictive, while</td>
+<td>the invention has been illustrated and described in detail in the drawings and foregoing description</td>
+</tr>
+<tr>
+<td>doc1/F20</td>
+<td>S8</td>
+<td>they</td>
+<td>are used in a generic and descriptive sense only and not for purposes of limitation, although</td>
+<td>specific terms are employed herein</td>
+</tr>
+<tr>
+<td>doc1/F21</td>
+<td>S9</td>
+<td>different operators can use different transformation functions or profiles</td>
+<td>is such that</td>
+<td>the congestion level may be based per cell and per link with different feedback profiles depending on the need of an operator</td>
+</tr>
+<tr>
+<td>doc2/F6</td>
+<td>S5</td>
+<td>The matter set forth in the foregoing description and accompanying drawings</td>
+<td>is not offered</td>
+<td>as a limitation</td>
+</tr>
+<tr>
+<td>doc2/F12</td>
+<td>S10</td>
+<td>A first set of left pulleys</td>
+<td>are attached at</td>
+<td>the front</td>
+</tr>
+<tr>
+<td>doc2/F13</td>
+<td>S10</td>
+<td>a second set of left pulleys</td>
+<td>are attached at</td>
+<td>the rear of the cargo hold</td>
+</tr>
+<tr>
+<td>doc2/F16</td>
+<td>S3</td>
+<td>loose items</td>
+<td>fly out of</td>
+<td>the open-top of cargo trailers</td>
+</tr>
+<tr>
+<td>doc2/F19</td>
+<td>S5</td>
+<td>The matter set forth in the accompanying drawings</td>
+<td>is not offered</td>
+<td>as a limitation</td>
+</tr>
+<tr>
+<td>doc2/F21</td>
+<td>S10</td>
+<td>A first set of right pulleys</td>
+<td>are attached at</td>
+<td>the front</td>
+</tr>
+<tr>
+<td>doc2/F22</td>
+<td>S10</td>
+<td>a second set of right pulleys</td>
+<td>are attached at</td>
+<td>the rear of the cargo hold</td>
+</tr>
+<tr>
+<td>doc3/F12</td>
+<td>S9</td>
+<td>It</td>
+<td>is clearly the lowest value as compared with</td>
+<td>tradition Asphalt Rubber gap graded mixtures (with and without RAR) or even traditional SMA mixtures with highly modified bitumen and fibres</td>
+</tr>
+<tr>
+<td>doc3/F14</td>
+<td>S1</td>
+<td>a rubber composite</td>
+<td>comprising</td>
+<td>rubber</td>
+</tr>
+<tr>
+<td>doc3/F15</td>
+<td>S1</td>
+<td>a rubber composite</td>
+<td>comprising</td>
+<td>oil</td>
+</tr>
+<tr>
+<td>doc3/F16</td>
+<td>S1</td>
+<td>a rubber composite</td>
+<td>comprising</td>
+<td>a combination of powdered additives</td>
+</tr>
+<tr>
+<td>doc4/F9</td>
+<td>S9</td>
+<td>the specification</td>
+<td>is intended to be considered as</td>
+<td>exemplary only</td>
+</tr>
+</tbody></table></div>
+<h3 id="section-69">1104_3 未配预测</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>位置</th>
+<th>来源</th>
+<th>head</th>
+<th>relation</th>
+<th>tail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>doc0/F1</td>
+<td>S1</td>
+<td>such elements</td>
+<td>do not facilitate</td>
+<td>a better understanding of the present disclosure</td>
+</tr>
+<tr>
+<td>doc0/F7</td>
+<td>S6</td>
+<td>Embodiments of the invention</td>
+<td>may also be implemented in</td>
+<td>hardware</td>
+</tr>
+<tr>
+<td>doc0/F11</td>
+<td>S10</td>
+<td>This method</td>
+<td>may be integrated in</td>
+<td>connected cars</td>
+</tr>
+<tr>
+<td>doc0/F13</td>
+<td>S1</td>
+<td>such operations</td>
+<td>do not facilitate</td>
+<td>a better understanding of the present disclosure</td>
+</tr>
+<tr>
+<td>doc0/F14</td>
+<td>S2</td>
+<td>the controller</td>
+<td>may identify</td>
+<td>which PUF component is compromised</td>
+</tr>
+<tr>
+<td>doc0/F15</td>
+<td>S2</td>
+<td>the controller</td>
+<td>may determine</td>
+<td>where in the sub-system the compromise is located</td>
+</tr>
+<tr>
+<td>doc0/F18</td>
+<td>S3</td>
+<td>any of the components that make up the vehicle</td>
+<td>make up</td>
+<td>the vehicle</td>
+</tr>
+<tr>
+<td>doc0/F22</td>
+<td>S5</td>
+<td>all technical equivalents</td>
+<td>operate in</td>
+<td>a similar manner</td>
+</tr>
+<tr>
+<td>doc0/F24</td>
+<td>S6</td>
+<td>Embodiments of the invention</td>
+<td>may also be implemented in</td>
+<td>firmware</td>
+</tr>
+<tr>
+<td>doc0/F25</td>
+<td>S6</td>
+<td>Embodiments of the invention</td>
+<td>may also be implemented in</td>
+<td>software</td>
+</tr>
+<tr>
+<td>doc0/F27</td>
+<td>S6,S7</td>
+<td>instructions</td>
+<td>may be read by</td>
+<td>a computing platform</td>
+</tr>
+<tr>
+<td>doc0/F28</td>
+<td>S6,S7</td>
+<td>instructions</td>
+<td>may be executed by</td>
+<td>a computing platform</td>
+</tr>
+<tr>
+<td>doc0/F31</td>
+<td>S10</td>
+<td>This method</td>
+<td>may be integrated in</td>
+<td>car sharing</td>
+</tr>
+<tr>
+<td>doc0/F32</td>
+<td>S10</td>
+<td>This method</td>
+<td>may be integrated in</td>
+<td>rental car services</td>
+</tr>
+<tr>
+<td>doc0/F33</td>
+<td>S10</td>
+<td>This method</td>
+<td>may be integrated in</td>
+<td>maintenance</td>
+</tr>
+<tr>
+<td>doc0/F34</td>
+<td>S10</td>
+<td>This method</td>
+<td>may be integrated in</td>
+<td>factory services</td>
+</tr>
+<tr>
+<td>doc1/F9</td>
+<td>S7</td>
+<td>said transformation function</td>
+<td>amends at least one of</td>
+<td>a number of congestion levels</td>
+</tr>
+<tr>
+<td>doc1/F26</td>
+<td>S7</td>
+<td>said transformation function</td>
+<td>amends at least one of</td>
+<td>a shape of a congestion level curve</td>
+</tr>
+<tr>
+<td>doc1/F29</td>
+<td>S10</td>
+<td>This</td>
+<td>may lead to</td>
+<td>inaccuracy due to the dependence on medium- to long-term congestion situations for reporting</td>
+</tr>
+<tr>
+<td>doc1/F30</td>
+<td>S9</td>
+<td>the flexibility of the congestion value</td>
+<td>is enhanced because</td>
+<td>different operators can use different transformation functions or profiles</td>
+</tr>
+<tr>
+<td>doc1/F31</td>
+<td>S9</td>
+<td>different operators can use different transformation functions or profiles</td>
+<td>such that</td>
+<td>the congestion level may be based per cell and per link with different feedback profiles depending on the need of an operator</td>
+</tr>
+<tr>
+<td>doc1/F32</td>
+<td>S5</td>
+<td>the invention has been illustrated and described in detail in the drawings and foregoing description</td>
+<td>while</td>
+<td>such illustration and description are to be considered illustrative or exemplary and not restrictive</td>
+</tr>
+<tr>
+<td>doc1/F33</td>
+<td>S8</td>
+<td>specific terms are employed herein</td>
+<td>although</td>
+<td>they are used in a generic and descriptive sense only and not for purposes of limitation</td>
+</tr>
+<tr>
+<td>doc2/F17</td>
+<td>S5</td>
+<td>The matter set forth in the accompanying drawings</td>
+<td>is offered</td>
+<td>by way of illustration only</td>
+</tr>
+<tr>
+<td>doc2/F18</td>
+<td>S5</td>
+<td>The matter set forth in the accompanying drawings</td>
+<td>is not offered</td>
+<td>as a limitation</td>
+</tr>
+<tr>
+<td>doc3/F12</td>
+<td>S9</td>
+<td>It</td>
+<td>is clearly the lowest value as compared with</td>
+<td>tradition Asphalt Rubber gap graded mixtures (with and without RAR) or even traditional SMA mixtures with highly modified bitumen and fibres</td>
+</tr>
+<tr>
+<td>doc3/F14</td>
+<td>S1</td>
+<td>a rubber composite</td>
+<td>comprising</td>
+<td>rubber</td>
+</tr>
+<tr>
+<td>doc3/F15</td>
+<td>S1</td>
+<td>a rubber composite</td>
+<td>comprising</td>
+<td>oil</td>
+</tr>
+<tr>
+<td>doc3/F16</td>
+<td>S1</td>
+<td>a rubber composite</td>
+<td>comprising</td>
+<td>a combination of powdered additives</td>
+</tr>
+<tr>
+<td>doc4/F9</td>
+<td>S9</td>
+<td>the specification</td>
+<td>is intended to be considered as</td>
+<td>exemplary only</td>
+</tr>
+</tbody></table></div>
+
+<footer>由同目录 Markdown 生成；数据、评价口径和证据范围均以正文为准。</footer></main></div>
+<script>document.getElementById('toc-filter').addEventListener('input',function(){const q=this.value.trim().toLowerCase();document.querySelectorAll('aside a').forEach(a=>{a.hidden=!a.textContent.toLowerCase().includes(q);});});</script>
+</body></html>
