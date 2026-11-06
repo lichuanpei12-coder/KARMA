@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>反馈问题总结与修改建议　含三元组证据</title><style>
+:root{color-scheme:light;--ink:#19283b;--muted:#657489;--line:#dce4ee;--blue:#245f9b;--bg:#f3f6fa}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:26px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.85 "Microsoft YaHei","PingFang SC",system-ui,sans-serif}
+a{color:var(--blue);text-underline-offset:3px}header{padding:22px 32px;background:#16324e;color:#fff}
+header .label{font-size:18px;font-weight:700}header p{margin:4px 0 0;font-size:13px;color:#d0e0f0}
+.layout{display:grid;grid-template-columns:270px minmax(0,1fr);max-width:1550px;margin:auto;gap:24px;padding:24px}
+aside{position:sticky;top:18px;align-self:start;max-height:calc(100vh - 36px);overflow:auto;background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px}
+aside h2{font-size:16px;margin:0 0 12px}aside a{display:block;text-decoration:none;font-size:13px;line-height:1.6;padding:7px 0;border-bottom:1px solid #edf1f6}
+aside a.sub{padding-left:12px;color:#53657b}aside a:hover{color:var(--blue);background:#f4f8fe}
+aside a[hidden]{display:none}aside input{width:100%;padding:8px;border:1px solid #cbd6e3;border-radius:5px;font:inherit;font-size:13px;margin-bottom:10px}
+main{min-width:0;background:#fff;border:1px solid var(--line);border-radius:10px;padding:28px 36px}
+h1{font-size:27px;line-height:1.5;margin:0 0 24px}h2{font-size:23px;margin:38px 0 18px;padding-bottom:8px;border-bottom:2px solid #d5e3f2}
+h3{font-size:19px;line-height:1.6;margin:32px 0 18px;background:#edf4fc;border-left:4px solid #377ab4;padding:12px 15px;border-radius:0 6px 6px 0}
+h4{font-size:17px}p{margin:12px 0}li{margin:6px 0}strong{font-weight:700}blockquote{margin:15px 0;padding:10px 18px;border-left:4px solid #ccd9e7;background:#f7f9fc}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f5f7fa;border:1px solid #e1e7ee;border-radius:7px;padding:15px 18px;font:14px/1.8 Consolas,"Microsoft YaHei",monospace}
+code{font-family:Consolas,"Microsoft YaHei",monospace;font-size:.91em;background:#edf2f7;padding:2px 4px;border-radius:3px;overflow-wrap:anywhere}pre code{font-size:inherit;background:transparent;padding:0}
+.table-wrap{overflow-x:auto;margin:16px 0;border:1px solid var(--line);border-radius:6px}
+table{width:100%;border-collapse:collapse;font-size:14px;line-height:1.7;table-layout:auto}th,td{padding:10px 12px;text-align:left;vertical-align:top;border-right:1px solid var(--line);border-bottom:1px solid var(--line);overflow-wrap:anywhere}
+th{background:#eaf0f7;font-weight:700}th:last-child,td:last-child{border-right:0}tr:last-child td{border-bottom:0}tbody tr:nth-child(even){background:#f8fafc}
+hr{border:0;border-top:1px solid var(--line);margin:30px 0}.filelinks{display:flex;gap:20px;flex-wrap:wrap;font-size:13px;margin:0 0 24px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid var(--line);padding-top:15px}
+@media(max-width:900px){.layout{display:block;padding:12px}aside{position:static;max-height:300px;margin-bottom:16px}main{padding:22px 18px}header{padding:18px}h1{font-size:23px}h2{font-size:21px}th,td{padding:8px}}
+@media print{body{background:#fff;font-size:11pt}.layout{display:block;padding:0}aside,header,.filelinks,footer{display:none}main{border:0;padding:0}.table-wrap{overflow:visible}pre,table{font-size:9pt}h2,h3{break-after:avoid}tr{break-inside:avoid}a{color:inherit;text-decoration:none}}
+</style></head><body>
+<header><div class="label">反馈效果分析 · 问题总结与建议</div><p>最新运行 A / B · 修改后 Gold · 2026-11-05</p></header>
+<div class="layout"><aside aria-label="文章目录"><h2>目录</h2><input id="toc-filter" type="search" aria-label="筛选目录" placeholder="查找 doc0 / S7 等内容"><a class="" href="#section-1">整体结果</a>
+<a class="" href="#section-2">两次结果为什么分叉</a>
+<a class="" href="#section-3">关键案例与操作证据</a>
+<a class="sub" href="#section-4">doc0/S2　补目的链后核对原有独立动作</a>
+<a class="sub" href="#section-5">doc0/S4 和 doc4/S2–S3　长尾吸收独立关系</a>
+<a class="sub" href="#section-6">doc2/S10　恢复正确集合后清理重复</a>
+<a class="sub" href="#section-7">doc1/S5、S8　话语连接触发整句三元组</a>
+<a class="" href="#section-8">下一轮 Prompt 精简可保留的检查</a>
+<a class="" href="#section-9">来源与核对</a></aside>
+<main><div class="filelinks"><a href="%E5%8F%8D%E9%A6%88%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93%E4%B8%8E%E4%BF%AE%E6%94%B9%E5%BB%BA%E8%AE%AE_%E5%90%AB%E4%B8%89%E5%85%83%E7%BB%84%E8%AF%81%E6%8D%AE.md">查看 Markdown 原文</a><a href="%E9%98%B6%E6%AE%B5%E4%B8%80_%E4%B8%A4%E6%AC%A1%E5%8F%8D%E9%A6%88%E5%8F%98%E5%8C%96_%E9%80%90%E5%8F%A5%E5%AE%8C%E6%95%B4%E5%AF%B9%E7%85%A7.html">打开阶段一 · 反馈变化</a><a href="%E9%98%B6%E6%AE%B5%E4%BA%8C_%E5%89%A9%E4%BD%99Gold%E5%B7%AE%E8%B7%9D%E4%B8%8E%E4%B8%AD%E9%97%B4%E8%AF%81%E6%8D%AE.html">打开阶段二 · 剩余差距</a></div><h1 id="section-0">反馈问题总结与修改建议　含三元组证据</h1>
+<p>分析日期 2026-11-05。A 为本次消息前 3 份附件，B 为后 3 份，均按中间阶段记录、R2 三元组和差异摘要配组。附件未提供准确运行名、模型和 Git 提交。</p>
+<p>关联报告 · <a href="%E9%98%B6%E6%AE%B5%E4%B8%80_%E4%B8%A4%E6%AC%A1%E5%8F%8D%E9%A6%88%E5%8F%98%E5%8C%96_%E9%80%90%E5%8F%A5%E5%AE%8C%E6%95%B4%E5%AF%B9%E7%85%A7.md">阶段一_两次反馈变化_逐句完整对照</a> · <a href="%E9%98%B6%E6%AE%B5%E4%BA%8C_%E5%89%A9%E4%BD%99Gold%E5%B7%AE%E8%B7%9D%E4%B8%8E%E4%B8%AD%E9%97%B4%E8%AF%81%E6%8D%AE.md">阶段二_剩余Gold差距与中间证据</a> · <a href="%E5%8F%8D%E9%A6%88%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93%E4%B8%8E%E4%BF%AE%E6%94%B9%E5%BB%BA%E8%AE%AE_%E5%90%AB%E4%B8%89%E5%85%83%E7%BB%84%E8%AF%81%E6%8D%AE.md">反馈问题总结与修改建议_含三元组证据</a></p>
+<p>共同输入是此前 11.4 对照保存的 134 条拆分三元组。逐文档应用 A、B 已执行操作后，全部 10 份输出的 head、relation、tail 多重集与附件 R2 完全一致。这个核对覆盖条目和重复次数，原始操作索引、完整证据、请求和冲突筛选快照未提供。本文称该端点为 R2。</p>
+<p>评估使用当前修改后 Gold 的同 5 篇 153 条，文档内按仓库词匹配做一对一分配，整体分数为五篇微平均。逐句分数用于定位，多个来源句共享的条目可在分句表重复展示，整篇只计一次。源句取自修改后数据集，差异附件只提供摘要。</p>
+<h2 id="section-1">整体结果</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>检查点</th>
+<th>预测数</th>
+<th>宽松 P</th>
+<th>宽松 R</th>
+<th>宽松 F1</th>
+<th>变化</th>
+<th>严格 F1</th>
+<th>未配 Gold</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>拆分</td>
+<td>134</td>
+<td>63.92%</td>
+<td>60.47%</td>
+<td>62.15%</td>
+<td>—</td>
+<td>20.21%</td>
+<td>50</td>
+</tr>
+<tr>
+<td>A</td>
+<td>138</td>
+<td>62.55%</td>
+<td>61.03%</td>
+<td>61.78%</td>
+<td>-0.37 pp</td>
+<td>21.31%</td>
+<td>48</td>
+</tr>
+<tr>
+<td>B</td>
+<td>131</td>
+<td>67.84%</td>
+<td>63.68%</td>
+<td>65.69%</td>
+<td>+3.55 pp</td>
+<td>24.65%</td>
+<td>48</td>
+</tr>
+</tbody></table></div>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>文档</th>
+<th>反馈范围</th>
+<th>拆分条数 → A / B</th>
+<th>拆分 F1</th>
+<th>A F1</th>
+<th>B F1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>doc0 · 857</td>
+<td>整篇</td>
+<td>35 → 38 / 27</td>
+<td>52.74%</td>
+<td>47.94%</td>
+<td>58.14%</td>
+</tr>
+<tr>
+<td>doc1 · 2786</td>
+<td>逐句</td>
+<td>33 → 35 / 39</td>
+<td>67.65%</td>
+<td>63.37%</td>
+<td>67.08%</td>
+</tr>
+<tr>
+<td>doc2 · 5921</td>
+<td>逐句</td>
+<td>22 → 21 / 20</td>
+<td>54.89%</td>
+<td>65.26%</td>
+<td>64.30%</td>
+</tr>
+<tr>
+<td>doc3 · 6519</td>
+<td>逐句</td>
+<td>28 → 29 / 29</td>
+<td>66.27%</td>
+<td>69.49%</td>
+<td>68.60%</td>
+</tr>
+<tr>
+<td>doc4 · 6818</td>
+<td>整篇</td>
+<td>16 → 15 / 16</td>
+<td>70.62%</td>
+<td>66.12%</td>
+<td>70.62%</td>
+</tr>
+</tbody></table></div>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>反馈范围</th>
+<th>拆分 F1</th>
+<th>A F1</th>
+<th>B F1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>逐句 · doc1/2/3</td>
+<td>63.84%</td>
+<td>66.12%</td>
+<td>66.96%</td>
+</tr>
+<tr>
+<td>整篇 · doc0/4</td>
+<td>59.17%</td>
+<td>54.12%</td>
+<td>63.18%</td>
+</tr>
+</tbody></table></div>
+<p>两组的 doc0、doc4 均标为整篇反馈。共同输入中 doc0 的 D8/D27/D28/D29 同时关联 S6、S7，doc4 的 D12 同时关联 S2、S3，符合当前源码的整篇回退条件。两组差距最大的 doc0 走的是整篇反馈。</p>
+<p>B 的 65.69% 是当前共同输入下已比较运行中的最高一次。同口径的 1028a 为 62.13%，10301 为 63.69%，1104_1 为 58.15%，1104_3 为 63.76%。历史模型和实际 Prompt 未锁定，端点导出阶段也可能不同。 <a href="../analysis_20261105_run1104_compare/%E5%8F%8D%E9%A6%88%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93%E4%B8%8E%E4%BF%AE%E6%94%B9%E5%BB%BA%E8%AE%AE_%E5%90%AB%E4%B8%89%E5%85%83%E7%BB%84%E8%AF%81%E6%8D%AE.md">此前 11.4 对照</a></p>
+<h2 id="section-2">两次结果为什么分叉</h2>
+<p>最新差异摘要按 50 个句位对齐，A 列出 20 句、B 列出 19 句，两侧差异内容逐句比较有 26 个句位不同。缺完整重建和请求，无法把最早差异精确归到重建还是比较。旧的 11.4 两次保存了完整重建，50 句中有 21 句重建文本不同、30 句至少一侧差异字段不同。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>检查点</th>
+<th>A 条数</th>
+<th>A F1</th>
+<th>B 条数</th>
+<th>B F1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>首轮 Add 后</td>
+<td>144</td>
+<td>62.09%</td>
+<td>142</td>
+<td>61.54%</td>
+</tr>
+<tr>
+<td>首轮 Replace 后</td>
+<td>145</td>
+<td>62.18%</td>
+<td>148</td>
+<td>62.39%</td>
+</tr>
+<tr>
+<td>首轮 Remove 后</td>
+<td>138</td>
+<td>62.47%</td>
+<td>141</td>
+<td>63.90%</td>
+</tr>
+<tr>
+<td>R2</td>
+<td>138</td>
+<td>61.78%</td>
+<td>131</td>
+<td>65.69%</td>
+</tr>
+</tbody></table></div>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>组</th>
+<th>执行 Add</th>
+<th>执行 Replace</th>
+<th>执行 Remove</th>
+<th>整批拒绝</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A</td>
+<td>11</td>
+<td>39</td>
+<td>8</td>
+<td>1</td>
+</tr>
+<tr>
+<td>B</td>
+<td>8</td>
+<td>41</td>
+<td>17</td>
+<td>2</td>
+</tr>
+</tbody></table></div>
+<p>首轮 Add 后 B 略低于 A。首轮 Remove 后 B 领先 1.43 个百分点，返修结束后差距扩大到 3.92 个百分点。前一步对条目的处理会改变下一步收到的集合。B 在整篇 doc0 的返修 Remove 执行了 8 项删除，其中既有错误断言，也有被长字段覆盖的独立事实。</p>
+<p>A 有 1 批、B 有 2 批 Replace 被整批拒绝。A 涉及单句来源编号，B 涉及空 new_triples。阶段一按源句或整篇阶段列出拒绝原因。</p>
+<h2 id="section-3">关键案例与操作证据</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>位置</th>
+<th>拆分 F1</th>
+<th>A F1</th>
+<th>B F1</th>
+<th>已核对现象</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>doc0/S2</td>
+<td>91.29%</td>
+<td>69.40%</td>
+<td>77.31%</td>
+<td>A 新增因果和目的条目，保留原有独立动作。B 替换独立查询，并在返修删除独立确定条目。两组局部 F1 均下降。</td>
+</tr>
+<tr>
+<td>doc0/S3</td>
+<td>71.46%</td>
+<td>69.70%</td>
+<td>80.93%</td>
+<td>B 删掉任一部件单独构成车辆的断言。A 修正 integrity of 的作用范围，但仍保留 any of the components 作 make up 主语。Gold 还保留了 vlidation 拼写。</td>
+</tr>
+<tr>
+<td>doc0/S4</td>
+<td>83.20%</td>
+<td>61.60%</td>
+<td>78.23%</td>
+<td>A 把 readable by 写入长尾，再删掉独立的格式可读关系。B 保留独立条目。</td>
+</tr>
+<tr>
+<td>doc0/S7</td>
+<td>16.22%</td>
+<td>14.12%</td>
+<td>23.08%</td>
+<td>两组都识别到目的变成断言。B 把读取、执行、目的合入长条目。Gold 分列介质被读取、介质被执行及平台目的，两组仍有主体和层级差距。</td>
+</tr>
+<tr>
+<td>doc0/S10</td>
+<td>0.00%</td>
+<td>16.67%</td>
+<td>24.39%</td>
+<td>A 增加 a variety of systems，保留以 This method 为主语的具体列表项。B 把范围和例子合进一条长尾。Gold 则另用 systems 作各条 include 的主语。</td>
+</tr>
+<tr>
+<td>doc1/S5</td>
+<td>65.28%</td>
+<td>60.75%</td>
+<td>60.75%</td>
+<td>两组都保留原有 6 条，并新增一条整句让步关系。Gold 中分列的 illustration 和 description 仍有缺口。</td>
+</tr>
+<tr>
+<td>doc1/S8</td>
+<td>83.70%</td>
+<td>71.38%</td>
+<td>25.00%</td>
+<td>B 把整句 Although 拆成两条 is despite，并把已有条目的 they 改成 specific terms。两种改动都影响局部配对。</td>
+</tr>
+<tr>
+<td>doc1/S10</td>
+<td>23.26%</td>
+<td>0.00%</td>
+<td>97.37%</td>
+<td>B 将 inaccuracy 和两条独立原因拆开。A 只把 inaccuracy due to 移到 relation，仍有字段边界差距。</td>
+</tr>
+<tr>
+<td>doc2/S2</td>
+<td>66.67%</td>
+<td>100.00%</td>
+<td>98.11%</td>
+<td>两组均将 mounting to a vehicle / provides 修成 a tarpaulin bracket system / is to provide，恢复主语和目的。</td>
+</tr>
+<tr>
+<td>doc2/S3</td>
+<td>14.12%</td>
+<td>42.15%</td>
+<td>0.00%</td>
+<td>A 恢复 hazards 风险表达。B 保留 loose items 作独立 flying out of 的主体，并将 has led 的结果与动作分开。</td>
+</tr>
+<tr>
+<td>doc2/S5</td>
+<td>40.94%</td>
+<td>40.94%</td>
+<td>55.41%</td>
+<td>B 首轮 Replace 因空 new_triples 被整批拒绝，返修改写共同主体，再删除拆开的部分表达。</td>
+</tr>
+<tr>
+<td>doc2/S10</td>
+<td>63.35%</td>
+<td>100.00%</td>
+<td>100.00%</td>
+<td>两组均先恢复前后两套左右滑轮，再删修正后完全等价的重复项。A 的差异摘要未列本句。</td>
+</tr>
+<tr>
+<td>doc3/S6</td>
+<td>70.63%</td>
+<td>100.00%</td>
+<td>79.66%</td>
+<td>B 的部分新条目移除了 When the particles are of non-spheroid shape 条件。核对时应分开看条件的作用域与字段边界。</td>
+</tr>
+<tr>
+<td>doc4/S2</td>
+<td>100.00%</td>
+<td>59.65%</td>
+<td>100.00%</td>
+<td>A 扩长两个路径条目的 tail，再删掉同时归于 S2/S3 的独立评价依据关系。B 保留输入。</td>
+</tr>
+<tr>
+<td>doc4/S3</td>
+<td>75.90%</td>
+<td>42.67%</td>
+<td>75.90%</td>
+<td>与 S2 共享的评价依据条目在 A 中消失。同一条删除在整篇只计一次。</td>
+</tr>
+</tbody></table></div>
+<h3 id="section-4">doc0/S2　补目的链后核对原有独立动作</h3>
+<p>A 新增 causes 和目的条目后保留原来条目，最后 7 条。B 将独立查询改成长关系，并在返修删除独立确定条目，最后 3 条。两组都识别目的链，Gold 仍要求单列查询。</p>
+<h3 id="section-5">doc0/S4 和 doc4/S2–S3　长尾吸收独立关系</h3>
+<p>A 的 Remove 明确因长 tail 涵盖相同文字，先后删掉 (a format, is readable by, a mechanical device) 和 (the evaluation items, are based on, the item importance information)。字面信息仍在，独立关系已从输出消失。</p>
+<h3 id="section-6">doc2/S10　恢复正确集合后清理重复</h3>
+<p>两组将四套误拆的集合修回前、后两套，再各删两条修正后完全等价的重复。删除后每套滑轮及其附着位置仍有对应的独立条目。</p>
+<h3 id="section-7">doc1/S5、S8　话语连接触发整句三元组</h3>
+<p>S5 两组都多出一条整句让步关系，原来 6 条仍在。B 的 S8 由 Add 加整句 Although，再由 Replace 拆成两个 is despite，还改动了原有的代词主体。逐句 F1 变化涉及这两类修改。</p>
+<h2 id="section-8">下一轮 Prompt 精简可保留的检查</h2>
+<ol>
+<li><strong>Replace 复核独立事实。</strong> 修正目的、条件和集合边界后，逐项检查原有正确关系是否仍有独立条目。用 doc0/S2 与 doc2/S10 分别验证保留与合并。</li>
+<li><strong>Remove 核查完整等价。</strong> 一条独立关系被长字段覆盖时，核对删除是否损失目标输出。用 doc0/S4、doc4/S2–S3 验证。</li>
+<li><strong>文本对比将连接变化落实到具体事实。</strong> 检查省略连接是否改变主体、成立条件或动作范围。用 doc1/S5、S8 核对是否新增整句关系，用 doc2/S10 检查集合数量变化。</li>
+<li><strong>固定反馈输入做重复试验。</strong> 固定重建、差异和候选实体，保存 messages、raw_response、application。找到首次分叉的阶段，区分上游输入差异、回复差异和程序拒绝。</li>
+</ol>
+<h2 id="section-9">来源与核对</h2>
+<p>Gold 文件 SHA-256 为 1bfafbc22a3cd43a19d6f14e4557dcfa37692d8cf45a6b321360d530f8daad3e。附件标识与哈希如下。报告仅整理已提供的结果，未运行真实模型或修改程序、Prompt、Gold。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>组</th>
+<th>附件</th>
+<th>标识</th>
+<th>SHA-256</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A</td>
+<td>阶段记录</td>
+<td>b1a914eb-73fe-4180-8b56-bd9e28e92bac</td>
+<td>dfaeed95d297f19660915124d9cfa782c1c0f46d20a9811a89505810542fee8b</td>
+</tr>
+<tr>
+<td>A</td>
+<td>R2 三元组</td>
+<td>7f24dfd1-958c-4ec3-a7cd-216efd7ab303</td>
+<td>71805c8311db47991a4973087ab19bb9eba3af86fd5268d0133a1505008784ad</td>
+</tr>
+<tr>
+<td>A</td>
+<td>差异摘要</td>
+<td>86e64ab1-49fa-432a-81be-a2ec5c9a5ff8</td>
+<td>79bbd53d5ee1b8ca2246e709c974a370202078eb62050dfba24f7e8c3435030f</td>
+</tr>
+<tr>
+<td>B</td>
+<td>阶段记录</td>
+<td>22a65ad1-c8b4-4c3f-a099-13776b5a9541</td>
+<td>62990877788ee1acbe67baa7848d648363dd57e56bf6b0949e31b8bf234ab3d5</td>
+</tr>
+<tr>
+<td>B</td>
+<td>R2 三元组</td>
+<td>fef03184-70fc-42b0-b330-546ed03221d7</td>
+<td>b550f33ff1e169a3729b2bbaa534ea2c98fab2227d63ad4c23778d6f9f87663e</td>
+</tr>
+<tr>
+<td>B</td>
+<td>差异摘要</td>
+<td>4585fdb3-9c9c-478a-be9a-2911eaaf601b</td>
+<td>6d17bad7313703d8c81353d6574e3efa93cb6b2e2517bd383052bb4fe787cb7a</td>
+</tr>
+</tbody></table></div>
+
+<footer>由同目录 Markdown 生成；数据、评价口径和证据范围均以正文为准。</footer></main></div>
+<script>document.getElementById('toc-filter').addEventListener('input',function(){const q=this.value.trim().toLowerCase();document.querySelectorAll('aside a').forEach(a=>{a.hidden=!a.textContent.toLowerCase().includes(q);});});</script>
+</body></html>

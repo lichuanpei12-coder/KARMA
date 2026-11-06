@@ -1,0 +1,1188 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>阶段二　剩余 Gold 差距与中间证据</title><style>
+:root{color-scheme:light;--ink:#19283b;--muted:#657489;--line:#dce4ee;--blue:#245f9b;--bg:#f3f6fa}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:26px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.85 "Microsoft YaHei","PingFang SC",system-ui,sans-serif}
+a{color:var(--blue);text-underline-offset:3px}header{padding:22px 32px;background:#16324e;color:#fff}
+header .label{font-size:18px;font-weight:700}header p{margin:4px 0 0;font-size:13px;color:#d0e0f0}
+.layout{display:grid;grid-template-columns:270px minmax(0,1fr);max-width:1550px;margin:auto;gap:24px;padding:24px}
+aside{position:sticky;top:18px;align-self:start;max-height:calc(100vh - 36px);overflow:auto;background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px}
+aside h2{font-size:16px;margin:0 0 12px}aside a{display:block;text-decoration:none;font-size:13px;line-height:1.6;padding:7px 0;border-bottom:1px solid #edf1f6}
+aside a.sub{padding-left:12px;color:#53657b}aside a:hover{color:var(--blue);background:#f4f8fe}
+aside a[hidden]{display:none}aside input{width:100%;padding:8px;border:1px solid #cbd6e3;border-radius:5px;font:inherit;font-size:13px;margin-bottom:10px}
+main{min-width:0;background:#fff;border:1px solid var(--line);border-radius:10px;padding:28px 36px}
+h1{font-size:27px;line-height:1.5;margin:0 0 24px}h2{font-size:23px;margin:38px 0 18px;padding-bottom:8px;border-bottom:2px solid #d5e3f2}
+h3{font-size:19px;line-height:1.6;margin:32px 0 18px;background:#edf4fc;border-left:4px solid #377ab4;padding:12px 15px;border-radius:0 6px 6px 0}
+h4{font-size:17px}p{margin:12px 0}li{margin:6px 0}strong{font-weight:700}blockquote{margin:15px 0;padding:10px 18px;border-left:4px solid #ccd9e7;background:#f7f9fc}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f5f7fa;border:1px solid #e1e7ee;border-radius:7px;padding:15px 18px;font:14px/1.8 Consolas,"Microsoft YaHei",monospace}
+code{font-family:Consolas,"Microsoft YaHei",monospace;font-size:.91em;background:#edf2f7;padding:2px 4px;border-radius:3px;overflow-wrap:anywhere}pre code{font-size:inherit;background:transparent;padding:0}
+.table-wrap{overflow-x:auto;margin:16px 0;border:1px solid var(--line);border-radius:6px}
+table{width:100%;border-collapse:collapse;font-size:14px;line-height:1.7;table-layout:auto}th,td{padding:10px 12px;text-align:left;vertical-align:top;border-right:1px solid var(--line);border-bottom:1px solid var(--line);overflow-wrap:anywhere}
+th{background:#eaf0f7;font-weight:700}th:last-child,td:last-child{border-right:0}tr:last-child td{border-bottom:0}tbody tr:nth-child(even){background:#f8fafc}
+hr{border:0;border-top:1px solid var(--line);margin:30px 0}.filelinks{display:flex;gap:20px;flex-wrap:wrap;font-size:13px;margin:0 0 24px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid var(--line);padding-top:15px}
+@media(max-width:900px){.layout{display:block;padding:12px}aside{position:static;max-height:300px;margin-bottom:16px}main{padding:22px 18px}header{padding:18px}h1{font-size:23px}h2{font-size:21px}th,td{padding:8px}}
+@media print{body{background:#fff;font-size:11pt}.layout{display:block;padding:0}aside,header,.filelinks,footer{display:none}main{border:0;padding:0}.table-wrap{overflow:visible}pre,table{font-size:9pt}h2,h3{break-after:avoid}tr{break-inside:avoid}a{color:inherit;text-decoration:none}}
+</style></head><body>
+<header><div class="label">反馈效果分析 · 阶段二 · 剩余差距</div><p>最新运行 A / B · 修改后 Gold · 2026-11-05</p></header>
+<div class="layout"><aside aria-label="文章目录"><h2>目录</h2><input id="toc-filter" type="search" aria-label="筛选目录" placeholder="查找 doc0 / S7 等内容"><a class="" href="#section-1">剩余差距统计</a>
+<a class="" href="#section-2">关键源句</a>
+<a class="" href="#section-3">未配条目的候选怎么读</a>
+<a class="" href="#section-4">doc0 · 857. Systems and methods for a cryptographically guaranteed vehicle identity.txt</a>
+<a class="sub" href="#section-5">doc0 · A 未配 Gold（11 条）</a>
+<a class="sub" href="#section-6">doc0 · A 弱配 Gold（1 条）</a>
+<a class="sub" href="#section-7">doc0 · B 未配 Gold（11 条）</a>
+<a class="sub" href="#section-8">doc0 · B 弱配 Gold（0 条）</a>
+<a class="" href="#section-9">doc1 · 2786. Method for providing congestion information in a network.txt</a>
+<a class="sub" href="#section-10">doc1 · A 未配 Gold（10 条）</a>
+<a class="sub" href="#section-11">doc1 · A 弱配 Gold（1 条）</a>
+<a class="sub" href="#section-12">doc1 · B 未配 Gold（8 条）</a>
+<a class="sub" href="#section-13">doc1 · B 弱配 Gold（1 条）</a>
+<a class="" href="#section-14">doc2 · 5921. Tarpaulin bracket system.txt</a>
+<a class="sub" href="#section-15">doc2 · A 未配 Gold（6 条）</a>
+<a class="sub" href="#section-16">doc2 · A 弱配 Gold（5 条）</a>
+<a class="sub" href="#section-17">doc2 · B 未配 Gold（9 条）</a>
+<a class="sub" href="#section-18">doc2 · B 弱配 Gold（1 条）</a>
+<a class="" href="#section-19">doc3 · 6519. Rubber composite and process for obtaining same.txt</a>
+<a class="sub" href="#section-20">doc3 · A 未配 Gold（13 条）</a>
+<a class="sub" href="#section-21">doc3 · A 弱配 Gold（0 条）</a>
+<a class="sub" href="#section-22">doc3 · B 未配 Gold（13 条）</a>
+<a class="sub" href="#section-23">doc3 · B 弱配 Gold（0 条）</a>
+<a class="" href="#section-24">doc4 · 6818. Communication path managing method and communication path managing system.txt</a>
+<a class="sub" href="#section-25">doc4 · A 未配 Gold（8 条）</a>
+<a class="sub" href="#section-26">doc4 · A 弱配 Gold（0 条）</a>
+<a class="sub" href="#section-27">doc4 · B 未配 Gold（7 条）</a>
+<a class="sub" href="#section-28">doc4 · B 弱配 Gold（0 条）</a></aside>
+<main><div class="filelinks"><a href="%E9%98%B6%E6%AE%B5%E4%BA%8C_%E5%89%A9%E4%BD%99Gold%E5%B7%AE%E8%B7%9D%E4%B8%8E%E4%B8%AD%E9%97%B4%E8%AF%81%E6%8D%AE.md">查看 Markdown 原文</a><a href="%E9%98%B6%E6%AE%B5%E4%B8%80_%E4%B8%A4%E6%AC%A1%E5%8F%8D%E9%A6%88%E5%8F%98%E5%8C%96_%E9%80%90%E5%8F%A5%E5%AE%8C%E6%95%B4%E5%AF%B9%E7%85%A7.html">打开阶段一 · 反馈变化</a><a href="%E5%8F%8D%E9%A6%88%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93%E4%B8%8E%E4%BF%AE%E6%94%B9%E5%BB%BA%E8%AE%AE_%E5%90%AB%E4%B8%89%E5%85%83%E7%BB%84%E8%AF%81%E6%8D%AE.html">打开问题总结与建议</a></div><h1 id="section-0">阶段二　剩余 Gold 差距与中间证据</h1>
+<p>分析日期 2026-11-05。A 为本次消息前 3 份附件，B 为后 3 份，均按中间阶段记录、R2 三元组和差异摘要配组。附件未提供准确运行名、模型和 Git 提交。</p>
+<p>关联报告 · <a href="%E9%98%B6%E6%AE%B5%E4%B8%80_%E4%B8%A4%E6%AC%A1%E5%8F%8D%E9%A6%88%E5%8F%98%E5%8C%96_%E9%80%90%E5%8F%A5%E5%AE%8C%E6%95%B4%E5%AF%B9%E7%85%A7.md">阶段一_两次反馈变化_逐句完整对照</a> · <a href="%E9%98%B6%E6%AE%B5%E4%BA%8C_%E5%89%A9%E4%BD%99Gold%E5%B7%AE%E8%B7%9D%E4%B8%8E%E4%B8%AD%E9%97%B4%E8%AF%81%E6%8D%AE.md">阶段二_剩余Gold差距与中间证据</a> · <a href="%E5%8F%8D%E9%A6%88%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93%E4%B8%8E%E4%BF%AE%E6%94%B9%E5%BB%BA%E8%AE%AE_%E5%90%AB%E4%B8%89%E5%85%83%E7%BB%84%E8%AF%81%E6%8D%AE.md">反馈问题总结与修改建议_含三元组证据</a></p>
+<p>共同输入是此前 11.4 对照保存的 134 条拆分三元组。逐文档应用 A、B 已执行操作后，全部 10 份输出的 head、relation、tail 多重集与附件 R2 完全一致。这个核对覆盖条目和重复次数，原始操作索引、完整证据、请求和冲突筛选快照未提供。本文称该端点为 R2。</p>
+<p>评估使用当前修改后 Gold 的同 5 篇 153 条，文档内按仓库词匹配做一对一分配，整体分数为五篇微平均。逐句分数用于定位，多个来源句共享的条目可在分句表重复展示，整篇只计一次。源句取自修改后数据集，差异附件只提供摘要。</p>
+<h2 id="section-1">剩余差距统计</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>检查点</th>
+<th>预测数</th>
+<th>宽松 P</th>
+<th>宽松 R</th>
+<th>宽松 F1</th>
+<th>变化</th>
+<th>严格 F1</th>
+<th>未配 Gold</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>拆分</td>
+<td>134</td>
+<td>63.92%</td>
+<td>60.47%</td>
+<td>62.15%</td>
+<td>—</td>
+<td>20.21%</td>
+<td>50</td>
+</tr>
+<tr>
+<td>A</td>
+<td>138</td>
+<td>62.55%</td>
+<td>61.03%</td>
+<td>61.78%</td>
+<td>-0.37 pp</td>
+<td>21.31%</td>
+<td>48</td>
+</tr>
+<tr>
+<td>B</td>
+<td>131</td>
+<td>67.84%</td>
+<td>63.68%</td>
+<td>65.69%</td>
+<td>+3.55 pp</td>
+<td>24.65%</td>
+<td>48</td>
+</tr>
+</tbody></table></div>
+<p>两组各有 48 条 Gold 未获整篇一对一配对，配到的是哪些条目以及配对质量存在差别。弱配定义为已配对的单对 F1 ≤ 0.50，仅作人工复核标记。</p>
+<h2 id="section-2">关键源句</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>位置</th>
+<th>拆分 F1</th>
+<th>A F1</th>
+<th>B F1</th>
+<th>已核对现象</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>doc0/S2</td>
+<td>91.29%</td>
+<td>69.40%</td>
+<td>77.31%</td>
+<td>A 新增因果和目的条目，保留原有独立动作。B 替换独立查询，并在返修删除独立确定条目。两组局部 F1 均下降。</td>
+</tr>
+<tr>
+<td>doc0/S3</td>
+<td>71.46%</td>
+<td>69.70%</td>
+<td>80.93%</td>
+<td>B 删掉任一部件单独构成车辆的断言。A 修正 integrity of 的作用范围，但仍保留 any of the components 作 make up 主语。Gold 还保留了 vlidation 拼写。</td>
+</tr>
+<tr>
+<td>doc0/S4</td>
+<td>83.20%</td>
+<td>61.60%</td>
+<td>78.23%</td>
+<td>A 把 readable by 写入长尾，再删掉独立的格式可读关系。B 保留独立条目。</td>
+</tr>
+<tr>
+<td>doc0/S7</td>
+<td>16.22%</td>
+<td>14.12%</td>
+<td>23.08%</td>
+<td>两组都识别到目的变成断言。B 把读取、执行、目的合入长条目。Gold 分列介质被读取、介质被执行及平台目的，两组仍有主体和层级差距。</td>
+</tr>
+<tr>
+<td>doc0/S10</td>
+<td>0.00%</td>
+<td>16.67%</td>
+<td>24.39%</td>
+<td>A 增加 a variety of systems，保留以 This method 为主语的具体列表项。B 把范围和例子合进一条长尾。Gold 则另用 systems 作各条 include 的主语。</td>
+</tr>
+<tr>
+<td>doc1/S5</td>
+<td>65.28%</td>
+<td>60.75%</td>
+<td>60.75%</td>
+<td>两组都保留原有 6 条，并新增一条整句让步关系。Gold 中分列的 illustration 和 description 仍有缺口。</td>
+</tr>
+<tr>
+<td>doc1/S8</td>
+<td>83.70%</td>
+<td>71.38%</td>
+<td>25.00%</td>
+<td>B 把整句 Although 拆成两条 is despite，并把已有条目的 they 改成 specific terms。两种改动都影响局部配对。</td>
+</tr>
+<tr>
+<td>doc1/S10</td>
+<td>23.26%</td>
+<td>0.00%</td>
+<td>97.37%</td>
+<td>B 将 inaccuracy 和两条独立原因拆开。A 只把 inaccuracy due to 移到 relation，仍有字段边界差距。</td>
+</tr>
+<tr>
+<td>doc2/S2</td>
+<td>66.67%</td>
+<td>100.00%</td>
+<td>98.11%</td>
+<td>两组均将 mounting to a vehicle / provides 修成 a tarpaulin bracket system / is to provide，恢复主语和目的。</td>
+</tr>
+<tr>
+<td>doc2/S3</td>
+<td>14.12%</td>
+<td>42.15%</td>
+<td>0.00%</td>
+<td>A 恢复 hazards 风险表达。B 保留 loose items 作独立 flying out of 的主体，并将 has led 的结果与动作分开。</td>
+</tr>
+<tr>
+<td>doc2/S5</td>
+<td>40.94%</td>
+<td>40.94%</td>
+<td>55.41%</td>
+<td>B 首轮 Replace 因空 new_triples 被整批拒绝，返修改写共同主体，再删除拆开的部分表达。</td>
+</tr>
+<tr>
+<td>doc2/S10</td>
+<td>63.35%</td>
+<td>100.00%</td>
+<td>100.00%</td>
+<td>两组均先恢复前后两套左右滑轮，再删修正后完全等价的重复项。A 的差异摘要未列本句。</td>
+</tr>
+<tr>
+<td>doc3/S6</td>
+<td>70.63%</td>
+<td>100.00%</td>
+<td>79.66%</td>
+<td>B 的部分新条目移除了 When the particles are of non-spheroid shape 条件。核对时应分开看条件的作用域与字段边界。</td>
+</tr>
+<tr>
+<td>doc4/S2</td>
+<td>100.00%</td>
+<td>59.65%</td>
+<td>100.00%</td>
+<td>A 扩长两个路径条目的 tail，再删掉同时归于 S2/S3 的独立评价依据关系。B 保留输入。</td>
+</tr>
+<tr>
+<td>doc4/S3</td>
+<td>75.90%</td>
+<td>42.67%</td>
+<td>75.90%</td>
+<td>与 S2 共享的评价依据条目在 A 中消失。同一条删除在整篇只计一次。</td>
+</tr>
+</tbody></table></div>
+<h2 id="section-3">未配条目的候选怎么读</h2>
+<p>本句候选优先选三个对应字段都有交集的预测，再按配对 F1 排序。没有合格项时，表格展示重合词最多的候选及无交集字段。整篇最高合格候选一列还显示该预测是否配给了另一条 Gold。邻近候选用于定位词面与分配差距，是否表达同一事实仍需对照源句。</p>
+<h2 id="section-4">doc0 · 857. Systems and methods for a cryptographically guaranteed vehicle identity.txt</h2>
+<h3 id="section-5">doc0 · A 未配 Gold（11 条）</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>源句</th>
+<th>Gold 三元组</th>
+<th>本句最接近预测</th>
+<th>整篇最高合格候选</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>G2</td>
+<td>S1</td>
+<td>they / do not facilitate / a better understanding of the present disclosure</td>
+<td>A1 · such elements / do not facilitate / a better understanding of the present disclosure · 无交集字段 head · 未配</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G13</td>
+<td>S4</td>
+<td>a format / is readable by / a mechanical device</td>
+<td>A5 · the term computer readable medium / is meant to refer to / any machine-readable medium capable of storing data in a format readable by a mechanical device · 无交集字段 head · 已配 G11</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G17</td>
+<td>S7</td>
+<td>they / may be implemented as / instructions</td>
+<td>A8 · Embodiments of the invention / may be implemented as / instructions stored on a machine-readable medium · 无交集字段 head · 未配</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G18</td>
+<td>S7</td>
+<td>instructions / are stored on / a machine-readable medium</td>
+<td>A8 · Embodiments of the invention / may be implemented as / instructions stored on a machine-readable medium · 无交集字段 head, relation · 未配</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G19</td>
+<td>S7</td>
+<td>a machine-readable medium / may be read by / a computing platform</td>
+<td>A26 · instructions / may be read by / a computing platform · 无交集字段 head · 未配</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G20</td>
+<td>S7</td>
+<td>a machine-readable medium / may be executed by / a computing platform</td>
+<td>A27 · instructions / may be executed by / a computing platform · 无交集字段 head · 未配</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G26</td>
+<td>S10</td>
+<td>a variety of systems / include / connected cars</td>
+<td>A11 · This method / may be integrated in / connected cars · 无交集字段 head, relation · 未配</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G27</td>
+<td>S10</td>
+<td>a variety of systems / include / car sharing</td>
+<td>A29 · This method / may be integrated in / car sharing · 无交集字段 head, relation · 未配</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G28</td>
+<td>S10</td>
+<td>a variety of systems / include / rental car services</td>
+<td>A30 · This method / may be integrated in / rental car services · 无交集字段 head, relation · 未配</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G29</td>
+<td>S10</td>
+<td>a variety of systems / include / maintenance</td>
+<td>A31 · This method / may be integrated in / maintenance · 无交集字段 head, relation · 未配</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G30</td>
+<td>S10</td>
+<td>a variety of systems / include / factory services</td>
+<td>A32 · This method / may be integrated in / factory services · 无交集字段 head, relation · 未配</td>
+<td>—</td>
+</tr>
+</tbody></table></div>
+<h3 id="section-6">doc0 · A 弱配 Gold（1 条）</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>源句</th>
+<th>Gold</th>
+<th>预测编号</th>
+<th>预测来源</th>
+<th>预测</th>
+<th>配对 F1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>G23</td>
+<td>S9</td>
+<td>repeated use of the phrase &quot;in one embodiment,&quot; / do not necessarily refer to / the same embodiment</td>
+<td>A35</td>
+<td>S2</td>
+<td>the controller / may query the ECU to identify which PUF component is compromised, in order to determine / where in the sub-system the compromise is located</td>
+<td>0.146</td>
+</tr>
+</tbody></table></div>
+<h3 id="section-7">doc0 · B 未配 Gold（11 条）</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>源句</th>
+<th>Gold 三元组</th>
+<th>本句最接近预测</th>
+<th>整篇最高合格候选</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>G2</td>
+<td>S1</td>
+<td>they / do not facilitate / a better understanding of the present disclosure</td>
+<td>B1 · such elements / do not facilitate / a better understanding of the present disclosure · 无交集字段 head · 未配</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G4</td>
+<td>S2</td>
+<td>the controller / may query / the ECU</td>
+<td>B14 · the controller / may identify which PUF component is compromised to determine / where in the sub-system the compromise is located · F1 0.320 · 已配 G6</td>
+<td>B14 · F1 0.320 · 已配 G6</td>
+</tr>
+<tr>
+<td>G18</td>
+<td>S7</td>
+<td>instructions / are stored on / a machine-readable medium</td>
+<td>B8 · They / may be implemented as / instructions stored on a machine-readable medium · 无交集字段 head, relation · 已配 G17</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G19</td>
+<td>S7</td>
+<td>a machine-readable medium / may be read by / a computing platform</td>
+<td>B25 · instructions / may be read and executed by a computing platform to perform / the operations described herein · 无交集字段 head, tail · 未配</td>
+<td>B19 · F1 0.333 · 已配 G13</td>
+</tr>
+<tr>
+<td>G20</td>
+<td>S7</td>
+<td>a machine-readable medium / may be executed by / a computing platform</td>
+<td>B25 · instructions / may be read and executed by a computing platform to perform / the operations described herein · 无交集字段 head, tail · 未配</td>
+<td>B19 · F1 0.333 · 已配 G13</td>
+</tr>
+<tr>
+<td>G21</td>
+<td>S7</td>
+<td>a computing platform / is to perform / the operations</td>
+<td>B25 · instructions / may be read and executed by a computing platform to perform / the operations described herein · 无交集字段 head · 未配</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G26</td>
+<td>S10</td>
+<td>a variety of systems / include / connected cars</td>
+<td>B11 · This method / may be integrated in / a variety of systems including connected cars, car sharing, rental car services, maintenance and factory services · 无交集字段 head, relation · 已配 G25</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G27</td>
+<td>S10</td>
+<td>a variety of systems / include / car sharing</td>
+<td>B11 · This method / may be integrated in / a variety of systems including connected cars, car sharing, rental car services, maintenance and factory services · 无交集字段 head, relation · 已配 G25</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G28</td>
+<td>S10</td>
+<td>a variety of systems / include / rental car services</td>
+<td>B11 · This method / may be integrated in / a variety of systems including connected cars, car sharing, rental car services, maintenance and factory services · 无交集字段 head, relation · 已配 G25</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G29</td>
+<td>S10</td>
+<td>a variety of systems / include / maintenance</td>
+<td>B11 · This method / may be integrated in / a variety of systems including connected cars, car sharing, rental car services, maintenance and factory services · 无交集字段 head, relation · 已配 G25</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G30</td>
+<td>S10</td>
+<td>a variety of systems / include / factory services</td>
+<td>B11 · This method / may be integrated in / a variety of systems including connected cars, car sharing, rental car services, maintenance and factory services · 无交集字段 head, relation · 已配 G25</td>
+<td>—</td>
+</tr>
+</tbody></table></div>
+<h3 id="section-8">doc0 · B 弱配 Gold（0 条）</h3>
+<p>该组该篇没有符合此阈值的弱配。</p>
+<h2 id="section-9">doc1 · 2786. Method for providing congestion information in a network.txt</h2>
+<h3 id="section-10">doc1 · A 未配 Gold（10 条）</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>源句</th>
+<th>Gold 三元组</th>
+<th>本句最接近预测</th>
+<th>整篇最高合格候选</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>G2</td>
+<td>S1</td>
+<td>congestion mitigation measures / are for example according to / the severeness of the congestion</td>
+<td>A1 · a meaningful capture of the congestion level information / enables / appropriate congestion mitigation measures, for example according to the severeness of the congestion · 无交集字段 relation · 已配 G1</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G5</td>
+<td>S2</td>
+<td>the measured traffic per time / is over / a given time span</td>
+<td>A2 · A congestion / may be detected / based on said congestion value when said minimum bandwidth demand exceeds the measured traffic per time over a given time span · 无交集字段 head, relation · 已配 G3</td>
+<td>A4 · F1 0.214 · 已配 G6</td>
+</tr>
+<tr>
+<td>G7</td>
+<td>S3</td>
+<td>the term &quot;part&quot; in connection with the term &quot;network&quot; / means that / part of the network</td>
+<td>A4 · The term &quot;part&quot; in connection with the term &quot;network&quot; / is to be understood / in a broad sense · 无交集字段 relation, tail · 已配 G6</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G19</td>
+<td>S5</td>
+<td>such description / are to be considered / illustrative or exemplary</td>
+<td>A11 · such illustration and description / are to be considered / illustrative or exemplary · F1 0.900 · 已配 G18</td>
+<td>A11 · F1 0.900 · 已配 G18</td>
+</tr>
+<tr>
+<td>G21</td>
+<td>S5</td>
+<td>such description / are to be considered not / restrictive</td>
+<td>A13 · such illustration and description / are to be considered / not restrictive · F1 0.778 · 已配 G20</td>
+<td>A13 · F1 0.778 · 已配 G20</td>
+</tr>
+<tr>
+<td>G23</td>
+<td>S6</td>
+<td>capturing of congestion levels / is in such a way that / congestion mitigation measures can be reliably performed</td>
+<td>A19 · capturing of congestion levels / enables / congestion mitigation measures to be reliably performed · 无交集字段 relation · 未配</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G33</td>
+<td>S9</td>
+<td>different feedback profiles / depending on / the need of an operator</td>
+<td>A32 · different operators can use different transformation functions or profiles / results in / the congestion level may be based per cell and per link with different feedback profiles depending on the need of an operator · 无交集字段 relation · 未配</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G34</td>
+<td>S10</td>
+<td>this / may lead to / inaccuracy</td>
+<td>A33 · This / may lead to inaccuracy due to / the varying nature of instantaneous traffic patterns · 无交集字段 tail · 未配</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G35</td>
+<td>S10</td>
+<td>inaccuracy / is due to / the varying nature of instantaneous traffic patterns</td>
+<td>A33 · This / may lead to inaccuracy due to / the varying nature of instantaneous traffic patterns · 无交集字段 head · 未配</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G36</td>
+<td>S10</td>
+<td>inaccuracy / is due to / dependence on medium- to long-term congestion situations</td>
+<td>A34 · This / may lead to inaccuracy due to / dependence on medium- to long-term congestion situations for reporting · 无交集字段 head · 未配</td>
+<td>—</td>
+</tr>
+</tbody></table></div>
+<h3 id="section-11">doc1 · A 弱配 Gold（1 条）</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>源句</th>
+<th>Gold</th>
+<th>预测编号</th>
+<th>预测来源</th>
+<th>预测</th>
+<th>配对 F1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>G3</td>
+<td>S2</td>
+<td>a congestion / may be detected based on / said congestion value</td>
+<td>A2</td>
+<td>S2</td>
+<td>A congestion / may be detected / based on said congestion value when said minimum bandwidth demand exceeds the measured traffic per time over a given time span</td>
+<td>0.444</td>
+</tr>
+</tbody></table></div>
+<h3 id="section-12">doc1 · B 未配 Gold（8 条）</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>源句</th>
+<th>Gold 三元组</th>
+<th>本句最接近预测</th>
+<th>整篇最高合格候选</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>G2</td>
+<td>S1</td>
+<td>congestion mitigation measures / are for example according to / the severeness of the congestion</td>
+<td>B1 · a meaningful capture of the congestion level information / enables / appropriate congestion mitigation measures, for example according to the severeness of the congestion · 无交集字段 relation · 已配 G1</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G5</td>
+<td>S2</td>
+<td>the measured traffic per time / is over / a given time span</td>
+<td>B3 · A congestion / may be detected when / said minimum bandwidth demand exceeds the measured traffic per time over a given time span · 无交集字段 head, relation · 未配</td>
+<td>B5 · F1 0.214 · 已配 G6</td>
+</tr>
+<tr>
+<td>G7</td>
+<td>S3</td>
+<td>the term &quot;part&quot; in connection with the term &quot;network&quot; / means that / part of the network</td>
+<td>B5 · The term &quot;part&quot; in connection with the term &quot;network&quot; / is to be understood / in a broad sense · 无交集字段 relation, tail · 已配 G6</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G19</td>
+<td>S5</td>
+<td>such description / are to be considered / illustrative or exemplary</td>
+<td>B12 · such illustration and description / are to be considered / illustrative or exemplary · F1 0.900 · 已配 G18</td>
+<td>B12 · F1 0.900 · 已配 G18</td>
+</tr>
+<tr>
+<td>G21</td>
+<td>S5</td>
+<td>such description / are to be considered not / restrictive</td>
+<td>B14 · such illustration and description / are to be considered / not restrictive · F1 0.778 · 已配 G20</td>
+<td>B14 · F1 0.778 · 已配 G20</td>
+</tr>
+<tr>
+<td>G26</td>
+<td>S8</td>
+<td>they / are used in / a generic and descriptive sense</td>
+<td>B27 · specific terms / are used / in a generic and descriptive sense only · 无交集字段 head · 未配</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G27</td>
+<td>S8</td>
+<td>they / are not for purposes of / limitation</td>
+<td>B28 · specific terms / are not used for / purposes of limitation · 无交集字段 head · 未配</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G33</td>
+<td>S9</td>
+<td>different feedback profiles / depending on / the need of an operator</td>
+<td>B33 · the congestion level / may be based / per cell with different feedback profiles depending on the need of an operator · 无交集字段 head, relation · 已配 G31</td>
+<td>—</td>
+</tr>
+</tbody></table></div>
+<h3 id="section-13">doc1 · B 弱配 Gold（1 条）</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>源句</th>
+<th>Gold</th>
+<th>预测编号</th>
+<th>预测来源</th>
+<th>预测</th>
+<th>配对 F1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>G25</td>
+<td>S7</td>
+<td>said transformation function / amends / at least one of the following: a number of congestion levels, a steepness of a congestion level curve, a shape of a congestion level curve</td>
+<td>B25</td>
+<td>S7</td>
+<td>said transformation function / amends at least one of / a shape of a congestion level curve</td>
+<td>0.500</td>
+</tr>
+</tbody></table></div>
+<h2 id="section-14">doc2 · 5921. Tarpaulin bracket system.txt</h2>
+<h3 id="section-15">doc2 · A 未配 Gold（6 条）</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>源句</th>
+<th>Gold 三元组</th>
+<th>本句最接近预测</th>
+<th>整篇最高合格候选</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>G1</td>
+<td>S1</td>
+<td>a danger / is when / loose items are being transported in high-traffic areas</td>
+<td>A0 · Even a small open area / can present / a danger when loose items are being transported in high-traffic areas · 无交集字段 relation · 已配 G0</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G2</td>
+<td>S1</td>
+<td>loose items / are being transported in / high-traffic areas</td>
+<td>A0 · Even a small open area / can present / a danger when loose items are being transported in high-traffic areas · 无交集字段 head, relation · 已配 G0</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G8</td>
+<td>S3</td>
+<td>strict laws / is against / such open transport</td>
+<td>A4 · the hazards / has led / many governing bodies to enact strict laws against such open transport · 无交集字段 head, relation · 已配 G7</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G15</td>
+<td>S6</td>
+<td>the following claims / are viewed in / their proper perspective</td>
+<td>A13 · the following claims / are viewed in their proper perspective based on / the prior art · 无交集字段 tail · 已配 G11</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G16</td>
+<td>S6</td>
+<td>their proper perspective / is based on / the prior art</td>
+<td>A13 · the following claims / are viewed in their proper perspective based on / the prior art · 无交集字段 head · 已配 G11</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G20</td>
+<td>S8</td>
+<td>a series of bows / was brought into / use</td>
+<td>A16 · a series of bows / was later brought into use to keep / the tarpaulin from lying in direct contact with goods in the truck trailer · 无交集字段 tail · 已配 G21</td>
+<td>—</td>
+</tr>
+</tbody></table></div>
+<h3 id="section-16">doc2 · A 弱配 Gold（5 条）</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>源句</th>
+<th>Gold</th>
+<th>预测编号</th>
+<th>预测来源</th>
+<th>预测</th>
+<th>配对 F1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>G6</td>
+<td>S3</td>
+<td>the hazards / is of loose items flying out of / the open-top of cargo trailers</td>
+<td>A10</td>
+<td>S5</td>
+<td>The matter set forth in the accompanying drawings / is offered / by way of illustration only</td>
+<td>0.207</td>
+</tr>
+<tr>
+<td>G7</td>
+<td>S3</td>
+<td>the hazards / has led many governing bodies to enact / strict laws</td>
+<td>A4</td>
+<td>S3</td>
+<td>the hazards / has led / many governing bodies to enact strict laws against such open transport</td>
+<td>0.462</td>
+</tr>
+<tr>
+<td>G11</td>
+<td>S5</td>
+<td>the matter set forth / is in / the foregoing description and accompanying drawings</td>
+<td>A13</td>
+<td>S6</td>
+<td>the following claims / are viewed in their proper perspective based on / the prior art</td>
+<td>0.231</td>
+</tr>
+<tr>
+<td>G18</td>
+<td>S7</td>
+<td>most of these components made of strong materials / is to withstand / the conditions</td>
+<td>A15</td>
+<td>S7</td>
+<td>most of these components / are to withstand / the conditions of being atop an open cargo area of a vehicle during transportation of goods</td>
+<td>0.444</td>
+</tr>
+<tr>
+<td>G19</td>
+<td>S7</td>
+<td>the conditions / are of being atop / an open cargo area of a vehicle during transportation of goods</td>
+<td>A5</td>
+<td>S3</td>
+<td>the hazards / are of / loose items flying out of the open-top of cargo trailers</td>
+<td>0.387</td>
+</tr>
+</tbody></table></div>
+<h3 id="section-17">doc2 · B 未配 Gold（9 条）</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>源句</th>
+<th>Gold 三元组</th>
+<th>本句最接近预测</th>
+<th>整篇最高合格候选</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>G2</td>
+<td>S1</td>
+<td>loose items / are being transported in / high-traffic areas</td>
+<td>B1 · a danger / occurs when / loose items are being transported in high-traffic areas · 无交集字段 head, relation · 已配 G1</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G6</td>
+<td>S3</td>
+<td>the hazards / is of loose items flying out of / the open-top of cargo trailers</td>
+<td>B7 · loose items / flying out of / the open-top of cargo trailers · 无交集字段 head · 未配</td>
+<td>B8 · F1 0.267 · 已配 G9</td>
+</tr>
+<tr>
+<td>G7</td>
+<td>S3</td>
+<td>the hazards / has led many governing bodies to enact / strict laws</td>
+<td>B5 · the hazards of loose items flying out of the open-top of cargo trailers / has led / many governing bodies · 无交集字段 tail · 未配</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G8</td>
+<td>S3</td>
+<td>strict laws / is against / such open transport</td>
+<td>B6 · many governing bodies / enact / strict laws against such open transport · 无交集字段 head, relation · 未配</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G11</td>
+<td>S5</td>
+<td>the matter set forth / is in / the foregoing description and accompanying drawings</td>
+<td>B10 · The matter set forth in the foregoing description and accompanying drawings / is offered / by way of illustration only · 无交集字段 tail · 已配 G12</td>
+<td>B8 · F1 0.286 · 已配 G9</td>
+</tr>
+<tr>
+<td>G15</td>
+<td>S6</td>
+<td>the following claims / are viewed in / their proper perspective</td>
+<td>B12 · The actual scope of the protection sought / is intended to be defined / in the following claims when viewed in their proper perspective based on the prior art · 无交集字段 relation · 已配 G14</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G16</td>
+<td>S6</td>
+<td>their proper perspective / is based on / the prior art</td>
+<td>B12 · The actual scope of the protection sought / is intended to be defined / in the following claims when viewed in their proper perspective based on the prior art · 无交集字段 head · 已配 G14</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G19</td>
+<td>S7</td>
+<td>the conditions / are of being atop / an open cargo area of a vehicle during transportation of goods</td>
+<td>B14 · most of these components / to withstand / the conditions of being atop an open cargo area of a vehicle during transportation of goods · 无交集字段 head, relation · 已配 G18</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G20</td>
+<td>S8</td>
+<td>a series of bows / was brought into / use</td>
+<td>B15 · a series of bows / was brought into use to keep / the tarpaulin from lying in direct contact with goods in the truck trailer · 无交集字段 tail · 已配 G21</td>
+<td>—</td>
+</tr>
+</tbody></table></div>
+<h3 id="section-18">doc2 · B 弱配 Gold（1 条）</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>源句</th>
+<th>Gold</th>
+<th>预测编号</th>
+<th>预测来源</th>
+<th>预测</th>
+<th>配对 F1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>G18</td>
+<td>S7</td>
+<td>most of these components made of strong materials / is to withstand / the conditions</td>
+<td>B14</td>
+<td>S7</td>
+<td>most of these components / to withstand / the conditions of being atop an open cargo area of a vehicle during transportation of goods</td>
+<td>0.457</td>
+</tr>
+</tbody></table></div>
+<h2 id="section-19">doc3 · 6519. Rubber composite and process for obtaining same.txt</h2>
+<h3 id="section-20">doc3 · A 未配 Gold（13 条）</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>源句</th>
+<th>Gold 三元组</th>
+<th>本句最接近预测</th>
+<th>整篇最高合格候选</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>G1</td>
+<td>S1</td>
+<td>a rubber composite / comprises / rubber</td>
+<td>A2 · a rubber composite / comprising / rubber · 无交集字段 relation · 未配</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G2</td>
+<td>S1</td>
+<td>a rubber composite / comprises / oil</td>
+<td>A3 · a rubber composite / comprising / oil · 无交集字段 relation · 未配</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G3</td>
+<td>S1</td>
+<td>a rubber composite / comprises / a combination of powdered additives</td>
+<td>A4 · a rubber composite / comprising / a combination of powdered additives · 无交集字段 relation · 未配</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G6</td>
+<td>S2</td>
+<td>granulated recycled tire rubber / is incorporated into / bitumen</td>
+<td>A5 · The incorporation of granulated recycled tire rubber into bitumen / aimed to improve / the mechanical behavior of bituminous mixtures · 无交集字段 relation, tail · 已配 G5</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G8</td>
+<td>S3</td>
+<td>the asphalt bitumen-based binders / are in / high temperature conditions</td>
+<td>A6 · the properties of the asphalt bitumen-based binders in high and low temperature conditions / are of / a decisive importance · 无交集字段 tail · 已配 G7</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G9</td>
+<td>S3</td>
+<td>the asphalt bitumen-based binders / are in / low temperature conditions</td>
+<td>A6 · the properties of the asphalt bitumen-based binders in high and low temperature conditions / are of / a decisive importance · 无交集字段 tail · 已配 G7</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G19</td>
+<td>S5</td>
+<td>the external surface / is substantially, or completely, free of / oil</td>
+<td>A15 · the external surface / is / the out-most layer of the rubber composite · 无交集字段 tail · 已配 G18</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G29</td>
+<td>S9</td>
+<td>it / is clearly / the lowest value</td>
+<td>A25 · It / is clearly the lowest value as compared with / tradition Asphalt Rubber gap graded mixtures (with and without RAR) · 无交集字段 tail · 未配</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G30</td>
+<td>S9</td>
+<td>the lowest value / is compared with / tradition Asphalt Rubber gap graded mixtures (with and without RAR)</td>
+<td>A25 · It / is clearly the lowest value as compared with / tradition Asphalt Rubber gap graded mixtures (with and without RAR) · 无交集字段 head · 未配</td>
+<td>A15 · F1 0.222 · 已配 G18</td>
+</tr>
+<tr>
+<td>G31</td>
+<td>S9</td>
+<td>the lowest value / is even compared with / traditional SMA mixtures with highly modified bitumen and fibres</td>
+<td>A26 · It / is clearly the lowest value even compared with / traditional SMA mixtures with highly modified bitumen and fibres · 无交集字段 head · 未配</td>
+<td>A27 · F1 0.222 · 已配 G33</td>
+</tr>
+<tr>
+<td>G32</td>
+<td>S9</td>
+<td>traditional SMA mixtures / are with highly modified / bitumen and fibres</td>
+<td>A26 · It / is clearly the lowest value even compared with / traditional SMA mixtures with highly modified bitumen and fibres · 无交集字段 head · 未配</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G34</td>
+<td>S10</td>
+<td>the range / is given as such merely for / brevity</td>
+<td>A27 · the range / is given as such merely for / convenience and brevity · F1 0.900 · 已配 G33</td>
+<td>A27 · F1 0.900 · 已配 G33</td>
+</tr>
+<tr>
+<td>G36</td>
+<td>S10</td>
+<td>the range / should not be construed as an inflexible limitation on / the scope of the invention</td>
+<td>A28 · the range / should not be construed as / an inflexible limitation on the scope of the invention · F1 0.750 · 已配 G35</td>
+<td>A28 · F1 0.750 · 已配 G35</td>
+</tr>
+</tbody></table></div>
+<h3 id="section-21">doc3 · A 弱配 Gold（0 条）</h3>
+<p>该组该篇没有符合此阈值的弱配。</p>
+<h3 id="section-22">doc3 · B 未配 Gold（13 条）</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>源句</th>
+<th>Gold 三元组</th>
+<th>本句最接近预测</th>
+<th>整篇最高合格候选</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>G1</td>
+<td>S1</td>
+<td>a rubber composite / comprises / rubber</td>
+<td>B2 · a rubber composite / comprising / rubber · 无交集字段 relation · 未配</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G2</td>
+<td>S1</td>
+<td>a rubber composite / comprises / oil</td>
+<td>B3 · a rubber composite / comprising / oil · 无交集字段 relation · 未配</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G3</td>
+<td>S1</td>
+<td>a rubber composite / comprises / a combination of powdered additives</td>
+<td>B4 · a rubber composite / comprising / a combination of powdered additives · 无交集字段 relation · 未配</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G6</td>
+<td>S2</td>
+<td>granulated recycled tire rubber / is incorporated into / bitumen</td>
+<td>B5 · The incorporation of granulated recycled tire rubber into bitumen / aimed to improve / the mechanical behavior of bituminous mixtures · 无交集字段 relation, tail · 已配 G5</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G8</td>
+<td>S3</td>
+<td>the asphalt bitumen-based binders / are in / high temperature conditions</td>
+<td>B6 · the properties of the asphalt bitumen-based binders in high and low temperature conditions / are of / a decisive importance · 无交集字段 tail · 已配 G7</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G9</td>
+<td>S3</td>
+<td>the asphalt bitumen-based binders / are in / low temperature conditions</td>
+<td>B6 · the properties of the asphalt bitumen-based binders in high and low temperature conditions / are of / a decisive importance · 无交集字段 tail · 已配 G7</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G20</td>
+<td>S6</td>
+<td>the particles / are of / non-spheroid shape</td>
+<td>B17 · When the particles are of non-spheroid shape, the term / refers to / the average equivalent diameter of the particle · 无交集字段 relation, tail · 已配 G21</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G29</td>
+<td>S9</td>
+<td>it / is clearly / the lowest value</td>
+<td>B25 · It / is clearly the lowest value as compared with / tradition Asphalt Rubber gap graded mixtures (with and without RAR) · 无交集字段 tail · 未配</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G30</td>
+<td>S9</td>
+<td>the lowest value / is compared with / tradition Asphalt Rubber gap graded mixtures (with and without RAR)</td>
+<td>B25 · It / is clearly the lowest value as compared with / tradition Asphalt Rubber gap graded mixtures (with and without RAR) · 无交集字段 head · 未配</td>
+<td>B27 · F1 0.222 · 已配 G33</td>
+</tr>
+<tr>
+<td>G31</td>
+<td>S9</td>
+<td>the lowest value / is even compared with / traditional SMA mixtures with highly modified bitumen and fibres</td>
+<td>B26 · It / is clearly the lowest value as compared with / traditional SMA mixtures with highly modified bitumen and fibres · 无交集字段 head · 未配</td>
+<td>B27 · F1 0.222 · 已配 G33</td>
+</tr>
+<tr>
+<td>G32</td>
+<td>S9</td>
+<td>traditional SMA mixtures / are with highly modified / bitumen and fibres</td>
+<td>B26 · It / is clearly the lowest value as compared with / traditional SMA mixtures with highly modified bitumen and fibres · 无交集字段 head · 未配</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G34</td>
+<td>S10</td>
+<td>the range / is given as such merely for / brevity</td>
+<td>B27 · the range / is given as such merely for / convenience and brevity · F1 0.900 · 已配 G33</td>
+<td>B27 · F1 0.900 · 已配 G33</td>
+</tr>
+<tr>
+<td>G36</td>
+<td>S10</td>
+<td>the range / should not be construed as an inflexible limitation on / the scope of the invention</td>
+<td>B28 · the range / should not be construed as / an inflexible limitation on the scope of the invention · F1 0.750 · 已配 G35</td>
+<td>B28 · F1 0.750 · 已配 G35</td>
+</tr>
+</tbody></table></div>
+<h3 id="section-23">doc3 · B 弱配 Gold（0 条）</h3>
+<p>该组该篇没有符合此阈值的弱配。</p>
+<h2 id="section-24">doc4 · 6818. Communication path managing method and communication path managing system.txt</h2>
+<h3 id="section-25">doc4 · A 未配 Gold（8 条）</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>源句</th>
+<th>Gold 三元组</th>
+<th>本句最接近预测</th>
+<th>整篇最高合格候选</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>G3</td>
+<td>S2</td>
+<td>the evaluation items / are based on / the item importance information</td>
+<td>A2 · At least one of the communication paths for the vehicle / is selected according to / the evaluation items based on the item importance information · 无交集字段 relation · 已配 G2</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G5</td>
+<td>S3</td>
+<td>selecting at least one of the communication paths for the vehicle / is according to / the evaluation items</td>
+<td>A3 · The selecting unit / is for selecting / at least one of the communication paths for the vehicle according to the evaluation items based on the item importance information · F1 0.273 · 已配 G4</td>
+<td>A2 · F1 0.800 · 已配 G2</td>
+</tr>
+<tr>
+<td>G6</td>
+<td>S3</td>
+<td>the evaluation items / are based on / the item importance information</td>
+<td>A3 · The selecting unit / is for selecting / at least one of the communication paths for the vehicle according to the evaluation items based on the item importance information · 无交集字段 relation · 已配 G4</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G13</td>
+<td>S7</td>
+<td>all of the evaluation items EV / is of / each of the communication paths PH in the third group G3</td>
+<td>A7 · All of the evaluation items EV of each of the communication paths PH in the third group G3 / is worse than / the standard thresholds E0 · F1 0.364 · 已配 G12</td>
+<td>A7 · F1 0.364 · 已配 G12</td>
+</tr>
+<tr>
+<td>G15</td>
+<td>S8</td>
+<td>the value of the routing path latency / is equal to or lower than 500 kbps in / the good category of the available bandwidth</td>
+<td>A8 · the value of the routing path latency / in the good category of the available bandwidth, is equal to or lower than / 500 kbps · 无交集字段 tail · 已配 G14</td>
+<td>A6 · F1 0.359 · 已配 G10</td>
+</tr>
+<tr>
+<td>G17</td>
+<td>S9</td>
+<td>the specification and examples / are considered as exemplary only with / a true scope of the disclosure</td>
+<td>A9 · the specification / is intended to be considered as / exemplary only · 无交集字段 tail · 未配</td>
+<td>—</td>
+</tr>
+<tr>
+<td>G19</td>
+<td>S9</td>
+<td>the disclosure / is being indicated by / their equivalents</td>
+<td>A10 · a true scope of the disclosure / is indicated by / the following claims and their equivalents · F1 0.609 · 已配 G18</td>
+<td>A10 · F1 0.609 · 已配 G18</td>
+</tr>
+<tr>
+<td>G21</td>
+<td>S10</td>
+<td>the value of the routing path latency / is equal to or lower than 50 ms in / the good category of the routing path latency</td>
+<td>A11 · the value of the routing path latency / in the good category of the routing path latency, is equal to or lower than / 50 ms · 无交集字段 tail · 已配 G20</td>
+<td>A6 · F1 0.400 · 已配 G10</td>
+</tr>
+</tbody></table></div>
+<h3 id="section-26">doc4 · A 弱配 Gold（0 条）</h3>
+<p>该组该篇没有符合此阈值的弱配。</p>
+<h3 id="section-27">doc4 · B 未配 Gold（7 条）</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>源句</th>
+<th>Gold 三元组</th>
+<th>本句最接近预测</th>
+<th>整篇最高合格候选</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>G5</td>
+<td>S3</td>
+<td>selecting at least one of the communication paths for the vehicle / is according to / the evaluation items</td>
+<td>B3 · The selecting unit / is for selecting / at least one of the communication paths for the vehicle according to the evaluation items · F1 0.316 · 已配 G4</td>
+<td>B2 · F1 0.941 · 已配 G2</td>
+</tr>
+<tr>
+<td>G6</td>
+<td>S3</td>
+<td>the evaluation items / are based on / the item importance information</td>
+<td>B12 · the evaluation items / are based on / the item importance information · F1 1.000 · 已配 G3</td>
+<td>B12 · F1 1.000 · 已配 G3</td>
+</tr>
+<tr>
+<td>G13</td>
+<td>S7</td>
+<td>all of the evaluation items EV / is of / each of the communication paths PH in the third group G3</td>
+<td>B7 · All of the evaluation items EV of each of the communication paths PH in the third group G3 / is worse than / the standard thresholds E0 · F1 0.364 · 已配 G12</td>
+<td>B7 · F1 0.364 · 已配 G12</td>
+</tr>
+<tr>
+<td>G15</td>
+<td>S8</td>
+<td>the value of the routing path latency / is equal to or lower than 500 kbps in / the good category of the available bandwidth</td>
+<td>B8 · the value of the routing path latency / in the good category of the available bandwidth, is equal to or lower than / 500 kbps · 无交集字段 tail · 已配 G14</td>
+<td>B6 · F1 0.359 · 已配 G10</td>
+</tr>
+<tr>
+<td>G17</td>
+<td>S9</td>
+<td>the specification and examples / are considered as exemplary only with / a true scope of the disclosure</td>
+<td>B9 · the specification / is intended to be considered as / exemplary only · 无交集字段 tail · 未配</td>
+<td>B12 · F1 0.231 · 已配 G3</td>
+</tr>
+<tr>
+<td>G19</td>
+<td>S9</td>
+<td>the disclosure / is being indicated by / their equivalents</td>
+<td>B10 · a true scope of the disclosure / is indicated by / the following claims and their equivalents · F1 0.609 · 已配 G18</td>
+<td>B10 · F1 0.609 · 已配 G18</td>
+</tr>
+<tr>
+<td>G21</td>
+<td>S10</td>
+<td>the value of the routing path latency / is equal to or lower than 50 ms in / the good category of the routing path latency</td>
+<td>B11 · the value of the routing path latency / in the good category of the routing path latency, is equal to or lower than / 50 ms · 无交集字段 tail · 已配 G20</td>
+<td>B6 · F1 0.400 · 已配 G10</td>
+</tr>
+</tbody></table></div>
+<h3 id="section-28">doc4 · B 弱配 Gold（0 条）</h3>
+<p>该组该篇没有符合此阈值的弱配。</p>
+
+<footer>由同目录 Markdown 生成；数据、评价口径和证据范围均以正文为准。</footer></main></div>
+<script>document.getElementById('toc-filter').addEventListener('input',function(){const q=this.value.trim().toLowerCase();document.querySelectorAll('aside a').forEach(a=>{a.hidden=!a.textContent.toLowerCase().includes(q);});});</script>
+</body></html>
