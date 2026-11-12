@@ -28,13 +28,13 @@
 
 源码：[原有接口调用与重试](../core/base_agent.py)。
 
-## 输出与回退
+## 输出与来源检查
 
 - `_dump_doc0_generation_S3.json`、`_dump_doc0_comparison_S3.json`：本句请求、原始回复和重试记录。空三元组不调用重建模型，其状态保留在重建结果中。
 - `_dump_doc0_feedback_S3_2_replace.json`：S3 的 Replace 输入输出、实际修改、来源与当前编号。
 - `revision_result.json` 中的 after_add、after_replace、after_revision：各句对应阶段的汇总，不仅是最后一句。
 - revision_audit 包含 sentence_runs、snapshot_index_maps 和带句编号的 stages。编号须结合源句及版本解释。
-- 历史条目同时关联多个源句或不能安全分组时，反馈显式回退整篇，记录 `requested_scope=sentence`、`scope=document`、fallback_reason 和 fallback_indices。重建与对比的 text_scope 独立保持所选模式。实验报告应将回退文章单列。
+- 抽取、拆分和去重保留每条三元组的源句编号；不同源句中的相同三元组不合并来源。逐句反馈遇到来源编号缺失、多值或无效的旧条目时明确报错，不自动切换到整篇调用；需恢复原始逐句归属后再运行。显式设置 feedback_scope=document 仍使用整篇入口。
 - 逐句 Remove 检查本句重复。汇总不增加新的跨句语义去重；既有冲突处理沿用原流程。
 
 ## 固定输入对照
@@ -47,10 +47,10 @@ python tools/evaluation/compare_feedback_scopes.py --revision-result <revision_r
 
 密钥从 `KARMA_API_KEY` 环境变量读取。候选实体文件应采用该次反馈实际使用的数据，支持 name 或 mention 字段；真实候选为空时提供 `[]`，缺失材料不要用虚构内容代替。Responses 模式追加 `--api-mode responses`。
 
-输出 document.json、sentence.json，均含相同输入的 SHA256 和实际运行配置。提供 Gold 时生成 lenient_metrics.json，按仓库既有宽松匹配规则给出拆分后、Add 后、Replace 后、反馈后的 P/R/F1，以及 feedback_delta；实际是否回退整篇也明确标记。
+输出 document.json、sentence.json，均含相同输入的 SHA256 和实际运行配置。提供 Gold 时生成 lenient_metrics.json，按仓库既有宽松匹配规则给出拆分后、Add 后、Replace 后、反馈后的 P/R/F1，以及 feedback_delta；逐句输入须具有有效的单句来源编号。
 
 ## 验证范围
 
-已通过 94 项离线测试；9 个反馈示例通过格式和操作执行校验。测试覆盖超过旧上限仍继续重试、2/4/8/16/30 秒等待与持续封顶、Retry-After 封顶、原 Responses 行为、网络错误、主动中断、原有 Agent 回退、逐句隔离、空句补抽、编号映射、有限返修、失败隔离、主流程文件汇总和固定输入回放。
+离线测试和反馈示例用于核对格式、来源传递及操作执行；模型抽取质量需另行运行评估。测试覆盖超过旧上限仍继续重试、2/4/8/16/30 秒等待与持续封顶、Retry-After 封顶、原 Responses 行为、网络错误、主动中断、原有 Agent 回退、逐句隔离、空句补抽、编号映射、有限返修、失败隔离、主流程文件汇总和固定输入回放。
 
 尚未使用真实 API 运行本次改动，没有新的反馈质量或费用结论。实际效果应采用用户指定的修改后 Gold 和同一批输入核对。

@@ -43,8 +43,7 @@ FACT_RULES = """
    数量或时间不同的陈述分别核实并保留各自的事实含义。
 7. 根据同一源句内明确的对应关系理解指代、角色、方向和限定范围；对应关系不明确时保留原文代词。
    输出具有完整原文依据的事实。
-8. source_sentence_ids 只填写支持本条事实的一个源句编号；context 逐字复制该句中的连续片段，
-   覆盖完整事实及其必要限定。
+8. source_sentence_ids 填写支持本条事实的源句编号。
 """
 
 logger = logging.getLogger(__name__)
@@ -58,7 +57,7 @@ class RelationshipExtractionAgent(TripleRevisionMixin, BaseAgent):
     1. Identifies relationships between extracted entities
     2. Classifies relationship types using domain patterns
     3. Handles negation and conditional relationships
-    4. Preserves verbatim evidence and source sentence IDs
+    4. Preserves source sentence IDs
     """
 
     def __init__(self, client, model_name: str):
@@ -74,8 +73,8 @@ class RelationshipExtractionAgent(TripleRevisionMixin, BaseAgent):
 # 执行步骤
 """ + FACT_RULES + """
 # 输出
-完整回复采用合法 JSON 数组，每项包含 head、relation、tail、context、source_sentence_ids。
-source_sentence_ids 只填一个有效源句编号，例如 ["S1"]。context 逐字复制该句中支持完整事实及必要限定的连续片段。
+完整回复采用合法 JSON 数组，每项包含 head、relation、tail、source_sentence_ids。
+source_sentence_ids 只填一个有效源句编号，例如 ["S1"]。
 无可抽取事实时返回 []。
 
 # 示例
@@ -88,14 +87,11 @@ source_sentence_ids 只填一个有效源句编号，例如 ["S1"]。context 逐
 输出：
 [
   {"head": "The controller", "relation": "reads", "tail": "sensor data",
-   "source_sentence_ids": ["S1"],
-   "context": "The controller reads and stores sensor data."},
+   "source_sentence_ids": ["S1"]},
   {"head": "The controller", "relation": "stores", "tail": "sensor data",
-   "source_sentence_ids": ["S1"],
-   "context": "The controller reads and stores sensor data."},
+   "source_sentence_ids": ["S1"]},
   {"head": "It", "relation": "may query", "tail": "the ECU",
-   "source_sentence_ids": ["S2"],
-   "context": "It may query the ECU."}
+   "source_sentence_ids": ["S2"]}
 ]
 """
 
@@ -134,7 +130,7 @@ source_sentence_ids 只填一个有效源句编号，例如 ["S1"]。context 逐
 
 # 源句编号
 源句是下列带 sentence_id 的原文句子。每条三元组须额外输出 source_sentence_ids
-数组，只填写直接支持该事实的一个源句编号。每条事实与证据均在该源句内核对。
+数组，只填写直接支持该事实的一个源句编号。每条事实在对应源句内核对。
 <source_sentences_json>
 {json.dumps(sentences, ensure_ascii=False, indent=2)}
 </source_sentences_json>
@@ -169,9 +165,6 @@ source_sentence_ids 只填一个有效源句编号，例如 ["S1"]。context 逐
                 attach_sources(triple, sentences, item)
                 if len(triple.source_sentence_ids) != 1:
                     rejected.append({'index': index, 'reason': 'source must resolve to one sentence', 'item': item})
-                    continue
-                if not triple.evidence or triple.evidence not in known[triple.source_sentence_ids[0]]:
-                    rejected.append({'index': index, 'reason': 'context must quote the single source sentence', 'item': item})
                     continue
                 for key in SCORE_FIELDS:
                     setattr(triple, key, FIXED_TRIPLE_SCORE)

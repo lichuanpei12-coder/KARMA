@@ -22,14 +22,14 @@ hr{border:0;border-top:1px solid var(--line);margin:30px 0}.filelinks{display:fl
 footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid var(--line);padding-top:15px}
 @media(max-width:900px){.layout{display:block;padding:12px}aside{position:static;max-height:300px;margin-bottom:16px}main{padding:22px 18px}header{padding:18px}h1{font-size:23px}h2{font-size:21px}th,td{padding:8px}}
 @media print{body{background:#fff;font-size:11pt}.layout{display:block;padding:0}aside,header,.filelinks,footer{display:none}main{border:0;padding:0}.table-wrap{overflow:visible}pre,table{font-size:9pt}h2,h3{break-after:avoid}tr{break-inside:avoid}a{color:inherit;text-decoration:none}}
-</style></head><body><header><div class="label">文本对比Agent_完整Prompt</div><p>源码行号与实际调用分支 · 2026-11-04 · 0ef4dc4</p></header><div class="layout"><aside><h2>目录</h2><input id="toc-filter" type="search" placeholder="搜索轮次、System、User"><a href="../Prompt%E6%80%BB%E8%A7%88.html">全部Agent总览</a><a class="" href="#section-1">当前运行是否使用这套Prompt</a>
+</style></head><body><header><div class="label">文本对比Agent_完整Prompt</div><p>源码行号与实际调用分支 · 2026-11-12 · 6946a86</p></header><div class="layout"><aside><h2>目录</h2><input id="toc-filter" type="search" placeholder="搜索轮次、System、User"><a href="../Prompt%E6%80%BB%E8%A7%88.html">全部Agent总览</a><a class="" href="#section-1">当前运行是否使用这套Prompt</a>
 <a class="" href="#section-2">展示说明</a>
 <a class="" href="#section-3">当前默认：逐句调用（整篇模式复用相同固定提示）</a>
 <a class="" href="#section-4">附录：当前pipeline不使用的非分组入口</a>
 <a class="" href="#section-5">条件说明：UNASSIGNED出现时才添加</a>
 <a class="" href="#section-6">附录：非分组比较焦点</a>
 <a class="" href="#section-7">文档维护</a></aside><main><a href="%E6%96%87%E6%9C%AC%E5%AF%B9%E6%AF%94Agent_%E5%AE%8C%E6%95%B4Prompt.md">Markdown原文</a><h1 id="section-0">文本对比Agent_完整Prompt</h1>
-<p>整理日期：2026-11-04。代码版本：<code>0ef4dc4d1dca56bac8e9db2a4c4fd5c629535611</code>。行号对应整理时源码；后续修改源码后应重新导出。</p>
+<p>整理日期：2026-11-12。代码版本：<code>6946a863833addea07f4a3210bdd8d13a49fef68</code>。行号对应整理时源码；后续修改源码后应重新导出。</p>
 <h2 id="section-1">当前运行是否使用这套Prompt</h2>
 <p>当前pipeline默认text_scope=sentence，由compare_sentences逐句调用compare_grouped，每次只传对应源句及重建文本；全文标签也仅包含本句。text_scope=document时一次传入全部分组。两种模式固定提示相同，仅输入范围不同。另一条compare路径只在不传分组或直接调用时使用，不会与当前版本叠加。</p>
 <p>【来源：调用入口与System/User发送｜<a href="agent.py#L67">karma/agents/text_comparison/agent.py 第67—82行</a>；<a href="../../core/base_agent.py#L100">karma/core/base_agent.py 第100—209、211—252行</a>】</p>
@@ -204,7 +204,7 @@ footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid va
 重要：输出内容必须与上方输入文本的语言保持一致。输入文本为英文时，所有输出内容必须使用英文，不要使用中文。
 </code></pre>
 <h2 id="section-5">条件说明：UNASSIGNED出现时才添加</h2>
-<p>此句由karma/core/sentence_groups.py 第82—87行返回：</p>
+<p>此句由karma/core/sentence_groups.py 第74—79行返回：</p>
 <pre><code class="language-text">UNASSIGNED 是来源句尚未确定的条目分组；按输入编号处理该组。
 </code></pre>
 <p>插入到当前分组User的业务输入标签之前，拼接位置见karma/agents/text_comparison/agent.py 第106—205行。</p>

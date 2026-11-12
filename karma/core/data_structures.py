@@ -5,7 +5,7 @@ This module defines the fundamental data structures used throughout the pipeline
 including knowledge triples, entities, and intermediate processing results.
 """
 
-from dataclasses import dataclass, field, asdict
+from dataclasses import dataclass, field, asdict, fields
 from typing import List, Dict, Optional, Union
 import json
 
@@ -35,7 +35,6 @@ class KnowledgeTriple:
     relevance: float = 0.0
     clarity: float = 0.0
     source_sentence_ids: List[str] = field(default_factory=list)
-    evidence: str = ""
 
     def __str__(self) -> str:
         """String representation of the knowledge triple."""
@@ -45,9 +44,8 @@ class KnowledgeTriple:
         """Convert to dictionary for serialization."""
         data = asdict(self)
         # Legacy records remain readable and unchanged when provenance is absent.
-        for key in ("source_sentence_ids", "evidence"):
-            if not data[key]:
-                data.pop(key)
+        if not data["source_sentence_ids"]:
+            data.pop("source_sentence_ids")
         return data
 
     @classmethod
@@ -56,9 +54,9 @@ class KnowledgeTriple:
         ids = data.get('source_sentence_ids', [])
         if not isinstance(ids, list) or not all(isinstance(s, str) for s in ids):
             raise ValueError('source_sentence_ids must be a string array')
-        if not isinstance(data.get('evidence', ''), str):
-            raise ValueError('evidence must be a string')
-        return cls(**data)
+        # Ignore retired fields when loading historical snapshots.
+        allowed = {f.name for f in fields(cls)}
+        return cls(**{k: v for k, v in data.items() if k in allowed})
 
 
 @dataclass

@@ -31,32 +31,24 @@ def valid_ids(value, sentences):
     return list(dict.fromkeys(x for x in value if isinstance(x, str) and x in allowed))
 
 
-def infer_ids(triple, sentences, evidence=""):
-    """Use exact evidence or exact SPO containment, never best-overlap guesses."""
+def infer_ids(triple, sentences):
+    """Recover a unique exact SPO match in legacy records, never guess a source."""
     norm = lambda s: " ".join(s.split())
-    evidence = norm(evidence)
-    if evidence:
-        matches = [s['sentence_id'] for s in sentences if evidence in norm(s['text'])]
-        if matches:
-            return matches
-    fields = [norm(getattr(triple, key)) for key in ('head', 'relation', 'tail')]
-    return [s['sentence_id'] for s in sentences
-            if all(value and value in norm(s['text']) for value in fields)]
+    values = [norm(getattr(triple, key)) for key in ('head', 'relation', 'tail')]
+    matches = [s['sentence_id'] for s in sentences
+               if all(value and value in norm(s['text']) for value in values)]
+    return matches if len(matches) == 1 else []
 
 
 def attach_sources(triple, sentences, item=None, parent=None):
-    """Validate model IDs; recover old exact matches or retain parent provenance."""
+    """Use declared sentence IDs, inherit a parent's source, or recover an exact match."""
     item = item or {}
-    evidence = item.get('evidence', item.get('context', ''))
-    if not isinstance(evidence, str):
-        evidence = ''
     ids = valid_ids(item.get('source_sentence_ids', triple.source_sentence_ids), sentences)
-    if not ids:
-        ids = infer_ids(triple, sentences, evidence or triple.evidence)
     if not ids and parent is not None:
         ids = valid_ids(parent.source_sentence_ids, sentences)
+    if not ids:
+        ids = infer_ids(triple, sentences)
     triple.source_sentence_ids = ids
-    triple.evidence = evidence or triple.evidence or (parent.evidence if parent else '')
     return triple
 
 

@@ -1,6 +1,6 @@
 # 文本对比Agent_完整Prompt
 
-整理日期：2026-11-04。代码版本：`0ef4dc4d1dca56bac8e9db2a4c4fd5c629535611`。行号对应整理时源码；后续修改源码后应重新导出。
+整理日期：2026-11-12。代码版本：`6946a863833addea07f4a3210bdd8d13a49fef68`。行号对应整理时源码；后续修改源码后应重新导出。
 
 ## 当前运行是否使用这套Prompt
 
@@ -205,7 +205,7 @@ Chat Completions 与 Responses 使用同一套 System/User 内容。Chat Complet
 
 ## 条件说明：UNASSIGNED出现时才添加
 
-此句由karma/core/sentence_groups.py 第82—87行返回：
+此句由karma/core/sentence_groups.py 第74—79行返回：
 
 ```text
 UNASSIGNED 是来源句尚未确定的条目分组；按输入编号处理该组。

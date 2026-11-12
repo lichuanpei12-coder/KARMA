@@ -53,6 +53,26 @@ class SentenceGroupsTests(unittest.TestCase):
         self.assertNotIn('source_sentence_ids', restored.to_dict())
         self.assertEqual(KnowledgeTriple.from_dict(self.triple.to_dict()), self.triple)
 
+    def test_retired_quote_field_is_ignored_when_loading_old_snapshots(self):
+        old = dict(head='Controller', relation='reads', tail='data',
+                   source_sentence_ids=['S1'], evidence='Controller reads data.')
+        restored = KnowledgeTriple.from_dict(old)
+        self.assertFalse(hasattr(restored, 'evidence'))
+        self.assertNotIn('evidence', restored.to_dict())
+        self.assertEqual(restored.source_sentence_ids, ['S1'])
+        self.assertIn('evidence', old)  # Loading must not rewrite the historical input.
+
+    def test_identical_facts_from_two_sentences_remain_separate(self):
+        agent = RelationshipExtractionAgent(None, 'offline')
+        sentences = source_sentences('Controller reads data. Controller reads data.')
+        response = [dict(head='Controller', relation='reads', tail='data',
+                         source_sentence_ids=[s['sentence_id']]) for s in sentences]
+        with patch.object(agent, '_make_llm_call', return_value=reply(response)):
+            triples = agent.process([' '.join(s['text'] for s in sentences)], [], sentences=sentences)
+        self.assertEqual([t.source_sentence_ids for t in triples], [['S1'], ['S2']])
+        self.assertTrue(all('evidence' not in t.to_dict() for t in triples))
+        self.assertNotIn('context', agent.system_prompt)
+
     def test_empty_cross_sentence_and_unknown_groups_keep_global_indices(self):
         cross = KnowledgeTriple('It', 'uses', 'data', source_sentence_ids=['S1', 'S2'])
         unknown = KnowledgeTriple('Unknown', 'has', 'no evidence')
@@ -71,53 +91,57 @@ class SentenceGroupsTests(unittest.TestCase):
         wrong = KnowledgeTriple('Sensor', 'reads', 'data')
         attach_sources(wrong, self.sentences, {'source_sentence_ids': ['S99']})
         self.assertEqual(wrong.source_sentence_ids, [])
-        attach_sources(wrong, self.sentences, {'context': 'Sensor measures temperature.'})
+        attach_sources(wrong, self.sentences, {'source_sentence_ids': ['S2']})
         self.assertEqual(wrong.source_sentence_ids, ['S2'])
 
     def test_extracts_provenance_and_uncovered_sentence_remains_visible(self):
         agent = RelationshipExtractionAgent(None, 'offline')
         response = [dict(head='Controller', relation='reads', tail='data',
-                         context='Controller reads data.', source_sentence_ids=['S1'])]
+                         source_sentence_ids=['S1'])]
         with patch.object(agent, '_make_llm_call', return_value=reply(response)) as call:
             triples = agent.process([self.text], [], sentences=self.sentences)
         self.assertEqual(tagged_json(call.call_args.args[0], 'source_sentences_json'), self.sentences)
         self.assertEqual(triples[0].source_sentence_ids, ['S1'])
-        self.assertEqual(triples[0].evidence, 'Controller reads data.')
+        self.assertNotIn('evidence', triples[0].to_dict())
         self.assertEqual(group_triples(self.sentences, triples)[1]['triples'], [])
 
-    def test_split_inherits_and_duplicate_merges_provenance(self):
+    def test_split_inherits_and_dedup_preserves_sentence_ownership(self):
         mixin = TripleRevisionMixin()
         parent = copy.deepcopy(self.triple)
-        parent.evidence = 'Controller reads data.'
         parent.confidence = .91
         operation = dict(index=0, head='Controller', relation='stores', tail='data',
                          reason='split', source_sentence_ids=['S99'])
         children, audit = mixin._apply_revision([parent], dict(
             add=[operation], remove=[], replace=[]), split_only=True)
         self.assertEqual(children[1].source_sentence_ids, ['S1'])
-        self.assertEqual(children[1].evidence, parent.evidence)
         self.assertEqual(children[1].confidence, .91)
         duplicate = copy.deepcopy(parent)
         duplicate.source_sentence_ids = ['S2']
         duplicate.confidence = .99
         unique = mixin._deduplicate_relationships([parent, duplicate])
-        self.assertEqual(len(unique), 1)
-        self.assertEqual(unique[0].source_sentence_ids, ['S1', 'S2'])
-        self.assertEqual(unique[0].confidence, .99)
+        self.assertEqual(len(unique), 2)
+        self.assertEqual([t.source_sentence_ids for t in unique], [['S1'], ['S2']])
+        self.assertEqual(unique[1].confidence, .99)
+        same_sentence = copy.deepcopy(parent)
+        same_sentence.confidence = .99
+        same = mixin._deduplicate_relationships([parent, same_sentence])
+        self.assertEqual(len(same), 1)
+        self.assertEqual(same[0].source_sentence_ids, ['S1'])
+        self.assertEqual(same[0].confidence, .99)
 
     def test_revision_add_replace_keep_source_and_document_indices(self):
         agent = RelationshipExtractionAgent(None, 'offline')
         missing = dict(head='Sensor', relation='measures', tail='temperature',
-                       evidence='Sensor measures temperature.', reason='missing', source_sentence_ids=['S2'])
+                        reason='missing', source_sentence_ids=['S2'])
         replace = dict(index=0, head='Controller', relation='reads', tail='data',
-                       evidence='Controller reads data.', reason='wording', source_sentence_ids=['S1'])
+                        reason='wording', source_sentence_ids=['S1'])
         changes = dict(add=[missing], replace=[replace], remove=[])
         result, audit = agent._apply_revision([self.triple], changes, source_sentences=self.sentences)
         groups = group_triples(self.sentences, result)
         self.assertEqual(groups[0]['triples'][0]['index'], 0)
         self.assertEqual(groups[1]['triples'][0]['index'], 1)
         self.assertEqual([t.source_sentence_ids for t in result], [['S1'], ['S2']])
-        # Old revisions omitting provenance recover it from exact source evidence.
+        # Old revisions recover provenance from a unique exact SPO match.
         missing.pop('source_sentence_ids')
         result, _ = agent._apply_revision([self.triple], dict(add=[missing], replace=[], remove=[]),
                                          source_sentences=self.sentences)
@@ -125,7 +149,6 @@ class SentenceGroupsTests(unittest.TestCase):
 
     def test_reconstruction_has_no_source_or_evidence_and_restores_id_order(self):
         agent = TextGenerationAgent(None, 'offline')
-        self.triple.evidence = 'SECRET EVIDENCE'
         groups = group_triples(self.sentences, [self.triple])
         response = [{'sentence_id': 'S2', 'text': 'Invented empty-group fact'},
                     {'sentence_id': 'S1', 'text': 'Controller reads data.'}]
@@ -134,7 +157,7 @@ class SentenceGroupsTests(unittest.TestCase):
         call.assert_called_once()
         prompt = call.call_args.args[0]
         self.assertNotIn('Sensor measures temperature.', prompt)
-        self.assertNotIn('SECRET EVIDENCE', prompt)
+        self.assertNotIn('evidence', prompt)
         self.assertNotIn('text', tagged_json(prompt, 'triple_groups_json')[0])
         self.assertEqual(text, 'Controller reads data.')
         self.assertEqual([r['sentence_id'] for r in agent.last_grouped_generation], ['S1', 'S2'])

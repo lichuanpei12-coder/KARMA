@@ -14,6 +14,6 @@ def fixed_score_copy(triples):
 
 
 def prompt_triple(triple):
-    """Only facts and their source evidence belong in a model's input."""
+    """Only facts and their source sentence IDs belong in a model's input."""
     return {key: value for key, value in triple.to_dict().items()
-            if key in ('head', 'relation', 'tail', 'source_sentence_ids', 'evidence')}
+            if key in ('head', 'relation', 'tail', 'source_sentence_ids')}

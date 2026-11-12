@@ -65,7 +65,7 @@ class StagedPipelineTests(unittest.TestCase):
                 value = no_changes(context)
                 if name == 'FeedbackReplaceAgent' and context['current_collection']['triples']:
                     value['replace'] = [dict(index=0, issue_id='I1', reason='source wording', new_triples=[
-                        fact('may query', evidence='Controller may query ECU.', source_sentence_ids=['S1'])])]
+                        fact('may query',  source_sentence_ids=['S1'])])]
                 return reply(value)
             if name == 'TripleSplittingAgent':
                 return reply({'add': [], 'remove': [], 'replace': [] if empty else [
@@ -135,7 +135,7 @@ class StagedPipelineTests(unittest.TestCase):
     def test_feedback_scope_replay_uses_saved_inputs_and_lenient_gold(self):
         from tools.evaluation.compare_feedback_scopes import main as replay_main
         sentences = [dict(sentence_id='S1', text='Controller may query ECU.')]
-        triples = [fact(source_sentence_ids=['S1'], evidence=sentences[0]['text'])]
+        triples = [fact(source_sentence_ids=['S1'])]
         Path('saved_revision.json').write_text(json.dumps(dict(source_sentences=sentences, after_split=triples)), encoding='utf-8')
         Path('saved_feedback.json').write_text(json.dumps(dict(text_a=sentences[0]['text'],
             diff={'sentence_differences': [dict(sentence_id='S1', unique_to_text_a=[], unique_to_text_b=[])]},
@@ -216,7 +216,7 @@ class StagedPipelineTests(unittest.TestCase):
         def feedback_reply(prompt, **kwargs):
             value = no_changes(context_from_prompt(prompt))
             value['replace'] = [dict(index=1, issue_id='I1', reason='correct second split triple', new_triples=[
-                fact('may read', evidence='Controller may query ECU.', source_sentence_ids=['S1'])])]
+                fact('may read',  source_sentence_ids=['S1'])])]
             return reply(value)
         with patch.object(pipe.triple_splitting_agent, '_make_llm_call', return_value=reply(split_reply)), \
              patch.object(pipe.feedback_replace_agent, '_make_llm_call', side_effect=feedback_reply):

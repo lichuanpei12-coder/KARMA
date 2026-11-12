@@ -74,7 +74,7 @@ a=TripleSplittingAgent(None,'offline');new['splitting']=cap(a,lambda:a.process(S
 
 def path(agent):return f'karma/agents/{agent}/agent.py'
 sources={p.as_posix():p.read_text(encoding='utf-8-sig').splitlines() for p in (ROOT/'karma/agents').glob('*/agent.py')}
-for extra in ['karma/core/sentence_groups.py','karma/core/pipeline.py','karma/agents/feedback_common.py','karma/core/sentence_feedback_pipeline.py','karma/core/feedback_pipeline.py','karma/core/base_agent.py']:
+for extra in ['karma/core/sentence_groups.py','karma/core/pipeline.py','karma/agents/feedback_common.py','karma/core/sentence_feedback_pipeline.py','karma/core/feedback_pipeline.py','karma/core/base_agent.py','karma/core/triple_overlap.py','karma/agents/feedback_operations.py']:
     sources[(ROOT/extra).as_posix()]=(ROOT/extra).read_text(encoding='utf-8').splitlines()
 trees={p:ast.parse('\n'.join(lines)) for p,lines in sources.items()}
 def scope(filename,name):
@@ -302,7 +302,7 @@ for agent,filename in NAMES.items():
     target=ROOT/'karma/agents'/agent/filename
     f=path(agent)
     doc=target.relative_to(ROOT).as_posix()
-    t=f'# {filename[:-3]}\n\n整理日期：2026-11-04。代码版本：`{head}`。行号对应整理时源码；后续修改源码后应重新导出。\n\n'
+    t=f'# {filename[:-3]}\n\n整理日期：2026-11-12。代码版本：`{head}`。行号对应整理时源码；后续修改源码后应重新导出。\n\n'
     t+='## 当前运行是否使用这套Prompt\n\n'+STATUS[agent]+'\n\n'
     t+=source_line('调用入口与System/User发送',[scope(f,'process'),scope('karma/core/base_agent.py','_make_llm_call'),scope('karma/core/base_agent.py','_make_responses_call')],doc)+'\n\n'
     t+='Chat Completions 与 Responses 使用同一套 System/User 内容。Chat Completions 的原有重试改为无限次数、等待最多30秒；Responses 保持原处理。\n\n'
@@ -388,8 +388,8 @@ feedback_names, feedback_status = export_feedback(ROOT, manifest)
 NAMES.update(feedback_names)
 STATUS.update(feedback_status)
 
-index='# Agent Prompt总览与当前调用路线\n\n更新日期：2026-11-04。导出时 Git HEAD：`'+head+'`；文档内容取自当前工作区源码，包含本次未提交修改，精确文件哈希见导出核验 JSON。\n\n'
-index+='## 当前运行的prompt是否唯一\n\n每一次模型调用只采用一套确定的System和User；程序按调用入口选择分支，不会把所有分支prompt一起发给模型。实体抽取仍分两轮；关系抽取只负责基线，反馈由 Add → Replace → Remove 三个 Agent 执行。每个阶段独立核查并接收前一步实际输出；各 Agent 内部采用核对问题、生成操作、复核输出三个阶段。问题由程序传递，模型只输出本阶段操作与 handoff。新事实按单句依据抽取。重建文本与比较当前由pipeline传入sentence_groups，使用分组版本；“非分组User”只是未传该参数时保留的另一条入口。默认 text_scope=sentence，每个分组单独调用重建和对比；feedback_scope=sentence，每句独立完成 Add→Replace→Remove。两个配置均可选 document，恢复整篇调用。逐句反馈遇到历史多来源或无法分组的条目时显式回退整篇并记录。所有请求顺序执行；原 Chat Completions 的 429/5xx/网络重试取消次数上限，等待最多30秒；Responses 保持原接口处理。\n\n'
+index='# Agent Prompt总览与当前调用路线\n\n更新日期：2026-11-12。导出时 Git HEAD：`'+head+'`；文档内容取自当前工作区源码，包含本次未提交修改，精确文件哈希见导出核验 JSON。\n\n'
+index+='## 当前运行的prompt是否唯一\n\n每一次模型调用只采用一套确定的System和User；程序按调用入口选择分支，不会把所有分支prompt一起发给模型。实体抽取仍分两轮；关系抽取只负责基线，反馈由 Add → Replace → Remove 三个 Agent 执行。每个阶段独立核查并接收前一步实际输出；Add、Replace 按核对问题、生成操作、复核输出处理；Remove 按确定问题、确定保留表达并处理、整理输出处理。Remove 重点检查词重合或包含排名靠前的条目对，并覆盖当前集合；全部三元组对均提供两个排名。Remove 在一次回复中完成替换和删除，程序按同一输入编号整组执行。问题由程序传递，各阶段输出相应操作与 handoff。新事实按单句依据抽取。重建文本与比较当前由pipeline传入sentence_groups，使用分组版本；“非分组User”只是未传该参数时保留的另一条入口。默认 text_scope=sentence，每个分组单独调用重建和对比；feedback_scope=sentence，每句独立完成 Add→Replace→Remove。两个配置均可选 document，恢复整篇调用。去重保留每条三元组的源句归属；逐句反馈不自动回退整篇，来源编号无效时明确报错。所有请求顺序执行；原 Chat Completions 的 429/5xx/网络重试取消次数上限，等待最多30秒；Responses 保持原接口处理。\n\n'
 index+='运行范围、限流重试及回放命令见 [逐句运行与API重试说明](逐句运行与API重试说明.md)。\n\n'
 index+='## 各Agent文档与当前状态\n\n'+table(['Agent','完整Prompt文档','运行状态'],[(a,f'[{NAMES[a][:-3]}](<{a}/{NAMES[a]}>)',STATUS[a]) for a in NAMES])
 index+='## 当前分组调用的源码证据\n\n'+ref(pipeline_call('text_generation_agent'))+'；文本对比：'+ref(pipeline_call('text_comparison_agent'))+'；实体：'+ref(pipeline_call('entity_extraction_agent'))+'；基线关系：'+ref(pipeline_call('relationship_extraction_agent'))+'；三步反馈：'+ref(pipeline_call('feedback_pipeline'))+'。\n\n'

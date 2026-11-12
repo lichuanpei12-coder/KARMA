@@ -34,7 +34,6 @@ class FeedbackTests(unittest.TestCase):
 
     def fact(self, h, r, t, sid):
         return dict(head=h, relation=r, tail=t, source_sentence_ids=[sid],
-                    evidence=next(s['text'] for s in self.sentences if s['sentence_id'] == sid),
                     confidence=.9, clarity=.85, relevance=.8)
 
     def run_flow(self, fn):
@@ -71,7 +70,7 @@ class FeedbackTests(unittest.TestCase):
                 self.assertEqual(note['indices'],[2,3])
                 self.assertNotIn('origin_indices',note)
                 self.assertEqual(len(ctx['handoff']), 1)
-                r['remove']=[dict(issue_id='D1',index=3,keep_index=2,reason='same fact',evidence=self.sentences[1]['text'])]
+                r['remove']=[dict(issue_id='D1',index=3,keep_index=2,reason='same fact')]
             return r
         final, contexts=self.run_flow(respond)
         self.assertEqual([c['stage'] for c in contexts],['add','replace','remove'])
@@ -91,7 +90,7 @@ class FeedbackTests(unittest.TestCase):
         def respond(ctx):
             r=no_changes(ctx)
             if ctx['stage']=='replace':
-                bad=self.fact('a module','processes','data','S1');bad['evidence']='fabricated'
+                bad=self.fact('a module','processes','data','S1');bad['source_sentence_ids']=['S99']
                 r['replace']=[dict(index=0,issue_id='R1',reason='split',new_triples=[self.fact('The system','includes','a module','S1'),bad]),
                               dict(index=1,issue_id='R1',reason='fix',new_triples=[self.fact('The module','stores','records','S2')])]
             return r
@@ -112,7 +111,7 @@ class FeedbackTests(unittest.TestCase):
         def respond(c):
             r=no_changes(c)
             if c['stage']=='remove':
-                r['remove']=[dict(index=i,keep_index=j,reason='duplicate',evidence=self.sentences[1]['text']) for i,j in [(1,2),(2,1)]]
+                r['remove']=[dict(index=i,keep_index=j,reason='duplicate') for i,j in [(1,2),(2,1)]]
             return r
         final,_=self.run_flow(respond)
         self.assertEqual(final,fixed_score_copy(self.initial))
@@ -178,14 +177,15 @@ class FeedbackTests(unittest.TestCase):
         self.assertEqual(note['semantic_status'],'unverified')
         self.assertEqual(len(self.pipe.last_revision['stages']),3)
 
-    def test_each_new_replacement_keeps_evidence_and_gets_fixed_score(self):
+    def test_each_new_replacement_keeps_source_and_gets_fixed_score(self):
         children=[self.fact('The system','includes','a module','S1'),self.fact('a module','processes','data','S1')]
         children[1]['confidence']=.7
         r=dict(replace=[dict(index=0,issue_id='R',reason='split',new_triples=children)])
         final,audit=apply_operations('replace',self.initial,r,self.sentences)
         self.assertEqual(audit['status'],'applied')
         self.assertEqual([t.confidence for t in final[:2]],[.8,.8])
-        self.assertTrue(all(t.evidence==self.sentences[0]['text'] for t in final[:2]))
+        self.assertTrue(all(t.source_sentence_ids == ['S1'] for t in final[:2]))
+        self.assertTrue(all('evidence' not in t.to_dict() for t in final[:2]))
 
     def test_score_free_operations_and_score_free_model_context(self):
         def respond(c):
@@ -268,11 +268,11 @@ class FeedbackTests(unittest.TestCase):
         self.assertEqual(len(self.pipe.last_revision['undelivered_issues']), 1)
         self.assertEqual(self.pipe.last_revision['undelivered_issues'][0]['target'], 'add')
 
-    def test_new_fact_requires_one_sentence_and_evidence_inside_it(self):
+    def test_new_fact_requires_one_valid_sentence(self):
         valid = self.fact('The module','reports','status','S3')
         variants = [dict(valid, source_sentence_ids=['S2','S3']),
-                    dict(valid, evidence=self.text),
-                    dict(valid, evidence=self.sentences[0]['text'])]
+                    dict(valid, source_sentence_ids=['S99']),
+                    dict(valid, source_sentence_ids=[])]
         for item in variants:
             with self.subTest(item=item):
                 result, audit = apply_operations('add', self.initial, {'add':[dict(item,reason='missing')]}, self.sentences)
@@ -281,9 +281,9 @@ class FeedbackTests(unittest.TestCase):
 
     def test_baseline_rejects_combined_sentences_and_recovers_one_exact_source(self):
         agent = RelationshipExtractionAgent(None,'offline')
-        base = dict(head='The module',relation='stores',tail='records',context=self.sentences[1]['text'])
+        base = dict(head='The module',relation='stores',tail='records')
         invalid = [dict(base, source_sentence_ids=['S1','S2']),
-                   dict(base, source_sentence_ids=['S2'], context=self.text)]
+                   dict(base, source_sentence_ids=['S99'])]
         with patch.object(agent,'_make_llm_call', return_value=(json.dumps(invalid+[base]),0,0,0)):
             result = agent.process([self.text],[],sentences=self.sentences)
         self.assertEqual(len(result),1)

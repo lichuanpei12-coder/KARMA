@@ -65,7 +65,7 @@ class SentenceFlowTests(unittest.TestCase):
             sid = ctx['source_sentences'][0]['sentence_id']
             if sid == 'S3' and ctx['stage'] == 'add':
                 reply['add'] = [dict(head='Alpha', relation='reads', tail='data', source_sentence_ids=['S3'],
-                                     evidence='Alpha reads data.', reason='missing')]
+                                      reason='missing')]
             if sid == 'S8' and ctx['stage'] == 'replace':
                 return 'invalid json'
             return reply
@@ -83,23 +83,22 @@ class SentenceFlowTests(unittest.TestCase):
             r = no_changes(ctx)
             if ctx['stage'] == 'replace':
                 r['replace'] = [dict(index=0, reason='split', new_triples=[
-                    dict(head='Alpha', relation=rel, tail='data', source_sentence_ids=['S3'],
-                         evidence=self.sentences[0]['text']) for rel in ('reads', 'stores')])]
+                    dict(head='Alpha', relation=rel, tail='data', source_sentence_ids=['S3']) for rel in ('reads', 'stores')])]
                 r['handoff'] = [dict(target='remove', indices=[0,1], source_sentence_ids=['S3'], problem='duplicate stores')]
             if ctx['stage'] == 'remove':
                 self.assertEqual(ctx['handoff'][0]['indices'], [0,1,2])
-                r['remove'] = [dict(index=2, keep_index=1, reason='same stores', evidence=self.sentences[0]['text'])]
+                r['remove'] = [dict(index=2, keep_index=1, reason='same stores')]
             return r
         out, _ = self.run_pipe(respond)
         self.assertEqual([t.relation for t in out], ['reads', 'stores'])
 
-    def test_shared_sources_explicit_document_fallback(self):
-        self.triples[0].source_sentence_ids = ['S3','S8']
-        out, contexts = self.run_pipe()
-        self.assertEqual(len(contexts), 3)
-        self.assertEqual(out[0].source_sentence_ids, ['S3','S8'])
-        self.assertEqual(self.pipe.last_revision['scope'], 'document')
-        self.assertTrue(self.pipe.last_revision['fallback_reason'])
+    def test_invalid_source_ownership_never_falls_back_to_document(self):
+        for ids in (['S3', 'S8'], [], ['S99']):
+            with self.subTest(ids=ids):
+                self.triples[0].source_sentence_ids = ids
+                with patch.object(BaseAgent, '_make_llm_call', side_effect=AssertionError('No model call')):
+                    with self.assertRaisesRegex(ValueError, 'one valid source sentence'):
+                        self.run_pipe()
 
     def test_legacy_difference_not_guessed_between_sentences(self):
         diff, rec = sentence_context(self.sentences[0], {'unique_to_text_a': ['[S3] own', '[S8] other', 'unknown']}, [])

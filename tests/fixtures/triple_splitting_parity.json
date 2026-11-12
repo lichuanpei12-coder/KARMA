@@ -25,7 +25,7 @@
   "cases": [
     {
       "name": "split_and_deduplicate",
-      "response": "{\"add\": [{\"head\": \"The controller\", \"relation\": \"may store\", \"tail\": \"sensor data\", \"evidence\": \"The controller may read and store sensor data.\", \"reason\": \"split\", \"confidence\": 0.95, \"clarity\": 0.9, \"relevance\": 0.8}, {\"head\": \"The controller\", \"relation\": \"may store\", \"tail\": \"sensor data\", \"evidence\": \"The controller may read and store sensor data.\", \"reason\": \"split\", \"confidence\": 0.7, \"clarity\": 0.9, \"relevance\": 0.8}], \"replace\": [{\"head\": \"The controller\", \"relation\": \"may read\", \"tail\": \"sensor data\", \"evidence\": \"The controller may read and store sensor data.\", \"reason\": \"split\", \"confidence\": 0.95, \"clarity\": 0.9, \"relevance\": 0.8, \"index\": 0}], \"remove\": []}",
+      "response": "{\"add\": [{\"head\": \"The controller\", \"relation\": \"may store\", \"tail\": \"sensor data\", \"reason\": \"split\", \"confidence\": 0.95, \"clarity\": 0.9, \"relevance\": 0.8}, {\"head\": \"The controller\", \"relation\": \"may store\", \"tail\": \"sensor data\", \"reason\": \"split\", \"confidence\": 0.7, \"clarity\": 0.9, \"relevance\": 0.8}], \"replace\": [{\"head\": \"The controller\", \"relation\": \"may read\", \"tail\": \"sensor data\", \"reason\": \"split\", \"confidence\": 0.95, \"clarity\": 0.9, \"relevance\": 0.8, \"index\": 0}], \"remove\": []}",
       "expected": [
         {
           "head": "The controller",
@@ -63,7 +63,6 @@
               "head": "The controller",
               "relation": "may store",
               "tail": "sensor data",
-              "evidence": "The controller may read and store sensor data.",
               "reason": "split",
               "confidence": 0.95,
               "clarity": 0.9,
@@ -79,7 +78,6 @@
               "head": "The controller",
               "relation": "may store",
               "tail": "sensor data",
-              "evidence": "The controller may read and store sensor data.",
               "reason": "split",
               "confidence": 0.7,
               "clarity": 0.9,
@@ -98,7 +96,6 @@
               "head": "The controller",
               "relation": "may read",
               "tail": "sensor data",
-              "evidence": "The controller may read and store sensor data.",
               "reason": "split",
               "confidence": 0.95,
               "clarity": 0.9,
@@ -159,7 +156,7 @@
     },
     {
       "name": "conflicting_and_invalid_indices",
-      "response": "{\"replace\": [{\"head\": \"The controller\", \"relation\": \"may read\", \"tail\": \"sensor data\", \"evidence\": \"The controller may read and store sensor data.\", \"reason\": \"split\", \"confidence\": 0.95, \"clarity\": 0.9, \"relevance\": 0.8, \"index\": 0}, {\"head\": \"The controller\", \"relation\": \"may store\", \"tail\": \"sensor data\", \"evidence\": \"The controller may read and store sensor data.\", \"reason\": \"split\", \"confidence\": 0.95, \"clarity\": 0.9, \"relevance\": 0.8, \"index\": 0}, {\"head\": \"The controller\", \"relation\": \"may read\", \"tail\": \"sensor data\", \"evidence\": \"The controller may read and store sensor data.\", \"reason\": \"split\", \"confidence\": 0.95, \"clarity\": 0.9, \"relevance\": 0.8, \"index\": true}, {\"head\": \"The controller\", \"relation\": \"may read\", \"tail\": \"sensor data\", \"evidence\": \"The controller may read and store sensor data.\", \"reason\": \"split\", \"confidence\": 0.95, \"clarity\": 0.9, \"relevance\": 0.8, \"index\": 20}], \"add\": [], \"remove\": []}",
+      "response": "{\"replace\": [{\"head\": \"The controller\", \"relation\": \"may read\", \"tail\": \"sensor data\", \"reason\": \"split\", \"confidence\": 0.95, \"clarity\": 0.9, \"relevance\": 0.8, \"index\": 0}, {\"head\": \"The controller\", \"relation\": \"may store\", \"tail\": \"sensor data\", \"reason\": \"split\", \"confidence\": 0.95, \"clarity\": 0.9, \"relevance\": 0.8, \"index\": 0}, {\"head\": \"The controller\", \"relation\": \"may read\", \"tail\": \"sensor data\", \"reason\": \"split\", \"confidence\": 0.95, \"clarity\": 0.9, \"relevance\": 0.8, \"index\": true}, {\"head\": \"The controller\", \"relation\": \"may read\", \"tail\": \"sensor data\", \"reason\": \"split\", \"confidence\": 0.95, \"clarity\": 0.9, \"relevance\": 0.8, \"index\": 20}], \"add\": [], \"remove\": []}",
       "expected": [
         {
           "head": "The controller",
@@ -195,7 +192,6 @@
               "head": "The controller",
               "relation": "may read",
               "tail": "sensor data",
-              "evidence": "The controller may read and store sensor data.",
               "reason": "split",
               "confidence": 0.95,
               "clarity": 0.9,
@@ -210,7 +206,6 @@
               "head": "The controller",
               "relation": "may store",
               "tail": "sensor data",
-              "evidence": "The controller may read and store sensor data.",
               "reason": "split",
               "confidence": 0.95,
               "clarity": 0.9,
@@ -225,7 +220,6 @@
               "head": "The controller",
               "relation": "may read",
               "tail": "sensor data",
-              "evidence": "The controller may read and store sensor data.",
               "reason": "split",
               "confidence": 0.95,
               "clarity": 0.9,
@@ -240,7 +234,6 @@
               "head": "The controller",
               "relation": "may read",
               "tail": "sensor data",
-              "evidence": "The controller may read and store sensor data.",
               "reason": "split",
               "confidence": 0.95,
               "clarity": 0.9,
@@ -255,7 +248,7 @@
     },
     {
       "name": "invalid_fields_and_scores",
-      "response": "{\"replace\": [{\"head\": \"The controller\", \"relation\": \"may read\", \"tail\": \"sensor data\", \"evidence\": \"The controller may read and store sensor data.\", \"reason\": \"split\", \"confidence\": \"bad\", \"clarity\": 2, \"relevance\": -1, \"index\": \"0\"}], \"add\": [{\"head\": \"The controller\", \"relation\": \"may store\", \"tail\": \"sensor data\", \"evidence\": \"\", \"reason\": \"split\", \"confidence\": 0.95, \"clarity\": 0.9, \"relevance\": 0.8}], \"remove\": []}",
+      "response": "{\"replace\": [{\"head\": \"The controller\", \"relation\": \"may read\", \"tail\": \"sensor data\", \"reason\": \"split\", \"confidence\": \"bad\", \"clarity\": 2, \"relevance\": -1, \"index\": \"0\"}], \"add\": [{\"head\": \"\", \"relation\": \"may store\", \"tail\": \"sensor data\", \"reason\": \"split\", \"confidence\": 0.95, \"clarity\": 0.9, \"relevance\": 0.8}], \"remove\": []}",
       "expected": [
         {
           "head": "The controller",
@@ -286,7 +279,6 @@
               "head": "The controller",
               "relation": "may read",
               "tail": "sensor data",
-              "evidence": "The controller may read and store sensor data.",
               "reason": "split",
               "confidence": "bad",
               "clarity": 2,
@@ -308,12 +300,11 @@
         "rejected": [
           {
             "operation": "add",
-            "reason": "missing evidence",
+            "reason": "incomplete triple",
             "item": {
-              "head": "The controller",
+              "head": "",
               "relation": "may store",
               "tail": "sensor data",
-              "evidence": "",
               "reason": "split",
               "confidence": 0.95,
               "clarity": 0.9,

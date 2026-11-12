@@ -35,13 +35,7 @@ class SentenceFeedbackPipeline:
         unsafe = [i for i, t in enumerate(triples)
                   if len(t.source_sentence_ids) != 1 or t.source_sentence_ids[0] not in ids]
         if unsafe:
-            worker = FeedbackPipeline(*self.agents)
-            result = worker.process(text, triples, diff, entities, sentences=sentences, reconstructions=reconstructions)
-            self.snapshots = copy.deepcopy(worker.snapshots)
-            self.last_revision = copy.deepcopy(worker.last_revision)
-            self.last_revision.update(requested_scope='sentence', scope='document',
-                                      fallback_reason='Shared or unresolved source ownership', fallback_indices=unsafe)
-            return result
+            raise ValueError(f'Sentence feedback requires one valid source sentence per triple; invalid indices: {unsafe}')
         self.snapshots = {key: [] for key in ('after_add', 'after_replace', 'after_remove')}
         final, runs, stages = [], [], []
         mappings = {key: [] for key in (*self.snapshots, 'after_revision')}

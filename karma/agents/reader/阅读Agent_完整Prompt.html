@@ -22,11 +22,11 @@ hr{border:0;border-top:1px solid var(--line);margin:30px 0}.filelinks{display:fl
 footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid var(--line);padding-top:15px}
 @media(max-width:900px){.layout{display:block;padding:12px}aside{position:static;max-height:300px;margin-bottom:16px}main{padding:22px 18px}header{padding:18px}h1{font-size:23px}h2{font-size:21px}th,td{padding:8px}}
 @media print{body{background:#fff;font-size:11pt}.layout{display:block;padding:0}aside,header,.filelinks,footer{display:none}main{border:0;padding:0}.table-wrap{overflow:visible}pre,table{font-size:9pt}h2,h3{break-after:avoid}tr{break-inside:avoid}a{color:inherit;text-decoration:none}}
-</style></head><body><header><div class="label">阅读Agent_完整Prompt</div><p>源码行号与实际调用分支 · 2026-11-04 · 0ef4dc4</p></header><div class="layout"><aside><h2>目录</h2><input id="toc-filter" type="search" placeholder="搜索轮次、System、User"><a href="../Prompt%E6%80%BB%E8%A7%88.html">全部Agent总览</a><a class="" href="#section-1">当前运行是否使用这套Prompt</a>
+</style></head><body><header><div class="label">阅读Agent_完整Prompt</div><p>源码行号与实际调用分支 · 2026-11-12 · 6946a86</p></header><div class="layout"><aside><h2>目录</h2><input id="toc-filter" type="search" placeholder="搜索轮次、System、User"><a href="../Prompt%E6%80%BB%E8%A7%88.html">全部Agent总览</a><a class="" href="#section-1">当前运行是否使用这套Prompt</a>
 <a class="" href="#section-2">展示说明</a>
 <a class="" href="#section-3">当前条件下的完整版本</a>
 <a class="" href="#section-4">文档维护</a></aside><main><a href="%E9%98%85%E8%AF%BBAgent_%E5%AE%8C%E6%95%B4Prompt.md">Markdown原文</a><h1 id="section-0">阅读Agent_完整Prompt</h1>
-<p>整理日期：2026-11-04。代码版本：<code>0ef4dc4d1dca56bac8e9db2a4c4fd5c629535611</code>。行号对应整理时源码；后续修改源码后应重新导出。</p>
+<p>整理日期：2026-11-12。代码版本：<code>6946a863833addea07f4a3210bdd8d13a49fef68</code>。行号对应整理时源码；后续修改源码后应重新导出。</p>
 <h2 id="section-1">当前运行是否使用这套Prompt</h2>
 <p>普通文档准备阶段会分批调用相关性评分，每批最多5段；回放已保存基线时可能跳过准备阶段。每段送给评分的文本目前截取前500字符并加省略号。</p>
 <p>【来源：调用入口与System/User发送｜<a href="agent.py#L83">karma/agents/reader/agent.py 第83—109行</a>；<a href="../../core/base_agent.py#L100">karma/core/base_agent.py 第100—209、211—252行</a>】</p>

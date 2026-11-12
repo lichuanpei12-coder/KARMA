@@ -1,6 +1,6 @@
 # 实体抽取Agent_完整Prompt
 
-整理日期：2026-11-04。代码版本：`0ef4dc4d1dca56bac8e9db2a4c4fd5c629535611`。行号对应整理时源码；后续修改源码后应重新导出。
+整理日期：2026-11-12。代码版本：`6946a863833addea07f4a3210bdd8d13a49fef68`。行号对应整理时源码；后续修改源码后应重新导出。
 
 ## 当前运行是否使用这套Prompt
 
@@ -173,7 +173,7 @@ mention 是候选表达，context 是源文本中支持该候选的上下文片�
 </current_triples_json>
 ```
 
-【来源：文本差异｜[karma/agents/entity_extraction/agent.py 第51—52、151行](<agent.py#L51>)；[karma/core/sentence_groups.py 第97—101行](<../../core/sentence_groups.py#L97>)】
+【来源：文本差异｜[karma/agents/entity_extraction/agent.py 第51—52、151行](<agent.py#L51>)；[karma/core/sentence_groups.py 第89—93行](<../../core/sentence_groups.py#L89>)】
 
 ```text
 # 文本差异
@@ -244,13 +244,13 @@ context 逐字复制支持该候选的源句中的连续片段。
 
 ## 条件说明：UNASSIGNED出现时才添加
 
-此句由karma/core/sentence_groups.py 第82—87行返回：
+此句由karma/core/sentence_groups.py 第74—79行返回：
 
 ```text
 UNASSIGNED 是来源句尚未确定的条目分组；按输入编号处理该组。
 ```
 
-差异块的插入位置见karma/core/sentence_groups.py 第90—102行。
+差异块的插入位置见karma/core/sentence_groups.py 第82—94行。
 
 ## 附录：差异数据没有sentence_differences时
 

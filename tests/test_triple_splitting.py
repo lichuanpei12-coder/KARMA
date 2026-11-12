@@ -118,12 +118,13 @@ class SplittingParityTests(unittest.TestCase):
         }, split_only=True)
         self.assertEqual(actual, baseline)
         self.assertEqual(len(audit['rejected']), 2)
-        # Evidence is still required for ordinary relationship feedback.
+        # Ordinary relationship feedback accepts facts without quote-copy fields.
         actual, audit = agent._apply_revision(baseline, {
             'add': [valid], 'replace': [], 'remove': [],
         })
-        self.assertEqual(actual, baseline)
-        self.assertEqual(audit['rejected'][0]['reason'], 'missing evidence')
+        self.assertEqual(len(actual), len(baseline) + 1)
+        self.assertEqual(audit['rejected'], [])
+        self.assertNotIn('evidence', actual[-1].to_dict())
 
     def test_call_failure_preserves_input(self):
         baseline = [KnowledgeTriple.from_dict(t) for t in self.fixture['baseline']]

@@ -3,13 +3,14 @@ import copy
 import time
 from karma.agents.feedback_operations import apply_operations, validate_reply
 from karma.core.triple_scores import fixed_score_copy, prompt_triple
+from karma.core.triple_overlap import rank_triple_overlap
 
 
 def _fact(data):
     if data is None:
         return None
     return {k: v for k, v in data.items() if k in
-            ('head', 'relation', 'tail', 'source_sentence_ids', 'evidence')}
+            ('head', 'relation', 'tail', 'source_sentence_ids')}
 
 
 class FeedbackPipeline:
@@ -54,6 +55,8 @@ class FeedbackPipeline:
                 'applied_change_log': changes,
                 'handoff': hints,
             }
+            if stage == 'remove':
+                context['lexical_overlap'] = rank_triple_overlap(current, version)
             agent = self.agents[stage]
             agent.last_call = {}
             reply = None
@@ -118,7 +121,7 @@ class FeedbackPipeline:
                 run('add', True)
             run('replace', True)
             run('remove', True)
-        self.last_revision = {'mode': 'three_step_feedback', 'protocol': 'task_outputs_v3', 'scope': scope, 'score_policy': 'fixed_0.8', 'stages': stages,
+        self.last_revision = {'mode': 'three_step_feedback', 'protocol': 'task_outputs_v4', 'scope': scope, 'score_policy': 'fixed_0.8', 'stages': stages,
                               'handoff_log': pending,
                               'undelivered_issues': [p for p in pending if p['delivery_status'] in ('queued', 'delivery_failed')],
                               'review_issues': [p for p in pending if p['delivery_status'] == 'needs_review'],

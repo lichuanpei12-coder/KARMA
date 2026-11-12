@@ -17,13 +17,13 @@ TASK_PROMPT = """# 阶段一：核对并确定问题
 3. 关系包含在长字段中、尚无独立表达时，将对应条目交给 replace 拆分。
 
 # 阶段三：复核并输出
-1. 逐条核对新增关系由一个源句支持，证据是该句中的连续原文。
+1. 逐条对照源句核对新增关系及必要限定。
 2. 将拟新增关系与当前集合及本轮新增项逐一比较，同一事实只保留一份表达。
 3. 输出 add、handoff。文本差异或收到的问题为空时，仍完成逐句检查。"""
 
 OUTPUT_RULES = """# 输出格式
 返回 JSON 对象，包含 add、handoff 两个数组；无内容的数组写 []。
-add 每项写 head、relation、tail、source_sentence_ids、evidence、reason；reason 简述哪项关系完全遗漏。
+add 每项写 head、relation、tail、source_sentence_ids、reason；reason 简述哪项关系完全遗漏。
 handoff 每项写 target、source_sentence_ids、indices、problem：target 指处理阶段；indices 填当前相关条目编号，缺少条目时填 []；problem 简述具体位置与问题。
 target 使用 add、replace、remove、text_generation、text_comparison 或 review；源句与三元组正确而重建文本或对比判断有误时，分别记录 text_generation 或 text_comparison。"""
 
@@ -32,7 +32,7 @@ EXAMPLES = """# 示例
 
 源句有关系完全没有抽取
 输入：{"source_sentences":[{"sentence_id":"S1","text":"The controller reads and stores sensor data."}],"current_collection":{"triples":[{"index":0,"head":"The controller","relation":"reads","tail":"sensor data","source_sentence_ids":["S1"]}]}}
-输出：{"add":[{"head":"The controller","relation":"stores","tail":"sensor data","source_sentence_ids":["S1"],"evidence":"The controller reads and stores sensor data.","reason":"当前只表达 reads，源句还表达 stores。"}],"handoff":[]}
+输出：{"add":[{"head":"The controller","relation":"stores","tail":"sensor data","source_sentence_ids":["S1"],"reason":"当前只表达 reads，源句还表达 stores。"}],"handoff":[]}
 
 长字段与独立条目已有表达，交给 Replace 修正主语和字段边界
 输入：{"source_sentences":[{"sentence_id":"S1","text":"The system includes a module that processes data."}],"current_collection":{"triples":[{"index":0,"head":"The system","relation":"includes","tail":"a module that processes data","source_sentence_ids":["S1"]},{"index":1,"head":"The system","relation":"processes","tail":"data","source_sentence_ids":["S1"]}]}}

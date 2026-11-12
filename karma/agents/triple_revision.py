@@ -71,8 +71,6 @@ class TripleRevisionMixin:
                     triple = self._triple_from_revision_item(item, "relationship_revision")
                     if triple is None:
                         error = "incomplete triple"
-                    elif not split_only and not clean_string(item.get("evidence")):
-                        error = "missing evidence"
                 if error:
                     rejected.append({"operation": operation, "reason": error, "item": item})
                     continue
@@ -86,13 +84,12 @@ class TripleRevisionMixin:
                     # invent quality scores or trust obsolete model score fields.
                     parent = previous_relationships[index]
                     triple.source_sentence_ids = list(parent.source_sentence_ids)
-                    triple.evidence = parent.evidence
                     scores = {key: getattr(parent, key) for key in ("confidence", "clarity", "relevance")}
                     for key, value in scores.items():
                         setattr(triple, key, value)
                     audit_item = {
                         **{key: value for key, value in item.items()
-                           if key not in ("evidence", "confidence", "clarity", "relevance")},
+                           if key not in ("confidence", "clarity", "relevance")},
                         "score_source_index": index,
                         "inherited_scores": scores,
                     }
@@ -189,17 +186,10 @@ class TripleRevisionMixin:
         unique_rels = {}
 
         for rel in relationships:
-            # Create key for deduplication
-            key = f"{rel.head.lower()}__{rel.relation.lower()}__{rel.tail.lower()}"
-
-            # Keep the one with higher confidence if duplicates exist
+            # Deduplicate within a source sentence; never merge sentence ownership.
+            key = (rel.head.lower(), rel.relation.lower(), rel.tail.lower(),
+                   tuple(rel.source_sentence_ids))
             if key not in unique_rels or rel.confidence > unique_rels[key].confidence:
-                if key in unique_rels:
-                    rel.source_sentence_ids = list(dict.fromkeys(
-                        unique_rels[key].source_sentence_ids + rel.source_sentence_ids))
                 unique_rels[key] = rel
-            else:
-                unique_rels[key].source_sentence_ids = list(dict.fromkeys(
-                    unique_rels[key].source_sentence_ids + rel.source_sentence_ids))
 
         return list(unique_rels.values())

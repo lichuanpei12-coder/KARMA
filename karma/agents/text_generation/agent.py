@@ -144,7 +144,7 @@ class TextGenerationAgent(BaseAgent):
         return '\n'.join(r['text_b'] for r in records if r['text_b'])
 
     def generate_grouped(self, groups):
-        """One document call, separate outputs; never send source text/evidence."""
+        """One document call, separate outputs; never send source text."""
         import json
         from karma.agents.extraction_support import parse_json_container
         from karma.core.sentence_groups import unassigned_group_note
