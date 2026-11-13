@@ -1,0 +1,543 @@
+{
+  "protocol": "lexical-one-to-one-v1",
+  "input": {
+    "operations": {
+      "file": "inputs\\operations.md",
+      "sha256": "8300c131b0f86adde9fcf9970ee29a6a2ccae283273e94f9884f2f44ceed60bf"
+    },
+    "comparison": {
+      "file": "inputs\\comparison.md",
+      "sha256": "b33c968f36900ce9515cdd0336a5aff59f9caff0a6548db818d74a28d4eb8cca"
+    },
+    "final": {
+      "file": "inputs\\final.md",
+      "sha256": "9375e39fd9bdf83c354948093846ccd2e0ce789a7010915caf5b7a8bca342ea9"
+    },
+    "split": {
+      "file": "inputs\\split.md",
+      "sha256": "b755e7928472a692b6c064e927de98ed9a53a7fae8f192df98b3eb7c89365b70"
+    },
+    "diff_excerpt": {
+      "file": "inputs\\diff_excerpt.md",
+      "sha256": "8ec988575e659c3ae33f4681886eefd8543941d1d9f570cf89c726ae65b7cbf4"
+    }
+  },
+  "rules": {
+    "strict": "Whitespace cleanup only; case, punctuation and word order retained; binary equality in all fields.",
+    "lenient": "lower().split(); per-field Counter intersection; all three fields need positive overlap; no score threshold.",
+    "assignment": "Strict: maximum equality-pair count. Lenient: maximum SUM of pair F1, deterministic index-order ties.",
+    "aggregation": "micro P=sum(pair P)/all predictions; R=sum(pair R)/all gold; F1=harmonic(P,R). Unmatched contributes zero.",
+    "macro": "Mean per-document P and R, then harmonic mean (legacy convention); NOT mean document/pair F1.",
+    "empty": "Zero denominators produce zero; empty-field triples never match but remain in denominators.",
+    "duplicates": "Preserve all entries; report equality groups; one-to-one matching penalizes excess predictions.",
+    "language": "Whitespace tokenization, designed for English. No stemming, stopword removal, synonyms or language-specific rules.",
+    "interpretation": "Lenient scores measure lexical overlap, not whole-triple factual correctness; not the official CaRB protocol."
+  },
+  "document_ids": [
+    "doc0",
+    "doc1",
+    "doc2",
+    "doc3",
+    "doc4"
+  ],
+  "metrics": {
+    "strict": {
+      "R1": {
+        "micro": {
+          "precision": 0.21641791044776118,
+          "recall": 0.1895424836601307,
+          "f1": 0.20209059233449478,
+          "precision_sum": 29.0,
+          "recall_sum": 29.0,
+          "num_pred": 134,
+          "num_gold": 153,
+          "selected_pairs": 29,
+          "unmatched_pred": 105,
+          "unmatched_gold": 124,
+          "tp": 29,
+          "fp": 105,
+          "fn": 124
+        },
+        "macro": {
+          "precision": 0.22095238095238096,
+          "recall": 0.18796983313112345,
+          "f1": 0.2031309659741904
+        },
+        "per_doc": [
+          {
+            "precision": 0.2,
+            "recall": 0.22580645161290322,
+            "f1": 0.21212121212121215,
+            "precision_sum": 7.0,
+            "recall_sum": 7.0,
+            "num_pred": 35,
+            "num_gold": 31,
+            "selected_pairs": 7,
+            "unmatched_pred": 28,
+            "unmatched_gold": 24,
+            "tp": 7,
+            "fp": 28,
+            "fn": 24,
+            "doc": "doc0",
+            "gold_key": "857. Systems and methods for a cryptographically guaranteed vehicle identity.txt",
+            "gold_duplicate_groups": [],
+            "pred_duplicate_groups": []
+          },
+          {
+            "precision": 0.15151515151515152,
+            "recall": 0.13513513513513514,
+            "f1": 0.14285714285714285,
+            "precision_sum": 5.0,
+            "recall_sum": 5.0,
+            "num_pred": 33,
+            "num_gold": 37,
+            "selected_pairs": 5,
+            "unmatched_pred": 28,
+            "unmatched_gold": 32,
+            "tp": 5,
+            "fp": 28,
+            "fn": 32,
+            "doc": "doc1",
+            "gold_key": "2786. Method for providing congestion information in a network.txt",
+            "gold_duplicate_groups": [],
+            "pred_duplicate_groups": []
+          },
+          {
+            "precision": 0.18181818181818182,
+            "recall": 0.15384615384615385,
+            "f1": 0.16666666666666669,
+            "precision_sum": 4.0,
+            "recall_sum": 4.0,
+            "num_pred": 22,
+            "num_gold": 26,
+            "selected_pairs": 4,
+            "unmatched_pred": 18,
+            "unmatched_gold": 22,
+            "tp": 4,
+            "fp": 18,
+            "fn": 22,
+            "doc": "doc2",
+            "gold_key": "5921. Tarpaulin bracket system.txt",
+            "gold_duplicate_groups": [],
+            "pred_duplicate_groups": []
+          },
+          {
+            "precision": 0.32142857142857145,
+            "recall": 0.24324324324324326,
+            "f1": 0.27692307692307694,
+            "precision_sum": 9.0,
+            "recall_sum": 9.0,
+            "num_pred": 28,
+            "num_gold": 37,
+            "selected_pairs": 9,
+            "unmatched_pred": 19,
+            "unmatched_gold": 28,
+            "tp": 9,
+            "fp": 19,
+            "fn": 28,
+            "doc": "doc3",
+            "gold_key": "6519. Rubber composite and process for obtaining same.txt",
+            "gold_duplicate_groups": [],
+            "pred_duplicate_groups": []
+          },
+          {
+            "precision": 0.25,
+            "recall": 0.18181818181818182,
+            "f1": 0.2105263157894737,
+            "precision_sum": 4.0,
+            "recall_sum": 4.0,
+            "num_pred": 16,
+            "num_gold": 22,
+            "selected_pairs": 4,
+            "unmatched_pred": 12,
+            "unmatched_gold": 18,
+            "tp": 4,
+            "fp": 12,
+            "fn": 18,
+            "doc": "doc4",
+            "gold_key": "6818. Communication path managing method and communication path managing system.txt",
+            "gold_duplicate_groups": [
+              [
+                3,
+                6
+              ]
+            ],
+            "pred_duplicate_groups": []
+          }
+        ]
+      },
+      "R2": {
+        "micro": {
+          "precision": 0.2692307692307692,
+          "recall": 0.22875816993464052,
+          "f1": 0.24734982332155475,
+          "precision_sum": 35.0,
+          "recall_sum": 35.0,
+          "num_pred": 130,
+          "num_gold": 153,
+          "selected_pairs": 35,
+          "unmatched_pred": 95,
+          "unmatched_gold": 118,
+          "tp": 35,
+          "fp": 95,
+          "fn": 118
+        },
+        "macro": {
+          "precision": 0.2726353734897257,
+          "recall": 0.22970778132068456,
+          "f1": 0.24933739478344036
+        },
+        "per_doc": [
+          {
+            "precision": 0.27586206896551724,
+            "recall": 0.25806451612903225,
+            "f1": 0.26666666666666666,
+            "precision_sum": 8.0,
+            "recall_sum": 8.0,
+            "num_pred": 29,
+            "num_gold": 31,
+            "selected_pairs": 8,
+            "unmatched_pred": 21,
+            "unmatched_gold": 23,
+            "tp": 8,
+            "fp": 21,
+            "fn": 23,
+            "doc": "doc0",
+            "gold_key": "857. Systems and methods for a cryptographically guaranteed vehicle identity.txt",
+            "gold_duplicate_groups": [],
+            "pred_duplicate_groups": []
+          },
+          {
+            "precision": 0.1875,
+            "recall": 0.16216216216216217,
+            "f1": 0.17391304347826086,
+            "precision_sum": 6.0,
+            "recall_sum": 6.0,
+            "num_pred": 32,
+            "num_gold": 37,
+            "selected_pairs": 6,
+            "unmatched_pred": 26,
+            "unmatched_gold": 31,
+            "tp": 6,
+            "fp": 26,
+            "fn": 31,
+            "doc": "doc1",
+            "gold_key": "2786. Method for providing congestion information in a network.txt",
+            "gold_duplicate_groups": [],
+            "pred_duplicate_groups": []
+          },
+          {
+            "precision": 0.2608695652173913,
+            "recall": 0.23076923076923078,
+            "f1": 0.24489795918367346,
+            "precision_sum": 6.0,
+            "recall_sum": 6.0,
+            "num_pred": 23,
+            "num_gold": 26,
+            "selected_pairs": 6,
+            "unmatched_pred": 17,
+            "unmatched_gold": 20,
+            "tp": 6,
+            "fp": 17,
+            "fn": 20,
+            "doc": "doc2",
+            "gold_key": "5921. Tarpaulin bracket system.txt",
+            "gold_duplicate_groups": [],
+            "pred_duplicate_groups": []
+          },
+          {
+            "precision": 0.3448275862068966,
+            "recall": 0.2702702702702703,
+            "f1": 0.30303030303030304,
+            "precision_sum": 10.0,
+            "recall_sum": 10.0,
+            "num_pred": 29,
+            "num_gold": 37,
+            "selected_pairs": 10,
+            "unmatched_pred": 19,
+            "unmatched_gold": 27,
+            "tp": 10,
+            "fp": 19,
+            "fn": 27,
+            "doc": "doc3",
+            "gold_key": "6519. Rubber composite and process for obtaining same.txt",
+            "gold_duplicate_groups": [],
+            "pred_duplicate_groups": []
+          },
+          {
+            "precision": 0.29411764705882354,
+            "recall": 0.22727272727272727,
+            "f1": 0.25641025641025644,
+            "precision_sum": 5.0,
+            "recall_sum": 5.0,
+            "num_pred": 17,
+            "num_gold": 22,
+            "selected_pairs": 5,
+            "unmatched_pred": 12,
+            "unmatched_gold": 17,
+            "tp": 5,
+            "fp": 12,
+            "fn": 17,
+            "doc": "doc4",
+            "gold_key": "6818. Communication path managing method and communication path managing system.txt",
+            "gold_duplicate_groups": [
+              [
+                3,
+                6
+              ]
+            ],
+            "pred_duplicate_groups": [
+              [
+                3,
+                5
+              ]
+            ]
+          }
+        ]
+      },
+      "delta_micro": {
+        "precision": 0.05281285878300804,
+        "recall": 0.0392156862745098,
+        "f1": 0.04525923098705997
+      },
+      "delta_macro": {
+        "precision": 0.05168299253734476,
+        "recall": 0.041737948189561114,
+        "f1": 0.046206428809249966
+      }
+    },
+    "lenient": {
+      "R1": {
+        "micro": {
+          "precision": 0.6392284654111365,
+          "recall": 0.6046827438851367,
+          "f1": 0.6214759052665275,
+          "precision_sum": 85.6566143650923,
+          "recall_sum": 92.5164598144259,
+          "num_pred": 134,
+          "num_gold": 153,
+          "selected_pairs": 103,
+          "unmatched_pred": 31,
+          "unmatched_gold": 50
+        },
+        "macro": {
+          "precision": 0.6546887057966597,
+          "recall": 0.6026403499628605,
+          "f1": 0.6275872317922354
+        },
+        "per_doc": [
+          {
+            "precision": 0.48401927437641723,
+            "recall": 0.5792487714688853,
+            "f1": 0.5273695022536065,
+            "precision_sum": 16.940674603174603,
+            "recall_sum": 17.956711915535443,
+            "num_pred": 35,
+            "num_gold": 31,
+            "selected_pairs": 20,
+            "unmatched_pred": 15,
+            "unmatched_gold": 11,
+            "doc": "doc0",
+            "gold_key": "857. Systems and methods for a cryptographically guaranteed vehicle identity.txt",
+            "gold_duplicate_groups": [],
+            "pred_duplicate_groups": []
+          },
+          {
+            "precision": 0.6909781238869334,
+            "recall": 0.6626580348182782,
+            "f1": 0.6765218300836651,
+            "precision_sum": 22.8022780882688,
+            "recall_sum": 24.518347288276296,
+            "num_pred": 33,
+            "num_gold": 37,
+            "selected_pairs": 28,
+            "unmatched_pred": 5,
+            "unmatched_gold": 9,
+            "doc": "doc1",
+            "gold_key": "2786. Method for providing congestion information in a network.txt",
+            "gold_duplicate_groups": [],
+            "pred_duplicate_groups": []
+          },
+          {
+            "precision": 0.5594757189386346,
+            "recall": 0.5386685719301793,
+            "f1": 0.5488750231754144,
+            "precision_sum": 12.30846581664996,
+            "recall_sum": 14.005382870184661,
+            "num_pred": 22,
+            "num_gold": 26,
+            "selected_pairs": 17,
+            "unmatched_pred": 5,
+            "unmatched_gold": 9,
+            "doc": "doc2",
+            "gold_key": "5921. Tarpaulin bracket system.txt",
+            "gold_duplicate_groups": [],
+            "pred_duplicate_groups": []
+          },
+          {
+            "precision": 0.7484724390414927,
+            "recall": 0.5945491710197592,
+            "f1": 0.6626902572966957,
+            "precision_sum": 20.957228293161798,
+            "recall_sum": 21.998319327731092,
+            "num_pred": 28,
+            "num_gold": 37,
+            "selected_pairs": 23,
+            "unmatched_pred": 5,
+            "unmatched_gold": 14,
+            "doc": "doc3",
+            "gold_key": "6519. Rubber composite and process for obtaining same.txt",
+            "gold_duplicate_groups": [],
+            "pred_duplicate_groups": []
+          },
+          {
+            "precision": 0.7904979727398206,
+            "recall": 0.6380772005772006,
+            "f1": 0.7061563758477045,
+            "precision_sum": 12.64796756383713,
+            "recall_sum": 14.037698412698413,
+            "num_pred": 16,
+            "num_gold": 22,
+            "selected_pairs": 15,
+            "unmatched_pred": 1,
+            "unmatched_gold": 7,
+            "doc": "doc4",
+            "gold_key": "6818. Communication path managing method and communication path managing system.txt",
+            "gold_duplicate_groups": [
+              [
+                3,
+                6
+              ]
+            ],
+            "pred_duplicate_groups": []
+          }
+        ]
+      },
+      "R2": {
+        "micro": {
+          "precision": 0.6947112665407471,
+          "recall": 0.6417741068095821,
+          "f1": 0.6671942865443881,
+          "precision_sum": 90.31246465029713,
+          "recall_sum": 98.19143834186607,
+          "num_pred": 130,
+          "num_gold": 153,
+          "selected_pairs": 107,
+          "unmatched_pred": 23,
+          "unmatched_gold": 46
+        },
+        "macro": {
+          "precision": 0.7031147404462373,
+          "recall": 0.6443563384644977,
+          "f1": 0.6724544174121996
+        },
+        "per_doc": [
+          {
+            "precision": 0.5570710279128129,
+            "recall": 0.5867908577823189,
+            "f1": 0.5715448524032045,
+            "precision_sum": 16.155059809471574,
+            "recall_sum": 18.190516591251885,
+            "num_pred": 29,
+            "num_gold": 31,
+            "selected_pairs": 19,
+            "unmatched_pred": 10,
+            "unmatched_gold": 12,
+            "doc": "doc0",
+            "gold_key": "857. Systems and methods for a cryptographically guaranteed vehicle identity.txt",
+            "gold_duplicate_groups": [],
+            "pred_duplicate_groups": []
+          },
+          {
+            "precision": 0.7126093830597507,
+            "recall": 0.6750233413012318,
+            "f1": 0.6933073259959621,
+            "precision_sum": 22.803500257912024,
+            "recall_sum": 24.975863628145575,
+            "num_pred": 32,
+            "num_gold": 37,
+            "selected_pairs": 29,
+            "unmatched_pred": 3,
+            "unmatched_gold": 8,
+            "doc": "doc1",
+            "gold_key": "2786. Method for providing congestion information in a network.txt",
+            "gold_duplicate_groups": [],
+            "pred_duplicate_groups": []
+          },
+          {
+            "precision": 0.7003274893620162,
+            "recall": 0.6582511760814437,
+            "f1": 0.678637763480906,
+            "precision_sum": 16.107532255326372,
+            "recall_sum": 17.114530578117535,
+            "num_pred": 23,
+            "num_gold": 26,
+            "selected_pairs": 19,
+            "unmatched_pred": 4,
+            "unmatched_gold": 7,
+            "doc": "doc2",
+            "gold_key": "5921. Tarpaulin bracket system.txt",
+            "gold_duplicate_groups": [],
+            "pred_duplicate_groups": []
+          },
+          {
+            "precision": 0.7476461412787367,
+            "recall": 0.6181845711257477,
+            "f1": 0.6767797868398534,
+            "precision_sum": 21.681738097083365,
+            "recall_sum": 22.87282913165266,
+            "num_pred": 29,
+            "num_gold": 37,
+            "selected_pairs": 24,
+            "unmatched_pred": 5,
+            "unmatched_gold": 13,
+            "doc": "doc3",
+            "gold_key": "6519. Rubber composite and process for obtaining same.txt",
+            "gold_duplicate_groups": [],
+            "pred_duplicate_groups": []
+          },
+          {
+            "precision": 0.7979196606178703,
+            "recall": 0.683531746031746,
+            "f1": 0.736309562861263,
+            "precision_sum": 13.564634230503795,
+            "recall_sum": 15.037698412698413,
+            "num_pred": 17,
+            "num_gold": 22,
+            "selected_pairs": 16,
+            "unmatched_pred": 1,
+            "unmatched_gold": 6,
+            "doc": "doc4",
+            "gold_key": "6818. Communication path managing method and communication path managing system.txt",
+            "gold_duplicate_groups": [
+              [
+                3,
+                6
+              ]
+            ],
+            "pred_duplicate_groups": [
+              [
+                3,
+                5
+              ]
+            ]
+          }
+        ]
+      },
+      "delta_micro": {
+        "precision": 0.05548280112961057,
+        "recall": 0.03709136292444548,
+        "f1": 0.04571838127786054
+      },
+      "delta_macro": {
+        "precision": 0.04842603464957762,
+        "recall": 0.04171598850163716,
+        "f1": 0.04486718561996417
+      }
+    }
+  },
+  "csv_verified": true,
+  "csv_layout": "detailed",
+  "csv_file": "match_comparison.csv",
+  "csv_sha256": "58a99fbba8aa2d05660b295750d89304de674e53986fb8e2a2ec63b06eec5d00"
+}

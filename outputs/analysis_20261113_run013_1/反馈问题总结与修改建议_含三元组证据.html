@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>run1_5doc_013_1 反馈问题总结与修改建议</title><style>
+:root{color-scheme:light;--ink:#19283b;--muted:#657489;--line:#dce4ee;--blue:#245f9b;--bg:#f3f6fa}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:26px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.85 "Microsoft YaHei","PingFang SC",system-ui,sans-serif}
+a{color:var(--blue);text-underline-offset:3px}header{padding:22px 32px;background:#16324e;color:#fff}
+header .label{font-size:18px;font-weight:700}header p{margin:4px 0 0;font-size:13px;color:#d0e0f0}
+.layout{display:grid;grid-template-columns:270px minmax(0,1fr);max-width:1550px;margin:auto;gap:24px;padding:24px}
+aside{position:sticky;top:18px;align-self:start;max-height:calc(100vh - 36px);overflow:auto;background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px}
+aside h2{font-size:16px;margin:0 0 12px}aside a{display:block;text-decoration:none;font-size:13px;line-height:1.6;padding:7px 0;border-bottom:1px solid #edf1f6}
+aside a.sub{padding-left:12px;color:#53657b}aside a:hover{color:var(--blue);background:#f4f8fe}
+aside a[hidden]{display:none}aside input{width:100%;padding:8px;border:1px solid #cbd6e3;border-radius:5px;font:inherit;font-size:13px;margin-bottom:10px}
+main{min-width:0;background:#fff;border:1px solid var(--line);border-radius:10px;padding:28px 36px}
+h1{font-size:27px;line-height:1.5;margin:0 0 24px}h2{font-size:23px;margin:38px 0 18px;padding-bottom:8px;border-bottom:2px solid #d5e3f2}
+h3{font-size:19px;line-height:1.6;margin:32px 0 18px;background:#edf4fc;border-left:4px solid #377ab4;padding:12px 15px;border-radius:0 6px 6px 0}
+h4{font-size:17px}p{margin:12px 0}li{margin:6px 0}strong{font-weight:700}blockquote{margin:15px 0;padding:10px 18px;border-left:4px solid #ccd9e7;background:#f7f9fc}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f5f7fa;border:1px solid #e1e7ee;border-radius:7px;padding:15px 18px;font:14px/1.8 Consolas,"Microsoft YaHei",monospace}
+code{font-family:Consolas,"Microsoft YaHei",monospace;font-size:.91em;background:#edf2f7;padding:2px 4px;border-radius:3px;overflow-wrap:anywhere}pre code{font-size:inherit;background:transparent;padding:0}
+.table-wrap{overflow-x:auto;margin:16px 0;border:1px solid var(--line);border-radius:6px}
+table{width:100%;border-collapse:collapse;font-size:14px;line-height:1.7;table-layout:auto}th,td{padding:10px 12px;text-align:left;vertical-align:top;border-right:1px solid var(--line);border-bottom:1px solid var(--line);overflow-wrap:anywhere}
+th{background:#eaf0f7;font-weight:700}th:last-child,td:last-child{border-right:0}tr:last-child td{border-bottom:0}tbody tr:nth-child(even){background:#f8fafc}
+hr{border:0;border-top:1px solid var(--line);margin:30px 0}.filelinks{display:flex;gap:20px;flex-wrap:wrap;font-size:13px;margin:0 0 24px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid var(--line);padding-top:15px}
+@media(max-width:900px){.layout{display:block;padding:12px}aside{position:static;max-height:300px;margin-bottom:16px}main{padding:22px 18px}header{padding:18px}h1{font-size:23px}h2{font-size:21px}th,td{padding:8px}}
+@media print{body{background:#fff;font-size:11pt}.layout{display:block;padding:0}aside,header,.filelinks,footer{display:none}main{border:0;padding:0}.table-wrap{overflow:visible}pre,table{font-size:9pt}h2,h3{break-after:avoid}tr{break-inside:avoid}a{color:inherit;text-decoration:none}}
+</style></head><body>
+<header><div class="label">反馈效果分析 · 问题总结与建议</div><p>run1_5doc_013_1 · 修改后Gold · 宽松匹配 · 2026-11-13</p></header>
+<div class="layout"><aside aria-label="文章目录"><h2>目录</h2><input id="toc-filter" type="search" aria-label="筛选目录" placeholder="查找 doc0 / S7 等内容"><a class="" href="#section-1">汇报摘要</a>
+<a class="" href="#section-2">新版 Remove 的实际表现</a>
+<a class="" href="#section-3">反馈收益与回退的优先核对</a>
+<a class="" href="#section-4">下一轮可执行计划</a>
+<a class="" href="#section-5">复核边界</a></aside>
+<main><div class="filelinks"><a href="%E5%8F%8D%E9%A6%88%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93%E4%B8%8E%E4%BF%AE%E6%94%B9%E5%BB%BA%E8%AE%AE_%E5%90%AB%E4%B8%89%E5%85%83%E7%BB%84%E8%AF%81%E6%8D%AE.md">查看 Markdown 原文</a><a href="%E9%98%B6%E6%AE%B5%E4%B8%80_%E5%8F%8D%E9%A6%88%E5%8F%98%E5%8C%96_%E9%80%90%E5%8F%A5%E5%AE%8C%E6%95%B4%E5%AF%B9%E7%85%A7.html">打开阶段一：反馈变化</a><a href="%E9%98%B6%E6%AE%B5%E4%BA%8C_%E5%89%A9%E4%BD%99Gold%E5%B7%AE%E8%B7%9D%E4%B8%8E%E4%B8%AD%E9%97%B4%E8%AF%81%E6%8D%AE.html">打开阶段二：剩余差距</a></div><h1 id="section-0">run1_5doc_013_1 反馈问题总结与修改建议</h1>
+<p>运行标识 <code>run1_5doc_013_1</code>。分析日期 2026-11-13。依据用户提供的五份导出和仓库同口径的修改后 Gold（五篇、153 条）。</p>
+<p><a href="%E9%98%B6%E6%AE%B5%E4%B8%80_%E5%8F%8D%E9%A6%88%E5%8F%98%E5%8C%96_%E9%80%90%E5%8F%A5%E5%AE%8C%E6%95%B4%E5%AF%B9%E7%85%A7.md">阶段一_反馈变化_逐句完整对照</a> · <a href="%E9%98%B6%E6%AE%B5%E4%BA%8C_%E5%89%A9%E4%BD%99Gold%E5%B7%AE%E8%B7%9D%E4%B8%8E%E4%B8%AD%E9%97%B4%E8%AF%81%E6%8D%AE.md">阶段二_剩余Gold差距与中间证据</a> · <a href="%E5%8F%8D%E9%A6%88%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93%E4%B8%8E%E4%BF%AE%E6%94%B9%E5%BB%BA%E8%AE%AE_%E5%90%AB%E4%B8%89%E5%85%83%E7%BB%84%E8%AF%81%E6%8D%AE.md">反馈问题总结与修改建议_含三元组证据</a></p>
+<p>输入与复算：<a href="inputs/split.md">拆分清单</a> · <a href="inputs/final.md">最终清单</a> · <a href="inputs/operations.md">操作摘要</a> · <a href="inputs/comparison.md">重建与对比</a> · <a href="inputs/diff_excerpt.md">差异 JSON 摘录</a> · <a href="%E6%A0%B8%E5%AF%B9%E4%B8%8E%E8%AF%84%E4%BC%B0%E8%AF%81%E6%8D%AE.json">核对与评估证据</a>。</p>
+<h2 id="section-1">汇报摘要</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>检查点</th>
+<th>三元组数</th>
+<th>宽松 P</th>
+<th>宽松 R</th>
+<th>宽松 F1</th>
+<th>严格 F1</th>
+<th>配对数</th>
+<th>未配 Gold</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>拆分后</td>
+<td>134</td>
+<td>63.92%</td>
+<td>60.47%</td>
+<td>62.15%</td>
+<td>20.21%</td>
+<td>103</td>
+<td>50</td>
+</tr>
+<tr>
+<td>反馈后</td>
+<td>130</td>
+<td>69.47%</td>
+<td>64.18%</td>
+<td>66.72%</td>
+<td>24.73%</td>
+<td>107</td>
+<td>46</td>
+</tr>
+</tbody></table></div>
+<p>本次整体优于拆分输入，五篇均提升。doc2 增益最大，+12.98 pp，doc0 仍是未配 Gold 最集中的文档之一。严格完全配对 29→35，宽松配对 103→107。结果支持继续沿当前反馈方向评估；一份运行无法度量稳定性或独立验证排序的收益。</p>
+<h2 id="section-2">新版 Remove 的实际表现</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>案例</th>
+<th>观察到的结果</th>
+<th>仍需核对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>doc2/S8</td>
+<td>Remove 将目的客体中的 in the truck trailer 去掉，独立保留 (goods, are in, the truck trailer)。</td>
+<td>缩句后目的指向的货物范围是否仍清楚。</td>
+</tr>
+<tr>
+<td>doc4/S3</td>
+<td>Remove 去掉选择客体内重复的依据短语，(the evaluation items, are based on, the item importance information) 仍独立。</td>
+<td>选择与评估项之间的方式关系尚未独立。</td>
+</tr>
+<tr>
+<td>doc0/S3</td>
+<td>Remove 以 all / any 在此处是同一个构成事实为由，删掉 any 版。</td>
+<td>只删除，没有把保留项同时替换成更短的 (the components, make up, the vehicle)。</td>
+</tr>
+</tbody></table></div>
+<p>两次 Replace 操作确实由 Remove 阶段执行，说明新版能完成字段整理。附件未展示同一批次同时有替换和删除的案例，也没有词重合度数值、两个排名、模型请求或完整运行配置，无法确认模型按排名检查了哪一对。操作性质可由摘要中的 <code>[replace] (remove)</code> 核对。</p>
+<h2 id="section-3">反馈收益与回退的优先核对</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>优先级</th>
+<th>证据</th>
+<th>修改建议</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1 · 保护独立关系</td>
+<td>doc1/S6 两条变一条，局部 100.00%→50.00%。doc0/S7 删了独立 read 和 execute，把多层事实压到长关系。</td>
+<td>Remove 判断谁覆盖谁时，对照两条的主语、关系、客体与限定。把关系写进字段仅保留了文字，判断是否仍需要独立表达。</td>
+</tr>
+<tr>
+<td>2 · 避免 Add 与 Replace 重复造条</td>
+<td>doc0/S2 的两条目的由 Add 与 Replace 同时构造，最终由 Remove 去重；doc2/S10 需要十项操作才得到两条。</td>
+<td>仍有错误旧条目对应时，优先修正旧条目；新增前核对现有独立条目与本轮候选。</td>
+</tr>
+<tr>
+<td>3 · 去重后清理保留表达</td>
+<td>doc0/S3 删除 any 版后，保留项主体仍嵌套 that make up the vehicle。</td>
+<td>让 Remove 比较保留项是否需要一起替换，同时保留其他关系中的 all / any 限定。</td>
+</tr>
+<tr>
+<td>4 · 区分真实缺失与 Gold 粒度</td>
+<td>doc3/S1 事实已在，comprising 与 comprises 导致三条未配。doc3/S9 则存在字段过长和比较关系未独立。</td>
+<td>分别验证语义正确、单条表达和词面匹配；按分类优化 Prompt，避免只为提高词面分数硬改源词形。</td>
+</tr>
+<tr>
+<td>5 · 比较后还要检查结构</td>
+<td>doc1/S1 的严重程度依据已进入重建，差异为空且未独立抽出。doc3/S9 同样未列差异。</td>
+<td>将“没有独立关系”与“重建没有提到”分开核查，空差异时继续逐句审查。</td>
+</tr>
+</tbody></table></div>
+<h2 id="section-4">下一轮可执行计划</h2>
+<ol>
+<li>固定同一批拆分输入、重建与差异，记录 commit、模型、范围与 Remove 的实际请求。以 doc0/S3、S7、doc1/S6、doc2/S8、S10、doc4/S3 为回归清单，逐项核对保留关系与限定。</li>
+<li>单独对比 Remove 有无排名，保留两个排名的快照和操作理由。跑同一输入的重复运行，报 P/R/F1、每类误删数量及波动范围。</li>
+<li>在这组案例上优先修独立关系误删，再决定是否改 Add/Replace 边界。汇报时可以请领导确认验收优先级：遇到去重收益与独立关系保留冲突时，是否优先保留可用事实，再在质量稳定后追求更少条目。</li>
+</ol>
+<h2 id="section-5">复核边界</h2>
+<p>操作清单未包含完整索引或阶段输入 JSON。按源句的操作摘要和快照可回放条数与最终 SPO，统计不代表完整的调度日志。比较附件的差异提示来自文本中间结果；第三方导出的“反馈输入四”引用 grouped_difference_context，而当前三 Agent 在 feedback_input_json 的 comparison_bundle 中接收差异。两者的呈现不同，缺少原始请求时只作线索对照。</p>
+
+<footer>由同目录 Markdown 生成；数据、评价口径和证据范围均以正文为准。</footer></main></div>
+<script>document.getElementById('toc-filter').addEventListener('input',function(){const q=this.value.trim().toLowerCase();document.querySelectorAll('aside a').forEach(a=>{a.hidden=!a.textContent.toLowerCase().includes(q);});});</script>
+</body></html>

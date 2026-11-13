@@ -1,0 +1,47 @@
+﻿文档,源句,Gold索引,Head,Relation,Tail,配对变化,复核说明
+doc0,S1,2,they,do not facilitate,a better understanding of the present disclosure,仍未配,标注表述差异。明确名词替换 they，整篇词匹配只分给部分重复陈述。
+doc0,S2,5,the controller,may query the ECU to identify,which PUF component is compromised,从有配到未配,目的关系表达不同。with purpose 与 Gold 的 may query ... 无关系字段重合。
+doc0,S2,6,the controller,may query the ECU in order to determine,where in the sub-system the compromise is located,从有配到未配,目的关系表达不同。with purpose 与 Gold 的 may query ... 无关系字段重合。
+doc0,S7,18,instructions,are stored on,a machine-readable medium,仍未配,存储在长客体；独立 read 和 execute 被删除；perform 压进长关系。结合原句另核对 which 的先行词。
+doc0,S7,19,a machine-readable medium,may be read by,a computing platform,仍未配,存储在长客体；独立 read 和 execute 被删除；perform 压进长关系。结合原句另核对 which 的先行词。
+doc0,S7,20,a machine-readable medium,may be executed by,a computing platform,仍未配,存储在长客体；独立 read 和 execute 被删除；perform 压进长关系。结合原句另核对 which 的先行词。
+doc0,S7,21,a computing platform,is to perform,the operations,仍未配,存储在长客体；独立 read 和 execute 被删除；perform 压进长关系。结合原句另核对 which 的先行词。
+doc0,S10,26,a variety of systems,include,connected cars,仍未配,五个系统仍为外层客体的列举，欠独立的 include 关系。
+doc0,S10,27,a variety of systems,include,car sharing,仍未配,五个系统仍为外层客体的列举，欠独立的 include 关系。
+doc0,S10,28,a variety of systems,include,rental car services,仍未配,五个系统仍为外层客体的列举，欠独立的 include 关系。
+doc0,S10,29,a variety of systems,include,maintenance,仍未配,五个系统仍为外层客体的列举，欠独立的 include 关系。
+doc0,S10,30,a variety of systems,include,factory services,仍未配,五个系统仍为外层客体的列举，欠独立的 include 关系。
+doc1,S1,2,congestion mitigation measures,are for example according to,the severeness of the congestion,仍未配,严重程度的依据藏在 enables 的长客体内。
+doc1,S2,4,said minimum bandwidth demand,exceeds,the measured traffic per time,仍未配,条件里的 exceeds 与时间跨度保留在长客体，独立表达不足。
+doc1,S2,5,the measured traffic per time,is over,a given time span,仍未配,条件里的 exceeds 与时间跨度保留在长客体，独立表达不足。
+doc1,S3,7,"the term ""part"" in connection with the term ""network""",means that,part of the network,仍未配,回查术语定义的主语及定义对象边界，现有表述与 Gold 分配不同。
+doc1,S5,19,such description,are to be considered,illustrative or exemplary,仍未配,复核 illustrative/exemplary/restrictive 的并列、否定范围及重复拆分。
+doc1,S5,21,such description,are to be considered not,restrictive,仍未配,复核 illustrative/exemplary/restrictive 的并列、否定范围及重复拆分。
+doc1,S9,32,the congestion level,may be based,per link with different feedback profiles,从有配到未配,per link 与 per cell 合并；depending on 仍在客体，未独立。
+doc1,S9,33,different feedback profiles,depending on,the need of an operator,仍未配,per link 与 per cell 合并；depending on 仍在客体，未独立。
+doc2,S1,1,a danger,is when,loose items are being transported in high-traffic areas,仍未配,运输条件已抽为一个事实，仍缺 danger 与 when 条件的关系。
+doc2,S3,7,the hazards,has led many governing bodies to enact,strict laws,从有配到未配,法律颁布与危险导致颁布的链路拆散；法律针对开放式运输的关系在长客体。
+doc2,S3,8,strict laws,is against,such open transport,仍未配,法律颁布与危险导致颁布的链路拆散；法律针对开放式运输的关系在长客体。
+doc2,S5,11,the matter set forth,is in,the foregoing description and accompanying drawings,仍未配,出处只留在主语中，未独立表达。
+doc2,S6,15,the following claims,are viewed in,their proper perspective,仍未配,审查视角与 prior art 依据被保留在字段中或未独立抽出。
+doc2,S6,16,their proper perspective,is based on,the prior art,仍未配,审查视角与 prior art 依据被保留在字段中或未独立抽出。
+doc2,S7,19,the conditions,are of being atop,an open cargo area of a vehicle during transportation of goods,仍未配,条件的具体内容仍在目的关系长客体中。
+doc3,S1,1,a rubber composite,comprises,rubber,仍未配,三条事实已存在，关系沿用 comprising，Gold 为 comprises；属于词面不配。
+doc3,S1,2,a rubber composite,comprises,oil,仍未配,三条事实已存在，关系沿用 comprising，Gold 为 comprises；属于词面不配。
+doc3,S1,3,a rubber composite,comprises,a combination of powdered additives,仍未配,三条事实已存在，关系沿用 comprising，Gold 为 comprises；属于词面不配。
+doc3,S2,6,granulated recycled tire rubber,is incorporated into,bitumen,仍未配,复核 incorporated into 的实体和关系边界，候选表达未分到此 Gold。
+doc3,S3,8,the asphalt bitumen-based binders,are in,high temperature conditions,仍未配,高、低温条件主要在原条目的条件表达中，未独立拆出。
+doc3,S3,9,the asphalt bitumen-based binders,are in,low temperature conditions,仍未配,高、低温条件主要在原条目的条件表达中，未独立拆出。
+doc3,S6,20,the particles,are of,non-spheroid shape,仍未配,非球状属性未形成对应独立条目，需回查修饰归属。
+doc3,S9,29,it,is clearly,the lowest value,仍未配,两条长关系把最低值、比较和材料属性放在一起，两处比较的范围和层次未区分；没有抽出四项对应事实。
+doc3,S9,30,the lowest value,is compared with,tradition Asphalt Rubber gap graded mixtures (with and without RAR),仍未配,两条长关系把最低值、比较和材料属性放在一起，两处比较的范围和层次未区分；没有抽出四项对应事实。
+doc3,S9,31,the lowest value,is even compared with,traditional SMA mixtures with highly modified bitumen and fibres,仍未配,两条长关系把最低值、比较和材料属性放在一起，两处比较的范围和层次未区分；没有抽出四项对应事实。
+doc3,S9,32,traditional SMA mixtures,are with highly modified,bitumen and fibres,仍未配,两条长关系把最低值、比较和材料属性放在一起，两处比较的范围和层次未区分；没有抽出四项对应事实。
+doc3,S10,34,the range,is given as such merely for,brevity,仍未配,检查 brevity 的目的和“不得作为刚性限制”的独立表达及词形。
+doc3,S10,36,the range,should not be construed as an inflexible limitation on,the scope of the invention,仍未配,检查 brevity 的目的和“不得作为刚性限制”的独立表达及词形。
+doc4,S3,5,selecting at least one of the communication paths for the vehicle,is according to,the evaluation items,仍未配,评价项是选择方式，仍嵌在选择单元的长客体；评价项依据已恢复。
+doc4,S7,13,all of the evaluation items EV,is of,each of the communication paths PH in the third group G3,仍未配,评估项与第三组路径的范围挂接未形成匹配关系。
+doc4,S8,15,the value of the routing path latency,is equal to or lower than 500 kbps in,the good category of the available bandwidth,仍未配,原文使用 latency + 500 kbps，照录原文；一条预测有多个可对齐的标注表达，其次检查分段。
+doc4,S9,17,the specification and examples,are considered as exemplary only with,a true scope of the disclosure,仍未配,示例性限定与等效项关系需回查原句，词匹配未覆盖对应 Gold。
+doc4,S9,19,the disclosure,is being indicated by,their equivalents,仍未配,示例性限定与等效项关系需回查原句，词匹配未覆盖对应 Gold。
+doc4,S10,21,the value of the routing path latency,is equal to or lower than 50 ms in,the good category of the routing path latency,仍未配,数值与类别在一条长关系中；第二个 Gold 是带类别的独立表达，复查字段边界。
