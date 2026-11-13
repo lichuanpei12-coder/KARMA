@@ -14,10 +14,7 @@ h2{font-size:1.2em;line-height:1.4;margin:1.1em 0 .4em;color:#183f54}
 <p><strong>头、关系、尾各至少有 1 个重合词才允许配对。</strong> 以预测三元组的总词数和 Gold 三元组的总词数分别作为分母，计算该对的 p 和 r。式中 L 的下标 pred 表示预测，gold 表示 Gold，L 为相应三元组三个字段的总词数。</p>
 <div class="equation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mrow><mi>p</mi><mo>=</mo><mfrac><mi>C</mi><msub><mi>L</mi><mtext>pred</mtext></msub></mfrac></mrow><mo>,</mo><mspace width="1.6em"/><mrow><mi>r</mi><mo>=</mo><mfrac><mi>C</mi><msub><mi>L</mi><mtext>gold</mtext></msub></mfrac></mrow></mrow></math></div>
 
-<p>若一条三元组有多个可配对象，在每个文档和轮次内选出一套一对一方案，使下式最大。其中 i 表示方案中的一对三元组，求和覆盖该方案选中的所有配对。每一项同时考虑该对的精确率和召回率。</p>
-<div class="equation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><munder><mo>∑</mo><mrow><mtext>选中配对</mtext><mspace width="0.3em"/><mi>i</mi></mrow></munder><mfrac><mrow><mn>2</mn><msub><mi>p</mi><mi>i</mi></msub><msub><mi>r</mi><mi>i</mi></msub></mrow><mrow><msub><mi>p</mi><mi>i</mi></msub><mo>+</mo><msub><mi>r</mi><mi>i</mi></msub></mrow></mfrac></mrow></math></div>
-
-<p><strong>整体汇总。</strong> 设 M 为同一轮次下各文档最终选中的配对集合，N 的下标 pred 和 gold 分别对应预测总条数和 Gold 总条数。未配对三元组的得分贡献为 0，仍计入各自的总条数。分母为 0 时，对应指标取 0。</p>
+<p><strong>整体汇总。</strong> 设 M 为同一轮次下各文档最终选中的配对集合，i 表示其中一对的编号，公式中的 p 和 r 带下标 i 时表示该对的得分。N 的下标 pred 和 gold 分别对应预测总条数和 Gold 总条数。未配对三元组的得分贡献为 0，仍计入各自的总条数。分母为 0 时，对应指标取 0。</p>
 <div class="equation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mrow><mi>P</mi><mo>=</mo><mfrac><mrow><munder><mo>∑</mo><mrow><mi>i</mi><mo>∈</mo><mi>M</mi></mrow></munder><msub><mi>p</mi><mi>i</mi></msub></mrow><msub><mi>N</mi><mtext>pred</mtext></msub></mfrac></mrow><mo>,</mo><mspace width="1.6em"/><mrow><mi>R</mi><mo>=</mo><mfrac><mrow><munder><mo>∑</mo><mrow><mi>i</mi><mo>∈</mo><mi>M</mi></mrow></munder><msub><mi>r</mi><mi>i</mi></msub></mrow><msub><mi>N</mi><mtext>gold</mtext></msub></mfrac></mrow></mrow></math></div>
 
 <p><strong>实际算例。</strong> 取 <code>run1_5doc_1104_3</code> 拆分后结果中第一篇文档的一对实际匹配。<a href="outputs/analysis_20261105_run1104_compare/matching/1104_3/match_lenient.csv">配对明细</a>中的编号为 <code>D0-G10</code> 和 <code>D0-R1-P19</code>。</p>
