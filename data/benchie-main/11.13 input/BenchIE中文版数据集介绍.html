@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BenchIE 中文版数据集介绍</title>
+<style>
+:root { color-scheme: light; font-family: "Microsoft YaHei UI", "PingFang SC", "Noto Sans CJK SC", sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #edf2f7; color: #203145; font-size: 16px; line-height: 1.75; }
+main { max-width: 960px; margin: 38px auto; padding: 44px 56px; background: white; border: 1px solid #d9e1ea; border-top: 5px solid #24577a; border-radius: 12px; }
+h1, h2, h3 { color: #173650; line-height: 1.4; }
+h1 { margin: 0 0 24px; font-size: clamp(28px, 4.5vw, 38px); }
+h2 { margin: 36px 0 14px; padding-bottom: 7px; border-bottom: 1px solid #d9e1ea; font-size: 23px; }
+h3 { margin: 26px 0 7px; font-size: 19px; }
+p { margin: 0 0 15px; overflow-wrap: anywhere; }
+h3 + p { padding: 10px 14px; background: #eef5fa; border-left: 3px solid #477fa2; }
+p:has(+ table) { margin-top: 14px; margin-bottom: 5px; }
+a { color: #185d8c; text-underline-offset: 3px; }
+a:focus-visible { outline: 2px solid #24577a; outline-offset: 3px; }
+table { width: 100%; border-collapse: collapse; margin: 0 0 16px; font-size: 15px; }
+th, td { border: 1px solid #d9e1ea; padding: 7px 11px; text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+th { background: #edf3f8; color: #173650; }
+tr:nth-child(even) { background: #f7f9fc; }
+@media (max-width: 700px) {
+  main { margin: 0; padding: 22px 16px; border-radius: 0; border-inline: 0; }
+  th, td { padding: 5px 7px; }
+}
+@media print {
+  body { background: white; }
+  main { max-width: none; margin: 0; padding: 0; border: 0; }
+  table { break-inside: avoid; }
+  h2, h3, p:has(+ table) { break-after: avoid; }
+}
+</style>
+</head>
+<body>
+<main>
+<h1>BenchIE 中文版数据集介绍</h1>
+<p>BenchIE 中文版由 <strong>300 个独立的中文句子</strong>构成，参考答案以人工标注的「主体、关系、客体」三元组呈现。KARMA 整理版包含 <strong>995 个事实簇</strong>和 <strong>1,368 条标注记录</strong>。一个事实簇收录同一事实的可接受写法。模型匹配其中任意一种，就算覆盖该事实。 <a href="benchie_zh_karma_input.json">中文原句</a> · <a href="benchie_zh_gold_clusters.json">三元组标注</a> · <a href="README.md">数据整理记录</a></p>
+<h2>三条样本及标注结果</h2>
+<p>每张表对应一个事实簇。表内有多行时，每行都是该事实的一种写法。表中保留原标注的可选词，省略标记可选词的方括号。 <a href="benchie_gold_annotations_zh.txt">中文原始标注</a></p>
+<h3>样本 1</h3>
+<p>他曾担任澳大利亚第一任总理，并成为澳大利亚高等法院的创始法官。</p>
+<p><strong>事实簇 1</strong></p>
+<table>
+<thead>
+<tr>
+<th>主体</th>
+<th>关系</th>
+<th>客体</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>他</td>
+<td>曾担任</td>
+<td>澳大利亚第一任总理</td>
+</tr>
+</tbody>
+</table>
+<p><strong>事实簇 2</strong></p>
+<table>
+<thead>
+<tr>
+<th>主体</th>
+<th>关系</th>
+<th>客体</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>他</td>
+<td>成为</td>
+<td>澳大利亚高等法院的创始法官</td>
+</tr>
+</tbody>
+</table>
+<h3>样本 7</h3>
+<p>贾根博士亲自参与组织罢工，并帮助在全国各地筹集资金。</p>
+<p><strong>事实簇 1</strong></p>
+<table>
+<thead>
+<tr>
+<th>主体</th>
+<th>关系</th>
+<th>客体</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>贾根博士</td>
+<td>亲自参与</td>
+<td>组织罢工</td>
+</tr>
+</tbody>
+</table>
+<p><strong>事实簇 2</strong></p>
+<table>
+<thead>
+<tr>
+<th>主体</th>
+<th>关系</th>
+<th>客体</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>贾根博士</td>
+<td>帮助筹集</td>
+<td>资金</td>
+</tr>
+<tr>
+<td>贾根博士</td>
+<td>帮助</td>
+<td>筹集资金</td>
+</tr>
+</tbody>
+</table>
+<p><strong>事实簇 3</strong></p>
+<table>
+<thead>
+<tr>
+<th>主体</th>
+<th>关系</th>
+<th>客体</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>贾根博士</td>
+<td>帮助筹集资金</td>
+<td>在全国各地</td>
+</tr>
+<tr>
+<td>贾根博士</td>
+<td>帮助</td>
+<td>在全国各地筹集资金</td>
+</tr>
+</tbody>
+</table>
+<p>这句有五条标注记录，归入三个事实簇。第 2 簇的两种写法把「筹集」放在不同的字段里，都表达了贾根博士帮助筹集资金。</p>
+<h3>样本 12</h3>
+<p>在他去世100多年后，他的墓碑在1866年被立了起来。</p>
+<p><strong>事实簇 1</strong></p>
+<table>
+<thead>
+<tr>
+<th>主体</th>
+<th>关系</th>
+<th>客体</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>他的墓碑</td>
+<td>被立了起来</td>
+<td>在1866年</td>
+</tr>
+</tbody>
+</table>
+<p><strong>事实簇 2</strong></p>
+<table>
+<thead>
+<tr>
+<th>主体</th>
+<th>关系</th>
+<th>客体</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>他的墓碑</td>
+<td>被立了起来</td>
+<td>在他去世100多年后</td>
+</tr>
+</tbody>
+</table>
+<h2>研究背景与数据来源</h2>
+<p>以往的开放信息抽取评估通常按词语重合给分。用词相似的预测即使改变了事实，也可能拿到部分分数。Gashteovski 等人在 ACL 2022 发布 BenchIE，把同一事实的合法写法事先收录到参考答案中，再按事实簇计算命中和遗漏。作者从英文评估集 CaRB 中选取 300 个句子，由双语专家翻译成中文，再依据中文译文重新人工标注。 <a href="https://aclanthology.org/2022.acl-long.307.pdf#page=2">BenchIE 论文 §1–2</a></p>
+<p>论文表 3 报告中文版有 994 个事实簇。KARMA 整理时恢复了原始标注中第 206 句的一处簇边界，因此本地版统计为 995 个。 <a href="https://aclanthology.org/2022.acl-long.307.pdf#page=4">论文表 3</a> · <a href="README.md#%E6%9D%A5%E6%BA%90%E4%B8%8E%E8%BD%AC%E6%8D%A2%E8%AE%B0%E5%BD%95">转换记录</a></p>
+<h2>与 DocOIE 的区别</h2>
+<table>
+<thead>
+<tr>
+<th>对比项</th>
+<th>当前使用的 DocOIE 交通集</th>
+<th>BenchIE 中文版</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>输入</td>
+<td>来自英文交通领域文档的目标句，按文档组织</td>
+<td>300 个独立的中文句子</td>
+</tr>
+<tr>
+<td>评分依据</td>
+<td>每条预测与一条参考三元组配对。宽松模式按词语重合给部分分</td>
+<td>在同一句内匹配人工认可的完整写法，同一事实簇只计一次命中</td>
+</tr>
+<tr>
+<td>在 KARMA 中的用途</td>
+<td>延续英文交通领域实验，观察文档语境下的抽取和反馈</td>
+<td>检验中文单句抽取，以及反馈前后的事实覆盖变化</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://aclanthology.org/2021.findings-acl.210/">DocOIE 论文</a> · <a href="../../../%E8%AF%8D%E5%8C%B9%E9%85%8D%E8%AF%84%E4%BC%B0%E8%AF%B4%E6%98%8E.md">KARMA 现行评分说明</a> · <a href="https://aclanthology.org/2022.acl-long.307.pdf#page=4">BenchIE 评分规则</a></p>
+<h2>KARMA 评估用途</h2>
+<p>用同一批中文句子固定第一轮结果，再比较拆分前后和反馈前后的变化。除了总分，可以直接列出新命中的事实、丢失的原有命中，以及仍重复表达的事实。BenchIE 官方评分对同一事实的多种合法写法只记一次命中，额外的合法写法也不计为错误。因此，去重效果可以额外报告同一事实对应的重复输出条数。对于原句支持、却未命中参考答案的结果，可逐句复核是合理的补充还是抽取有误。 <a href="https://aclanthology.org/2022.acl-long.307.pdf#page=4">BenchIE 论文 §2.3</a> · <a href="../../../outputs/triple_omission_audit_20261112/%E6%A0%B8%E6%9F%A5%E8%AF%B4%E6%98%8E.md">本地标注覆盖核查</a></p>
+<h2>汇报总结</h2>
+<p>建议将 BenchIE 中文版作为 KARMA 的补充评估集，用来检验系统对中文单句的抽取质量，以及反馈后是否补回遗漏、修正错误、保住原来抽对的内容。项目已完成中文原句和参考标注的整理及输入验证，接入事实簇评分后即可开展同一批样本的前后对照。 <a href="README.md">数据整理记录</a></p>
+</main>
+</body>
+</html>
