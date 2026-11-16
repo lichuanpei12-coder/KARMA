@@ -8,7 +8,129 @@ from karma.core.base_agent import BaseAgent
 from karma.core.data_structures import KnowledgeTriple
 from karma.core.triple_scores import fixed_score_copy
 from karma.agents.triple_revision import TripleRevisionMixin
+from karma.agents.prompt_language import uses_chinese_prompt
 from karma.agents.extraction_support import parse_json_container
+
+ENGLISH_GUIDANCE = (
+    """   分别检查 head、relation、tail 中的 and、both ... and、as well as 和逗号枚举。
+   对 and not，分别找出肯定部分和否定部分。""",
+    """   检查定语、分词短语和从句；including、comprising、due to、for、to、which、that 等帮助定位。""",
+    """   例如 a module that processes data 中，processes 的主体是 a module。""",
+    """# 常见关系结构短例
+以下展示常见结构；实际句子可以组合多种结构，也可以包含其他有源文依据的关系。
+每条关系按源句语义确定主体和客体，三元组之间可以首尾相接，也可以共享主体或关系。
+- 链式嵌套：The system includes a module that processes data.
+  → (The system, includes, a module)；(a module, processes, data)。
+  外层客体成为内部关系的主体。
+- 同主体多关系：The module receives signals and generates alerts.
+  → (The module, receives, signals)；(The module, generates, alerts)。
+  共享主体，分别表达不同动作。
+- 并列主体或客体：The module records temperature and pressure.
+  → (The module, records, temperature)；(The module, records, pressure)。
+  共享主体和关系，客体分别展开。
+  Sensors and cameras collect data.
+  → (Sensors, collect, data)；(cameras, collect, data)。
+  主体分别展开，共享关系和客体。
+- 集合实体：A first set of left and right pulleys are attached at the front.
+  → (A first set of left and right pulleys, are attached at, the front)。
+  参与 attached at 关系的是一套滑轮，left and right 描述这一套的组成，集合主体保留整体。
+- 主体内部关系：The sensor installed in the vehicle measures temperature.
+  → (The sensor, measures, temperature)；(The sensor, is installed in, the vehicle)。
+  从主体的修饰部分抽出另一条关系，并补齐省略的 is。
+
+- 目的关系：The system includes a module to provide data.
+  → (The system, includes, a module)；(a module, is to provide, data)。
+  保留原文 provide 和用途连接 to，补充必要的 is。
+- 风险范围：The hazards of loose items flying out of the trailer concern the operator.
+  → (The hazards of loose items flying out of the trailer, concern, the operator)。
+  flying out 位于 hazards of 的范围内；这个例子保留风险对象的完整表达。
+  若继续抽取内部关系，也需表达同一风险范围；单独断言物品实际飞出会改变源句含义。""",
+    """  句首介绍实施例的词语（如 In some embodiments）省略，三元组写实体及其关系。
+  例如 In some embodiments, the process includes a step. 对应 (the process, includes, a step)。
+- head、relation、tail 的实义词取自支持该事实的原文片段，保持原词及其词形、大小写。
+  名词沿用原文单复数，动词沿用原文时态、分词和不定式形式；共享成分按原词形补齐。
+  为独立表达可补充必要的系词、助动词和介词，补齐后保持原有主体、方向、情态与目的含义。
+  指代按源文明确的对应关系还原；输出前逐项核对各字段实义词的原文依据和词形。""",
+    """# 复杂复合示例与输出格式
+示例原文：When the particles are of non-spheroid shape, the term refers to the average equivalent diameter of the particle, namely the diameter of an equivalent spherical particle based on the longest dimension of the particle.
+示例当前集合：
+[
+  {
+    "index": 0,
+    "head": "When the particles are of non-spheroid shape, the term",
+    "relation": "refers to",
+    "tail": "the average equivalent diameter of the particle, namely the diameter of an equivalent spherical particle based on the longest dimension of the particle"
+  }
+]
+拆分说明：
+- index 0 包含条件限定、namely 同位解释，以及解释内部的 based on 依据关系。
+- When 引出定义适用的条件，将该条件保留在本例各条定义关系的 head 中。
+- 长 tail 中，namely 引出对平均等效直径的解释，based on 引出直径的确定依据。
+- 分别使用内部关系自己的主体，补入 is，表达为 is namely 和 is based on。
+- 继续检查 namely 解释内部，拆出 based on 关系；将两项内部关系另列后，
+  缩短 index 0 的客体；一条 replace 加两条 add，拆分后共三条三元组。
+示例输出：
+{
+  "add": [
+    {
+      "index": 0,
+      "head": "When the particles are of non-spheroid shape, the average equivalent diameter of the particle",
+      "relation": "is namely",
+      "tail": "the diameter of an equivalent spherical particle",
+      "reason": "独立表达 namely 直径解释，以平均等效直径为主体，补入 is 并保留定义适用的条件"
+    },
+    {
+      "index": 0,
+      "head": "When the particles are of non-spheroid shape, the diameter of an equivalent spherical particle",
+      "relation": "is based on",
+      "tail": "the longest dimension of the particle",
+      "reason": "继续拆出解释内部的 based on 依据关系，以等效球形颗粒的直径为主体，补入 is 并保留定义适用的条件"
+    }
+  ],
+  "replace": [
+    {
+      "index": 0,
+      "head": "When the particles are of non-spheroid shape, the term",
+      "relation": "refers to",
+      "tail": "the average equivalent diameter of the particle",
+      "reason": "namely 解释和 based on 依据已另列，原条目保留带条件的术语定义关系"
+    }
+  ]
+}""",
+)
+
+
+CHINESE_GUIDANCE = (
+    """   分别检查 head、relation、tail 中的「和」「及」「并」「但不」与顿号枚举。
+   先找共同成分，再确定并列项是否独立成立。明确「或」「之一」的选择范围。""",
+    """   检查「……的」修饰语和「用于」「由于」「由……构成」连接的结构，判断是否包含能独立表达的关系。""",
+    """   例如「安装在进气口的过滤器」提供的是过滤器的位置。内部关系用「过滤器」作主体。""",
+    """# 常见关系结构短例
+- 并列动作：记录仪会采集振动信号并保存发生时间。分别表达采集与保存，两条都沿用「记录仪」和「会」。
+- 选择范围：平台可通过短信或邮件发送通知。用一个表达保留「短信或邮件」，同时保留「可」。
+- 否定范围：值班员检查阀门，但不拆开接头。分别表达检查阀门和不拆开接头，否定只限定后一个动作。""",
+    """  确认「未」「不会」「可」「用于」修饰哪项动作，再判断拆分后哪些条目应保留这些字词。
+- head、relation、tail 沿用源句用词。省略主语从本句中明确可对应的成分补齐。
+  定语中含独立关系时，先确定它描述的是哪个对象。仅用来引入且省略后事实完整的背景可省略。""",
+    """# 复合示例与输出格式
+示例原文：试验台配有安装在进气口、用于拦截粉尘的过滤器。
+示例当前集合：
+[
+  {"index": 0, "head": "试验台", "relation": "配有", "tail": "安装在进气口、用于拦截粉尘的过滤器"}
+]
+拆分说明：第 0 条包含装配关系、过滤器位置和过滤器用途。位置和用途的主体都是过滤器，用「用于拦截」保留用途。
+示例输出：
+{
+  "add": [
+    {"index": 0, "head": "过滤器", "relation": "安装在", "tail": "进气口", "reason": "独立表达过滤器的位置"},
+    {"index": 0, "head": "过滤器", "relation": "用于拦截", "tail": "粉尘", "reason": "独立表达过滤器的用途"}
+  ],
+  "replace": [
+    {"index": 0, "head": "试验台", "relation": "配有", "tail": "过滤器", "reason": "位置和用途已各自表达，保留装配关系"}
+  ]
+}""",
+)
+
 
 logger = logging.getLogger(__name__)
 
@@ -38,6 +160,8 @@ class TripleSplittingAgent(TripleRevisionMixin, BaseAgent):
             }
             for index, triple in enumerate(previous_relationships)
         ]
+        guidance = CHINESE_GUIDANCE if uses_chinese_prompt(text) else ENGLISH_GUIDANCE
+        coordination, inner_hints, inner_subject, structures, expression, worked_example = guidance
         prompt = f"""
 # 任务
 依据源文本，将当前三元组已经承载的并列或嵌套关系分别独立表达。
@@ -48,20 +172,19 @@ class TripleSplittingAgent(TripleRevisionMixin, BaseAgent):
    逐条读取当前三元组，找到支持它的完整源句；每条拆分结果依据该句，拆分围绕该条目承载的关系展开。
 
 2. 找出并列部分
-   分别检查 head、relation、tail 中的 and、both ... and、as well as 和逗号枚举。
-   对 and not，分别找出肯定部分和否定部分。
+{coordination}
 
 3. 判断并列如何参与关系
    多个对象分别参与同一关系，或同一对象参与多个动作时，分别表达。
    一套、一组等集合整体参与关系时保留集合主体；选择关系保留选项及选择范围。
 
 4. 找出字段内部的关系
-   检查定语、分词短语和从句；including、comprising、due to、for、to、which、that 等帮助定位。
+{inner_hints}
    为每项候选找到源句支持的关系；仅包含在长字段中时，继续检查是否需要独立表达。
 
 5. 确定内部关系的主体和客体
    对每个动作分别找到执行者和承受对象，内部关系使用自己的主体。
-   例如 a module that processes data 中，processes 的主体是 a module。
+{inner_subject}
 
 6. 保留每项关系的限定
    按事实规则保留否定、可能性、目的、条件、数量和范围，放到它们实际约束的关系中。
@@ -84,35 +207,7 @@ class TripleSplittingAgent(TripleRevisionMixin, BaseAgent):
     对照源句核对实义词和词形，再补齐各条结果遗漏的原有事实与必要限定。
     取消重复候选，合并针对同一 index 的替换操作，输出 add、replace 两个数组。
 
-# 常见关系结构短例
-以下展示常见结构；实际句子可以组合多种结构，也可以包含其他有源文依据的关系。
-每条关系按源句语义确定主体和客体，三元组之间可以首尾相接，也可以共享主体或关系。
-- 链式嵌套：The system includes a module that processes data.
-  → (The system, includes, a module)；(a module, processes, data)。
-  外层客体成为内部关系的主体。
-- 同主体多关系：The module receives signals and generates alerts.
-  → (The module, receives, signals)；(The module, generates, alerts)。
-  共享主体，分别表达不同动作。
-- 并列主体或客体：The module records temperature and pressure.
-  → (The module, records, temperature)；(The module, records, pressure)。
-  共享主体和关系，客体分别展开。
-  Sensors and cameras collect data.
-  → (Sensors, collect, data)；(cameras, collect, data)。
-  主体分别展开，共享关系和客体。
-- 集合实体：A first set of left and right pulleys are attached at the front.
-  → (A first set of left and right pulleys, are attached at, the front)。
-  参与 attached at 关系的是一套滑轮，left and right 描述这一套的组成，集合主体保留整体。
-- 主体内部关系：The sensor installed in the vehicle measures temperature.
-  → (The sensor, measures, temperature)；(The sensor, is installed in, the vehicle)。
-  从主体的修饰部分抽出另一条关系，并补齐省略的 is。
-
-- 目的关系：The system includes a module to provide data.
-  → (The system, includes, a module)；(a module, is to provide, data)。
-  保留原文 provide 和用途连接 to，补充必要的 is。
-- 风险范围：The hazards of loose items flying out of the trailer concern the operator.
-  → (The hazards of loose items flying out of the trailer, concern, the operator)。
-  flying out 位于 hazards of 的范围内；这个例子保留风险对象的完整表达。
-  若继续抽取内部关系，也需表达同一风险范围；单独断言物品实际飞出会改变源句含义。
+{structures}
 
 # 操作
 - add：补充当前三元组承载且有原文依据、尚未独立表达的关系，数量由有效关系决定。
@@ -127,12 +222,7 @@ add/replace 均填写被拆分的原三元组 index，使用输入中从0开始�
 - 判断修饰是否保留：省略后会改变哪个对象参与、表达什么关系、是否发生、
   在什么条件下成立、涉及多少或哪些对象时，将该修饰保留在它约束的字段中；
   目的按目的关系表达，条件保留在受其约束的关系中，选择关系保留原有选择范围。
-  句首介绍实施例的词语（如 In some embodiments）省略，三元组写实体及其关系。
-  例如 In some embodiments, the process includes a step. 对应 (the process, includes, a step)。
-- head、relation、tail 的实义词取自支持该事实的原文片段，保持原词及其词形、大小写。
-  名词沿用原文单复数，动词沿用原文时态、分词和不定式形式；共享成分按原词形补齐。
-  为独立表达可补充必要的系词、助动词和介词，补齐后保持原有主体、方向、情态与目的含义。
-  指代按源文明确的对应关系还原；输出前逐项核对各字段实义词的原文依据和词形。
+{expression}
 
 # 源文本
 <source_text>
@@ -144,52 +234,7 @@ add/replace 均填写被拆分的原三元组 index，使用输入中从0开始�
 {json.dumps(indexed_triples, ensure_ascii=False, indent=2)}
 </current_triples_json>
 
-# 复杂复合示例与输出格式
-示例原文：When the particles are of non-spheroid shape, the term refers to the average equivalent diameter of the particle, namely the diameter of an equivalent spherical particle based on the longest dimension of the particle.
-示例当前集合：
-[
-  {{
-    "index": 0,
-    "head": "When the particles are of non-spheroid shape, the term",
-    "relation": "refers to",
-    "tail": "the average equivalent diameter of the particle, namely the diameter of an equivalent spherical particle based on the longest dimension of the particle"
-  }}
-]
-拆分说明：
-- index 0 包含条件限定、namely 同位解释，以及解释内部的 based on 依据关系。
-- When 引出定义适用的条件，将该条件保留在本例各条定义关系的 head 中。
-- 长 tail 中，namely 引出对平均等效直径的解释，based on 引出直径的确定依据。
-- 分别使用内部关系自己的主体，补入 is，表达为 is namely 和 is based on。
-- 继续检查 namely 解释内部，拆出 based on 关系；将两项内部关系另列后，
-  缩短 index 0 的客体；一条 replace 加两条 add，拆分后共三条三元组。
-示例输出：
-{{
-  "add": [
-    {{
-      "index": 0,
-      "head": "When the particles are of non-spheroid shape, the average equivalent diameter of the particle",
-      "relation": "is namely",
-      "tail": "the diameter of an equivalent spherical particle",
-      "reason": "独立表达 namely 直径解释，以平均等效直径为主体，补入 is 并保留定义适用的条件"
-    }},
-    {{
-      "index": 0,
-      "head": "When the particles are of non-spheroid shape, the diameter of an equivalent spherical particle",
-      "relation": "is based on",
-      "tail": "the longest dimension of the particle",
-      "reason": "继续拆出解释内部的 based on 依据关系，以等效球形颗粒的直径为主体，补入 is 并保留定义适用的条件"
-    }}
-  ],
-  "replace": [
-    {{
-      "index": 0,
-      "head": "When the particles are of non-spheroid shape, the term",
-      "relation": "refers to",
-      "tail": "the average equivalent diameter of the particle",
-      "reason": "namely 解释和 based on 依据已另列，原条目保留带条件的术语定义关系"
-    }}
-  ]
-}}
+{worked_example}
 仅返回上述结构的JSON对象，两个操作数组都必须存在，无对应操作时填[]。
 每项 add/replace 只输出 index、head、relation、tail、reason。
 示例用于说明拆分方法和操作格式；最终操作针对上述源文本和当前三元组生成。

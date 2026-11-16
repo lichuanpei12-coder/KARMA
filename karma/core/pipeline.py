@@ -691,10 +691,11 @@ class KARMAPipeline:
         hashes["TripleRevisionMixin"] = hashlib.sha256(shared_path.read_bytes()).hexdigest()
         grouping_path = Path(inspect.getfile(source_sentences))
         hashes['SentenceGrouping'] = hashlib.sha256(grouping_path.read_bytes()).hexdigest()
-        from ..agents import feedback_common, feedback_operations
+        from ..agents import feedback_common, feedback_operations, prompt_language
         from . import triple_scores
         for name, module in (('FeedbackCommon', feedback_common), ('FeedbackOperations', feedback_operations), ('TripleScores', triple_scores)):
             hashes[name] = hashlib.sha256(Path(module.__file__).read_bytes()).hexdigest()
+        hashes['PromptLanguage'] = hashlib.sha256(Path(prompt_language.__file__).read_bytes()).hexdigest()
         hashes['FeedbackPipeline'] = hashlib.sha256(Path(inspect.getfile(FeedbackPipeline)).read_bytes()).hexdigest()
         from . import base_agent, sentence_feedback_pipeline
         for name, module in [('BaseAgent', base_agent), ('SentenceFeedbackPipeline', sentence_feedback_pipeline)]:

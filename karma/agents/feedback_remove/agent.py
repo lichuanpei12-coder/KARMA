@@ -48,11 +48,18 @@ EXAMPLES = """# 示例
 输出：{"replace":[{"index":0,"reason":"两条位置关系指向同一组工作站，统一为 the workstations。all 表达检查范围，any 表达发送者范围，分别保留在第2条和第3、4条。","new_triples":[{"head":"the workstations","relation":"are located in","tail":"the lab","source_sentence_ids":["S1"]}]}],"remove":[{"index":1,"keep_index":0,"reason":"第1条的位置关系由替换后的第0条表达。"}],"handoff":[]}"""
 
 
+CHINESE_EXAMPLES = """# 示例
+合并同一检查动作，保留其条件和对象范围
+输入：{"source_sentences":[{"sentence_id":"S1","text":"停电时，值班员检查机房门口的备用照明，并记录检查结果。"}],"current_collection":{"triples":[{"index":0,"head":"停电时，值班员","relation":"检查","tail":"备用照明","source_sentence_ids":["S1"]},{"index":1,"head":"值班员","relation":"检查","tail":"机房门口的备用照明","source_sentence_ids":["S1"]},{"index":2,"head":"停电时，值班员","relation":"记录","tail":"检查结果","source_sentence_ids":["S1"]}]}}
+输出：{"replace":[{"index":0,"reason":"在同一条检查关系中保留停电条件和机房门口的对象范围。","new_triples":[{"head":"停电时，值班员","relation":"检查","tail":"机房门口的备用照明","source_sentence_ids":["S1"]}]}],"remove":[{"index":1,"keep_index":0,"reason":"第0、1条对应同一检查动作，第2条独立表达记录结果。"}],"handoff":[]}"""
+
+
 class FeedbackRemoveAgent(FeedbackAgent):
     stage = 'remove'
     task_prompt = TASK_PROMPT
     output_prompt = OUTPUT_RULES
     examples_prompt = EXAMPLES
+    chinese_examples_prompt = CHINESE_EXAMPLES
 
     def __init__(self, client, model_name):
         super().__init__(client, model_name, SYSTEM_PROMPT)

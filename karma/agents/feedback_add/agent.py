@@ -42,11 +42,18 @@ EXAMPLES = """# 示例
 输入：{"source_sentences":[{"sentence_id":"S1","text":"The module receives signals and generates alerts."}],"current_collection":{"triples":[{"index":0,"head":"The module","relation":"receives","tail":"signals","source_sentence_ids":["S1"]},{"index":1,"head":"The module","relation":"generates","tail":"alerts","source_sentence_ids":["S1"]}]},"comparison_bundle":{"basis_version":"V0","reconstructions":[{"sentence_id":"S1","text_b":"The module receives signals or generates alerts."}]}}
 输出：{"add":[],"handoff":[{"target":"text_generation","source_sentence_ids":["S1"],"indices":[0,1],"problem":"重建文本写成 receives signals or generates alerts，但当前两条正确表达了源句的两个动作。"}]}"""
 
+CHINESE_EXAMPLES = """# 示例
+源句还有一项带条件的动作未表达
+输入：{"source_sentences":[{"sentence_id":"S1","text":"库管员每天核对出库单，发现数量不符时会通知配送员。"}],"current_collection":{"triples":[{"index":0,"head":"库管员","relation":"每天核对","tail":"出库单","source_sentence_ids":["S1"]}]}}
+输出：{"add":[{"head":"发现数量不符时，库管员","relation":"会通知","tail":"配送员","source_sentence_ids":["S1"],"reason":"当前集合只表达核对出库单，缺少发现数量不符时通知配送员的关系。"}],"handoff":[]}"""
+
+
 class FeedbackAddAgent(FeedbackAgent):
     stage = 'add'
     task_prompt = TASK_PROMPT
     output_prompt = OUTPUT_RULES
     examples_prompt = EXAMPLES
+    chinese_examples_prompt = CHINESE_EXAMPLES
 
     def __init__(self, client, model_name):
         super().__init__(client, model_name, SYSTEM_PROMPT)

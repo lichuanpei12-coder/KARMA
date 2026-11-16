@@ -9,10 +9,14 @@ import json
 import logging
 from typing import List, Tuple, Dict, Any, Optional
 
+from karma.agents.prompt_language import uses_chinese_prompt
 from karma.core.base_agent import BaseAgent
 from karma.core.data_structures import KGEntity, KnowledgeTriple
 
 logger = logging.getLogger(__name__)
+
+ENGLISH_EXPRESSION_RULE = "   每条关系先形成对应表达，实义词保留输入词形，必要时补充系词、助动词或介词。"
+CHINESE_EXPRESSION_RULE = "   各组沿用三元组的语言。中文组保留输入用词，可补必要的语法成分。将「未」「可」「用于」「或」等限定保留在原来所约束的动作或对象上。"
 
 
 class TextGenerationAgent(BaseAgent):
@@ -153,13 +157,21 @@ class TextGenerationAgent(BaseAgent):
         by_id = {}
         error = None
         if any(g['triples'] for g in payload):
-            prompt = """依据按源句编号分组的三元组，逐组生成对应的重建文本。
+            language_text = '\n'.join(g.get('text', '') for g in groups if g['triples']).strip()
+            if not language_text:
+                language_text = ' '.join(
+                    triple.get(field, '') for group in payload for triple in group['triples']
+                    for field in ('head', 'relation', 'tail')
+                )
+            expression_rule = (CHINESE_EXPRESSION_RULE if uses_chinese_prompt(language_text)
+                               else ENGLISH_EXPRESSION_RULE)
+            prompt = f"""依据按源句编号分组的三元组，逐组生成对应的重建文本。
 编号仅用于定位，不包含原文信息；本任务的事实依据是输入三元组。
 # 执行步骤
 1. 读取一组全部三元组
    事实依据为该组的 head、relation、tail；空组的 text 返回空字符串。
 2. 分别表达每条三元组
-   每条关系先形成对应表达，实义词保留输入词形，必要时补充系词、助动词或介词。
+{expression_rule}
 3. 检查各条表达的角色和限定
    对照原三元组保留主体、对象、方向，以及否定、情态、条件、目的、因果、数量、时间和范围。
    指代未知时保留原代词；字段含义不完整时保留现有表达。

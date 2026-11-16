@@ -26,11 +26,23 @@ def export_feedback(root, manifest):
                 return (file, n.lineno, n.end_lineno)
         raise ValueError((file, symbol))
 
-    def section(title, value, loc, doc):
-        f, a, b = loc
-        relative = Path(os.path.relpath(root/f, (root/doc).parent)).as_posix()
-        manifest['parts'].append(dict(document=doc, label=title, source_spans=[loc]))
-        return f'\n## {title}\n\n【来源：{title}｜[{f} 第{a}—{b}行](<{relative}#L{a}>)】\n\n```text\n{value.strip()}\n```\n'
+    def section(title, value, locations, doc):
+        links = []
+        for file, start, end in locations:
+            relative = Path(os.path.relpath(root/file, (root/doc).parent)).as_posix()
+            links.append(f'[{file} 第{start}—{end}行](<{relative}#L{start}>)')
+        manifest['parts'].append(dict(document=doc, label=title, source_spans=locations))
+        source = ' · '.join(links)
+        return f'\n### {title}\n\n【来源：{title}｜{source}】\n\n```text\n{value.strip()}\n```\n'
+
+    def capture(agent, context):
+        with patch.object(agent, '_make_llm_call', return_value=('{}',0,0,0)) as call:
+            agent.process(copy.deepcopy(context))
+        assert call.call_count == 1
+        messages = agent.last_call['messages']
+        assert messages[0]['content'] == call.call_args.kwargs['system_prompt']
+        assert messages[1]['content'] == call.call_args.args[0]
+        return messages
 
     for cls in (FeedbackAddAgent, FeedbackReplaceAgent, FeedbackRemoveAgent):
         agent = cls(None, 'offline')
@@ -38,38 +50,72 @@ def export_feedback(root, manifest):
         file = f'karma/agents/{name}/agent.py'
         filename = cls.__name__.replace('Feedback','') + '_完整Prompt.md'
         doc = f'karma/agents/{name}/{filename}'
-        context = {'stage': agent.stage, 'source_sentences':[{'sentence_id':'S1','text':'The module processes data.'}],
-                   'current_collection':{'version':'V0','triples':[]},
-                   'handoff':[{'indices':[],'source_sentence_ids':['S1'],'problem':'检查源句中的关系'}]}
-        if agent.stage == 'remove':
-            triples = [KnowledgeTriple('The module', 'processes', 'data', source_sentence_ids=['S1']) for _ in range(2)]
-            context['current_collection']['triples'] = [dict(index=i, **t.to_dict()) for i,t in enumerate(triples)]
-            context['lexical_overlap'] = rank_triple_overlap(triples, 'V0')
-        with patch.object(agent, '_make_llm_call', return_value=('{}',0,0,0)) as call:
-            agent.process(copy.deepcopy(context))
-        assert call.call_count == 1
-        captured = agent.last_call['messages']
-        assert captured[0]['content'] == call.call_args.kwargs['system_prompt']
-        assert captured[1]['content'] == call.call_args.args[0]
-        marker = '{json.dumps(context, ensure_ascii=False, indent=2)}'
-        data = json.dumps(context, ensure_ascii=False, indent=2)
-        template = captured[1]['content'].replace('<feedback_input_json>\n'+data+'\n</feedback_input_json>',
-                                                   '<feedback_input_json>\n'+marker+'\n</feedback_input_json>')
-        assert template != captured[1]['content']
-        assert template.replace(marker,data) == captured[1]['content']
-        # A second business payload confirms that fixed text is not accidentally redacted.
-        alternate = {'stage':agent.stage,'different_data':'sentinel-two','handoff':context['handoff']}
-        assert template.replace(marker,json.dumps(alternate,ensure_ascii=False,indent=2)) == agent.build_messages(alternate)[1]['content']
         title = {'add':'遗漏补充','replace':'已有表达修正与拆分','remove':'重复清理'}[agent.stage]
-        status = f'当前反馈阶段调用：{title}。默认每句独立执行 Add → Replace → Remove，再汇总整篇；feedback_scope=document 为整篇调用，固定提示相同。去重保留逐句归属，来源编号无效时明确报错，不自动切换为整篇调用。每句有尚未投递到 Add/Replace 的问题时最多再执行一轮相关阶段。投递成功不代表语义问题已解决。'
-        text = f'# {title} Agent 完整 Prompt\n\n2026-11-12。当前运行版本；固定提示全部展开，只有业务输入使用源码表达式表示。示例是固定 few-shot，不是历史运行日志。\n\n{status}\n'
-        text += section('System 消息', captured[0]['content'], location(file,'SYSTEM_PROMPT'),doc)
-        for part_title,value in agent.prompt_parts(context):
-            owner, symbol = {'表达要求':(shared,'COMMON_RULES'),'执行步骤':(file,'TASK_PROMPT'),
-                             '本阶段输出':(file,'OUTPUT_RULES'), '示例':(file,'EXAMPLES')}[part_title]
-            text += section('User 消息：'+part_title,value,location(owner,symbol),doc)
-        input_part = '# 本次输入\n<feedback_input_json>\n'+marker+'\n</feedback_input_json>'
-        text += section('User 消息：本次数据',input_part,location(shared,'build_messages'),doc)
+        status = f'当前反馈阶段调用：{title}。逐句模式下每句独立执行 Add、Replace、Remove。整篇模式下按该篇处理文本选择语言。系统提示和输出协议在两种语言间共用。'
+        text = f'# {title} Agent 完整 Prompt\n\n{status}\n'
+        language = location('karma/agents/prompt_language.py', 'uses_chinese_prompt')
+        text += (f'\n中文与英文各展示一套实际发送的 System 和 User。语言按当前源句决定。'
+                 f' [语言选择源码](../prompt_language.py#L{language[1]})\n')
+        templates = []
+        for language_name, source, alternate in (
+            ('英文', 'The tray holds the sample.', 'The lid covers the tray.'),
+            ('中文', '气压不足时，装置会暂停输送。', '压力恢复后，装置会重新启动。'),
+        ):
+            sample = {'sentence_id':'S1','text':source}
+            context = {'stage': agent.stage, 'source_sentences':[sample],
+                       'current_collection':{'version':'V0','triples':[]},
+                       'handoff':[{'indices':[],'source_sentence_ids':['S1'],'problem':'检查源句中的关系'}]}
+            if agent.stage == 'remove':
+                triples = [KnowledgeTriple('The tray', 'holds', 'the sample', source_sentence_ids=['S1'])
+                           if language_name == '英文' else
+                           KnowledgeTriple('气压不足时，装置', '会暂停', '输送', source_sentence_ids=['S1'])
+                           for _ in range(2)]
+                context['current_collection']['triples'] = [dict(index=i, **t.to_dict()) for i,t in enumerate(triples)]
+                context['lexical_overlap'] = rank_triple_overlap(triples, 'V0')
+            captured = capture(agent, context)
+            marker = '{json.dumps(context, ensure_ascii=False, indent=2)}'
+            data = json.dumps(context, ensure_ascii=False, indent=2)
+
+            def verify_input(payload):
+                actual = capture(agent, payload)
+                assert actual[0] == captured[0]
+                assert template.replace(marker, json.dumps(payload, ensure_ascii=False, indent=2)) == actual[1]['content']
+
+            template = captured[1]['content'].replace(
+                '<feedback_input_json>\n'+data+'\n</feedback_input_json>',
+                '<feedback_input_json>\n'+marker+'\n</feedback_input_json>',
+            )
+            assert template != captured[1]['content']
+            assert template.replace(marker, data) == captured[1]['content']
+            verify_input(dict(context, source_sentences=[sample, {'sentence_id':'S2', 'text':alternate}]))
+            verify_input(dict(context, source_sentences=[{'sentence_id':'S1', 'text':alternate}], handoff=[]))
+            if agent.stage == 'remove':
+                empty = dict(context, current_collection={'version':'V0','triples':[]},
+                             lexical_overlap=rank_triple_overlap([], 'V0'))
+                verify_input(empty)
+            zh = language_name == '中文'
+            task_locations = [location(file, 'TASK_PROMPT')]
+            if agent.stage == 'replace':
+                task_locations = [location(file, 'TASK_TEMPLATE'),
+                                  location(file, 'CHINESE_TASK_PROMPT' if zh else 'TASK_PROMPT')]
+            part_locations = {
+                '执行步骤': task_locations,
+                '表达要求': [location(shared,'CHINESE_EXPRESSION_RULES' if zh else 'ENGLISH_EXPRESSION_RULES'),
+                             location(shared,'COMMON_RULES')],
+                '本阶段输出': [location(file,'OUTPUT_RULES')],
+                '示例': [location(file,'CHINESE_EXAMPLES' if zh else 'EXAMPLES')],
+            }
+            text += f'\n## {language_name}输入\n'
+            text += section('System 消息', captured[0]['content'], [location(file,'SYSTEM_PROMPT')], doc)
+            for part_title, value in agent.prompt_parts(context):
+                text += section('User 消息 · '+part_title, value, part_locations[part_title], doc)
+            input_part = '# 本次输入\n<feedback_input_json>\n'+marker+'\n</feedback_input_json>'
+            text += section('User 消息 · 本次数据', input_part, [location(shared,'build_messages')], doc)
+            templates.append({
+                'section': f'{title} · {language_name}',
+                'condition': f'源句选用{language_name}提示。逐句和整篇、空和非空 handoff 共用固定提示。',
+                'messages': [captured[0], {'role':'user','content':template}],
+            })
         text += '\n## 输入字段及来源\n\n'
         text += '输入由 [karma/core/feedback_pipeline.py](../../core/feedback_pipeline.py) 的 process/run 构造。逐句调度见 [sentence_feedback_pipeline.py](../../core/sentence_feedback_pipeline.py)。范围由程序筛选输入，模型不接收 feedback_scope 字段或模式说明；逐句模式的 source_sentences 仅含当前原句，index 是本句当前编号；整篇模式输入整篇材料。current_collection 是前一步实际输出；sentence_index 是源句到当前 index 的对应表；unassigned_indices 列出未定位来源的旧条目；comparison_bundle 始终标明原始差异来自 V0；applied_change_log 是实际修改与失败记录的精简版，不含评分或完整历史操作协议；handoff 仅包含交给本阶段且尚未成功投递的问题，indices 已对应当前集合；内部 id、投递状态和历史编号留在程序审计记录中。收到的问题在阶段一核对，模型输出当前问题对应的操作及新的转交问题。candidate_entities 仅辅助定位。repair_pass 标记是否为有限返修。\n'
         text += '\nReplace Agent 的 new_triples 可包含多条；Remove Agent 的每项替换保留一条完整表达，与删除操作一起按输入编号整组执行，任一操作无效时整组保留原输入。Remove 当次处理重复和冗余，待核实的依据记录 review。\n'
@@ -81,28 +127,8 @@ def export_feedback(root, manifest):
             text += f'Remove 和宽松评估共用 [字词切分函数](../../../lexical_tokens.py#L{token_line})。每个汉字计一次，其余文本转小写后按空白和汉字边界切分。Remove 合并 head、relation、tail 后计数，宽松评估按对应字段计数。令两条计数单位总数为 A、B，重合数为 C，overlap_f1=2C/(A+B)，left_containment=C/A，right_containment=C/B，空分母计 0。包含排名使用两侧包含率的较大值。事实判断依据源句、字段角色和限定归属。\n'
         (root/doc).write_text(text,encoding='utf-8')
         out = (root/doc).parent/'Prompt完整模板.json'
-        messages=[captured[0],{'role':'user','content':template}]
-        document_context = dict(context, source_sentences=[*context['source_sentences'], {'sentence_id':'S2','text':'The sensor stores records.'}])
-        with patch.object(agent, '_make_llm_call', return_value=('{}',0,0,0)) as doc_call:
-            agent.process(document_context)
-        assert template.replace(marker,json.dumps(document_context,ensure_ascii=False,indent=2)) == doc_call.call_args.args[0]
-        empty_context = dict(context, handoff=[])
-        with patch.object(agent, '_make_llm_call', return_value=('{}',0,0,0)) as empty_call:
-            agent.process(empty_context)
-        empty_data = json.dumps(empty_context, ensure_ascii=False, indent=2)
-        empty_template = empty_call.call_args.args[0].replace('<feedback_input_json>\n'+empty_data+'\n</feedback_input_json>',
-                                  '<feedback_input_json>\n'+marker+'\n</feedback_input_json>')
-        assert empty_template == template  # Hints change only business data, not fixed instructions.
-        assert empty_template.replace(marker, empty_data) == empty_call.call_args.args[0]
-        if agent.stage == 'remove':
-            no_pairs = copy.deepcopy(context)
-            no_pairs['current_collection']['triples'] = []
-            no_pairs['lexical_overlap'] = rank_triple_overlap([], 'V0')
-            with patch.object(agent, '_make_llm_call', return_value=('{}',0,0,0)) as empty_pairs_call:
-                agent.process(no_pairs)
-            assert template.replace(marker, json.dumps(no_pairs, ensure_ascii=False, indent=2)) == empty_pairs_call.call_args.args[0]
-
-        out.write_text(json.dumps({'historical_run':False,'examples':[{'section':title,'condition':'sentence/document 及空/非空 handoff 的固定提示相同','messages':messages}]},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+        out.write_text(json.dumps({'historical_run':False,'examples':templates},
+                                  ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
         manifest['documents'].append(doc)
         manifest['message_examples'].append(out.relative_to(root).as_posix())
         names[name]=filename
