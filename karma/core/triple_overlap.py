@@ -2,15 +2,17 @@
 from collections import Counter
 from fractions import Fraction
 
+from lexical_tokens import overlap_tokens
+
 
 def rank_triple_overlap(triples, version):
-    """Use evaluation's lower().split() and multiset counting over combined SPO.
+    """Count shared Han characters and other whitespace-delimited tokens over SPO.
 
     All n*(n-1)/2 pairs are returned once, in index order. Independent competition
     ranks share a rank for ties (1, 1, 3); neither scores nor ranks filter pairs.
     """
     words = [Counter(word for field in ('head', 'relation', 'tail')
-                     for word in getattr(t, field).lower().split()) for t in triples]
+                     for word in overlap_tokens(getattr(t, field))) for t in triples]
     rows, overall_scores, containment_scores = [], [], []
     for left, a in enumerate(words):
         for right in range(left + 1, len(words)):

@@ -1,5 +1,5 @@
 {
-  "git_head": "6946a863833addea07f4a3210bdd8d13a49fef68",
+  "git_head": "26739904f63882665eda3385f763d61b877f4597",
   "documents": [
     "karma/agents/Prompt总览.md",
     "karma/agents/ingestion/摄入Agent_完整Prompt.md",
@@ -1192,7 +1192,7 @@
     "karma/agents/entity_extraction/agent.py": "f13ff650b8a7c6ee0f1fbfddfb956065df40ddc3518b668fc481643dabcf5309",
     "karma/agents/evaluator/agent.py": "a53ac58714879b59425efaa36648faf2a7890539522cefe8690fcb70098d8916",
     "karma/agents/feedback_add/agent.py": "949f7812af4f54283960d013794834c585ed33a0a9516698e834392e7bcc2d4a",
-    "karma/agents/feedback_remove/agent.py": "30b1dc2f032ad5632cfe1066ffd9366dab09292f78fb93e60ac3c35aed4acefe",
+    "karma/agents/feedback_remove/agent.py": "9723df721150c70ddc939f7efbbd19e76f9ce511b6c32c30328b9dc022d87d8a",
     "karma/agents/feedback_replace/agent.py": "934543a3d35e8431d587d04c62951c2faec51c228141813fbc37eff758176b02",
     "karma/agents/ingestion/agent.py": "6d9824495b2fe29bbf3f2b889794d0df766a0c85028698fcf92b7da2a6c699e0",
     "karma/agents/reader/agent.py": "4f484a75f9a6ef1303a3f9184008ac507da4a94724271e184b881016dca81513",
@@ -1203,13 +1203,14 @@
     "karma/agents/text_generation/agent.py": "d8c51219dc5479ee0cab5aa08f3639bfcf295a16eef6c8dfd14ee270d534a79d",
     "karma/agents/triple_splitting/agent.py": "377f6778d1bf099e5bfb259d5ebca116fdbdf616e8d1f859f6effdd46258d319",
     "karma/core/sentence_groups.py": "468936167fc0ee1629fe0dd3794ae8f4cdddf74ee3fd86406a1756e12d4d130a",
-    "karma/core/pipeline.py": "08850de40f37f9916ace0b903118efebbf610d1d764af8eca9bd974ec90e7386",
+    "karma/core/pipeline.py": "33d0ae7200597131f225aacae6e261012d39a8507d6451a20c14f3502e21a2bd",
     "karma/agents/feedback_common.py": "6c2fa024ddbe9430397dfc0dcae0821d684e0501803340c6e822af0dc152aa72",
     "karma/core/sentence_feedback_pipeline.py": "a91190d4bc4a8ecd8559966a6f6396bddd9962caefcd79a1c4afe2f4778feb89",
     "karma/core/feedback_pipeline.py": "e0fc5db221de14c2d0c3336af82fb4eaa8cb8d141cb0cce958f4aa8ba1d4deaf",
     "karma/core/base_agent.py": "76131c07bb2dcadb11c6910fab92ab97bb20f45ed80b228554975cd8a29bffc6",
-    "karma/core/triple_overlap.py": "0b3df442b1fb3292d5fea8e3bed48a458cf1c8a5434fbfbd60426c3ec431a5c3",
-    "karma/agents/feedback_operations.py": "ab05cf230f8d27e6675ee03c1c5f0a86b87d213fad52de2c57c37041aee07d57"
+    "karma/core/triple_overlap.py": "57dac69aaffcd61d01957220f5611e647af5326bb9ca7fb30c94d626705a7fbc",
+    "karma/agents/feedback_operations.py": "ab05cf230f8d27e6675ee03c1c5f0a86b87d213fad52de2c57c37041aee07d57",
+    "lexical_tokens.py": "0605b50fff2498d610f21a10996ff18d2461c1717fb0e4d1be546e4b7113d95c"
   },
   "message_examples": [
     "karma/agents/ingestion/Prompt完整模板.json",

@@ -156,7 +156,7 @@ Examples:
     )
     parser.add_argument(
         '--input',
-        default='data/DocIOE/DocOIE_transportation_gold_input.json',
+        default='data/benchie-main/11.13 input/benchie_zh_karma_input.json',
         help='Input document path (PDF, text file, or JSON document collection)'
     )
     parser.add_argument('--api-key',

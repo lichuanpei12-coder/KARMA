@@ -69,6 +69,7 @@ karma = "karma.cli:main"
 
 [tool.setuptools]
 packages = ["karma"]
+py-modules = ["lexical_tokens"]
 
 [tool.setuptools.dynamic]
 version = {attr = "karma.__version__"}

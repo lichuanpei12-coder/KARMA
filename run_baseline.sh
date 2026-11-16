@@ -4,8 +4,8 @@ set -euo pipefail
 cd -- "$(dirname -- "${BASH_SOURCE[0]}")"
 
 # 平时只需修改这里：数据集路径、样本数量、过滤阈值。
-DATASETS=("data/DocIOE/DocOIE_transportation_gold_input.json")
-SAMPLE_LIMIT=5                 # 当前跑前 5 篇；改成 20 跑 20 篇；0 表示全部。
+DATASETS=("data/benchie-main/11.13 input/benchie_zh_karma_input.json")
+SAMPLE_LIMIT=5                 # 当前跑前 5 个样本；0 表示全部。
 INTEGRATION_THRESHOLD=0        # 与原来脚本的默认阈值一致。
 
 BASELINE_ROOT="outputs/baselines"

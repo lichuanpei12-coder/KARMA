@@ -76,8 +76,9 @@ def export_feedback(root, manifest):
         if agent.stage == 'remove':
             f, a, b = location('karma/core/triple_overlap.py', 'rank_triple_overlap')
             text += f'\n词重合排序来源：[{f} 第{a}—{b}行](../../core/triple_overlap.py#L{a})。\n'
+            _, token_line, _ = location('lexical_tokens.py', 'overlap_tokens')
             text += 'lexical_overlap 在每次 Remove 调用前由当前集合重算，basis_version 对应 current_collection.version。pairs 以编号顺序列出全部 n(n−1)/2 对，每对出现一次，含零重合项，无阈值和数量截断。每对分别提供 overall_rank、containment_rank，同分同排名；模型重点检查任一排名靠前的条目对，再覆盖其余条目。\n'
-            text += '计算采用与评估相同的 lower().split() 和 Counter 词频计数；本处合并 head、relation、tail，评估则按对应字段计数并与 Gold 配对。令两条词数为 A、B，共有词数为 C：overlap_f1=2C/(A+B)，left_containment=C/A，right_containment=C/B；空分母计0。包含排名使用两侧包含率的较大值。排名只表达词重合程度，事实判断依据源句、字段角色和限定归属。\n'
+            text += f'Remove 和宽松评估共用 [字词切分函数](../../../lexical_tokens.py#L{token_line})。每个汉字计一次，其余文本转小写后按空白和汉字边界切分。Remove 合并 head、relation、tail 后计数，宽松评估按对应字段计数。令两条计数单位总数为 A、B，重合数为 C，overlap_f1=2C/(A+B)，left_containment=C/A，right_containment=C/B，空分母计 0。包含排名使用两侧包含率的较大值。事实判断依据源句、字段角色和限定归属。\n'
         (root/doc).write_text(text,encoding='utf-8')
         out = (root/doc).parent/'Prompt完整模板.json'
         messages=[captured[0],{'role':'user','content':template}]

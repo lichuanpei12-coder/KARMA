@@ -699,6 +699,10 @@ class KARMAPipeline:
         from . import base_agent, sentence_feedback_pipeline
         for name, module in [('BaseAgent', base_agent), ('SentenceFeedbackPipeline', sentence_feedback_pipeline)]:
             hashes[name] = hashlib.sha256(Path(module.__file__).read_bytes()).hexdigest()
+        from lexical_tokens import overlap_tokens
+        from .triple_overlap import rank_triple_overlap
+        for name, function in [('LexicalTokens', overlap_tokens), ('TripleOverlap', rank_triple_overlap)]:
+            hashes[name] = hashlib.sha256(Path(inspect.getfile(function)).read_bytes()).hexdigest()
         return {"model": self.model_name, "api_mode": self.api_mode,
                 "feedback_scope": self.feedback_scope, "text_scope": self.text_scope,
                 "api_retry_policy": "original_chat_retry_unlimited_cap30",

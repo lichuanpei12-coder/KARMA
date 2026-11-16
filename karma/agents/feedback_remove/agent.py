@@ -8,10 +8,10 @@ SYSTEM_PROMPT = """你负责依据源句处理当前三元组中的重复和冗�
 TASK_PROMPT = """# 阶段一：确定问题
 1. 阅读源句和当前集合，了解每条关系表达的事实。
 2. lexical_overlap.pairs 列出当前集合的全部三元组对。重点检查 overall_rank 或 containment_rank 靠前的条目对，随后检查其余条目；每对条目形成一次完整判断。
-   overlap_f1 表示整体词重合程度，left_containment、right_containment 分别表示左、右条目的词被另一条包含的比例。overall_rank 按整体重合程度排名，containment_rank 按两侧较高的包含率排名，同分同排名。
-   数值由程序提供，用于安排检查顺序。结合原条目核对主体、关系方向、字段归属，以及 left_only_words、right_only_words 列出的不同词。
+   程序把每个汉字作为一个计数单位，其余文本转小写后按空白和汉字边界切分。overlap_f1 表示整体重合程度，left_containment、right_containment 分别表示左、右条目的计数单位被另一条包含的比例。overall_rank 按整体重合程度排名，containment_rank 按两侧较高的包含率排名，同分同排名。
+   数值用于安排检查顺序。结合原条目核对主体、关系方向、字段归属，并参考 left_only_words、right_only_words 列出的差异字词。
 3. 比较两条的主体、关系、客体及必要限定。遇到数量、条件、范围等限定时，回查源句，确定限定词修饰哪个对象或关系，再判断当前两条表达的是同一事实还是不同事实。
-4. 遇到词包含关系时，分别确定外层关系和字段内部关系，保留各项独立事实。
+4. 遇到字词包含关系时，分别确定外层关系和字段内部关系，保留各项独立事实。
 5. 结合文本差异和收到的 handoff 核实问题在当前集合中的位置。
 
 # 阶段二：确定保留表达并处理

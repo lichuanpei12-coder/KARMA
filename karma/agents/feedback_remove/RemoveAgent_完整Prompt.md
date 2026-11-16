@@ -22,10 +22,10 @@
 # 阶段一：确定问题
 1. 阅读源句和当前集合，了解每条关系表达的事实。
 2. lexical_overlap.pairs 列出当前集合的全部三元组对。重点检查 overall_rank 或 containment_rank 靠前的条目对，随后检查其余条目；每对条目形成一次完整判断。
-   overlap_f1 表示整体词重合程度，left_containment、right_containment 分别表示左、右条目的词被另一条包含的比例。overall_rank 按整体重合程度排名，containment_rank 按两侧较高的包含率排名，同分同排名。
-   数值由程序提供，用于安排检查顺序。结合原条目核对主体、关系方向、字段归属，以及 left_only_words、right_only_words 列出的不同词。
+   程序把每个汉字作为一个计数单位，其余文本转小写后按空白和汉字边界切分。overlap_f1 表示整体重合程度，left_containment、right_containment 分别表示左、右条目的计数单位被另一条包含的比例。overall_rank 按整体重合程度排名，containment_rank 按两侧较高的包含率排名，同分同排名。
+   数值用于安排检查顺序。结合原条目核对主体、关系方向、字段归属，并参考 left_only_words、right_only_words 列出的差异字词。
 3. 比较两条的主体、关系、客体及必要限定。遇到数量、条件、范围等限定时，回查源句，确定限定词修饰哪个对象或关系，再判断当前两条表达的是同一事实还是不同事实。
-4. 遇到词包含关系时，分别确定外层关系和字段内部关系，保留各项独立事实。
+4. 遇到字词包含关系时，分别确定外层关系和字段内部关系，保留各项独立事实。
 5. 结合文本差异和收到的 handoff 核实问题在当前集合中的位置。
 
 # 阶段二：确定保留表达并处理
@@ -110,6 +110,6 @@ target 使用 add、replace、remove、text_generation、text_comparison 或 rev
 
 Replace Agent 的 new_triples 可包含多条；Remove Agent 的每项替换保留一条完整表达，与删除操作一起按输入编号整组执行，任一操作无效时整组保留原输入。Remove 当次处理重复和冗余，待核实的依据记录 review。
 
-词重合排序来源：[karma/core/triple_overlap.py 第6—35行](../../core/triple_overlap.py#L6)。
+词重合排序来源：[karma/core/triple_overlap.py 第8—37行](../../core/triple_overlap.py#L8)。
 lexical_overlap 在每次 Remove 调用前由当前集合重算，basis_version 对应 current_collection.version。pairs 以编号顺序列出全部 n(n−1)/2 对，每对出现一次，含零重合项，无阈值和数量截断。每对分别提供 overall_rank、containment_rank，同分同排名；模型重点检查任一排名靠前的条目对，再覆盖其余条目。
-计算采用与评估相同的 lower().split() 和 Counter 词频计数；本处合并 head、relation、tail，评估则按对应字段计数并与 Gold 配对。令两条词数为 A、B，共有词数为 C：overlap_f1=2C/(A+B)，left_containment=C/A，right_containment=C/B；空分母计0。包含排名使用两侧包含率的较大值。排名只表达词重合程度，事实判断依据源句、字段角色和限定归属。
+Remove 和宽松评估共用 [字词切分函数](../../../lexical_tokens.py#L16)。每个汉字计一次，其余文本转小写后按空白和汉字边界切分。Remove 合并 head、relation、tail 后计数，宽松评估按对应字段计数。令两条计数单位总数为 A、B，重合数为 C，overlap_f1=2C/(A+B)，left_containment=C/A，right_containment=C/B，空分母计 0。包含排名使用两侧包含率的较大值。事实判断依据源句、字段角色和限定归属。

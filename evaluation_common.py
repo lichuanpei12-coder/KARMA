@@ -2,7 +2,8 @@
 
 Protocol lexical-one-to-one-v1:
 strict = whitespace-normalized, case-sensitive field equality;
-lenient = lowercased whitespace tokens, multiset overlap in corresponding fields.
+lenient = multiset overlap in corresponding fields, with Han character counting
+when present (lexical-one-to-one-han-v2) and whitespace tokens otherwise.
 Lenient candidates require positive overlap in ALL three fields. Assignment
 maximizes the sum of pair F1; final P/R aggregate pair P/R, NOT pair F1.
 """
@@ -19,9 +20,12 @@ from collections import Counter, defaultdict, deque
 from pathlib import Path
 from urllib.parse import quote
 
+from lexical_tokens import HAN_RE, overlap_tokens
+
 
 FIELDS = ("head", "relation", "tail")
 PROTOCOL = "lexical-one-to-one-v1"
+HAN_PROTOCOL = "lexical-one-to-one-han-v2"
 
 
 def normalize(text, mode):
@@ -41,10 +45,13 @@ def harmonic(p, r):
 
 def pair_details(gold, pred, mode):
     """Return score plus auditable token counts; missing sides are empty tokens."""
+    if mode not in ("strict", "lenient"):
+        raise ValueError("Unknown metric: " + mode)
+    tokenize = overlap_tokens if mode == "lenient" else str.split
     details = {}
     for field in FIELDS:
-        g = Counter(normalize(gold[field], mode).split()) if gold else Counter()
-        p = Counter(normalize(pred[field], mode).split()) if pred else Counter()
+        g = Counter(tokenize(gold[field])) if gold else Counter()
+        p = Counter(tokenize(pred[field])) if pred else Counter()
         common = g & p
         details[field] = {
             "gold_count": sum(g.values()), "pred_count": sum(p.values()),
@@ -158,7 +165,7 @@ def duplicate_groups(triples, mode):
     for index, triple in enumerate(triples):
         key = triple_key(triple, mode)
         if mode == "lenient":
-            key = tuple(tuple(sorted(Counter(text.split()).items())) for text in key)
+            key = tuple(tuple(sorted(Counter(overlap_tokens(text)).items())) for text in key)
         groups[key].append(index)
     return [indices for indices in groups.values() if len(indices) > 1]
 
@@ -287,6 +294,21 @@ def evaluate_samples(samples, modes, input_info):
         },
         "document_ids": [s["doc_id"] for s in samples], "metrics": {},
     }
+    if "lenient" in modes and any(
+        HAN_RE.search(triple[field])
+        for sample in samples
+        for triples in (sample["gold"], *sample["rounds"].values())
+        for triple in triples
+        for field in FIELDS
+    ):
+        report["protocol"] = HAN_PROTOCOL
+        report["rules"]["lenient"] = (
+            "Per-field multiset overlap on Han characters and lowercased non-Han whitespace tokens; "
+            "all three fields need positive overlap; no score threshold."
+        )
+        report["rules"]["language"] = (
+            "Each Han character is one token. Other text is split on whitespace and Han boundaries."
+        )
     rows = []
     for mode in modes:
         mode_results = {}
@@ -345,14 +367,15 @@ def load_gold(source):
     return gold
 
 
-def load_inputs(result_dir, gold_source, allow_legacy_prefix=False, comparison="baseline-final"):
+def load_inputs(result_dir, gold_source, allow_legacy_prefix=False, comparison="baseline-final",
+                *, gold_loader=load_gold):
     """Read manifest by ID or validated legacy 2i/2i+1 files, never silently skip."""
-    if comparison not in ("baseline-final", "baseline-split", "split-final"):
+    if comparison not in ("baseline-final", "baseline-split", "split-final", "all"):
         raise ValueError("Unknown checkpoint comparison: " + comparison)
     result_dir, gold_source = Path(result_dir).resolve(), Path(gold_source).resolve()
     if not result_dir.is_dir():
         raise ValueError(f"Result directory does not exist: {result_dir}")
-    gold_by_id = load_gold(gold_source)
+    gold_by_id = gold_loader(gold_source)
     if (result_dir / "details" / "_run_manifest.json").is_file():
         result_dir = result_dir / "details"
     manifest_path = result_dir / "_run_manifest.json"
@@ -392,7 +415,7 @@ def load_inputs(result_dir, gold_source, allow_legacy_prefix=False, comparison="
             if not isinstance(rounds, dict) or set(rounds) != set(round_keys):
                 raise ValueError(f"Missing/extra rounds for document {doc_id}")
             selected_rounds = {"R" + r: validate_triples(rounds[r], f"{doc_id}:R{r}") for r in round_keys}
-            if comparison != "baseline-final":
+            if comparison != "baseline-final" and not (comparison == "all" and "2" not in rounds):
                 stages = doc.get("stages", {})
                 if "2" not in rounds or not isinstance(stages, dict) or "after_split" not in stages:
                     raise ValueError(f"Split checkpoint missing for document {doc_id}")
@@ -400,8 +423,11 @@ def load_inputs(result_dir, gold_source, allow_legacy_prefix=False, comparison="
                 # Keep the existing evaluator/CSV schema; input metadata labels the slots.
                 if comparison == "baseline-split":
                     selected_rounds["R2"] = split
-                else:
+                elif comparison == "split-final":
                     selected_rounds["R1"] = split
+                else:
+                    selected_rounds = {"R1": selected_rounds["R1"], "after_split": split,
+                                       "R2": selected_rounds["R2"]}
             samples.append({
                 "doc_id": doc_id, "gold_key": key, "gold": gold_by_id[key],
                 "rounds": selected_rounds,
@@ -448,6 +474,10 @@ def load_inputs(result_dir, gold_source, allow_legacy_prefix=False, comparison="
         "R1": "after_split" if comparison == "split-final" else "baseline",
         "R2": "after_split" if comparison == "baseline-split" else "final",
     }
+    if comparison == "all":
+        info["round_stages"] = {"R1": "baseline"}
+        if manifest["stage"] != "baseline":
+            info["round_stages"].update(after_split="after_split", R2="final")
     info["unused_gold_ids"] = [key for key in gold_by_id if key not in selected_keys]
     info["warnings"] = warnings
     encoded = json.dumps(samples, ensure_ascii=False, sort_keys=True, allow_nan=False).encode("utf-8")
