@@ -1,267 +1,82 @@
-# KARMA: Leveraging Multi-Agent LLMs for Automated Knowledge Graph Enrichment 🤖
+# KARMA · 中文三元组抽取与评估
 
-> 当前拆分 Agent 的调用流程、输入输出和评估方式，请先看 [拆分Agent迁移说明](拆分Agent迁移说明.md)。两阶段基础说明见 [同事上手说明](同事上手说明.md)。以下保留原项目介绍。
+KARMA 从原文中抽取「主体、关系、客体」三元组。当前 `main` 的默认数据集是 BenchIE 中文版，共 **300 句、995 个事实簇、1,134 条人工标注记录**。实际运行分三步：先生成第一轮基线，再复用基线做第二轮反馈，最后用 Gold 对照评分。
 
-> 文件用途见 [仓库资料索引](仓库资料索引.md)，其中区分当前运行、示例结果与历史参考；候选数据和旧修改建议不代表当前默认配置。
+## 项目结构
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![ArXiv](https://img.shields.io/badge/arXiv-2502.06472-b31b1b.svg)](https://arxiv.org/abs/2502.06472)
+| 位置 | 用途 |
+| --- | --- |
+| `main.py`、`run_baseline.sh`、`run_revision.sh` | 命令行入口，以及基线与反馈的运行脚本。 |
+| `karma/core/` | 流程调度、基线与运行清单保存、源句分组、反馈操作应用。入口见 [pipeline.py](karma/core/pipeline.py)。 |
+| `karma/agents/` | 实体抽取与审校、关系抽取、拆分、重建、对比及 Add／Replace／Remove 等 Agent。查看 [Prompt 总览](karma/agents/Prompt总览.md) 和 [中文 Prompt 左右对照](outputs/prompt_comparison_benchie_zh/BenchIE中文Prompt修改前后对照.html)。 |
+| `data/benchie-main/11.13 input/` | `benchie_zh_karma_input.json` 提供源句，`benchie_zh_gold_clusters.json` 提供评估答案。两个文件用 `doc_id` 对齐，例如 `benchie-zh-001`。同目录的 TXT 和介绍文档用于查阅。见 [数据说明](<data/benchie-main/11.13 input/README.md>)。 |
+| `evaluate_benchie.py`、`evaluation_common.py` | 读取运行清单和 Gold，计算中文精确分和宽松分。 |
+| `outputs/`、`tests/` | 前者存放运行结果及已有分析材料，后者包含离线测试。 |
 
-KARMA is a cutting-edge natural language processing framework that leverages a coordinated multi-agent system to automatically extract, validate, and integrate scientific knowledge into structured knowledge graphs. By employing specialized Large Language Model (LLM) agents, KARMA ensures high-quality knowledge extraction while maintaining semantic consistency and domain expertise.
+## 快速运行
 
-![KARMA Pipeline Overview](https://github.com/user-attachments/assets/477485dc-8d56-4b05-95a4-77547e5ceb39)
-
-## 🌟 Key Features
-
-### Multi-Agent Architecture
-- **9 Specialized Agents**: Each agent handles a distinct stage of knowledge extraction
-- **Coordinated Processing**: Agents work together in a carefully orchestrated pipeline
-- **Quality Assurance**: Multi-stage validation with confidence, clarity, and relevance scoring
-
-### Domain Expertise
-- **Biomedical Focus**: Optimized for scientific literature processing
-- **Entity Recognition**: Identifies diseases, drugs, genes, proteins, and other biomedical entities
-- **Relationship Extraction**: Captures complex relationships like "treats", "causes", "inhibits"
-- **Ontology Alignment**: Links entities to standard biomedical ontologies (UMLS, MeSH, NCBI)
-
-### Production Ready
-- **Scalable Design**: Handles both single documents and large-scale batch processing
-- **Flexible Configuration**: Comprehensive configuration management system
-- **Professional CLI**: Command-line interface for easy integration
-- **Robust Error Handling**: Graceful handling of processing failures
-
-## 📋 Table of Contents
-
-- [Installation](#installation)
-- [Quick Start](#quick-start)
-- [Architecture](#architecture)
-- [Usage Examples](#usage-examples)
-- [API Reference](#api-reference)
-- [Configuration](#configuration)
-- [Contributing](#contributing)
-- [Citation](#citation)
-- [License](#license)
-
-## 🚀 Installation
-
-### Using pip (Recommended)
+从本仓库的 [main 分支](https://github.com/lichuanpei12-coder/KARMA/tree/main) 下载代码。Windows 上在项目根目录打开 Git Bash。使用已有 Python 环境安装依赖，并设置当前终端的模型 API Key。
 
 ```bash
-pip install karma-nlp
+python -m pip install -r requirements.txt
+export KARMA_API_KEY="替换为你的模型 API Key"
+bash run_baseline.sh
+bash run_revision.sh
 ```
 
-### From Source
+当前 `main.py` 的 `API_MODE=0` 使用 Chat Completions。默认服务地址和模型在 [main.py](main.py) 中定义。使用其他兼容服务时，设置与密钥匹配的 `KARMA_BASE_URL` 和 `KARMA_MODEL`。评估读取本地文件，可以单独运行。
+
+用反馈脚本打印的「本次优化结果保存到」目录替换下方示例路径：
 
 ```bash
-git clone https://github.com/YuxingLu613/KARMA.git
-cd KARMA
-pip install -e .
+python evaluate_benchie.py "outputs/revisions/实际运行编号/1_benchie_zh_karma_input"
 ```
 
-### Development Installation
+- 基线脚本默认跑数据集的前 **5 句**。要跑全部 300 句，把 [run_baseline.sh](run_baseline.sh) 里的 `SAMPLE_LIMIT` 改为 `0`。脚本把成功生成的 `baseline.json` 路径写入 `outputs/current_baselines.txt`，反馈脚本从这里读取。
+- 对比第二轮 Prompt 时，保留同一份 `baseline.json`，每次单独运行反馈并使用新的输出目录。对照得分时使用相同的样本、模型配置和 Gold 版本。
+- 要选择特定样本，用 `python main.py --stage baseline --doc-ids benchie-zh-001 benchie-zh-005 --output-dir outputs/demo_baseline`。随后用 `python main.py --stage revise --baseline outputs/demo_baseline/baseline.json --output-dir outputs/demo_revision` 复用它。两个输出目录应为空或尚未创建。
 
-```bash
-git clone https://github.com/YuxingLu613/KARMA.git
-cd KARMA
-pip install -e ".[dev]"
-```
-
-## ⚡ Quick Start
-
-### Command Line Interface
-
-```bash
-# Process a PDF document
-karma process document.pdf --api-key YOUR_OPENAI_KEY --output results.json
-
-# Process with custom settings
-karma process document.pdf --api-key YOUR_KEY --model gpt-4 \
-  --relevance-threshold 0.3 --integration-threshold 0.7
-
-# Create and use configuration file
-karma config create --api-key YOUR_KEY --config-file karma_config.json
-karma process document.pdf --config karma_config.json
-```
-
-### Python API
-
-```python
-from karma import KARMAPipeline, create_default_config
-
-# Quick setup
-config = create_default_config(api_key="your-openai-api-key")
-pipeline = KARMAPipeline.from_config(config)
-
-# Process document
-result = pipeline.process_document("research_paper.pdf")
-
-print(f"Entities found: {len(result.entities)}")
-print(f"Relationships found: {len(result.relationships)}")
-print(f"Processing time: {result.metrics.total_processing_time:.2f}s")
-```
-
-## 🏗️ Architecture
-
-KARMA employs a sophisticated 9-agent architecture:
+## 完整流程
 
 ```mermaid
-graph TD
-    A[PDF Input] --> B[Ingestion Agent]
-    B --> C[Reader Agent]
-    C --> D[Entity Extraction Agent]
-    D --> E[Schema Alignment Agent]
-    E --> F[Relationship Extraction Agent]
-    F --> G[Conflict Resolution Agent]
-    G --> H[Summarizer Agent]
-    H --> I[Evaluator Agent]
-    I --> J[Knowledge Graph Output]
+flowchart TD
+    A[BenchIE 中文源句] --> B[预处理与实体、关系抽取]
+    B --> C[冲突处理与集成筛选]
+    C --> D[第一轮基线 baseline]
+    D --> E[三元组拆分 after_split]
+    E --> F[按源句重建文本并与原文对比]
+    F --> G[实体审校与 Add、Replace、Remove 反馈]
+    G --> H[冲突处理与集成筛选]
+    H --> I[最终结果 final]
+    D --> J[BenchIE 评分]
+    E --> J
+    I --> J
+    K[人工标注 Gold] --> J
 ```
 
-### Agent Descriptions
+1. **生成基线**。预处理得到实际抽取文本，实体 Agent 提供候选对象，关系 Agent 按源句抽取三元组。第一轮经过冲突处理和集成筛选后写入 `baseline.json`，同时保存候选实体、源句和运行配置。默认直接使用预处理后的原文做抽取。
+2. **复用基线做反馈**。先把原有三元组中的并列或嵌套关系拆开，再用拆分结果按源句重建文本并与原文比较。差异辅助实体审校和关系反馈。Add 补漏，Replace 修正已有表达，Remove 清理重复。程序检验并应用操作，然后进行冲突处理和集成筛选，得到 `final`。
+3. **用 Gold 评分**。Gold 只在这个环节读取。每个事实簇表示一项参考事实，簇内可以有多种三元组写法。评估按 `doc_id` 匹配本次样本，报告 `baseline`、`after_split`、`final` 三个检查点的 Precision、Recall 和 F1。用基线目录单独跑评估时只报告 `baseline`。
 
-1. **Ingestion Agent**: Parses PDF documents and extracts structured text content
-2. **Reader Agent**: Evaluates text relevance and scientific merit
-3. **Entity Extraction Agent**: Identifies biomedical entities and concepts
-4. **Schema Alignment Agent**: Maps entities to standard ontologies
-5. **Relationship Extraction Agent**: Discovers semantic relationships between entities
-6. **Conflict Resolution Agent**: Resolves contradictions and duplicates
-7. **Summarizer Agent**: Creates concise summaries of extracted knowledge
-8. **Evaluator Agent**: Validates extraction quality and confidence
-9. **Knowledge Integrator**: Combines all outputs into final knowledge graph
+评分有两个口径。`benchie_exact` 按主体、关系、客体精确命中，重复命中同一事实簇的次数单列。`han_overlap_lenient` 允许部分重合，三个对应字段都要有重合，再在预测和事实簇之间做一对一匹配。先看两套分数在三个检查点的变化，再回到逐句记录判断具体的补漏、误删或字段边界变化。
 
-## 💡 Usage Examples
+## 跑完优先看什么
 
-### Basic Document Processing
+下表中的 `details/` 和 `benchie_evaluation/` 是本次基线或反馈的输出目录下的子目录。文件名里的 `N` 对应运行清单的 `source_index`，从 0 开始。定位样本时先按 `doc_id` 找到 `source_index`。
 
-```bash
-karma process scientific_paper.pdf --api-key $OPENAI_API_KEY
-```
+| 想确认什么 | 看哪个文件 | 重点看哪里 |
+| --- | --- | --- |
+| 跑完了吗，跑了哪些样本 | `details/_run_manifest.json` | `complete`、`documents[].doc_id`、`source_index`。反馈运行中的 `baseline_sha256` 可用来核对是否复用了同一份基线。 |
+| 哪一阶段提升，哪里还有漏抽 | `benchie_evaluation/eval_benchie.json` | 先看 `stages` 下三阶段的 P／R／F1，再按 `samples[].doc_id` 查看预测命中、未命中和未覆盖的事实簇。 |
+| 某个三元组在哪一步变了 | `details/_dump_docN_revision_result.json` | 顺着 `baseline` → `after_split` → `after_add` → `after_replace` → `after_revision` → `after_conflict_resolution` → `final` 查。`after_revision` 已应用反馈操作，`final` 是再经过冲突处理和集成筛选的结果。 |
+| 拆分或反馈为何改了、为何没改 | `details/_dump_docN_splitting.json`、`details/_dump_docN_feedback_*.json` | 对照输入、模型提议、程序接受和拒绝的操作、实际输出。发现某条修改只出现在提议中时，继续看该阶段的应用状态。 |
+| 差异报告是否真的来自三元组问题 | `details/_dump_docN_feedback.json` | 对照源文 `text_a`、重建文 `text_b` 和 `diff`。默认逐句模式还会写出对应的 `_generation_*.json`、`_comparison_*.json`，便于定位单句。 |
+| 实体边界或第一轮抽取哪里有问题 | `details/_dump_docN_r0_entity_audit.json`、`details/_dump_docN_r0_relationship_audit.json`、`details/_dump_docN_r1_entity_audit.json` | 前两个来自基线运行，第三个来自反馈运行。用于核对候选实体、源句归属和错误是否已在第一轮出现。 |
 
-### Batch Processing
+`baseline.json` 适合复用第一轮结果，`knowledge_graph_*.json` 适合查看本次累积的图谱。批量运行时，输出目录根部的 `all_relationships_*.csv` 和 `intermediate_results_*.json` 对应最后一篇；逐样本核对以清单和 `details/` 为准。
 
-```python
-from karma import KARMAPipeline
+## 验证与来源
 
-pipeline = KARMAPipeline(api_key="your-key", model_name="gpt-4o")
+在项目根目录运行 `python -m unittest discover -s tests` 可以做离线检查。模型实际抽取用上面的运行命令。
 
-for pdf_file in pdf_files:
-    result = pipeline.process_document(pdf_file)
-    print(f"Processed {pdf_file}: {len(result.entities)} entities")
-```
-
-### Custom Configuration
-
-```python
-from karma import KARMAConfig, ModelConfig, ProcessingConfig
-
-config = KARMAConfig(
-    model=ModelConfig(
-        provider="openai",
-        model_name="gpt-4o",
-        api_key="your-key",
-        temperature=0.1
-    ),
-    processing=ProcessingConfig(
-        relevance_threshold=0.3,
-        confidence_threshold=0.7,
-        max_retries=3
-    )
-)
-```
-
-## 📚 API Reference
-
-### Core Classes
-
-#### `KARMAPipeline`
-Main pipeline orchestrator for document processing.
-
-**Methods:**
-- `process_document(pdf_path: str) -> PipelineResult`
-- `process_text(text: str) -> PipelineResult`
-- `batch_process(file_paths: List[str]) -> List[PipelineResult]`
-
-#### `BaseAgent`
-Base class for all specialized agents.
-
-**Key Features:**
-- Async/sync processing support
-- Automatic retry logic
-- Token usage tracking
-- Performance metrics
-
-### Result Structure
-
-```json
-{
-  "document_info": {
-    "title": "Research Paper Title",
-    "authors": ["Author 1", "Author 2"],
-    "publication_date": "2024-01-01"
-  },
-  "entities": [...],
-  "relationships": [...],
-  "summary": "...",
-  "metrics": {
-    "prompt_tokens": 15420,
-    "completion_tokens": 3240,
-    "total_processing_time": 45.67,
-    "confidence_score": 0.89
-  }
-}
-```
-
-## ⚙️ Configuration
-
-### Configuration File Format
-
-```json
-{
-  "model": {
-    "provider": "openai",
-    "model_name": "gpt-4o",
-    "api_key": "your-api-key",
-    "temperature": 0.1,
-    "max_tokens": 4096
-  },
-  "processing": {
-    "relevance_threshold": 0.3,
-    "confidence_threshold": 0.7,
-    "max_retries": 3,
-    "batch_size": 10
-  }
-}
-```
-
-### Environment Variables
-
-```bash
-export KARMA_API_KEY="your-api-key"
-```
-
-## 🤝 Contributing
-
-We welcome contributions! Please see our contributing guidelines for:
-
-- Code style and standards
-- Testing requirements
-- Pull request process
-- Issue reporting
-
-## 📖 Citation
-
-If you use KARMA in your research, please cite:
-
-```bibtex
-@article{karma2025,
-  title={KARMA: Leveraging Multi-Agent LLMs for Automated Knowledge Graph Enrichment},
-  author={Authors TBD},
-  journal={arXiv preprint arXiv:2502.06472},
-  year={2025}
-}
-```
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+代码许可见 [LICENSE](LICENSE)。研究引用及中文标注的来源和整理记录见 [KARMA 论文](https://arxiv.org/abs/2502.06472) 和 [BenchIE 数据说明](<data/benchie-main/11.13 input/README.md>)。
