@@ -31,18 +31,19 @@ class BenchieEvaluationTests(unittest.TestCase):
 
     def test_real_gold_and_cli_score_each_stage_by_sample_id(self):
         gold = load_clusters(DEFAULT_GOLD)
+        self.assertEqual(len(gold), 300)
         self.assertEqual(sum(map(len, gold.values())), 995)
         self.assertEqual(gold["benchie-zh-249"], [])
         self.assertEqual([cluster["cluster_id"] for cluster in gold["benchie-zh-206"]], [1, 2, 3, 4])
         prime_minister = triple("他", "曾担任", "澳大利亚第一任总理")
-        alternative = triple("他", "担任", "澳 大 利 亚 第 一 任 总 理")
+        spaced_duplicate = triple("他", "曾担任", "澳 大 利 亚 第 一 任 总 理")
         judge = triple("他", "成为", "澳大利亚高等法院的创始法官")
-        wrong = triple("他", "拒绝担任", "澳大利亚第一任总理")
+        omitted_qualifier = triple("他", "担任", "澳大利亚第一任总理")
         manifest = {"format": "karma_run", "version": 1, "complete": True, "stage": "revise",
                     "documents": [{"doc_id": "benchie-zh-001", "source_index": 0,
-                                   "rounds": {"1": [prime_minister, alternative, wrong],
+                                   "rounds": {"1": [prime_minister, spaced_duplicate, omitted_qualifier],
                                               "2": [prime_minister, judge]},
-                                   "stages": {"after_split": [prime_minister, alternative]}}]}
+                                   "stages": {"after_split": [prime_minister, spaced_duplicate]}}]}
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             details = root / "details"
@@ -60,8 +61,9 @@ class BenchieEvaluationTests(unittest.TestCase):
         self.assertEqual(stages["final"]["han_overlap_lenient"]["f1"], 1.0)
 
     def test_shared_variant_only_covers_first_cluster(self):
-        clusters = load_clusters(DEFAULT_GOLD)["benchie-zh-005"]
-        scores = evaluate_exact([triple("该节目", "出现", "节目元素")], clusters)
+        shared_variant = triple("该节目", "出现", "节目元素")
+        clusters = [{"cluster_id": cluster_id, "variants": [shared_variant]} for cluster_id in (2, 3, 4)]
+        scores = evaluate_exact([shared_variant], clusters)
         match = scores["predictions"][0]
         self.assertEqual(match["candidate_cluster_ids"], [2, 3, 4])
         self.assertEqual(match["cluster_id"], 2)
