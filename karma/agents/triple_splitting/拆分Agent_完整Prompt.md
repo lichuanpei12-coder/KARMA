@@ -1,12 +1,12 @@
 # 拆分Agent_完整Prompt
 
-导出时 Git HEAD：`e1fe5162e90d48943bea027e996502d0c0c95706`。行号和文件哈希对应导出时的工作区源码。
+导出时 Git HEAD：`be2883080d2c05af3bf85784253c09c90d045b0e`。行号和文件哈希对应导出时的工作区源码。
 
 ## 当前运行是否使用这套Prompt
 
 拆分阶段通过process调用专用System和User；只生成add/replace；程序兼容旧响应中的空remove。回放或跳过阶段时是否执行，以实际入口为准。
 
-【来源：调用入口与System/User发送｜[karma/agents/triple_splitting/agent.py 第149—272行](<agent.py#L149>)；[karma/core/base_agent.py 第100—209、211—252行](<../../core/base_agent.py#L100>)】
+【来源：调用入口与System/User发送｜[karma/agents/triple_splitting/agent.py 第161—284行](<agent.py#L161>)；[karma/core/base_agent.py 第100—209、211—252行](<../../core/base_agent.py#L100>)】
 
 Chat Completions 与 Responses 使用同一套 System/User 内容。Chat Completions 的原有重试改为无限次数、等待最多30秒；Responses 保持原处理。
 
@@ -22,7 +22,7 @@ Chat Completions 与 Responses 使用同一套 System/User 内容。Chat Complet
 
 **System 消息**
 
-【来源：任务说明｜[karma/agents/triple_splitting/agent.py 第243—246行](<agent.py#L243>)】
+【来源：任务说明｜[karma/agents/triple_splitting/agent.py 第255—258行](<agent.py#L255>)】
 
 ```text
 你是知识三元组拆分助手，仅依据源文本拆分当前
@@ -33,7 +33,7 @@ Chat Completions 与 Responses 使用同一套 System/User 内容。Chat Complet
 
 **User 消息**
 
-【来源：任务｜[karma/agents/triple_splitting/agent.py 第166—168行](<agent.py#L166>)】
+【来源：任务｜[karma/agents/triple_splitting/agent.py 第178—180行](<agent.py#L178>)】
 
 ```text
 # 任务
@@ -41,7 +41,7 @@ Chat Completions 与 Responses 使用同一套 System/User 内容。Chat Complet
 本阶段的调整围绕这些关系的拆分展开，其余三元组由程序原样保留。
 ```
 
-【来源：执行步骤｜[karma/agents/triple_splitting/agent.py 第15—18、170—208行](<agent.py#L15>)】
+【来源：执行步骤｜[karma/agents/triple_splitting/agent.py 第19—22、182—220行](<agent.py#L19>)】
 
 ```text
 # 执行步骤
@@ -86,7 +86,7 @@ Chat Completions 与 Responses 使用同一套 System/User 内容。Chat Complet
     取消重复候选，合并针对同一 index 的替换操作，输出 add、replace 两个数组。
 ```
 
-【来源：常见关系结构短例｜[karma/agents/triple_splitting/agent.py 第19—47行](<agent.py#L19>)】
+【来源：常见关系结构短例｜[karma/agents/triple_splitting/agent.py 第14—16、24—49行](<agent.py#L14>)】
 
 ```text
 # 常见关系结构短例
@@ -120,7 +120,7 @@ Chat Completions 与 Responses 使用同一套 System/User 内容。Chat Complet
   若继续抽取内部关系，也需表达同一风险范围；单独断言物品实际飞出会改变源句含义。
 ```
 
-【来源：操作｜[karma/agents/triple_splitting/agent.py 第212—218行](<agent.py#L212>)】
+【来源：操作｜[karma/agents/triple_splitting/agent.py 第224—230行](<agent.py#L224>)】
 
 ```text
 # 操作
@@ -132,7 +132,7 @@ add/replace 均填写被拆分的原三元组 index，使用输入中从0开始�
 根据上述定义生成 add、replace 操作。
 ```
 
-【来源：事实｜[karma/agents/triple_splitting/agent.py 第48—53、220—224行](<agent.py#L48>)】
+【来源：事实｜[karma/agents/triple_splitting/agent.py 第50—55、232—236行](<agent.py#L50>)】
 
 ```text
 # 事实
@@ -148,7 +148,7 @@ add/replace 均填写被拆分的原三元组 index，使用输入中从0开始�
   指代按源文明确的对应关系还原；输出前逐项核对各字段实义词的原文依据和词形。
 ```
 
-【来源：源文本｜[karma/agents/triple_splitting/agent.py 第227—230行](<agent.py#L227>)】
+【来源：源文本｜[karma/agents/triple_splitting/agent.py 第239—242行](<agent.py#L239>)】
 
 ```text
 # 源文本
@@ -157,7 +157,7 @@ add/replace 均填写被拆分的原三元组 index，使用输入中从0开始�
 </source_text>
 ```
 
-【来源：当前三元组｜[karma/agents/triple_splitting/agent.py 第232—235行](<agent.py#L232>)】
+【来源：当前三元组｜[karma/agents/triple_splitting/agent.py 第244—247行](<agent.py#L244>)】
 
 ```text
 # 当前三元组
@@ -166,7 +166,7 @@ add/replace 均填写被拆分的原三元组 index，使用输入中从0开始�
 </current_triples_json>
 ```
 
-【来源：复杂复合示例与输出格式｜[karma/agents/triple_splitting/agent.py 第54—80、84—90、95—96、238—240行](<agent.py#L54>)】
+【来源：复杂复合示例与输出格式｜[karma/agents/triple_splitting/agent.py 第56—82、86—92、97—98、250—252行](<agent.py#L56>)】
 
 ```text
 # 复杂复合示例与输出格式
@@ -231,7 +231,7 @@ add/replace 均填写被拆分的原三元组 index，使用输入中从0开始�
 
 **System 消息**
 
-【来源：任务说明｜[karma/agents/triple_splitting/agent.py 第243—246行](<agent.py#L243>)】
+【来源：任务说明｜[karma/agents/triple_splitting/agent.py 第255—258行](<agent.py#L255>)】
 
 ```text
 你是知识三元组拆分助手，仅依据源文本拆分当前
@@ -242,7 +242,7 @@ add/replace 均填写被拆分的原三元组 index，使用输入中从0开始�
 
 **User 消息**
 
-【来源：任务｜[karma/agents/triple_splitting/agent.py 第166—168行](<agent.py#L166>)】
+【来源：任务｜[karma/agents/triple_splitting/agent.py 第178—180行](<agent.py#L178>)】
 
 ```text
 # 任务
@@ -250,7 +250,7 @@ add/replace 均填写被拆分的原三元组 index，使用输入中从0开始�
 本阶段的调整围绕这些关系的拆分展开，其余三元组由程序原样保留。
 ```
 
-【来源：执行步骤｜[karma/agents/triple_splitting/agent.py 第104—107、170—208行](<agent.py#L104>)】
+【来源：执行步骤｜[karma/agents/triple_splitting/agent.py 第106—109、182—220行](<agent.py#L106>)】
 
 ```text
 # 执行步骤
@@ -295,16 +295,24 @@ add/replace 均填写被拆分的原三元组 index，使用输入中从0开始�
     取消重复候选，合并针对同一 index 的替换操作，输出 add、replace 两个数组。
 ```
 
-【来源：常见关系结构短例｜[karma/agents/triple_splitting/agent.py 第108—111行](<agent.py#L108>)】
+【来源：常见关系结构短例｜[karma/agents/triple_splitting/agent.py 第14—16、111—119行](<agent.py#L14>)】
 
 ```text
 # 常见关系结构短例
+以下展示常见结构；实际句子可以组合多种结构，也可以包含其他有源文依据的关系。
+每条关系按源句语义确定主体和客体，三元组之间可以首尾相接，也可以共享主体或关系。
+- 链式嵌套：机箱装有处理信号的模块。拆为（机箱，装有，模块）与（模块，处理，信号）；外层客体是内部关系的主体。
 - 并列动作：记录仪会采集振动信号并保存发生时间。分别表达采集与保存，两条都沿用「记录仪」和「会」。
+- 并列主体或客体：「传感器和摄像头各自采集数据」的主体分别展开；「记录仪保存温度和湿度」的客体分别展开，共享主体和关系。
+- 集合实体：一套左右滑轮固定在支架前侧。「左右」说明这一套的组成，固定关系的主体保留「一套左右滑轮」。
+- 主体内部关系：安装在车底的传感器测量温度。分别表达传感器测量温度和传感器安装在车底。
+- 目的关系：展厅装有用于投影地图的设备。「用于投影」保留设备的用途。
+- 风险范围：货物从车厢滑出的风险引起了司机的注意。保留风险主体；抽出内部关系时也要表达风险所限定的动作。
 - 选择范围：平台可通过短信或邮件发送通知。用一个表达保留「短信或邮件」，同时保留「可」。
 - 否定范围：值班员检查阀门，但不拆开接头。分别表达检查阀门和不拆开接头，否定只限定后一个动作。
 ```
 
-【来源：操作｜[karma/agents/triple_splitting/agent.py 第212—218行](<agent.py#L212>)】
+【来源：操作｜[karma/agents/triple_splitting/agent.py 第224—230行](<agent.py#L224>)】
 
 ```text
 # 操作
@@ -316,7 +324,7 @@ add/replace 均填写被拆分的原三元组 index，使用输入中从0开始�
 根据上述定义生成 add、replace 操作。
 ```
 
-【来源：事实｜[karma/agents/triple_splitting/agent.py 第112—114、220—224行](<agent.py#L112>)】
+【来源：事实｜[karma/agents/triple_splitting/agent.py 第120—123、232—236行](<agent.py#L120>)】
 
 ```text
 # 事实
@@ -325,11 +333,12 @@ add/replace 均填写被拆分的原三元组 index，使用输入中从0开始�
   在什么条件下成立、涉及多少或哪些对象时，将该修饰保留在它约束的字段中；
   目的按目的关系表达，条件保留在受其约束的关系中，选择关系保留原有选择范围。
   确认「未」「不会」「可」「用于」修饰哪项动作，再判断拆分后哪些条目应保留这些字词。
-- head、relation、tail 沿用源句用词。省略主语从本句中明确可对应的成分补齐。
-  定语中含独立关系时，先确定它描述的是哪个对象。仅用来引入且省略后事实完整的背景可省略。
+- head、relation、tail 的实义词沿用源句写法。可补充独立表达必需的语法成分，并保留主体、客体、方向、情态和目的。
+  按源句明示的对应关系补齐共享成分；指代不明确时保留原文。逐项核对实义词的原文依据。
+  「在一些实施例中」等仅用来引入的句首背景可省略；对事实成立起限定作用的成分保留。
 ```
 
-【来源：源文本｜[karma/agents/triple_splitting/agent.py 第227—230行](<agent.py#L227>)】
+【来源：源文本｜[karma/agents/triple_splitting/agent.py 第239—242行](<agent.py#L239>)】
 
 ```text
 # 源文本
@@ -338,7 +347,7 @@ add/replace 均填写被拆分的原三元组 index，使用输入中从0开始�
 </source_text>
 ```
 
-【来源：当前三元组｜[karma/agents/triple_splitting/agent.py 第232—235行](<agent.py#L232>)】
+【来源：当前三元组｜[karma/agents/triple_splitting/agent.py 第244—247行](<agent.py#L244>)】
 
 ```text
 # 当前三元组
@@ -347,7 +356,7 @@ add/replace 均填写被拆分的原三元组 index，使用输入中从0开始�
 </current_triples_json>
 ```
 
-【来源：复合示例与输出格式｜[karma/agents/triple_splitting/agent.py 第115—129、238—240行](<agent.py#L115>)】
+【来源：复合示例与输出格式｜[karma/agents/triple_splitting/agent.py 第124—141、250—252行](<agent.py#L124>)】
 
 ```text
 # 复合示例与输出格式
@@ -356,7 +365,10 @@ add/replace 均填写被拆分的原三元组 index，使用输入中从0开始�
 [
   {"index": 0, "head": "试验台", "relation": "配有", "tail": "安装在进气口、用于拦截粉尘的过滤器"}
 ]
-拆分说明：第 0 条包含装配关系、过滤器位置和过滤器用途。位置和用途的主体都是过滤器，用「用于拦截」保留用途。
+拆分说明：
+- 第 0 条包含装配关系、过滤器位置和过滤器用途。外层客体「过滤器」是两条内部关系共享的主体。
+- 两条内部关系分别使用「安装在」和「用于拦截」，保留位置和用途的语义。
+- 位置和用途各自独立后，缩短第 0 条的客体。一条 replace 保留装配关系，两条 add 补齐内部关系。
 示例输出：
 {
   "add": [

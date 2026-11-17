@@ -22,7 +22,7 @@ hr{border:0;border-top:1px solid var(--line);margin:30px 0}.filelinks{display:fl
 footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid var(--line);padding-top:15px}
 @media(max-width:900px){.layout{display:block;padding:12px}aside{position:static;max-height:300px;margin-bottom:16px}main{padding:22px 18px}header{padding:18px}h1{font-size:23px}h2{font-size:21px}th,td{padding:8px}}
 @media print{body{background:#fff;font-size:11pt}.layout{display:block;padding:0}aside,header,.filelinks,footer{display:none}main{border:0;padding:0}.table-wrap{overflow:visible}pre,table{font-size:9pt}h2,h3{break-after:avoid}tr{break-inside:avoid}a{color:inherit;text-decoration:none}}
-</style></head><body><header><div class="label">已有表达修正与拆分 Agent 完整 Prompt</div><p>源码行号与实际调用分支 · 导出基于 e1fe516</p></header><div class="layout"><aside><h2>目录</h2><input id="toc-filter" type="search" placeholder="搜索轮次、System、User"><a href="../Prompt%E6%80%BB%E8%A7%88.html">全部Agent总览</a><a class="" href="#section-1">英文输入</a>
+</style></head><body><header><div class="label">已有表达修正与拆分 Agent 完整 Prompt</div><p>源码行号与实际调用分支 · 导出基于 be28830</p></header><div class="layout"><aside><h2>目录</h2><input id="toc-filter" type="search" placeholder="搜索轮次、System、User"><a href="../Prompt%E6%80%BB%E8%A7%88.html">全部Agent总览</a><a class="" href="#section-1">英文输入</a>
 <a class="sub" href="#section-2">System 消息</a>
 <a class="sub" href="#section-3">User 消息 · 执行步骤</a>
 <a class="sub" href="#section-4">User 消息 · 表达要求</a>
@@ -72,7 +72,7 @@ footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid va
 4. 取消本轮重复生成的关系，合并对同一index的修改，输出replace、handoff。重建文本错误时保留正确三元组并记录问题。
 </code></pre>
 <h3 id="section-4">User 消息 · 表达要求</h3>
-<p>【来源：User 消息 · 表达要求｜<a href="../feedback_common.py#L7">karma/agents/feedback_common.py 第7—13行</a> · <a href="../feedback_common.py#L22">karma/agents/feedback_common.py 第22—28行</a>】</p>
+<p>【来源：User 消息 · 表达要求｜<a href="../feedback_common.py#L7">karma/agents/feedback_common.py 第7—13行</a> · <a href="../feedback_common.py#L23">karma/agents/feedback_common.py 第23—29行</a>】</p>
 <pre><code class="language-text"># 表达要求
 源句是事实依据。实义词保持原文用词、词形和大小写；独立表达时可以补充必要的系词、助动词和介词。
 例如原文是 to provide，可以表达为 is to provide，保留 provide 的词形。
@@ -118,7 +118,7 @@ target 使用 add、replace、remove、text_generation、text_comparison 或 rev
 输出：{&quot;replace&quot;:[{&quot;index&quot;:0,&quot;reason&quot;:&quot;保留风险与内部动作之间的联系及 falling 词形。&quot;,&quot;new_triples&quot;:[{&quot;head&quot;:&quot;The risk&quot;,&quot;relation&quot;:&quot;is of cargo falling from&quot;,&quot;tail&quot;:&quot;the deck&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]}]}],&quot;handoff&quot;:[]}
 </code></pre>
 <h3 id="section-7">User 消息 · 本次数据</h3>
-<p>【来源：User 消息 · 本次数据｜<a href="../feedback_common.py#L49">karma/agents/feedback_common.py 第49—52行</a>】</p>
+<p>【来源：User 消息 · 本次数据｜<a href="../feedback_common.py#L50">karma/agents/feedback_common.py 第50—53行</a>】</p>
 <pre><code class="language-text"># 本次输入
 &lt;feedback_input_json&gt;
 {json.dumps(context, ensure_ascii=False, indent=2)}
@@ -157,12 +157,13 @@ target 使用 add、replace、remove、text_generation、text_comparison 或 rev
 4. 取消本轮重复生成的关系，合并对同一index的修改，输出replace、handoff。重建文本错误时保留正确三元组并记录问题。
 </code></pre>
 <h3 id="section-11">User 消息 · 表达要求</h3>
-<p>【来源：User 消息 · 表达要求｜<a href="../feedback_common.py#L15">karma/agents/feedback_common.py 第15—20行</a> · <a href="../feedback_common.py#L22">karma/agents/feedback_common.py 第22—28行</a>】</p>
+<p>【来源：User 消息 · 表达要求｜<a href="../feedback_common.py#L15">karma/agents/feedback_common.py 第15—21行</a> · <a href="../feedback_common.py#L23">karma/agents/feedback_common.py 第23—29行</a>】</p>
 <pre><code class="language-text"># 表达要求
-依据源句选择主体、动作和对象，保留原文用词和含义。省略的主语按本句中明确的对应关系补齐。
+依据源句确定主体、客体和关系方向，实义词沿用原文写法。可补充独立表达必需的语法成分；省略的主语按本句中明确的对应关系补齐。
+指代不明确时保留原文代词。混排的名称或缩写沿用原写法。
 保留「未」「不会」「可」「用于」和条件、数量、时间、范围，逐项确认它们约束的对象或动作。
 「或」连接的选项保留选择范围；并列项各自独立成立时分别表达。用途和风险中的动作按原句的用途或风险表达。
-决定对象身份、关系含义或成立条件的修饰保留在对应字段。只作引入且省略后事实完整的背景可省略。
+决定对象身份、关系含义或成立条件的修饰保留在对应字段。「在一些实施例中」等只作引入的句首背景可省略。
 候选名单可能遗漏源句中的对象。依据源句确定主体和对象，候选名单用于辅助定位。
 文本差异指出源句与重建文本的差别。对照源句分别核实当前三元组、重建文本与对比判断中的问题；修正有误的三元组，保留正确条目。
 重建文本与差异来自最初的集合，结合当前集合及修改记录判断问题是否仍存在。
@@ -181,14 +182,26 @@ handoff 每项写 target、source_sentence_ids、indices、problem：target 指�
 target 使用 add、replace、remove、text_generation、text_comparison 或 review；源句与三元组正确而重建文本或对比判断有误时，分别记录 text_generation 或 text_comparison。
 </code></pre>
 <h3 id="section-13">User 消息 · 示例</h3>
-<p>【来源：User 消息 · 示例｜<a href="agent.py#L70">karma/agents/feedback_replace/agent.py 第70—73行</a>】</p>
+<p>【来源：User 消息 · 示例｜<a href="agent.py#L70">karma/agents/feedback_replace/agent.py 第70—85行</a>】</p>
 <pre><code class="language-text"># 示例
 修正内部动作的主体和用途，保留位置关系
 输入：{&quot;source_sentences&quot;:[{&quot;sentence_id&quot;:&quot;S1&quot;,&quot;text&quot;:&quot;安装在仓门内侧的摄像头用于识别车辆编号，但尚未接入值班系统。&quot;}],&quot;current_collection&quot;:{&quot;triples&quot;:[{&quot;index&quot;:0,&quot;head&quot;:&quot;仓门&quot;,&quot;relation&quot;:&quot;识别&quot;,&quot;tail&quot;:&quot;车辆编号&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]},{&quot;index&quot;:1,&quot;head&quot;:&quot;摄像头&quot;,&quot;relation&quot;:&quot;安装在&quot;,&quot;tail&quot;:&quot;仓门内侧&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]},{&quot;index&quot;:2,&quot;head&quot;:&quot;摄像头&quot;,&quot;relation&quot;:&quot;已接入&quot;,&quot;tail&quot;:&quot;值班系统&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]}]}}
 输出：{&quot;replace&quot;:[{&quot;index&quot;:0,&quot;reason&quot;:&quot;识别车辆编号是摄像头的用途，主体是摄像头。&quot;,&quot;new_triples&quot;:[{&quot;head&quot;:&quot;摄像头&quot;,&quot;relation&quot;:&quot;用于识别&quot;,&quot;tail&quot;:&quot;车辆编号&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]}]},{&quot;index&quot;:2,&quot;reason&quot;:&quot;源句用「尚未」限定接入状态。&quot;,&quot;new_triples&quot;:[{&quot;head&quot;:&quot;摄像头&quot;,&quot;relation&quot;:&quot;尚未接入&quot;,&quot;tail&quot;:&quot;值班系统&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]}]}],&quot;handoff&quot;:[]}
+
+嵌套关系一起写入一项 replace
+输入：{&quot;source_sentences&quot;:[{&quot;sentence_id&quot;:&quot;S1&quot;,&quot;text&quot;:&quot;检票台旁设有用于回收旧票的箱子。&quot;}],&quot;current_collection&quot;:{&quot;triples&quot;:[{&quot;index&quot;:0,&quot;head&quot;:&quot;检票台旁&quot;,&quot;relation&quot;:&quot;设有&quot;,&quot;tail&quot;:&quot;用于回收旧票的箱子&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]}]}}
+输出：{&quot;replace&quot;:[{&quot;index&quot;:0,&quot;reason&quot;:&quot;先保留箱子所在的位置，再独立表达箱子的用途。&quot;,&quot;new_triples&quot;:[{&quot;head&quot;:&quot;检票台旁&quot;,&quot;relation&quot;:&quot;设有&quot;,&quot;tail&quot;:&quot;箱子&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]},{&quot;head&quot;:&quot;箱子&quot;,&quot;relation&quot;:&quot;用于回收&quot;,&quot;tail&quot;:&quot;旧票&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]}]}],&quot;handoff&quot;:[]}
+
+内部动作已有独立条目，修正它并缩短外层客体
+输入：{&quot;source_sentences&quot;:[{&quot;sentence_id&quot;:&quot;S1&quot;,&quot;text&quot;:&quot;场馆配有处理访客登记的终端。&quot;}],&quot;current_collection&quot;:{&quot;triples&quot;:[{&quot;index&quot;:0,&quot;head&quot;:&quot;场馆&quot;,&quot;relation&quot;:&quot;配有&quot;,&quot;tail&quot;:&quot;处理访客登记的终端&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]},{&quot;index&quot;:1,&quot;head&quot;:&quot;场馆&quot;,&quot;relation&quot;:&quot;处理&quot;,&quot;tail&quot;:&quot;访客登记&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]}]}}
+输出：{&quot;replace&quot;:[{&quot;index&quot;:1,&quot;reason&quot;:&quot;处理访客登记的主体是终端。&quot;,&quot;new_triples&quot;:[{&quot;head&quot;:&quot;终端&quot;,&quot;relation&quot;:&quot;处理&quot;,&quot;tail&quot;:&quot;访客登记&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]}]},{&quot;index&quot;:0,&quot;reason&quot;:&quot;内部动作已由修正后的第1条表达。&quot;,&quot;new_triples&quot;:[{&quot;head&quot;:&quot;场馆&quot;,&quot;relation&quot;:&quot;配有&quot;,&quot;tail&quot;:&quot;终端&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]}]}],&quot;handoff&quot;:[]}
+
+保留风险发生的可能性和条件
+输入：{&quot;source_sentences&quot;:[{&quot;sentence_id&quot;:&quot;S1&quot;,&quot;text&quot;:&quot;转弯时货物可能滑出车厢，司机已加装挡板。&quot;}],&quot;current_collection&quot;:{&quot;triples&quot;:[{&quot;index&quot;:0,&quot;head&quot;:&quot;货物&quot;,&quot;relation&quot;:&quot;滑出&quot;,&quot;tail&quot;:&quot;车厢&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]},{&quot;index&quot;:1,&quot;head&quot;:&quot;司机&quot;,&quot;relation&quot;:&quot;已加装&quot;,&quot;tail&quot;:&quot;挡板&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]}]}}
+输出：{&quot;replace&quot;:[{&quot;index&quot;:0,&quot;reason&quot;:&quot;滑出是转弯时可能发生的风险，保留条件和「可能」。&quot;,&quot;new_triples&quot;:[{&quot;head&quot;:&quot;转弯时货物&quot;,&quot;relation&quot;:&quot;可能滑出&quot;,&quot;tail&quot;:&quot;车厢&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]}]}],&quot;handoff&quot;:[]}
 </code></pre>
 <h3 id="section-14">User 消息 · 本次数据</h3>
-<p>【来源：User 消息 · 本次数据｜<a href="../feedback_common.py#L49">karma/agents/feedback_common.py 第49—52行</a>】</p>
+<p>【来源：User 消息 · 本次数据｜<a href="../feedback_common.py#L50">karma/agents/feedback_common.py 第50—53行</a>】</p>
 <pre><code class="language-text"># 本次输入
 &lt;feedback_input_json&gt;
 {json.dumps(context, ensure_ascii=False, indent=2)}

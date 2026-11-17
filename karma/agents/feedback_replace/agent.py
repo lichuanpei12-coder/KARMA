@@ -70,7 +70,19 @@ EXAMPLES = """# 示例
 CHINESE_EXAMPLES = """# 示例
 修正内部动作的主体和用途，保留位置关系
 输入：{"source_sentences":[{"sentence_id":"S1","text":"安装在仓门内侧的摄像头用于识别车辆编号，但尚未接入值班系统。"}],"current_collection":{"triples":[{"index":0,"head":"仓门","relation":"识别","tail":"车辆编号","source_sentence_ids":["S1"]},{"index":1,"head":"摄像头","relation":"安装在","tail":"仓门内侧","source_sentence_ids":["S1"]},{"index":2,"head":"摄像头","relation":"已接入","tail":"值班系统","source_sentence_ids":["S1"]}]}}
-输出：{"replace":[{"index":0,"reason":"识别车辆编号是摄像头的用途，主体是摄像头。","new_triples":[{"head":"摄像头","relation":"用于识别","tail":"车辆编号","source_sentence_ids":["S1"]}]},{"index":2,"reason":"源句用「尚未」限定接入状态。","new_triples":[{"head":"摄像头","relation":"尚未接入","tail":"值班系统","source_sentence_ids":["S1"]}]}],"handoff":[]}"""
+输出：{"replace":[{"index":0,"reason":"识别车辆编号是摄像头的用途，主体是摄像头。","new_triples":[{"head":"摄像头","relation":"用于识别","tail":"车辆编号","source_sentence_ids":["S1"]}]},{"index":2,"reason":"源句用「尚未」限定接入状态。","new_triples":[{"head":"摄像头","relation":"尚未接入","tail":"值班系统","source_sentence_ids":["S1"]}]}],"handoff":[]}
+
+嵌套关系一起写入一项 replace
+输入：{"source_sentences":[{"sentence_id":"S1","text":"检票台旁设有用于回收旧票的箱子。"}],"current_collection":{"triples":[{"index":0,"head":"检票台旁","relation":"设有","tail":"用于回收旧票的箱子","source_sentence_ids":["S1"]}]}}
+输出：{"replace":[{"index":0,"reason":"先保留箱子所在的位置，再独立表达箱子的用途。","new_triples":[{"head":"检票台旁","relation":"设有","tail":"箱子","source_sentence_ids":["S1"]},{"head":"箱子","relation":"用于回收","tail":"旧票","source_sentence_ids":["S1"]}]}],"handoff":[]}
+
+内部动作已有独立条目，修正它并缩短外层客体
+输入：{"source_sentences":[{"sentence_id":"S1","text":"场馆配有处理访客登记的终端。"}],"current_collection":{"triples":[{"index":0,"head":"场馆","relation":"配有","tail":"处理访客登记的终端","source_sentence_ids":["S1"]},{"index":1,"head":"场馆","relation":"处理","tail":"访客登记","source_sentence_ids":["S1"]}]}}
+输出：{"replace":[{"index":1,"reason":"处理访客登记的主体是终端。","new_triples":[{"head":"终端","relation":"处理","tail":"访客登记","source_sentence_ids":["S1"]}]},{"index":0,"reason":"内部动作已由修正后的第1条表达。","new_triples":[{"head":"场馆","relation":"配有","tail":"终端","source_sentence_ids":["S1"]}]}],"handoff":[]}
+
+保留风险发生的可能性和条件
+输入：{"source_sentences":[{"sentence_id":"S1","text":"转弯时货物可能滑出车厢，司机已加装挡板。"}],"current_collection":{"triples":[{"index":0,"head":"货物","relation":"滑出","tail":"车厢","source_sentence_ids":["S1"]},{"index":1,"head":"司机","relation":"已加装","tail":"挡板","source_sentence_ids":["S1"]}]}}
+输出：{"replace":[{"index":0,"reason":"滑出是转弯时可能发生的风险，保留条件和「可能」。","new_triples":[{"head":"转弯时货物","relation":"可能滑出","tail":"车厢","source_sentence_ids":["S1"]}]}],"handoff":[]}"""
 
 
 class FeedbackReplaceAgent(FeedbackAgent):

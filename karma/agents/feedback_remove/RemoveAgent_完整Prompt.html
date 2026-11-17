@@ -22,7 +22,7 @@ hr{border:0;border-top:1px solid var(--line);margin:30px 0}.filelinks{display:fl
 footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid var(--line);padding-top:15px}
 @media(max-width:900px){.layout{display:block;padding:12px}aside{position:static;max-height:300px;margin-bottom:16px}main{padding:22px 18px}header{padding:18px}h1{font-size:23px}h2{font-size:21px}th,td{padding:8px}}
 @media print{body{background:#fff;font-size:11pt}.layout{display:block;padding:0}aside,header,.filelinks,footer{display:none}main{border:0;padding:0}.table-wrap{overflow:visible}pre,table{font-size:9pt}h2,h3{break-after:avoid}tr{break-inside:avoid}a{color:inherit;text-decoration:none}}
-</style></head><body><header><div class="label">重复清理 Agent 完整 Prompt</div><p>源码行号与实际调用分支 · 导出基于 e1fe516</p></header><div class="layout"><aside><h2>目录</h2><input id="toc-filter" type="search" placeholder="搜索轮次、System、User"><a href="../Prompt%E6%80%BB%E8%A7%88.html">全部Agent总览</a><a class="" href="#section-1">英文输入</a>
+</style></head><body><header><div class="label">重复清理 Agent 完整 Prompt</div><p>源码行号与实际调用分支 · 导出基于 be28830</p></header><div class="layout"><aside><h2>目录</h2><input id="toc-filter" type="search" placeholder="搜索轮次、System、User"><a href="../Prompt%E6%80%BB%E8%A7%88.html">全部Agent总览</a><a class="" href="#section-1">英文输入</a>
 <a class="sub" href="#section-2">System 消息</a>
 <a class="sub" href="#section-3">User 消息 · 执行步骤</a>
 <a class="sub" href="#section-4">User 消息 · 表达要求</a>
@@ -68,7 +68,7 @@ footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid va
 2. 将同一条目的修改合为一次操作，为每项操作填写具体理由，输出 replace、remove、handoff。
 </code></pre>
 <h3 id="section-4">User 消息 · 表达要求</h3>
-<p>【来源：User 消息 · 表达要求｜<a href="../feedback_common.py#L7">karma/agents/feedback_common.py 第7—13行</a> · <a href="../feedback_common.py#L22">karma/agents/feedback_common.py 第22—28行</a>】</p>
+<p>【来源：User 消息 · 表达要求｜<a href="../feedback_common.py#L7">karma/agents/feedback_common.py 第7—13行</a> · <a href="../feedback_common.py#L23">karma/agents/feedback_common.py 第23—29行</a>】</p>
 <pre><code class="language-text"># 表达要求
 源句是事实依据。实义词保持原文用词、词形和大小写；独立表达时可以补充必要的系词、助动词和介词。
 例如原文是 to provide，可以表达为 is to provide，保留 provide 的词形。
@@ -110,7 +110,7 @@ target 使用 add、replace、remove、text_generation、text_comparison 或 rev
 输出：{&quot;replace&quot;:[{&quot;index&quot;:0,&quot;reason&quot;:&quot;两条位置关系指向同一组工作站，统一为 the workstations。all 表达检查范围，any 表达发送者范围，分别保留在第2条和第3、4条。&quot;,&quot;new_triples&quot;:[{&quot;head&quot;:&quot;the workstations&quot;,&quot;relation&quot;:&quot;are located in&quot;,&quot;tail&quot;:&quot;the lab&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]}]}],&quot;remove&quot;:[{&quot;index&quot;:1,&quot;keep_index&quot;:0,&quot;reason&quot;:&quot;第1条的位置关系由替换后的第0条表达。&quot;}],&quot;handoff&quot;:[]}
 </code></pre>
 <h3 id="section-7">User 消息 · 本次数据</h3>
-<p>【来源：User 消息 · 本次数据｜<a href="../feedback_common.py#L49">karma/agents/feedback_common.py 第49—52行</a>】</p>
+<p>【来源：User 消息 · 本次数据｜<a href="../feedback_common.py#L50">karma/agents/feedback_common.py 第50—53行</a>】</p>
 <pre><code class="language-text"># 本次输入
 &lt;feedback_input_json&gt;
 {json.dumps(context, ensure_ascii=False, indent=2)}
@@ -145,12 +145,13 @@ target 使用 add、replace、remove、text_generation、text_comparison 或 rev
 2. 将同一条目的修改合为一次操作，为每项操作填写具体理由，输出 replace、remove、handoff。
 </code></pre>
 <h3 id="section-11">User 消息 · 表达要求</h3>
-<p>【来源：User 消息 · 表达要求｜<a href="../feedback_common.py#L15">karma/agents/feedback_common.py 第15—20行</a> · <a href="../feedback_common.py#L22">karma/agents/feedback_common.py 第22—28行</a>】</p>
+<p>【来源：User 消息 · 表达要求｜<a href="../feedback_common.py#L15">karma/agents/feedback_common.py 第15—21行</a> · <a href="../feedback_common.py#L23">karma/agents/feedback_common.py 第23—29行</a>】</p>
 <pre><code class="language-text"># 表达要求
-依据源句选择主体、动作和对象，保留原文用词和含义。省略的主语按本句中明确的对应关系补齐。
+依据源句确定主体、客体和关系方向，实义词沿用原文写法。可补充独立表达必需的语法成分；省略的主语按本句中明确的对应关系补齐。
+指代不明确时保留原文代词。混排的名称或缩写沿用原写法。
 保留「未」「不会」「可」「用于」和条件、数量、时间、范围，逐项确认它们约束的对象或动作。
 「或」连接的选项保留选择范围；并列项各自独立成立时分别表达。用途和风险中的动作按原句的用途或风险表达。
-决定对象身份、关系含义或成立条件的修饰保留在对应字段。只作引入且省略后事实完整的背景可省略。
+决定对象身份、关系含义或成立条件的修饰保留在对应字段。「在一些实施例中」等只作引入的句首背景可省略。
 候选名单可能遗漏源句中的对象。依据源句确定主体和对象，候选名单用于辅助定位。
 文本差异指出源句与重建文本的差别。对照源句分别核实当前三元组、重建文本与对比判断中的问题；修正有误的三元组，保留正确条目。
 重建文本与差异来自最初的集合，结合当前集合及修改记录判断问题是否仍存在。
@@ -169,14 +170,22 @@ handoff 每项写 target、source_sentence_ids、indices、problem；indices 填
 target 使用 add、replace、remove、text_generation、text_comparison 或 review；当前重复和冗余问题由本 Agent 在 replace、remove 中处理。
 </code></pre>
 <h3 id="section-13">User 消息 · 示例</h3>
-<p>【来源：User 消息 · 示例｜<a href="agent.py#L51">karma/agents/feedback_remove/agent.py 第51—54行</a>】</p>
+<p>【来源：User 消息 · 示例｜<a href="agent.py#L51">karma/agents/feedback_remove/agent.py 第51—62行</a>】</p>
 <pre><code class="language-text"># 示例
 合并同一检查动作，保留其条件和对象范围
 输入：{&quot;source_sentences&quot;:[{&quot;sentence_id&quot;:&quot;S1&quot;,&quot;text&quot;:&quot;停电时，值班员检查机房门口的备用照明，并记录检查结果。&quot;}],&quot;current_collection&quot;:{&quot;triples&quot;:[{&quot;index&quot;:0,&quot;head&quot;:&quot;停电时，值班员&quot;,&quot;relation&quot;:&quot;检查&quot;,&quot;tail&quot;:&quot;备用照明&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]},{&quot;index&quot;:1,&quot;head&quot;:&quot;值班员&quot;,&quot;relation&quot;:&quot;检查&quot;,&quot;tail&quot;:&quot;机房门口的备用照明&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]},{&quot;index&quot;:2,&quot;head&quot;:&quot;停电时，值班员&quot;,&quot;relation&quot;:&quot;记录&quot;,&quot;tail&quot;:&quot;检查结果&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]}]}}
 输出：{&quot;replace&quot;:[{&quot;index&quot;:0,&quot;reason&quot;:&quot;在同一条检查关系中保留停电条件和机房门口的对象范围。&quot;,&quot;new_triples&quot;:[{&quot;head&quot;:&quot;停电时，值班员&quot;,&quot;relation&quot;:&quot;检查&quot;,&quot;tail&quot;:&quot;机房门口的备用照明&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]}]}],&quot;remove&quot;:[{&quot;index&quot;:1,&quot;keep_index&quot;:0,&quot;reason&quot;:&quot;第0、1条对应同一检查动作，第2条独立表达记录结果。&quot;}],&quot;handoff&quot;:[]}
+
+删除完整重复，保留条件和情态不同的关系
+输入：{&quot;source_sentences&quot;:[{&quot;sentence_id&quot;:&quot;S1&quot;,&quot;text&quot;:&quot;试运行时终端可以发送提示，正式运行时终端必须发送提示。&quot;}],&quot;current_collection&quot;:{&quot;triples&quot;:[{&quot;index&quot;:0,&quot;head&quot;:&quot;试运行时终端&quot;,&quot;relation&quot;:&quot;可以发送&quot;,&quot;tail&quot;:&quot;提示&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]},{&quot;index&quot;:1,&quot;head&quot;:&quot;试运行时终端&quot;,&quot;relation&quot;:&quot;可以发送&quot;,&quot;tail&quot;:&quot;提示&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]},{&quot;index&quot;:2,&quot;head&quot;:&quot;正式运行时终端&quot;,&quot;relation&quot;:&quot;必须发送&quot;,&quot;tail&quot;:&quot;提示&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]}]}}
+输出：{&quot;replace&quot;:[],&quot;remove&quot;:[{&quot;index&quot;:1,&quot;keep_index&quot;:0,&quot;reason&quot;:&quot;第0、1条完整重复；第2条的运行条件和义务不同，单独保留。&quot;}],&quot;handoff&quot;:[]}
+
+独立关系已表达，缩短外层字段
+输入：{&quot;source_sentences&quot;:[{&quot;sentence_id&quot;:&quot;S1&quot;,&quot;text&quot;:&quot;办公区配有可打印通行证的终端。&quot;}],&quot;current_collection&quot;:{&quot;triples&quot;:[{&quot;index&quot;:0,&quot;head&quot;:&quot;办公区&quot;,&quot;relation&quot;:&quot;配有&quot;,&quot;tail&quot;:&quot;可打印通行证的终端&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]},{&quot;index&quot;:1,&quot;head&quot;:&quot;终端&quot;,&quot;relation&quot;:&quot;可打印&quot;,&quot;tail&quot;:&quot;通行证&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]}]}}
+输出：{&quot;replace&quot;:[{&quot;index&quot;:0,&quot;reason&quot;:&quot;第1条已独立表达打印功能，第0条保留办公区配有终端。&quot;,&quot;new_triples&quot;:[{&quot;head&quot;:&quot;办公区&quot;,&quot;relation&quot;:&quot;配有&quot;,&quot;tail&quot;:&quot;终端&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]}]}],&quot;remove&quot;:[],&quot;handoff&quot;:[]}
 </code></pre>
 <h3 id="section-14">User 消息 · 本次数据</h3>
-<p>【来源：User 消息 · 本次数据｜<a href="../feedback_common.py#L49">karma/agents/feedback_common.py 第49—52行</a>】</p>
+<p>【来源：User 消息 · 本次数据｜<a href="../feedback_common.py#L50">karma/agents/feedback_common.py 第50—53行</a>】</p>
 <pre><code class="language-text"># 本次输入
 &lt;feedback_input_json&gt;
 {json.dumps(context, ensure_ascii=False, indent=2)}

@@ -45,7 +45,15 @@ EXAMPLES = """# 示例
 CHINESE_EXAMPLES = """# 示例
 源句还有一项带条件的动作未表达
 输入：{"source_sentences":[{"sentence_id":"S1","text":"库管员每天核对出库单，发现数量不符时会通知配送员。"}],"current_collection":{"triples":[{"index":0,"head":"库管员","relation":"每天核对","tail":"出库单","source_sentence_ids":["S1"]}]}}
-输出：{"add":[{"head":"发现数量不符时，库管员","relation":"会通知","tail":"配送员","source_sentence_ids":["S1"],"reason":"当前集合只表达核对出库单，缺少发现数量不符时通知配送员的关系。"}],"handoff":[]}"""
+输出：{"add":[{"head":"发现数量不符时，库管员","relation":"会通知","tail":"配送员","source_sentence_ids":["S1"],"reason":"当前集合只表达核对出库单，缺少发现数量不符时通知配送员的关系。"}],"handoff":[]}
+
+长字段中已经有该动作，独立条目的主体需要修正
+输入：{"source_sentences":[{"sentence_id":"S1","text":"控制台配有用于识别车牌的摄像头。"}],"current_collection":{"triples":[{"index":0,"head":"控制台","relation":"配有","tail":"用于识别车牌的摄像头","source_sentence_ids":["S1"]},{"index":1,"head":"控制台","relation":"用于识别","tail":"车牌","source_sentence_ids":["S1"]}]}}
+输出：{"add":[],"handoff":[{"target":"replace","source_sentence_ids":["S1"],"indices":[0,1],"problem":"用途已含在第0条中，第1条应以摄像头为主体；修正后再缩短第0条客体。"}]}
+
+现有事实完整，重建文本改变了连接关系
+输入：{"source_sentences":[{"sentence_id":"S1","text":"值班员核对编号并登记故障。"}],"current_collection":{"triples":[{"index":0,"head":"值班员","relation":"核对","tail":"编号","source_sentence_ids":["S1"]},{"index":1,"head":"值班员","relation":"登记","tail":"故障","source_sentence_ids":["S1"]}]},"comparison_bundle":{"basis_version":"V0","reconstructions":[{"sentence_id":"S1","text_b":"值班员核对编号或登记故障。"}]}}
+输出：{"add":[],"handoff":[{"target":"text_generation","source_sentence_ids":["S1"],"indices":[0,1],"problem":"两条三元组已分别表达两个动作，重建把「并」改成了「或」。"}]}"""
 
 
 class FeedbackAddAgent(FeedbackAgent):

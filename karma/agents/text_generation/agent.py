@@ -16,7 +16,8 @@ from karma.core.data_structures import KGEntity, KnowledgeTriple
 logger = logging.getLogger(__name__)
 
 ENGLISH_EXPRESSION_RULE = "   每条关系先形成对应表达，实义词保留输入词形，必要时补充系词、助动词或介词。"
-CHINESE_EXPRESSION_RULE = "   各组沿用三元组的语言。中文组保留输入用词，可补必要的语法成分。将「未」「可」「用于」「或」等限定保留在原来所约束的动作或对象上。"
+CHINESE_EXPRESSION_RULE = """   每条关系先形成对应表达。各组沿用三元组的语言，中文组保留输入用词及中英混排词的写法，可补充独立表达必需的语法成分。
+   将「未」「可」「用于」「或」等限定保留在原来所约束的动作或对象上。"""
 
 
 class TextGenerationAgent(BaseAgent):

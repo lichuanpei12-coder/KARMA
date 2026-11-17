@@ -80,6 +80,13 @@ chinese_groups = [dict(chinese_sentences[0], triples=[
 ])]
 chinese_reconstructions = [dict(sentence_id='S1', text_b=chinese_source, generation_status='generated')]
 chinese = {}
+a = EntityExtractionAgent(None, 'offline')
+chinese['entity_first'] = cap(a, lambda: a.process([chinese_source]), '[]')
+chinese_diff = dict(unique_to_text_a=[], unique_to_text_b=[], sentence_differences=[
+    dict(chinese_reconstructions[0], text_a=chinese_source, unique_to_text_a=[], unique_to_text_b=[],
+         comparison_status='compared')
+])
+chinese['entity_feedback'] = cap(a, lambda: a.revise_entities(chinese_source, [], chinese_triples, chinese_diff), '[]')
 a = RelationshipExtractionAgent(None, 'offline')
 chinese['relationship_first'] = cap(a, lambda: a.process([chinese_source], [], sentences=chinese_sentences), '[]')
 a = TripleSplittingAgent(None, 'offline')
@@ -306,12 +313,16 @@ GROUPHELP=[scope('karma/core/sentence_groups.py','grouped_difference_context')]
 def pools(agent,method,language='英文'):
     f=path(agent)
     out=[scope(f,method)]
-    if agent=='entity_extraction':out += [scope(f,'ENTITY_RULES'),scope(f,'_output_instructions'),scope(f,'difference_context')]+GROUPHELP
+    if agent=='entity_extraction':
+        rules = 'CHINESE_ENTITY_RULES' if language=='中文' else 'ENGLISH_ENTITY_RULES'
+        out += [scope(f,name) for name in ('ENTITY_RULES',rules,'_output_instructions','difference_context')]+GROUPHELP
     if agent=='relationship_extraction':
         names = ('CHINESE_FACT_RULES','CHINESE_EXAMPLES') if language=='中文' else ('FACT_RULES',)
         out += [scope(f,name) for name in ('SYSTEM_INTRO','OUTPUT_RULES',*names)]
     if agent in ('triple_splitting','text_comparison'):
         out.append(scope(f,'CHINESE_GUIDANCE' if language=='中文' else 'ENGLISH_GUIDANCE'))
+    if agent=='triple_splitting':
+        out.append(scope(f,'STRUCTURE_INTRO'))
     if agent=='text_generation':
         out.append(scope(f,'CHINESE_EXPRESSION_RULE' if language=='中文' else 'ENGLISH_EXPRESSION_RULE'))
     return out
@@ -320,7 +331,7 @@ STATUS={
 'ingestion':'当前process只做文本规范化，_extract_metadata调用已注释，metadata=None；下面完整prompt属于保留但未由当前process调用的元数据入口。',
 'reader':'普通文档准备阶段会分批调用相关性评分，每批最多5段；回放已保存基线时可能跳过准备阶段。每段送给评分的文本目前截取前500字符并加省略号。',
 'summarizer':'当前pipeline默认跳过摘要；仅环境变量KARMA_USE_SUMMARIZER为非空值时启用。直接调用摘要方法且输入长度小于15字符时，也不调用模型。',
-'entity_extraction':'当前pipeline第一轮执行实体抽取，第二轮执行实体反馈。两轮共用同一System，但User不同；每次调用只使用对应轮次的一套消息。',
+'entity_extraction':'当前pipeline第一轮执行实体抽取，第二轮执行实体反馈。程序按源文本选择中文或英文提示。同一语言的两轮共用System，分别组装各自的User。',
 'relationship_extraction':'当前执行第一轮基线关系抽取，按实际抽取文本选择中文或英文 System。第二轮关系反馈由 FeedbackPipeline 调用 Add、Replace、Remove。模型输出事实和源句编号，三元组分数由程序填入 0.8。',
 'triple_splitting':'拆分阶段通过process调用专用System和User；只生成add/replace；程序兼容旧响应中的空remove。回放或跳过阶段时是否执行，以实际入口为准。',
 'text_generation':'当前pipeline默认text_scope=sentence，由generate_sentences逐句调用generate_grouped，每次只传一个分组。text_scope=document时一次传入全部分组；两种模式固定System和User相同，仅输入范围不同。另一条generate_text路径只在不传分组或直接调用时使用，不会同时发送。',
@@ -342,7 +353,7 @@ for agent,filename in NAMES.items():
     if agent in ['text_generation','text_comparison']:
         t+='当前流水线传参位置：'+ref(pipeline_call('text_generation_agent' if agent=='text_generation' else 'text_comparison_agent'))+'。**当前流程只选择分组版本；附录中的非分组版本不会一起执行。**\n\n'
 
-    if agent in ('relationship_extraction','triple_splitting','text_generation','text_comparison'):
+    if agent in ('entity_extraction','relationship_extraction','triple_splitting','text_generation','text_comparison'):
         basis = ('重建按组内源句判断语言，源句仅用于选择提示。缺少源句时按三元组字段判断。'
                  if agent=='text_generation' else '程序按实际源文本选择中文或英文提示。')
         t+=basis+'\n\n'+source_line('语言选择',[scope('karma/agents/prompt_language.py','uses_chinese_prompt')],doc)+'\n\n'
@@ -363,14 +374,15 @@ for agent,filename in NAMES.items():
         entity=agent=='entity_extraction'
         key='entity' if entity else 'relationship'
         method = '_extract_entities_from_text' if entity else '_extract_relationships_from_text'
-        variants.append(('第一轮：基线抽取' if entity else '第一轮基线抽取 · 英文',
-                         new[key+'_first'],pools(agent,'__init__'),pools(agent,method)))
-        if not entity:
-            variants.append(('第一轮基线抽取 · 中文',chinese['relationship_first'],
-                             pools(agent,method,'中文'),pools(agent,method,'中文')))
+        variants.append(('第一轮基线抽取 · 英文',new[key+'_first'],pools(agent,'__init__'),pools(agent,method)))
+        variants.append(('第一轮基线抽取 · 中文',chinese[key+'_first'],
+                         pools(agent,'__init__' if entity else method,'中文'),pools(agent,method,'中文')))
         if entity:
             method='revise_entities'
-            variants.append(('第二轮：反馈修订',captured['grouped']['normal'][key+'_feedback'],pools(agent,'__init__'),pools(agent,method)))
+            variants.append(('第二轮反馈修订 · 英文',captured['grouped']['normal'][key+'_feedback'],
+                             pools(agent,'__init__'),pools(agent,method)))
+            variants.append(('第二轮反馈修订 · 中文',chinese[key+'_feedback'],
+                             pools(agent,'__init__','中文'),pools(agent,method,'中文')))
     elif agent=='triple_splitting':
         for language, capture in [('英文',new['splitting']),('中文',chinese['splitting'])]:
             variants.append((f'拆分阶段 · {language}',capture,pools(agent,'process',language),pools(agent,'process',language)))
@@ -436,7 +448,7 @@ STATUS.update(feedback_status)
 
 index='# Agent Prompt总览与当前调用路线\n\n导出时 Git HEAD：`'+head+'`。文档内容取自导出时的工作区，文件哈希见导出核验 JSON。\n\n'
 index+='## 当前运行的prompt是否唯一\n\n每一次模型调用只采用一套确定的System和User；程序按调用入口选择分支，不会把所有分支prompt一起发给模型。实体抽取仍分两轮；关系抽取只负责基线，反馈由 Add → Replace → Remove 三个 Agent 执行。每个阶段独立核查并接收前一步实际输出；Add、Replace 按核对问题、生成操作、复核输出处理；Remove 按确定问题、确定保留表达并处理、整理输出处理。Remove 重点检查词重合或包含排名靠前的条目对，并覆盖当前集合；全部三元组对均提供两个排名。Remove 在一次回复中完成替换和删除，程序按同一输入编号整组执行。问题由程序传递，各阶段输出相应操作与 handoff。新事实按单句依据抽取。重建文本与比较当前由pipeline传入sentence_groups，使用分组版本；“非分组User”只是未传该参数时保留的另一条入口。默认 text_scope=sentence，每个分组单独调用重建和对比；feedback_scope=sentence，每句独立完成 Add→Replace→Remove。两个配置均可选 document，恢复整篇调用。去重保留每条三元组的源句归属；逐句反馈不自动回退整篇，来源编号无效时明确报错。所有请求顺序执行；原 Chat Completions 的 429/5xx/网络重试取消次数上限，等待最多30秒；Responses 保持原接口处理。\n\n'
-index+='关系抽取、拆分、分组重建、分组对比及 Add、Replace、Remove 按各自处理的源文本选择中文或英文提示。重建只用源句判断语言，模型收到的事实输入是三元组。实体抽取两轮已有中文示例。 [语言选择源码](prompt_language.py)\n\n'
+index+='实体抽取和审校、关系抽取、拆分、分组重建、分组对比及 Add、Replace、Remove 按各自处理的源文本选择中文或英文提示。重建只用源句判断语言，模型收到的事实输入是三元组。 [语言选择源码](prompt_language.py)\n\n'
 index+='Remove 与宽松评估共用字词切分。每个汉字计为一个单位，其余文本按空白和汉字边界切分。 [Remove 完整 Prompt](feedback_remove/RemoveAgent_完整Prompt.md)\n\n'
 index+='运行范围、限流重试及回放命令见 [逐句运行与API重试说明](逐句运行与API重试说明.md)。\n\n'
 index+='## 各Agent文档与当前状态\n\n'+table(['Agent','完整Prompt文档','运行状态'],[(a,f'[{NAMES[a][:-3]}](<{a}/{NAMES[a]}>)',STATUS[a]) for a in NAMES])

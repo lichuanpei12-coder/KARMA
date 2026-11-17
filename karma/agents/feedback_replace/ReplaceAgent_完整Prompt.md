@@ -47,7 +47,7 @@
 
 ### User 消息 · 表达要求
 
-【来源：User 消息 · 表达要求｜[karma/agents/feedback_common.py 第7—13行](<../feedback_common.py#L7>) · [karma/agents/feedback_common.py 第22—28行](<../feedback_common.py#L22>)】
+【来源：User 消息 · 表达要求｜[karma/agents/feedback_common.py 第7—13行](<../feedback_common.py#L7>) · [karma/agents/feedback_common.py 第23—29行](<../feedback_common.py#L23>)】
 
 ```text
 # 表达要求
@@ -105,7 +105,7 @@ target 使用 add、replace、remove、text_generation、text_comparison 或 rev
 
 ### User 消息 · 本次数据
 
-【来源：User 消息 · 本次数据｜[karma/agents/feedback_common.py 第49—52行](<../feedback_common.py#L49>)】
+【来源：User 消息 · 本次数据｜[karma/agents/feedback_common.py 第50—53行](<../feedback_common.py#L50>)】
 
 ```text
 # 本次输入
@@ -157,14 +157,15 @@ target 使用 add、replace、remove、text_generation、text_comparison 或 rev
 
 ### User 消息 · 表达要求
 
-【来源：User 消息 · 表达要求｜[karma/agents/feedback_common.py 第15—20行](<../feedback_common.py#L15>) · [karma/agents/feedback_common.py 第22—28行](<../feedback_common.py#L22>)】
+【来源：User 消息 · 表达要求｜[karma/agents/feedback_common.py 第15—21行](<../feedback_common.py#L15>) · [karma/agents/feedback_common.py 第23—29行](<../feedback_common.py#L23>)】
 
 ```text
 # 表达要求
-依据源句选择主体、动作和对象，保留原文用词和含义。省略的主语按本句中明确的对应关系补齐。
+依据源句确定主体、客体和关系方向，实义词沿用原文写法。可补充独立表达必需的语法成分；省略的主语按本句中明确的对应关系补齐。
+指代不明确时保留原文代词。混排的名称或缩写沿用原写法。
 保留「未」「不会」「可」「用于」和条件、数量、时间、范围，逐项确认它们约束的对象或动作。
 「或」连接的选项保留选择范围；并列项各自独立成立时分别表达。用途和风险中的动作按原句的用途或风险表达。
-决定对象身份、关系含义或成立条件的修饰保留在对应字段。只作引入且省略后事实完整的背景可省略。
+决定对象身份、关系含义或成立条件的修饰保留在对应字段。「在一些实施例中」等只作引入的句首背景可省略。
 候选名单可能遗漏源句中的对象。依据源句确定主体和对象，候选名单用于辅助定位。
 文本差异指出源句与重建文本的差别。对照源句分别核实当前三元组、重建文本与对比判断中的问题；修正有误的三元组，保留正确条目。
 重建文本与差异来自最初的集合，结合当前集合及修改记录判断问题是否仍存在。
@@ -189,18 +190,30 @@ target 使用 add、replace、remove、text_generation、text_comparison 或 rev
 
 ### User 消息 · 示例
 
-【来源：User 消息 · 示例｜[karma/agents/feedback_replace/agent.py 第70—73行](<agent.py#L70>)】
+【来源：User 消息 · 示例｜[karma/agents/feedback_replace/agent.py 第70—85行](<agent.py#L70>)】
 
 ```text
 # 示例
 修正内部动作的主体和用途，保留位置关系
 输入：{"source_sentences":[{"sentence_id":"S1","text":"安装在仓门内侧的摄像头用于识别车辆编号，但尚未接入值班系统。"}],"current_collection":{"triples":[{"index":0,"head":"仓门","relation":"识别","tail":"车辆编号","source_sentence_ids":["S1"]},{"index":1,"head":"摄像头","relation":"安装在","tail":"仓门内侧","source_sentence_ids":["S1"]},{"index":2,"head":"摄像头","relation":"已接入","tail":"值班系统","source_sentence_ids":["S1"]}]}}
 输出：{"replace":[{"index":0,"reason":"识别车辆编号是摄像头的用途，主体是摄像头。","new_triples":[{"head":"摄像头","relation":"用于识别","tail":"车辆编号","source_sentence_ids":["S1"]}]},{"index":2,"reason":"源句用「尚未」限定接入状态。","new_triples":[{"head":"摄像头","relation":"尚未接入","tail":"值班系统","source_sentence_ids":["S1"]}]}],"handoff":[]}
+
+嵌套关系一起写入一项 replace
+输入：{"source_sentences":[{"sentence_id":"S1","text":"检票台旁设有用于回收旧票的箱子。"}],"current_collection":{"triples":[{"index":0,"head":"检票台旁","relation":"设有","tail":"用于回收旧票的箱子","source_sentence_ids":["S1"]}]}}
+输出：{"replace":[{"index":0,"reason":"先保留箱子所在的位置，再独立表达箱子的用途。","new_triples":[{"head":"检票台旁","relation":"设有","tail":"箱子","source_sentence_ids":["S1"]},{"head":"箱子","relation":"用于回收","tail":"旧票","source_sentence_ids":["S1"]}]}],"handoff":[]}
+
+内部动作已有独立条目，修正它并缩短外层客体
+输入：{"source_sentences":[{"sentence_id":"S1","text":"场馆配有处理访客登记的终端。"}],"current_collection":{"triples":[{"index":0,"head":"场馆","relation":"配有","tail":"处理访客登记的终端","source_sentence_ids":["S1"]},{"index":1,"head":"场馆","relation":"处理","tail":"访客登记","source_sentence_ids":["S1"]}]}}
+输出：{"replace":[{"index":1,"reason":"处理访客登记的主体是终端。","new_triples":[{"head":"终端","relation":"处理","tail":"访客登记","source_sentence_ids":["S1"]}]},{"index":0,"reason":"内部动作已由修正后的第1条表达。","new_triples":[{"head":"场馆","relation":"配有","tail":"终端","source_sentence_ids":["S1"]}]}],"handoff":[]}
+
+保留风险发生的可能性和条件
+输入：{"source_sentences":[{"sentence_id":"S1","text":"转弯时货物可能滑出车厢，司机已加装挡板。"}],"current_collection":{"triples":[{"index":0,"head":"货物","relation":"滑出","tail":"车厢","source_sentence_ids":["S1"]},{"index":1,"head":"司机","relation":"已加装","tail":"挡板","source_sentence_ids":["S1"]}]}}
+输出：{"replace":[{"index":0,"reason":"滑出是转弯时可能发生的风险，保留条件和「可能」。","new_triples":[{"head":"转弯时货物","relation":"可能滑出","tail":"车厢","source_sentence_ids":["S1"]}]}],"handoff":[]}
 ```
 
 ### User 消息 · 本次数据
 
-【来源：User 消息 · 本次数据｜[karma/agents/feedback_common.py 第49—52行](<../feedback_common.py#L49>)】
+【来源：User 消息 · 本次数据｜[karma/agents/feedback_common.py 第50—53行](<../feedback_common.py#L50>)】
 
 ```text
 # 本次输入

@@ -51,7 +51,15 @@ EXAMPLES = """# 示例
 CHINESE_EXAMPLES = """# 示例
 合并同一检查动作，保留其条件和对象范围
 输入：{"source_sentences":[{"sentence_id":"S1","text":"停电时，值班员检查机房门口的备用照明，并记录检查结果。"}],"current_collection":{"triples":[{"index":0,"head":"停电时，值班员","relation":"检查","tail":"备用照明","source_sentence_ids":["S1"]},{"index":1,"head":"值班员","relation":"检查","tail":"机房门口的备用照明","source_sentence_ids":["S1"]},{"index":2,"head":"停电时，值班员","relation":"记录","tail":"检查结果","source_sentence_ids":["S1"]}]}}
-输出：{"replace":[{"index":0,"reason":"在同一条检查关系中保留停电条件和机房门口的对象范围。","new_triples":[{"head":"停电时，值班员","relation":"检查","tail":"机房门口的备用照明","source_sentence_ids":["S1"]}]}],"remove":[{"index":1,"keep_index":0,"reason":"第0、1条对应同一检查动作，第2条独立表达记录结果。"}],"handoff":[]}"""
+输出：{"replace":[{"index":0,"reason":"在同一条检查关系中保留停电条件和机房门口的对象范围。","new_triples":[{"head":"停电时，值班员","relation":"检查","tail":"机房门口的备用照明","source_sentence_ids":["S1"]}]}],"remove":[{"index":1,"keep_index":0,"reason":"第0、1条对应同一检查动作，第2条独立表达记录结果。"}],"handoff":[]}
+
+删除完整重复，保留条件和情态不同的关系
+输入：{"source_sentences":[{"sentence_id":"S1","text":"试运行时终端可以发送提示，正式运行时终端必须发送提示。"}],"current_collection":{"triples":[{"index":0,"head":"试运行时终端","relation":"可以发送","tail":"提示","source_sentence_ids":["S1"]},{"index":1,"head":"试运行时终端","relation":"可以发送","tail":"提示","source_sentence_ids":["S1"]},{"index":2,"head":"正式运行时终端","relation":"必须发送","tail":"提示","source_sentence_ids":["S1"]}]}}
+输出：{"replace":[],"remove":[{"index":1,"keep_index":0,"reason":"第0、1条完整重复；第2条的运行条件和义务不同，单独保留。"}],"handoff":[]}
+
+独立关系已表达，缩短外层字段
+输入：{"source_sentences":[{"sentence_id":"S1","text":"办公区配有可打印通行证的终端。"}],"current_collection":{"triples":[{"index":0,"head":"办公区","relation":"配有","tail":"可打印通行证的终端","source_sentence_ids":["S1"]},{"index":1,"head":"终端","relation":"可打印","tail":"通行证","source_sentence_ids":["S1"]}]}}
+输出：{"replace":[{"index":0,"reason":"第1条已独立表达打印功能，第0条保留办公区配有终端。","new_triples":[{"head":"办公区","relation":"配有","tail":"终端","source_sentence_ids":["S1"]}]}],"remove":[],"handoff":[]}"""
 
 
 class FeedbackRemoveAgent(FeedbackAgent):

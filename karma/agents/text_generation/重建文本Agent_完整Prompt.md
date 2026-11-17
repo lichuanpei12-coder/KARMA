@@ -1,12 +1,12 @@
 # 重建文本Agent_完整Prompt
 
-导出时 Git HEAD：`e1fe5162e90d48943bea027e996502d0c0c95706`。行号和文件哈希对应导出时的工作区源码。
+导出时 Git HEAD：`be2883080d2c05af3bf85784253c09c90d045b0e`。行号和文件哈希对应导出时的工作区源码。
 
 ## 当前运行是否使用这套Prompt
 
 当前pipeline默认text_scope=sentence，由generate_sentences逐句调用generate_grouped，每次只传一个分组。text_scope=document时一次传入全部分组；两种模式固定System和User相同，仅输入范围不同。另一条generate_text路径只在不传分组或直接调用时使用，不会同时发送。
 
-【来源：调用入口与System/User发送｜[karma/agents/text_generation/agent.py 第123—135行](<agent.py#L123>)；[karma/core/base_agent.py 第100—209、211—252行](<../../core/base_agent.py#L100>)】
+【来源：调用入口与System/User发送｜[karma/agents/text_generation/agent.py 第124—136行](<agent.py#L124>)；[karma/core/base_agent.py 第100—209、211—252行](<../../core/base_agent.py#L100>)】
 
 Chat Completions 与 Responses 使用同一套 System/User 内容。Chat Completions 的原有重试改为无限次数、等待最多30秒；Responses 保持原处理。
 
@@ -20,13 +20,13 @@ Chat Completions 与 Responses 使用同一套 System/User 内容。Chat Complet
 
 固定文本全部展开，仅运行数据用源码变量或表达式表示。每个入口保留一份按顺序排列的System和User；每部分前用一行相对路径链接标注来源，可点击查看源码。来源链接放在代码块外以保持蓝色显示。“【来源：…】”和消息角色标记只用于阅读。同目录[Prompt完整模板.json](Prompt完整模板.json)保存不含阅读标注的角色结构。
 
-【来源：逐句入口与调度｜[karma/agents/text_generation/agent.py 第137—148行](<agent.py#L137>)；[karma/core/pipeline.py 第413—415行](<../../core/pipeline.py#L413>)】
+【来源：逐句入口与调度｜[karma/agents/text_generation/agent.py 第138—149行](<agent.py#L138>)；[karma/core/pipeline.py 第413—415行](<../../core/pipeline.py#L413>)】
 
 ## 分组入口 · 英文（逐句与整篇）
 
 **System 消息**
 
-【来源：任务说明｜[karma/agents/text_generation/agent.py 第195行](<agent.py#L195>)】
+【来源：任务说明｜[karma/agents/text_generation/agent.py 第196行](<agent.py#L196>)】
 
 ```text
 你根据给定三元组逐组生成重建文本，完整回复为 JSON 数组。
@@ -34,14 +34,14 @@ Chat Completions 与 Responses 使用同一套 System/User 内容。Chat Complet
 
 **User 消息**
 
-【来源：任务说明｜[karma/agents/text_generation/agent.py 第168—169行](<agent.py#L168>)】
+【来源：任务说明｜[karma/agents/text_generation/agent.py 第169—170行](<agent.py#L169>)】
 
 ```text
 依据按源句编号分组的三元组，逐组生成对应的重建文本。
 编号仅用于定位，不包含原文信息；本任务的事实依据是输入三元组。
 ```
 
-【来源：执行步骤｜[karma/agents/text_generation/agent.py 第18、170—191行](<agent.py#L18>)】
+【来源：执行步骤｜[karma/agents/text_generation/agent.py 第18、171—192行](<agent.py#L18>)】
 
 ```text
 # 执行步骤
@@ -80,7 +80,7 @@ Chat Completions 与 Responses 使用同一套 System/User 内容。Chat Complet
 
 **System 消息**
 
-【来源：任务说明｜[karma/agents/text_generation/agent.py 第195行](<agent.py#L195>)】
+【来源：任务说明｜[karma/agents/text_generation/agent.py 第196行](<agent.py#L196>)】
 
 ```text
 你根据给定三元组逐组生成重建文本，完整回复为 JSON 数组。
@@ -88,21 +88,22 @@ Chat Completions 与 Responses 使用同一套 System/User 内容。Chat Complet
 
 **User 消息**
 
-【来源：任务说明｜[karma/agents/text_generation/agent.py 第168—169行](<agent.py#L168>)】
+【来源：任务说明｜[karma/agents/text_generation/agent.py 第169—170行](<agent.py#L169>)】
 
 ```text
 依据按源句编号分组的三元组，逐组生成对应的重建文本。
 编号仅用于定位，不包含原文信息；本任务的事实依据是输入三元组。
 ```
 
-【来源：执行步骤｜[karma/agents/text_generation/agent.py 第19、170—191行](<agent.py#L19>)】
+【来源：执行步骤｜[karma/agents/text_generation/agent.py 第19—20、171—192行](<agent.py#L19>)】
 
 ```text
 # 执行步骤
 1. 读取一组全部三元组
    事实依据为该组的 head、relation、tail；空组的 text 返回空字符串。
 2. 分别表达每条三元组
-   各组沿用三元组的语言。中文组保留输入用词，可补必要的语法成分。将「未」「可」「用于」「或」等限定保留在原来所约束的动作或对象上。
+   每条关系先形成对应表达。各组沿用三元组的语言，中文组保留输入用词及中英混排词的写法，可补充独立表达必需的语法成分。
+   将「未」「可」「用于」「或」等限定保留在原来所约束的动作或对象上。
 3. 检查各条表达的角色和限定
    对照原三元组保留主体、对象、方向，以及否定、情态、条件、目的、因果、数量、时间和范围。
    指代未知时保留原代词；字段含义不完整时保留现有表达。
@@ -134,7 +135,7 @@ Chat Completions 与 Responses 使用同一套 System/User 内容。Chat Complet
 
 **System 消息**
 
-【来源：任务说明｜[karma/agents/text_generation/agent.py 第42—116行](<agent.py#L42>)】
+【来源：任务说明｜[karma/agents/text_generation/agent.py 第43—117行](<agent.py#L43>)】
 
 ```text
 你是一个专门用于将结构化三元组转换为流畅自然语言句子的文本生成代理。
@@ -216,7 +217,7 @@ Chat Completions 与 Responses 使用同一套 System/User 内容。Chat Complet
 
 **User 消息**
 
-【来源：任务说明｜[karma/agents/text_generation/agent.py 第304—335行](<agent.py#L304>)】
+【来源：任务说明｜[karma/agents/text_generation/agent.py 第305—336行](<agent.py#L305>)】
 
 ```text
                 生成指令：
@@ -261,7 +262,7 @@ Chat Completions 与 Responses 使用同一套 System/User 内容。Chat Complet
 UNASSIGNED 是来源句尚未确定的条目分组；按输入编号处理该组。
 ```
 
-插入到当前分组User的业务输入标签之前，拼接位置见karma/agents/text_generation/agent.py 第150—224行。
+插入到当前分组User的业务输入标签之前，拼接位置见karma/agents/text_generation/agent.py 第151—225行。
 
 ## 文档维护
 

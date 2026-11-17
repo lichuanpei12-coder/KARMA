@@ -43,7 +43,7 @@
 
 ### User 消息 · 表达要求
 
-【来源：User 消息 · 表达要求｜[karma/agents/feedback_common.py 第7—13行](<../feedback_common.py#L7>) · [karma/agents/feedback_common.py 第22—28行](<../feedback_common.py#L22>)】
+【来源：User 消息 · 表达要求｜[karma/agents/feedback_common.py 第7—13行](<../feedback_common.py#L7>) · [karma/agents/feedback_common.py 第23—29行](<../feedback_common.py#L23>)】
 
 ```text
 # 表达要求
@@ -97,7 +97,7 @@ target 使用 add、replace、remove、text_generation、text_comparison 或 rev
 
 ### User 消息 · 本次数据
 
-【来源：User 消息 · 本次数据｜[karma/agents/feedback_common.py 第49—52行](<../feedback_common.py#L49>)】
+【来源：User 消息 · 本次数据｜[karma/agents/feedback_common.py 第50—53行](<../feedback_common.py#L50>)】
 
 ```text
 # 本次输入
@@ -145,14 +145,15 @@ target 使用 add、replace、remove、text_generation、text_comparison 或 rev
 
 ### User 消息 · 表达要求
 
-【来源：User 消息 · 表达要求｜[karma/agents/feedback_common.py 第15—20行](<../feedback_common.py#L15>) · [karma/agents/feedback_common.py 第22—28行](<../feedback_common.py#L22>)】
+【来源：User 消息 · 表达要求｜[karma/agents/feedback_common.py 第15—21行](<../feedback_common.py#L15>) · [karma/agents/feedback_common.py 第23—29行](<../feedback_common.py#L23>)】
 
 ```text
 # 表达要求
-依据源句选择主体、动作和对象，保留原文用词和含义。省略的主语按本句中明确的对应关系补齐。
+依据源句确定主体、客体和关系方向，实义词沿用原文写法。可补充独立表达必需的语法成分；省略的主语按本句中明确的对应关系补齐。
+指代不明确时保留原文代词。混排的名称或缩写沿用原写法。
 保留「未」「不会」「可」「用于」和条件、数量、时间、范围，逐项确认它们约束的对象或动作。
 「或」连接的选项保留选择范围；并列项各自独立成立时分别表达。用途和风险中的动作按原句的用途或风险表达。
-决定对象身份、关系含义或成立条件的修饰保留在对应字段。只作引入且省略后事实完整的背景可省略。
+决定对象身份、关系含义或成立条件的修饰保留在对应字段。「在一些实施例中」等只作引入的句首背景可省略。
 候选名单可能遗漏源句中的对象。依据源句确定主体和对象，候选名单用于辅助定位。
 文本差异指出源句与重建文本的差别。对照源句分别核实当前三元组、重建文本与对比判断中的问题；修正有误的三元组，保留正确条目。
 重建文本与差异来自最初的集合，结合当前集合及修改记录判断问题是否仍存在。
@@ -177,18 +178,26 @@ target 使用 add、replace、remove、text_generation、text_comparison 或 rev
 
 ### User 消息 · 示例
 
-【来源：User 消息 · 示例｜[karma/agents/feedback_remove/agent.py 第51—54行](<agent.py#L51>)】
+【来源：User 消息 · 示例｜[karma/agents/feedback_remove/agent.py 第51—62行](<agent.py#L51>)】
 
 ```text
 # 示例
 合并同一检查动作，保留其条件和对象范围
 输入：{"source_sentences":[{"sentence_id":"S1","text":"停电时，值班员检查机房门口的备用照明，并记录检查结果。"}],"current_collection":{"triples":[{"index":0,"head":"停电时，值班员","relation":"检查","tail":"备用照明","source_sentence_ids":["S1"]},{"index":1,"head":"值班员","relation":"检查","tail":"机房门口的备用照明","source_sentence_ids":["S1"]},{"index":2,"head":"停电时，值班员","relation":"记录","tail":"检查结果","source_sentence_ids":["S1"]}]}}
 输出：{"replace":[{"index":0,"reason":"在同一条检查关系中保留停电条件和机房门口的对象范围。","new_triples":[{"head":"停电时，值班员","relation":"检查","tail":"机房门口的备用照明","source_sentence_ids":["S1"]}]}],"remove":[{"index":1,"keep_index":0,"reason":"第0、1条对应同一检查动作，第2条独立表达记录结果。"}],"handoff":[]}
+
+删除完整重复，保留条件和情态不同的关系
+输入：{"source_sentences":[{"sentence_id":"S1","text":"试运行时终端可以发送提示，正式运行时终端必须发送提示。"}],"current_collection":{"triples":[{"index":0,"head":"试运行时终端","relation":"可以发送","tail":"提示","source_sentence_ids":["S1"]},{"index":1,"head":"试运行时终端","relation":"可以发送","tail":"提示","source_sentence_ids":["S1"]},{"index":2,"head":"正式运行时终端","relation":"必须发送","tail":"提示","source_sentence_ids":["S1"]}]}}
+输出：{"replace":[],"remove":[{"index":1,"keep_index":0,"reason":"第0、1条完整重复；第2条的运行条件和义务不同，单独保留。"}],"handoff":[]}
+
+独立关系已表达，缩短外层字段
+输入：{"source_sentences":[{"sentence_id":"S1","text":"办公区配有可打印通行证的终端。"}],"current_collection":{"triples":[{"index":0,"head":"办公区","relation":"配有","tail":"可打印通行证的终端","source_sentence_ids":["S1"]},{"index":1,"head":"终端","relation":"可打印","tail":"通行证","source_sentence_ids":["S1"]}]}}
+输出：{"replace":[{"index":0,"reason":"第1条已独立表达打印功能，第0条保留办公区配有终端。","new_triples":[{"head":"办公区","relation":"配有","tail":"终端","source_sentence_ids":["S1"]}]}],"remove":[],"handoff":[]}
 ```
 
 ### User 消息 · 本次数据
 
-【来源：User 消息 · 本次数据｜[karma/agents/feedback_common.py 第49—52行](<../feedback_common.py#L49>)】
+【来源：User 消息 · 本次数据｜[karma/agents/feedback_common.py 第50—53行](<../feedback_common.py#L50>)】
 
 ```text
 # 本次输入
