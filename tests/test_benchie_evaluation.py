@@ -32,7 +32,7 @@ class BenchieEvaluationTests(unittest.TestCase):
     def test_real_gold_and_cli_score_each_stage_by_sample_id(self):
         gold = load_clusters(DEFAULT_GOLD)
         self.assertEqual(len(gold), 300)
-        self.assertEqual(sum(map(len, gold.values())), 995)
+        self.assertEqual(sum(map(len, gold.values())), 996)
         self.assertEqual(gold["benchie-zh-249"], [])
         self.assertEqual([cluster["cluster_id"] for cluster in gold["benchie-zh-206"]], [1, 2, 3, 4])
         prime_minister = triple("他", "曾担任", "澳大利亚第一任总理")

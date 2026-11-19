@@ -22,7 +22,7 @@ hr{border:0;border-top:1px solid var(--line);margin:30px 0}.filelinks{display:fl
 footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid var(--line);padding-top:15px}
 @media(max-width:900px){.layout{display:block;padding:12px}aside{position:static;max-height:300px;margin-bottom:16px}main{padding:22px 18px}header{padding:18px}h1{font-size:23px}h2{font-size:21px}th,td{padding:8px}}
 @media print{body{background:#fff;font-size:11pt}.layout{display:block;padding:0}aside,header,.filelinks,footer{display:none}main{border:0;padding:0}.table-wrap{overflow:visible}pre,table{font-size:9pt}h2,h3{break-after:avoid}tr{break-inside:avoid}a{color:inherit;text-decoration:none}}
-</style></head><body><header><div class="label">遗漏补充 Agent 完整 Prompt</div><p>源码行号与实际调用分支 · 导出基于 1f20a93</p></header><div class="layout"><aside><h2>目录</h2><input id="toc-filter" type="search" placeholder="搜索轮次、System、User"><a href="../Prompt%E6%80%BB%E8%A7%88.html">全部Agent总览</a><a class="" href="#section-1">英文输入</a>
+</style></head><body><header><div class="label">遗漏补充 Agent 完整 Prompt</div><p>源码行号与实际调用分支 · 导出基于 7462231</p></header><div class="layout"><aside><h2>目录</h2><input id="toc-filter" type="search" placeholder="搜索轮次、System、User"><a href="../Prompt%E6%80%BB%E8%A7%88.html">全部Agent总览</a><a class="" href="#section-1">英文输入</a>
 <a class="sub" href="#section-2">System 消息</a>
 <a class="sub" href="#section-3">User 消息 · 执行步骤</a>
 <a class="sub" href="#section-4">User 消息 · 表达要求</a>
@@ -68,7 +68,7 @@ footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid va
 <p>【来源：User 消息 · 表达要求｜<a href="../feedback_common.py#L7">karma/agents/feedback_common.py 第7—13行</a> · <a href="../feedback_common.py#L23">karma/agents/feedback_common.py 第23—29行</a>】</p>
 <pre><code class="language-text"># 表达要求
 源句是事实依据。实义词保持原文用词、词形和大小写；独立表达时可以补充必要的系词、助动词和介词。
-若同一句内能唯一确定指代对象，优先用该句中的实体原称写出三元组，使三元组可以独立阅读；无法唯一确定时保留原文指代表达。例如原文是 to provide，可以表达为 is to provide，保留 provide 的词形。
+例如原文是 to provide，可以表达为 is to provide，保留 provide 的词形。
 保留关系的主体、对象、方向，以及否定、可能性、目的、风险、条件、数量、时间和范围。
 “物品掉落的危险”按风险表达，目的中的动作按目的表达，选择项保留 or 及其选择范围。
 修饰语决定哪个对象参与、关系含义或成立条件时，保留在对应字段；In some embodiments 这类句首背景省略。
@@ -140,7 +140,7 @@ target 使用 add、replace、remove、text_generation、text_comparison 或 rev
 <p>【来源：User 消息 · 表达要求｜<a href="../feedback_common.py#L15">karma/agents/feedback_common.py 第15—21行</a> · <a href="../feedback_common.py#L23">karma/agents/feedback_common.py 第23—29行</a>】</p>
 <pre><code class="language-text"># 表达要求
 依据源句确定主体、客体和关系方向，实义词沿用原文写法。可补充独立表达必需的语法成分；省略的主语按本句中明确的对应关系补齐。
-若同一句内能唯一确定指代对象，优先用该句中的实体原称写出三元组，使三元组可以独立阅读；无法唯一确定时保留原文指代表达。混排的名称或缩写沿用原写法。
+指代不明确时保留原文代词。混排的名称或缩写沿用原写法。
 保留「未」「不会」「可」「用于」和条件、数量、时间、范围，逐项确认它们约束的对象或动作。
 「或」连接的选项保留选择范围；并列项各自独立成立时分别表达。用途和风险中的动作按原句的用途或风险表达。
 决定对象身份、关系含义或成立条件的修饰保留在对应字段。「在一些实施例中」等只作引入的句首背景可省略。

@@ -37,9 +37,9 @@ tr:nth-child(even) { background: #f7f9fc; }
 <body>
 <main>
 <h1>BenchIE 中文版数据集介绍</h1>
-<p>BenchIE 中文版由 <strong>300 个独立的中文句子</strong>构成，参考答案以人工标注的「主体、关系、客体」三元组呈现。KARMA 整理版包含 <strong>995 个事实簇</strong>和 <strong>1,134 条标注记录</strong>。模型匹配簇中任意一种保留的写法，就算覆盖该事实。<a href="benchie_zh_karma_input.json">中文原句</a> · <a href="benchie_zh_gold_clusters.json">三元组标注</a> · <a href="README.md">数据整理记录</a></p>
+<p>BenchIE 中文版由 <strong>300 个独立的中文句子</strong>构成，参考答案以人工标注的「主体、关系、客体」三元组呈现。KARMA 整理版包含 <strong>996 个事实簇</strong>和 <strong>1,209 条标注记录</strong>。模型匹配簇中任意一种保留的写法，就算覆盖该事实。<a href="benchie_zh_karma_input.json">中文原句</a> · <a href="benchie_zh_gold_clusters.json">三元组标注</a> · <a href="README.md">数据整理记录</a></p>
 <h2>三条样本及标注结果</h2>
-<p>每张表对应一个事实簇，表内展示整理后保留的写法。原有方括号里的文字已纳入保留写法。同簇内三个字段合计用词及次数完全相同的写法只保留一种。<a href="benchie_gold_annotations_zh.txt">中文整理版标注</a></p>
+<p>每张表对应一个事实簇，表内展示整理后保留的写法。原有方括号里的文字已纳入保留写法。初次整理时合并了同簇内合计用词及次数相同的写法；逐句复核时也可保留有依据的字段划分或同位表达。<a href="benchie_gold_annotations_zh.txt">中文整理版标注</a></p>
 <h3>样本 1</h3>
 <p>他曾担任澳大利亚第一任总理，并成为澳大利亚高等法院的创始法官。</p>
 <p><strong>事实簇 1</strong></p>
@@ -168,7 +168,7 @@ tr:nth-child(even) { background: #f7f9fc; }
 </table>
 <h2>研究背景与数据来源</h2>
 <p>以往的开放信息抽取评估通常按词语重合给分。用词相似的预测即使改变了事实，也可能拿到部分分数。Gashteovski 等人在 ACL 2022 发布 BenchIE，把同一事实的合法写法事先收录到参考答案中，再按事实簇计算命中和遗漏。作者从英文评估集 CaRB 中选取 300 个句子，由双语专家翻译成中文，再依据中文译文重新人工标注。 <a href="https://aclanthology.org/2022.acl-long.307.pdf#page=2">BenchIE 论文 §1–2</a></p>
-<p>论文表 3 报告中文版有 994 个事实簇。KARMA 整理时恢复了原始标注中第 206 句的一处簇边界，因此本地版统计为 995 个。 <a href="https://aclanthology.org/2022.acl-long.307.pdf#page=4">论文表 3</a> · <a href="README.md#%E6%9D%A5%E6%BA%90%E4%B8%8E%E8%BD%AC%E6%8D%A2%E8%AE%B0%E5%BD%95">转换记录</a></p>
+<p>论文表 3 报告中文版有 994 个事实簇。KARMA 初次整理时恢复了第 206 句的一处簇边界，得到 995 个事实簇。合并第 14 句的重复簇后得到 994 簇。本地版为第 20 和 27 句补入 3 个独立事实，再按独立事实计数移除第 3 句泛化簇，现有 996 簇。<a href="https://aclanthology.org/2022.acl-long.307.pdf#page=4">论文表 3</a> · <a href="README.md#%E6%9D%A5%E6%BA%90%E4%B8%8E%E8%BD%AC%E6%8D%A2%E8%AE%B0%E5%BD%95">转换记录</a></p>
 <h2>与 DocOIE 的区别</h2>
 <table>
 <thead>
