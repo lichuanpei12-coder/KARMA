@@ -1,5 +1,5 @@
 {
-  "git_head": "74622319b1162d120ddab91f6f09c1e058317c69",
+  "git_head": "3fec4b99d37c3f32173fe6a57cef9c2bd5c5f719",
   "documents": [
     "karma/agents/Prompt总览.md",
     "karma/agents/ingestion/摄入Agent_完整Prompt.md",
@@ -1747,7 +1747,7 @@
         [
           "karma/agents/feedback_add/agent.py",
           9,
-          22
+          23
         ]
       ]
     },
@@ -1773,8 +1773,8 @@
       "source_spans": [
         [
           "karma/agents/feedback_add/agent.py",
-          24,
-          28
+          25,
+          29
         ]
       ]
     },
@@ -1784,8 +1784,8 @@
       "source_spans": [
         [
           "karma/agents/feedback_add/agent.py",
-          30,
-          43
+          31,
+          44
         ]
       ]
     },
@@ -1818,7 +1818,7 @@
         [
           "karma/agents/feedback_add/agent.py",
           9,
-          22
+          23
         ]
       ]
     },
@@ -1844,8 +1844,8 @@
       "source_spans": [
         [
           "karma/agents/feedback_add/agent.py",
-          24,
-          28
+          25,
+          29
         ]
       ]
     },
@@ -1855,8 +1855,8 @@
       "source_spans": [
         [
           "karma/agents/feedback_add/agent.py",
-          45,
-          56
+          46,
+          57
         ]
       ]
     },
@@ -2170,7 +2170,7 @@
     "karma/agents/conflict_resolution/agent.py": "bda5d1a67b6b7470b62f69c3c92f81c48bf85ea87ca397f97e73171b27f129f3",
     "karma/agents/entity_extraction/agent.py": "ffcce37f9241de0e1731c6e4a635809925e9f0324fb27c2c8524d3b00e8fcbf6",
     "karma/agents/evaluator/agent.py": "a53ac58714879b59425efaa36648faf2a7890539522cefe8690fcb70098d8916",
-    "karma/agents/feedback_add/agent.py": "b7a06ec429cf1c5cdefdfa8e4d5599302ddbc732448484651175e1da5232cbeb",
+    "karma/agents/feedback_add/agent.py": "59fb61b56308f9eda11ee41c4b1164614d14bf00b45529ba35f70f80c841cb0e",
     "karma/agents/feedback_remove/agent.py": "174a3427955adddb3404a8213fbb87ada87441a0e26c3d779d3c5f7ebc9ae2a3",
     "karma/agents/feedback_replace/agent.py": "0beb822b6392deddb5a6834bdcf1b560245de025761403cd389e18de3c5f0614",
     "karma/agents/ingestion/agent.py": "6d9824495b2fe29bbf3f2b889794d0df766a0c85028698fcf92b7da2a6c699e0",

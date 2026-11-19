@@ -279,18 +279,8 @@
       "variants": [
         {
           "head": "该市",
-          "relation": "改名为",
+          "relation": "在1918年改名为",
           "tail": "琼斯"
-        }
-      ]
-    },
-    {
-      "cluster_id": 2,
-      "variants": [
-        {
-          "head": "该市",
-          "relation": "改名为琼斯",
-          "tail": "在1918年"
         }
       ]
     },
@@ -308,29 +298,14 @@
       "cluster_id": 4,
       "variants": [
         {
-          "head": "他",
-          "relation": "制定了",
+          "head": "美国国会议员威廉·琼斯",
+          "relation": "在1916年制定了",
           "tail": "菲律宾自治法"
         },
         {
-          "head": "美国国会议员威廉·琼斯",
-          "relation": "制定了",
-          "tail": "菲律宾自治法"
-        }
-      ]
-    },
-    {
-      "cluster_id": 5,
-      "variants": [
-        {
           "head": "他",
-          "relation": "制定了菲律宾自治法",
-          "tail": "在1916年"
-        },
-        {
-          "head": "美国国会议员威廉·琼斯",
-          "relation": "制定了菲律宾自治法",
-          "tail": "在1916年"
+          "relation": "在1916年制定了",
+          "tail": "菲律宾自治法"
         }
       ]
     },

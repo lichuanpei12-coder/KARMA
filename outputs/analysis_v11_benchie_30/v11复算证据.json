@@ -1,29 +1,29 @@
 {
-  "gold_sha256": "27ce06bc49ba11b8ec5aa66211aba10be1b181fa85bb801ab85c472686738faf",
+  "gold_sha256": "c9425ec221de7d2dbc86149e6c1f461c00e80892641d00c913edac7b06cd3ad2",
   "stages": {
     "baseline": {
       "benchie_exact": {
-        "tp": 40,
-        "fp": 51,
-        "fn": 79,
-        "num_gold_clusters": 119,
+        "tp": 42,
+        "fp": 49,
+        "fn": 75,
+        "num_gold_clusters": 117,
         "num_predictions": 92,
         "additional_same_cluster_hits": 1,
-        "precision": 0.43956043956043955,
-        "recall": 0.33613445378151263,
-        "f1": 0.380952380952381
+        "precision": 0.46153846153846156,
+        "recall": 0.358974358974359,
+        "f1": 0.4038461538461539
       },
       "han_overlap_lenient": {
-        "precision": 0.7384411954821108,
-        "recall": 0.632441728119558,
-        "f1": 0.6813434141529633,
-        "precision_sum": 67.9365899843542,
+        "precision": 0.7431198344235096,
+        "recall": 0.6432526978310035,
+        "f1": 0.6895893090543378,
+        "precision_sum": 68.36702476696288,
         "recall_sum": 75.2605656462274,
         "num_pred": 92,
-        "num_gold": 119,
+        "num_gold": 117,
         "selected_pairs": 78,
         "unmatched_pred": 14,
-        "unmatched_gold": 41
+        "unmatched_gold": 39
       },
       "samples": [
         {
@@ -1780,18 +1780,8 @@
               "variants": [
                 {
                   "head": "该市",
-                  "relation": "改名为",
+                  "relation": "在1918年改名为",
                   "tail": "琼斯"
-                }
-              ]
-            },
-            {
-              "cluster_id": 2,
-              "variants": [
-                {
-                  "head": "该市",
-                  "relation": "改名为琼斯",
-                  "tail": "在1918年"
                 }
               ]
             },
@@ -1809,29 +1799,14 @@
               "cluster_id": 4,
               "variants": [
                 {
-                  "head": "他",
-                  "relation": "制定了",
+                  "head": "美国国会议员威廉·琼斯",
+                  "relation": "在1916年制定了",
                   "tail": "菲律宾自治法"
                 },
                 {
-                  "head": "美国国会议员威廉·琼斯",
-                  "relation": "制定了",
-                  "tail": "菲律宾自治法"
-                }
-              ]
-            },
-            {
-              "cluster_id": 5,
-              "variants": [
-                {
                   "head": "他",
-                  "relation": "制定了菲律宾自治法",
-                  "tail": "在1916年"
-                },
-                {
-                  "head": "美国国会议员威廉·琼斯",
-                  "relation": "制定了菲律宾自治法",
-                  "tail": "在1916年"
+                  "relation": "在1916年制定了",
+                  "tail": "菲律宾自治法"
                 }
               ]
             },
@@ -1847,18 +1822,14 @@
             }
           ],
           "benchie_exact": {
-            "tp": 1,
-            "fp": 3,
-            "fn": 5,
-            "num_gold_clusters": 6,
+            "tp": 3,
+            "fp": 1,
+            "fn": 1,
+            "num_gold_clusters": 4,
             "num_predictions": 4,
             "additional_same_cluster_hits": 0,
             "uncovered_cluster_ids": [
-              1,
-              2,
-              3,
-              4,
-              5
+              3
             ],
             "predictions": [
               {
@@ -1868,9 +1839,11 @@
                   "relation": "在1918年改名为",
                   "tail": "琼斯"
                 },
-                "status": "unmatched",
-                "cluster_id": null,
-                "candidate_cluster_ids": []
+                "status": "hit",
+                "cluster_id": 1,
+                "candidate_cluster_ids": [
+                  1
+                ]
               },
               {
                 "prediction_index": 1,
@@ -1890,9 +1863,11 @@
                   "relation": "在1916年制定了",
                   "tail": "菲律宾自治法"
                 },
-                "status": "unmatched",
-                "cluster_id": null,
-                "candidate_cluster_ids": []
+                "status": "hit",
+                "cluster_id": 4,
+                "candidate_cluster_ids": [
+                  4
+                ]
               },
               {
                 "prediction_index": 3,
@@ -1910,23 +1885,23 @@
             ]
           },
           "han_overlap_lenient": {
-            "precision": 0.8923913043478261,
-            "recall": 0.6212121212121212,
-            "f1": 0.7325093029834832,
-            "precision_sum": 3.5695652173913044,
+            "precision": 1.0,
+            "recall": 0.9318181818181819,
+            "f1": 0.9647058823529412,
+            "precision_sum": 4.0,
             "recall_sum": 3.7272727272727275,
             "num_pred": 4,
-            "num_gold": 6,
+            "num_gold": 4,
             "selected_pairs": 4,
             "unmatched_pred": 0,
-            "unmatched_gold": 2,
+            "unmatched_gold": 0,
             "matches": [
               {
                 "cluster_id": 1,
                 "prediction_index": 0,
                 "gold_variant": {
                   "head": "该市",
-                  "relation": "改名为",
+                  "relation": "在1918年改名为",
                   "tail": "琼斯"
                 },
                 "prediction": {
@@ -1935,10 +1910,10 @@
                   "tail": "琼斯"
                 },
                 "eligible": true,
-                "exact": false,
-                "precision": 0.7,
+                "exact": true,
+                "precision": 1.0,
                 "recall": 1.0,
-                "f1": 0.8235294117647058,
+                "f1": 1.0,
                 "fields": {
                   "head": {
                     "gold_count": 2,
@@ -1952,20 +1927,19 @@
                     "pred_extra_words": {}
                   },
                   "relation": {
-                    "gold_count": 3,
+                    "gold_count": 6,
                     "pred_count": 6,
-                    "overlap_count": 3,
+                    "overlap_count": 6,
                     "overlap_words": {
+                      "1918": 1,
                       "为": 1,
                       "名": 1,
+                      "在": 1,
+                      "年": 1,
                       "改": 1
                     },
                     "gold_missing_words": {},
-                    "pred_extra_words": {
-                      "1918": 1,
-                      "在": 1,
-                      "年": 1
-                    }
+                    "pred_extra_words": {}
                   },
                   "tail": {
                     "gold_count": 2,
@@ -2055,7 +2029,7 @@
                 "prediction_index": 2,
                 "gold_variant": {
                   "head": "美国国会议员威廉·琼斯",
-                  "relation": "制定了",
+                  "relation": "在1916年制定了",
                   "tail": "菲律宾自治法"
                 },
                 "prediction": {
@@ -2064,10 +2038,10 @@
                   "tail": "菲律宾自治法"
                 },
                 "eligible": true,
-                "exact": false,
-                "precision": 0.8695652173913043,
+                "exact": true,
+                "precision": 1.0,
                 "recall": 1.0,
-                "f1": 0.9302325581395349,
+                "f1": 1.0,
                 "fields": {
                   "head": {
                     "gold_count": 11,
@@ -2089,20 +2063,19 @@
                     "pred_extra_words": {}
                   },
                   "relation": {
-                    "gold_count": 3,
+                    "gold_count": 6,
                     "pred_count": 6,
-                    "overlap_count": 3,
+                    "overlap_count": 6,
                     "overlap_words": {
+                      "1916": 1,
                       "了": 1,
                       "制": 1,
-                      "定": 1
+                      "在": 1,
+                      "定": 1,
+                      "年": 1
                     },
                     "gold_missing_words": {},
-                    "pred_extra_words": {
-                      "1916": 1,
-                      "在": 1,
-                      "年": 1
-                    }
+                    "pred_extra_words": {}
                   },
                   "tail": {
                     "gold_count": 6,
@@ -2194,10 +2167,7 @@
                 }
               }
             ],
-            "unpaired_cluster_ids": [
-              2,
-              5
-            ],
+            "unpaired_cluster_ids": [],
             "unpaired_prediction_indices": []
           }
         },
@@ -9027,27 +8997,27 @@
     },
     "after_split": {
       "benchie_exact": {
-        "tp": 39,
-        "fp": 74,
-        "fn": 80,
-        "num_gold_clusters": 119,
+        "tp": 41,
+        "fp": 72,
+        "fn": 76,
+        "num_gold_clusters": 117,
         "num_predictions": 113,
         "additional_same_cluster_hits": 0,
-        "precision": 0.34513274336283184,
-        "recall": 0.3277310924369748,
-        "f1": 0.3362068965517241
+        "precision": 0.36283185840707965,
+        "recall": 0.3504273504273504,
+        "f1": 0.3565217391304348
       },
       "han_overlap_lenient": {
-        "precision": 0.6438488863002506,
-        "recall": 0.632870315611678,
-        "f1": 0.6383123983235517,
-        "precision_sum": 72.75492415192832,
+        "precision": 0.6476580436684692,
+        "recall": 0.64368861160504,
+        "f1": 0.6456672268771941,
+        "precision_sum": 73.18535893453702,
         "recall_sum": 75.31156755778967,
         "num_pred": 113,
-        "num_gold": 119,
+        "num_gold": 117,
         "selected_pairs": 83,
         "unmatched_pred": 30,
-        "unmatched_gold": 36
+        "unmatched_gold": 34
       },
       "samples": [
         {
@@ -10803,18 +10773,8 @@
               "variants": [
                 {
                   "head": "该市",
-                  "relation": "改名为",
+                  "relation": "在1918年改名为",
                   "tail": "琼斯"
-                }
-              ]
-            },
-            {
-              "cluster_id": 2,
-              "variants": [
-                {
-                  "head": "该市",
-                  "relation": "改名为琼斯",
-                  "tail": "在1918年"
                 }
               ]
             },
@@ -10832,29 +10792,14 @@
               "cluster_id": 4,
               "variants": [
                 {
-                  "head": "他",
-                  "relation": "制定了",
+                  "head": "美国国会议员威廉·琼斯",
+                  "relation": "在1916年制定了",
                   "tail": "菲律宾自治法"
                 },
                 {
-                  "head": "美国国会议员威廉·琼斯",
-                  "relation": "制定了",
-                  "tail": "菲律宾自治法"
-                }
-              ]
-            },
-            {
-              "cluster_id": 5,
-              "variants": [
-                {
                   "head": "他",
-                  "relation": "制定了菲律宾自治法",
-                  "tail": "在1916年"
-                },
-                {
-                  "head": "美国国会议员威廉·琼斯",
-                  "relation": "制定了菲律宾自治法",
-                  "tail": "在1916年"
+                  "relation": "在1916年制定了",
+                  "tail": "菲律宾自治法"
                 }
               ]
             },
@@ -10870,18 +10815,14 @@
             }
           ],
           "benchie_exact": {
-            "tp": 1,
-            "fp": 3,
-            "fn": 5,
-            "num_gold_clusters": 6,
+            "tp": 3,
+            "fp": 1,
+            "fn": 1,
+            "num_gold_clusters": 4,
             "num_predictions": 4,
             "additional_same_cluster_hits": 0,
             "uncovered_cluster_ids": [
-              1,
-              2,
-              3,
-              4,
-              5
+              3
             ],
             "predictions": [
               {
@@ -10891,9 +10832,11 @@
                   "relation": "在1918年改名为",
                   "tail": "琼斯"
                 },
-                "status": "unmatched",
-                "cluster_id": null,
-                "candidate_cluster_ids": []
+                "status": "hit",
+                "cluster_id": 1,
+                "candidate_cluster_ids": [
+                  1
+                ]
               },
               {
                 "prediction_index": 1,
@@ -10913,9 +10856,11 @@
                   "relation": "在1916年制定了",
                   "tail": "菲律宾自治法"
                 },
-                "status": "unmatched",
-                "cluster_id": null,
-                "candidate_cluster_ids": []
+                "status": "hit",
+                "cluster_id": 4,
+                "candidate_cluster_ids": [
+                  4
+                ]
               },
               {
                 "prediction_index": 3,
@@ -10933,23 +10878,23 @@
             ]
           },
           "han_overlap_lenient": {
-            "precision": 0.8923913043478261,
-            "recall": 0.6212121212121212,
-            "f1": 0.7325093029834832,
-            "precision_sum": 3.5695652173913044,
+            "precision": 1.0,
+            "recall": 0.9318181818181819,
+            "f1": 0.9647058823529412,
+            "precision_sum": 4.0,
             "recall_sum": 3.7272727272727275,
             "num_pred": 4,
-            "num_gold": 6,
+            "num_gold": 4,
             "selected_pairs": 4,
             "unmatched_pred": 0,
-            "unmatched_gold": 2,
+            "unmatched_gold": 0,
             "matches": [
               {
                 "cluster_id": 1,
                 "prediction_index": 0,
                 "gold_variant": {
                   "head": "该市",
-                  "relation": "改名为",
+                  "relation": "在1918年改名为",
                   "tail": "琼斯"
                 },
                 "prediction": {
@@ -10958,10 +10903,10 @@
                   "tail": "琼斯"
                 },
                 "eligible": true,
-                "exact": false,
-                "precision": 0.7,
+                "exact": true,
+                "precision": 1.0,
                 "recall": 1.0,
-                "f1": 0.8235294117647058,
+                "f1": 1.0,
                 "fields": {
                   "head": {
                     "gold_count": 2,
@@ -10975,20 +10920,19 @@
                     "pred_extra_words": {}
                   },
                   "relation": {
-                    "gold_count": 3,
+                    "gold_count": 6,
                     "pred_count": 6,
-                    "overlap_count": 3,
+                    "overlap_count": 6,
                     "overlap_words": {
+                      "1918": 1,
                       "为": 1,
                       "名": 1,
+                      "在": 1,
+                      "年": 1,
                       "改": 1
                     },
                     "gold_missing_words": {},
-                    "pred_extra_words": {
-                      "1918": 1,
-                      "在": 1,
-                      "年": 1
-                    }
+                    "pred_extra_words": {}
                   },
                   "tail": {
                     "gold_count": 2,
@@ -11078,7 +11022,7 @@
                 "prediction_index": 2,
                 "gold_variant": {
                   "head": "美国国会议员威廉·琼斯",
-                  "relation": "制定了",
+                  "relation": "在1916年制定了",
                   "tail": "菲律宾自治法"
                 },
                 "prediction": {
@@ -11087,10 +11031,10 @@
                   "tail": "菲律宾自治法"
                 },
                 "eligible": true,
-                "exact": false,
-                "precision": 0.8695652173913043,
+                "exact": true,
+                "precision": 1.0,
                 "recall": 1.0,
-                "f1": 0.9302325581395349,
+                "f1": 1.0,
                 "fields": {
                   "head": {
                     "gold_count": 11,
@@ -11112,20 +11056,19 @@
                     "pred_extra_words": {}
                   },
                   "relation": {
-                    "gold_count": 3,
+                    "gold_count": 6,
                     "pred_count": 6,
-                    "overlap_count": 3,
+                    "overlap_count": 6,
                     "overlap_words": {
+                      "1916": 1,
                       "了": 1,
                       "制": 1,
-                      "定": 1
+                      "在": 1,
+                      "定": 1,
+                      "年": 1
                     },
                     "gold_missing_words": {},
-                    "pred_extra_words": {
-                      "1916": 1,
-                      "在": 1,
-                      "年": 1
-                    }
+                    "pred_extra_words": {}
                   },
                   "tail": {
                     "gold_count": 6,
@@ -11217,10 +11160,7 @@
                 }
               }
             ],
-            "unpaired_cluster_ids": [
-              2,
-              5
-            ],
+            "unpaired_cluster_ids": [],
             "unpaired_prediction_indices": []
           }
         },
@@ -18619,27 +18559,27 @@
     },
     "final": {
       "benchie_exact": {
-        "tp": 40,
-        "fp": 58,
-        "fn": 79,
-        "num_gold_clusters": 119,
+        "tp": 42,
+        "fp": 56,
+        "fn": 75,
+        "num_gold_clusters": 117,
         "num_predictions": 99,
         "additional_same_cluster_hits": 1,
-        "precision": 0.40816326530612246,
-        "recall": 0.33613445378151263,
-        "f1": 0.3686635944700461
+        "precision": 0.42857142857142855,
+        "recall": 0.358974358974359,
+        "f1": 0.3906976744186046
       },
       "han_overlap_lenient": {
-        "precision": 0.684557045658087,
-        "recall": 0.6108195092483534,
-        "f1": 0.6455895733138012,
-        "precision_sum": 67.7711475201506,
+        "precision": 0.6889048717450434,
+        "recall": 0.6212608683808039,
+        "f1": 0.6533366363418749,
+        "precision_sum": 68.2015823027593,
         "recall_sum": 72.68752160055405,
         "num_pred": 99,
-        "num_gold": 119,
+        "num_gold": 117,
         "selected_pairs": 77,
         "unmatched_pred": 22,
-        "unmatched_gold": 42
+        "unmatched_gold": 40
       },
       "samples": [
         {
@@ -20532,18 +20472,8 @@
               "variants": [
                 {
                   "head": "该市",
-                  "relation": "改名为",
+                  "relation": "在1918年改名为",
                   "tail": "琼斯"
-                }
-              ]
-            },
-            {
-              "cluster_id": 2,
-              "variants": [
-                {
-                  "head": "该市",
-                  "relation": "改名为琼斯",
-                  "tail": "在1918年"
                 }
               ]
             },
@@ -20561,29 +20491,14 @@
               "cluster_id": 4,
               "variants": [
                 {
-                  "head": "他",
-                  "relation": "制定了",
+                  "head": "美国国会议员威廉·琼斯",
+                  "relation": "在1916年制定了",
                   "tail": "菲律宾自治法"
                 },
                 {
-                  "head": "美国国会议员威廉·琼斯",
-                  "relation": "制定了",
-                  "tail": "菲律宾自治法"
-                }
-              ]
-            },
-            {
-              "cluster_id": 5,
-              "variants": [
-                {
                   "head": "他",
-                  "relation": "制定了菲律宾自治法",
-                  "tail": "在1916年"
-                },
-                {
-                  "head": "美国国会议员威廉·琼斯",
-                  "relation": "制定了菲律宾自治法",
-                  "tail": "在1916年"
+                  "relation": "在1916年制定了",
+                  "tail": "菲律宾自治法"
                 }
               ]
             },
@@ -20599,18 +20514,14 @@
             }
           ],
           "benchie_exact": {
-            "tp": 1,
-            "fp": 3,
-            "fn": 5,
-            "num_gold_clusters": 6,
+            "tp": 3,
+            "fp": 1,
+            "fn": 1,
+            "num_gold_clusters": 4,
             "num_predictions": 4,
             "additional_same_cluster_hits": 0,
             "uncovered_cluster_ids": [
-              1,
-              2,
-              3,
-              4,
-              5
+              3
             ],
             "predictions": [
               {
@@ -20620,9 +20531,11 @@
                   "relation": "在1918年改名为",
                   "tail": "琼斯"
                 },
-                "status": "unmatched",
-                "cluster_id": null,
-                "candidate_cluster_ids": []
+                "status": "hit",
+                "cluster_id": 1,
+                "candidate_cluster_ids": [
+                  1
+                ]
               },
               {
                 "prediction_index": 1,
@@ -20642,9 +20555,11 @@
                   "relation": "在1916年制定了",
                   "tail": "菲律宾自治法"
                 },
-                "status": "unmatched",
-                "cluster_id": null,
-                "candidate_cluster_ids": []
+                "status": "hit",
+                "cluster_id": 4,
+                "candidate_cluster_ids": [
+                  4
+                ]
               },
               {
                 "prediction_index": 3,
@@ -20662,23 +20577,23 @@
             ]
           },
           "han_overlap_lenient": {
-            "precision": 0.8923913043478261,
-            "recall": 0.6212121212121212,
-            "f1": 0.7325093029834832,
-            "precision_sum": 3.5695652173913044,
+            "precision": 1.0,
+            "recall": 0.9318181818181819,
+            "f1": 0.9647058823529412,
+            "precision_sum": 4.0,
             "recall_sum": 3.7272727272727275,
             "num_pred": 4,
-            "num_gold": 6,
+            "num_gold": 4,
             "selected_pairs": 4,
             "unmatched_pred": 0,
-            "unmatched_gold": 2,
+            "unmatched_gold": 0,
             "matches": [
               {
                 "cluster_id": 1,
                 "prediction_index": 0,
                 "gold_variant": {
                   "head": "该市",
-                  "relation": "改名为",
+                  "relation": "在1918年改名为",
                   "tail": "琼斯"
                 },
                 "prediction": {
@@ -20687,10 +20602,10 @@
                   "tail": "琼斯"
                 },
                 "eligible": true,
-                "exact": false,
-                "precision": 0.7,
+                "exact": true,
+                "precision": 1.0,
                 "recall": 1.0,
-                "f1": 0.8235294117647058,
+                "f1": 1.0,
                 "fields": {
                   "head": {
                     "gold_count": 2,
@@ -20704,20 +20619,19 @@
                     "pred_extra_words": {}
                   },
                   "relation": {
-                    "gold_count": 3,
+                    "gold_count": 6,
                     "pred_count": 6,
-                    "overlap_count": 3,
+                    "overlap_count": 6,
                     "overlap_words": {
+                      "1918": 1,
                       "为": 1,
                       "名": 1,
+                      "在": 1,
+                      "年": 1,
                       "改": 1
                     },
                     "gold_missing_words": {},
-                    "pred_extra_words": {
-                      "1918": 1,
-                      "在": 1,
-                      "年": 1
-                    }
+                    "pred_extra_words": {}
                   },
                   "tail": {
                     "gold_count": 2,
@@ -20807,7 +20721,7 @@
                 "prediction_index": 2,
                 "gold_variant": {
                   "head": "美国国会议员威廉·琼斯",
-                  "relation": "制定了",
+                  "relation": "在1916年制定了",
                   "tail": "菲律宾自治法"
                 },
                 "prediction": {
@@ -20816,10 +20730,10 @@
                   "tail": "菲律宾自治法"
                 },
                 "eligible": true,
-                "exact": false,
-                "precision": 0.8695652173913043,
+                "exact": true,
+                "precision": 1.0,
                 "recall": 1.0,
-                "f1": 0.9302325581395349,
+                "f1": 1.0,
                 "fields": {
                   "head": {
                     "gold_count": 11,
@@ -20841,20 +20755,19 @@
                     "pred_extra_words": {}
                   },
                   "relation": {
-                    "gold_count": 3,
+                    "gold_count": 6,
                     "pred_count": 6,
-                    "overlap_count": 3,
+                    "overlap_count": 6,
                     "overlap_words": {
+                      "1916": 1,
                       "了": 1,
                       "制": 1,
-                      "定": 1
+                      "在": 1,
+                      "定": 1,
+                      "年": 1
                     },
                     "gold_missing_words": {},
-                    "pred_extra_words": {
-                      "1916": 1,
-                      "在": 1,
-                      "年": 1
-                    }
+                    "pred_extra_words": {}
                   },
                   "tail": {
                     "gold_count": 6,
@@ -20946,10 +20859,7 @@
                 }
               }
             ],
-            "unpaired_cluster_ids": [
-              2,
-              5
-            ],
+            "unpaired_cluster_ids": [],
             "unpaired_prediction_indices": []
           }
         },

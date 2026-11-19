@@ -19,7 +19,7 @@
 
 ### User 消息 · 执行步骤
 
-【来源：User 消息 · 执行步骤｜[karma/agents/feedback_add/agent.py 第9—22行](<agent.py#L9>)】
+【来源：User 消息 · 执行步骤｜[karma/agents/feedback_add/agent.py 第9—23行](<agent.py#L9>)】
 
 ```text
 # 阶段一：核对并确定问题
@@ -28,13 +28,14 @@
 3. 核对文本差异和收到的 handoff 提示，回查对应源句与当前条目，确定实际遗漏。
 
 # 阶段二：生成本阶段操作
-1. 关系在整个集合中都没有表达时，生成新增三元组，使用源句中的主体、词形及必要限定。
-2. 已有正确独立表达时保留现有条目；已有表达需要修正时，在 handoff 中记录编号与具体问题，交给 replace。
-3. 关系包含在长字段中、尚无独立表达时，将对应条目交给 replace 拆分。
+1. 对完全遗漏的事实，先从同一句确定头实体和尾实体：谁或什么作主体，这个动作或状态指向谁、什么对象或明确的补足成分。
+2. 再用源句中的词形填写连接两端的关系，保留否定、条件及必要的时间等限定。head、relation、tail 三项都必须有实义；任一项为空、只有空白或缺少源句依据时，跳过该候选，不用占位词补齐。
+3. 已有正确独立表达时保留现有条目；已有表达需要修正时，在 handoff 中记录编号与具体问题，交给 replace。
+4. 关系包含在长字段中、尚无独立表达时，将对应条目交给 replace 拆分。
 
 # 阶段三：复核并输出
 1. 逐条对照源句核对新增关系及必要限定。
-2. 将拟新增关系与当前集合及本轮新增项逐一比较，同一事实只保留一份表达。
+2. 将每个候选与当前完整集合及本轮拟新增项逐条比较，核对参与者、关系方向、动作或状态及限定范围。仅语序、指代或字段边界不同而事实相同的，跳过重复项。已有条目表达同一事件但遗漏必要限定时，交给 replace 补全。相同实体间另有独立动作的，按独立事实判断。
 3. 输出 add、handoff。文本差异或收到的问题为空时，仍完成逐句检查。
 ```
 
@@ -59,19 +60,19 @@ index 使用当前输入的三元组编号；source_sentence_ids 填写对应源
 
 ### User 消息 · 本阶段输出
 
-【来源：User 消息 · 本阶段输出｜[karma/agents/feedback_add/agent.py 第24—28行](<agent.py#L24>)】
+【来源：User 消息 · 本阶段输出｜[karma/agents/feedback_add/agent.py 第25—29行](<agent.py#L25>)】
 
 ```text
 # 输出格式
 返回 JSON 对象，包含 add、handoff 两个数组；无内容的数组写 []。
-add 每项写 head、relation、tail、source_sentence_ids、reason；reason 简述哪项关系完全遗漏。
+add 每项写 head、relation、tail、source_sentence_ids、reason；head、relation、tail 均须为含实义的非空字符串，reason 简述哪项关系完全遗漏。
 handoff 每项写 target、source_sentence_ids、indices、problem：target 指处理阶段；indices 填当前相关条目编号，缺少条目时填 []；problem 简述具体位置与问题。
 target 使用 add、replace、remove、text_generation、text_comparison 或 review；源句与三元组正确而重建文本或对比判断有误时，分别记录 text_generation 或 text_comparison。
 ```
 
 ### User 消息 · 示例
 
-【来源：User 消息 · 示例｜[karma/agents/feedback_add/agent.py 第30—43行](<agent.py#L30>)】
+【来源：User 消息 · 示例｜[karma/agents/feedback_add/agent.py 第31—44行](<agent.py#L31>)】
 
 ```text
 # 示例
@@ -116,7 +117,7 @@ target 使用 add、replace、remove、text_generation、text_comparison 或 rev
 
 ### User 消息 · 执行步骤
 
-【来源：User 消息 · 执行步骤｜[karma/agents/feedback_add/agent.py 第9—22行](<agent.py#L9>)】
+【来源：User 消息 · 执行步骤｜[karma/agents/feedback_add/agent.py 第9—23行](<agent.py#L9>)】
 
 ```text
 # 阶段一：核对并确定问题
@@ -125,13 +126,14 @@ target 使用 add、replace、remove、text_generation、text_comparison 或 rev
 3. 核对文本差异和收到的 handoff 提示，回查对应源句与当前条目，确定实际遗漏。
 
 # 阶段二：生成本阶段操作
-1. 关系在整个集合中都没有表达时，生成新增三元组，使用源句中的主体、词形及必要限定。
-2. 已有正确独立表达时保留现有条目；已有表达需要修正时，在 handoff 中记录编号与具体问题，交给 replace。
-3. 关系包含在长字段中、尚无独立表达时，将对应条目交给 replace 拆分。
+1. 对完全遗漏的事实，先从同一句确定头实体和尾实体：谁或什么作主体，这个动作或状态指向谁、什么对象或明确的补足成分。
+2. 再用源句中的词形填写连接两端的关系，保留否定、条件及必要的时间等限定。head、relation、tail 三项都必须有实义；任一项为空、只有空白或缺少源句依据时，跳过该候选，不用占位词补齐。
+3. 已有正确独立表达时保留现有条目；已有表达需要修正时，在 handoff 中记录编号与具体问题，交给 replace。
+4. 关系包含在长字段中、尚无独立表达时，将对应条目交给 replace 拆分。
 
 # 阶段三：复核并输出
 1. 逐条对照源句核对新增关系及必要限定。
-2. 将拟新增关系与当前集合及本轮新增项逐一比较，同一事实只保留一份表达。
+2. 将每个候选与当前完整集合及本轮拟新增项逐条比较，核对参与者、关系方向、动作或状态及限定范围。仅语序、指代或字段边界不同而事实相同的，跳过重复项。已有条目表达同一事件但遗漏必要限定时，交给 replace 补全。相同实体间另有独立动作的，按独立事实判断。
 3. 输出 add、handoff。文本差异或收到的问题为空时，仍完成逐句检查。
 ```
 
@@ -156,19 +158,19 @@ index 使用当前输入的三元组编号；source_sentence_ids 填写对应源
 
 ### User 消息 · 本阶段输出
 
-【来源：User 消息 · 本阶段输出｜[karma/agents/feedback_add/agent.py 第24—28行](<agent.py#L24>)】
+【来源：User 消息 · 本阶段输出｜[karma/agents/feedback_add/agent.py 第25—29行](<agent.py#L25>)】
 
 ```text
 # 输出格式
 返回 JSON 对象，包含 add、handoff 两个数组；无内容的数组写 []。
-add 每项写 head、relation、tail、source_sentence_ids、reason；reason 简述哪项关系完全遗漏。
+add 每项写 head、relation、tail、source_sentence_ids、reason；head、relation、tail 均须为含实义的非空字符串，reason 简述哪项关系完全遗漏。
 handoff 每项写 target、source_sentence_ids、indices、problem：target 指处理阶段；indices 填当前相关条目编号，缺少条目时填 []；problem 简述具体位置与问题。
 target 使用 add、replace、remove、text_generation、text_comparison 或 review；源句与三元组正确而重建文本或对比判断有误时，分别记录 text_generation 或 text_comparison。
 ```
 
 ### User 消息 · 示例
 
-【来源：User 消息 · 示例｜[karma/agents/feedback_add/agent.py 第45—56行](<agent.py#L45>)】
+【来源：User 消息 · 示例｜[karma/agents/feedback_add/agent.py 第46—57行](<agent.py#L46>)】
 
 ```text
 # 示例
