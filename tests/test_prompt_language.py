@@ -35,7 +35,8 @@ class PromptLanguageTests(unittest.TestCase):
             agent.process(["超压时，PLC会关闭阀门。"], [])
             chinese_system = call.call_args.kwargs["system_prompt"]
             for rule in ("停电时，值班员", "在一些实施例中", "每条三元组表达一个独立事实",
-                         "候选名单可能遗漏", "对应不明确时保留原文代词"):
+                         "候选名单可能遗漏", "若同一句内能唯一确定指代对象",
+                         "优先用该句中的实体原称", "无法唯一确定时保留原文指代表达"):
                 self.assertIn(rule, chinese_system)
             agent.process(["The sensor reports a reading."], [])
             self.assertEqual(call.call_args.kwargs["system_prompt"], english_system)

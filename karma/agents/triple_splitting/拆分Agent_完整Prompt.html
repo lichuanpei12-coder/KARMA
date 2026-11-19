@@ -22,12 +22,12 @@ hr{border:0;border-top:1px solid var(--line);margin:30px 0}.filelinks{display:fl
 footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid var(--line);padding-top:15px}
 @media(max-width:900px){.layout{display:block;padding:12px}aside{position:static;max-height:300px;margin-bottom:16px}main{padding:22px 18px}header{padding:18px}h1{font-size:23px}h2{font-size:21px}th,td{padding:8px}}
 @media print{body{background:#fff;font-size:11pt}.layout{display:block;padding:0}aside,header,.filelinks,footer{display:none}main{border:0;padding:0}.table-wrap{overflow:visible}pre,table{font-size:9pt}h2,h3{break-after:avoid}tr{break-inside:avoid}a{color:inherit;text-decoration:none}}
-</style></head><body><header><div class="label">拆分Agent_完整Prompt</div><p>源码行号与实际调用分支 · 导出基于 be28830</p></header><div class="layout"><aside><h2>目录</h2><input id="toc-filter" type="search" placeholder="搜索轮次、System、User"><a href="../Prompt%E6%80%BB%E8%A7%88.html">全部Agent总览</a><a class="" href="#section-1">当前运行是否使用这套Prompt</a>
+</style></head><body><header><div class="label">拆分Agent_完整Prompt</div><p>源码行号与实际调用分支 · 导出基于 1f20a93</p></header><div class="layout"><aside><h2>目录</h2><input id="toc-filter" type="search" placeholder="搜索轮次、System、User"><a href="../Prompt%E6%80%BB%E8%A7%88.html">全部Agent总览</a><a class="" href="#section-1">当前运行是否使用这套Prompt</a>
 <a class="" href="#section-2">展示说明</a>
 <a class="" href="#section-3">拆分阶段 · 英文</a>
 <a class="" href="#section-4">拆分阶段 · 中文</a>
 <a class="" href="#section-5">文档维护</a></aside><main><a href="%E6%8B%86%E5%88%86Agent_%E5%AE%8C%E6%95%B4Prompt.md">Markdown原文</a><h1 id="section-0">拆分Agent_完整Prompt</h1>
-<p>导出时 Git HEAD：<code>be2883080d2c05af3bf85784253c09c90d045b0e</code>。行号和文件哈希对应导出时的工作区源码。</p>
+<p>导出时 Git HEAD：<code>1f20a9345d6981b848dc3ea44c93d7422f566372</code>。行号和文件哈希对应导出时的工作区源码。</p>
 <h2 id="section-1">当前运行是否使用这套Prompt</h2>
 <p>拆分阶段通过process调用专用System和User；只生成add/replace；程序兼容旧响应中的空remove。回放或跳过阶段时是否执行，以实际入口为准。</p>
 <p>【来源：调用入口与System/User发送｜<a href="agent.py#L161">karma/agents/triple_splitting/agent.py 第161—284行</a>；<a href="../../core/base_agent.py#L100">karma/core/base_agent.py 第100—209、211—252行</a>】</p>
@@ -143,7 +143,7 @@ add/replace 均填写被拆分的原三元组 index，使用输入中从0开始�
 - head、relation、tail 的实义词取自支持该事实的原文片段，保持原词及其词形、大小写。
   名词沿用原文单复数，动词沿用原文时态、分词和不定式形式；共享成分按原词形补齐。
   为独立表达可补充必要的系词、助动词和介词，补齐后保持原有主体、方向、情态与目的含义。
-  指代按源文明确的对应关系还原；输出前逐项核对各字段实义词的原文依据和词形。
+  若同一句内能唯一确定指代对象，优先用该句中的实体原称写出三元组，使三元组可以独立阅读；无法唯一确定时保留原文指代表达。输出前逐项核对各字段实义词的原文依据和词形。
 </code></pre>
 <p>【来源：源文本｜<a href="agent.py#L239">karma/agents/triple_splitting/agent.py 第239—242行</a>】</p>
 <pre><code class="language-text"># 源文本
@@ -312,7 +312,7 @@ add/replace 均填写被拆分的原三元组 index，使用输入中从0开始�
   目的按目的关系表达，条件保留在受其约束的关系中，选择关系保留原有选择范围。
   确认「未」「不会」「可」「用于」修饰哪项动作，再判断拆分后哪些条目应保留这些字词。
 - head、relation、tail 的实义词沿用源句写法。可补充独立表达必需的语法成分，并保留主体、客体、方向、情态和目的。
-  按源句明示的对应关系补齐共享成分；指代不明确时保留原文。逐项核对实义词的原文依据。
+  按源句明示的对应关系补齐共享成分；若同一句内能唯一确定指代对象，优先用该句中的实体原称写出三元组，使三元组可以独立阅读；无法唯一确定时保留原文指代表达。逐项核对实义词的原文依据。
   「在一些实施例中」等仅用来引入的句首背景可省略；对事实成立起限定作用的成分保留。
 </code></pre>
 <p>【来源：源文本｜<a href="agent.py#L239">karma/agents/triple_splitting/agent.py 第239—242行</a>】</p>
