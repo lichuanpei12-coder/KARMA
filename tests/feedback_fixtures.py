@@ -6,8 +6,7 @@ def context_from_prompt(prompt):
 
 
 def no_changes(context):
-    result = {context['stage']: [], 'handoff': []}
-    return result
+    return {'add': [], 'replace': [], 'remove': []}
 
 
 def no_changes_call(prompt, **kwargs):

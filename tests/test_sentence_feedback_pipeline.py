@@ -75,7 +75,7 @@ class SentenceFlowTests(unittest.TestCase):
         self.assertEqual(len(out), 2)
         self.assertEqual(self.pipe.last_revision['status'], 'completed_with_errors')
 
-    def test_split_updates_local_handoff_indices_before_remove(self):
+    def test_current_indices_after_local_split(self):
         self.sentences = [dict(sentence_id='S3', text='Alpha reads and stores data.')]
         self.triples = [KnowledgeTriple('Alpha', 'reads and stores', 'data', source_sentence_ids=['S3']),
                         KnowledgeTriple('Alpha', 'stores', 'data', source_sentence_ids=['S3'])]
@@ -84,9 +84,8 @@ class SentenceFlowTests(unittest.TestCase):
             if ctx['stage'] == 'replace':
                 r['replace'] = [dict(index=0, reason='split', new_triples=[
                     dict(head='Alpha', relation=rel, tail='data', source_sentence_ids=['S3']) for rel in ('reads', 'stores')])]
-                r['handoff'] = [dict(target='remove', indices=[0,1], source_sentence_ids=['S3'], problem='duplicate stores')]
             if ctx['stage'] == 'remove':
-                self.assertEqual(ctx['handoff'][0]['indices'], [0,1,2])
+                self.assertEqual([t['index'] for t in ctx['current_collection']['triples']], [0,1,2])
                 r['remove'] = [dict(index=2, keep_index=1, reason='same stores')]
             return r
         out, _ = self.run_pipe(respond)
@@ -105,15 +104,15 @@ class SentenceFlowTests(unittest.TestCase):
         self.assertEqual(diff['unique_to_text_a'], ['own'])
         self.assertEqual(diff['sentence_differences'][0]['comparison_status'], 'unavailable')
 
-    def test_repair_bounded_per_sentence(self):
+    def test_rejected_delegation_stays_local(self):
         def respond(ctx):
             r = no_changes(ctx)
             if ctx['stage'] == 'remove':
                 r['handoff'] = [dict(target='add', indices=[], source_sentence_ids=[ctx['source_sentences'][0]['sentence_id']], problem='check')]
             return r
         _, contexts = self.run_pipe(respond)
-        self.assertEqual(len(contexts), 12)
-        self.assertEqual(len(self.pipe.last_revision['undelivered_issues']), 2)
+        self.assertEqual(len(contexts), 6)
+        self.assertEqual({i['sentence_id'] for i in self.pipe.last_revision['review_issues']}, {'S3', 'S8'})
 
     def test_reconstruction_and_comparison_isolate_sentences_and_failures(self):
         groups = [dict(s, triples=[dict(index=i, head=t.head, relation=t.relation, tail=t.tail)])

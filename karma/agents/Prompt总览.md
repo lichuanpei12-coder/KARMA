@@ -1,10 +1,10 @@
 # Agent Prompt总览与当前调用路线
 
-导出时 Git HEAD：`74622319b1162d120ddab91f6f09c1e058317c69`。文档内容取自导出时的工作区，文件哈希见导出核验 JSON。
+导出时 Git HEAD：`0d3ca4365ef437f249e421fa7f00545408e5003b`。文档内容取自导出时的工作区，文件哈希见导出核验 JSON。
 
 ## 当前运行的prompt是否唯一
 
-每一次模型调用只采用一套确定的System和User；程序按调用入口选择分支，不会把所有分支prompt一起发给模型。实体抽取仍分两轮；关系抽取只负责基线，反馈由 Add → Replace → Remove 三个 Agent 执行。每个阶段独立核查并接收前一步实际输出；Add、Replace 按核对问题、生成操作、复核输出处理；Remove 按确定问题、确定保留表达并处理、整理输出处理。Remove 重点检查词重合或包含排名靠前的条目对，并覆盖当前集合；全部三元组对均提供两个排名。Remove 在一次回复中完成替换和删除，程序按同一输入编号整组执行。问题由程序传递，各阶段输出相应操作与 handoff。新事实按单句依据抽取。重建文本与比较当前由pipeline传入sentence_groups，使用分组版本；“非分组User”只是未传该参数时保留的另一条入口。默认 text_scope=sentence，每个分组单独调用重建和对比；feedback_scope=sentence，每句独立完成 Add→Replace→Remove。两个配置均可选 document，恢复整篇调用。去重保留每条三元组的源句归属；逐句反馈不自动回退整篇，来源编号无效时明确报错。所有请求顺序执行；原 Chat Completions 的 429/5xx/网络重试取消次数上限，等待最多30秒；Responses 保持原接口处理。
+每一次模型调用只采用一套确定的System和User；程序按调用入口选择分支，不会把所有分支prompt一起发给模型。实体抽取仍分两轮；关系抽取只负责基线，反馈由 Add → Replace → Remove 三个 Agent 执行。每个阶段独立核查并接收前一步实际输出；Add、Replace 按核对问题、生成操作、复核输出处理；Remove 按确定问题、确定保留表达并处理、整理输出处理。Remove 重点检查词重合或包含排名靠前的条目对，并覆盖当前集合；全部三元组对均提供两个排名。Remove 在一次回复中完成替换和删除，程序按同一输入编号整组执行。各 Agent 按问题分工，把核实的问题在本次回复中直接处理，输出 add、replace、remove 操作。新事实按单句依据抽取。重建文本与比较当前由pipeline传入sentence_groups，使用分组版本；“非分组User”只是未传该参数时保留的另一条入口。默认 text_scope=sentence，每个分组单独调用重建和对比；feedback_scope=sentence，每句独立完成 Add→Replace→Remove。两个配置均可选 document，恢复整篇调用。去重保留每条三元组的源句归属；逐句反馈不自动回退整篇，来源编号无效时明确报错。所有请求顺序执行；原 Chat Completions 的 429/5xx/网络重试取消次数上限，等待最多30秒；Responses 保持原接口处理。
 
 实体抽取和审校、关系抽取、拆分、分组重建、分组对比及 Add、Replace、Remove 按各自处理的源文本选择中文或英文提示。重建只用源句判断语言，模型收到的事实输入是三元组。 [语言选择源码](prompt_language.py)
 

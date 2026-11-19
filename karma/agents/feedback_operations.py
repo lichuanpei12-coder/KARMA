@@ -5,24 +5,14 @@ from karma.core.triple_scores import FIXED_TRIPLE_SCORE
 
 
 def validate_reply(reply, stage, triples, sentences):
-    required = {stage, 'handoff'}
-    allowed = required | ({'replace'} if stage == 'remove' else set())
-    if not isinstance(reply, dict) or not required <= reply.keys() or reply.keys() - allowed:
+    # Some saved responses contain the former, empty handoff array.
+    if not isinstance(reply, dict) or stage not in reply or reply.keys() - {'add', 'replace', 'remove', 'handoff'}:
         raise ValueError('Reply contains missing or unsupported operation arrays')
-    for key in reply:
-        if not isinstance(reply[key], list) or any(not isinstance(x, dict) for x in reply[key]):
+    if reply.get('handoff', []) != []:
+        raise ValueError('Expected direct operations, received a handoff')
+    for key, items in reply.items():
+        if not isinstance(items, list) or any(not isinstance(item, dict) for item in items):
             raise ValueError(f'{key} must be an array of objects')
-    known = {s['sentence_id'] for s in sentences}
-    for item in reply['handoff']:
-        _text(item, 'problem')
-        if item.get('target') not in ('add', 'replace', 'remove', 'text_generation', 'text_comparison', 'review'):
-            raise ValueError('Invalid handoff target')
-        refs = item.get('indices')
-        if not isinstance(refs, list) or any(type(i) is not int or i not in range(len(triples)) for i in refs):
-            raise ValueError('Handoff references invalid current indices')
-        ids = item.get('source_sentence_ids')
-        if not isinstance(ids, list) or not ids or any(not isinstance(s, str) or s not in known for s in ids):
-            raise ValueError('Handoff must identify valid source sentences')
 
 
 def _text(item, key):
@@ -52,10 +42,9 @@ def _triple(item, stage, sentences):
 
 
 def apply_operations(stage, triples, reply, sentences):
-    """Apply one snapshot atomically for Replace and combined Remove operations."""
+    """Apply operations to a single input snapshot; indexed edits commit together."""
     current = copy.deepcopy(triples)
-    # Older Remove responses can omit the newly supported replacement array.
-    kinds = ('replace', 'remove') if stage == 'remove' else (stage,)
+    kinds = ('replace', 'remove', 'add')
     operations = [(kind, op) for kind in kinds for op in reply.get(kind, [])]
     accepted, rejected, prepared = [], [], []
     targets = set()
@@ -73,23 +62,25 @@ def apply_operations(stage, triples, reply, sentences):
                     children = op.get('new_triples')
                     if not isinstance(children, list) or not children:
                         raise ValueError('replace.new_triples must contain at least one triple')
-                    if stage == 'remove' and len(children) != 1:
-                        raise ValueError('Remove replacement must contain exactly one triple')
                     prepared.append((kind, op, index, [_triple(c, stage, sentences) for c in children]))
                 else:
-                    keep = _index(op.get('keep_index'), len(current))
+                    if 'keep_index' not in op:
+                        raise ValueError('Missing keep_index')
+                    keep = op['keep_index']
+                    if keep is not None:
+                        keep = _index(keep, len(current))
                     if keep == index:
                         raise ValueError('Cannot keep the deleted triple itself')
                     prepared.append((kind, op, index, keep))
         except (ValueError, TypeError) as exc:
             rejected.append({'operation': kind, 'item': op, 'reason': str(exc)})
-    if stage == 'remove':
+    if reply.get('remove'):
         deleted = {index for kind, _, index, _ in prepared if kind == 'remove'}
         for kind, op, _, keep in prepared:
             if kind == 'remove' and keep in deleted:
                 rejected.append({'operation': kind, 'item': op, 'reason': 'keep_index is also deleted'})
     identity = {i: [i] for i in range(len(current))}
-    if rejected and stage in ('replace', 'remove'):
+    if rejected and (stage != 'add' or reply.get('replace') or reply.get('remove')):
         return current, {'accepted': [], 'rejected': rejected, 'status': 'rejected_batch',
                          'index_map': identity, 'reason': 'Original stage input retained'}
 
@@ -112,10 +103,12 @@ def apply_operations(stage, triples, reply, sentences):
             accepted.append({'operation': kind, 'item': op, 'before': None,
                              'after': [x.to_dict() for x in value], 'output_indices': indices})
         else:
+            kept_indices = index_map[value] if kind == 'remove' and value is not None else []
             accepted.append({'operation': kind, 'item': op, 'before': current[index].to_dict(),
                              'after': [x.to_dict() for x in value] if kind == 'replace' else [],
                              'output_indices': index_map[index],
-                             'kept_output_index': index_map[value][0] if kind == 'remove' else None})
+                             'kept_output_indices': kept_indices,
+                             'kept_output_index': kept_indices[0] if len(kept_indices) == 1 else None})
     return result, {'accepted': accepted, 'rejected': rejected,
                     'status': 'partial' if rejected else 'applied' if accepted else 'no_changes',
                     'index_map': index_map}

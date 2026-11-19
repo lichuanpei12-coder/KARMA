@@ -39,7 +39,7 @@ class SentenceFeedbackPipeline:
         self.snapshots = {key: [] for key in ('after_add', 'after_replace', 'after_remove')}
         final, runs, stages = [], [], []
         mappings = {key: [] for key in (*self.snapshots, 'after_revision')}
-        logs = {key: [] for key in ('handoff_log', 'undelivered_issues', 'review_issues', 'unverified_issues')}
+        failures = []
         for sentence in sentences:
             sid = sentence['sentence_id']
             origins = [i for i, t in enumerate(triples) if t.source_sentence_ids == [sid]]
@@ -57,8 +57,7 @@ class SentenceFeedbackPipeline:
                 record['sentence_id'] = sid
                 record['index_scope'] = 'sentence'
             stages.extend(audit['stages'])
-            for key in logs:
-                logs[key].extend(dict(copy.deepcopy(item), sentence_id=sid) for item in audit[key])
+            failures.extend(dict(item, sentence_id=sid) for item in audit['review_issues'])
             for key, snapshot in worker.snapshots.items():
                 offset = len(self.snapshots[key])
                 self.snapshots[key].extend(copy.deepcopy(snapshot))
@@ -71,10 +70,9 @@ class SentenceFeedbackPipeline:
             runs.append(dict(sentence_id=sid, initial_index_map=dict(enumerate(origins)),
                              snapshots={k: [t.to_dict() for t in v] for k, v in worker.snapshots.items()},
                              final=[t.to_dict() for t in result], audit=audit))
-        self.last_revision = dict(mode='three_step_feedback', protocol='sentence_feedback_v1', scope='sentence',
+        self.last_revision = dict(mode='three_step_feedback', protocol='sentence_direct_operations_v1', scope='sentence',
                                   requested_scope='sentence', score_policy='fixed_0.8', stages=stages,
-                                  sentence_runs=runs, snapshot_index_maps=mappings, **logs,
-                                  resolution_policy='delivery_does_not_confirm_semantic_resolution',
+                                  sentence_runs=runs, snapshot_index_maps=mappings, review_issues=failures,
                                   baseline_count=len(triples), final_count=len(final),
                                   status='completed_with_errors' if any(r['audit']['status'] != 'completed' for r in runs)
                                   else 'completed')

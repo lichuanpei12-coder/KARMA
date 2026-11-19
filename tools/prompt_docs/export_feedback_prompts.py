@@ -63,8 +63,7 @@ def export_feedback(root, manifest):
         ):
             sample = {'sentence_id':'S1','text':source}
             context = {'stage': agent.stage, 'source_sentences':[sample],
-                       'current_collection':{'version':'V0','triples':[]},
-                       'handoff':[{'indices':[],'source_sentence_ids':['S1'],'problem':'检查源句中的关系'}]}
+                       'current_collection':{'version':'V0','triples':[]}}
             if agent.stage == 'remove':
                 triples = [KnowledgeTriple('The tray', 'holds', 'the sample', source_sentence_ids=['S1'])
                            if language_name == '英文' else
@@ -88,7 +87,7 @@ def export_feedback(root, manifest):
             assert template != captured[1]['content']
             assert template.replace(marker, data) == captured[1]['content']
             verify_input(dict(context, source_sentences=[sample, {'sentence_id':'S2', 'text':alternate}]))
-            verify_input(dict(context, source_sentences=[{'sentence_id':'S1', 'text':alternate}], handoff=[]))
+            verify_input(dict(context, source_sentences=[{'sentence_id':'S1', 'text':alternate}]))
             if agent.stage == 'remove':
                 empty = dict(context, current_collection={'version':'V0','triples':[]},
                              lexical_overlap=rank_triple_overlap([], 'V0'))
@@ -102,7 +101,7 @@ def export_feedback(root, manifest):
                 '执行步骤': task_locations,
                 '表达要求': [location(shared,'CHINESE_EXPRESSION_RULES' if zh else 'ENGLISH_EXPRESSION_RULES'),
                              location(shared,'COMMON_RULES')],
-                '本阶段输出': [location(file,'OUTPUT_RULES')],
+                '本阶段输出': [location(shared,'OUTPUT_RULES')],
                 '示例': [location(file,'CHINESE_EXAMPLES' if zh else 'EXAMPLES')],
             }
             text += f'\n## {language_name}输入\n'
@@ -113,12 +112,12 @@ def export_feedback(root, manifest):
             text += section('User 消息 · 本次数据', input_part, [location(shared,'build_messages')], doc)
             templates.append({
                 'section': f'{title} · {language_name}',
-                'condition': f'源句选用{language_name}提示。逐句和整篇、空和非空 handoff 共用固定提示。',
+                'condition': f'源句选用{language_name}提示。逐句和整篇共用固定提示。',
                 'messages': [captured[0], {'role':'user','content':template}],
             })
         text += '\n## 输入字段及来源\n\n'
-        text += '输入由 [karma/core/feedback_pipeline.py](../../core/feedback_pipeline.py) 的 process/run 构造。逐句调度见 [sentence_feedback_pipeline.py](../../core/sentence_feedback_pipeline.py)。范围由程序筛选输入，模型不接收 feedback_scope 字段或模式说明；逐句模式的 source_sentences 仅含当前原句，index 是本句当前编号；整篇模式输入整篇材料。current_collection 是前一步实际输出；sentence_index 是源句到当前 index 的对应表；unassigned_indices 列出未定位来源的旧条目；comparison_bundle 始终标明原始差异来自 V0；applied_change_log 是实际修改与失败记录的精简版，不含评分或完整历史操作协议；handoff 仅包含交给本阶段且尚未成功投递的问题，indices 已对应当前集合；内部 id、投递状态和历史编号留在程序审计记录中。收到的问题在阶段一核对，模型输出当前问题对应的操作及新的转交问题。candidate_entities 仅辅助定位。repair_pass 标记是否为有限返修。\n'
-        text += '\nReplace Agent 的 new_triples 可包含多条；Remove Agent 的每项替换保留一条完整表达，与删除操作一起按输入编号整组执行，任一操作无效时整组保留原输入。Remove 当次处理重复和冗余，待核实的依据记录 review。\n'
+        text += '输入由 [karma/core/feedback_pipeline.py](../../core/feedback_pipeline.py) 的 process 构造。逐句调度见 [sentence_feedback_pipeline.py](../../core/sentence_feedback_pipeline.py)。范围由程序筛选输入，模型不接收 feedback_scope 字段或模式说明；逐句模式的 source_sentences 仅含当前原句，index 是本句当前编号；整篇模式输入整篇材料。current_collection 是前一步实际输出；sentence_index 是源句到当前 index 的对应表；unassigned_indices 列出未定位来源的旧条目；comparison_bundle 始终标明原始差异来自 V0；applied_change_log 是实际修改与失败记录的精简版，不含评分或完整历史操作协议。candidate_entities 仅辅助定位。\n'
+        text += '\n每个 Agent 对核实的问题在当次回复中给出必要的新增、替换、拆分或删除。涉及输入编号的操作作为一组执行，编号冲突或操作无效时保留原输入。Add 只做独立新增时可分别接受有效条目。审计按阶段记录实际操作与失败原因。\n'
         if agent.stage == 'remove':
             f, a, b = location('karma/core/triple_overlap.py', 'rank_triple_overlap')
             text += f'\n词重合排序来源：[{f} 第{a}—{b}行](../../core/triple_overlap.py#L{a})。\n'

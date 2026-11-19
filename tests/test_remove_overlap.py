@@ -85,9 +85,7 @@ class RemoveOperationsTests(unittest.TestCase):
         overlapping_target['replace'][0]['index'] = 0
         deleted_keep = copy.deepcopy(self.reply)
         deleted_keep['remove'].append({'index': 3, 'keep_index': 2, 'reason': 'duplicate'})
-        expansion = copy.deepcopy(self.reply)
-        expansion['replace'][0]['new_triples'].append(triple().to_dict())
-        for reply in (bad_source, overlapping_target, deleted_keep, expansion):
+        for reply in (bad_source, overlapping_target, deleted_keep):
             with self.subTest(reply=reply):
                 result, audit = apply_operations('remove', self.triples, reply, self.sentences)
                 self.assertEqual(result, self.triples)
@@ -95,9 +93,8 @@ class RemoveOperationsTests(unittest.TestCase):
                 self.assertEqual(audit['accepted'], [])
                 self.assertEqual(audit['index_map'], {i: [i] for i in range(4)})
 
-    def test_remove_protocol_accepts_replacement_but_not_addition(self):
-        with self.assertRaises(ValueError):
-            validate_reply(dict(self.reply, add=[]), 'remove', self.triples, self.sentences)
+    def test_remove_protocol_accepts_direct_operations_and_legacy_empty_arrays(self):
+        validate_reply(dict(self.reply, add=[]), 'remove', self.triples, self.sentences)
         validate_reply({'remove': [], 'handoff': []}, 'remove', self.triples, self.sentences)
 
     def test_all_remove_examples_execute_and_preserve_outer_qualifiers(self):
@@ -120,17 +117,16 @@ class RemoveIntegrationTests(unittest.TestCase):
     def agents(self):
         return FeedbackAddAgent(None, 'offline'), FeedbackReplaceAgent(None, 'offline'), FeedbackRemoveAgent(None, 'offline')
 
-    def test_rankings_refresh_after_merge_and_handoff_uses_updated_indices(self):
+    def test_remove_uses_current_rankings_and_finishes_merge_in_one_call(self):
         pipeline = FeedbackPipeline(*self.agents())
         seen = []
         def call(agent, prompt, **kwargs):
             context = context_from_prompt(prompt)
             seen.append(context)
             reply = no_changes(context)
-            if context['stage'] == 'remove' and not context['repair_pass']:
+            if context['stage'] == 'remove':
                 reply['replace'] = [{'index': 1, 'reason': 'unify', 'new_triples': [triple().to_dict()]}]
                 reply['remove'] = [{'index': 0, 'keep_index': 1, 'reason': 'duplicate'}]
-                reply['handoff'] = [{'target': 'replace', 'indices': [1], 'source_sentence_ids': ['S1'], 'problem': 'check wording'}]
             return json.dumps(reply), 0, 0, 0
         with patch.object(BaseAgent, '_make_llm_call', new=call):
             result = pipeline.process('The module stores data.', [triple(), triple()], {},
@@ -138,11 +134,9 @@ class RemoveIntegrationTests(unittest.TestCase):
         self.assertEqual(len(result), 1)
         removes = [c for c in seen if c['stage'] == 'remove']
         self.assertEqual(len(removes[0]['lexical_overlap']['pairs']), 1)
-        self.assertEqual(removes[1]['lexical_overlap']['pairs'], [])
+        self.assertEqual(len(removes), 1)
         for context in removes:
             self.assertEqual(context['lexical_overlap']['basis_version'], context['current_collection']['version'])
-        repair = next(c for c in seen if c['stage'] == 'replace' and c['repair_pass'])
-        self.assertEqual(repair['handoff'][0]['indices'], [0])
         self.assertTrue(all('lexical_overlap' not in c for c in seen if c['stage'] != 'remove'))
         self.assertEqual(pipeline.last_revision['stages'][2]['application']['accepted'][0]['operation'], 'replace')
 
@@ -159,6 +153,7 @@ class RemoveIntegrationTests(unittest.TestCase):
                                       [triple(), triple(), triple(sid='S2')], {}, sentences=sentences)
         removes = [c for c in seen if c['stage'] == 'remove']
         self.assertEqual(removes[0]['lexical_overlap']['pairs'][0]['indices'], [0, 1])
+        self.assertEqual(len(removes), 2)
         self.assertEqual(removes[1]['lexical_overlap']['pairs'], [])
         self.assertEqual(len(result), 3)
 
