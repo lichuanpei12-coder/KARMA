@@ -22,7 +22,7 @@ hr{border:0;border-top:1px solid var(--line);margin:30px 0}.filelinks{display:fl
 footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid var(--line);padding-top:15px}
 @media(max-width:900px){.layout{display:block;padding:12px}aside{position:static;max-height:300px;margin-bottom:16px}main{padding:22px 18px}header{padding:18px}h1{font-size:23px}h2{font-size:21px}th,td{padding:8px}}
 @media print{body{background:#fff;font-size:11pt}.layout{display:block;padding:0}aside,header,.filelinks,footer{display:none}main{border:0;padding:0}.table-wrap{overflow:visible}pre,table{font-size:9pt}h2,h3{break-after:avoid}tr{break-inside:avoid}a{color:inherit;text-decoration:none}}
-</style></head><body><header><div class="label">遗漏补充 Agent 完整 Prompt</div><p>源码行号与实际调用分支 · 导出基于 0d3ca43</p></header><div class="layout"><aside><h2>目录</h2><input id="toc-filter" type="search" placeholder="搜索轮次、System、User"><a href="../Prompt%E6%80%BB%E8%A7%88.html">全部Agent总览</a><a class="" href="#section-1">英文输入</a>
+</style></head><body><header><div class="label">遗漏补充 Agent 完整 Prompt</div><p>源码行号与实际调用分支 · 导出基于 eb48fc4</p></header><div class="layout"><aside><h2>目录</h2><input id="toc-filter" type="search" placeholder="搜索轮次、System、User"><a href="../Prompt%E6%80%BB%E8%A7%88.html">全部Agent总览</a><a class="" href="#section-1">英文输入</a>
 <a class="sub" href="#section-2">System 消息</a>
 <a class="sub" href="#section-3">User 消息 · 执行步骤</a>
 <a class="sub" href="#section-4">User 消息 · 表达要求</a>
@@ -48,7 +48,7 @@ footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid va
 输出本次新增、替换和删除操作，具体步骤与格式见本次任务说明。
 </code></pre>
 <h3 id="section-3">User 消息 · 执行步骤</h3>
-<p>【来源：User 消息 · 执行步骤｜<a href="agent.py#L9">karma/agents/feedback_add/agent.py 第9—23行</a>】</p>
+<p>【来源：User 消息 · 执行步骤｜<a href="agent.py#L9">karma/agents/feedback_add/agent.py 第9—22行</a>】</p>
 <pre><code class="language-text"># 阶段一：核对并确定问题
 1. 逐句找出源句明确表达的关系，确定主体、动作或状态、对象及必要限定。
 2. 在当前完整集合中查找这些关系，同时检查长字段包含的内容。
@@ -56,13 +56,12 @@ footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid va
 
 # 阶段二：生成本阶段操作
 1. 对完全遗漏的事实，先从同一句确定头实体和尾实体：谁或什么作主体，这个动作或状态指向谁、什么对象或明确的补足成分。
-2. 再用源句中的词形填写连接两端的关系，保留否定、条件及必要的时间等限定。head、relation、tail 三项都必须有实义；任一项为空、只有空白或缺少源句依据时，跳过该候选，不用占位词补齐。
+2. 再用源句中的词形填写连接两端的关系，保留否定、条件及必要的时间等限定。head、relation、tail 三项都必须有实义；任一项不能为空。
 3. 已有正确独立表达时保留现有条目；已有表达缺少必要成分时，按该条 index 在 replace 数组中给出补全后的三元组。
-4. 关系包含在长字段中、尚无独立表达时，在本次 replace 的 new_triples 中写出外层关系及源句支持的各项内部关系。已有独立条目但字段有误时，就地修正该条，同时缩短外层字段。
 
 # 阶段三：复核并输出
 1. 逐条对照源句核对新增关系及必要限定。
-2. 将每个候选与当前完整集合及本轮拟新增项逐条比较，核对参与者、关系方向、动作或状态及限定范围。仅语序、指代或字段边界不同而事实相同的，跳过重复项。已有条目表达同一事件但遗漏必要限定时，直接替换原条目并补全限定。相同实体间另有独立动作的，按独立事实判断。
+2. 将每个候选与当前完整集合及本轮拟新增项逐条比较，核对参与者、关系方向、动作或状态及限定范围。仅语序、指代或字段边界不同而事实相同的，跳过重复项。已有条目表达同一事件但遗漏必要限定时，进行补全。相同实体间另有独立动作的，按独立事实判断。
 3. 输出本轮操作。文本差异为空时，仍完成逐句检查。
 </code></pre>
 <h3 id="section-4">User 消息 · 表达要求</h3>
@@ -91,7 +90,7 @@ remove 每项写 index、keep_index、reason。删除重复项时 keep_index 填
 index、keep_index 均使用本次输入编号。每个 index 至多替换或删除一次。reason 说明源句依据和本次改动。
 </code></pre>
 <h3 id="section-6">User 消息 · 示例</h3>
-<p>【来源：User 消息 · 示例｜<a href="agent.py#L25">karma/agents/feedback_add/agent.py 第25—38行</a>】</p>
+<p>【来源：User 消息 · 示例｜<a href="agent.py#L24">karma/agents/feedback_add/agent.py 第24—37行</a>】</p>
 <pre><code class="language-text"># 示例
 示例仅列判断所需的输入字段，输出展示本阶段完整格式。
 
@@ -123,7 +122,7 @@ index、keep_index 均使用本次输入编号。每个 index 至多替换或删
 输出本次新增、替换和删除操作，具体步骤与格式见本次任务说明。
 </code></pre>
 <h3 id="section-10">User 消息 · 执行步骤</h3>
-<p>【来源：User 消息 · 执行步骤｜<a href="agent.py#L9">karma/agents/feedback_add/agent.py 第9—23行</a>】</p>
+<p>【来源：User 消息 · 执行步骤｜<a href="agent.py#L9">karma/agents/feedback_add/agent.py 第9—22行</a>】</p>
 <pre><code class="language-text"># 阶段一：核对并确定问题
 1. 逐句找出源句明确表达的关系，确定主体、动作或状态、对象及必要限定。
 2. 在当前完整集合中查找这些关系，同时检查长字段包含的内容。
@@ -131,13 +130,12 @@ index、keep_index 均使用本次输入编号。每个 index 至多替换或删
 
 # 阶段二：生成本阶段操作
 1. 对完全遗漏的事实，先从同一句确定头实体和尾实体：谁或什么作主体，这个动作或状态指向谁、什么对象或明确的补足成分。
-2. 再用源句中的词形填写连接两端的关系，保留否定、条件及必要的时间等限定。head、relation、tail 三项都必须有实义；任一项为空、只有空白或缺少源句依据时，跳过该候选，不用占位词补齐。
+2. 再用源句中的词形填写连接两端的关系，保留否定、条件及必要的时间等限定。head、relation、tail 三项都必须有实义；任一项不能为空。
 3. 已有正确独立表达时保留现有条目；已有表达缺少必要成分时，按该条 index 在 replace 数组中给出补全后的三元组。
-4. 关系包含在长字段中、尚无独立表达时，在本次 replace 的 new_triples 中写出外层关系及源句支持的各项内部关系。已有独立条目但字段有误时，就地修正该条，同时缩短外层字段。
 
 # 阶段三：复核并输出
 1. 逐条对照源句核对新增关系及必要限定。
-2. 将每个候选与当前完整集合及本轮拟新增项逐条比较，核对参与者、关系方向、动作或状态及限定范围。仅语序、指代或字段边界不同而事实相同的，跳过重复项。已有条目表达同一事件但遗漏必要限定时，直接替换原条目并补全限定。相同实体间另有独立动作的，按独立事实判断。
+2. 将每个候选与当前完整集合及本轮拟新增项逐条比较，核对参与者、关系方向、动作或状态及限定范围。仅语序、指代或字段边界不同而事实相同的，跳过重复项。已有条目表达同一事件但遗漏必要限定时，进行补全。相同实体间另有独立动作的，按独立事实判断。
 3. 输出本轮操作。文本差异为空时，仍完成逐句检查。
 </code></pre>
 <h3 id="section-11">User 消息 · 表达要求</h3>
@@ -166,7 +164,7 @@ remove 每项写 index、keep_index、reason。删除重复项时 keep_index 填
 index、keep_index 均使用本次输入编号。每个 index 至多替换或删除一次。reason 说明源句依据和本次改动。
 </code></pre>
 <h3 id="section-13">User 消息 · 示例</h3>
-<p>【来源：User 消息 · 示例｜<a href="agent.py#L40">karma/agents/feedback_add/agent.py 第40—51行</a>】</p>
+<p>【来源：User 消息 · 示例｜<a href="agent.py#L39">karma/agents/feedback_add/agent.py 第39—50行</a>】</p>
 <pre><code class="language-text"># 示例
 源句还有一项带条件的动作未表达
 输入：{&quot;source_sentences&quot;:[{&quot;sentence_id&quot;:&quot;S1&quot;,&quot;text&quot;:&quot;库管员每天核对出库单，发现数量不符时会通知配送员。&quot;}],&quot;current_collection&quot;:{&quot;triples&quot;:[{&quot;index&quot;:0,&quot;head&quot;:&quot;库管员&quot;,&quot;relation&quot;:&quot;每天核对&quot;,&quot;tail&quot;:&quot;出库单&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]}]}}
