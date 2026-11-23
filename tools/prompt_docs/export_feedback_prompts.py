@@ -97,6 +97,8 @@ def export_feedback(root, manifest):
             if agent.stage == 'replace':
                 task_locations = [location(file, 'TASK_TEMPLATE'),
                                   location(file, 'CHINESE_TASK_PROMPT' if zh else 'TASK_PROMPT')]
+            elif zh and agent.chinese_task_prompt:
+                task_locations = [location(file, 'CHINESE_TASK_PROMPT')]
             part_locations = {
                 '执行步骤': task_locations,
                 '表达要求': [location(shared,'CHINESE_EXPRESSION_RULES' if zh else 'ENGLISH_EXPRESSION_RULES'),
