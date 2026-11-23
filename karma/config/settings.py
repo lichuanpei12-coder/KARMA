@@ -38,6 +38,7 @@ class PipelineConfig:
     parallel_processing: bool = False
     feedback_scope: str = "sentence"
     text_scope: str = "sentence"
+    enable_triple_splitting: bool = False
 
 
 @dataclass

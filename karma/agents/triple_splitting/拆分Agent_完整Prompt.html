@@ -29,7 +29,8 @@ footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid va
 <a class="" href="#section-5">文档维护</a></aside><main><a href="%E6%8B%86%E5%88%86Agent_%E5%AE%8C%E6%95%B4Prompt.md">Markdown原文</a><h1 id="section-0">拆分Agent_完整Prompt</h1>
 <p>导出时 Git HEAD：<code>74622319b1162d120ddab91f6f09c1e058317c69</code>。行号和文件哈希对应导出时的工作区源码。</p>
 <h2 id="section-1">当前运行是否使用这套Prompt</h2>
-<p>拆分阶段通过process调用专用System和User；只生成add/replace；程序兼容旧响应中的空remove。回放或跳过阶段时是否执行，以实际入口为准。</p>
+<p>默认跳过独立拆分，基线直接进入重建与反馈。通过 --enable-triple-splitting 启用时，拆分 Agent 才在主流程发送下列 System 和 User，输出 add 和 replace。</p>
+<p>【来源：独立拆分开关｜<a href="../../core/pipeline.py#L396">karma/core/pipeline.py 第396行</a>】</p>
 <p>【来源：调用入口与System/User发送｜<a href="agent.py#L161">karma/agents/triple_splitting/agent.py 第161—284行</a>；<a href="../../core/base_agent.py#L100">karma/core/base_agent.py 第100—209、211—252行</a>】</p>
 <p>Chat Completions 与 Responses 使用同一套 System/User 内容。Chat Completions 的原有重试改为无限次数、等待最多30秒；Responses 保持原处理。</p>
 <p>程序按实际源文本选择中文或英文提示。</p>

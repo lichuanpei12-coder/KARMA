@@ -175,6 +175,7 @@ Examples:
     parser.add_argument('--doc-ids', nargs='+', help='Select document IDs from the source JSON or baseline package')
 
     parser.add_argument('--feedback-scope', choices=('sentence', 'document'), default='sentence', help='Feedback request scope')
+    parser.add_argument('--enable-triple-splitting', action='store_true', help='Run the optional splitting agent before feedback')
     parser.add_argument('--text-scope', choices=('sentence', 'document'), default='sentence', help='Reconstruction/comparison request scope')
     args = parser.parse_args()
 
@@ -234,6 +235,8 @@ Examples:
         config.model.name = args.model
         config.pipeline.feedback_scope = args.feedback_scope
         config.pipeline.text_scope = args.text_scope
+        if args.enable_triple_splitting:
+            config.pipeline.enable_triple_splitting = True
         config.pipeline.relevance_threshold = args.relevance_threshold
         config.pipeline.integration_threshold = args.integration_threshold
 

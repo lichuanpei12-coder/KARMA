@@ -43,7 +43,7 @@ flowchart TD
     A[BenchIE 中文源句] --> B[预处理与实体、关系抽取]
     B --> C[冲突处理与集成筛选]
     C --> D[第一轮基线 baseline]
-    D --> E[三元组拆分 after_split]
+    D --> E[反馈输入 after_split，默认复用基线]
     E --> F[按源句重建文本并与原文对比]
     F --> G[实体审校与 Add、Replace、Remove 反馈]
     G --> H[冲突处理与集成筛选]
@@ -55,7 +55,7 @@ flowchart TD
 ```
 
 1. **生成基线**。预处理得到实际抽取文本，实体 Agent 提供候选对象，关系 Agent 按源句抽取三元组。第一轮经过冲突处理和集成筛选后写入 `baseline.json`，同时保存候选实体、源句和运行配置。默认直接使用预处理后的原文做抽取。
-2. **复用基线做反馈**。先把原有三元组中的并列或嵌套关系拆开，再用拆分结果按源句重建文本并与原文比较。差异辅助实体审校和关系反馈。Add 补漏，Replace 修正已有表达，Remove 清理重复。三个 Agent 均在本次回复中直接完成所发现问题的新增、替换、拆分或删除。下一阶段读取已应用的结果继续独立检查。程序检验并应用操作，然后进行冲突处理和集成筛选，得到 `final`。
+2. **复用基线做反馈**。默认跳过独立拆分 Agent，直接用基线三元组按源句重建文本并与原文比较。复现实验时，可在 `python main.py` 命令中添加 `--enable-triple-splitting`，让独立拆分先于重建运行。差异辅助实体审校和关系反馈。Add 补漏，Replace 修正已有表达，Remove 清理重复。三个 Agent 均在本次回复中直接完成所发现问题的新增、替换、拆分或删除。下一阶段读取已应用的结果继续独立检查。程序检验并应用操作，然后进行冲突处理和集成筛选，得到 `final`。
 3. **用 Gold 评分**。Gold 只在这个环节读取。每个事实簇表示一项参考事实，簇内可以有多种三元组写法。评估按 `doc_id` 匹配本次样本，报告 `baseline`、`after_split`、`final` 三个检查点的 Precision、Recall 和 F1。用基线目录单独跑评估时只报告 `baseline`。
 
 评分有两个口径。`benchie_exact` 按主体、关系、客体精确命中，重复命中同一事实簇的次数单列。`han_overlap_lenient` 允许部分重合，三个对应字段都要有重合，再在预测和事实簇之间做一对一匹配。先看两套分数在三个检查点的变化，再回到逐句记录判断具体的补漏、误删或字段边界变化。
@@ -69,7 +69,7 @@ flowchart TD
 | 跑完了吗，跑了哪些样本 | `details/_run_manifest.json` | `complete`、`documents[].doc_id`、`source_index`。反馈运行中的 `baseline_sha256` 可用来核对是否复用了同一份基线。 |
 | 哪一阶段提升，哪里还有漏抽 | `benchie_evaluation/eval_benchie.json` | 先看 `stages` 下三阶段的 P／R／F1，再按 `samples[].doc_id` 查看预测命中、未命中和未覆盖的事实簇。 |
 | 某个三元组在哪一步变了 | `details/_dump_docN_revision_result.json` | 顺着 `baseline` → `after_split` → `after_add` → `after_replace` → `after_revision` → `after_conflict_resolution` → `final` 查。`after_revision` 已应用反馈操作，`final` 是再经过冲突处理和集成筛选的结果。 |
-| 拆分或反馈为何改了、为何没改 | `details/_dump_docN_splitting.json`、`details/_dump_docN_feedback_*.json` | 对照输入、模型提议、程序接受和拒绝的操作、实际输出。发现某条修改只出现在提议中时，继续看该阶段的应用状态。 |
+| 拆分或反馈为何改了、为何没改 | `details/_dump_docN_splitting.json`、`details/_dump_docN_feedback_*.json` | 默认跳过时，拆分记录的 `audit.mode` 为 `skipped`，`after_split` 与基线相同。启用拆分或查看反馈时，对照输入、模型提议、程序接受和拒绝的操作、实际输出。发现某条修改只出现在提议中时，继续看该阶段的应用状态。 |
 | 差异报告是否真的来自三元组问题 | `details/_dump_docN_feedback.json` | 对照源文 `text_a`、重建文 `text_b` 和 `diff`。默认逐句模式还会写出对应的 `_generation_*.json`、`_comparison_*.json`，便于定位单句。 |
 | 实体边界或第一轮抽取哪里有问题 | `details/_dump_docN_r0_entity_audit.json`、`details/_dump_docN_r0_relationship_audit.json`、`details/_dump_docN_r1_entity_audit.json` | 前两个来自基线运行，第三个来自反馈运行。用于核对候选实体、源句归属和错误是否已在第一轮出现。 |
 

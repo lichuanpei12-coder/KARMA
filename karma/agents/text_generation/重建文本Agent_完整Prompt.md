@@ -10,7 +10,7 @@
 
 Chat Completions 与 Responses 使用同一套 System/User 内容。Chat Completions 的原有重试改为无限次数、等待最多30秒；Responses 保持原处理。
 
-当前流水线传参位置：karma/core/pipeline.py 第413—415行。**当前流程只选择分组版本；附录中的非分组版本不会一起执行。**
+当前流水线传参位置：karma/core/pipeline.py 第417—419行。**当前流程只选择分组版本；附录中的非分组版本不会一起执行。**
 
 重建按组内源句判断语言，源句仅用于选择提示。缺少源句时按三元组字段判断。
 
@@ -20,7 +20,7 @@ Chat Completions 与 Responses 使用同一套 System/User 内容。Chat Complet
 
 固定文本全部展开，仅运行数据用源码变量或表达式表示。每个入口保留一份按顺序排列的System和User；每部分前用一行相对路径链接标注来源，可点击查看源码。来源链接放在代码块外以保持蓝色显示。“【来源：…】”和消息角色标记只用于阅读。同目录[Prompt完整模板.json](Prompt完整模板.json)保存不含阅读标注的角色结构。
 
-【来源：逐句入口与调度｜[karma/agents/text_generation/agent.py 第138—149行](<agent.py#L138>)；[karma/core/pipeline.py 第413—415行](<../../core/pipeline.py#L413>)】
+【来源：逐句入口与调度｜[karma/agents/text_generation/agent.py 第138—149行](<agent.py#L138>)；[karma/core/pipeline.py 第417—419行](<../../core/pipeline.py#L417>)】
 
 ## 分组入口 · 英文（逐句与整篇）
 

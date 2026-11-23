@@ -21,7 +21,7 @@ Remove 与宽松评估共用字词切分。每个汉字计为一个单位，其�
 | summarizer | [摘要Agent_完整Prompt](<summarizer/摘要Agent_完整Prompt.md>) | 当前pipeline默认跳过摘要；仅环境变量KARMA_USE_SUMMARIZER为非空值时启用。直接调用摘要方法且输入长度小于15字符时，也不调用模型。 |
 | entity_extraction | [实体抽取Agent_完整Prompt](<entity_extraction/实体抽取Agent_完整Prompt.md>) | 当前pipeline第一轮执行实体抽取，第二轮执行实体反馈。程序按源文本选择中文或英文提示。同一语言的两轮共用System，分别组装各自的User。 |
 | relationship_extraction | [关系抽取Agent_完整Prompt](<relationship_extraction/关系抽取Agent_完整Prompt.md>) | 当前执行第一轮基线关系抽取，按实际抽取文本选择中文或英文 System。第二轮关系反馈由 FeedbackPipeline 调用 Add、Replace、Remove。模型输出事实和源句编号，三元组分数由程序填入 0.8。 |
-| triple_splitting | [拆分Agent_完整Prompt](<triple_splitting/拆分Agent_完整Prompt.md>) | 拆分阶段通过process调用专用System和User；只生成add/replace；程序兼容旧响应中的空remove。回放或跳过阶段时是否执行，以实际入口为准。 |
+| triple_splitting | [拆分Agent_完整Prompt](<triple_splitting/拆分Agent_完整Prompt.md>) | 默认跳过独立拆分，基线直接进入重建与反馈。通过 --enable-triple-splitting 启用时，拆分 Agent 才在主流程发送下列 System 和 User，输出 add 和 replace。 |
 | text_generation | [重建文本Agent_完整Prompt](<text_generation/重建文本Agent_完整Prompt.md>) | 当前pipeline默认text_scope=sentence，由generate_sentences逐句调用generate_grouped，每次只传一个分组。text_scope=document时一次传入全部分组；两种模式固定System和User相同，仅输入范围不同。另一条generate_text路径只在不传分组或直接调用时使用，不会同时发送。 |
 | text_comparison | [文本对比Agent_完整Prompt](<text_comparison/文本对比Agent_完整Prompt.md>) | 当前pipeline默认text_scope=sentence，由compare_sentences逐句调用compare_grouped，每次只传对应源句及重建文本；全文标签也仅包含本句。text_scope=document时一次传入全部分组。两种模式固定提示相同，仅输入范围不同。另一条compare路径只在不传分组或直接调用时使用，不会与当前版本叠加。 |
 | conflict_resolution | [冲突处理Agent_完整Prompt](<conflict_resolution/冲突处理Agent_完整Prompt.md>) | 当前process执行Python矛盾关系和置信度比较规则，不调用模型。源码定义了System字符串，但当前没有实际发送的User或模型请求。 |
@@ -33,7 +33,7 @@ Remove 与宽松评估共用字词切分。每个汉字计为一个单位，其�
 
 ## 当前分组调用的源码证据
 
-karma/core/pipeline.py 第413—415行；文本对比：karma/core/pipeline.py 第428—431行；实体：karma/core/pipeline.py 第452行；基线关系：karma/core/pipeline.py 第484—486行；三步反馈：karma/core/pipeline.py 第491—494行。
+karma/core/pipeline.py 第417—419行；文本对比：karma/core/pipeline.py 第432—435行；实体：karma/core/pipeline.py 第456行；基线关系：karma/core/pipeline.py 第488—490行；三步反馈：karma/core/pipeline.py 第495—498行。
 
 ## 阅读方式
 

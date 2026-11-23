@@ -62,7 +62,8 @@ class KARMAPipeline:
         integration_threshold: float = 0.0,
         api_mode: str = "chat_completions",
         feedback_scope: str = "sentence",
-        text_scope: str = "sentence"
+        text_scope: str = "sentence",
+        enable_triple_splitting: bool = False,
     ):
         """
         Initialize KARMA pipeline with API credentials.
@@ -82,6 +83,7 @@ class KARMAPipeline:
             raise ValueError("feedback_scope and text_scope must be sentence or document")
         self.feedback_scope = feedback_scope
         self.text_scope = text_scope
+        self.enable_triple_splitting = enable_triple_splitting
 
         # Initialize OpenAI client
         client_kwargs = {"api_key": api_key}
@@ -128,7 +130,8 @@ class KARMAPipeline:
             integration_threshold=config.pipeline.integration_threshold,
             api_mode=api_mode,
             feedback_scope=config.pipeline.feedback_scope,
-            text_scope=config.pipeline.text_scope
+            text_scope=config.pipeline.text_scope,
+            enable_triple_splitting=config.pipeline.enable_triple_splitting,
         )
 
         return pipeline
@@ -374,8 +377,6 @@ class KARMAPipeline:
                 if saved_sentences is not None and sentences != saved_sentences:
                     raise ValueError('Invalid saved source sentence IDs')
                 run_document['source_sentences'] = sentences
-                # Round 2 starts with one split-only call.
-                # General feedback always reviews the split collection.
                 initial_entities = ([KGEntity.from_dict(x) for x in document["initial_entities"]]
                                     if stage == "revise" else [])
                 baseline_triples = ([KnowledgeTriple.from_dict(x) for x in document["baseline_triples"]]
@@ -390,11 +391,16 @@ class KARMAPipeline:
                 rounds = (0,) if stage == "baseline" else (1,) if stage == "revise" else (0, 1)
                 for t in rounds:
                     if t == 1:
-                        self._log("[split] Running Triple Splitting Agent...")
-                        step_start = time.time()
-                        split_triples = self.triple_splitting_agent.process(
-                            extraction_text, copy.deepcopy(baseline_triples)
-                        )
+                        split_triples = copy.deepcopy(baseline_triples)
+                        splitting_audit = {"mode": "skipped"}
+                        if self.enable_triple_splitting:
+                            self._log("[split] Running Triple Splitting Agent...")
+                            step_start = time.time()
+                            split_triples = self.triple_splitting_agent.process(extraction_text, split_triples)
+                            splitting_audit = self.triple_splitting_agent.last_revision
+                            intermediate.metrics.add_agent_time("triple_splitting", time.time() - step_start)
+                        else:
+                            self._log("[split] Skipped; using baseline triples for feedback.")
                         intermediate.split_triples = copy.deepcopy(split_triples)
                         run_document["stages"] = {
                             "after_split": [x.to_dict() for x in split_triples]
@@ -402,11 +408,9 @@ class KARMAPipeline:
                         write_json(self.evaluator_agent._dump_dir / f"_dump_doc{i}_splitting.json", {
                             "agent": "TripleSplittingAgent",
                             "input": [x.to_dict() for x in baseline_triples],
-                            "audit": self.triple_splitting_agent.last_revision,
+                            "audit": splitting_audit,
                             "output": [x.to_dict() for x in split_triples],
                         })
-                        intermediate.metrics.add_agent_time("triple_splitting", time.time() - step_start)
-                    if t == 1:
                         self._log("[7.5/8] Running Text Generation Agent...")
                         step_start = time.time()
                         sentence_groups = group_triples(sentences, split_triples)
@@ -442,7 +446,7 @@ class KARMAPipeline:
                         intermediate.metrics.add_agent_time("diff", step_time)
                         self._log(
                             f"[9/8] Comparison completed in {step_time:.2f}s. "
-                            f"Split triples: {len(split_triples)}"
+                            f"Feedback input triples: {len(split_triples)}"
                         )
                     # Step 5: Entity Extraction - Identify entities
                     self._log("[4/8] Running Entity Extraction Agent...")
@@ -586,8 +590,8 @@ class KARMAPipeline:
                             "after_split": [x.to_dict() for x in intermediate.split_triples],
                             "after_add": [x.to_dict() for x in intermediate.after_add],
                             "after_replace": [x.to_dict() for x in intermediate.after_replace],
-                            "splitting_audit": self.triple_splitting_agent.last_revision,
-                            # Feedback indices refer to this set, not the original baseline.
+                            "splitting_audit": splitting_audit,
+                            # Initial feedback indices refer to this checkpoint.
                             "revision_input": [x.to_dict() for x in (
                                 intermediate.split_triples
                             )],
@@ -712,6 +716,7 @@ class KARMAPipeline:
                 "use_summarizer": bool(os.environ.get("KARMA_USE_SUMMARIZER")),
                 "feedback_grouping": "source_sentence_groups_v1",
                 "feedback_flow": "add_replace_remove_v3",
+                "enable_triple_splitting": self.enable_triple_splitting,
                 "triple_score_policy": "fixed_0.8",
                 "agent_code_sha256": hashes}
 

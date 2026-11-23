@@ -333,7 +333,7 @@ STATUS={
 'summarizer':'当前pipeline默认跳过摘要；仅环境变量KARMA_USE_SUMMARIZER为非空值时启用。直接调用摘要方法且输入长度小于15字符时，也不调用模型。',
 'entity_extraction':'当前pipeline第一轮执行实体抽取，第二轮执行实体反馈。程序按源文本选择中文或英文提示。同一语言的两轮共用System，分别组装各自的User。',
 'relationship_extraction':'当前执行第一轮基线关系抽取，按实际抽取文本选择中文或英文 System。第二轮关系反馈由 FeedbackPipeline 调用 Add、Replace、Remove。模型输出事实和源句编号，三元组分数由程序填入 0.8。',
-'triple_splitting':'拆分阶段通过process调用专用System和User；只生成add/replace；程序兼容旧响应中的空remove。回放或跳过阶段时是否执行，以实际入口为准。',
+'triple_splitting':'默认跳过独立拆分，基线直接进入重建与反馈。通过 --enable-triple-splitting 启用时，拆分 Agent 才在主流程发送下列 System 和 User，输出 add 和 replace。',
 'text_generation':'当前pipeline默认text_scope=sentence，由generate_sentences逐句调用generate_grouped，每次只传一个分组。text_scope=document时一次传入全部分组；两种模式固定System和User相同，仅输入范围不同。另一条generate_text路径只在不传分组或直接调用时使用，不会同时发送。',
 'text_comparison':'当前pipeline默认text_scope=sentence，由compare_sentences逐句调用compare_grouped，每次只传对应源句及重建文本；全文标签也仅包含本句。text_scope=document时一次传入全部分组。两种模式固定提示相同，仅输入范围不同。另一条compare路径只在不传分组或直接调用时使用，不会与当前版本叠加。',
 'conflict_resolution':'当前process执行Python矛盾关系和置信度比较规则，不调用模型。源码定义了System字符串，但当前没有实际发送的User或模型请求。',
@@ -350,6 +350,8 @@ for agent,filename in NAMES.items():
     t+='## 当前运行是否使用这套Prompt\n\n'+STATUS[agent]+'\n\n'
     t+=source_line('调用入口与System/User发送',[scope(f,'process'),scope('karma/core/base_agent.py','_make_llm_call'),scope('karma/core/base_agent.py','_make_responses_call')],doc)+'\n\n'
     t+='Chat Completions 与 Responses 使用同一套 System/User 内容。Chat Completions 的原有重试改为无限次数、等待最多30秒；Responses 保持原处理。\n\n'
+    if agent == 'triple_splitting':
+        t+=source_line('独立拆分开关',[pipeline_line('if self.enable_triple_splitting:')],doc)+'\n\n'
     if agent in ['text_generation','text_comparison']:
         t+='当前流水线传参位置：'+ref(pipeline_call('text_generation_agent' if agent=='text_generation' else 'text_comparison_agent'))+'。**当前流程只选择分组版本；附录中的非分组版本不会一起执行。**\n\n'
 
@@ -437,7 +439,10 @@ for agent,filename in NAMES.items():
     target.write_text(t,encoding='utf-8')
     assert not re.search(r'\{\{[A-Z_]+\}\}',t)
     example_path=target.parent/'Prompt完整模板.json'
-    example_path.write_text(json.dumps(dict(git_head=head,historical_run=False,examples=message_examples),ensure_ascii=False,indent=2),encoding='utf-8')
+    template = dict(git_head=head,historical_run=False,examples=message_examples)
+    if agent == 'triple_splitting':
+        template['activation'] = STATUS[agent]
+    example_path.write_text(json.dumps(template,ensure_ascii=False,indent=2),encoding='utf-8')
     manifest['message_examples'].append(example_path.relative_to(ROOT).as_posix())
     manifest['documents'].append(doc)
 

@@ -10,7 +10,7 @@
 
 Chat Completions 与 Responses 使用同一套 System/User 内容。Chat Completions 的原有重试改为无限次数、等待最多30秒；Responses 保持原处理。
 
-未启用位置：karma/core/pipeline.py 第153行；karma/core/pipeline.py 第546行。
+未启用位置：karma/core/pipeline.py 第156行；karma/core/pipeline.py 第550行。
 
 ## 展示说明
 

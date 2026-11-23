@@ -34,12 +34,12 @@ footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid va
 <p>当前pipeline默认text_scope=sentence，由generate_sentences逐句调用generate_grouped，每次只传一个分组。text_scope=document时一次传入全部分组；两种模式固定System和User相同，仅输入范围不同。另一条generate_text路径只在不传分组或直接调用时使用，不会同时发送。</p>
 <p>【来源：调用入口与System/User发送｜<a href="agent.py#L124">karma/agents/text_generation/agent.py 第124—136行</a>；<a href="../../core/base_agent.py#L100">karma/core/base_agent.py 第100—209、211—252行</a>】</p>
 <p>Chat Completions 与 Responses 使用同一套 System/User 内容。Chat Completions 的原有重试改为无限次数、等待最多30秒；Responses 保持原处理。</p>
-<p>当前流水线传参位置：karma/core/pipeline.py 第413—415行。<strong>当前流程只选择分组版本；附录中的非分组版本不会一起执行。</strong></p>
+<p>当前流水线传参位置：karma/core/pipeline.py 第417—419行。<strong>当前流程只选择分组版本；附录中的非分组版本不会一起执行。</strong></p>
 <p>重建按组内源句判断语言，源句仅用于选择提示。缺少源句时按三元组字段判断。</p>
 <p>【来源：语言选择｜<a href="../prompt_language.py#L8">karma/agents/prompt_language.py 第8—12行</a>】</p>
 <h2 id="section-2">展示说明</h2>
 <p>固定文本全部展开，仅运行数据用源码变量或表达式表示。每个入口保留一份按顺序排列的System和User；每部分前用一行相对路径链接标注来源，可点击查看源码。来源链接放在代码块外以保持蓝色显示。“【来源：…】”和消息角色标记只用于阅读。同目录<a href="Prompt%E5%AE%8C%E6%95%B4%E6%A8%A1%E6%9D%BF.json">Prompt完整模板.json</a>保存不含阅读标注的角色结构。</p>
-<p>【来源：逐句入口与调度｜<a href="agent.py#L138">karma/agents/text_generation/agent.py 第138—149行</a>；<a href="../../core/pipeline.py#L413">karma/core/pipeline.py 第413—415行</a>】</p>
+<p>【来源：逐句入口与调度｜<a href="agent.py#L138">karma/agents/text_generation/agent.py 第138—149行</a>；<a href="../../core/pipeline.py#L417">karma/core/pipeline.py 第417—419行</a>】</p>
 <h2 id="section-3">分组入口 · 英文（逐句与整篇）</h2>
 <p><strong>System 消息</strong></p>
 <p>【来源：任务说明｜<a href="agent.py#L196">karma/agents/text_generation/agent.py 第196行</a>】</p>

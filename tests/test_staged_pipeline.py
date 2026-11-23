@@ -94,8 +94,8 @@ class StagedPipelineTests(unittest.TestCase):
         os.chdir(self.old_cwd)
         self.tmp.cleanup()
 
-    def pipeline(self, name, mode='chat_completions'):
-        pipe = KARMAPipeline('offline', model_name='offline', integration_threshold=.6, api_mode=mode, feedback_scope='document', text_scope='document')
+    def pipeline(self, name, mode='chat_completions', enable_triple_splitting=False):
+        pipe = KARMAPipeline('offline', model_name='offline', integration_threshold=.6, api_mode=mode, feedback_scope='document', text_scope='document', enable_triple_splitting=enable_triple_splitting)
         pipe.evaluator_agent._dump_dir = Path(name)
         Path(name).mkdir()
         self.pipes.append(pipe)
@@ -125,6 +125,9 @@ class StagedPipelineTests(unittest.TestCase):
         self.assertEqual([s['sentence_id'] for s in stages], ['S1'] * 3 + ['S2'] * 3)
         self.assertEqual(pipe.feedback_pipeline.last_revision['scope'], 'sentence')
         saved = json.loads(next(Path('sentence_default').glob('*revision_result.json')).read_text(encoding='utf-8'))
+        self.assertEqual(saved['splitting_audit']['mode'], 'skipped')
+        self.assertEqual(saved['baseline'], saved['revision_input'])
+        self.assertNotIn('TripleSplittingAgent', [c[0] for c in self.calls])
         self.assertEqual(saved['revision_agent'], 'SentenceFeedbackPipeline')
         self.assertEqual(len(list(Path('sentence_default').glob('*feedback_S*_*.json'))), 6)
         self.assertEqual(len(list(Path('sentence_default').glob('*comparison_S*.json'))), 2)
@@ -171,7 +174,9 @@ class StagedPipelineTests(unittest.TestCase):
                 self.assertNotIn('ReaderAgent', [c[0] for c in self.calls])
                 entity_calls = [c for c in self.calls if c[0] == 'EntityExtractionAgent']
                 self.assertEqual(len(entity_calls), 3)
-                self.assertEqual(len([c for c in self.calls if c[0] == 'TripleSplittingAgent']), 3)
+                self.assertNotIn('TripleSplittingAgent', [c[0] for c in self.calls])
+                for doc in resumed.last_run_manifest['documents']:
+                    self.assertEqual(doc['stages']['after_split'], doc['rounds']['1'])
                 self.assertIn('TextComparisonAgent', [c[0] for c in self.calls])
                 self.assertIn('TextGenerationAgent', [c[0] for c in self.calls])
                 self.assertNotIn('RelationshipExtractionAgent', [c[0] for c in self.calls])
@@ -182,13 +187,13 @@ class StagedPipelineTests(unittest.TestCase):
 
     def test_feedback_replay_and_consumer_inputs(self):
         for mode in ('chat_completions', 'responses'):
-            full = self.pipeline('feedback_full_' + mode, mode)
+            full = self.pipeline('feedback_full_' + mode, mode, enable_triple_splitting=True)
             full.process_document(self.source)
             base = self.pipeline('feedback_base_' + mode, mode)
             base.process_document(self.source, stage='baseline')
             original = base.last_baseline_path.read_bytes()
             self.calls.clear()
-            resumed = self.pipeline('feedback_resume_' + mode, mode)
+            resumed = self.pipeline('feedback_resume_' + mode, mode, enable_triple_splitting=True)
             reconstructed = []
             generation = resumed.text_generation_agent.process
             def capture(triples, **kwargs):
@@ -210,7 +215,7 @@ class StagedPipelineTests(unittest.TestCase):
     def test_feedback_replace_index_refers_to_split_set(self):
         base = self.pipeline('index_base')
         base.process_document(self.source, stage='baseline', limit=1)
-        pipe = self.pipeline('index_revise')
+        pipe = self.pipeline('index_revise', enable_triple_splitting=True)
         split_reply = {'add': [dict(head='Controller', relation='may store', tail='ECU', index=0, reason='split')],
                        'remove': [], 'replace': [dict(head='Controller', relation='may query', tail='ECU', index=0, reason='split')]}
         def feedback_reply(prompt, **kwargs):
@@ -234,7 +239,7 @@ class StagedPipelineTests(unittest.TestCase):
     def test_split_failure_keeps_baseline_and_is_audited(self):
         base = self.pipeline('fallback_base')
         base.process_document(self.source, stage='baseline', limit=1)
-        pipe = self.pipeline('fallback_revise')
+        pipe = self.pipeline('fallback_revise', enable_triple_splitting=True)
         self.calls.clear()
         with patch.object(pipe.triple_splitting_agent, '_make_llm_call', return_value=('invalid', 0, 0, 0)) as call:
             pipe.process_document('', stage='revise', baseline_path=base.last_baseline_path)

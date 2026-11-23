@@ -4,7 +4,9 @@
 
 ## 当前运行是否使用这套Prompt
 
-拆分阶段通过process调用专用System和User；只生成add/replace；程序兼容旧响应中的空remove。回放或跳过阶段时是否执行，以实际入口为准。
+默认跳过独立拆分，基线直接进入重建与反馈。通过 --enable-triple-splitting 启用时，拆分 Agent 才在主流程发送下列 System 和 User，输出 add 和 replace。
+
+【来源：独立拆分开关｜[karma/core/pipeline.py 第396行](<../../core/pipeline.py#L396>)】
 
 【来源：调用入口与System/User发送｜[karma/agents/triple_splitting/agent.py 第161—284行](<agent.py#L161>)；[karma/core/base_agent.py 第100—209、211—252行](<../../core/base_agent.py#L100>)】
 

@@ -32,5 +32,6 @@
       ],
       "declared_system": null
     }
-  ]
+  ],
+  "activation": "默认跳过独立拆分，基线直接进入重建与反馈。通过 --enable-triple-splitting 启用时，拆分 Agent 才在主流程发送下列 System 和 User，输出 add 和 replace。"
 }
