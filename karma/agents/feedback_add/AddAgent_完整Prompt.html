@@ -22,7 +22,7 @@ hr{border:0;border-top:1px solid var(--line);margin:30px 0}.filelinks{display:fl
 footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid var(--line);padding-top:15px}
 @media(max-width:900px){.layout{display:block;padding:12px}aside{position:static;max-height:300px;margin-bottom:16px}main{padding:22px 18px}header{padding:18px}h1{font-size:23px}h2{font-size:21px}th,td{padding:8px}}
 @media print{body{background:#fff;font-size:11pt}.layout{display:block;padding:0}aside,header,.filelinks,footer{display:none}main{border:0;padding:0}.table-wrap{overflow:visible}pre,table{font-size:9pt}h2,h3{break-after:avoid}tr{break-inside:avoid}a{color:inherit;text-decoration:none}}
-</style></head><body><header><div class="label">遗漏补充 Agent 完整 Prompt</div><p>源码行号与实际调用分支 · 导出基于 f3741b3</p></header><div class="layout"><aside><h2>目录</h2><input id="toc-filter" type="search" placeholder="搜索轮次、System、User"><a href="../Prompt%E6%80%BB%E8%A7%88.html">全部Agent总览</a><a class="" href="#section-1">英文输入</a>
+</style></head><body><header><div class="label">遗漏补充 Agent 完整 Prompt</div><p>源码行号与实际调用分支 · 导出基于 6b6e4a8</p></header><div class="layout"><aside><h2>目录</h2><input id="toc-filter" type="search" placeholder="搜索轮次、System、User"><a href="../Prompt%E6%80%BB%E8%A7%88.html">全部Agent总览</a><a class="" href="#section-1">英文输入</a>
 <a class="sub" href="#section-2">System 消息</a>
 <a class="sub" href="#section-3">User 消息 · 执行步骤</a>
 <a class="sub" href="#section-4">User 消息 · 表达要求</a>
@@ -170,7 +170,7 @@ remove 每项写 index、keep_index、reason。删除重复项时 keep_index 填
 index、keep_index 均使用本次输入编号。每个 index 至多替换或删除一次。reason 说明源句依据和本次改动。
 </code></pre>
 <h3 id="section-13">User 消息 · 示例</h3>
-<p>【来源：User 消息 · 示例｜<a href="agent.py#L60">karma/agents/feedback_add/agent.py 第60—75行</a>】</p>
+<p>【来源：User 消息 · 示例｜<a href="agent.py#L60">karma/agents/feedback_add/agent.py 第60—79行</a>】</p>
 <pre><code class="language-text"># 示例
 源句还有一项带条件的动作未表达
 输入：{&quot;source_sentences&quot;:[{&quot;sentence_id&quot;:&quot;S1&quot;,&quot;text&quot;:&quot;库管员每天核对出库单，发现数量不符时会通知配送员。&quot;}],&quot;current_collection&quot;:{&quot;triples&quot;:[{&quot;index&quot;:0,&quot;head&quot;:&quot;库管员&quot;,&quot;relation&quot;:&quot;每天核对&quot;,&quot;tail&quot;:&quot;出库单&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]}]}}
@@ -183,6 +183,10 @@ index、keep_index 均使用本次输入编号。每个 index 至多替换或删
 从头实体中拆出发行事实，保留收益率对应的债券
 输入：{&quot;source_sentences&quot;:[{&quot;sentence_id&quot;:&quot;S1&quot;,&quot;text&quot;:&quot;纽约市发行的7.57亿美元免税债券的发行收益率为6.50％至7.88％之间，具体取决于到期日。&quot;}],&quot;current_collection&quot;:{&quot;triples&quot;:[{&quot;index&quot;:0,&quot;head&quot;:&quot;纽约市发行的7.57亿美元免税债券&quot;,&quot;relation&quot;:&quot;发行收益率为&quot;,&quot;tail&quot;:&quot;6.50％至7.88％之间&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]},{&quot;index&quot;:1,&quot;head&quot;:&quot;纽约市发行的7.57亿美元免税债券的发行收益率&quot;,&quot;relation&quot;:&quot;具体取决于&quot;,&quot;tail&quot;:&quot;到期日&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]}]}}
 输出：{&quot;add&quot;:[],&quot;replace&quot;:[{&quot;index&quot;:0,&quot;new_triples&quot;:[{&quot;head&quot;:&quot;纽约市发行的7.57亿美元免税债券&quot;,&quot;relation&quot;:&quot;发行收益率为&quot;,&quot;tail&quot;:&quot;6.50％至7.88％之间&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]},{&quot;head&quot;:&quot;纽约市&quot;,&quot;relation&quot;:&quot;发行&quot;,&quot;tail&quot;:&quot;7.57亿美元免税债券&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]}],&quot;reason&quot;:&quot;第0条说明这批债券的发行收益率，头实体还说明了谁发行哪批债券。保留原来的收益率事实，再把发行事实单独写一条。第1条已完整表达收益率取决于到期日，其中相同的发行事实只需抽取一次。&quot;}],&quot;remove&quot;:[]}
+
+拆开同一关系下的两个对象，分别保留各自的限定
+输入：{&quot;source_sentences&quot;:[{&quot;sentence_id&quot;:&quot;S1&quot;,&quot;text&quot;:&quot;社区中心向居民提供免费的图书借阅服务和仅限周末的场地预约服务。&quot;}],&quot;current_collection&quot;:{&quot;triples&quot;:[{&quot;index&quot;:0,&quot;head&quot;:&quot;社区中心&quot;,&quot;relation&quot;:&quot;向居民提供&quot;,&quot;tail&quot;:&quot;免费的图书借阅服务和仅限周末的场地预约服务&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]}]}}
+输出：{&quot;add&quot;:[],&quot;replace&quot;:[{&quot;index&quot;:0,&quot;new_triples&quot;:[{&quot;head&quot;:&quot;社区中心&quot;,&quot;relation&quot;:&quot;向居民提供&quot;,&quot;tail&quot;:&quot;免费的图书借阅服务&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]},{&quot;head&quot;:&quot;社区中心&quot;,&quot;relation&quot;:&quot;向居民提供&quot;,&quot;tail&quot;:&quot;仅限周末的场地预约服务&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]}],&quot;reason&quot;:&quot;两项服务都由社区中心向居民提供；“免费”修饰图书借阅，“仅限周末”修饰场地预约。&quot;}],&quot;remove&quot;:[]}
 
 现有事实完整，重建文本改变了连接关系
 输入：{&quot;source_sentences&quot;:[{&quot;sentence_id&quot;:&quot;S1&quot;,&quot;text&quot;:&quot;值班员核对编号并登记故障。&quot;}],&quot;current_collection&quot;:{&quot;triples&quot;:[{&quot;index&quot;:0,&quot;head&quot;:&quot;值班员&quot;,&quot;relation&quot;:&quot;核对&quot;,&quot;tail&quot;:&quot;编号&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]},{&quot;index&quot;:1,&quot;head&quot;:&quot;值班员&quot;,&quot;relation&quot;:&quot;登记&quot;,&quot;tail&quot;:&quot;故障&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]}]},&quot;comparison_bundle&quot;:{&quot;basis_version&quot;:&quot;V0&quot;,&quot;reconstructions&quot;:[{&quot;sentence_id&quot;:&quot;S1&quot;,&quot;text_b&quot;:&quot;值班员核对编号或登记故障。&quot;}]}}

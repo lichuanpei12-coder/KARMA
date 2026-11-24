@@ -178,7 +178,7 @@ index、keep_index 均使用本次输入编号。每个 index 至多替换或删
 
 ### User 消息 · 示例
 
-【来源：User 消息 · 示例｜[karma/agents/feedback_add/agent.py 第60—75行](<agent.py#L60>)】
+【来源：User 消息 · 示例｜[karma/agents/feedback_add/agent.py 第60—79行](<agent.py#L60>)】
 
 ```text
 # 示例
@@ -193,6 +193,10 @@ index、keep_index 均使用本次输入编号。每个 index 至多替换或删
 从头实体中拆出发行事实，保留收益率对应的债券
 输入：{"source_sentences":[{"sentence_id":"S1","text":"纽约市发行的7.57亿美元免税债券的发行收益率为6.50％至7.88％之间，具体取决于到期日。"}],"current_collection":{"triples":[{"index":0,"head":"纽约市发行的7.57亿美元免税债券","relation":"发行收益率为","tail":"6.50％至7.88％之间","source_sentence_ids":["S1"]},{"index":1,"head":"纽约市发行的7.57亿美元免税债券的发行收益率","relation":"具体取决于","tail":"到期日","source_sentence_ids":["S1"]}]}}
 输出：{"add":[],"replace":[{"index":0,"new_triples":[{"head":"纽约市发行的7.57亿美元免税债券","relation":"发行收益率为","tail":"6.50％至7.88％之间","source_sentence_ids":["S1"]},{"head":"纽约市","relation":"发行","tail":"7.57亿美元免税债券","source_sentence_ids":["S1"]}],"reason":"第0条说明这批债券的发行收益率，头实体还说明了谁发行哪批债券。保留原来的收益率事实，再把发行事实单独写一条。第1条已完整表达收益率取决于到期日，其中相同的发行事实只需抽取一次。"}],"remove":[]}
+
+拆开同一关系下的两个对象，分别保留各自的限定
+输入：{"source_sentences":[{"sentence_id":"S1","text":"社区中心向居民提供免费的图书借阅服务和仅限周末的场地预约服务。"}],"current_collection":{"triples":[{"index":0,"head":"社区中心","relation":"向居民提供","tail":"免费的图书借阅服务和仅限周末的场地预约服务","source_sentence_ids":["S1"]}]}}
+输出：{"add":[],"replace":[{"index":0,"new_triples":[{"head":"社区中心","relation":"向居民提供","tail":"免费的图书借阅服务","source_sentence_ids":["S1"]},{"head":"社区中心","relation":"向居民提供","tail":"仅限周末的场地预约服务","source_sentence_ids":["S1"]}],"reason":"两项服务都由社区中心向居民提供；“免费”修饰图书借阅，“仅限周末”修饰场地预约。"}],"remove":[]}
 
 现有事实完整，重建文本改变了连接关系
 输入：{"source_sentences":[{"sentence_id":"S1","text":"值班员核对编号并登记故障。"}],"current_collection":{"triples":[{"index":0,"head":"值班员","relation":"核对","tail":"编号","source_sentence_ids":["S1"]},{"index":1,"head":"值班员","relation":"登记","tail":"故障","source_sentence_ids":["S1"]}]},"comparison_bundle":{"basis_version":"V0","reconstructions":[{"sentence_id":"S1","text_b":"值班员核对编号或登记故障。"}]}}
