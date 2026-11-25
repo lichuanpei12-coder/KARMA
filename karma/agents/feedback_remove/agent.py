@@ -5,12 +5,12 @@ SYSTEM_PROMPT = """你负责依据源句处理当前三元组中的重复和冗�
 发现重复或冗余时，依据源句确定应保留的完整表达，在本次处理中完成必要的替换和删除。
 输出本次修正涉及的全部操作，具体步骤与格式见本次任务说明。"""
 
-TASK_PROMPT = """# 阶段一：确定问题
+TASK_TEMPLATE = """# 阶段一：确定问题
 1. 阅读源句和当前集合，了解每条关系表达的事实。
 2. lexical_overlap.pairs 列出当前集合的全部三元组对。重点检查 overall_rank 或 containment_rank 靠前的条目对，随后检查其余条目；每对条目形成一次完整判断。
    程序把每个汉字作为一个计数单位，其余文本转小写后按空白和汉字边界切分。overlap_f1 表示整体重合程度，left_containment、right_containment 分别表示左、右条目的计数单位被另一条包含的比例。overall_rank 按整体重合程度排名，containment_rank 按两侧较高的包含率排名，同分同排名。
    数值用于安排检查顺序。结合原条目核对主体、关系方向、字段归属，并参考 left_only_words、right_only_words 列出的差异字词。
-3. 比较两条的主体、关系、客体及必要限定。遇到数量、条件、范围等限定时，回查源句，确定限定词修饰哪个对象或关系，再判断当前两条表达的是同一事实还是不同事实。
+3. 比较两条的主体、关系、客体及必要限定。遇到数量、条件、范围等限定时，回查源句，确定限定词修饰哪个对象或关系，再判断当前两条表达的是同一事实还是不同事实。{time_place_rule}
 4. 遇到字词包含关系时，分别确定外层关系和字段内部关系，保留各项独立事实。
 5. 结合源句和文本差异，核实当前集合中需要处理的条目。
 
@@ -23,6 +23,11 @@ TASK_PROMPT = """# 阶段一：确定问题
 # 阶段三：整理输出
 1. index 和 keep_index 均使用本次输入编号。删除重复项时，keep_index 指向本轮保留的条目，也可以指向本轮替换后的保留项。
 2. 将同一条目的修改合为一次操作，为每项操作填写具体理由，输出本次修正涉及的全部操作。"""
+
+TASK_PROMPT = TASK_TEMPLATE.format(time_place_rule="")
+CHINESE_TASK_PROMPT = TASK_TEMPLATE.format(
+    time_place_rule="以事件的发生时间或地点为尾实体的三元组，用于独立表达该事件的时间或地点。即使与事件主干的主体和动作相同，也应单独保留。"
+)
 
 EXAMPLES = """# 示例
 示例使用通用构造，输入列出判断所需字段，输出展示完整格式。
@@ -57,6 +62,7 @@ CHINESE_EXAMPLES = """# 示例
 class FeedbackRemoveAgent(FeedbackAgent):
     stage = 'remove'
     task_prompt = TASK_PROMPT
+    chinese_task_prompt = CHINESE_TASK_PROMPT
     output_prompt = OUTPUT_RULES
     examples_prompt = EXAMPLES
     chinese_examples_prompt = CHINESE_EXAMPLES

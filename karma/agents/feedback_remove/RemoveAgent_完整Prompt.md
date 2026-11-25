@@ -18,7 +18,7 @@
 
 ### User 消息 · 执行步骤
 
-【来源：User 消息 · 执行步骤｜[karma/agents/feedback_remove/agent.py 第8—25行](<agent.py#L8>)】
+【来源：User 消息 · 执行步骤｜[karma/agents/feedback_remove/agent.py 第8—25行](<agent.py#L8>) · [karma/agents/feedback_remove/agent.py 第27—27行](<agent.py#L27>)】
 
 ```text
 # 阶段一：确定问题
@@ -76,7 +76,7 @@ index、keep_index 均使用本次输入编号。每个 index 至多替换或删
 
 ### User 消息 · 示例
 
-【来源：User 消息 · 示例｜[karma/agents/feedback_remove/agent.py 第27—40行](<agent.py#L27>)】
+【来源：User 消息 · 示例｜[karma/agents/feedback_remove/agent.py 第32—45行](<agent.py#L32>)】
 
 ```text
 # 示例
@@ -120,7 +120,7 @@ index、keep_index 均使用本次输入编号。每个 index 至多替换或删
 
 ### User 消息 · 执行步骤
 
-【来源：User 消息 · 执行步骤｜[karma/agents/feedback_remove/agent.py 第8—25行](<agent.py#L8>)】
+【来源：User 消息 · 执行步骤｜[karma/agents/feedback_remove/agent.py 第8—25行](<agent.py#L8>) · [karma/agents/feedback_remove/agent.py 第28—30行](<agent.py#L28>)】
 
 ```text
 # 阶段一：确定问题
@@ -128,7 +128,7 @@ index、keep_index 均使用本次输入编号。每个 index 至多替换或删
 2. lexical_overlap.pairs 列出当前集合的全部三元组对。重点检查 overall_rank 或 containment_rank 靠前的条目对，随后检查其余条目；每对条目形成一次完整判断。
    程序把每个汉字作为一个计数单位，其余文本转小写后按空白和汉字边界切分。overlap_f1 表示整体重合程度，left_containment、right_containment 分别表示左、右条目的计数单位被另一条包含的比例。overall_rank 按整体重合程度排名，containment_rank 按两侧较高的包含率排名，同分同排名。
    数值用于安排检查顺序。结合原条目核对主体、关系方向、字段归属，并参考 left_only_words、right_only_words 列出的差异字词。
-3. 比较两条的主体、关系、客体及必要限定。遇到数量、条件、范围等限定时，回查源句，确定限定词修饰哪个对象或关系，再判断当前两条表达的是同一事实还是不同事实。
+3. 比较两条的主体、关系、客体及必要限定。遇到数量、条件、范围等限定时，回查源句，确定限定词修饰哪个对象或关系，再判断当前两条表达的是同一事实还是不同事实。以事件的发生时间或地点为尾实体的三元组，用于独立表达该事件的时间或地点。即使与事件主干的主体和动作相同，也应单独保留。
 4. 遇到字词包含关系时，分别确定外层关系和字段内部关系，保留各项独立事实。
 5. 结合源句和文本差异，核实当前集合中需要处理的条目。
 
@@ -178,7 +178,7 @@ index、keep_index 均使用本次输入编号。每个 index 至多替换或删
 
 ### User 消息 · 示例
 
-【来源：User 消息 · 示例｜[karma/agents/feedback_remove/agent.py 第43—54行](<agent.py#L43>)】
+【来源：User 消息 · 示例｜[karma/agents/feedback_remove/agent.py 第48—59行](<agent.py#L48>)】
 
 ```text
 # 示例

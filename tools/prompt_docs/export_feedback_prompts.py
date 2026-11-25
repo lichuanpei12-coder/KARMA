@@ -94,7 +94,7 @@ def export_feedback(root, manifest):
                 verify_input(empty)
             zh = language_name == '中文'
             task_locations = [location(file, 'TASK_PROMPT')]
-            if agent.stage == 'replace':
+            if agent.stage in ('replace', 'remove'):
                 task_locations = [location(file, 'TASK_TEMPLATE'),
                                   location(file, 'CHINESE_TASK_PROMPT' if zh else 'TASK_PROMPT')]
             elif zh and agent.chinese_task_prompt:
