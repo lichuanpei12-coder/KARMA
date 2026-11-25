@@ -80,7 +80,7 @@ index、keep_index 均使用本次输入编号。每个 index 至多替换或删
 
 ### User 消息 · 示例
 
-【来源：User 消息 · 示例｜[karma/agents/feedback_replace/agent.py 第52—69行](<agent.py#L52>)】
+【来源：User 消息 · 示例｜[karma/agents/feedback_replace/agent.py 第47—64行](<agent.py#L47>)】
 
 ```text
 # 示例
@@ -129,7 +129,7 @@ index、keep_index 均使用本次输入编号。每个 index 至多替换或删
 
 ### User 消息 · 执行步骤
 
-【来源：User 消息 · 执行步骤｜[karma/agents/feedback_replace/agent.py 第9—29行](<agent.py#L9>) · [karma/agents/feedback_replace/agent.py 第39—50行](<agent.py#L39>)】
+【来源：User 消息 · 执行步骤｜[karma/agents/feedback_replace/agent.py 第9—29行](<agent.py#L9>) · [karma/agents/feedback_replace/agent.py 第39—45行](<agent.py#L39>)】
 
 ```text
 # 阶段一：核对并确定问题
@@ -137,7 +137,7 @@ index、keep_index 均使用本次输入编号。每个 index 至多替换或删
 2. 根据源句确定主体、动作和对象，检查主语归属、词形、方向及目的、风险、条件联系。若同一句内能唯一确定指代对象，优先用该句中的实体原称写出三元组，使三元组可以独立阅读；无法唯一确定时保留原文指代表达。
 3. 从源句找出当前条目各字段内部表达的关系。
 4. 为每项内部关系分别确定主体、动作和对象，再查找当前集合中的独立条目。
-5. 核对事件的时间和发生地点。若头实体或关系中含有时间、地点，先确定它直接修饰哪个动作。对照当前集合，检查该事件的主干及相应的时间、地点条目。应单列的时间或地点只写在长字段里时，补出相应条目；事件有独立宾语时，保留或补回一条“主体｜动作｜宾语”作为主干。已有“主体｜动作＋宾语｜时间或地点”的条目且归属正确时，保留在原处。动作直接以时间或地点作补足成分时，保留原表达。
+5. 将事件的时间和发生地点分别作为尾实体，各用一条三元组表达。保留事件主干和已有的正确条目。
 6. 对照当前集合核实文本差异；保留源句支持的正确条目。文本差异为空时仍完成上述检查。
 
 # 阶段二：生成本阶段操作
@@ -191,7 +191,7 @@ index、keep_index 均使用本次输入编号。每个 index 至多替换或删
 
 ### User 消息 · 示例
 
-【来源：User 消息 · 示例｜[karma/agents/feedback_replace/agent.py 第71—90行](<agent.py#L71>)】
+【来源：User 消息 · 示例｜[karma/agents/feedback_replace/agent.py 第66—85行](<agent.py#L66>)】
 
 ```text
 # 示例
