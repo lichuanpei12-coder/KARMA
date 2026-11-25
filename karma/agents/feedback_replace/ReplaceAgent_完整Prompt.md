@@ -19,7 +19,7 @@
 
 ### User 消息 · 执行步骤
 
-【来源：User 消息 · 执行步骤｜[karma/agents/feedback_replace/agent.py 第9—29行](<agent.py#L9>) · [karma/agents/feedback_replace/agent.py 第31—35行](<agent.py#L31>)】
+【来源：User 消息 · 执行步骤｜[karma/agents/feedback_replace/agent.py 第9—29行](<agent.py#L9>) · [karma/agents/feedback_replace/agent.py 第31—37行](<agent.py#L31>)】
 
 ```text
 # 阶段一：核对并确定问题
@@ -80,7 +80,7 @@ index、keep_index 均使用本次输入编号。每个 index 至多替换或删
 
 ### User 消息 · 示例
 
-【来源：User 消息 · 示例｜[karma/agents/feedback_replace/agent.py 第43—60行](<agent.py#L43>)】
+【来源：User 消息 · 示例｜[karma/agents/feedback_replace/agent.py 第52—69行](<agent.py#L52>)】
 
 ```text
 # 示例
@@ -129,7 +129,7 @@ index、keep_index 均使用本次输入编号。每个 index 至多替换或删
 
 ### User 消息 · 执行步骤
 
-【来源：User 消息 · 执行步骤｜[karma/agents/feedback_replace/agent.py 第9—29行](<agent.py#L9>) · [karma/agents/feedback_replace/agent.py 第37—41行](<agent.py#L37>)】
+【来源：User 消息 · 执行步骤｜[karma/agents/feedback_replace/agent.py 第9—29行](<agent.py#L9>) · [karma/agents/feedback_replace/agent.py 第39—50行](<agent.py#L39>)】
 
 ```text
 # 阶段一：核对并确定问题
@@ -137,7 +137,8 @@ index、keep_index 均使用本次输入编号。每个 index 至多替换或删
 2. 根据源句确定主体、动作和对象，检查主语归属、词形、方向及目的、风险、条件联系。若同一句内能唯一确定指代对象，优先用该句中的实体原称写出三元组，使三元组可以独立阅读；无法唯一确定时保留原文指代表达。
 3. 从源句找出当前条目各字段内部表达的关系。
 4. 为每项内部关系分别确定主体、动作和对象，再查找当前集合中的独立条目。
-5. 对照当前集合核实文本差异；保留源句支持的正确条目。文本差异为空时仍完成上述检查。
+5. 核对事件的时间和发生地点。若头实体或关系中含有时间、地点，先确定它直接修饰哪个动作。对照当前集合，检查该事件的主干及相应的时间、地点条目。应单列的时间或地点只写在长字段里时，补出相应条目；事件有独立宾语时，保留或补回一条“主体｜动作｜宾语”作为主干。已有“主体｜动作＋宾语｜时间或地点”的条目且归属正确时，保留在原处。动作直接以时间或地点作补足成分时，保留原表达。
+6. 对照当前集合核实文本差异；保留源句支持的正确条目。文本差异为空时仍完成上述检查。
 
 # 阶段二：生成本阶段操作
 1. 按源句修正 head、relation、tail，保留决定对象、关系含义或成立条件的修饰。只作引入且省略后事实完整的背景可省略。
@@ -190,7 +191,7 @@ index、keep_index 均使用本次输入编号。每个 index 至多替换或删
 
 ### User 消息 · 示例
 
-【来源：User 消息 · 示例｜[karma/agents/feedback_replace/agent.py 第62—77行](<agent.py#L62>)】
+【来源：User 消息 · 示例｜[karma/agents/feedback_replace/agent.py 第71—90行](<agent.py#L71>)】
 
 ```text
 # 示例
@@ -209,6 +210,10 @@ index、keep_index 均使用本次输入编号。每个 index 至多替换或删
 保留风险发生的可能性和条件
 输入：{"source_sentences":[{"sentence_id":"S1","text":"转弯时货物可能滑出车厢，司机已加装挡板。"}],"current_collection":{"triples":[{"index":0,"head":"货物","relation":"滑出","tail":"车厢","source_sentence_ids":["S1"]},{"index":1,"head":"司机","relation":"已加装","tail":"挡板","source_sentence_ids":["S1"]}]}}
 输出：{"add":[],"replace":[{"index":0,"reason":"滑出是转弯时可能发生的风险，保留条件和「可能」。","new_triples":[{"head":"转弯时货物","relation":"可能滑出","tail":"车厢","source_sentence_ids":["S1"]}]}],"remove":[]}
+
+保留已有的接收时间，补出接收地点
+输入：{"source_sentences":[{"sentence_id":"S1","text":"当市档案馆于2018年在南馆接收这批手稿时，北馆仍在修缮中。"}],"current_collection":{"triples":[{"index":0,"head":"市档案馆","relation":"在南馆接收","tail":"这批手稿","source_sentence_ids":["S1"]},{"index":1,"head":"市档案馆","relation":"接收这批手稿","tail":"于2018年","source_sentence_ids":["S1"]},{"index":2,"head":"北馆","relation":"仍处于","tail":"修缮中","source_sentence_ids":["S1"]}]}}
+输出：{"add":[],"replace":[{"index":0,"new_triples":[{"head":"市档案馆","relation":"接收","tail":"这批手稿","source_sentence_ids":["S1"]},{"head":"市档案馆","relation":"接收这批手稿","tail":"在南馆","source_sentence_ids":["S1"]}],"reason":"南馆是接收手稿的地点。第0条拆成接收主干和地点两条。第1条已正确表达接收时间，第2条已完整表达北馆当时仍在修缮。"}],"remove":[]}
 ```
 
 ### User 消息 · 本次数据

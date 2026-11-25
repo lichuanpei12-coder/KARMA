@@ -22,7 +22,7 @@ hr{border:0;border-top:1px solid var(--line);margin:30px 0}.filelinks{display:fl
 footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid var(--line);padding-top:15px}
 @media(max-width:900px){.layout{display:block;padding:12px}aside{position:static;max-height:300px;margin-bottom:16px}main{padding:22px 18px}header{padding:18px}h1{font-size:23px}h2{font-size:21px}th,td{padding:8px}}
 @media print{body{background:#fff;font-size:11pt}.layout{display:block;padding:0}aside,header,.filelinks,footer{display:none}main{border:0;padding:0}.table-wrap{overflow:visible}pre,table{font-size:9pt}h2,h3{break-after:avoid}tr{break-inside:avoid}a{color:inherit;text-decoration:none}}
-</style></head><body><header><div class="label">已有表达修正与拆分 Agent 完整 Prompt</div><p>源码行号与实际调用分支 · 导出基于 0d3ca43</p></header><div class="layout"><aside><h2>目录</h2><input id="toc-filter" type="search" placeholder="搜索轮次、System、User"><a href="../Prompt%E6%80%BB%E8%A7%88.html">全部Agent总览</a><a class="" href="#section-1">英文输入</a>
+</style></head><body><header><div class="label">已有表达修正与拆分 Agent 完整 Prompt</div><p>源码行号与实际调用分支 · 导出基于 ecc5ba0</p></header><div class="layout"><aside><h2>目录</h2><input id="toc-filter" type="search" placeholder="搜索轮次、System、User"><a href="../Prompt%E6%80%BB%E8%A7%88.html">全部Agent总览</a><a class="" href="#section-1">英文输入</a>
 <a class="sub" href="#section-2">System 消息</a>
 <a class="sub" href="#section-3">User 消息 · 执行步骤</a>
 <a class="sub" href="#section-4">User 消息 · 表达要求</a>
@@ -48,7 +48,7 @@ footer{font-size:12px;color:var(--muted);margin-top:35px;border-top:1px solid va
 输出本次修正涉及的全部操作，具体步骤与格式见本次任务说明。
 </code></pre>
 <h3 id="section-3">User 消息 · 执行步骤</h3>
-<p>【来源：User 消息 · 执行步骤｜<a href="agent.py#L9">karma/agents/feedback_replace/agent.py 第9—29行</a> · <a href="agent.py#L31">karma/agents/feedback_replace/agent.py 第31—35行</a>】</p>
+<p>【来源：User 消息 · 执行步骤｜<a href="agent.py#L9">karma/agents/feedback_replace/agent.py 第9—29行</a> · <a href="agent.py#L31">karma/agents/feedback_replace/agent.py 第31—37行</a>】</p>
 <pre><code class="language-text"># 阶段一：核对并确定问题
 1. 逐条读取当前三元组，包括前一步新增项，找到支持该关系的源句。
 2. 根据源句确定主体、动作和对象，检查主语归属、词形、方向及目的、风险、条件联系。若同一句内能唯一确定指代对象，优先用该句中的实体原称写出三元组，使三元组可以独立阅读；无法唯一确定时保留原文指代表达。
@@ -97,7 +97,7 @@ remove 每项写 index、keep_index、reason。删除重复项时 keep_index 填
 index、keep_index 均使用本次输入编号。每个 index 至多替换或删除一次。reason 说明源句依据和本次改动。
 </code></pre>
 <h3 id="section-6">User 消息 · 示例</h3>
-<p>【来源：User 消息 · 示例｜<a href="agent.py#L43">karma/agents/feedback_replace/agent.py 第43—60行</a>】</p>
+<p>【来源：User 消息 · 示例｜<a href="agent.py#L52">karma/agents/feedback_replace/agent.py 第52—69行</a>】</p>
 <pre><code class="language-text"># 示例
 示例仅列判断所需的输入字段，输出展示本阶段完整格式。
 
@@ -133,13 +133,14 @@ index、keep_index 均使用本次输入编号。每个 index 至多替换或删
 输出本次修正涉及的全部操作，具体步骤与格式见本次任务说明。
 </code></pre>
 <h3 id="section-10">User 消息 · 执行步骤</h3>
-<p>【来源：User 消息 · 执行步骤｜<a href="agent.py#L9">karma/agents/feedback_replace/agent.py 第9—29行</a> · <a href="agent.py#L37">karma/agents/feedback_replace/agent.py 第37—41行</a>】</p>
+<p>【来源：User 消息 · 执行步骤｜<a href="agent.py#L9">karma/agents/feedback_replace/agent.py 第9—29行</a> · <a href="agent.py#L39">karma/agents/feedback_replace/agent.py 第39—50行</a>】</p>
 <pre><code class="language-text"># 阶段一：核对并确定问题
 1. 逐条读取当前三元组，包括前一步新增项，找到支持该关系的源句。
 2. 根据源句确定主体、动作和对象，检查主语归属、词形、方向及目的、风险、条件联系。若同一句内能唯一确定指代对象，优先用该句中的实体原称写出三元组，使三元组可以独立阅读；无法唯一确定时保留原文指代表达。
 3. 从源句找出当前条目各字段内部表达的关系。
 4. 为每项内部关系分别确定主体、动作和对象，再查找当前集合中的独立条目。
-5. 对照当前集合核实文本差异；保留源句支持的正确条目。文本差异为空时仍完成上述检查。
+5. 核对事件的时间和发生地点。若头实体或关系中含有时间、地点，先确定它直接修饰哪个动作。对照当前集合，检查该事件的主干及相应的时间、地点条目。应单列的时间或地点只写在长字段里时，补出相应条目；事件有独立宾语时，保留或补回一条“主体｜动作｜宾语”作为主干。已有“主体｜动作＋宾语｜时间或地点”的条目且归属正确时，保留在原处。动作直接以时间或地点作补足成分时，保留原表达。
+6. 对照当前集合核实文本差异；保留源句支持的正确条目。文本差异为空时仍完成上述检查。
 
 # 阶段二：生成本阶段操作
 1. 按源句修正 head、relation、tail，保留决定对象、关系含义或成立条件的修饰。只作引入且省略后事实完整的背景可省略。
@@ -182,7 +183,7 @@ remove 每项写 index、keep_index、reason。删除重复项时 keep_index 填
 index、keep_index 均使用本次输入编号。每个 index 至多替换或删除一次。reason 说明源句依据和本次改动。
 </code></pre>
 <h3 id="section-13">User 消息 · 示例</h3>
-<p>【来源：User 消息 · 示例｜<a href="agent.py#L62">karma/agents/feedback_replace/agent.py 第62—77行</a>】</p>
+<p>【来源：User 消息 · 示例｜<a href="agent.py#L71">karma/agents/feedback_replace/agent.py 第71—90行</a>】</p>
 <pre><code class="language-text"># 示例
 修正内部动作的主体和用途，保留位置关系
 输入：{&quot;source_sentences&quot;:[{&quot;sentence_id&quot;:&quot;S1&quot;,&quot;text&quot;:&quot;安装在仓门内侧的摄像头用于识别车辆编号，但尚未接入值班系统。&quot;}],&quot;current_collection&quot;:{&quot;triples&quot;:[{&quot;index&quot;:0,&quot;head&quot;:&quot;仓门&quot;,&quot;relation&quot;:&quot;识别&quot;,&quot;tail&quot;:&quot;车辆编号&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]},{&quot;index&quot;:1,&quot;head&quot;:&quot;摄像头&quot;,&quot;relation&quot;:&quot;安装在&quot;,&quot;tail&quot;:&quot;仓门内侧&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]},{&quot;index&quot;:2,&quot;head&quot;:&quot;摄像头&quot;,&quot;relation&quot;:&quot;已接入&quot;,&quot;tail&quot;:&quot;值班系统&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]}]}}
@@ -199,6 +200,10 @@ index、keep_index 均使用本次输入编号。每个 index 至多替换或删
 保留风险发生的可能性和条件
 输入：{&quot;source_sentences&quot;:[{&quot;sentence_id&quot;:&quot;S1&quot;,&quot;text&quot;:&quot;转弯时货物可能滑出车厢，司机已加装挡板。&quot;}],&quot;current_collection&quot;:{&quot;triples&quot;:[{&quot;index&quot;:0,&quot;head&quot;:&quot;货物&quot;,&quot;relation&quot;:&quot;滑出&quot;,&quot;tail&quot;:&quot;车厢&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]},{&quot;index&quot;:1,&quot;head&quot;:&quot;司机&quot;,&quot;relation&quot;:&quot;已加装&quot;,&quot;tail&quot;:&quot;挡板&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]}]}}
 输出：{&quot;add&quot;:[],&quot;replace&quot;:[{&quot;index&quot;:0,&quot;reason&quot;:&quot;滑出是转弯时可能发生的风险，保留条件和「可能」。&quot;,&quot;new_triples&quot;:[{&quot;head&quot;:&quot;转弯时货物&quot;,&quot;relation&quot;:&quot;可能滑出&quot;,&quot;tail&quot;:&quot;车厢&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]}]}],&quot;remove&quot;:[]}
+
+保留已有的接收时间，补出接收地点
+输入：{&quot;source_sentences&quot;:[{&quot;sentence_id&quot;:&quot;S1&quot;,&quot;text&quot;:&quot;当市档案馆于2018年在南馆接收这批手稿时，北馆仍在修缮中。&quot;}],&quot;current_collection&quot;:{&quot;triples&quot;:[{&quot;index&quot;:0,&quot;head&quot;:&quot;市档案馆&quot;,&quot;relation&quot;:&quot;在南馆接收&quot;,&quot;tail&quot;:&quot;这批手稿&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]},{&quot;index&quot;:1,&quot;head&quot;:&quot;市档案馆&quot;,&quot;relation&quot;:&quot;接收这批手稿&quot;,&quot;tail&quot;:&quot;于2018年&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]},{&quot;index&quot;:2,&quot;head&quot;:&quot;北馆&quot;,&quot;relation&quot;:&quot;仍处于&quot;,&quot;tail&quot;:&quot;修缮中&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]}]}}
+输出：{&quot;add&quot;:[],&quot;replace&quot;:[{&quot;index&quot;:0,&quot;new_triples&quot;:[{&quot;head&quot;:&quot;市档案馆&quot;,&quot;relation&quot;:&quot;接收&quot;,&quot;tail&quot;:&quot;这批手稿&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]},{&quot;head&quot;:&quot;市档案馆&quot;,&quot;relation&quot;:&quot;接收这批手稿&quot;,&quot;tail&quot;:&quot;在南馆&quot;,&quot;source_sentence_ids&quot;:[&quot;S1&quot;]}],&quot;reason&quot;:&quot;南馆是接收手稿的地点。第0条拆成接收主干和地点两条。第1条已正确表达接收时间，第2条已完整表达北馆当时仍在修缮。&quot;}],&quot;remove&quot;:[]}
 </code></pre>
 <h3 id="section-14">User 消息 · 本次数据</h3>
 <p>【来源：User 消息 · 本次数据｜<a href="../feedback_common.py#L59">karma/agents/feedback_common.py 第59—62行</a>】</p>

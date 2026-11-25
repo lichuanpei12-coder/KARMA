@@ -1894,7 +1894,7 @@
         [
           "karma/agents/feedback_replace/agent.py",
           31,
-          35
+          37
         ]
       ]
     },
@@ -1931,8 +1931,8 @@
       "source_spans": [
         [
           "karma/agents/feedback_replace/agent.py",
-          43,
-          60
+          52,
+          69
         ]
       ]
     },
@@ -1969,8 +1969,8 @@
         ],
         [
           "karma/agents/feedback_replace/agent.py",
-          37,
-          41
+          39,
+          50
         ]
       ]
     },
@@ -2007,8 +2007,8 @@
       "source_spans": [
         [
           "karma/agents/feedback_replace/agent.py",
-          62,
-          77
+          71,
+          90
         ]
       ]
     },
@@ -2172,7 +2172,7 @@
     "karma/agents/evaluator/agent.py": "a53ac58714879b59425efaa36648faf2a7890539522cefe8690fcb70098d8916",
     "karma/agents/feedback_add/agent.py": "8d1fd94e35c5050e82fe4cd3a08dafc2b476eaf5507a9f1fb94b17d8c3758832",
     "karma/agents/feedback_remove/agent.py": "2c51efaec5c3f9cb2199d0cae8a407c27d59fe7574cfec7d02ccfe9b7e325914",
-    "karma/agents/feedback_replace/agent.py": "cc59842585912bf6e2d4eace5ae99855853810213189e7eff53c2734cc75345c",
+    "karma/agents/feedback_replace/agent.py": "6583c166366b98fe199d72bec970035322e96aeea65f35410ed119be12661907",
     "karma/agents/ingestion/agent.py": "6d9824495b2fe29bbf3f2b889794d0df766a0c85028698fcf92b7da2a6c699e0",
     "karma/agents/reader/agent.py": "4f484a75f9a6ef1303a3f9184008ac507da4a94724271e184b881016dca81513",
     "karma/agents/relationship_extraction/agent.py": "1a262a7613cbfde5c6514f0afb2bde932f07a2afa5ce7a173415dfba7aedd0aa",
