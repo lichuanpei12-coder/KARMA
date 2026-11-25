@@ -1,6 +1,6 @@
 # KARMA · 中文三元组抽取与评估
 
-KARMA 从原文中抽取「主体、关系、客体」三元组。当前 `main` 的默认数据集是 BenchIE 中文版，共 **300 句、994 个事实簇、1,206 条参考标注记录**。实际运行分三步：先生成第一轮基线，再复用基线做第二轮反馈，最后用 Gold 对照评分。
+KARMA 从原文中抽取「主体、关系、客体」三元组。默认输入是 BenchIE 中文时间地点回归集，共 **80 句、354 个 Gold 事实簇**。完整数据集共 300 句、994 个事实簇。先生成第一轮基线，再复用基线做第二轮反馈，最后用 Gold 对照评分。
 
 ## 项目结构
 
@@ -9,7 +9,7 @@ KARMA 从原文中抽取「主体、关系、客体」三元组。当前 `main` 
 | `main.py`、`run_baseline.sh`、`run_revision.sh` | 命令行入口，以及基线与反馈的运行脚本。 |
 | `karma/core/` | 流程调度、基线与运行清单保存、源句分组、反馈操作应用。入口见 [pipeline.py](karma/core/pipeline.py)。 |
 | `karma/agents/` | 实体抽取与审校、关系抽取、拆分、重建、对比及 Add／Replace／Remove 等 Agent。查看 [Prompt 总览](karma/agents/Prompt总览.md) 和 [中文 Prompt 左右对照](outputs/prompt_comparison_benchie_zh/BenchIE中文Prompt修改前后对照.html)。 |
-| `data/benchie-main/11.13 input/` | `benchie_zh_karma_input.json` 提供源句，`benchie_zh_gold_clusters.json` 提供评估答案。两个文件用 `doc_id` 对齐，例如 `benchie-zh-001`。同目录的 TXT 和介绍文档用于查阅。见 [数据说明](<data/benchie-main/11.13 input/README.md>)。 |
+| `data/benchie-main/11.13 input/` | `benchie_zh_time_place_80.json` 提供默认的 80 句，`benchie_zh_karma_input.json` 提供完整的 300 句。评估按原始 `doc_id` 对齐 `benchie_zh_gold_clusters.json`。见 [数据说明](<data/benchie-main/11.13 input/README.md>)。 |
 | `evaluate_benchie.py`、`evaluation_common.py` | 读取运行清单和 Gold，计算中文精确分和宽松分。 |
 | `outputs/`、`tests/` | 前者存放运行结果及已有分析材料，后者包含离线测试。 |
 
@@ -29,12 +29,12 @@ bash run_revision.sh
 用反馈脚本打印的「本次优化结果保存到」目录替换下方示例路径：
 
 ```bash
-python evaluate_benchie.py "outputs/revisions/实际运行编号/1_benchie_zh_karma_input"
+python evaluate_benchie.py "outputs/revisions/实际运行编号/1_1_benchie_zh_time_place_80"
 ```
 
-- 基线脚本默认跑数据集的前 **5 句**。要跑全部 300 句，把 [run_baseline.sh](run_baseline.sh) 里的 `SAMPLE_LIMIT` 改为 `0`。脚本把成功生成的 `baseline.json` 路径写入 `outputs/current_baselines.txt`，反馈脚本从这里读取。
+- 基线脚本默认跑全部 **80 句**。要跑完整 300 句，把 [run_baseline.sh](run_baseline.sh) 中的输入文件名改成 `benchie_zh_karma_input.json`，保持 `SAMPLE_LIMIT=0`。脚本把成功生成的 `baseline.json` 路径写入 `outputs/current_baselines.txt`，反馈脚本从这里读取。
 - 对比第二轮 Prompt 时，保留同一份 `baseline.json`，每次单独运行反馈并使用新的输出目录。对照得分时使用相同的样本、模型配置和 Gold 版本。
-- 要选择特定样本，用 `python main.py --stage baseline --doc-ids benchie-zh-001 benchie-zh-005 --output-dir outputs/demo_baseline`。随后用 `python main.py --stage revise --baseline outputs/demo_baseline/baseline.json --output-dir outputs/demo_revision` 复用它。两个输出目录应为空或尚未创建。
+- 要选择特定样本，用 `python main.py --stage baseline --doc-ids benchie-zh-034 benchie-zh-247 --output-dir outputs/demo_baseline`。随后用 `python main.py --stage revise --baseline outputs/demo_baseline/baseline.json --output-dir outputs/demo_revision` 复用它。两个输出目录应为空或尚未创建。
 
 ## 完整流程
 

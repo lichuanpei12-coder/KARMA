@@ -2,17 +2,18 @@
 
 | 文件 | 用途 | 结构 |
 | --- | --- | --- |
-| `benchie_zh_karma_input.json` | KARMA 抽取和反馈 | `doc_id` → 单元素句子列表，可传给 `main.py --input` |
+| `benchie_zh_time_place_80.json` | KARMA 默认输入，时间地点回归集 | 75 句覆盖独立时间或地点簇，另有 008、012、191、212、269 五句对照；沿用原始编号和原句 |
+| `benchie_zh_karma_input.json` | 完整 300 句输入 | `doc_id` → 单元素句子列表，可传给 `main.py --input` |
 | `benchie_zh_gold_clusters.json` | 事实簇评估 | `doc_id` → 事实簇列表。每个簇有 `cluster_id` 和 `variants`，每个变体有 `head`、`relation`、`tail` |
 | `benchie_gold_annotations_zh.txt` | 逐句查看参考标注 | 与评估 Gold JSON 同步，保留逐字分隔格式和事实簇编号 |
 
-两个 JSON 均为 UTF-8。`doc_id` 形如 `benchie-zh-001`，末尾数字对应 BenchIE 原始 `sent_id`。KARMA 内部为每条样本的唯一源句分配 `S1`。评估按 `doc_id` 对齐运行清单与 Gold。
+JSON 文件均为 UTF-8。`doc_id` 形如 `benchie-zh-001`，末尾数字对应 BenchIE 原始 `sent_id`。KARMA 内部为每条样本的唯一源句分配 `S1`。评估按 `doc_id` 对齐运行清单与 Gold；80 句共对应 354 个 Gold 事实簇。
 
 Gold 共 300 个样本、994 个事实簇、1,206 条标注记录。第 249、294 句的 Gold 是空列表。第 8 句按事件合并簇 1 与 2、簇 4 与 5，保留编号 1、3、4、6；簇 4 接受全名和代词两种写法。
 
 ## 运行与评估
 
-在 KARMA 根目录用 Git Bash 运行基线和反馈。基线脚本默认用这份中文输入，取前 5 个样本。反馈脚本读取这次生成的基线。 [基线脚本](../../../run_baseline.sh) · [反馈脚本](../../../run_revision.sh)
+在 KARMA 根目录用 Git Bash 运行基线和反馈。基线脚本默认读取完整的 80 句时间地点回归集。反馈脚本读取这次生成的基线。 [基线脚本](../../../run_baseline.sh) · [反馈脚本](../../../run_revision.sh)
 
 ```bash
 bash run_baseline.sh

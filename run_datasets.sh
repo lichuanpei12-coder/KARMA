@@ -2,7 +2,7 @@
 
 # 定义数据集列表
 # "CUAD.json" "kleister_nda_sentences.json"DocOIE_transportation_eval_sent.json
-DATASETS=("data/benchie-main/11.13 input/benchie_zh_karma_input.json")
+DATASETS=("data/benchie-main/11.13 input/benchie_zh_time_place_80.json")
 
 # 循环运行 main.py
 for dataset in "${DATASETS[@]}"; do
